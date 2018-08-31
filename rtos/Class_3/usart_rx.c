@@ -9,22 +9,14 @@
 #define FOSC 16000000ul  /* velocidade do relógio */
 #define BAUD 115200      /* velocidade desejada para a serial */
 #define MYUBRR (FOSC/(8ul*BAUD) - 1)  /* valor de 12 bits para configurar o clock da USART */
-
 #define BUFFER_SIZE 20   /* Tamanho do buffer da USART */
-
 
 /* 
  * Definição de funções 
  */
 void setup_usart(void)
 {
-    /*
-     * Para as macros abaixo e outras, veja o arquivo
-     * /usr/lib/avr/include/avr/iom328p.h
-     */
-    /*
-     * Primeiro setamos a direção certa para os pinos RX e TX
-     */
+  
     DDRD &= ~(1 << PD0);  /* USART RX bit para a placa Nano */
     DDRD |= (1 << PD1);  /* USART TX bit para a placa Nano */
     

@@ -17,10 +17,10 @@ int main(void)
     LED_DDR |= (1 << LED_PINNBR);
     while(1) {
         LED_PORT |= (1 << LED_PINNBR);
-        delay_ms(500);
+        delay_ms(50);
 
         LED_PORT &= ~(1 << LED_PINNBR);
-        delay_ms(500);
+        delay_ms(50);
     }
 
     return 0;

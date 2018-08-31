@@ -299,9 +299,9 @@ END GROUP
  *(.stab)
  .stab          0x0000000000000000      0x5ac blinky.o
 
-.stabstr        0x0000000000000000      0xbe3
+.stabstr        0x0000000000000000      0xbf6
  *(.stabstr)
- .stabstr       0x0000000000000000      0xbe3 blinky.o
+ .stabstr       0x0000000000000000      0xbf6 blinky.o
 
 .stab.excl
  *(.stab.excl)
