@@ -1,0 +1,198 @@
+                            Exemplos de perguntas para a prova de Projeto de Sistemas Embarcados
+
+>> ARM
+1) Cite 4 características de microcontroladores.
+- Tamanho reduzido
+- Baixo custo
+- Podem atuar em um grande leque de aplicacoes
+- Baixo consumo energético
+
+2) Cite 2 exemplos de microcontroladores.
+- STM32f103
+- PIC16F628A
+- TIVA
+- ATEMEGA 328f
+
+3) O que significa a sigla ARM?
+Advanced RISC Machine
+
+4) Cite 3 características da arquitetura ARM.
+- Cores muito simples
+- Pipeline desenvolvido para minimizar o consumo energético
+- Alta performace 
+- Modular
+
+5) Cite uma característica que diferencie cada uma das 7 versões do ARM.
+- A primeira versao do ARM tinha menos de 25k transistores e tinha uma performace
+ melhor do que um intel 80286 na época.
+- A segunda versao tinha suporte a co-processamento
+- A terceira tinha um chip de cache
+- A quarta suporte a THUMB
+- A quinta tinha possibilidade de processamento digital de sinais
+- A sexta melhoramento no sistema de memoria
+- A setima tres profiles de processamento
+
+6) Cite pelo menos 5 dos 9 componentes principais da arquitetura ARM7.
+- Instruction Pipeline and Read Data Register
+- Instruction Decoder and Control Logic
+- Address Register
+- Address Incrementer
+- Register Bank
+- Booth's Mutiplier 
+- Barrel Shifter
+- ALU
+- Write Data Register
+
+
+(*) 7) Explique como funciona o pipeline de 3 estágios do ARM7TDMI e anteriores.
+Basicamente as instrucoes podem ser executadas em 1 ou 2 ciclos de clock.
+Sendo que intrucoes aritimeticas sao executadas em 1 ciclo, porem intrucoes
+de LOAD e STORE sao executadas em 2 ciclos.
+
+(*) 8) Explique como funciona o pipeline de 5 estágios do ARMS/ARM9TDMI.
+Melhoria ao pipeline de 3 estagios. Agora as memorias de instrucoes e de dados
+sao separadas. As instrucoes sao executadas em 3 estagios:
+- O primeiro estagio executa acoes aritimeticas
+- O segundo estagio faz acessos a memoria
+- O terceiro estagio escreve o resultado no registrador de arquivos
+
+Reducao no numero de clocks por intrucao 
+
+(*) 9) Explique como funciona o pipeline de 6 estágios do ARM10TDMI.
+
+
+(*) 10) Explique como funciona o pipeline de 8 estágios do ARM11.
+
+11) Justifique porque o ARM é considerado uma arquitetura RISC.
+Um computador RISC parte do pressuposto de que um conjunto simples de instruções
+vai resultar numa Unidade de Controle simples, barata e rápida. Com isso  
+os ARMs apresentam um registrador de arquivos grande e uniforme, arquitetura LOAD/STORE,
+endereçamento simples.
+
+12) Cite pelo menos duas características não-RISC que o ARM possui.
+- Cada instruçao controla a ULA e o Shifter
+- Auto-Increment e auto-decrement addressing
+
+13) Explique resumidamente como estão organizados os registradores do ARM.
+- 16 registradores de uso geral dispostos entre R0 e R15
+- R15 Program Counter
+- R13 Stack Pointer register
+- R14 Called link register 
+
+(*) 14) Fale sobre um dos modos de operação do ARM (User, FIQ, IRQ, SVC, UNDEF ou Abort).
+
+15) O que é THUMB? Quais as vantagens de utilizá-lo?
+Sao intrucoes que podem ser utilizadas pelo processador ARM que fazem com que
+as intrucoes passem a ser de 16-bits e nao mais de 32-bits, fazendo com que haja
+uma economia de memoria. As intrucoes  do tipo THUMB sao armazenadas em uma forma
+comprimida. 
+
+16) Explique em detalhes como funciona a execução condicional de instruções no ARM.
+
+
+17) Como um mesmo código pode chavear entre instruções ARM e THUMB?
+Sim. Mas deve-se atentar que mesmo que se deseje utilizar somente intrucoes THUMB
+no programa a primeira instrucao sempre sera uma instrucao de 32-bits.
+
+18) Para que serve a instrução Swap?
+É um instrucao atomica, aonde move um dado de um registrador para outro e uma unica instrucao
+
+19) Em que situações podem acontecer exceções no ARM?
+- Interrupcoes de Software
+- Intrucoes nao definidas
+- Memory abort
+20) Como são tratadas as exceções no ARM?
+Todas as exceções sao tratadas da mesma forma:
+- O processador muda para o modo de privilegios
+- O valor o PC é salvo no R14
+- CPSR é salvo no SPSR 
+- O IRQ é desabilitado, caso a exceção seja lancada pelo FIQ
+ ela tambem é deabilitada
+- O PC apota para o tratamento da exceção e a trata
+
+>> DSPs
+21) Como funciona um sistema típico de processamento de sinais?
+22) Como funciona a unidade MAC dos DSPs?
+23) O que possibilita o acesso múltiplo à memória em apenas um ciclo de instrução nos DSPs?
+24) Quail a diferença entre as arquiteturas de Von Neumman, Harvard e Super Harvard?
+25) Qual a função das "Address Generation Units" nos DSPs?
+26) Qual a função de um Controlador DMA?
+27) Detalhe uma estratégia utilizada para aumentar o nível de precisão dos dados manipulados em DSPs.
+28) Como funciona técnica de "Zero Overhead Loops"?
+
+>> FPGAs
+29) O que siginifa FPGA e quais são suas principais vantagens?
+30) O que diferencia os blocos lógicos em um FPGA?
+31) Detalhe as 4 etapas de fluxo de projeto usando FPGAs (design entry, behavioral simulation, design implementation e device programming).
+32) Dê 2 exemplos de unidades adicionais aos blocos lógicos que existem em FPGAs modernos.
+
+>> Interfacing
+33) O que significa e como funciona a interface SPI?
+34) O que significa e como funciona a interface I2C?
+35) Como funciona o padrão de comunicação serial RS-232?
+36) Qual a diferença entre o padrão RS-232 e o RS-422?
+37) Qual a diferença entre o padrão RS-422 e o RS-485?
+38) Como funciona o padrdão de interface USB?
+39) Como funciona o padrão de comunicação IRDA?
+40) Como funciona o padrão de comunicação CAN?
+41) Como funciona o padrão de comunicação Bluetooth?
+42) Qual o significado da vida, do universo e tudo mais?
+
+>> Real-Time Operating System
+43) Quais as principais funções de um sistema operacional de tempo real?
+44) Qual a diferença entre tarefas Hard, Firm e Soft?
+45) Qual a diferença entre tarefas periódicas, esporádicas e aperiódicas?
+46) Para que serve o escalonamento de tarefas?
+47) Descreva o funcionamento do algoritmo de escalonamento Rate Monotonic.
+48) Descreva o funcionamento do algoritmo Earliest Deadline First.
+49) Explique o problema da inversão de prioridade. Quando ele acontece?
+50) Cite pelo menos 2 características de sistemas operacionais de tempo real comerciais.
+
+>> Specification Techniques
+51) Cite 3 características desejáveis de uma técnica de especificação.
+52) Explique como funciona a técnica StateChart.
+53) Quais as desvantagens da técnica StateChart?
+54) Explique como funciona a técnica SDL.
+55) Explique como funciona a técnica de Redes de Petri.
+56) Explique como funciona a técnica UML.
+
+>> Hardware-Software Cosimulation
+58) Fale sobre a comunicação entre simuladores de hardware e software, que é um dos principais problemas em ambientes de co-simulação.
+57) O que significa Co-simulação?
+59) Como funciona a sincronização na co-simulação?
+60) Como funciona o escalonamento na co-simulação?
+61) Explique a diferença entre uma co-simulação homogênea e uma co-simulação heterogênea.
+62) Qual a vantagem de se utilizar protótipos em FPGA para co-simulação?
+63) Dê um exemplo de um ambiente típico de co-simulação.
+64) Como funciona a co-simulação em nível abstrato?
+65) Como funciona a co-simulação em nível detalhado?
+
+>> Hardware-Software Partitioning
+66) O que significa o problema de particionamento hardware-software?
+67) Como funciona o algoritmo de particionamento usando programação inteira?
+68) Como funciona a heurística estendida de kerninghan-Lin?
+69) Como funciona o particionamento usando algoritmos genéticos
+70) Como funciona o particionamento usando PSO (Particle Swarm Optimization)?
+71) O que é o problema de particionamento estendido?
+72) Explique como o particionamento pode considerar informações de consumo de potência usando
+hardware reconfigurável.
+
+>> Functional Partitioning and Optimization
+73) Para que serve o particionamento funcional?
+74) Cite pelo menos 2 vantagens do particionamento funcional.
+75) Detalhe a metodologia do particionamento funcional.
+76) Descreva pelo menos 3 técnicas de otimização de loops.
+77) Qual a vantagem de se utilizar representação em ponto-fixo ao invés de ponto-flutuante?
+78) Como definir quando deve ser utilizado representação em ponto-fixo ou ponto-flutuante?
+
+>> Low Power Embedded System Design
+79) Cite pelo menos 3 considerações práticas que se deve ter em mente no projeto de sistemas
+embarcados de baixo consumo de potência.
+80) Qual a diferença entre consumo de potência dinâmico e estático?
+81) Como funciona a técnica de redução de consumo de potência "minimização algoritmica de
+potência"?
+82) Como funciona a técnica de redução de consumo de potência "minimização arquitetural de
+potência"?
+83) Como funciona a técnica de redução de consumo de potência a nível lógico e de circuito?
+84) Como funciona a técnica de redução de consumo de potência a nível de lógica de controle?
+85) O que é a ACPI e como ela funciona?
