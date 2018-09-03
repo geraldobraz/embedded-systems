@@ -24,8 +24,8 @@ void setup_timer0(void)
     /*
      * Agora configuramos Timer0 (tente descobrir que modo estamos usando)
      */
-    OCR0A  = 160;
-    OCR0B  = 16;
+    OCR0A  = 160; // Valor max da onda triangular
+    OCR0B  = 60; // Seleciona aonde sera setado o sinal de pwm
     TCCR0A = (1 << COM0B1) | (1 << WGM01) | (1 << WGM00);
     TCCR0B = (1 << WGM02) | (1 << CS00);
 }
@@ -45,6 +45,8 @@ void delay_ms(uint16_t ms)
         for(j=0; j<4000; j++)
             _NOP();
 }
+
+
 
 /* -------------------------------------*/
 int main(void)

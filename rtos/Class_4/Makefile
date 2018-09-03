@@ -2,7 +2,7 @@
 
 #############################
 
-MAIN_FILE := usart_tx
+MAIN_FILE := timer0_pwm
 SOURCES := $(MAIN_FILE).c
 
 #############################

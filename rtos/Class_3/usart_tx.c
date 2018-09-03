@@ -114,6 +114,7 @@ int main(void)
 	/*
 	 * Transmita a msg para a porta serial
 	 */
+        write(2);
 		delay_ms(250);
     }
 

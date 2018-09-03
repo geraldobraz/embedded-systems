@@ -2,7 +2,7 @@
 
 #############################
 
-MAIN_FILE := usart_tx
+MAIN_FILE := List1
 SOURCES := $(MAIN_FILE).c
 
 #############################
