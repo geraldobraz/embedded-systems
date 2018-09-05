@@ -13,13 +13,10 @@
 //***********************************//
 // Defines
     #define FOSC 16000000ul  // Clock Speed
-    #define BAUD 57600      // Baudrate
+    #define BAUD 115200      // Baudrate
     #define BAUDRATE (FOSC/(8ul*BAUD) - 1) 
-    #define BUFFER_SIZE 20   // USART buffer size
-    #define echo PD2
-    #define trigger PB0
-    #define TX  PD1
-    #define RX  PD0
+    #define BUFFER_SIZE 200   // USART buffer size
+    
 
 //***********************************//
 
@@ -28,39 +25,43 @@
     uint8_t rx_buffer[BUFFER_SIZE];     /* buffer para transmissão */
     uint8_t rx_head, rx_tail;   /* ponteiros para o buffer circular */
     uint8_t flag = 0;
-//***********************************//
 
+    uint8_t tx_buffer[BUFFER_SIZE];     /* buffer para transmissão */
+    uint8_t tx_head, tx_tail;   /* ponteiros para o buffer circular */
+    uint8_t usart_transmitting;
+//***********************************//
 
 
 // ********* Configurations *********//
     //***********************************//
-    // System
-        void systemInit(){
-            DDRB = (1 << trigger); // Configurate PB0 as Output
-            DDRD = ~(1 << echo);// Configurzte PD2 as Input 
-            DDRD = (1 << TX); // Configurate PD1 as Output
-            DDRD = ~(1 << RX); // Configurate PD0 as Input
-            sei();
-            
-        }
-    //***********************************//
     // Uart
         void uartInit(){
             // Configuration of Uart Transmition RX-TX
-            // DDRD = (1 << PD1); // Configure Tx as Output - erro
-            // DDRD = ~(1 << PD0); // Configure Rx as Input - erro
+            DDRD = (1 << PD1); // Configure Tx as Output
+            DDRD = ~(1 << PD0); // Configure Rx as Input
             
             // Configurate the Baudrate
             UBRR0H = (BAUDRATE >> 8);
             UBRR0L = BAUDRATE;
-            
-            // UCSR0A = (1 << U2X0); /* double speed */
+            UCSR0A = (1 << U2X0);
             UCSR0B = (1 << RXCIE0) | (1 << RXEN0) | (1 << TXEN0);
-            UCSR0C = (1 << UCSZ00) | (1 << UCSZ01) | (1 << URSEL);
+            UCSR0C = (1 << UCSZ00) | (1 << UCSZ01);
             
         }
 
         //***********************************//
+    
+    
+    // System
+        void systemInit(){
+            DDRB = (1 << PB0); // Trigger
+            DDRB = ~(1 << PD5); // Echo
+            PORTB =  0x00; // Putting PB0 output to low state
+            sei();
+            
+        }
+    //***********************************//
+    
     // Functions
         void delay_ms(uint16_t ms){
             uint16_t i, j;
@@ -69,36 +70,54 @@
                     _NOP();
         }
 
-        void send(){
-            UDR = '48';
-        }
         
+        uint8_t write(uint8_t c){
+            uint8_t rc = 0;
+
+            cli();
+            if (!usart_transmitting) {
+                UDR0 = c;
+                UCSR0B |= (1 << UDRIE0);
+                usart_transmitting = 1;
+            } else {
+                uint8_t next = tx_head + 1;
+                if (next >= BUFFER_SIZE)
+                    next = 0;
+                if (next != tx_tail) {
+                    tx_buffer[tx_head] = c;
+                    tx_head = next;
+                } else  /* buffer cheio */
+                    rc = 1;
+            }
+            sei();
+            return rc;
+        }
     //***********************************//
     
     //***********************************//
     // Interruptions
         // Interruption of RX 
         ISR(USART_RX_vect){
-
             unsigned char data = UDR0; // Recived data
-
+            // Start the Infrared sensor
             if(data == 's'){
-                // Set High to trigger
-                PORTB = (1 << trigger); // Trigger to HIGH
-                //flag = 1;
+                PORTB = (1 << PB0);  // Trigger to HIGH   
+            }else{
+                flag = 0;
             }
+            
         }
 
         // Interrupton of TX
-            // ISR(USART_UDRE_vect){
-            //     // send "48" throught 
+        // ISR(USART_UDRE_vect){
+        //     // send "48" throught 
+        //     // PORTB = (1 << PB1);
+        //     flag = 0;
 
-
-            // }        
+        // }        
         // Interruption of INT0
         ISR(INT0_vect){
-            // Sending 48 throught serial
-            flag = 1;
+            flag = 1; // Enable the the flag to send a message
         }
        
     //***********************************//
@@ -108,14 +127,16 @@
 // Main 
     int main(void){
 
-        systemInit();
         uartInit();
+        systemInit();
+        
         while(1){
         // Nothing to do
-        if(flag){
-            send();
-            flag = 0;
-        }
+
+            if(flag == 1){
+                write(0x48);
+            }        
+        
 
         }
     
