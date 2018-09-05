@@ -7,9 +7,8 @@
  * Constantes utilizadas no código 
  */
 #define FOSC 16000000ul  /* velocidade do relógio */
-#define BAUD 9600      /* velocidade desejada para a serial */
+#define BAUD 115200      /* velocidade desejada para a serial */
 #define MYUBRR (FOSC/(8ul*BAUD) - 1)  /* valor de 12 bits para configurar o clock da USART */
-
 #define BUFFER_SIZE 200   /* Tamanho do buffer da USART */
 
 
@@ -19,24 +18,15 @@
 void setup_usart(void)
 {
 
-    /*
-     * Para as macros abaixo e outras, veja o arquivo
-     * /usr/lib/avr/include/avr/iom328p.h
-     */
-    /*
-    //  * Primeiro setamos a direção certa para os pinos RX e TX
-    //  */
     DDRD = ~(1 << PD0);  /* USART RX bit para a placa Nano */
     DDRD = (1 << PD1);  /* USART TX bit para a placa Nano */
-    
-    /*
-     * Agora configuramos a USART
-     */
-    UBRR0H = (MYUBRR >> 8) & 0xF;
-    UBRR0L = MYUBRR & 0xFF;
-	// /*
-	// * Configure o restante dos registradores
-	// */
+        
+    UBRR0H = (MYUBRR >> 8);
+    UBRR0L = MYUBRR;
+    UCSR0A = (1 << U2X0);
+    UCSR0B = (1 << RXCIE0) | (1 << RXEN0) | (1 << TXEN0);
+    UCSR0C = (1 << UCSZ00) | (1 << UCSZ01);  
+
 }
 
 /* -------------------------------------*/
@@ -111,12 +101,12 @@ int main(void)
     setup_usart();
     setup_main();
 
-    while(1) {
+    while(1) { 
 	/*
 	 * Transmita a msg para a porta serial
 	 */
         
-        write('D');
+        write('48');
 		delay_ms(250);
     }
 

@@ -3,7 +3,9 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "/usr/include/x86_64-linux-gnu/sys",
+                "/usr/lib/avr/include/avr"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

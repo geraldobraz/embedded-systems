@@ -6,18 +6,21 @@
 
 //***********************************//
 // Includes
-    #include <io.h>
-    #include <cpufunc.h>
-    #include <interrupt.h>
+    #include <avr/io.h>
+    #include <avr/cpufunc.h>
+    #include <avr/interrupt.h>
 //"/usr/lib/avr/include/avr"
 //***********************************//
 // Defines
     #define FOSC 16000000ul  // Clock Speed
-    #define BAUD 115200      // Baudrate
+    #define BAUD 57600      // Baudrate
     #define BAUDRATE (FOSC/(8ul*BAUD) - 1) 
     #define BUFFER_SIZE 20   // USART buffer size
     #define echo PD2
     #define trigger PB0
+    #define TX  PD1
+    #define RX  PD0
+
 //***********************************//
 
 //***********************************//
@@ -27,20 +30,7 @@
     uint8_t flag = 0;
 //***********************************//
 
-//***********************************//
-// Functions
-    void delay_ms(uint16_t ms){
-        uint16_t i, j;
-        for(i=0; i<ms; i++)
-            for(j=0; j<4000; j++)
-                _NOP();
-    }
 
-    void send(){
-        UDR = 48;
-    }
-    
-//***********************************//
 
 // ********* Configurations *********//
     //***********************************//
@@ -48,6 +38,8 @@
         void systemInit(){
             DDRB = (1 << trigger); // Configurate PB0 as Output
             DDRD = ~(1 << echo);// Configurzte PD2 as Input 
+            DDRD = (1 << TX); // Configurate PD1 as Output
+            DDRD = ~(1 << RX); // Configurate PD0 as Input
             sei();
             
         }
@@ -61,12 +53,28 @@
             // Configurate the Baudrate
             UBRR0H = (BAUDRATE >> 8);
             UBRR0L = BAUDRATE;
-            UBRR0H
+            
             // UCSR0A = (1 << U2X0); /* double speed */
             UCSR0B = (1 << RXCIE0) | (1 << RXEN0) | (1 << TXEN0);
             UCSR0C = (1 << UCSZ00) | (1 << UCSZ01) | (1 << URSEL);
             
         }
+
+        //***********************************//
+    // Functions
+        void delay_ms(uint16_t ms){
+            uint16_t i, j;
+            for(i=0; i<ms; i++)
+                for(j=0; j<4000; j++)
+                    _NOP();
+        }
+
+        void send(){
+            UDR = '48';
+        }
+        
+    //***********************************//
+    
     //***********************************//
     // Interruptions
         // Interruption of RX 
@@ -77,7 +85,7 @@
             if(data == 's'){
                 // Set High to trigger
                 PORTB = (1 << trigger); // Trigger to HIGH
-                flag = 1;
+                //flag = 1;
             }
         }
 
@@ -98,7 +106,7 @@
 
 //***********************************//
 // Main 
-    int main(){
+    int main(void){
 
         systemInit();
         uartInit();

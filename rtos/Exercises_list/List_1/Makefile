@@ -2,7 +2,7 @@
 
 #############################
 
-MAIN_FILE := List1
+MAIN_FILE := List2
 SOURCES := $(MAIN_FILE).c
 
 #############################

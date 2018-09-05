@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccUTteEc.s 			page 1
+GAS LISTING /tmp/ccES3n3d.s 			page 1
 
 
    1               		.file	"usart_tx.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccUTteEc.s 			page 1
   55               		.stabs	"_Sat unsigned _Accum:t(0,44)=r(0,1);4;0;",128,0,0,0
   56               		.stabs	"_Sat unsigned long _Accum:t(0,45)=r(0,1);8;0;",128,0,0,0
   57               		.stabs	"_Sat unsigned long long _Accum:t(0,46)=r(0,1);8;0;",128,0,0,0
-GAS LISTING /tmp/ccUTteEc.s 			page 2
+GAS LISTING /tmp/ccES3n3d.s 			page 2
 
 
   58               		.stabs	"void:t(0,47)=(0,47)",128,0,0,0
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccUTteEc.s 			page 1
    6:usart_tx.c    **** /* 
    7:usart_tx.c    ****  * Constantes utilizadas no código 
    8:usart_tx.c    ****  */
-GAS LISTING /tmp/ccUTteEc.s 			page 3
+GAS LISTING /tmp/ccES3n3d.s 			page 3
 
 
    9:usart_tx.c    **** #define FOSC 16000000ul  /* velocidade do relógio */
@@ -140,472 +140,482 @@ GAS LISTING /tmp/ccUTteEc.s 			page 1
  111               	/* frame size = 0 */
  112               	/* stack size = 0 */
  113               	.L__stack_usage = 0
-  21:usart_tx.c    ****     /*
-  22:usart_tx.c    ****      * Para as macros abaixo e outras, veja o arquivo
-  23:usart_tx.c    ****      * /usr/lib/avr/include/avr/iom328p.h
-  24:usart_tx.c    ****      */
-  25:usart_tx.c    ****     /*
-  26:usart_tx.c    ****      * Primeiro setamos a direção certa para os pinos RX e TX
-  27:usart_tx.c    ****      */
-  28:usart_tx.c    ****     DDRD &= ~(1 << PD0);  /* USART RX bit para a placa Nano */
- 114               		.stabn	68,0,28,.LM1-.LFBB1
+  21:usart_tx.c    **** 
+  22:usart_tx.c    ****     /*
+  23:usart_tx.c    ****      * Para as macros abaixo e outras, veja o arquivo
+  24:usart_tx.c    ****      * /usr/lib/avr/include/avr/iom328p.h
+  25:usart_tx.c    ****      */
+  26:usart_tx.c    ****     /*
+  27:usart_tx.c    ****     //  * Primeiro setamos a direção certa para os pinos RX e TX
+  28:usart_tx.c    ****     //  */
+  29:usart_tx.c    ****     DDRD = ~(1 << PD0);  /* USART RX bit para a placa Nano */
+ 114               		.stabn	68,0,29,.LM1-.LFBB1
  115               	.LM1:
- 116 0000 5098      		cbi 0xa,0
-  29:usart_tx.c    ****     DDRD |= (1 << PD1);  /* USART TX bit para a placa Nano */
- 117               		.stabn	68,0,29,.LM2-.LFBB1
- 118               	.LM2:
- 119 0002 519A      		sbi 0xa,1
-  30:usart_tx.c    ****     
-  31:usart_tx.c    ****     /*
-  32:usart_tx.c    ****      * Agora configuramos a USART
-  33:usart_tx.c    ****      */
-  34:usart_tx.c    ****     UBRR0H = (MYUBRR >> 8) & 0xF;
- 120               		.stabn	68,0,34,.LM3-.LFBB1
- 121               	.LM3:
- 122 0004 1092 C500 		sts 197,__zero_reg__
-  35:usart_tx.c    ****     UBRR0L = MYUBRR & 0xFF;
- 123               		.stabn	68,0,35,.LM4-.LFBB1
- 124               	.LM4:
- 125 0008 8FEC      		ldi r24,lo8(-49)
- 126 000a 8093 C400 		sts 196,r24
- 127 000e 0895      		ret
- 128               		.size	setup_usart, .-setup_usart
- 129               	.Lscope1:
- 130               		.stabs	"",36,0,0,.Lscope1-.LFBB1
- 131               		.stabd	78,0,0
- 132               		.stabs	"setup_main:F(0,47)",36,0,42,setup_main
- 133               	.global	setup_main
- 134               		.type	setup_main, @function
- 135               	setup_main:
- 136               		.stabd	46,0,0
-GAS LISTING /tmp/ccUTteEc.s 			page 4
+ 116 0000 8EEF      		ldi r24,lo8(-2)
+ 117 0002 8AB9      		out 0xa,r24
+  30:usart_tx.c    ****     DDRD = (1 << PD1);  /* USART TX bit para a placa Nano */
+ 118               		.stabn	68,0,30,.LM2-.LFBB1
+ 119               	.LM2:
+ 120 0004 82E0      		ldi r24,lo8(2)
+ 121 0006 8AB9      		out 0xa,r24
+  31:usart_tx.c    ****     
+  32:usart_tx.c    ****     /*
+  33:usart_tx.c    ****      * Agora configuramos a USART
+  34:usart_tx.c    ****      */
+  35:usart_tx.c    ****     UBRR0H = (MYUBRR >> 8) & 0xF;
+ 122               		.stabn	68,0,35,.LM3-.LFBB1
+ 123               	.LM3:
+ 124 0008 1092 C500 		sts 197,__zero_reg__
+  36:usart_tx.c    ****     UBRR0L = MYUBRR & 0xFF;
+ 125               		.stabn	68,0,36,.LM4-.LFBB1
+ 126               	.LM4:
+ 127 000c 8FEC      		ldi r24,lo8(-49)
+ 128 000e 8093 C400 		sts 196,r24
+ 129 0012 0895      		ret
+ 130               		.size	setup_usart, .-setup_usart
+ 131               	.Lscope1:
+ 132               		.stabs	"",36,0,0,.Lscope1-.LFBB1
+ 133               		.stabd	78,0,0
+ 134               		.stabs	"setup_main:F(0,47)",36,0,43,setup_main
+ 135               	.global	setup_main
+GAS LISTING /tmp/ccES3n3d.s 			page 4
 
 
-  36:usart_tx.c    **** 	/*
-  37:usart_tx.c    **** 	* Configure o restante dos registradores
-  38:usart_tx.c    **** 	*/
-  39:usart_tx.c    **** }
-  40:usart_tx.c    **** 
-  41:usart_tx.c    **** /* -------------------------------------*/
-  42:usart_tx.c    **** void setup_main(void)
-  43:usart_tx.c    **** {
- 137               		.stabn	68,0,43,.LM5-.LFBB2
- 138               	.LM5:
- 139               	.LFBB2:
- 140               	/* prologue: function */
- 141               	/* frame size = 0 */
- 142               	/* stack size = 0 */
- 143               	.L__stack_usage = 0
-  44:usart_tx.c    ****     LED_DDR |= (1 << LED_PINNBR);
- 144               		.stabn	68,0,44,.LM6-.LFBB2
- 145               	.LM6:
- 146 0010 259A      		sbi 0x4,5
-  45:usart_tx.c    ****     sei(); /* Seta flag principal de habilitação de interrupções */
- 147               		.stabn	68,0,45,.LM7-.LFBB2
- 148               	.LM7:
- 149               	/* #APP */
- 150               	 ;  45 "usart_tx.c" 1
- 151 0012 7894      		sei
- 152               	 ;  0 "" 2
- 153               	/* #NOAPP */
- 154 0014 0895      		ret
- 155               		.size	setup_main, .-setup_main
- 156               	.Lscope2:
- 157               		.stabs	"",36,0,0,.Lscope2-.LFBB2
- 158               		.stabd	78,0,0
- 159               		.stabs	"delay_ms:F(0,47)",36,0,49,delay_ms
- 160               		.stabs	"ms:P(5,4)",64,0,49,24
- 161               	.global	delay_ms
- 162               		.type	delay_ms, @function
- 163               	delay_ms:
- 164               		.stabd	46,0,0
-  46:usart_tx.c    **** }
-  47:usart_tx.c    **** 
-  48:usart_tx.c    **** /* -------------------------------------*/
-  49:usart_tx.c    **** void delay_ms(uint16_t ms)
-  50:usart_tx.c    **** {
- 165               		.stabn	68,0,50,.LM8-.LFBB3
- 166               	.LM8:
- 167               	.LFBB3:
- 168               	/* prologue: function */
- 169               	/* frame size = 0 */
- 170               	/* stack size = 0 */
- 171               	.L__stack_usage = 0
-  51:usart_tx.c    ****     uint16_t i, j;
-  52:usart_tx.c    ****     for(i=0; i<ms; i++)
- 172               		.stabn	68,0,52,.LM9-.LFBB3
- 173               	.LM9:
- 174 0016 20E0      		ldi r18,0
- 175 0018 30E0      		ldi r19,0
- 176               	.L4:
-GAS LISTING /tmp/ccUTteEc.s 			page 5
+ 136               		.type	setup_main, @function
+ 137               	setup_main:
+ 138               		.stabd	46,0,0
+  37:usart_tx.c    **** 	// /*
+  38:usart_tx.c    **** 	// * Configure o restante dos registradores
+  39:usart_tx.c    **** 	// */
+  40:usart_tx.c    **** }
+  41:usart_tx.c    **** 
+  42:usart_tx.c    **** /* -------------------------------------*/
+  43:usart_tx.c    **** void setup_main(void)
+  44:usart_tx.c    **** {
+ 139               		.stabn	68,0,44,.LM5-.LFBB2
+ 140               	.LM5:
+ 141               	.LFBB2:
+ 142               	/* prologue: function */
+ 143               	/* frame size = 0 */
+ 144               	/* stack size = 0 */
+ 145               	.L__stack_usage = 0
+  45:usart_tx.c    ****     // LED_DDR |= (1 << LED_PINNBR);
+  46:usart_tx.c    ****     sei(); /* Seta flag principal de habilitação de interrupções */
+ 146               		.stabn	68,0,46,.LM6-.LFBB2
+ 147               	.LM6:
+ 148               	/* #APP */
+ 149               	 ;  46 "usart_tx.c" 1
+ 150 0014 7894      		sei
+ 151               	 ;  0 "" 2
+ 152               	/* #NOAPP */
+ 153 0016 0895      		ret
+ 154               		.size	setup_main, .-setup_main
+ 155               	.Lscope2:
+ 156               		.stabs	"",36,0,0,.Lscope2-.LFBB2
+ 157               		.stabd	78,0,0
+ 158               		.stabs	"delay_ms:F(0,47)",36,0,50,delay_ms
+ 159               		.stabs	"ms:P(5,4)",64,0,50,24
+ 160               	.global	delay_ms
+ 161               		.type	delay_ms, @function
+ 162               	delay_ms:
+ 163               		.stabd	46,0,0
+  47:usart_tx.c    **** }
+  48:usart_tx.c    **** 
+  49:usart_tx.c    **** /* -------------------------------------*/
+  50:usart_tx.c    **** void delay_ms(uint16_t ms)
+  51:usart_tx.c    **** {
+ 164               		.stabn	68,0,51,.LM7-.LFBB3
+ 165               	.LM7:
+ 166               	.LFBB3:
+ 167               	/* prologue: function */
+ 168               	/* frame size = 0 */
+ 169               	/* stack size = 0 */
+ 170               	.L__stack_usage = 0
+  52:usart_tx.c    ****     uint16_t i, j;
+  53:usart_tx.c    ****     for(i=0; i<ms; i++)
+ 171               		.stabn	68,0,53,.LM8-.LFBB3
+ 172               	.LM8:
+ 173 0018 20E0      		ldi r18,0
+ 174 001a 30E0      		ldi r19,0
+ 175               	.L4:
+GAS LISTING /tmp/ccES3n3d.s 			page 5
 
 
- 177               		.stabn	68,0,52,.LM10-.LFBB3
- 178               	.LM10:
- 179 001a 2817      		cp r18,r24
- 180 001c 3907      		cpc r19,r25
- 181 001e 01F0      		breq .L9
- 182 0020 40EA      		ldi r20,lo8(-96)
- 183 0022 5FE0      		ldi r21,lo8(15)
- 184               	.L5:
+ 176               		.stabn	68,0,53,.LM9-.LFBB3
+ 177               	.LM9:
+ 178 001c 2817      		cp r18,r24
+ 179 001e 3907      		cpc r19,r25
+ 180 0020 01F0      		breq .L9
+ 181 0022 40EA      		ldi r20,lo8(-96)
+ 182 0024 5FE0      		ldi r21,lo8(15)
+ 183               	.L5:
+  54:usart_tx.c    ****         for(j=0; j<4000; j++)
+  55:usart_tx.c    ****             _NOP();
+ 184               		.stabn	68,0,55,.LM10-.LFBB3
+ 185               	.LM10:
+ 186               	/* #APP */
+ 187               	 ;  55 "usart_tx.c" 1
+ 188 0026 0000      		nop
+ 189               	 ;  0 "" 2
+ 190               	/* #NOAPP */
+ 191 0028 4150      		subi r20,1
+ 192 002a 5109      		sbc r21,__zero_reg__
+  54:usart_tx.c    ****         for(j=0; j<4000; j++)
+ 193               		.stabn	68,0,54,.LM11-.LFBB3
+ 194               	.LM11:
+ 195 002c 01F4      		brne .L5
   53:usart_tx.c    ****         for(j=0; j<4000; j++)
-  54:usart_tx.c    ****             _NOP();
- 185               		.stabn	68,0,54,.LM11-.LFBB3
- 186               	.LM11:
- 187               	/* #APP */
- 188               	 ;  54 "usart_tx.c" 1
- 189 0024 0000      		nop
- 190               	 ;  0 "" 2
- 191               	/* #NOAPP */
- 192 0026 4150      		subi r20,1
- 193 0028 5109      		sbc r21,__zero_reg__
-  53:usart_tx.c    ****         for(j=0; j<4000; j++)
- 194               		.stabn	68,0,53,.LM12-.LFBB3
- 195               	.LM12:
- 196 002a 01F4      		brne .L5
-  52:usart_tx.c    ****         for(j=0; j<4000; j++)
- 197               		.stabn	68,0,52,.LM13-.LFBB3
- 198               	.LM13:
- 199 002c 2F5F      		subi r18,-1
- 200 002e 3F4F      		sbci r19,-1
- 201 0030 00C0      		rjmp .L4
- 202               	.L9:
- 203               	/* epilogue start */
-  55:usart_tx.c    **** }
- 204               		.stabn	68,0,55,.LM14-.LFBB3
- 205               	.LM14:
- 206 0032 0895      		ret
- 207               		.size	delay_ms, .-delay_ms
- 208               		.stabs	"i:r(5,4)",64,0,51,18
- 209               		.stabn	192,0,0,.LFBB3-.LFBB3
- 210               		.stabn	224,0,0,.Lscope3-.LFBB3
- 211               	.Lscope3:
- 212               		.stabs	"",36,0,0,.Lscope3-.LFBB3
- 213               		.stabd	78,0,0
- 214               		.stabs	"write:F(5,2)",36,0,62,write
- 215               		.stabs	"c:P(5,2)",64,0,62,24
- 216               	.global	write
- 217               		.type	write, @function
- 218               	write:
- 219               		.stabd	46,0,0
-  56:usart_tx.c    **** 
-  57:usart_tx.c    **** /* -------------------------------------*/
-  58:usart_tx.c    **** uint8_t tx_buffer[BUFFER_SIZE];     /* buffer para transmissão */
-  59:usart_tx.c    **** uint8_t tx_head, tx_tail;   /* ponteiros para o buffer circular */
-  60:usart_tx.c    **** uint8_t usart_transmitting;
-  61:usart_tx.c    **** 
-  62:usart_tx.c    **** uint8_t write(uint8_t c)
-  63:usart_tx.c    **** {
- 220               		.stabn	68,0,63,.LM15-.LFBB4
-GAS LISTING /tmp/ccUTteEc.s 			page 6
+ 196               		.stabn	68,0,53,.LM12-.LFBB3
+ 197               	.LM12:
+ 198 002e 2F5F      		subi r18,-1
+ 199 0030 3F4F      		sbci r19,-1
+ 200 0032 00C0      		rjmp .L4
+ 201               	.L9:
+ 202               	/* epilogue start */
+  56:usart_tx.c    **** }
+ 203               		.stabn	68,0,56,.LM13-.LFBB3
+ 204               	.LM13:
+ 205 0034 0895      		ret
+ 206               		.size	delay_ms, .-delay_ms
+ 207               		.stabs	"i:r(5,4)",64,0,52,18
+ 208               		.stabn	192,0,0,.LFBB3-.LFBB3
+ 209               		.stabn	224,0,0,.Lscope3-.LFBB3
+ 210               	.Lscope3:
+ 211               		.stabs	"",36,0,0,.Lscope3-.LFBB3
+ 212               		.stabd	78,0,0
+ 213               		.stabs	"write:F(5,2)",36,0,63,write
+ 214               		.stabs	"c:P(5,2)",64,0,63,24
+ 215               	.global	write
+ 216               		.type	write, @function
+ 217               	write:
+ 218               		.stabd	46,0,0
+  57:usart_tx.c    **** 
+  58:usart_tx.c    **** /* -------------------------------------*/
+  59:usart_tx.c    **** uint8_t tx_buffer[BUFFER_SIZE];     /* buffer para transmissão */
+  60:usart_tx.c    **** uint8_t tx_head, tx_tail;   /* ponteiros para o buffer circular */
+  61:usart_tx.c    **** uint8_t usart_transmitting;
+  62:usart_tx.c    **** 
+  63:usart_tx.c    **** uint8_t write(uint8_t c)
+  64:usart_tx.c    **** {
+ 219               		.stabn	68,0,64,.LM14-.LFBB4
+GAS LISTING /tmp/ccES3n3d.s 			page 6
 
 
- 221               	.LM15:
- 222               	.LFBB4:
- 223               	/* prologue: function */
- 224               	/* frame size = 0 */
- 225               	/* stack size = 0 */
- 226               	.L__stack_usage = 0
-  64:usart_tx.c    ****     uint8_t rc = 0;
+ 220               	.LM14:
+ 221               	.LFBB4:
+ 222               	/* prologue: function */
+ 223               	/* frame size = 0 */
+ 224               	/* stack size = 0 */
+ 225               	.L__stack_usage = 0
+  65:usart_tx.c    ****     uint8_t rc = 0;
+  66:usart_tx.c    **** 
+  67:usart_tx.c    ****     cli();
+ 226               		.stabn	68,0,67,.LM15-.LFBB4
+ 227               	.LM15:
+ 228               	/* #APP */
+ 229               	 ;  67 "usart_tx.c" 1
+ 230 0036 F894      		cli
+ 231               	 ;  0 "" 2
+  68:usart_tx.c    ****     if (!usart_transmitting) {
+ 232               		.stabn	68,0,68,.LM16-.LFBB4
+ 233               	.LM16:
+ 234               	/* #NOAPP */
+ 235 0038 9091 0000 		lds r25,usart_transmitting
+ 236 003c 9111      		cpse r25,__zero_reg__
+ 237 003e 00C0      		rjmp .L11
+  69:usart_tx.c    ****         UDR0 = c;
+ 238               		.stabn	68,0,69,.LM17-.LFBB4
+ 239               	.LM17:
+ 240 0040 8093 C600 		sts 198,r24
+  70:usart_tx.c    ****         UCSR0B |= (1 << UDRIE0);
+ 241               		.stabn	68,0,70,.LM18-.LFBB4
+ 242               	.LM18:
+ 243 0044 8091 C100 		lds r24,193
+ 244 0048 8062      		ori r24,lo8(32)
+ 245 004a 8093 C100 		sts 193,r24
+  71:usart_tx.c    ****         usart_transmitting = 1;
+ 246               		.stabn	68,0,71,.LM19-.LFBB4
+ 247               	.LM19:
+ 248 004e 81E0      		ldi r24,lo8(1)
+ 249 0050 8093 0000 		sts usart_transmitting,r24
+ 250 0054 00C0      		rjmp .L15
+ 251               	.L11:
+ 252               	.LBB4:
+  72:usart_tx.c    ****     } else {
+  73:usart_tx.c    ****         uint8_t next = tx_head + 1;
+ 253               		.stabn	68,0,73,.LM20-.LFBB4
+ 254               	.LM20:
+ 255 0056 E091 0000 		lds r30,tx_head
+ 256 005a 91E0      		ldi r25,lo8(1)
+ 257 005c 9E0F      		add r25,r30
+  74:usart_tx.c    ****         if (next >= BUFFER_SIZE)
+ 258               		.stabn	68,0,74,.LM21-.LFBB4
+ 259               	.LM21:
+ 260 005e 983C      		cpi r25,lo8(-56)
+ 261 0060 00F0      		brlo .L13
+  75:usart_tx.c    ****             next = 0;
+ 262               		.stabn	68,0,75,.LM22-.LFBB4
+ 263               	.LM22:
+ 264 0062 90E0      		ldi r25,0
+ 265               	.L13:
+GAS LISTING /tmp/ccES3n3d.s 			page 7
+
+
+  76:usart_tx.c    ****         if (next != tx_tail) {
+ 266               		.stabn	68,0,76,.LM23-.LFBB4
+ 267               	.LM23:
+ 268 0064 2091 0000 		lds r18,tx_tail
+ 269 0068 9217      		cp r25,r18
+ 270 006a 01F0      		breq .L14
+  77:usart_tx.c    ****             tx_buffer[tx_head] = c;
+ 271               		.stabn	68,0,77,.LM24-.LFBB4
+ 272               	.LM24:
+ 273 006c F0E0      		ldi r31,0
+ 274 006e E050      		subi r30,lo8(-(tx_buffer))
+ 275 0070 F040      		sbci r31,hi8(-(tx_buffer))
+ 276 0072 8083      		st Z,r24
+  78:usart_tx.c    ****             tx_head = next;
+ 277               		.stabn	68,0,78,.LM25-.LFBB4
+ 278               	.LM25:
+ 279 0074 9093 0000 		sts tx_head,r25
+ 280               	.L15:
+ 281               	.LBE4:
   65:usart_tx.c    **** 
-  66:usart_tx.c    ****     cli();
- 227               		.stabn	68,0,66,.LM16-.LFBB4
- 228               	.LM16:
- 229               	/* #APP */
- 230               	 ;  66 "usart_tx.c" 1
- 231 0034 F894      		cli
- 232               	 ;  0 "" 2
-  67:usart_tx.c    ****     if (!usart_transmitting) {
- 233               		.stabn	68,0,67,.LM17-.LFBB4
- 234               	.LM17:
- 235               	/* #NOAPP */
- 236 0036 9091 0000 		lds r25,usart_transmitting
- 237 003a 9111      		cpse r25,__zero_reg__
- 238 003c 00C0      		rjmp .L11
-  68:usart_tx.c    ****         UDR0 = c;
- 239               		.stabn	68,0,68,.LM18-.LFBB4
- 240               	.LM18:
- 241 003e 8093 C600 		sts 198,r24
-  69:usart_tx.c    ****         UCSR0B |= (1 << UDRIE0);
- 242               		.stabn	68,0,69,.LM19-.LFBB4
- 243               	.LM19:
- 244 0042 8091 C100 		lds r24,193
- 245 0046 8062      		ori r24,lo8(32)
- 246 0048 8093 C100 		sts 193,r24
-  70:usart_tx.c    ****         usart_transmitting = 1;
- 247               		.stabn	68,0,70,.LM20-.LFBB4
- 248               	.LM20:
- 249 004c 81E0      		ldi r24,lo8(1)
- 250 004e 8093 0000 		sts usart_transmitting,r24
- 251 0052 00C0      		rjmp .L15
- 252               	.L11:
- 253               	.LBB2:
-  71:usart_tx.c    ****     } else {
-  72:usart_tx.c    ****         uint8_t next = tx_head + 1;
- 254               		.stabn	68,0,72,.LM21-.LFBB4
- 255               	.LM21:
- 256 0054 E091 0000 		lds r30,tx_head
- 257 0058 91E0      		ldi r25,lo8(1)
- 258 005a 9E0F      		add r25,r30
-  73:usart_tx.c    ****         if (next >= BUFFER_SIZE)
- 259               		.stabn	68,0,73,.LM22-.LFBB4
- 260               	.LM22:
- 261 005c 983C      		cpi r25,lo8(-56)
- 262 005e 00F0      		brlo .L13
-  74:usart_tx.c    ****             next = 0;
- 263               		.stabn	68,0,74,.LM23-.LFBB4
- 264               	.LM23:
- 265 0060 90E0      		ldi r25,0
- 266               	.L13:
-GAS LISTING /tmp/ccUTteEc.s 			page 7
+ 282               		.stabn	68,0,65,.LM26-.LFBB4
+ 283               	.LM26:
+ 284 0078 80E0      		ldi r24,0
+ 285               	.LBB5:
+ 286 007a 00C0      		rjmp .L12
+ 287               	.L14:
+  79:usart_tx.c    ****         } else  /* buffer cheio */
+  80:usart_tx.c    ****             rc = 1;
+ 288               		.stabn	68,0,80,.LM27-.LFBB4
+ 289               	.LM27:
+ 290 007c 81E0      		ldi r24,lo8(1)
+ 291               	.L12:
+ 292               	.LBE5:
+  81:usart_tx.c    ****     }
+  82:usart_tx.c    ****     sei();
+ 293               		.stabn	68,0,82,.LM28-.LFBB4
+ 294               	.LM28:
+ 295               	/* #APP */
+ 296               	 ;  82 "usart_tx.c" 1
+ 297 007e 7894      		sei
+ 298               	 ;  0 "" 2
+  83:usart_tx.c    ****     return rc;
+  84:usart_tx.c    **** }
+ 299               		.stabn	68,0,84,.LM29-.LFBB4
+ 300               	.LM29:
+ 301               	/* #NOAPP */
+ 302 0080 0895      		ret
+ 303               		.size	write, .-write
+ 304               		.stabs	"rc:r(5,2)",64,0,65,24
+ 305               		.stabn	192,0,0,.LFBB4-.LFBB4
+ 306               		.stabs	"next:r(5,2)",64,0,73,25
+ 307               		.stabn	192,0,0,.LBB4-.LFBB4
+ 308               		.stabn	224,0,0,.LBE4-.LFBB4
+ 309               		.stabs	"next:r(5,2)",64,0,73,25
+ 310               		.stabn	192,0,0,.LBB5-.LFBB4
+ 311               		.stabn	224,0,0,.LBE5-.LFBB4
+ 312               		.stabn	224,0,0,.Lscope4-.LFBB4
+GAS LISTING /tmp/ccES3n3d.s 			page 8
 
 
-  75:usart_tx.c    ****         if (next != tx_tail) {
- 267               		.stabn	68,0,75,.LM24-.LFBB4
- 268               	.LM24:
- 269 0062 2091 0000 		lds r18,tx_tail
- 270 0066 9217      		cp r25,r18
- 271 0068 01F0      		breq .L14
-  76:usart_tx.c    ****             tx_buffer[tx_head] = c;
- 272               		.stabn	68,0,76,.LM25-.LFBB4
- 273               	.LM25:
- 274 006a F0E0      		ldi r31,0
- 275 006c E050      		subi r30,lo8(-(tx_buffer))
- 276 006e F040      		sbci r31,hi8(-(tx_buffer))
- 277 0070 8083      		st Z,r24
-  77:usart_tx.c    ****             tx_head = next;
- 278               		.stabn	68,0,77,.LM26-.LFBB4
- 279               	.LM26:
- 280 0072 9093 0000 		sts tx_head,r25
- 281               	.L15:
- 282               	.LBE2:
-  64:usart_tx.c    **** 
- 283               		.stabn	68,0,64,.LM27-.LFBB4
- 284               	.LM27:
- 285 0076 80E0      		ldi r24,0
- 286               	.LBB3:
- 287 0078 00C0      		rjmp .L12
- 288               	.L14:
-  78:usart_tx.c    ****         } else  /* buffer cheio */
-  79:usart_tx.c    ****             rc = 1;
- 289               		.stabn	68,0,79,.LM28-.LFBB4
- 290               	.LM28:
- 291 007a 81E0      		ldi r24,lo8(1)
- 292               	.L12:
- 293               	.LBE3:
-  80:usart_tx.c    ****     }
-  81:usart_tx.c    ****     sei();
- 294               		.stabn	68,0,81,.LM29-.LFBB4
- 295               	.LM29:
- 296               	/* #APP */
- 297               	 ;  81 "usart_tx.c" 1
- 298 007c 7894      		sei
- 299               	 ;  0 "" 2
-  82:usart_tx.c    ****     return rc;
-  83:usart_tx.c    **** }
- 300               		.stabn	68,0,83,.LM30-.LFBB4
- 301               	.LM30:
- 302               	/* #NOAPP */
- 303 007e 0895      		ret
- 304               		.size	write, .-write
- 305               		.stabs	"rc:r(5,2)",64,0,64,24
- 306               		.stabn	192,0,0,.LFBB4-.LFBB4
- 307               		.stabs	"next:r(5,2)",64,0,72,25
- 308               		.stabn	192,0,0,.LBB2-.LFBB4
- 309               		.stabn	224,0,0,.LBE2-.LFBB4
- 310               		.stabs	"next:r(5,2)",64,0,72,25
- 311               		.stabn	192,0,0,.LBB3-.LFBB4
- 312               		.stabn	224,0,0,.LBE3-.LFBB4
- 313               		.stabn	224,0,0,.Lscope4-.LFBB4
-GAS LISTING /tmp/ccUTteEc.s 			page 8
+ 313               	.Lscope4:
+ 314               		.stabs	"",36,0,0,.Lscope4-.LFBB4
+ 315               		.stabd	78,0,0
+ 316               		.stabs	"__vector_19:F(0,47)",36,0,93,__vector_19
+ 317               	.global	__vector_19
+ 318               		.type	__vector_19, @function
+ 319               	__vector_19:
+ 320               		.stabd	46,0,0
+  85:usart_tx.c    **** 
+  86:usart_tx.c    **** /* -------------------------------------*/
+  87:usart_tx.c    **** /*
+  88:usart_tx.c    ****  * Interrupt handlers devem ser definidos com a macros
+  89:usart_tx.c    ****  * ISR(), que é definida no arquivo avr/interrupt.h.
+  90:usart_tx.c    ****  * Veja também a página
+  91:usart_tx.c    ****  * http://www.nongnu.org/avr-libc/user-manual/group__avr__interrupts.html
+  92:usart_tx.c    ****  */
+  93:usart_tx.c    **** ISR(USART_UDRE_vect)
+  94:usart_tx.c    **** {
+ 321               		.stabn	68,0,94,.LM30-.LFBB5
+ 322               	.LM30:
+ 323               	.LFBB5:
+ 324 0082 1F92      		push r1
+ 325 0084 0F92      		push r0
+ 326 0086 0FB6      		in r0,__SREG__
+ 327 0088 0F92      		push r0
+ 328 008a 1124      		clr __zero_reg__
+ 329 008c 8F93      		push r24
+ 330 008e EF93      		push r30
+ 331 0090 FF93      		push r31
+ 332               	/* prologue: Signal */
+ 333               	/* frame size = 0 */
+ 334               	/* stack size = 6 */
+ 335               	.L__stack_usage = 6
+  95:usart_tx.c    ****     if (tx_head == tx_tail) {
+ 336               		.stabn	68,0,95,.LM31-.LFBB5
+ 337               	.LM31:
+ 338 0092 E091 0000 		lds r30,tx_tail
+ 339 0096 8091 0000 		lds r24,tx_head
+ 340 009a 8E13      		cpse r24,r30
+ 341 009c 00C0      		rjmp .L17
+  96:usart_tx.c    ****         UCSR0B &= ~(1 << UDRIE0);
+ 342               		.stabn	68,0,96,.LM32-.LFBB5
+ 343               	.LM32:
+ 344 009e 8091 C100 		lds r24,193
+ 345 00a2 8F7D      		andi r24,lo8(-33)
+ 346 00a4 8093 C100 		sts 193,r24
+  97:usart_tx.c    ****         usart_transmitting = 0;
+ 347               		.stabn	68,0,97,.LM33-.LFBB5
+ 348               	.LM33:
+ 349 00a8 1092 0000 		sts usart_transmitting,__zero_reg__
+ 350 00ac 00C0      		rjmp .L16
+ 351               	.L17:
+  98:usart_tx.c    ****     } else {
+  99:usart_tx.c    ****         UDR0 = tx_buffer[tx_tail];
+ 352               		.stabn	68,0,99,.LM34-.LFBB5
+ 353               	.LM34:
+ 354 00ae F0E0      		ldi r31,0
+GAS LISTING /tmp/ccES3n3d.s 			page 9
 
 
- 314               	.Lscope4:
- 315               		.stabs	"",36,0,0,.Lscope4-.LFBB4
- 316               		.stabd	78,0,0
- 317               		.stabs	"__vector_19:F(0,47)",36,0,92,__vector_19
- 318               	.global	__vector_19
- 319               		.type	__vector_19, @function
- 320               	__vector_19:
- 321               		.stabd	46,0,0
-  84:usart_tx.c    **** 
-  85:usart_tx.c    **** /* -------------------------------------*/
-  86:usart_tx.c    **** /*
-  87:usart_tx.c    ****  * Interrupt handlers devem ser definidos com a macros
-  88:usart_tx.c    ****  * ISR(), que é definida no arquivo avr/interrupt.h.
-  89:usart_tx.c    ****  * Veja também a página
-  90:usart_tx.c    ****  * http://www.nongnu.org/avr-libc/user-manual/group__avr__interrupts.html
-  91:usart_tx.c    ****  */
-  92:usart_tx.c    **** ISR(USART_UDRE_vect)
-  93:usart_tx.c    **** {
- 322               		.stabn	68,0,93,.LM31-.LFBB5
- 323               	.LM31:
- 324               	.LFBB5:
- 325 0080 1F92      		push r1
- 326 0082 0F92      		push r0
- 327 0084 0FB6      		in r0,__SREG__
- 328 0086 0F92      		push r0
- 329 0088 1124      		clr __zero_reg__
- 330 008a 8F93      		push r24
- 331 008c EF93      		push r30
- 332 008e FF93      		push r31
- 333               	/* prologue: Signal */
- 334               	/* frame size = 0 */
- 335               	/* stack size = 6 */
- 336               	.L__stack_usage = 6
-  94:usart_tx.c    ****     if (tx_head == tx_tail) {
- 337               		.stabn	68,0,94,.LM32-.LFBB5
- 338               	.LM32:
- 339 0090 E091 0000 		lds r30,tx_tail
- 340 0094 8091 0000 		lds r24,tx_head
- 341 0098 8E13      		cpse r24,r30
- 342 009a 00C0      		rjmp .L17
-  95:usart_tx.c    ****         UCSR0B &= ~(1 << UDRIE0);
- 343               		.stabn	68,0,95,.LM33-.LFBB5
- 344               	.LM33:
- 345 009c 8091 C100 		lds r24,193
- 346 00a0 8F7D      		andi r24,lo8(-33)
- 347 00a2 8093 C100 		sts 193,r24
-  96:usart_tx.c    ****         usart_transmitting = 0;
- 348               		.stabn	68,0,96,.LM34-.LFBB5
- 349               	.LM34:
- 350 00a6 1092 0000 		sts usart_transmitting,__zero_reg__
- 351 00aa 00C0      		rjmp .L16
- 352               	.L17:
-  97:usart_tx.c    ****     } else {
-  98:usart_tx.c    ****         UDR0 = tx_buffer[tx_tail];
- 353               		.stabn	68,0,98,.LM35-.LFBB5
- 354               	.LM35:
- 355 00ac F0E0      		ldi r31,0
-GAS LISTING /tmp/ccUTteEc.s 			page 9
+ 355 00b0 E050      		subi r30,lo8(-(tx_buffer))
+ 356 00b2 F040      		sbci r31,hi8(-(tx_buffer))
+ 357 00b4 8081      		ld r24,Z
+ 358 00b6 8093 C600 		sts 198,r24
+ 100:usart_tx.c    ****         if (++tx_tail >= BUFFER_SIZE)
+ 359               		.stabn	68,0,100,.LM35-.LFBB5
+ 360               	.LM35:
+ 361 00ba 8091 0000 		lds r24,tx_tail
+ 362 00be 8F5F      		subi r24,lo8(-(1))
+ 363 00c0 883C      		cpi r24,lo8(-56)
+ 364 00c2 00F4      		brsh .L19
+ 365 00c4 8093 0000 		sts tx_tail,r24
+ 366 00c8 00C0      		rjmp .L16
+ 367               	.L19:
+ 101:usart_tx.c    ****             tx_tail = 0;
+ 368               		.stabn	68,0,101,.LM36-.LFBB5
+ 369               	.LM36:
+ 370 00ca 1092 0000 		sts tx_tail,__zero_reg__
+ 371               	.L16:
+ 372               	/* epilogue start */
+ 102:usart_tx.c    ****     }
+ 103:usart_tx.c    **** }
+ 373               		.stabn	68,0,103,.LM37-.LFBB5
+ 374               	.LM37:
+ 375 00ce FF91      		pop r31
+ 376 00d0 EF91      		pop r30
+ 377 00d2 8F91      		pop r24
+ 378 00d4 0F90      		pop r0
+ 379 00d6 0FBE      		out __SREG__,r0
+ 380 00d8 0F90      		pop r0
+ 381 00da 1F90      		pop r1
+ 382 00dc 1895      		reti
+ 383               		.size	__vector_19, .-__vector_19
+ 384               	.Lscope5:
+ 385               		.stabs	"",36,0,0,.Lscope5-.LFBB5
+ 386               		.stabd	78,0,0
+ 387               		.section	.text.startup,"ax",@progbits
+ 388               		.stabs	"main:F(0,1)",36,0,106,main
+ 389               	.global	main
+ 390               		.type	main, @function
+ 391               	main:
+ 392               		.stabd	46,0,0
+ 104:usart_tx.c    **** 
+ 105:usart_tx.c    **** /* -------------------------------------*/
+ 106:usart_tx.c    **** int main(void)
+ 107:usart_tx.c    **** {
+ 393               		.stabn	68,0,107,.LM38-.LFBB6
+ 394               	.LM38:
+ 395               	.LFBB6:
+ 396               	/* prologue: function */
+ 397               	/* frame size = 0 */
+ 398               	/* stack size = 0 */
+ 399               	.L__stack_usage = 0
+ 108:usart_tx.c    ****     // char msg[] = "Hello, world!  I'm alive! It's so good to be alive!\n";
+ 109:usart_tx.c    ****     // uint8_t i;
+ 110:usart_tx.c    **** 
+ 111:usart_tx.c    ****     setup_usart();
+GAS LISTING /tmp/ccES3n3d.s 			page 10
 
 
- 356 00ae E050      		subi r30,lo8(-(tx_buffer))
- 357 00b0 F040      		sbci r31,hi8(-(tx_buffer))
- 358 00b2 8081      		ld r24,Z
- 359 00b4 8093 C600 		sts 198,r24
-  99:usart_tx.c    ****         if (++tx_tail >= BUFFER_SIZE)
- 360               		.stabn	68,0,99,.LM36-.LFBB5
- 361               	.LM36:
- 362 00b8 8091 0000 		lds r24,tx_tail
- 363 00bc 8F5F      		subi r24,lo8(-(1))
- 364 00be 883C      		cpi r24,lo8(-56)
- 365 00c0 00F4      		brsh .L19
- 366 00c2 8093 0000 		sts tx_tail,r24
- 367 00c6 00C0      		rjmp .L16
- 368               	.L19:
- 100:usart_tx.c    ****             tx_tail = 0;
- 369               		.stabn	68,0,100,.LM37-.LFBB5
- 370               	.LM37:
- 371 00c8 1092 0000 		sts tx_tail,__zero_reg__
- 372               	.L16:
- 373               	/* epilogue start */
- 101:usart_tx.c    ****     }
- 102:usart_tx.c    **** }
- 374               		.stabn	68,0,102,.LM38-.LFBB5
- 375               	.LM38:
- 376 00cc FF91      		pop r31
- 377 00ce EF91      		pop r30
- 378 00d0 8F91      		pop r24
- 379 00d2 0F90      		pop r0
- 380 00d4 0FBE      		out __SREG__,r0
- 381 00d6 0F90      		pop r0
- 382 00d8 1F90      		pop r1
- 383 00da 1895      		reti
- 384               		.size	__vector_19, .-__vector_19
- 385               	.Lscope5:
- 386               		.stabs	"",36,0,0,.Lscope5-.LFBB5
- 387               		.stabd	78,0,0
- 388               		.section	.text.startup,"ax",@progbits
- 389               		.stabs	"main:F(0,1)",36,0,105,main
- 390               	.global	main
- 391               		.type	main, @function
- 392               	main:
- 393               		.stabd	46,0,0
- 103:usart_tx.c    **** 
- 104:usart_tx.c    **** /* -------------------------------------*/
- 105:usart_tx.c    **** int main(void)
- 106:usart_tx.c    **** {
- 394               		.stabn	68,0,106,.LM39-.LFBB6
- 395               	.LM39:
- 396               	.LFBB6:
- 397               	/* prologue: function */
- 398               	/* frame size = 0 */
- 399               	/* stack size = 0 */
- 400               	.L__stack_usage = 0
- 107:usart_tx.c    ****     char msg[] = "Hello, world!  I'm alive! It's so good to be alive!\n";
- 108:usart_tx.c    ****     uint8_t i;
- 109:usart_tx.c    **** 
- 110:usart_tx.c    ****     setup_usart();
-GAS LISTING /tmp/ccUTteEc.s 			page 10
-
-
- 401               		.stabn	68,0,110,.LM40-.LFBB6
- 402               	.LM40:
- 403 0000 0E94 0000 		call setup_usart
- 111:usart_tx.c    ****     setup_main();
- 404               		.stabn	68,0,111,.LM41-.LFBB6
- 405               	.LM41:
- 406 0004 0E94 0000 		call setup_main
- 407               	.L21:
- 112:usart_tx.c    **** 
- 113:usart_tx.c    ****     while(1) {
- 114:usart_tx.c    **** 	/*
- 115:usart_tx.c    **** 	 * Transmita a msg para a porta serial
- 116:usart_tx.c    **** 	 */
- 117:usart_tx.c    ****         write(2);
- 408               		.stabn	68,0,117,.LM42-.LFBB6
- 409               	.LM42:
- 410 0008 82E0      		ldi r24,lo8(2)
- 411 000a 0E94 0000 		call write
- 118:usart_tx.c    **** 		delay_ms(250);
- 412               		.stabn	68,0,118,.LM43-.LFBB6
- 413               	.LM43:
- 414 000e 8AEF      		ldi r24,lo8(-6)
- 415 0010 90E0      		ldi r25,0
- 416 0012 0E94 0000 		call delay_ms
- 119:usart_tx.c    ****     }
- 417               		.stabn	68,0,119,.LM44-.LFBB6
- 418               	.LM44:
- 419 0016 00C0      		rjmp .L21
- 420               		.size	main, .-main
- 421               	.Lscope6:
- 422               		.stabs	"",36,0,0,.Lscope6-.LFBB6
- 423               		.stabd	78,0,0
- 424               		.comm	usart_transmitting,1,1
- 425               		.comm	tx_tail,1,1
- 426               		.comm	tx_head,1,1
- 427               		.comm	tx_buffer,200,1
- 428               		.stabs	"tx_buffer:G(0,48)=ar(0,49)=r(0,49);0;0177777;;0;199;(5,2)",32,0,58,0
- 429               		.stabs	"tx_head:G(5,2)",32,0,59,0
- 430               		.stabs	"tx_tail:G(5,2)",32,0,59,0
- 431               		.stabs	"usart_transmitting:G(5,2)",32,0,60,0
- 432               		.text
- 433               		.stabs	"",100,0,0,.Letext0
- 434               	.Letext0:
- 435               		.ident	"GCC: (GNU) 4.9.2"
- 436               	.global __do_clear_bss
-GAS LISTING /tmp/ccUTteEc.s 			page 11
+ 400               		.stabn	68,0,111,.LM39-.LFBB6
+ 401               	.LM39:
+ 402 0000 0E94 0000 		call setup_usart
+ 403               	.LBB6:
+ 404               	.LBB7:
+  46:usart_tx.c    **** }
+ 405               		.stabn	68,0,46,.LM40-.LFBB6
+ 406               	.LM40:
+ 407               	/* #APP */
+ 408               	 ;  46 "usart_tx.c" 1
+ 409 0004 7894      		sei
+ 410               	 ;  0 "" 2
+ 411               	/* #NOAPP */
+ 412               	.L21:
+ 413               	.LBE7:
+ 414               	.LBE6:
+ 112:usart_tx.c    ****     setup_main();
+ 113:usart_tx.c    **** 
+ 114:usart_tx.c    ****     while(1) {
+ 115:usart_tx.c    **** 	/*
+ 116:usart_tx.c    **** 	 * Transmita a msg para a porta serial
+ 117:usart_tx.c    **** 	 */
+ 118:usart_tx.c    ****         
+ 119:usart_tx.c    ****         write('D');
+ 415               		.stabn	68,0,119,.LM41-.LFBB6
+ 416               	.LM41:
+ 417 0006 84E4      		ldi r24,lo8(68)
+ 418 0008 0E94 0000 		call write
+ 120:usart_tx.c    **** 		delay_ms(250);
+ 419               		.stabn	68,0,120,.LM42-.LFBB6
+ 420               	.LM42:
+ 421 000c 8AEF      		ldi r24,lo8(-6)
+ 422 000e 90E0      		ldi r25,0
+ 423 0010 0E94 0000 		call delay_ms
+ 121:usart_tx.c    ****     }
+ 424               		.stabn	68,0,121,.LM43-.LFBB6
+ 425               	.LM43:
+ 426 0014 00C0      		rjmp .L21
+ 427               		.size	main, .-main
+ 428               	.Lscope6:
+ 429               		.stabs	"",36,0,0,.Lscope6-.LFBB6
+ 430               		.stabd	78,0,0
+ 431               		.comm	usart_transmitting,1,1
+ 432               		.comm	tx_tail,1,1
+ 433               		.comm	tx_head,1,1
+ 434               		.comm	tx_buffer,200,1
+ 435               		.stabs	"tx_buffer:G(0,48)=ar(0,49)=r(0,49);0;0177777;;0;199;(5,2)",32,0,59,0
+ 436               		.stabs	"tx_head:G(5,2)",32,0,60,0
+ 437               		.stabs	"tx_tail:G(5,2)",32,0,60,0
+ 438               		.stabs	"usart_transmitting:G(5,2)",32,0,61,0
+ 439               		.text
+ 440               		.stabs	"",100,0,0,.Letext0
+ 441               	.Letext0:
+ 442               		.ident	"GCC: (GNU) 4.9.2"
+ 443               	.global __do_clear_bss
+GAS LISTING /tmp/ccES3n3d.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usart_tx.c
-     /tmp/ccUTteEc.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccUTteEc.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccUTteEc.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccUTteEc.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccUTteEc.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccUTteEc.s:105    .text:0000000000000000 setup_usart
-     /tmp/ccUTteEc.s:135    .text:0000000000000010 setup_main
-     /tmp/ccUTteEc.s:163    .text:0000000000000016 delay_ms
-     /tmp/ccUTteEc.s:218    .text:0000000000000034 write
+     /tmp/ccES3n3d.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccES3n3d.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccES3n3d.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccES3n3d.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccES3n3d.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccES3n3d.s:105    .text:0000000000000000 setup_usart
+     /tmp/ccES3n3d.s:137    .text:0000000000000014 setup_main
+     /tmp/ccES3n3d.s:162    .text:0000000000000018 delay_ms
+     /tmp/ccES3n3d.s:217    .text:0000000000000036 write
                             *COM*:0000000000000001 usart_transmitting
                             *COM*:0000000000000001 tx_head
                             *COM*:0000000000000001 tx_tail
                             *COM*:00000000000000c8 tx_buffer
-     /tmp/ccUTteEc.s:320    .text:0000000000000080 __vector_19
-     /tmp/ccUTteEc.s:392    .text.startup:0000000000000000 main
+     /tmp/ccES3n3d.s:319    .text:0000000000000082 __vector_19
+     /tmp/ccES3n3d.s:391    .text.startup:0000000000000000 main
 
 UNDEFINED SYMBOLS
 __do_clear_bss

@@ -207,18 +207,18 @@ END GROUP
                 0x000000000000008c                __vector_16
                 0x000000000000008c                __vector_18
                 0x000000000000008c                __vector_20
- .text          0x0000000000000090       0xdc usart_tx.o
+ .text          0x0000000000000090       0xde usart_tx.o
                 0x0000000000000090                setup_usart
-                0x00000000000000a0                setup_main
-                0x00000000000000a6                delay_ms
-                0x00000000000000c4                write
-                0x0000000000000110                __vector_19
- .text          0x000000000000016c        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
- .text          0x000000000000016c        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
-                0x000000000000016c                . = ALIGN (0x2)
+                0x00000000000000a4                setup_main
+                0x00000000000000a8                delay_ms
+                0x00000000000000c6                write
+                0x0000000000000112                __vector_19
+ .text          0x000000000000016e        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ .text          0x000000000000016e        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+                0x000000000000016e                . = ALIGN (0x2)
  *(.text.*)
- .text.startup  0x000000000000016c       0x18 usart_tx.o
-                0x000000000000016c                main
+ .text.startup  0x000000000000016e       0x16 usart_tx.o
+                0x000000000000016e                main
  .text.libgcc.mul
                 0x0000000000000184        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
  .text.libgcc.div
@@ -331,9 +331,9 @@ END GROUP
 .user_signatures
  *(.user_signatures*)
 
-.stab           0x0000000000000000      0x888
+.stab           0x0000000000000000      0x87c
  *(.stab)
- .stab          0x0000000000000000      0x888 usart_tx.o
+ .stab          0x0000000000000000      0x87c usart_tx.o
 
 .stabstr        0x0000000000000000      0xcd1
  *(.stabstr)

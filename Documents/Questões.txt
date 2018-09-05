@@ -1,8 +1,11 @@
                             Exemplos de perguntas para a prova de Projeto de Sistemas Embarcados
 
+/*
+Author: Geraldo Braz de Almeida Neto
+*/
 >> ARM
 1) Cite 4 características de microcontroladores.
-- Tamanho reduzido
+- Tamanho reduzido, single chip
 - Baixo custo
 - Podem atuar em um grande leque de aplicacoes
 - Baixo consumo energético
@@ -10,14 +13,13 @@
 2) Cite 2 exemplos de microcontroladores.
 - STM32f103
 - PIC16F628A
-- TIVA
 - ATEMEGA 328f
 
 3) O que significa a sigla ARM?
 Advanced RISC Machine
 
 4) Cite 3 características da arquitetura ARM.
-- Cores muito simples
+- Suporte a JTAG e com isso debug
 - Pipeline desenvolvido para minimizar o consumo energético
 - Alta performace 
 - Modular
@@ -44,12 +46,12 @@ Advanced RISC Machine
 - Write Data Register
 
 
-(*) 7) Explique como funciona o pipeline de 3 estágios do ARM7TDMI e anteriores.
+7) Explique como funciona o pipeline de 3 estágios do ARM7TDMI e anteriores.
 Basicamente as instrucoes podem ser executadas em 1 ou 2 ciclos de clock.
 Sendo que intrucoes aritimeticas sao executadas em 1 ciclo, porem intrucoes
 de LOAD e STORE sao executadas em 2 ciclos.
 
-(*) 8) Explique como funciona o pipeline de 5 estágios do ARMS/ARM9TDMI.
+8) Explique como funciona o pipeline de 5 estágios do ARMS/ARM9TDMI.
 Melhoria ao pipeline de 3 estagios. Agora as memorias de instrucoes e de dados
 sao separadas. As instrucoes sao executadas em 3 estagios:
 - O primeiro estagio executa acoes aritimeticas
@@ -58,10 +60,17 @@ sao separadas. As instrucoes sao executadas em 3 estagios:
 
 Reducao no numero de clocks por intrucao 
 
-(*) 9) Explique como funciona o pipeline de 6 estágios do ARM10TDMI.
+9) Explique como funciona o pipeline de 6 estágios do ARM10TDMI.
+A decodificação de instruções foi dividida em 2 estágios:
+    - Estágio de decodificação que realiza a operação de decodificação
+    - Estágio de registro que le o registrador a ser usando
+Aumenta o tamanho das instruções para 64bits
 
+10) Explique como funciona o pipeline de 8 estágios do ARM11.
+Operadores de deslocamento foram separados em outro pipeline. Acessos a 
+instruções e dados foram separados em dois pipelines distintos.A unidade de 
+execução foi dividida em 3 pipelines.
 
-(*) 10) Explique como funciona o pipeline de 8 estágios do ARM11.
 
 11) Justifique porque o ARM é considerado uma arquitetura RISC.
 Um computador RISC parte do pressuposto de que um conjunto simples de instruções
@@ -79,7 +88,13 @@ endereçamento simples.
 - R13 Stack Pointer register
 - R14 Called link register 
 
-(*) 14) Fale sobre um dos modos de operação do ARM (User, FIQ, IRQ, SVC, UNDEF ou Abort).
+14) Fale sobre um dos modos de operação do ARM (User, FIQ, IRQ, SVC, UNDEF ou Abort).
+- O modo user é o modo utilizado para rodar o application code
+- FIQ (Fast Interrupt Processing Mode): Usado pra uma unica interrupcao critica
+- IRQ (Normal Interrupt Processing Mode): Todas as outras Interrupcoes
+- SVG (Supervisor Mode): Usado para chamar serviços do sistema operacional
+- UNDEF (Undefined instruction mode): É chamado quando o opcode não apresenta uma intrução válida
+- Abort mode: É chamado quando ocorre uma falta de memória, a instrução buscada está em um endereço errado.
 
 15) O que é THUMB? Quais as vantagens de utilizá-lo?
 Sao intrucoes que podem ser utilizadas pelo processador ARM que fazem com que
@@ -88,7 +103,8 @@ uma economia de memoria. As intrucoes  do tipo THUMB sao armazenadas em uma form
 comprimida. 
 
 16) Explique em detalhes como funciona a execução condicional de instruções no ARM.
-
+Uma característica marcante dos processadores ARMv7 são que todas as intruções são executadas de forma condicional, de forma que os 4 bits mais significativos
+são utilizados para codificar o campo de condição fazendo com que hajam 16 possibilidades de condições a serem feitas
 
 17) Como um mesmo código pode chavear entre instruções ARM e THUMB?
 Sim. Mas deve-se atentar que mesmo que se deseje utilizar somente intrucoes THUMB
