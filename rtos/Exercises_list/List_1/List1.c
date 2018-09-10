@@ -142,7 +142,7 @@
         // Nothing to do
             _delay_ms(100);
             PORTB &= ~(1 << PD2);
-            if(flaggy){
+            if(flag){
                 write(0x48); 
             }        
 
