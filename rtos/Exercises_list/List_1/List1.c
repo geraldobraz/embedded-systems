@@ -9,6 +9,7 @@
     #include <avr/io.h>
     #include <avr/cpufunc.h>
     #include <avr/interrupt.h>
+    #include <util/delay.h>
 //"/usr/lib/avr/include/avr"
 //***********************************//
 // Defines
@@ -16,29 +17,24 @@
     #define BAUD 115200      // Baudrate
     #define BAUDRATE (FOSC/(8ul*BAUD) - 1) 
     #define BUFFER_SIZE 200   // USART buffer size
-    
 
 //***********************************//
 
 //***********************************//
 // Global Variables
-    uint8_t rx_buffer[BUFFER_SIZE];     /* buffer para transmissão */
-    uint8_t rx_head, rx_tail;   /* ponteiros para o buffer circular */
-    uint8_t flag = 0;
-
+    volatile uint8_t flag; 
     uint8_t tx_buffer[BUFFER_SIZE];     /* buffer para transmissão */
     uint8_t tx_head, tx_tail;   /* ponteiros para o buffer circular */
     uint8_t usart_transmitting;
 //***********************************//
-
 
 // ********* Configurations *********//
     //***********************************//
     // Uart
         void uartInit(){
             // Configuration of Uart Transmition RX-TX
-            DDRD = (1 << PD1); // Configure Tx as Output
-            DDRD = ~(1 << PD0); // Configure Rx as Input
+            DDRD |= (1 << PD1); // Configure Tx as Output
+            DDRD |= ~(1 << PD0); // Configure Rx as Input
             
             // Configurate the Baudrate
             UBRR0H = (BAUDRATE >> 8);
@@ -50,16 +46,21 @@
         }
 
         //***********************************//
-    
-    
-    // System
+    // Interruption
+     void interruptInit(){
+            EICRA |= (1 << ISC00);    // set INT0 to trigger on ANY logic change
+            EIMSK |= (1 << INT0);     // Turns on INT0
+            sei();                    // turn on interrupts
+        } 
+
+    // System 
         void systemInit(){
-            DDRB = (1 << PB0); // Trigger
-            DDRB = ~(1 << PD5); // Echo
-            PORTB =  0x00; // Putting PB0 output to low state
-            sei();
-            
+            DDRB |= (1 << PB0); // Trigger as Output
+            DDRD &= ~(1 << PD2); // Echo as Input            
+            // DDRB |= (1 << PB1); // Trigger as Output
+            // DDRB |= (1 << PB2);
         }
+       
     //***********************************//
     
     // Functions
@@ -70,7 +71,7 @@
                     _NOP();
         }
 
-        
+        // Write on serial one byte
         uint8_t write(uint8_t c){
             uint8_t rc = 0;
 
@@ -95,29 +96,35 @@
     //***********************************//
     
     //***********************************//
-    // Interruptions
-        // Interruption of RX 
+    // Interruption of RX 
         ISR(USART_RX_vect){
             unsigned char data = UDR0; // Recived data
             // Start the Infrared sensor
             if(data == 's'){
-                PORTB = (1 << PB0);  // Trigger to HIGH   
-            }else{
-                flag = 0;
+                PORTB = 0x01;  // Trigger to HIGH   
+                _delay_us(10);
+                PORTB = 0x00;  // Trigger to LOW   
             }
             
         }
 
         // Interrupton of TX
-        // ISR(USART_UDRE_vect){
-        //     // send "48" throught 
-        //     // PORTB = (1 << PB1);
-        //     flag = 0;
+        ISR(USART_UDRE_vect){
+            cli();
+            PORTB |= (1 << PB2);
+            flag = 0;
+            delay_ms(10);
+            sei();
 
-        // }        
-        // Interruption of INT0
+        }        
+        // Interruption of INT0 
         ISR(INT0_vect){
+            
+            cli();
             flag = 1; // Enable the the flag to send a message
+            delay_ms(10);
+            sei();
+            
         }
        
     //***********************************//
@@ -128,15 +135,16 @@
     int main(void){
 
         uartInit();
+        interruptInit();
         systemInit();
         
         while(1){
         // Nothing to do
-
-            if(flag == 1){
-                write(0x48);
+            _delay_ms(100);
+            PORTB &= ~(1 << PD2);
+            if(flaggy){
+                write(0x48); 
             }        
-        
 
         }
     
