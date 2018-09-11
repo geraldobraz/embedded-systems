@@ -1,0 +1,1137 @@
+GAS LISTING /tmp/cceHxJBV.s 			page 1
+
+
+   1               		.file	"potenciometro.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.stabs	"/home/blva/embedded-systems/rtos/Class_5/",100,0,2,.Ltext0
+   8               		.stabs	"potenciometro.c",100,0,2,.Ltext0
+   9               		.text
+  10               	.Ltext0:
+  11               		.stabs	"gcc2_compiled.",60,0,0,0
+  12               		.stabs	"int:t(0,1)=r(0,1);-32768;32767;",128,0,0,0
+  13               		.stabs	"char:t(0,2)=@s8;r(0,2);0;255;",128,0,0,0
+  14               		.stabs	"long int:t(0,3)=@s32;r(0,3);020000000000;017777777777;",128,0,0,0
+  15               		.stabs	"unsigned int:t(0,4)=r(0,4);0;0177777;",128,0,0,0
+  16               		.stabs	"long unsigned int:t(0,5)=@s32;r(0,5);0;037777777777;",128,0,0,0
+  17               		.stabs	"__int128:t(0,6)=@s128;r(0,6);02000000000000000000000000000000000000000000;0177777777777777
+  18               		.stabs	"__int128 unsigned:t(0,7)=@s128;r(0,7);0;03777777777777777777777777777777777777777777;",128
+  19               		.stabs	"long long int:t(0,8)=@s64;r(0,8);01000000000000000000000;00777777777777777777777;",128,0,0
+  20               		.stabs	"long long unsigned int:t(0,9)=@s64;r(0,9);0;01777777777777777777777;",128,0,0,0
+  21               		.stabs	"short int:t(0,10)=r(0,10);-32768;32767;",128,0,0,0
+  22               		.stabs	"short unsigned int:t(0,11)=r(0,11);0;0177777;",128,0,0,0
+  23               		.stabs	"signed char:t(0,12)=@s8;r(0,12);-128;127;",128,0,0,0
+  24               		.stabs	"unsigned char:t(0,13)=@s8;r(0,13);0;255;",128,0,0,0
+  25               		.stabs	"float:t(0,14)=r(0,1);4;0;",128,0,0,0
+  26               		.stabs	"double:t(0,15)=r(0,1);4;0;",128,0,0,0
+  27               		.stabs	"long double:t(0,16)=r(0,1);4;0;",128,0,0,0
+  28               		.stabs	"short _Fract:t(0,17)=r(0,1);1;0;",128,0,0,0
+  29               		.stabs	"_Fract:t(0,18)=r(0,1);2;0;",128,0,0,0
+  30               		.stabs	"long _Fract:t(0,19)=r(0,1);4;0;",128,0,0,0
+  31               		.stabs	"long long _Fract:t(0,20)=r(0,1);8;0;",128,0,0,0
+  32               		.stabs	"unsigned short _Fract:t(0,21)=r(0,1);1;0;",128,0,0,0
+  33               		.stabs	"unsigned _Fract:t(0,22)=r(0,1);2;0;",128,0,0,0
+  34               		.stabs	"unsigned long _Fract:t(0,23)=r(0,1);4;0;",128,0,0,0
+  35               		.stabs	"unsigned long long _Fract:t(0,24)=r(0,1);8;0;",128,0,0,0
+  36               		.stabs	"_Sat short _Fract:t(0,25)=r(0,1);1;0;",128,0,0,0
+  37               		.stabs	"_Sat _Fract:t(0,26)=r(0,1);2;0;",128,0,0,0
+  38               		.stabs	"_Sat long _Fract:t(0,27)=r(0,1);4;0;",128,0,0,0
+  39               		.stabs	"_Sat long long _Fract:t(0,28)=r(0,1);8;0;",128,0,0,0
+  40               		.stabs	"_Sat unsigned short _Fract:t(0,29)=r(0,1);1;0;",128,0,0,0
+  41               		.stabs	"_Sat unsigned _Fract:t(0,30)=r(0,1);2;0;",128,0,0,0
+  42               		.stabs	"_Sat unsigned long _Fract:t(0,31)=r(0,1);4;0;",128,0,0,0
+  43               		.stabs	"_Sat unsigned long long _Fract:t(0,32)=r(0,1);8;0;",128,0,0,0
+  44               		.stabs	"short _Accum:t(0,33)=r(0,1);2;0;",128,0,0,0
+  45               		.stabs	"_Accum:t(0,34)=r(0,1);4;0;",128,0,0,0
+  46               		.stabs	"long _Accum:t(0,35)=r(0,1);8;0;",128,0,0,0
+  47               		.stabs	"long long _Accum:t(0,36)=r(0,1);8;0;",128,0,0,0
+  48               		.stabs	"unsigned short _Accum:t(0,37)=r(0,1);2;0;",128,0,0,0
+  49               		.stabs	"unsigned _Accum:t(0,38)=r(0,1);4;0;",128,0,0,0
+  50               		.stabs	"unsigned long _Accum:t(0,39)=r(0,1);8;0;",128,0,0,0
+  51               		.stabs	"unsigned long long _Accum:t(0,40)=r(0,1);8;0;",128,0,0,0
+  52               		.stabs	"_Sat short _Accum:t(0,41)=r(0,1);2;0;",128,0,0,0
+  53               		.stabs	"_Sat _Accum:t(0,42)=r(0,1);4;0;",128,0,0,0
+  54               		.stabs	"_Sat long _Accum:t(0,43)=r(0,1);8;0;",128,0,0,0
+  55               		.stabs	"_Sat long long _Accum:t(0,44)=r(0,1);8;0;",128,0,0,0
+  56               		.stabs	"_Sat unsigned short _Accum:t(0,45)=r(0,1);2;0;",128,0,0,0
+  57               		.stabs	"_Sat unsigned _Accum:t(0,46)=r(0,1);4;0;",128,0,0,0
+GAS LISTING /tmp/cceHxJBV.s 			page 2
+
+
+  58               		.stabs	"_Sat unsigned long _Accum:t(0,47)=r(0,1);8;0;",128,0,0,0
+  59               		.stabs	"_Sat unsigned long long _Accum:t(0,48)=r(0,1);8;0;",128,0,0,0
+  60               		.stabs	"void:t(0,49)=(0,49)",128,0,0,0
+  61               		.stabs	"/usr/lib/avr/include/avr/io.h",130,0,0,0
+  62               		.stabs	"/usr/lib/avr/include/avr/sfr_defs.h",130,0,0,0
+  63               		.stabs	"/usr/lib/avr/include/inttypes.h",130,0,0,0
+  64               		.stabs	"/usr/lib/gcc/avr/5.4.0/include/stdint.h",130,0,0,0
+  65               		.stabs	"/usr/lib/avr/include/stdint.h",130,0,0,0
+  66               		.stabs	"int8_t:t(5,1)=(0,12)",128,0,125,0
+  67               		.stabs	"uint8_t:t(5,2)=(0,13)",128,0,126,0
+  68               		.stabs	"int16_t:t(5,3)=(0,1)",128,0,127,0
+  69               		.stabs	"uint16_t:t(5,4)=(0,4)",128,0,128,0
+  70               		.stabs	"int32_t:t(5,5)=(0,3)",128,0,129,0
+  71               		.stabs	"uint32_t:t(5,6)=(0,5)",128,0,130,0
+  72               		.stabs	"int64_t:t(5,7)=(0,8)",128,0,132,0
+  73               		.stabs	"uint64_t:t(5,8)=(0,9)",128,0,133,0
+  74               		.stabs	"intptr_t:t(5,9)=(5,3)",128,0,146,0
+  75               		.stabs	"uintptr_t:t(5,10)=(5,4)",128,0,151,0
+  76               		.stabs	"int_least8_t:t(5,11)=(5,1)",128,0,163,0
+  77               		.stabs	"uint_least8_t:t(5,12)=(5,2)",128,0,168,0
+  78               		.stabs	"int_least16_t:t(5,13)=(5,3)",128,0,173,0
+  79               		.stabs	"uint_least16_t:t(5,14)=(5,4)",128,0,178,0
+  80               		.stabs	"int_least32_t:t(5,15)=(5,5)",128,0,183,0
+  81               		.stabs	"uint_least32_t:t(5,16)=(5,6)",128,0,188,0
+  82               		.stabs	"int_least64_t:t(5,17)=(5,7)",128,0,196,0
+  83               		.stabs	"uint_least64_t:t(5,18)=(5,8)",128,0,203,0
+  84               		.stabs	"int_fast8_t:t(5,19)=(5,1)",128,0,217,0
+  85               		.stabs	"uint_fast8_t:t(5,20)=(5,2)",128,0,222,0
+  86               		.stabs	"int_fast16_t:t(5,21)=(5,3)",128,0,227,0
+  87               		.stabs	"uint_fast16_t:t(5,22)=(5,4)",128,0,232,0
+  88               		.stabs	"int_fast32_t:t(5,23)=(5,5)",128,0,237,0
+  89               		.stabs	"uint_fast32_t:t(5,24)=(5,6)",128,0,242,0
+  90               		.stabs	"int_fast64_t:t(5,25)=(5,7)",128,0,250,0
+  91               		.stabs	"uint_fast64_t:t(5,26)=(5,8)",128,0,257,0
+  92               		.stabs	"intmax_t:t(5,27)=(5,7)",128,0,277,0
+  93               		.stabs	"uintmax_t:t(5,28)=(5,8)",128,0,282,0
+  94               		.stabn	162,0,0,0
+  95               		.stabn	162,0,0,0
+  96               		.stabs	"int_farptr_t:t(3,1)=(5,5)",128,0,77,0
+  97               		.stabs	"uint_farptr_t:t(3,2)=(5,6)",128,0,81,0
+  98               		.stabn	162,0,0,0
+  99               		.stabn	162,0,0,0
+ 100               		.stabs	"/usr/lib/avr/include/avr/fuse.h",130,0,0,0
+ 101               		.stabs	"__fuse_t:t(6,1)=(6,2)=s3low:(0,13),0,8;high:(0,13),8,8;extended:(0,13),16,8;;",128,0,244,0
+ 102               		.stabn	162,0,0,0
+ 103               		.stabn	162,0,0,0
+ 104               		.stabs	"setup_usart:F(0,49)",36,0,19,setup_usart
+ 105               	.global	setup_usart
+ 106               		.type	setup_usart, @function
+ 107               	setup_usart:
+ 108               		.stabd	46,0,0
+   1:potenciometro.c **** #include <avr/io.h>
+   2:potenciometro.c **** #include <avr/cpufunc.h>
+   3:potenciometro.c **** #include <avr/interrupt.h>
+   4:potenciometro.c **** 
+   5:potenciometro.c **** 
+   6:potenciometro.c **** /* 
+GAS LISTING /tmp/cceHxJBV.s 			page 3
+
+
+   7:potenciometro.c ****  * Constantes utilizadas no cÃ³digo 
+   8:potenciometro.c ****  */
+   9:potenciometro.c **** #define FOSC 16000000ul  /* velocidade do relÃ³gio */
+  10:potenciometro.c **** #define BAUD 115200      /* velocidade desejada para a serial */
+  11:potenciometro.c **** #define MYUBRR (FOSC/(8ul*BAUD) - 1)  /* valor de 12 bits para configurar o clock da USART */
+  12:potenciometro.c **** 
+  13:potenciometro.c **** #define BUFFER_SIZE 20   /* Tamanho do buffer da USART */
+  14:potenciometro.c **** 
+  15:potenciometro.c **** 
+  16:potenciometro.c **** /* 
+  17:potenciometro.c ****  * DefiniÃ§Ã£o de funÃ§Ãµes 
+  18:potenciometro.c ****  */
+  19:potenciometro.c **** void setup_usart(void)
+  20:potenciometro.c **** {
+ 109               		.stabn	68,0,20,.LM0-.LFBB1
+ 110               	.LM0:
+ 111               	.LFBB1:
+ 112               	/* prologue: function */
+ 113               	/* frame size = 0 */
+ 114               	/* stack size = 0 */
+ 115               	.L__stack_usage = 0
+  21:potenciometro.c ****     /*
+  22:potenciometro.c ****      * Primeiro setamos a direÃ§Ã£o certa para os pinos RX e TX
+  23:potenciometro.c ****      */
+  24:potenciometro.c ****     DDRD &= ~_BV(PD0);  /* USART RX bit para a placa Nano */
+ 116               		.stabn	68,0,24,.LM1-.LFBB1
+ 117               	.LM1:
+ 118 0000 5098      		cbi 0xa,0
+  25:potenciometro.c ****     DDRD |= _BV(PD1);  /* USART TX bit para a placa Nano */
+ 119               		.stabn	68,0,25,.LM2-.LFBB1
+ 120               	.LM2:
+ 121 0002 519A      		sbi 0xa,1
+  26:potenciometro.c ****     
+  27:potenciometro.c ****     /*
+  28:potenciometro.c ****      * Agora configuramos a USART
+  29:potenciometro.c ****      */
+  30:potenciometro.c ****     UBRR0H = (MYUBRR >> 8) & 0xF;
+ 122               		.stabn	68,0,30,.LM3-.LFBB1
+ 123               	.LM3:
+ 124 0004 1092 C500 		sts 197,__zero_reg__
+  31:potenciometro.c ****     UBRR0L = MYUBRR & 0xFF;
+ 125               		.stabn	68,0,31,.LM4-.LFBB1
+ 126               	.LM4:
+ 127 0008 80E1      		ldi r24,lo8(16)
+ 128 000a 8093 C400 		sts 196,r24
+  32:potenciometro.c ****     UCSR0A = _BV(U2X0); /* double speed */
+ 129               		.stabn	68,0,32,.LM5-.LFBB1
+ 130               	.LM5:
+ 131 000e 82E0      		ldi r24,lo8(2)
+ 132 0010 8093 C000 		sts 192,r24
+  33:potenciometro.c ****     UCSR0B = _BV(TXEN0) | _BV(RXCIE0) | _BV(RXEN0);
+ 133               		.stabn	68,0,33,.LM6-.LFBB1
+ 134               	.LM6:
+ 135 0014 88E9      		ldi r24,lo8(-104)
+ 136 0016 8093 C100 		sts 193,r24
+  34:potenciometro.c ****     UCSR0C = _BV(UCSZ00) | _BV(UCSZ01);  /* Asynchronous, 8-N-1 */
+ 137               		.stabn	68,0,34,.LM7-.LFBB1
+GAS LISTING /tmp/cceHxJBV.s 			page 4
+
+
+ 138               	.LM7:
+ 139 001a 86E0      		ldi r24,lo8(6)
+ 140 001c 8093 C200 		sts 194,r24
+ 141 0020 0895      		ret
+ 142               		.size	setup_usart, .-setup_usart
+ 143               	.Lscope1:
+ 144               		.stabs	"",36,0,0,.Lscope1-.LFBB1
+ 145               		.stabd	78,0,0
+ 146               		.stabs	"setup_timer1:F(0,49)",36,0,38,setup_timer1
+ 147               	.global	setup_timer1
+ 148               		.type	setup_timer1, @function
+ 149               	setup_timer1:
+ 150               		.stabd	46,0,0
+  35:potenciometro.c **** }
+  36:potenciometro.c **** 
+  37:potenciometro.c **** /* -------------------------------------*/
+  38:potenciometro.c **** void setup_timer1(void)
+  39:potenciometro.c **** {
+ 151               		.stabn	68,0,39,.LM8-.LFBB2
+ 152               	.LM8:
+ 153               	.LFBB2:
+ 154               	/* prologue: function */
+ 155               	/* frame size = 0 */
+ 156               	/* stack size = 0 */
+ 157               	.L__stack_usage = 0
+  40:potenciometro.c ****     /*
+  41:potenciometro.c ****      * Agora configuramos setup_timer1 no modo Fast PWM com overflow
+  42:potenciometro.c ****      * a cada 2 centÃ©simos de segundo
+  43:potenciometro.c ****      */
+  44:potenciometro.c ****     OCR1AH = 1250 >> 8;
+ 158               		.stabn	68,0,44,.LM9-.LFBB2
+ 159               	.LM9:
+ 160 0022 84E0      		ldi r24,lo8(4)
+ 161 0024 8093 8900 		sts 137,r24
+  45:potenciometro.c ****     OCR1AL = 1250 & 0xFF;
+ 162               		.stabn	68,0,45,.LM10-.LFBB2
+ 163               	.LM10:
+ 164 0028 82EE      		ldi r24,lo8(-30)
+ 165 002a 8093 8800 		sts 136,r24
+  46:potenciometro.c ****     TCCR1A = _BV(WGM11) | _BV(WGM10);
+ 166               		.stabn	68,0,46,.LM11-.LFBB2
+ 167               	.LM11:
+ 168 002e 83E0      		ldi r24,lo8(3)
+ 169 0030 8093 8000 		sts 128,r24
+  47:potenciometro.c ****     TCCR1B = _BV(WGM13) | _BV(WGM12) | _BV(CS12);
+ 170               		.stabn	68,0,47,.LM12-.LFBB2
+ 171               	.LM12:
+ 172 0034 8CE1      		ldi r24,lo8(28)
+ 173 0036 8093 8100 		sts 129,r24
+ 174 003a 0895      		ret
+ 175               		.size	setup_timer1, .-setup_timer1
+ 176               	.Lscope2:
+ 177               		.stabs	"",36,0,0,.Lscope2-.LFBB2
+ 178               		.stabd	78,0,0
+ 179               		.stabs	"setup_adc:F(0,49)",36,0,51,setup_adc
+ 180               	.global	setup_adc
+ 181               		.type	setup_adc, @function
+GAS LISTING /tmp/cceHxJBV.s 			page 5
+
+
+ 182               	setup_adc:
+ 183               		.stabd	46,0,0
+  48:potenciometro.c **** }
+  49:potenciometro.c **** 
+  50:potenciometro.c **** /* -------------------------------------*/
+  51:potenciometro.c **** void setup_adc(void)
+  52:potenciometro.c **** {
+ 184               		.stabn	68,0,52,.LM13-.LFBB3
+ 185               	.LM13:
+ 186               	.LFBB3:
+ 187               	/* prologue: function */
+ 188               	/* frame size = 0 */
+ 189               	/* stack size = 0 */
+ 190               	.L__stack_usage = 0
+  53:potenciometro.c ****     PORTC &= ~_BV(PC0);
+ 191               		.stabn	68,0,53,.LM14-.LFBB3
+ 192               	.LM14:
+ 193 003c 4098      		cbi 0x8,0
+  54:potenciometro.c ****     DDRC &= ~_BV(PC0);
+ 194               		.stabn	68,0,54,.LM15-.LFBB3
+ 195               	.LM15:
+ 196 003e 3898      		cbi 0x7,0
+  55:potenciometro.c ****     ADMUX = _BV(REFS0); /* V_REF = Vcc, usando ADC0 */
+ 197               		.stabn	68,0,55,.LM16-.LFBB3
+ 198               	.LM16:
+ 199 0040 80E4      		ldi r24,lo8(64)
+ 200 0042 8093 7C00 		sts 124,r24
+  56:potenciometro.c ****     ADCSRB = _BV(ADTS2) | _BV(ADTS1); /* Trigger no timer1 overflow */
+ 201               		.stabn	68,0,56,.LM17-.LFBB3
+ 202               	.LM17:
+ 203 0046 86E0      		ldi r24,lo8(6)
+ 204 0048 8093 7B00 		sts 123,r24
+  57:potenciometro.c ****     DIDR0 = _BV(ADC0D); /* disabilita buffer de entrada no pin AC0 */
+ 205               		.stabn	68,0,57,.LM18-.LFBB3
+ 206               	.LM18:
+ 207 004c 81E0      		ldi r24,lo8(1)
+ 208 004e 8093 7E00 		sts 126,r24
+  58:potenciometro.c ****     /* Habilita mÃ³dulo e inicia conversÃ£o; habilita conversÃ£o automÃ¡tica
+  59:potenciometro.c ****      * quando timer1 overflow; habilita interrupÃ§Ã£o */
+  60:potenciometro.c ****     ADCSRA = _BV(ADEN) | _BV(ADSC) | _BV(ADATE) | _BV(ADIE) | \
+ 209               		.stabn	68,0,60,.LM19-.LFBB3
+ 210               	.LM19:
+ 211 0052 8FEE      		ldi r24,lo8(-17)
+ 212 0054 8093 7A00 		sts 122,r24
+ 213 0058 0895      		ret
+ 214               		.size	setup_adc, .-setup_adc
+ 215               	.Lscope3:
+ 216               		.stabs	"",36,0,0,.Lscope3-.LFBB3
+ 217               		.stabd	78,0,0
+ 218               		.stabs	"setup_main:F(0,49)",36,0,65,setup_main
+ 219               	.global	setup_main
+ 220               		.type	setup_main, @function
+ 221               	setup_main:
+ 222               		.stabd	46,0,0
+  61:potenciometro.c ****              _BV(ADPS2) | _BV(ADPS1) | _BV(ADPS0);
+  62:potenciometro.c **** }
+  63:potenciometro.c **** 
+GAS LISTING /tmp/cceHxJBV.s 			page 6
+
+
+  64:potenciometro.c **** /* -------------------------------------*/
+  65:potenciometro.c **** void setup_main(void)
+  66:potenciometro.c **** {
+ 223               		.stabn	68,0,66,.LM20-.LFBB4
+ 224               	.LM20:
+ 225               	.LFBB4:
+ 226               	/* prologue: function */
+ 227               	/* frame size = 0 */
+ 228               	/* stack size = 0 */
+ 229               	.L__stack_usage = 0
+  67:potenciometro.c ****     LED_DDR |= _BV(LED_PINNBR);
+ 230               		.stabn	68,0,67,.LM21-.LFBB4
+ 231               	.LM21:
+ 232 005a 259A      		sbi 0x4,5
+  68:potenciometro.c ****     sei(); /* Seta flag principal de habilitaÃ§Ã£o de interrupÃ§Ãµes */
+ 233               		.stabn	68,0,68,.LM22-.LFBB4
+ 234               	.LM22:
+ 235               	/* #APP */
+ 236               	 ;  68 "potenciometro.c" 1
+ 237 005c 7894      		sei
+ 238               	 ;  0 "" 2
+ 239               	/* #NOAPP */
+ 240 005e 0895      		ret
+ 241               		.size	setup_main, .-setup_main
+ 242               	.Lscope4:
+ 243               		.stabs	"",36,0,0,.Lscope4-.LFBB4
+ 244               		.stabd	78,0,0
+ 245               		.stabs	"write:F(5,2)",36,0,76,write
+ 246               		.stabs	"c:P(5,2)",64,0,76,24
+ 247               	.global	write
+ 248               		.type	write, @function
+ 249               	write:
+ 250               		.stabd	46,0,0
+  69:potenciometro.c **** }
+  70:potenciometro.c **** 
+  71:potenciometro.c **** /* -------------------------------------*/
+  72:potenciometro.c **** uint8_t tx_buffer[BUFFER_SIZE];     /* buffer para transmissÃ£o */
+  73:potenciometro.c **** uint8_t tx_head, tx_tail;   /* ponteiros para o buffer circular */
+  74:potenciometro.c **** uint8_t usart_transmitting;
+  75:potenciometro.c **** 
+  76:potenciometro.c **** uint8_t write(uint8_t c)
+  77:potenciometro.c **** {
+ 251               		.stabn	68,0,77,.LM23-.LFBB5
+ 252               	.LM23:
+ 253               	.LFBB5:
+ 254               	/* prologue: function */
+ 255               	/* frame size = 0 */
+ 256               	/* stack size = 0 */
+ 257               	.L__stack_usage = 0
+  78:potenciometro.c ****     uint8_t rc = 0;
+  79:potenciometro.c **** 
+  80:potenciometro.c ****     cli();
+ 258               		.stabn	68,0,80,.LM24-.LFBB5
+ 259               	.LM24:
+ 260               	/* #APP */
+ 261               	 ;  80 "potenciometro.c" 1
+ 262 0060 F894      		cli
+GAS LISTING /tmp/cceHxJBV.s 			page 7
+
+
+ 263               	 ;  0 "" 2
+  81:potenciometro.c ****     if (!usart_transmitting) {
+ 264               		.stabn	68,0,81,.LM25-.LFBB5
+ 265               	.LM25:
+ 266               	/* #NOAPP */
+ 267 0062 9091 0000 		lds r25,usart_transmitting
+ 268 0066 9111      		cpse r25,__zero_reg__
+ 269 0068 00C0      		rjmp .L6
+  82:potenciometro.c ****         UDR0 = c;
+ 270               		.stabn	68,0,82,.LM26-.LFBB5
+ 271               	.LM26:
+ 272 006a 8093 C600 		sts 198,r24
+  83:potenciometro.c ****         UCSR0B |= _BV(UDRIE0);
+ 273               		.stabn	68,0,83,.LM27-.LFBB5
+ 274               	.LM27:
+ 275 006e 8091 C100 		lds r24,193
+ 276 0072 8062      		ori r24,lo8(32)
+ 277 0074 8093 C100 		sts 193,r24
+  84:potenciometro.c ****         usart_transmitting = 1;
+ 278               		.stabn	68,0,84,.LM28-.LFBB5
+ 279               	.LM28:
+ 280 0078 81E0      		ldi r24,lo8(1)
+ 281 007a 8093 0000 		sts usart_transmitting,r24
+ 282 007e 00C0      		rjmp .L10
+ 283               	.L6:
+ 284               	.LBB2:
+  85:potenciometro.c ****     } else {
+  86:potenciometro.c ****         uint8_t next = tx_head + 1;
+ 285               		.stabn	68,0,86,.LM29-.LFBB5
+ 286               	.LM29:
+ 287 0080 E091 0000 		lds r30,tx_head
+ 288 0084 91E0      		ldi r25,lo8(1)
+ 289 0086 9E0F      		add r25,r30
+  87:potenciometro.c ****         if (next >= BUFFER_SIZE)
+ 290               		.stabn	68,0,87,.LM30-.LFBB5
+ 291               	.LM30:
+ 292 0088 9431      		cpi r25,lo8(20)
+ 293 008a 00F0      		brlo .L8
+  88:potenciometro.c ****             next = 0;
+ 294               		.stabn	68,0,88,.LM31-.LFBB5
+ 295               	.LM31:
+ 296 008c 90E0      		ldi r25,0
+ 297               	.L8:
+  89:potenciometro.c ****         if (next != tx_tail) {
+ 298               		.stabn	68,0,89,.LM32-.LFBB5
+ 299               	.LM32:
+ 300 008e 2091 0000 		lds r18,tx_tail
+ 301 0092 9217      		cp r25,r18
+ 302 0094 01F0      		breq .L9
+  90:potenciometro.c ****             tx_buffer[tx_head] = c;
+ 303               		.stabn	68,0,90,.LM33-.LFBB5
+ 304               	.LM33:
+ 305 0096 F0E0      		ldi r31,0
+ 306 0098 E050      		subi r30,lo8(-(tx_buffer))
+ 307 009a F040      		sbci r31,hi8(-(tx_buffer))
+ 308 009c 8083      		st Z,r24
+  91:potenciometro.c ****             tx_head = next;
+GAS LISTING /tmp/cceHxJBV.s 			page 8
+
+
+ 309               		.stabn	68,0,91,.LM34-.LFBB5
+ 310               	.LM34:
+ 311 009e 9093 0000 		sts tx_head,r25
+ 312               	.L10:
+ 313               	.LBE2:
+  78:potenciometro.c **** 
+ 314               		.stabn	68,0,78,.LM35-.LFBB5
+ 315               	.LM35:
+ 316 00a2 80E0      		ldi r24,0
+ 317               	.LBB3:
+ 318 00a4 00C0      		rjmp .L7
+ 319               	.L9:
+  92:potenciometro.c ****         } else  /* buffer cheio */
+  93:potenciometro.c ****             rc = 1;
+ 320               		.stabn	68,0,93,.LM36-.LFBB5
+ 321               	.LM36:
+ 322 00a6 81E0      		ldi r24,lo8(1)
+ 323               	.L7:
+ 324               	.LBE3:
+  94:potenciometro.c ****     }
+  95:potenciometro.c ****     sei();
+ 325               		.stabn	68,0,95,.LM37-.LFBB5
+ 326               	.LM37:
+ 327               	/* #APP */
+ 328               	 ;  95 "potenciometro.c" 1
+ 329 00a8 7894      		sei
+ 330               	 ;  0 "" 2
+  96:potenciometro.c ****     return rc;
+  97:potenciometro.c **** }
+ 331               		.stabn	68,0,97,.LM38-.LFBB5
+ 332               	.LM38:
+ 333               	/* #NOAPP */
+ 334 00aa 0895      		ret
+ 335               		.size	write, .-write
+ 336               		.stabs	"rc:r(5,2)",64,0,78,24
+ 337               		.stabn	192,0,0,.LFBB5-.LFBB5
+ 338               		.stabs	"next:r(5,2)",64,0,86,25
+ 339               		.stabn	192,0,0,.LBB2-.LFBB5
+ 340               		.stabn	224,0,0,.LBE2-.LFBB5
+ 341               		.stabs	"next:r(5,2)",64,0,86,25
+ 342               		.stabn	192,0,0,.LBB3-.LFBB5
+ 343               		.stabn	224,0,0,.LBE3-.LFBB5
+ 344               		.stabn	224,0,0,.Lscope5-.LFBB5
+ 345               	.Lscope5:
+ 346               		.stabs	"",36,0,0,.Lscope5-.LFBB5
+ 347               		.stabd	78,0,0
+ 348               		.stabs	"__vector_19:F(0,49)",36,0,100,__vector_19
+ 349               	.global	__vector_19
+ 350               		.type	__vector_19, @function
+ 351               	__vector_19:
+ 352               		.stabd	46,0,0
+  98:potenciometro.c **** 
+  99:potenciometro.c **** /* -------------------------------------*/
+ 100:potenciometro.c **** ISR(USART_UDRE_vect)
+ 101:potenciometro.c **** {
+ 353               		.stabn	68,0,101,.LM39-.LFBB6
+ 354               	.LM39:
+GAS LISTING /tmp/cceHxJBV.s 			page 9
+
+
+ 355               	.LFBB6:
+ 356 00ac 1F92      		push r1
+ 357 00ae 0F92      		push r0
+ 358 00b0 0FB6      		in r0,__SREG__
+ 359 00b2 0F92      		push r0
+ 360 00b4 1124      		clr __zero_reg__
+ 361 00b6 8F93      		push r24
+ 362 00b8 EF93      		push r30
+ 363 00ba FF93      		push r31
+ 364               	/* prologue: Signal */
+ 365               	/* frame size = 0 */
+ 366               	/* stack size = 6 */
+ 367               	.L__stack_usage = 6
+ 102:potenciometro.c ****     if (tx_head == tx_tail) {
+ 368               		.stabn	68,0,102,.LM40-.LFBB6
+ 369               	.LM40:
+ 370 00bc E091 0000 		lds r30,tx_tail
+ 371 00c0 8091 0000 		lds r24,tx_head
+ 372 00c4 8E13      		cpse r24,r30
+ 373 00c6 00C0      		rjmp .L13
+ 103:potenciometro.c ****         UCSR0B &= ~_BV(UDRIE0);
+ 374               		.stabn	68,0,103,.LM41-.LFBB6
+ 375               	.LM41:
+ 376 00c8 8091 C100 		lds r24,193
+ 377 00cc 8F7D      		andi r24,lo8(-33)
+ 378 00ce 8093 C100 		sts 193,r24
+ 104:potenciometro.c ****         usart_transmitting = 0;
+ 379               		.stabn	68,0,104,.LM42-.LFBB6
+ 380               	.LM42:
+ 381 00d2 1092 0000 		sts usart_transmitting,__zero_reg__
+ 382 00d6 00C0      		rjmp .L12
+ 383               	.L13:
+ 105:potenciometro.c ****     } else {
+ 106:potenciometro.c ****         UDR0 = tx_buffer[tx_tail];
+ 384               		.stabn	68,0,106,.LM43-.LFBB6
+ 385               	.LM43:
+ 386 00d8 F0E0      		ldi r31,0
+ 387 00da E050      		subi r30,lo8(-(tx_buffer))
+ 388 00dc F040      		sbci r31,hi8(-(tx_buffer))
+ 389 00de 8081      		ld r24,Z
+ 390 00e0 8093 C600 		sts 198,r24
+ 107:potenciometro.c ****         if (++tx_tail >= BUFFER_SIZE)
+ 391               		.stabn	68,0,107,.LM44-.LFBB6
+ 392               	.LM44:
+ 393 00e4 8091 0000 		lds r24,tx_tail
+ 394 00e8 8F5F      		subi r24,lo8(-(1))
+ 395 00ea 8431      		cpi r24,lo8(20)
+ 396 00ec 00F4      		brsh .L15
+ 397 00ee 8093 0000 		sts tx_tail,r24
+ 398 00f2 00C0      		rjmp .L12
+ 399               	.L15:
+ 108:potenciometro.c ****             tx_tail = 0;
+ 400               		.stabn	68,0,108,.LM45-.LFBB6
+ 401               	.LM45:
+ 402 00f4 1092 0000 		sts tx_tail,__zero_reg__
+ 403               	.L12:
+ 404               	/* epilogue start */
+GAS LISTING /tmp/cceHxJBV.s 			page 10
+
+
+ 109:potenciometro.c ****     }
+ 110:potenciometro.c **** }
+ 405               		.stabn	68,0,110,.LM46-.LFBB6
+ 406               	.LM46:
+ 407 00f8 FF91      		pop r31
+ 408 00fa EF91      		pop r30
+ 409 00fc 8F91      		pop r24
+ 410 00fe 0F90      		pop r0
+ 411 0100 0FBE      		out __SREG__,r0
+ 412 0102 0F90      		pop r0
+ 413 0104 1F90      		pop r1
+ 414 0106 1895      		reti
+ 415               		.size	__vector_19, .-__vector_19
+ 416               	.Lscope6:
+ 417               		.stabs	"",36,0,0,.Lscope6-.LFBB6
+ 418               		.stabd	78,0,0
+ 419               		.stabs	"read:F(5,4)",36,0,116,read
+ 420               	.global	read
+ 421               		.type	read, @function
+ 422               	read:
+ 423               		.stabd	46,0,0
+ 111:potenciometro.c **** 
+ 112:potenciometro.c **** /* -------------------------------------*/
+ 113:potenciometro.c **** uint8_t rx_buffer[BUFFER_SIZE];     /* buffer para transmissÃ£o */
+ 114:potenciometro.c **** uint8_t rx_head, rx_tail;   /* ponteiros para o buffer circular */
+ 115:potenciometro.c **** 
+ 116:potenciometro.c **** uint16_t read(void)
+ 117:potenciometro.c **** {
+ 424               		.stabn	68,0,117,.LM47-.LFBB7
+ 425               	.LM47:
+ 426               	.LFBB7:
+ 427               	/* prologue: function */
+ 428               	/* frame size = 0 */
+ 429               	/* stack size = 0 */
+ 430               	.L__stack_usage = 0
+ 118:potenciometro.c ****     uint8_t rc = 0, c = 0;
+ 119:potenciometro.c **** 
+ 120:potenciometro.c ****     cli();
+ 431               		.stabn	68,0,120,.LM48-.LFBB7
+ 432               	.LM48:
+ 433               	/* #APP */
+ 434               	 ;  120 "potenciometro.c" 1
+ 435 0108 F894      		cli
+ 436               	 ;  0 "" 2
+ 121:potenciometro.c ****     if (rx_head != rx_tail) {
+ 437               		.stabn	68,0,121,.LM49-.LFBB7
+ 438               	.LM49:
+ 439               	/* #NOAPP */
+ 440 010a 8091 0000 		lds r24,rx_tail
+ 441 010e 9091 0000 		lds r25,rx_head
+ 442 0112 9817      		cp r25,r24
+ 443 0114 01F0      		breq .L19
+ 122:potenciometro.c ****         c = rx_buffer[rx_tail];
+ 444               		.stabn	68,0,122,.LM50-.LFBB7
+ 445               	.LM50:
+ 446 0116 E82F      		mov r30,r24
+ 447 0118 F0E0      		ldi r31,0
+GAS LISTING /tmp/cceHxJBV.s 			page 11
+
+
+ 448 011a E050      		subi r30,lo8(-(rx_buffer))
+ 449 011c F040      		sbci r31,hi8(-(rx_buffer))
+ 450 011e 2081      		ld r18,Z
+ 123:potenciometro.c ****         if (++rx_tail >= BUFFER_SIZE)
+ 451               		.stabn	68,0,123,.LM51-.LFBB7
+ 452               	.LM51:
+ 453 0120 8F5F      		subi r24,lo8(-(1))
+ 454 0122 8431      		cpi r24,lo8(20)
+ 455 0124 00F4      		brsh .L18
+ 456 0126 8093 0000 		sts rx_tail,r24
+ 457 012a 00C0      		rjmp .L20
+ 458               	.L18:
+ 124:potenciometro.c ****             rx_tail = 0;
+ 459               		.stabn	68,0,124,.LM52-.LFBB7
+ 460               	.LM52:
+ 461 012c 1092 0000 		sts rx_tail,__zero_reg__
+ 462               	.L20:
+ 118:potenciometro.c **** 
+ 463               		.stabn	68,0,118,.LM53-.LFBB7
+ 464               	.LM53:
+ 465 0130 80E0      		ldi r24,0
+ 466 0132 00C0      		rjmp .L17
+ 467               	.L19:
+ 468 0134 20E0      		ldi r18,0
+ 125:potenciometro.c ****     } else 
+ 126:potenciometro.c ****         rc = 1;
+ 469               		.stabn	68,0,126,.LM54-.LFBB7
+ 470               	.LM54:
+ 471 0136 81E0      		ldi r24,lo8(1)
+ 472               	.L17:
+ 127:potenciometro.c ****     sei();
+ 473               		.stabn	68,0,127,.LM55-.LFBB7
+ 474               	.LM55:
+ 475               	/* #APP */
+ 476               	 ;  127 "potenciometro.c" 1
+ 477 0138 7894      		sei
+ 478               	 ;  0 "" 2
+ 128:potenciometro.c ****     return ((uint16_t) rc << 8) | c;
+ 479               		.stabn	68,0,128,.LM56-.LFBB7
+ 480               	.LM56:
+ 481               	/* #NOAPP */
+ 482 013a 90E0      		ldi r25,0
+ 483 013c 982F      		mov r25,r24
+ 484 013e 8827      		clr r24
+ 129:potenciometro.c **** }
+ 485               		.stabn	68,0,129,.LM57-.LFBB7
+ 486               	.LM57:
+ 487 0140 822B      		or r24,r18
+ 488 0142 0895      		ret
+ 489               		.size	read, .-read
+ 490               		.stabs	"rc:r(5,2)",64,0,118,24
+ 491               		.stabs	"c:r(5,2)",64,0,118,18
+ 492               		.stabn	192,0,0,.LFBB7-.LFBB7
+ 493               		.stabn	224,0,0,.Lscope7-.LFBB7
+ 494               	.Lscope7:
+ 495               		.stabs	"",36,0,0,.Lscope7-.LFBB7
+ 496               		.stabd	78,0,0
+GAS LISTING /tmp/cceHxJBV.s 			page 12
+
+
+ 497               		.stabs	"__vector_18:F(0,49)",36,0,134,__vector_18
+ 498               	.global	__vector_18
+ 499               		.type	__vector_18, @function
+ 500               	__vector_18:
+ 501               		.stabd	46,0,0
+ 130:potenciometro.c **** 
+ 131:potenciometro.c **** /* -------------------------------------*/
+ 132:potenciometro.c **** volatile uint8_t rcvd_byte;
+ 133:potenciometro.c **** 
+ 134:potenciometro.c **** ISR(USART_RX_vect)
+ 135:potenciometro.c **** {
+ 502               		.stabn	68,0,135,.LM58-.LFBB8
+ 503               	.LM58:
+ 504               	.LFBB8:
+ 505 0144 1F92      		push r1
+ 506 0146 0F92      		push r0
+ 507 0148 0FB6      		in r0,__SREG__
+ 508 014a 0F92      		push r0
+ 509 014c 1124      		clr __zero_reg__
+ 510 014e 8F93      		push r24
+ 511 0150 9F93      		push r25
+ 512 0152 EF93      		push r30
+ 513 0154 FF93      		push r31
+ 514               	/* prologue: Signal */
+ 515               	/* frame size = 0 */
+ 516               	/* stack size = 7 */
+ 517               	.L__stack_usage = 7
+ 136:potenciometro.c ****     uint8_t next = rx_head + 1;
+ 518               		.stabn	68,0,136,.LM59-.LFBB8
+ 519               	.LM59:
+ 520 0156 E091 0000 		lds r30,rx_head
+ 521 015a 81E0      		ldi r24,lo8(1)
+ 522 015c 8E0F      		add r24,r30
+ 137:potenciometro.c ****     if (next >= BUFFER_SIZE)
+ 523               		.stabn	68,0,137,.LM60-.LFBB8
+ 524               	.LM60:
+ 525 015e 8431      		cpi r24,lo8(20)
+ 526 0160 00F0      		brlo .L22
+ 138:potenciometro.c ****         next = 0;
+ 527               		.stabn	68,0,138,.LM61-.LFBB8
+ 528               	.LM61:
+ 529 0162 80E0      		ldi r24,0
+ 530               	.L22:
+ 139:potenciometro.c ****     
+ 140:potenciometro.c ****     /* Se o buffer estiver cheio desprezamos o byte recebido mais antigo e
+ 141:potenciometro.c ****      * colocamos o byte que acabamos de receber em seu lugar */
+ 142:potenciometro.c ****     rx_buffer[rx_head] = UDR0;
+ 531               		.stabn	68,0,142,.LM62-.LFBB8
+ 532               	.LM62:
+ 533 0164 9091 C600 		lds r25,198
+ 534 0168 F0E0      		ldi r31,0
+ 535 016a E050      		subi r30,lo8(-(rx_buffer))
+ 536 016c F040      		sbci r31,hi8(-(rx_buffer))
+ 537 016e 9083      		st Z,r25
+ 143:potenciometro.c ****     rx_head = next;
+ 538               		.stabn	68,0,143,.LM63-.LFBB8
+ 539               	.LM63:
+GAS LISTING /tmp/cceHxJBV.s 			page 13
+
+
+ 540 0170 8093 0000 		sts rx_head,r24
+ 144:potenciometro.c ****     if (next == rx_tail) { /* buffer cheio */
+ 541               		.stabn	68,0,144,.LM64-.LFBB8
+ 542               	.LM64:
+ 543 0174 9091 0000 		lds r25,rx_tail
+ 544 0178 8913      		cpse r24,r25
+ 545 017a 00C0      		rjmp .L24
+ 145:potenciometro.c ****         rx_tail++;
+ 546               		.stabn	68,0,145,.LM65-.LFBB8
+ 547               	.LM65:
+ 548 017c 8F5F      		subi r24,lo8(-(1))
+ 146:potenciometro.c ****         if (rx_tail >= BUFFER_SIZE)
+ 549               		.stabn	68,0,146,.LM66-.LFBB8
+ 550               	.LM66:
+ 551 017e 8431      		cpi r24,lo8(20)
+ 552 0180 01F0      		breq .L25
+ 145:potenciometro.c ****         rx_tail++;
+ 553               		.stabn	68,0,145,.LM67-.LFBB8
+ 554               	.LM67:
+ 555 0182 8093 0000 		sts rx_tail,r24
+ 556 0186 00C0      		rjmp .L24
+ 557               	.L25:
+ 147:potenciometro.c ****             rx_tail = 0;
+ 558               		.stabn	68,0,147,.LM68-.LFBB8
+ 559               	.LM68:
+ 560 0188 1092 0000 		sts rx_tail,__zero_reg__
+ 561               	.L24:
+ 148:potenciometro.c ****     }
+ 149:potenciometro.c ****     rcvd_byte = 1;
+ 562               		.stabn	68,0,149,.LM69-.LFBB8
+ 563               	.LM69:
+ 564 018c 81E0      		ldi r24,lo8(1)
+ 565 018e 8093 0000 		sts rcvd_byte,r24
+ 566               	/* epilogue start */
+ 150:potenciometro.c **** }
+ 567               		.stabn	68,0,150,.LM70-.LFBB8
+ 568               	.LM70:
+ 569 0192 FF91      		pop r31
+ 570 0194 EF91      		pop r30
+ 571 0196 9F91      		pop r25
+ 572 0198 8F91      		pop r24
+ 573 019a 0F90      		pop r0
+ 574 019c 0FBE      		out __SREG__,r0
+ 575 019e 0F90      		pop r0
+ 576 01a0 1F90      		pop r1
+ 577 01a2 1895      		reti
+ 578               		.size	__vector_18, .-__vector_18
+ 579               		.stabs	"next:r(5,2)",64,0,136,24
+ 580               		.stabn	192,0,0,.LFBB8-.LFBB8
+ 581               		.stabn	224,0,0,.Lscope8-.LFBB8
+ 582               	.Lscope8:
+ 583               		.stabs	"",36,0,0,.Lscope8-.LFBB8
+ 584               		.stabd	78,0,0
+ 585               		.stabs	"div5u:F(5,4)",36,0,156,div5u
+ 586               		.stabs	"n:P(5,4)",64,0,156,24
+ 587               	.global	div5u
+ 588               		.type	div5u, @function
+GAS LISTING /tmp/cceHxJBV.s 			page 14
+
+
+ 589               	div5u:
+ 590               		.stabd	46,0,0
+ 151:potenciometro.c **** 
+ 152:potenciometro.c **** /* -------------------------------------*/
+ 153:potenciometro.c **** /*
+ 154:potenciometro.c ****  * Uma funÃ§Ã£o para dividir rapidamente por 5
+ 155:potenciometro.c ****  */
+ 156:potenciometro.c **** uint16_t div5u(uint16_t n)
+ 157:potenciometro.c **** {
+ 591               		.stabn	68,0,157,.LM71-.LFBB9
+ 592               	.LM71:
+ 593               	.LFBB9:
+ 594               	/* prologue: function */
+ 595               	/* frame size = 0 */
+ 596               	/* stack size = 0 */
+ 597               	.L__stack_usage = 0
+ 158:potenciometro.c ****         uint16_t q, r;
+ 159:potenciometro.c **** 
+ 160:potenciometro.c ****         q = (n >> 3) + (n >> 4);
+ 598               		.stabn	68,0,160,.LM72-.LFBB9
+ 599               	.LM72:
+ 600 01a4 AC01      		movw r20,r24
+ 601 01a6 23E0      		ldi r18,3
+ 602               		1:
+ 603 01a8 5695      		lsr r21
+ 604 01aa 4795      		ror r20
+ 605 01ac 2A95      		dec r18
+ 606 01ae 01F4      		brne 1b
+ 607 01b0 9C01      		movw r18,r24
+ 608 01b2 64E0      		ldi r22,4
+ 609               		1:
+ 610 01b4 3695      		lsr r19
+ 611 01b6 2795      		ror r18
+ 612 01b8 6A95      		dec r22
+ 613 01ba 01F4      		brne 1b
+ 614 01bc 420F      		add r20,r18
+ 615 01be 531F      		adc r21,r19
+ 161:potenciometro.c ****         q = q + (q >> 4);
+ 616               		.stabn	68,0,161,.LM73-.LFBB9
+ 617               	.LM73:
+ 618 01c0 9A01      		movw r18,r20
+ 619 01c2 74E0      		ldi r23,4
+ 620               		1:
+ 621 01c4 3695      		lsr r19
+ 622 01c6 2795      		ror r18
+ 623 01c8 7A95      		dec r23
+ 624 01ca 01F4      		brne 1b
+ 625 01cc 420F      		add r20,r18
+ 626 01ce 531F      		adc r21,r19
+ 162:potenciometro.c ****         q = q + (q >> 8);
+ 627               		.stabn	68,0,162,.LM74-.LFBB9
+ 628               	.LM74:
+ 629 01d0 252F      		mov r18,r21
+ 630 01d2 3327      		clr r19
+ 631 01d4 420F      		add r20,r18
+ 632 01d6 531F      		adc r21,r19
+ 163:potenciometro.c ****         r = n - 5*q;
+GAS LISTING /tmp/cceHxJBV.s 			page 15
+
+
+ 164:potenciometro.c **** 
+ 165:potenciometro.c ****         return q + (13*r >> 6);
+ 633               		.stabn	68,0,165,.LM75-.LFBB9
+ 634               	.LM75:
+ 635 01d8 65E0      		ldi r22,lo8(5)
+ 636 01da 649F      		mul r22,r20
+ 637 01dc 9001      		movw r18,r0
+ 638 01de 659F      		mul r22,r21
+ 639 01e0 300D      		add r19,r0
+ 640 01e2 1124      		clr __zero_reg__
+ 641 01e4 BC01      		movw r22,r24
+ 642 01e6 621B      		sub r22,r18
+ 643 01e8 730B      		sbc r23,r19
+ 644 01ea 9B01      		movw r18,r22
+ 645 01ec 6DE0      		ldi r22,lo8(13)
+ 646 01ee 629F      		mul r22,r18
+ 647 01f0 C001      		movw r24,r0
+ 648 01f2 639F      		mul r22,r19
+ 649 01f4 900D      		add r25,r0
+ 650 01f6 1124      		clr __zero_reg__
+ 651 01f8 F6E0      		ldi r31,6
+ 652               		1:
+ 653 01fa 9695      		lsr r25
+ 654 01fc 8795      		ror r24
+ 655 01fe FA95      		dec r31
+ 656 0200 01F4      		brne 1b
+ 166:potenciometro.c **** }
+ 657               		.stabn	68,0,166,.LM76-.LFBB9
+ 658               	.LM76:
+ 659 0202 840F      		add r24,r20
+ 660 0204 951F      		adc r25,r21
+ 661 0206 0895      		ret
+ 662               		.size	div5u, .-div5u
+ 663               	.Lscope9:
+ 664               		.stabs	"",36,0,0,.Lscope9-.LFBB9
+ 665               		.stabd	78,0,0
+ 666               		.stabs	"__vector_21:F(0,49)",36,0,172,__vector_21
+ 667               	.global	__vector_21
+ 668               		.type	__vector_21, @function
+ 669               	__vector_21:
+ 670               		.stabd	46,0,0
+ 167:potenciometro.c **** 
+ 168:potenciometro.c **** /* -------------------------------------*/
+ 169:potenciometro.c **** volatile uint8_t conversion_complete;
+ 170:potenciometro.c **** volatile uint16_t data;
+ 171:potenciometro.c **** 
+ 172:potenciometro.c **** ISR(ADC_vect)
+ 173:potenciometro.c **** {
+ 671               		.stabn	68,0,173,.LM77-.LFBB10
+ 672               	.LM77:
+ 673               	.LFBB10:
+ 674 0208 1F92      		push r1
+ 675 020a 0F92      		push r0
+ 676 020c 0FB6      		in r0,__SREG__
+ 677 020e 0F92      		push r0
+ 678 0210 1124      		clr __zero_reg__
+ 679 0212 2F93      		push r18
+GAS LISTING /tmp/cceHxJBV.s 			page 16
+
+
+ 680 0214 3F93      		push r19
+ 681 0216 8F93      		push r24
+ 682               	/* prologue: Signal */
+ 683               	/* frame size = 0 */
+ 684               	/* stack size = 6 */
+ 685               	.L__stack_usage = 6
+ 174:potenciometro.c ****     conversion_complete = 1;
+ 686               		.stabn	68,0,174,.LM78-.LFBB10
+ 687               	.LM78:
+ 688 0218 81E0      		ldi r24,lo8(1)
+ 689 021a 8093 0000 		sts conversion_complete,r24
+ 175:potenciometro.c ****     data = ADC;
+ 690               		.stabn	68,0,175,.LM79-.LFBB10
+ 691               	.LM79:
+ 692 021e 2091 7800 		lds r18,120
+ 693 0222 3091 7900 		lds r19,120+1
+ 694 0226 3093 0000 		sts data+1,r19
+ 695 022a 2093 0000 		sts data,r18
+ 176:potenciometro.c ****     TIFR1 = _BV(TOV1);
+ 696               		.stabn	68,0,176,.LM80-.LFBB10
+ 697               	.LM80:
+ 698 022e 86BB      		out 0x16,r24
+ 699               	/* epilogue start */
+ 177:potenciometro.c **** }
+ 700               		.stabn	68,0,177,.LM81-.LFBB10
+ 701               	.LM81:
+ 702 0230 8F91      		pop r24
+ 703 0232 3F91      		pop r19
+ 704 0234 2F91      		pop r18
+ 705 0236 0F90      		pop r0
+ 706 0238 0FBE      		out __SREG__,r0
+ 707 023a 0F90      		pop r0
+ 708 023c 1F90      		pop r1
+ 709 023e 1895      		reti
+ 710               		.size	__vector_21, .-__vector_21
+ 711               	.Lscope10:
+ 712               		.stabs	"",36,0,0,.Lscope10-.LFBB10
+ 713               		.stabd	78,0,0
+ 714               		.section	.text.startup,"ax",@progbits
+ 715               		.stabs	"main:F(0,1)",36,0,183,main
+ 716               	.global	main
+ 717               		.type	main, @function
+ 718               	main:
+ 719               		.stabd	46,0,0
+ 178:potenciometro.c **** 
+ 179:potenciometro.c **** /* -------------------------------------*/
+ 180:potenciometro.c **** #define MAX_DELTA 20
+ 181:potenciometro.c **** #define MAX_DELAY 200
+ 182:potenciometro.c **** 
+ 183:potenciometro.c **** int main(void)
+ 184:potenciometro.c **** {
+ 720               		.stabn	68,0,184,.LM82-.LFBB11
+ 721               	.LM82:
+ 722               	.LFBB11:
+ 723               	/* prologue: function */
+ 724               	/* frame size = 0 */
+ 725               	/* stack size = 0 */
+GAS LISTING /tmp/cceHxJBV.s 			page 17
+
+
+ 726               	.L__stack_usage = 0
+ 185:potenciometro.c ****     uint16_t old_data = 0;
+ 186:potenciometro.c ****     uint16_t counter = 0;
+ 187:potenciometro.c ****     int16_t delta;
+ 188:potenciometro.c **** 
+ 189:potenciometro.c ****     setup_timer1();
+ 727               		.stabn	68,0,189,.LM83-.LFBB11
+ 728               	.LM83:
+ 729 0000 0E94 0000 		call setup_timer1
+ 190:potenciometro.c ****     setup_usart();
+ 730               		.stabn	68,0,190,.LM84-.LFBB11
+ 731               	.LM84:
+ 732 0004 0E94 0000 		call setup_usart
+ 191:potenciometro.c ****     setup_adc();
+ 733               		.stabn	68,0,191,.LM85-.LFBB11
+ 734               	.LM85:
+ 735 0008 0E94 0000 		call setup_adc
+ 192:potenciometro.c ****     setup_main();
+ 736               		.stabn	68,0,192,.LM86-.LFBB11
+ 737               	.LM86:
+ 738 000c 0E94 0000 		call setup_main
+ 186:potenciometro.c ****     int16_t delta;
+ 739               		.stabn	68,0,186,.LM87-.LFBB11
+ 740               	.LM87:
+ 741 0010 20E0      		ldi r18,0
+ 742 0012 30E0      		ldi r19,0
+ 185:potenciometro.c ****     uint16_t counter = 0;
+ 743               		.stabn	68,0,185,.LM88-.LFBB11
+ 744               	.LM88:
+ 745 0014 C0E0      		ldi r28,0
+ 746 0016 D0E0      		ldi r29,0
+ 747               	.L31:
+ 193:potenciometro.c **** 
+ 194:potenciometro.c ****     while(1) {
+ 195:potenciometro.c ****         while(!conversion_complete)
+ 748               		.stabn	68,0,195,.LM89-.LFBB11
+ 749               	.LM89:
+ 750 0018 8091 0000 		lds r24,conversion_complete
+ 751 001c 8823      		tst r24
+ 752 001e 01F0      		breq .L31
+ 196:potenciometro.c ****             ;
+ 197:potenciometro.c ****         conversion_complete = 0;
+ 753               		.stabn	68,0,197,.LM90-.LFBB11
+ 754               	.LM90:
+ 755 0020 1092 0000 		sts conversion_complete,__zero_reg__
+ 198:potenciometro.c ****         delta = data - old_data;
+ 756               		.stabn	68,0,198,.LM91-.LFBB11
+ 757               	.LM91:
+ 758 0024 8091 0000 		lds r24,data
+ 759 0028 9091 0000 		lds r25,data+1
+ 760 002c 8C1B      		sub r24,r28
+ 761 002e 9D0B      		sbc r25,r29
+ 199:potenciometro.c ****         if (delta < 0)
+ 200:potenciometro.c ****             delta = -delta;
+ 201:potenciometro.c ****         old_data = data;
+ 762               		.stabn	68,0,201,.LM92-.LFBB11
+ 763               	.LM92:
+GAS LISTING /tmp/cceHxJBV.s 			page 18
+
+
+ 764 0030 C091 0000 		lds r28,data
+ 765 0034 D091 0000 		lds r29,data+1
+ 202:potenciometro.c ****         if ((delta > MAX_DELTA) || (counter++ > MAX_DELAY)) {
+ 766               		.stabn	68,0,202,.LM93-.LFBB11
+ 767               	.LM93:
+ 768 0038 97FF      		sbrs r25,7
+ 769 003a 00C0      		rjmp .L33
+ 770 003c 9195      		neg r25
+ 771 003e 8195      		neg r24
+ 772 0040 9109      		sbc r25,__zero_reg__
+ 773               	.L33:
+ 774 0042 4597      		sbiw r24,21
+ 775 0044 04F4      		brge .L32
+ 776               		.stabn	68,0,202,.LM94-.LFBB11
+ 777               	.LM94:
+ 778 0046 293C      		cpi r18,-55
+ 779 0048 3105      		cpc r19,__zero_reg__
+ 780 004a 00F4      		brsh .L32
+ 781               		.stabn	68,0,202,.LM95-.LFBB11
+ 782               	.LM95:
+ 783 004c 2F5F      		subi r18,-1
+ 784 004e 3F4F      		sbci r19,-1
+ 785 0050 00C0      		rjmp .L31
+ 786               	.L32:
+ 203:potenciometro.c ****             counter = 0;
+ 204:potenciometro.c ****             write(data & 0xFF);
+ 787               		.stabn	68,0,204,.LM96-.LFBB11
+ 788               	.LM96:
+ 789 0052 8091 0000 		lds r24,data
+ 790 0056 9091 0000 		lds r25,data+1
+ 791 005a 0E94 0000 		call write
+ 205:potenciometro.c ****             write((data >> 8) & 0xFF);
+ 792               		.stabn	68,0,205,.LM97-.LFBB11
+ 793               	.LM97:
+ 794 005e 8091 0000 		lds r24,data
+ 795 0062 9091 0000 		lds r25,data+1
+ 796 0066 892F      		mov r24,r25
+ 797 0068 0E94 0000 		call write
+ 203:potenciometro.c ****             counter = 0;
+ 798               		.stabn	68,0,203,.LM98-.LFBB11
+ 799               	.LM98:
+ 800 006c 20E0      		ldi r18,0
+ 801 006e 30E0      		ldi r19,0
+ 802 0070 00C0      		rjmp .L31
+ 803               		.size	main, .-main
+ 804               		.stabs	"old_data:r(5,4)",64,0,185,28
+ 805               		.stabs	"counter:r(5,4)",64,0,186,18
+ 806               		.stabn	192,0,0,.LFBB11-.LFBB11
+ 807               		.stabn	224,0,0,.Lscope11-.LFBB11
+ 808               	.Lscope11:
+ 809               		.stabs	"",36,0,0,.Lscope11-.LFBB11
+ 810               		.stabd	78,0,0
+ 811               		.comm	data,2,1
+ 812               		.comm	conversion_complete,1,1
+ 813               		.comm	rcvd_byte,1,1
+ 814               		.comm	rx_tail,1,1
+ 815               		.comm	rx_head,1,1
+GAS LISTING /tmp/cceHxJBV.s 			page 19
+
+
+ 816               		.comm	rx_buffer,20,1
+ 817               		.comm	usart_transmitting,1,1
+ 818               		.comm	tx_tail,1,1
+ 819               		.comm	tx_head,1,1
+ 820               		.comm	tx_buffer,20,1
+ 821               		.stabs	"tx_buffer:G(0,50)=ar(0,51)=r(0,51);0;0177777;;0;19;(5,2)",32,0,72,0
+ 822               		.stabs	"tx_head:G(5,2)",32,0,73,0
+ 823               		.stabs	"tx_tail:G(5,2)",32,0,73,0
+ 824               		.stabs	"usart_transmitting:G(5,2)",32,0,74,0
+ 825               		.stabs	"rx_buffer:G(0,50)",32,0,113,0
+ 826               		.stabs	"rx_head:G(5,2)",32,0,114,0
+ 827               		.stabs	"rx_tail:G(5,2)",32,0,114,0
+ 828               		.stabs	"rcvd_byte:G(0,52)=B(5,2)",32,0,132,0
+ 829               		.stabs	"conversion_complete:G(0,52)",32,0,169,0
+ 830               		.stabs	"data:G(0,53)=B(5,4)",32,0,170,0
+ 831               		.text
+ 832               		.stabs	"",100,0,0,.Letext0
+ 833               	.Letext0:
+ 834               		.ident	"GCC: (GNU) 5.4.0"
+ 835               	.global __do_clear_bss
+GAS LISTING /tmp/cceHxJBV.s 			page 20
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 potenciometro.c
+     /tmp/cceHxJBV.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/cceHxJBV.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/cceHxJBV.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/cceHxJBV.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/cceHxJBV.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/cceHxJBV.s:107    .text:0000000000000000 setup_usart
+     /tmp/cceHxJBV.s:149    .text:0000000000000022 setup_timer1
+     /tmp/cceHxJBV.s:182    .text:000000000000003c setup_adc
+     /tmp/cceHxJBV.s:221    .text:000000000000005a setup_main
+     /tmp/cceHxJBV.s:249    .text:0000000000000060 write
+                            *COM*:0000000000000001 usart_transmitting
+                            *COM*:0000000000000001 tx_head
+                            *COM*:0000000000000001 tx_tail
+                            *COM*:0000000000000014 tx_buffer
+     /tmp/cceHxJBV.s:351    .text:00000000000000ac __vector_19
+     /tmp/cceHxJBV.s:422    .text:0000000000000108 read
+                            *COM*:0000000000000001 rx_tail
+                            *COM*:0000000000000001 rx_head
+                            *COM*:0000000000000014 rx_buffer
+     /tmp/cceHxJBV.s:500    .text:0000000000000144 __vector_18
+                            *COM*:0000000000000001 rcvd_byte
+     /tmp/cceHxJBV.s:589    .text:00000000000001a4 div5u
+     /tmp/cceHxJBV.s:669    .text:0000000000000208 __vector_21
+                            *COM*:0000000000000001 conversion_complete
+                            *COM*:0000000000000002 data
+     /tmp/cceHxJBV.s:718    .text.startup:0000000000000000 main
+
+UNDEFINED SYMBOLS
+__do_clear_bss
