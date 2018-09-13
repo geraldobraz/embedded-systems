@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccq97VhN.s 			page 1
+GAS LISTING /tmp/ccMDZrBb.s 			page 1
 
 
    1               		.file	"List1.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccq97VhN.s 			page 1
   55               		.stabs	"_Sat unsigned _Accum:t(0,44)=r(0,1);4;0;",128,0,0,0
   56               		.stabs	"_Sat unsigned long _Accum:t(0,45)=r(0,1);8;0;",128,0,0,0
   57               		.stabs	"_Sat unsigned long long _Accum:t(0,46)=r(0,1);8;0;",128,0,0,0
-GAS LISTING /tmp/ccq97VhN.s 			page 2
+GAS LISTING /tmp/ccMDZrBb.s 			page 2
 
 
   58               		.stabs	"void:t(0,47)=(0,47)",128,0,0,0
@@ -105,10 +105,10 @@ GAS LISTING /tmp/ccq97VhN.s 			page 1
   99               		.stabs	"__fuse_t:t(6,1)=(6,2)=s3low:(0,11),0,8;high:(0,11),8,8;extended:(0,11),16,8;;",128,0,244,0
  100               		.stabn	162,0,0,0
  101               		.stabn	162,0,0,0
- 102               		.stabs	"uartInit:F(0,47)",36,0,34,uartInit
- 103               	.global	uartInit
- 104               		.type	uartInit, @function
- 105               	uartInit:
+ 102               		.stabs	"usartInit:F(0,47)",36,0,33,usartInit
+ 103               	.global	usartInit
+ 104               		.type	usartInit, @function
+ 105               	usartInit:
  106               		.stabd	46,0,0
    1:List1.c       **** /* Atividade da Lista 1
    2:List1.c       ****     Faça um programa para o Arduino que receba um comando pela porta serial e ative o pino conecta
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccq97VhN.s 			page 1
    6:List1.c       **** 
    7:List1.c       **** //***********************************//
    8:List1.c       **** // Includes
-GAS LISTING /tmp/ccq97VhN.s 			page 3
+GAS LISTING /tmp/ccMDZrBb.s 			page 3
 
 
    9:List1.c       ****     #include <avr/io.h>
@@ -126,59 +126,59 @@ GAS LISTING /tmp/ccq97VhN.s 			page 1
   11:List1.c       ****     #include <avr/interrupt.h>
   12:List1.c       ****     #include <util/delay.h>
   13:List1.c       **** //"/usr/lib/avr/include/avr"
-  14:List1.c       **** //***********************************//
-  15:List1.c       **** // Defines
-  16:List1.c       ****     #define FOSC 16000000ul  // Clock Speed
-  17:List1.c       ****     #define BAUD 115200      // Baudrate
-  18:List1.c       ****     #define BAUDRATE (FOSC/(8ul*BAUD) - 1) 
-  19:List1.c       ****     #define BUFFER_SIZE 200   // USART buffer size
-  20:List1.c       **** 
-  21:List1.c       **** //***********************************//
-  22:List1.c       **** 
-  23:List1.c       **** //***********************************//
-  24:List1.c       **** // Global Variables
-  25:List1.c       ****     volatile uint8_t flag; 
-  26:List1.c       ****     uint8_t tx_buffer[BUFFER_SIZE];     /* buffer para transmissão */
-  27:List1.c       ****     uint8_t tx_head, tx_tail;   /* ponteiros para o buffer circular */
-  28:List1.c       ****     uint8_t usart_transmitting;
-  29:List1.c       **** //***********************************//
-  30:List1.c       **** 
-  31:List1.c       **** // ********* Configurations *********//
-  32:List1.c       ****     //***********************************//
-  33:List1.c       ****     // Uart
-  34:List1.c       ****         void uartInit(){
- 107               		.stabn	68,0,34,.LM0-.LFBB1
+  14:List1.c       **** // Defines
+  15:List1.c       ****     #define FOSC 16000000ul  // Clock Speed
+  16:List1.c       ****     #define BAUD 115200      // Baudrate
+  17:List1.c       ****     #define BAUDRATE (FOSC/(8ul*BAUD) - 1) 
+  18:List1.c       ****     #define BUFFER_SIZE 200   // USART buffer size
+  19:List1.c       **** 
+  20:List1.c       **** //***********************************//
+  21:List1.c       **** 
+  22:List1.c       **** //***********************************//
+  23:List1.c       **** // Global Variables
+  24:List1.c       ****     volatile uint8_t flag; 
+  25:List1.c       ****     uint8_t tx_buffer[BUFFER_SIZE];     /* buffer para transmissão */
+  26:List1.c       ****     uint8_t tx_head, tx_tail;   /* ponteiros para o buffer circular */
+  27:List1.c       ****     uint8_t usart_transmitting;
+  28:List1.c       **** //**************************sistema*********//
+  29:List1.c       **** 
+  30:List1.c       **** // ********* Configurations *********//
+  31:List1.c       ****     //***********************************//
+  32:List1.c       ****     // Usart
+  33:List1.c       ****         void usartInit(){
+ 107               		.stabn	68,0,33,.LM0-.LFBB1
  108               	.LM0:
  109               	.LFBB1:
  110               	/* prologue: function */
  111               	/* frame size = 0 */
  112               	/* stack size = 0 */
  113               	.L__stack_usage = 0
-  35:List1.c       ****             // Configuration of Uart Transmition RX-TX
-  36:List1.c       ****             DDRD |= (1 << PD1); // Configure Tx as Output
- 114               		.stabn	68,0,36,.LM1-.LFBB1
+  34:List1.c       ****             // Configuration of Usart Transmition RX-TX
+  35:List1.c       ****             DDRD |= (1 << PD1); // Configure Tx as Output
+ 114               		.stabn	68,0,35,.LM1-.LFBB1
  115               	.LM1:
  116 0000 519A      		sbi 0xa,1
-  37:List1.c       ****             DDRD |= ~(1 << PD0); // Configure Rx as Input
- 117               		.stabn	68,0,37,.LM2-.LFBB1
+  36:List1.c       ****             DDRD |= ~(1 << PD0); // Configure Rx as Input
+ 117               		.stabn	68,0,36,.LM2-.LFBB1
  118               	.LM2:
  119 0002 8AB1      		in r24,0xa
  120 0004 8E6F      		ori r24,lo8(-2)
  121 0006 8AB9      		out 0xa,r24
-  38:List1.c       ****             
-  39:List1.c       ****             // Configurate the Baudrate
-  40:List1.c       ****             UBRR0H = (BAUDRATE >> 8);
- 122               		.stabn	68,0,40,.LM3-.LFBB1
+  37:List1.c       ****             
+  38:List1.c       ****             // Configurate the Baudrate
+  39:List1.c       ****             UBRR0H = (BAUDRATE >> 8);
+ 122               		.stabn	68,0,39,.LM3-.LFBB1
  123               	.LM3:
  124 0008 1092 C500 		sts 197,__zero_reg__
-  41:List1.c       ****             UBRR0L = BAUDRATE;
- 125               		.stabn	68,0,41,.LM4-.LFBB1
+  40:List1.c       ****             UBRR0L = BAUDRATE;
+ 125               		.stabn	68,0,40,.LM4-.LFBB1
  126               	.LM4:
  127 000c 80E1      		ldi r24,lo8(16)
  128 000e 8093 C400 		sts 196,r24
+  41:List1.c       ****             // Configurate the registers
   42:List1.c       ****             UCSR0A = (1 << U2X0);
  129               		.stabn	68,0,42,.LM5-.LFBB1
-GAS LISTING /tmp/ccq97VhN.s 			page 4
+GAS LISTING /tmp/ccMDZrBb.s 			page 4
 
 
  130               	.LM5:
@@ -195,7 +195,7 @@ GAS LISTING /tmp/ccq97VhN.s 			page 1
  139 001e 86E0      		ldi r24,lo8(6)
  140 0020 8093 C200 		sts 194,r24
  141 0024 0895      		ret
- 142               		.size	uartInit, .-uartInit
+ 142               		.size	usartInit, .-usartInit
  143               	.Lscope1:
  144               		.stabs	"",36,0,0,.Lscope1-.LFBB1
  145               		.stabd	78,0,0
@@ -208,8 +208,8 @@ GAS LISTING /tmp/ccq97VhN.s 			page 1
   46:List1.c       ****         }
   47:List1.c       **** 
   48:List1.c       ****         //***********************************//
-  49:List1.c       ****     // Interruption
-  50:List1.c       ****      void interruptInit(){
+  49:List1.c       ****     // Interruption Configurations
+  50:List1.c       ****         void interruptInit(){
  151               		.stabn	68,0,50,.LM8-.LFBB2
  152               	.LM8:
  153               	.LFBB2:
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccq97VhN.s 			page 1
  173               	 ;  0 "" 2
  174               	/* #NOAPP */
  175 0034 0895      		ret
-GAS LISTING /tmp/ccq97VhN.s 			page 5
+GAS LISTING /tmp/ccMDZrBb.s 			page 5
 
 
  176               		.size	interruptInit, .-interruptInit
@@ -274,38 +274,36 @@ GAS LISTING /tmp/ccq97VhN.s 			page 1
  200               	.Lscope3:
  201               		.stabs	"",36,0,0,.Lscope3-.LFBB3
  202               		.stabd	78,0,0
- 203               		.stabs	"delay_ms:F(0,47)",36,0,67,delay_ms
- 204               		.stabs	"ms:P(5,4)",64,0,67,24
+ 203               		.stabs	"delay_ms:F(0,47)",36,0,65,delay_ms
+ 204               		.stabs	"ms:P(5,4)",64,0,65,24
  205               	.global	delay_ms
  206               		.type	delay_ms, @function
  207               	delay_ms:
  208               		.stabd	46,0,0
-  60:List1.c       ****             // DDRB |= (1 << PB1); // Trigger as Output
-  61:List1.c       ****             // DDRB |= (1 << PB2);
-  62:List1.c       ****         }
-  63:List1.c       ****        
-  64:List1.c       ****     //***********************************//
-  65:List1.c       ****     
-  66:List1.c       ****     // Functions
-  67:List1.c       ****         void delay_ms(uint16_t ms){
- 209               		.stabn	68,0,67,.LM15-.LFBB4
+  60:List1.c       ****         }
+  61:List1.c       ****        
+  62:List1.c       ****     //***********************************//
+  63:List1.c       ****     
+  64:List1.c       ****     // Functions
+  65:List1.c       ****         void delay_ms(uint16_t ms){
+ 209               		.stabn	68,0,65,.LM15-.LFBB4
  210               	.LM15:
  211               	.LFBB4:
  212               	/* prologue: function */
  213               	/* frame size = 0 */
  214               	/* stack size = 0 */
  215               	.L__stack_usage = 0
-  68:List1.c       ****             uint16_t i, j;
-  69:List1.c       ****             for(i=0; i<ms; i++)
- 216               		.stabn	68,0,69,.LM16-.LFBB4
-GAS LISTING /tmp/ccq97VhN.s 			page 6
-
-
+  66:List1.c       ****             uint16_t i, j;
+  67:List1.c       ****             for(i=0; i<ms; i++)
+ 216               		.stabn	68,0,67,.LM16-.LFBB4
  217               	.LM16:
  218 003c 20E0      		ldi r18,0
+GAS LISTING /tmp/ccMDZrBb.s 			page 6
+
+
  219 003e 30E0      		ldi r19,0
  220               	.L5:
- 221               		.stabn	68,0,69,.LM17-.LFBB4
+ 221               		.stabn	68,0,67,.LM17-.LFBB4
  222               	.LM17:
  223 0040 2817      		cp r18,r24
  224 0042 3907      		cpc r19,r25
@@ -313,187 +311,188 @@ GAS LISTING /tmp/ccq97VhN.s 			page 1
  226 0046 40EA      		ldi r20,lo8(-96)
  227 0048 5FE0      		ldi r21,lo8(15)
  228               	.L6:
-  70:List1.c       ****                 for(j=0; j<4000; j++)
-  71:List1.c       ****                     _NOP();
- 229               		.stabn	68,0,71,.LM18-.LFBB4
+  68:List1.c       ****                 for(j=0; j<4000; j++)
+  69:List1.c       ****                     _NOP();
+ 229               		.stabn	68,0,69,.LM18-.LFBB4
  230               	.LM18:
  231               	/* #APP */
- 232               	 ;  71 "List1.c" 1
+ 232               	 ;  69 "List1.c" 1
  233 004a 0000      		nop
  234               	 ;  0 "" 2
  235               	/* #NOAPP */
  236 004c 4150      		subi r20,1
  237 004e 5109      		sbc r21,__zero_reg__
-  70:List1.c       ****                 for(j=0; j<4000; j++)
- 238               		.stabn	68,0,70,.LM19-.LFBB4
+  68:List1.c       ****                 for(j=0; j<4000; j++)
+ 238               		.stabn	68,0,68,.LM19-.LFBB4
  239               	.LM19:
  240 0050 01F4      		brne .L6
-  69:List1.c       ****                 for(j=0; j<4000; j++)
- 241               		.stabn	68,0,69,.LM20-.LFBB4
+  67:List1.c       ****                 for(j=0; j<4000; j++)
+ 241               		.stabn	68,0,67,.LM20-.LFBB4
  242               	.LM20:
  243 0052 2F5F      		subi r18,-1
  244 0054 3F4F      		sbci r19,-1
  245 0056 00C0      		rjmp .L5
  246               	.L10:
  247               	/* epilogue start */
-  72:List1.c       ****         }
- 248               		.stabn	68,0,72,.LM21-.LFBB4
+  70:List1.c       ****         }
+ 248               		.stabn	68,0,70,.LM21-.LFBB4
  249               	.LM21:
  250 0058 0895      		ret
  251               		.size	delay_ms, .-delay_ms
- 252               		.stabs	"i:r(5,4)",64,0,68,18
+ 252               		.stabs	"i:r(5,4)",64,0,66,18
  253               		.stabn	192,0,0,.LFBB4-.LFBB4
  254               		.stabn	224,0,0,.Lscope4-.LFBB4
  255               	.Lscope4:
  256               		.stabs	"",36,0,0,.Lscope4-.LFBB4
  257               		.stabd	78,0,0
- 258               		.stabs	"write:F(5,2)",36,0,75,write
- 259               		.stabs	"c:P(5,2)",64,0,75,24
+ 258               		.stabs	"write:F(5,2)",36,0,73,write
+ 259               		.stabs	"c:P(5,2)",64,0,73,24
  260               	.global	write
  261               		.type	write, @function
  262               	write:
  263               		.stabd	46,0,0
-  73:List1.c       **** 
-  74:List1.c       ****         // Write on serial one byte
-  75:List1.c       ****         uint8_t write(uint8_t c){
- 264               		.stabn	68,0,75,.LM22-.LFBB5
+  71:List1.c       **** 
+  72:List1.c       ****         // Write on serial one byte
+  73:List1.c       ****         uint8_t write(uint8_t c){
+ 264               		.stabn	68,0,73,.LM22-.LFBB5
  265               	.LM22:
-GAS LISTING /tmp/ccq97VhN.s 			page 7
-
-
  266               	.LFBB5:
  267               	/* prologue: function */
+GAS LISTING /tmp/ccMDZrBb.s 			page 7
+
+
  268               	/* frame size = 0 */
  269               	/* stack size = 0 */
  270               	.L__stack_usage = 0
-  76:List1.c       ****             uint8_t rc = 0;
-  77:List1.c       **** 
-  78:List1.c       ****             cli();
- 271               		.stabn	68,0,78,.LM23-.LFBB5
+  74:List1.c       ****             uint8_t rc = 0;
+  75:List1.c       **** 
+  76:List1.c       ****             cli();
+ 271               		.stabn	68,0,76,.LM23-.LFBB5
  272               	.LM23:
  273               	/* #APP */
- 274               	 ;  78 "List1.c" 1
+ 274               	 ;  76 "List1.c" 1
  275 005a F894      		cli
  276               	 ;  0 "" 2
-  79:List1.c       ****             if (!usart_transmitting) {
- 277               		.stabn	68,0,79,.LM24-.LFBB5
+  77:List1.c       ****             if (!usart_transmitting) {
+ 277               		.stabn	68,0,77,.LM24-.LFBB5
  278               	.LM24:
  279               	/* #NOAPP */
  280 005c 9091 0000 		lds r25,usart_transmitting
  281 0060 9111      		cpse r25,__zero_reg__
  282 0062 00C0      		rjmp .L12
-  80:List1.c       ****                 UDR0 = c;
- 283               		.stabn	68,0,80,.LM25-.LFBB5
+  78:List1.c       ****                 UDR0 = c;
+ 283               		.stabn	68,0,78,.LM25-.LFBB5
  284               	.LM25:
  285 0064 8093 C600 		sts 198,r24
-  81:List1.c       ****                 UCSR0B |= (1 << UDRIE0);
- 286               		.stabn	68,0,81,.LM26-.LFBB5
+  79:List1.c       ****                 UCSR0B |= (1 << UDRIE0);
+ 286               		.stabn	68,0,79,.LM26-.LFBB5
  287               	.LM26:
  288 0068 8091 C100 		lds r24,193
  289 006c 8062      		ori r24,lo8(32)
  290 006e 8093 C100 		sts 193,r24
-  82:List1.c       ****                 usart_transmitting = 1;
- 291               		.stabn	68,0,82,.LM27-.LFBB5
+  80:List1.c       ****                 usart_transmitting = 1;
+ 291               		.stabn	68,0,80,.LM27-.LFBB5
  292               	.LM27:
  293 0072 81E0      		ldi r24,lo8(1)
  294 0074 8093 0000 		sts usart_transmitting,r24
  295 0078 00C0      		rjmp .L16
  296               	.L12:
  297               	.LBB6:
-  83:List1.c       ****             } else {
-  84:List1.c       ****                 uint8_t next = tx_head + 1;
- 298               		.stabn	68,0,84,.LM28-.LFBB5
+  81:List1.c       ****             } else {
+  82:List1.c       ****                 uint8_t next = tx_head + 1;
+ 298               		.stabn	68,0,82,.LM28-.LFBB5
  299               	.LM28:
  300 007a E091 0000 		lds r30,tx_head
  301 007e 91E0      		ldi r25,lo8(1)
  302 0080 9E0F      		add r25,r30
-  85:List1.c       ****                 if (next >= BUFFER_SIZE)
- 303               		.stabn	68,0,85,.LM29-.LFBB5
+  83:List1.c       ****                 if (next >= BUFFER_SIZE)
+ 303               		.stabn	68,0,83,.LM29-.LFBB5
  304               	.LM29:
  305 0082 983C      		cpi r25,lo8(-56)
  306 0084 00F0      		brlo .L14
-  86:List1.c       ****                     next = 0;
- 307               		.stabn	68,0,86,.LM30-.LFBB5
+  84:List1.c       ****                     next = 0;
+ 307               		.stabn	68,0,84,.LM30-.LFBB5
  308               	.LM30:
  309 0086 90E0      		ldi r25,0
  310               	.L14:
-  87:List1.c       ****                 if (next != tx_tail) {
-GAS LISTING /tmp/ccq97VhN.s 			page 8
-
-
- 311               		.stabn	68,0,87,.LM31-.LFBB5
+  85:List1.c       ****                 if (next != tx_tail) {
+ 311               		.stabn	68,0,85,.LM31-.LFBB5
  312               	.LM31:
+GAS LISTING /tmp/ccMDZrBb.s 			page 8
+
+
  313 0088 2091 0000 		lds r18,tx_tail
  314 008c 9217      		cp r25,r18
  315 008e 01F0      		breq .L15
-  88:List1.c       ****                     tx_buffer[tx_head] = c;
- 316               		.stabn	68,0,88,.LM32-.LFBB5
+  86:List1.c       ****                     tx_buffer[tx_head] = c;
+ 316               		.stabn	68,0,86,.LM32-.LFBB5
  317               	.LM32:
  318 0090 F0E0      		ldi r31,0
  319 0092 E050      		subi r30,lo8(-(tx_buffer))
  320 0094 F040      		sbci r31,hi8(-(tx_buffer))
  321 0096 8083      		st Z,r24
-  89:List1.c       ****                     tx_head = next;
- 322               		.stabn	68,0,89,.LM33-.LFBB5
+  87:List1.c       ****                     tx_head = next;
+ 322               		.stabn	68,0,87,.LM33-.LFBB5
  323               	.LM33:
  324 0098 9093 0000 		sts tx_head,r25
  325               	.L16:
  326               	.LBE6:
-  76:List1.c       **** 
- 327               		.stabn	68,0,76,.LM34-.LFBB5
+  74:List1.c       **** 
+ 327               		.stabn	68,0,74,.LM34-.LFBB5
  328               	.LM34:
  329 009c 80E0      		ldi r24,0
  330               	.LBB7:
  331 009e 00C0      		rjmp .L13
  332               	.L15:
-  90:List1.c       ****                 } else  /* buffer cheio */
-  91:List1.c       ****                     rc = 1;
- 333               		.stabn	68,0,91,.LM35-.LFBB5
+  88:List1.c       ****                 } else  /* buffer cheio */
+  89:List1.c       ****                     rc = 1;
+ 333               		.stabn	68,0,89,.LM35-.LFBB5
  334               	.LM35:
  335 00a0 81E0      		ldi r24,lo8(1)
  336               	.L13:
  337               	.LBE7:
-  92:List1.c       ****             }
-  93:List1.c       ****             sei();
- 338               		.stabn	68,0,93,.LM36-.LFBB5
+  90:List1.c       ****             }
+  91:List1.c       ****             sei();
+ 338               		.stabn	68,0,91,.LM36-.LFBB5
  339               	.LM36:
  340               	/* #APP */
- 341               	 ;  93 "List1.c" 1
+ 341               	 ;  91 "List1.c" 1
  342 00a2 7894      		sei
  343               	 ;  0 "" 2
-  94:List1.c       ****             return rc;
-  95:List1.c       ****         }
- 344               		.stabn	68,0,95,.LM37-.LFBB5
+  92:List1.c       ****             return rc;
+  93:List1.c       ****         }
+ 344               		.stabn	68,0,93,.LM37-.LFBB5
  345               	.LM37:
  346               	/* #NOAPP */
  347 00a4 0895      		ret
  348               		.size	write, .-write
- 349               		.stabs	"rc:r(5,2)",64,0,76,24
+ 349               		.stabs	"rc:r(5,2)",64,0,74,24
  350               		.stabn	192,0,0,.LFBB5-.LFBB5
- 351               		.stabs	"next:r(5,2)",64,0,84,25
+ 351               		.stabs	"next:r(5,2)",64,0,82,25
  352               		.stabn	192,0,0,.LBB6-.LFBB5
  353               		.stabn	224,0,0,.LBE6-.LFBB5
- 354               		.stabs	"next:r(5,2)",64,0,84,25
+ 354               		.stabs	"next:r(5,2)",64,0,82,25
  355               		.stabn	192,0,0,.LBB7-.LFBB5
  356               		.stabn	224,0,0,.LBE7-.LFBB5
  357               		.stabn	224,0,0,.Lscope5-.LFBB5
  358               	.Lscope5:
-GAS LISTING /tmp/ccq97VhN.s 			page 9
-
-
  359               		.stabs	"",36,0,0,.Lscope5-.LFBB5
  360               		.stabd	78,0,0
- 361               		.stabs	"__vector_18:F(0,47)",36,0,100,__vector_18
+GAS LISTING /tmp/ccMDZrBb.s 			page 9
+
+
+ 361               		.stabs	"__vector_18:F(0,47)",36,0,99,__vector_18
  362               	.global	__vector_18
  363               		.type	__vector_18, @function
  364               	__vector_18:
  365               		.stabd	46,0,0
+  94:List1.c       ****     //***********************************//
+  95:List1.c       ****     
   96:List1.c       ****     //***********************************//
-  97:List1.c       ****     
-  98:List1.c       ****     //***********************************//
-  99:List1.c       ****     // Interruption of RX 
- 100:List1.c       ****         ISR(USART_RX_vect){
- 366               		.stabn	68,0,100,.LM38-.LFBB6
+  97:List1.c       ****     // Interruptons    
+  98:List1.c       ****         // Interruption of RX 
+  99:List1.c       ****         ISR(USART_RX_vect){
+ 366               		.stabn	68,0,99,.LM38-.LFBB6
  367               	.LM38:
  368               	.LFBB6:
  369 00a6 1F92      		push r1
@@ -506,25 +505,22 @@ GAS LISTING /tmp/ccq97VhN.s 			page 1
  376               	/* frame size = 0 */
  377               	/* stack size = 4 */
  378               	.L__stack_usage = 4
- 101:List1.c       ****             unsigned char data = UDR0; // Recived data
- 379               		.stabn	68,0,101,.LM39-.LFBB6
+ 100:List1.c       ****             // unsigned char data = UDR0; // Recived data
+ 101:List1.c       ****             // Start the Infrared sensor
+ 102:List1.c       ****             if(UDR0 == 's'){
+ 379               		.stabn	68,0,102,.LM39-.LFBB6
  380               	.LM39:
  381 00b2 8091 C600 		lds r24,198
- 102:List1.c       ****             // Start the Infrared sensor
- 103:List1.c       ****             if(data == 's'){
- 382               		.stabn	68,0,103,.LM40-.LFBB6
- 383               	.LM40:
- 384 00b6 8337      		cpi r24,lo8(115)
- 385 00b8 01F4      		brne .L17
- 104:List1.c       ****                 PORTB = 0x01;  // Trigger to HIGH   
- 386               		.stabn	68,0,104,.LM41-.LFBB6
- 387               	.LM41:
- 388 00ba 81E0      		ldi r24,lo8(1)
- 389 00bc 85B9      		out 0x5,r24
- 390               	.LBB8:
- 391               	.LBB9:
- 392               		.stabs	"/usr/lib/avr/include/util/delay.h",132,0,0,.Ltext1
- 393               	.Ltext1:
+ 382 00b6 8337      		cpi r24,lo8(115)
+ 383 00b8 01F4      		brne .L17
+ 103:List1.c       ****                 PORTB |= (1 << PB0);  // Trigger to HIGH   
+ 384               		.stabn	68,0,103,.LM40-.LFBB6
+ 385               	.LM40:
+ 386 00ba 289A      		sbi 0x5,0
+ 387               	.LBB8:
+ 388               	.LBB9:
+ 389               		.stabs	"/usr/lib/avr/include/util/delay.h",132,0,0,.Ltext1
+ 390               	.Ltext1:
    1:/usr/lib/avr/include/util/delay.h **** /* Copyright (c) 2002, Marek Michalkiewicz
    2:/usr/lib/avr/include/util/delay.h ****    Copyright (c) 2004,2005,2007 Joerg Wunsch
    3:/usr/lib/avr/include/util/delay.h ****    Copyright (c) 2007  Florin-Viorel Petrov
@@ -538,13 +534,13 @@ GAS LISTING /tmp/ccq97VhN.s 			page 1
   11:/usr/lib/avr/include/util/delay.h **** 
   12:/usr/lib/avr/include/util/delay.h ****    * Redistributions in binary form must reproduce the above copyright
   13:/usr/lib/avr/include/util/delay.h ****      notice, this list of conditions and the following disclaimer in
-GAS LISTING /tmp/ccq97VhN.s 			page 10
-
-
   14:/usr/lib/avr/include/util/delay.h ****      the documentation and/or other materials provided with the
   15:/usr/lib/avr/include/util/delay.h ****      distribution.
   16:/usr/lib/avr/include/util/delay.h **** 
   17:/usr/lib/avr/include/util/delay.h ****    * Neither the name of the copyright holders nor the names of
+GAS LISTING /tmp/ccMDZrBb.s 			page 10
+
+
   18:/usr/lib/avr/include/util/delay.h ****      contributors may be used to endorse or promote products derived
   19:/usr/lib/avr/include/util/delay.h ****      from this software without specific prior written permission.
   20:/usr/lib/avr/include/util/delay.h **** 
@@ -598,13 +594,13 @@ GAS LISTING /tmp/ccq97VhN.s 			page 1
   68:/usr/lib/avr/include/util/delay.h ****     \note In order for these functions to work as intended, compiler
   69:/usr/lib/avr/include/util/delay.h ****     optimizations <em>must</em> be enabled, and the delay time
   70:/usr/lib/avr/include/util/delay.h ****     <em>must</em> be an expression that is a known constant at
-GAS LISTING /tmp/ccq97VhN.s 			page 11
-
-
   71:/usr/lib/avr/include/util/delay.h ****     compile-time.  If these requirements are not met, the resulting
   72:/usr/lib/avr/include/util/delay.h ****     delay will be much longer (and basically unpredictable), and
   73:/usr/lib/avr/include/util/delay.h ****     applications that otherwise do not use floating-point calculations
   74:/usr/lib/avr/include/util/delay.h ****     will experience severe code bloat by the floating-point library
+GAS LISTING /tmp/ccMDZrBb.s 			page 11
+
+
   75:/usr/lib/avr/include/util/delay.h ****     routines linked into the application.
   76:/usr/lib/avr/include/util/delay.h **** 
   77:/usr/lib/avr/include/util/delay.h ****     The functions available allow the specification of microsecond, and
@@ -658,13 +654,13 @@ GAS LISTING /tmp/ccq97VhN.s 			page 1
  125:/usr/lib/avr/include/util/delay.h ****    Conversion of __us into clock cycles may not always result in integer.
  126:/usr/lib/avr/include/util/delay.h ****    By default, the clock cycles rounded up to next integer. This ensures that
  127:/usr/lib/avr/include/util/delay.h ****    the user gets atleast __us microseconds of delay.
-GAS LISTING /tmp/ccq97VhN.s 			page 12
-
-
  128:/usr/lib/avr/include/util/delay.h **** 
  129:/usr/lib/avr/include/util/delay.h ****    Alternatively, user can define __DELAY_ROUND_DOWN__ and __DELAY_ROUND_CLOSEST__
  130:/usr/lib/avr/include/util/delay.h ****    to round down and round to closest integer.
  131:/usr/lib/avr/include/util/delay.h **** 
+GAS LISTING /tmp/ccMDZrBb.s 			page 12
+
+
  132:/usr/lib/avr/include/util/delay.h ****    Note: The new implementation of _delay_ms(double __ms) with 
  133:/usr/lib/avr/include/util/delay.h ****     __builtin_avr_delay_cycles(unsigned long) support is not backward compatible. 
  134:/usr/lib/avr/include/util/delay.h ****    User can define __DELAY_BACKWARD_COMPATIBLE__ to get a backward compatible delay.
@@ -718,13 +714,13 @@ GAS LISTING /tmp/ccq97VhN.s 			page 1
  182:/usr/lib/avr/include/util/delay.h **** 	else
  183:/usr/lib/avr/include/util/delay.h **** 		__ticks = (uint16_t)__tmp;
  184:/usr/lib/avr/include/util/delay.h **** 	_delay_loop_2(__ticks);
-GAS LISTING /tmp/ccq97VhN.s 			page 13
-
-
  185:/usr/lib/avr/include/util/delay.h **** #endif
  186:/usr/lib/avr/include/util/delay.h **** }
  187:/usr/lib/avr/include/util/delay.h **** 
  188:/usr/lib/avr/include/util/delay.h **** /**
+GAS LISTING /tmp/ccMDZrBb.s 			page 13
+
+
  189:/usr/lib/avr/include/util/delay.h ****    \ingroup util_delay
  190:/usr/lib/avr/include/util/delay.h **** 
  191:/usr/lib/avr/include/util/delay.h ****    Perform a delay of \c __us microseconds, using _delay_loop_1().
@@ -778,353 +774,340 @@ GAS LISTING /tmp/ccq97VhN.s 			page 1
  239:/usr/lib/avr/include/util/delay.h **** 
  240:/usr/lib/avr/include/util/delay.h **** 	#else
  241:/usr/lib/avr/include/util/delay.h **** 		//round up by default
-GAS LISTING /tmp/ccq97VhN.s 			page 14
-
-
  242:/usr/lib/avr/include/util/delay.h **** 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
  243:/usr/lib/avr/include/util/delay.h **** 	#endif
  244:/usr/lib/avr/include/util/delay.h **** 
  245:/usr/lib/avr/include/util/delay.h **** 	__builtin_avr_delay_cycles(__ticks_dc);
- 394               		.stabn	68,0,245,.LM42-.LFBB6
- 395               	.LM42:
- 396 00be 85E3      		ldi r24,lo8(53)
- 397 00c0 8A95      	1:	dec r24
- 398 00c2 01F4      		brne 1b
- 399 00c4 0000      		nop
- 400               	.LBE9:
- 401               	.LBE8:
- 402               		.stabs	"List1.c",132,0,0,.Ltext2
- 403               	.Ltext2:
- 105:List1.c       ****                 _delay_us(10);
- 106:List1.c       ****                 PORTB = 0x00;  // Trigger to LOW   
- 404               		.stabn	68,0,106,.LM43-.LFBB6
- 405               	.LM43:
- 406 00c6 15B8      		out 0x5,__zero_reg__
- 407               	.L17:
- 408               	/* epilogue start */
- 107:List1.c       ****             }
- 108:List1.c       ****             
- 109:List1.c       ****         }
- 409               		.stabn	68,0,109,.LM44-.LFBB6
- 410               	.LM44:
- 411 00c8 8F91      		pop r24
- 412 00ca 0F90      		pop r0
- 413 00cc 0FBE      		out __SREG__,r0
- 414 00ce 0F90      		pop r0
- 415 00d0 1F90      		pop r1
- 416 00d2 1895      		reti
- 417               		.size	__vector_18, .-__vector_18
- 418               		.stabs	"data:r(0,11)",64,0,101,24
- 419               		.stabn	192,0,0,.LFBB6-.LFBB6
- 420               		.stabn	224,0,0,.Lscope6-.LFBB6
- 421               	.Lscope6:
- 422               		.stabs	"",36,0,0,.Lscope6-.LFBB6
- 423               		.stabd	78,0,0
- 424               		.stabs	"__vector_19:F(0,47)",36,0,112,__vector_19
- 425               	.global	__vector_19
- 426               		.type	__vector_19, @function
- 427               	__vector_19:
- 428               		.stabd	46,0,0
- 110:List1.c       **** 
- 111:List1.c       ****         // Interrupton of TX
- 112:List1.c       ****         ISR(USART_UDRE_vect){
- 429               		.stabn	68,0,112,.LM45-.LFBB7
- 430               	.LM45:
- 431               	.LFBB7:
- 432 00d4 1F92      		push r1
- 433 00d6 0F92      		push r0
- 434 00d8 0FB6      		in r0,__SREG__
- 435 00da 0F92      		push r0
- 436 00dc 1124      		clr __zero_reg__
- 437 00de 2F93      		push r18
- 438 00e0 3F93      		push r19
-GAS LISTING /tmp/ccq97VhN.s 			page 15
+GAS LISTING /tmp/ccMDZrBb.s 			page 14
 
 
- 439 00e2 4F93      		push r20
- 440 00e4 5F93      		push r21
- 441 00e6 6F93      		push r22
- 442 00e8 7F93      		push r23
- 443 00ea 8F93      		push r24
- 444 00ec 9F93      		push r25
- 445 00ee AF93      		push r26
- 446 00f0 BF93      		push r27
- 447 00f2 EF93      		push r30
- 448 00f4 FF93      		push r31
- 449               	/* prologue: Signal */
- 450               	/* frame size = 0 */
- 451               	/* stack size = 15 */
- 452               	.L__stack_usage = 15
- 113:List1.c       ****             cli();
- 453               		.stabn	68,0,113,.LM46-.LFBB7
+ 391               		.stabn	68,0,245,.LM41-.LFBB6
+ 392               	.LM41:
+ 393 00bc 85E3      		ldi r24,lo8(53)
+ 394 00be 8A95      	1:	dec r24
+ 395 00c0 01F4      		brne 1b
+ 396 00c2 0000      		nop
+ 397               	.LBE9:
+ 398               	.LBE8:
+ 399               		.stabs	"List1.c",132,0,0,.Ltext2
+ 400               	.Ltext2:
+ 104:List1.c       ****                 _delay_us(10);
+ 105:List1.c       ****                 PORTB &= ~(1 << PB0);  // Trigger to LOW   
+ 401               		.stabn	68,0,105,.LM42-.LFBB6
+ 402               	.LM42:
+ 403 00c4 2898      		cbi 0x5,0
+ 404               	.L17:
+ 405               	/* epilogue start */
+ 106:List1.c       ****             }
+ 107:List1.c       ****             
+ 108:List1.c       ****         }
+ 406               		.stabn	68,0,108,.LM43-.LFBB6
+ 407               	.LM43:
+ 408 00c6 8F91      		pop r24
+ 409 00c8 0F90      		pop r0
+ 410 00ca 0FBE      		out __SREG__,r0
+ 411 00cc 0F90      		pop r0
+ 412 00ce 1F90      		pop r1
+ 413 00d0 1895      		reti
+ 414               		.size	__vector_18, .-__vector_18
+ 415               	.Lscope6:
+ 416               		.stabs	"",36,0,0,.Lscope6-.LFBB6
+ 417               		.stabd	78,0,0
+ 418               		.stabs	"__vector_19:F(0,47)",36,0,110,__vector_19
+ 419               	.global	__vector_19
+ 420               		.type	__vector_19, @function
+ 421               	__vector_19:
+ 422               		.stabd	46,0,0
+ 109:List1.c       ****         // Interrupton of TX
+ 110:List1.c       ****         ISR(USART_UDRE_vect){
+ 423               		.stabn	68,0,110,.LM44-.LFBB7
+ 424               	.LM44:
+ 425               	.LFBB7:
+ 426 00d2 1F92      		push r1
+ 427 00d4 0F92      		push r0
+ 428 00d6 0FB6      		in r0,__SREG__
+ 429 00d8 0F92      		push r0
+ 430 00da 1124      		clr __zero_reg__
+ 431 00dc 2F93      		push r18
+ 432 00de 3F93      		push r19
+ 433 00e0 4F93      		push r20
+ 434 00e2 5F93      		push r21
+ 435 00e4 6F93      		push r22
+ 436 00e6 7F93      		push r23
+ 437 00e8 8F93      		push r24
+ 438 00ea 9F93      		push r25
+ 439 00ec AF93      		push r26
+ 440 00ee BF93      		push r27
+GAS LISTING /tmp/ccMDZrBb.s 			page 15
+
+
+ 441 00f0 EF93      		push r30
+ 442 00f2 FF93      		push r31
+ 443               	/* prologue: Signal */
+ 444               	/* frame size = 0 */
+ 445               	/* stack size = 15 */
+ 446               	.L__stack_usage = 15
+ 111:List1.c       ****             cli();//Disables all interrupts by clearing the global interrupt mask.
+ 447               		.stabn	68,0,111,.LM45-.LFBB7
+ 448               	.LM45:
+ 449               	/* #APP */
+ 450               	 ;  111 "List1.c" 1
+ 451 00f4 F894      		cli
+ 452               	 ;  0 "" 2
+ 112:List1.c       ****             flag = 0; // Desables the the flag to send a message
+ 453               		.stabn	68,0,112,.LM46-.LFBB7
  454               	.LM46:
- 455               	/* #APP */
- 456               	 ;  113 "List1.c" 1
- 457 00f6 F894      		cli
- 458               	 ;  0 "" 2
- 114:List1.c       ****             PORTB |= (1 << PB2);
- 459               		.stabn	68,0,114,.LM47-.LFBB7
- 460               	.LM47:
- 461               	/* #NOAPP */
- 462 00f8 2A9A      		sbi 0x5,2
- 115:List1.c       ****             flag = 0;
- 463               		.stabn	68,0,115,.LM48-.LFBB7
- 464               	.LM48:
- 465 00fa 1092 0000 		sts flag,__zero_reg__
- 116:List1.c       ****             delay_ms(10);
- 466               		.stabn	68,0,116,.LM49-.LFBB7
- 467               	.LM49:
- 468 00fe 8AE0      		ldi r24,lo8(10)
- 469 0100 90E0      		ldi r25,0
- 470 0102 0E94 0000 		call delay_ms
- 117:List1.c       ****             sei();
- 471               		.stabn	68,0,117,.LM50-.LFBB7
- 472               	.LM50:
- 473               	/* #APP */
- 474               	 ;  117 "List1.c" 1
- 475 0106 7894      		sei
- 476               	 ;  0 "" 2
- 477               	/* epilogue start */
- 118:List1.c       **** 
- 119:List1.c       ****         }        
- 478               		.stabn	68,0,119,.LM51-.LFBB7
- 479               	.LM51:
- 480               	/* #NOAPP */
- 481 0108 FF91      		pop r31
- 482 010a EF91      		pop r30
- 483 010c BF91      		pop r27
- 484 010e AF91      		pop r26
- 485 0110 9F91      		pop r25
- 486 0112 8F91      		pop r24
- 487 0114 7F91      		pop r23
- 488 0116 6F91      		pop r22
-GAS LISTING /tmp/ccq97VhN.s 			page 16
+ 455               	/* #NOAPP */
+ 456 00f6 1092 0000 		sts flag,__zero_reg__
+ 113:List1.c       ****             delay_ms(10);
+ 457               		.stabn	68,0,113,.LM47-.LFBB7
+ 458               	.LM47:
+ 459 00fa 8AE0      		ldi r24,lo8(10)
+ 460 00fc 90E0      		ldi r25,0
+ 461 00fe 0E94 0000 		call delay_ms
+ 114:List1.c       ****             sei(); //Enables interrupts by setting the global interrupt mask
+ 462               		.stabn	68,0,114,.LM48-.LFBB7
+ 463               	.LM48:
+ 464               	/* #APP */
+ 465               	 ;  114 "List1.c" 1
+ 466 0102 7894      		sei
+ 467               	 ;  0 "" 2
+ 468               	/* epilogue start */
+ 115:List1.c       **** 
+ 116:List1.c       ****         }        
+ 469               		.stabn	68,0,116,.LM49-.LFBB7
+ 470               	.LM49:
+ 471               	/* #NOAPP */
+ 472 0104 FF91      		pop r31
+ 473 0106 EF91      		pop r30
+ 474 0108 BF91      		pop r27
+ 475 010a AF91      		pop r26
+ 476 010c 9F91      		pop r25
+ 477 010e 8F91      		pop r24
+ 478 0110 7F91      		pop r23
+ 479 0112 6F91      		pop r22
+ 480 0114 5F91      		pop r21
+ 481 0116 4F91      		pop r20
+ 482 0118 3F91      		pop r19
+ 483 011a 2F91      		pop r18
+ 484 011c 0F90      		pop r0
+ 485 011e 0FBE      		out __SREG__,r0
+ 486 0120 0F90      		pop r0
+ 487 0122 1F90      		pop r1
+ 488 0124 1895      		reti
+ 489               		.size	__vector_19, .-__vector_19
+ 490               	.Lscope7:
+ 491               		.stabs	"",36,0,0,.Lscope7-.LFBB7
+GAS LISTING /tmp/ccMDZrBb.s 			page 16
 
 
- 489 0118 5F91      		pop r21
- 490 011a 4F91      		pop r20
- 491 011c 3F91      		pop r19
- 492 011e 2F91      		pop r18
- 493 0120 0F90      		pop r0
- 494 0122 0FBE      		out __SREG__,r0
- 495 0124 0F90      		pop r0
- 496 0126 1F90      		pop r1
- 497 0128 1895      		reti
- 498               		.size	__vector_19, .-__vector_19
- 499               	.Lscope7:
- 500               		.stabs	"",36,0,0,.Lscope7-.LFBB7
- 501               		.stabd	78,0,0
- 502               		.stabs	"__vector_1:F(0,47)",36,0,121,__vector_1
- 503               	.global	__vector_1
- 504               		.type	__vector_1, @function
- 505               	__vector_1:
- 506               		.stabd	46,0,0
- 120:List1.c       ****         // Interruption of INT0 
- 121:List1.c       ****         ISR(INT0_vect){
- 507               		.stabn	68,0,121,.LM52-.LFBB8
- 508               	.LM52:
- 509               	.LFBB8:
- 510 012a 1F92      		push r1
- 511 012c 0F92      		push r0
- 512 012e 0FB6      		in r0,__SREG__
- 513 0130 0F92      		push r0
- 514 0132 1124      		clr __zero_reg__
- 515 0134 2F93      		push r18
- 516 0136 3F93      		push r19
- 517 0138 4F93      		push r20
- 518 013a 5F93      		push r21
- 519 013c 6F93      		push r22
- 520 013e 7F93      		push r23
- 521 0140 8F93      		push r24
- 522 0142 9F93      		push r25
- 523 0144 AF93      		push r26
- 524 0146 BF93      		push r27
- 525 0148 EF93      		push r30
- 526 014a FF93      		push r31
- 527               	/* prologue: Signal */
- 528               	/* frame size = 0 */
- 529               	/* stack size = 15 */
- 530               	.L__stack_usage = 15
- 122:List1.c       ****             
- 123:List1.c       ****             cli();
- 531               		.stabn	68,0,123,.LM53-.LFBB8
- 532               	.LM53:
- 533               	/* #APP */
- 534               	 ;  123 "List1.c" 1
- 535 014c F894      		cli
- 536               	 ;  0 "" 2
- 124:List1.c       ****             flag = 1; // Enable the the flag to send a message
- 537               		.stabn	68,0,124,.LM54-.LFBB8
- 538               	.LM54:
- 539               	/* #NOAPP */
- 540 014e 81E0      		ldi r24,lo8(1)
-GAS LISTING /tmp/ccq97VhN.s 			page 17
+ 492               		.stabd	78,0,0
+ 493               		.stabs	"__vector_1:F(0,47)",36,0,118,__vector_1
+ 494               	.global	__vector_1
+ 495               		.type	__vector_1, @function
+ 496               	__vector_1:
+ 497               		.stabd	46,0,0
+ 117:List1.c       ****         // Interruption of INT0 
+ 118:List1.c       ****         ISR(INT0_vect){
+ 498               		.stabn	68,0,118,.LM50-.LFBB8
+ 499               	.LM50:
+ 500               	.LFBB8:
+ 501 0126 1F92      		push r1
+ 502 0128 0F92      		push r0
+ 503 012a 0FB6      		in r0,__SREG__
+ 504 012c 0F92      		push r0
+ 505 012e 1124      		clr __zero_reg__
+ 506 0130 2F93      		push r18
+ 507 0132 3F93      		push r19
+ 508 0134 4F93      		push r20
+ 509 0136 5F93      		push r21
+ 510 0138 6F93      		push r22
+ 511 013a 7F93      		push r23
+ 512 013c 8F93      		push r24
+ 513 013e 9F93      		push r25
+ 514 0140 AF93      		push r26
+ 515 0142 BF93      		push r27
+ 516 0144 EF93      		push r30
+ 517 0146 FF93      		push r31
+ 518               	/* prologue: Signal */
+ 519               	/* frame size = 0 */
+ 520               	/* stack size = 15 */
+ 521               	.L__stack_usage = 15
+ 119:List1.c       ****             
+ 120:List1.c       ****             cli(); //Disables all interrupts by clearing the global interrupt mask.
+ 522               		.stabn	68,0,120,.LM51-.LFBB8
+ 523               	.LM51:
+ 524               	/* #APP */
+ 525               	 ;  120 "List1.c" 1
+ 526 0148 F894      		cli
+ 527               	 ;  0 "" 2
+ 121:List1.c       ****             flag = 1; // Enables the the flag to send a message
+ 528               		.stabn	68,0,121,.LM52-.LFBB8
+ 529               	.LM52:
+ 530               	/* #NOAPP */
+ 531 014a 81E0      		ldi r24,lo8(1)
+ 532 014c 8093 0000 		sts flag,r24
+ 122:List1.c       ****             delay_ms(10); 
+ 533               		.stabn	68,0,122,.LM53-.LFBB8
+ 534               	.LM53:
+ 535 0150 8AE0      		ldi r24,lo8(10)
+ 536 0152 90E0      		ldi r25,0
+ 537 0154 0E94 0000 		call delay_ms
+ 123:List1.c       ****             sei(); //Enables interrupts by setting the global interrupt mask
+ 538               		.stabn	68,0,123,.LM54-.LFBB8
+ 539               	.LM54:
+ 540               	/* #APP */
+ 541               	 ;  123 "List1.c" 1
+GAS LISTING /tmp/ccMDZrBb.s 			page 17
 
 
- 541 0150 8093 0000 		sts flag,r24
- 125:List1.c       ****             delay_ms(10);
- 542               		.stabn	68,0,125,.LM55-.LFBB8
- 543               	.LM55:
- 544 0154 8AE0      		ldi r24,lo8(10)
- 545 0156 90E0      		ldi r25,0
- 546 0158 0E94 0000 		call delay_ms
- 126:List1.c       ****             sei();
- 547               		.stabn	68,0,126,.LM56-.LFBB8
- 548               	.LM56:
- 549               	/* #APP */
- 550               	 ;  126 "List1.c" 1
- 551 015c 7894      		sei
- 552               	 ;  0 "" 2
- 553               	/* epilogue start */
- 127:List1.c       ****             
- 128:List1.c       ****         }
- 554               		.stabn	68,0,128,.LM57-.LFBB8
- 555               	.LM57:
- 556               	/* #NOAPP */
- 557 015e FF91      		pop r31
- 558 0160 EF91      		pop r30
- 559 0162 BF91      		pop r27
- 560 0164 AF91      		pop r26
- 561 0166 9F91      		pop r25
- 562 0168 8F91      		pop r24
- 563 016a 7F91      		pop r23
- 564 016c 6F91      		pop r22
- 565 016e 5F91      		pop r21
- 566 0170 4F91      		pop r20
- 567 0172 3F91      		pop r19
- 568 0174 2F91      		pop r18
- 569 0176 0F90      		pop r0
- 570 0178 0FBE      		out __SREG__,r0
- 571 017a 0F90      		pop r0
- 572 017c 1F90      		pop r1
- 573 017e 1895      		reti
- 574               		.size	__vector_1, .-__vector_1
- 575               	.Lscope8:
- 576               		.stabs	"",36,0,0,.Lscope8-.LFBB8
- 577               		.stabd	78,0,0
- 578               		.section	.text.startup,"ax",@progbits
- 579               		.stabs	"main:F(0,1)",36,0,135,main
- 580               	.global	main
- 581               		.type	main, @function
- 582               	main:
- 583               		.stabd	46,0,0
- 129:List1.c       ****        
- 130:List1.c       ****     //***********************************//
- 131:List1.c       **** //***********************************//
- 132:List1.c       **** 
- 133:List1.c       **** //***********************************//
- 134:List1.c       **** // Main 
- 135:List1.c       ****     int main(void){
- 584               		.stabn	68,0,135,.LM58-.LFBB9
- 585               	.LM58:
- 586               	.LFBB9:
-GAS LISTING /tmp/ccq97VhN.s 			page 18
+ 542 0158 7894      		sei
+ 543               	 ;  0 "" 2
+ 544               	/* epilogue start */
+ 124:List1.c       ****             
+ 125:List1.c       ****         }
+ 545               		.stabn	68,0,125,.LM55-.LFBB8
+ 546               	.LM55:
+ 547               	/* #NOAPP */
+ 548 015a FF91      		pop r31
+ 549 015c EF91      		pop r30
+ 550 015e BF91      		pop r27
+ 551 0160 AF91      		pop r26
+ 552 0162 9F91      		pop r25
+ 553 0164 8F91      		pop r24
+ 554 0166 7F91      		pop r23
+ 555 0168 6F91      		pop r22
+ 556 016a 5F91      		pop r21
+ 557 016c 4F91      		pop r20
+ 558 016e 3F91      		pop r19
+ 559 0170 2F91      		pop r18
+ 560 0172 0F90      		pop r0
+ 561 0174 0FBE      		out __SREG__,r0
+ 562 0176 0F90      		pop r0
+ 563 0178 1F90      		pop r1
+ 564 017a 1895      		reti
+ 565               		.size	__vector_1, .-__vector_1
+ 566               	.Lscope8:
+ 567               		.stabs	"",36,0,0,.Lscope8-.LFBB8
+ 568               		.stabd	78,0,0
+ 569               		.section	.text.startup,"ax",@progbits
+ 570               		.stabs	"main:F(0,1)",36,0,132,main
+ 571               	.global	main
+ 572               		.type	main, @function
+ 573               	main:
+ 574               		.stabd	46,0,0
+ 126:List1.c       ****        
+ 127:List1.c       ****     //***********************************//
+ 128:List1.c       **** //***********************************//
+ 129:List1.c       **** 
+ 130:List1.c       **** //***********************************//
+ 131:List1.c       **** // Main 
+ 132:List1.c       ****     int main(void){
+ 575               		.stabn	68,0,132,.LM56-.LFBB9
+ 576               	.LM56:
+ 577               	.LFBB9:
+ 578               	/* prologue: function */
+ 579               	/* frame size = 0 */
+ 580               	/* stack size = 0 */
+ 581               	.L__stack_usage = 0
+ 133:List1.c       **** 
+ 134:List1.c       ****         usartInit(); // Initialaze the Uart parameters
+ 582               		.stabn	68,0,134,.LM57-.LFBB9
+ 583               	.LM57:
+ 584 0000 0E94 0000 		call usartInit
+ 135:List1.c       ****         interruptInit(); // Initialize the Interruptions parameters
+ 585               		.stabn	68,0,135,.LM58-.LFBB9
+ 586               	.LM58:
+GAS LISTING /tmp/ccMDZrBb.s 			page 18
 
 
- 587               	/* prologue: function */
- 588               	/* frame size = 0 */
- 589               	/* stack size = 0 */
- 590               	.L__stack_usage = 0
- 136:List1.c       **** 
- 137:List1.c       ****         uartInit();
- 591               		.stabn	68,0,137,.LM59-.LFBB9
- 592               	.LM59:
- 593 0000 0E94 0000 		call uartInit
- 138:List1.c       ****         interruptInit();
- 594               		.stabn	68,0,138,.LM60-.LFBB9
- 595               	.LM60:
- 596 0004 0E94 0000 		call interruptInit
- 139:List1.c       ****         systemInit();
- 597               		.stabn	68,0,139,.LM61-.LFBB9
- 598               	.LM61:
- 599 0008 0E94 0000 		call systemInit
- 600               	.L22:
- 601               	.LBB10:
- 602               	.LBB11:
- 603               		.stabs	"/usr/lib/avr/include/util/delay.h",132,0,0,.Ltext3
- 604               	.Ltext3:
+ 587 0004 0E94 0000 		call interruptInit
+ 136:List1.c       ****         systemInit(); // Initializer the System parameters
+ 588               		.stabn	68,0,136,.LM59-.LFBB9
+ 589               	.LM59:
+ 590 0008 0E94 0000 		call systemInit
+ 591               	.L22:
+ 592               	.LBB10:
+ 593               	.LBB11:
+ 594               		.stabs	"/usr/lib/avr/include/util/delay.h",132,0,0,.Ltext3
+ 595               	.Ltext3:
  163:/usr/lib/avr/include/util/delay.h **** 
- 605               		.stabn	68,0,163,.LM62-.LFBB9
- 606               	.LM62:
- 607 000c 2FEF      		ldi r18,lo8(319999)
- 608 000e 81EE      		ldi r24,hi8(319999)
- 609 0010 94E0      		ldi r25,hlo8(319999)
- 610 0012 2150      	1:	subi r18,1
- 611 0014 8040      		sbci r24,0
- 612 0016 9040      		sbci r25,0
- 613 0018 01F4      		brne 1b
- 614 001a 00C0      		rjmp .
- 615 001c 0000      		nop
- 616               	.LBE11:
- 617               	.LBE10:
- 618               		.stabs	"List1.c",132,0,0,.Ltext4
- 619               	.Ltext4:
- 140:List1.c       ****         
- 141:List1.c       ****         while(1){
- 142:List1.c       ****         // Nothing to do
- 143:List1.c       ****             _delay_ms(100);
- 144:List1.c       ****             PORTB &= ~(1 << PD2);
- 620               		.stabn	68,0,144,.LM63-.LFBB9
- 621               	.LM63:
- 622 001e 2A98      		cbi 0x5,2
- 145:List1.c       ****             if(flag){
- 623               		.stabn	68,0,145,.LM64-.LFBB9
- 624               	.LM64:
- 625 0020 8091 0000 		lds r24,flag
- 626 0024 8823      		tst r24
- 627 0026 01F0      		breq .L22
- 146:List1.c       ****                 write(0x48); 
- 628               		.stabn	68,0,146,.LM65-.LFBB9
- 629               	.LM65:
- 630 0028 88E4      		ldi r24,lo8(72)
- 631 002a 0E94 0000 		call write
-GAS LISTING /tmp/ccq97VhN.s 			page 19
+ 596               		.stabn	68,0,163,.LM60-.LFBB9
+ 597               	.LM60:
+ 598 000c 2FEF      		ldi r18,lo8(319999)
+ 599 000e 81EE      		ldi r24,hi8(319999)
+ 600 0010 94E0      		ldi r25,hlo8(319999)
+ 601 0012 2150      	1:	subi r18,1
+ 602 0014 8040      		sbci r24,0
+ 603 0016 9040      		sbci r25,0
+ 604 0018 01F4      		brne 1b
+ 605 001a 00C0      		rjmp .
+ 606 001c 0000      		nop
+ 607               	.LBE11:
+ 608               	.LBE10:
+ 609               		.stabs	"List1.c",132,0,0,.Ltext4
+ 610               	.Ltext4:
+ 137:List1.c       ****         
+ 138:List1.c       ****         while(1){
+ 139:List1.c       ****             _delay_ms(100);
+ 140:List1.c       ****             if(flag){
+ 611               		.stabn	68,0,140,.LM61-.LFBB9
+ 612               	.LM61:
+ 613 001e 8091 0000 		lds r24,flag
+ 614 0022 8823      		tst r24
+ 615 0024 01F0      		breq .L22
+ 141:List1.c       ****                 write(0x48); // Sending 0x48 to the serial
+ 616               		.stabn	68,0,141,.LM62-.LFBB9
+ 617               	.LM62:
+ 618 0026 88E4      		ldi r24,lo8(72)
+ 619 0028 0E94 0000 		call write
+ 620 002c 00C0      		rjmp .L22
+ 621               		.size	main, .-main
+ 622               	.Lscope9:
+ 623               		.stabs	"",36,0,0,.Lscope9-.LFBB9
+ 624               		.stabd	78,0,0
+ 625               		.comm	usart_transmitting,1,1
+ 626               		.comm	tx_tail,1,1
+ 627               		.comm	tx_head,1,1
+ 628               		.comm	tx_buffer,200,1
+ 629               		.comm	flag,1,1
+ 630               		.stabs	"flag:G(0,48)=B(5,2)",32,0,24,0
+ 631               		.stabs	"tx_buffer:G(0,49)=ar(0,50)=r(0,50);0;0177777;;0;199;(5,2)",32,0,25,0
+ 632               		.stabs	"tx_head:G(5,2)",32,0,26,0
+ 633               		.stabs	"tx_tail:G(5,2)",32,0,26,0
+ 634               		.stabs	"usart_transmitting:G(5,2)",32,0,27,0
+ 635               		.text
+ 636               		.stabs	"",100,0,0,.Letext0
+GAS LISTING /tmp/ccMDZrBb.s 			page 19
 
 
- 632 002e 00C0      		rjmp .L22
- 633               		.size	main, .-main
- 634               	.Lscope9:
- 635               		.stabs	"",36,0,0,.Lscope9-.LFBB9
- 636               		.stabd	78,0,0
- 637               		.comm	usart_transmitting,1,1
- 638               		.comm	tx_tail,1,1
- 639               		.comm	tx_head,1,1
- 640               		.comm	tx_buffer,200,1
- 641               		.comm	flag,1,1
- 642               		.stabs	"flag:G(0,48)=B(5,2)",32,0,25,0
- 643               		.stabs	"tx_buffer:G(0,49)=ar(0,50)=r(0,50);0;0177777;;0;199;(5,2)",32,0,26,0
- 644               		.stabs	"tx_head:G(5,2)",32,0,27,0
- 645               		.stabs	"tx_tail:G(5,2)",32,0,27,0
- 646               		.stabs	"usart_transmitting:G(5,2)",32,0,28,0
- 647               		.text
- 648               		.stabs	"",100,0,0,.Letext0
- 649               	.Letext0:
- 650               		.ident	"GCC: (GNU) 4.9.2"
- 651               	.global __do_clear_bss
-GAS LISTING /tmp/ccq97VhN.s 			page 20
+ 637               	.Letext0:
+ 638               		.ident	"GCC: (GNU) 4.9.2"
+ 639               	.global __do_clear_bss
+GAS LISTING /tmp/ccMDZrBb.s 			page 20
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 List1.c
-     /tmp/ccq97VhN.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccq97VhN.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccq97VhN.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccq97VhN.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccq97VhN.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccq97VhN.s:105    .text:0000000000000000 uartInit
-     /tmp/ccq97VhN.s:149    .text:0000000000000026 interruptInit
-     /tmp/ccq97VhN.s:183    .text:0000000000000036 systemInit
-     /tmp/ccq97VhN.s:207    .text:000000000000003c delay_ms
-     /tmp/ccq97VhN.s:262    .text:000000000000005a write
+     /tmp/ccMDZrBb.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccMDZrBb.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccMDZrBb.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccMDZrBb.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccMDZrBb.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccMDZrBb.s:105    .text:0000000000000000 usartInit
+     /tmp/ccMDZrBb.s:149    .text:0000000000000026 interruptInit
+     /tmp/ccMDZrBb.s:183    .text:0000000000000036 systemInit
+     /tmp/ccMDZrBb.s:207    .text:000000000000003c delay_ms
+     /tmp/ccMDZrBb.s:262    .text:000000000000005a write
                             *COM*:0000000000000001 usart_transmitting
                             *COM*:0000000000000001 tx_head
                             *COM*:0000000000000001 tx_tail
                             *COM*:00000000000000c8 tx_buffer
-     /tmp/ccq97VhN.s:364    .text:00000000000000a6 __vector_18
-     /tmp/ccq97VhN.s:427    .text:00000000000000d4 __vector_19
+     /tmp/ccMDZrBb.s:364    .text:00000000000000a6 __vector_18
+     /tmp/ccMDZrBb.s:421    .text:00000000000000d2 __vector_19
                             *COM*:0000000000000001 flag
-     /tmp/ccq97VhN.s:505    .text:000000000000012a __vector_1
-     /tmp/ccq97VhN.s:582    .text.startup:0000000000000000 main
+     /tmp/ccMDZrBb.s:496    .text:0000000000000126 __vector_1
+     /tmp/ccMDZrBb.s:573    .text.startup:0000000000000000 main
 
 UNDEFINED SYMBOLS
 __do_clear_bss

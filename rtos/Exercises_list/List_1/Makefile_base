@@ -77,7 +77,7 @@ M4DEPS=
 
 LST=$(filter %.lst, $(OBJDEPS:.o=.lst))
 
-.SUFFIXES : .c .o .out .S .hex .ee.hex .h
+.SUFFIXES : . c .o .out .S .hex .ee.hex .h
 
 .PHONY: writeflash clean stats gdbinit stats fuse
 

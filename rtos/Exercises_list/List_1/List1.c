@@ -4,6 +4,7 @@
     No programa principal, ao detectar a flag ativada, envie um byte com valor 48 pela porta serial.
 */
 
+// Geraldo Braz
 //***********************************//
 // Includes
     #include <avr/io.h>
@@ -11,7 +12,6 @@
     #include <avr/interrupt.h>
     #include <util/delay.h>
 //"/usr/lib/avr/include/avr"
-//***********************************//
 // Defines
     #define FOSC 16000000ul  // Clock Speed
     #define BAUD 115200      // Baudrate
@@ -23,22 +23,23 @@
 //***********************************//
 // Global Variables
     volatile uint8_t flag; 
-    uint8_t tx_buffer[BUFFER_SIZE];     /* buffer para transmissão */
-    uint8_t tx_head, tx_tail;   /* ponteiros para o buffer circular */
+    uint8_t tx_buffer[BUFFER_SIZE]; 
+    uint8_t tx_head, tx_tail; 
     uint8_t usart_transmitting;
-//***********************************//
+//**************************sistema*********//
 
 // ********* Configurations *********//
     //***********************************//
-    // Uart
-        void uartInit(){
-            // Configuration of Uart Transmition RX-TX
+    // Usart
+        void usartInit(){
+            // Configuration of Usart Transmition RX-TX
             DDRD |= (1 << PD1); // Configure Tx as Output
             DDRD |= ~(1 << PD0); // Configure Rx as Input
             
             // Configurate the Baudrate
             UBRR0H = (BAUDRATE >> 8);
             UBRR0L = BAUDRATE;
+            // Configurate the registers
             UCSR0A = (1 << U2X0);
             UCSR0B = (1 << RXCIE0) | (1 << RXEN0) | (1 << TXEN0);
             UCSR0C = (1 << UCSZ00) | (1 << UCSZ01);
@@ -46,8 +47,8 @@
         }
 
         //***********************************//
-    // Interruption
-     void interruptInit(){
+    // Interruption Configurations
+        void interruptInit(){
             EICRA |= (1 << ISC00);    // set INT0 to trigger on ANY logic change
             EIMSK |= (1 << INT0);     // Turns on INT0
             sei();                    // turn on interrupts
@@ -57,8 +58,6 @@
         void systemInit(){
             DDRB |= (1 << PB0); // Trigger as Output
             DDRD &= ~(1 << PD2); // Echo as Input            
-            // DDRB |= (1 << PB1); // Trigger as Output
-            // DDRB |= (1 << PB2);
         }
        
     //***********************************//
@@ -96,34 +95,33 @@
     //***********************************//
     
     //***********************************//
-    // Interruption of RX 
+    // Interruptons    
+        // Interruption of RX 
         ISR(USART_RX_vect){
-            unsigned char data = UDR0; // Recived data
+            // unsigned char data = UDR0; // Recived data
             // Start the Infrared sensor
-            if(data == 's'){
-                PORTB = 0x01;  // Trigger to HIGH   
+            if(UDR0 == 's'){
+                PORTB |= (1 << PB0);  // Trigger to HIGH   
                 _delay_us(10);
-                PORTB = 0x00;  // Trigger to LOW   
+                PORTB &= ~(1 << PB0);  // Trigger to LOW   
             }
             
         }
-
         // Interrupton of TX
         ISR(USART_UDRE_vect){
-            cli();
-            PORTB |= (1 << PB2);
-            flag = 0;
+            cli();//Disables all interrupts by clearing the global interrupt mask.
+            flag = 0; // Desables the the flag to send a message
             delay_ms(10);
-            sei();
+            sei(); //Enables interrupts by setting the global interrupt mask
 
         }        
         // Interruption of INT0 
         ISR(INT0_vect){
             
-            cli();
-            flag = 1; // Enable the the flag to send a message
-            delay_ms(10);
-            sei();
+            cli(); //Disables all interrupts by clearing the global interrupt mask.
+            flag = 1; // Enables the the flag to send a message
+            delay_ms(10); 
+            sei(); //Enables interrupts by setting the global interrupt mask
             
         }
        
@@ -134,16 +132,14 @@
 // Main 
     int main(void){
 
-        uartInit();
-        interruptInit();
-        systemInit();
+        usartInit(); // Initialaze the Uart parameters
+        interruptInit(); // Initialize the Interruptions parameters
+        systemInit(); // Initializer the System parameters
         
         while(1){
-        // Nothing to do
             _delay_ms(100);
-            PORTB &= ~(1 << PD2);
             if(flag){
-                write(0x48); 
+                write(0x48); // Sending 0x48 to the serial
             }        
 
         }
@@ -151,3 +147,4 @@
         return 0;
     }
 //***********************************//
+
