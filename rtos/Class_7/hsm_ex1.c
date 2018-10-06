@@ -25,7 +25,7 @@ cb_status init_cb(event_t ev)
         foo = 0;
         printf("top-INIT;");
         Topo_init_tran();
-        return EVENT_HANDLED;
+        return EVENT_HANDLED; 
 }
 
 cb_status s_cb(event_t ev)
