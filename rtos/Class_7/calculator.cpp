@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
@@ -15,78 +14,106 @@ enum states
 
 };
 
+enum operations{
+    add = 1,
+    sub,
+    mult,
+    div_
+};
+
 int main()
 {
     // Creation of the variables
     int state = S1; // Waiting for the first number
     std::string c, s;
-    vector<std::string> expression(0);
-
+    operations op;
     int value1, value2 = 0;
-    int op = 0;
     float answer = 0;
-
     cout << "####### Calculator #######" << endl;
     while (cin >> c)
     {
-
+        if(!c.compare("c") || !c.compare("C")){
+            state = S3;
+        }
         switch (state)
         {
-        case S1:
-            // If c isn't a math operator
-            if (c.compare("+") && c.compare("-") && c.compare("*") && c.compare("/")){
-                s += c;
-            }
-            else
-            {
-                value1 = stoi(s); // Converting string to int
-                state = S2;
+            case S1:
+                // If c isn't a math operator
+                if (c.compare("+") && c.compare("-") && c.compare("*") && c.compare("/")){
+                    s += c;
+                }
+                else
+                {
+                    value1 = stoi(s); // Converting string to int
+                    state = S2;
+                    s.clear();
+                    if (!c.compare("+"))
+                    {
+                        op = add;
+                    }
+                    else if (!c.compare("-"))
+                    {
+                        op = sub;
+                    }
+                    else if (!c.compare("*"))
+                    {
+                        op = mult;
+                    }
+                    else if (!c.compare("/"))
+                    {
+                        op = div_;
+                    }
+                    
+                }
+                break;
+
+            // Wainting for the next number
+            case S2:
+                if (c.compare("=")){
+                    s += c;
+                }
+                else{
+                    value2 = stoi(s);
+                    cout << "**********\n" << "Value1: " << value1 << "\nValue2: " << value2 << "\n**********\n"<< "s: " << s << "\nc: " << c<< endl;
+                    switch(op){
+                        case add: 
+                            answer = value1+value2;
+                            cout << value1 << " + " << value2 << " = " << answer << "\n**********\n" << endl;        
+                            break;
+                        case sub:
+                            answer = value1-value2;
+                            cout << value1 << " - " << value2 << " = " << answer << "\n**********\n" << endl;  
+                            break;
+                        case mult:
+                            answer = value1*value2;
+                            cout << value1 << " * " << value2 << " = " << answer << "\n**********\n" << endl;  
+                            break;
+                        case div_:
+                            answer = (float)value1/(float)value2;
+                            cout << value1 << " / " << value2 << " = " << answer << "\n**********\n" << endl;   
+                            break;
+                            
+                        default:
+                            break;
+
+                    } 
+                    s.clear();
+                    value1 = 0;
+                    value2 = 0;
+                    state = S1;
+                }
+
+                break;
+
+            case S3:
+                cout << "# Cancel" << endl;
                 s.clear();
-                if (!c.compare("+"))
-                {
-                    cout << "Add!" << endl;
-                    op = 1;
-                    state = S2;
-                }
-                else if (!c.compare("-"))
-                {
-                    op = 2;
-                    state = S2;
-                }
-                else if (!c.compare("*"))
-                {
-                    op = 3;
-                    state = S2;
-                }
-                else if (!c.compare("/"))
-                {
-                    op = 4;
-                    state = S2;
-                }
-            }
-            break;
-
-        case S2:
-        // Wainting for the next number
-            cout << "S2" << endl;
-            if (c.compare("=")){
-                s += c;
-            }
-            else{
-                value2 = stoi(s);
-                state = S3;
-                cout << state << endl;
-            }
-
-            break;
-
-        case S3:
-            // FIXME: It's not completing the operation 
-            cout << "S3" << endl;
-            cout << value1 + value2 << endl;    
-            break;
-        default:
-            break;
+                value1 = 0;
+                value2 = 0;
+                state = S1;
+                break;
+            default:
+                break;
         }
         
     }
