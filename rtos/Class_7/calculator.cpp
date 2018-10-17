@@ -27,7 +27,7 @@ int main()
     int state = S1; // Waiting for the first number
     std::string c, s;
     operations op;
-    int value1, value2 = 0;
+    float value1, value2 = 0.0;
     float answer = 0;
     cout << "####### Calculator #######" << endl;
     while (cin >> c)
@@ -43,8 +43,12 @@ int main()
                     s += c;
                 }
                 else
-                {
-                    value1 = stoi(s); // Converting string to int
+                {   
+                    if(!s.compare("")){
+                        value1 = answer;
+                    }else{
+                        value1 = stof(s); // Converting string to int
+                    }
                     state = S2;
                     s.clear();
                     if (!c.compare("+"))
@@ -73,24 +77,25 @@ int main()
                     s += c;
                 }
                 else{
-                    value2 = stoi(s);
+                    value2 = stof(s);
                     cout << "**********\n" << "Value1: " << value1 << "\nValue2: " << value2 << "\n**********\n"<< "s: " << s << "\nc: " << c<< endl;
+                    
                     switch(op){
                         case add: 
                             answer = value1+value2;
-                            cout << value1 << " + " << value2 << " = " << answer << "\n**********\n" << endl;        
+                            cout << "Result: " << value1 << " + " << value2 << " = " << answer << "\n**********\n" << endl;        
                             break;
                         case sub:
                             answer = value1-value2;
-                            cout << value1 << " - " << value2 << " = " << answer << "\n**********\n" << endl;  
+                            cout << "Result: " << value1 << " - " << value2 << " = " << answer << "\n**********\n" << endl;  
                             break;
                         case mult:
                             answer = value1*value2;
-                            cout << value1 << " * " << value2 << " = " << answer << "\n**********\n" << endl;  
+                            cout << "Result: " << value1 << " * " << value2 << " = " << answer << "\n**********\n" << endl;  
                             break;
                         case div_:
                             answer = (float)value1/(float)value2;
-                            cout << value1 << " / " << value2 << " = " << answer << "\n**********\n" << endl;   
+                            cout << "Result: " << value1 << " / " << value2 << " = " << answer << "\n**********\n" << endl;   
                             break;
                             
                         default:
