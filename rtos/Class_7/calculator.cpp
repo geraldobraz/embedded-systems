@@ -4,7 +4,6 @@
 #include <stdlib.h>
 
 // A calculator with state machine
-
 using namespace std;
 enum states
 {
@@ -25,7 +24,7 @@ int main()
 {
     // Creation of the variables
     int state = S1; // Waiting for the first number
-    std::string c, s;
+    string c, s;
     operations op;
     float value1, value2 = 0.0;
     float answer = 0;
@@ -78,7 +77,6 @@ int main()
                 }
                 else{
                     value2 = stof(s);
-                    cout << "**********\n" << "Value1: " << value1 << "\nValue2: " << value2 << "\n**********\n"<< "s: " << s << "\nc: " << c<< endl;
                     
                     switch(op){
                         case add: 
@@ -94,7 +92,7 @@ int main()
                             cout << "Result: " << value1 << " * " << value2 << " = " << answer << "\n**********\n" << endl;  
                             break;
                         case div_:
-                            answer = (float)value1/(float)value2;
+                            answer = value1/value2;
                             cout << "Result: " << value1 << " / " << value2 << " = " << answer << "\n**********\n" << endl;   
                             break;
                             
