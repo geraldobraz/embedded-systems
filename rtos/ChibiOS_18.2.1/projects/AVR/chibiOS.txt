@@ -1,0 +1,53 @@
+>> Creating a new static thread:
+static THD_WORKING_AREA(myThreadWorkingArea, 128);
+
+Alocando 128bytes na memória
+
+- Para iniciar essa thread precisa-se usar o seguinte comando :
+
+ thread_t *tp = chThdCreateStatic(myThreadWorkingArea,
+                                   sizeof(myThreadWorkingArea),
+                                   NORMALPRIO,  /* Initial priority.    */
+                                   myThread,    /* Thread function.     */
+                                   NULL);       /* Thread parameter.    */
+
+
+Você define a função thread aqui:
+
+static THD_FUNCTION(Thread1, arg) {
+    // ESCREVER ALGO AQUI!
+  
+}
+
+chThdSleepMilliseconds(1000); // Thread sleep
+
+>> PAL driver
+
+palTogglePad(IOPORT2, PORTB_LED1); // Escolheu a porta referente ao LED interno do Arduino
+
+>> Serial 
+sdStart(&SD1, NULL); // Configura e inicia o driver de serial 
+
+chnWrite(&SD1, (const uint8_t *)"Hello World!\r\n", 14); // Writing at the serial
+
+>> PWM
+
+Config: 
+
+PWMConfig
+- Frequency
+- Period
+- Call Back
+- Channels
+
+
+EX:
+ static PWMConfig pwmcfg = {
+        15625, 0x3FF, 0,
+        {{PWM_OUTPUT_DISABLED, 0}, {PWM_OUTPUT_ACTIVE_HIGH, 0}}
+    };
+
+// Starting the PWM using the config above 
+pwmStart(&PWMD1, &pwmcfg);
+
+pwmEnableChannel(&PWMD1, 1, width); // pwmp, channel, width

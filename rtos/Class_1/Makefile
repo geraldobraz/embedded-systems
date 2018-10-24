@@ -2,7 +2,7 @@
 
 #############################
 
-MAIN_FILE := blinky
+MAIN_FILE := blink
 SOURCES := $(MAIN_FILE).c
 
 #############################

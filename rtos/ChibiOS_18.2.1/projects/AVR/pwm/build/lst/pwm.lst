@@ -1,0 +1,241 @@
+   1               		.file	"pwm.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               		.section	.text.Thread1,"ax",@progbits
+  12               	Thread1:
+  13               	.LFB168:
+  14               		.file 1 "pwm.c"
+   1:pwm.c         **** #include <ch.h>
+   2:pwm.c         **** #include <hal.h>
+   3:pwm.c         **** 
+   4:pwm.c         **** #define LED_PAD PORTB_LED1
+   5:pwm.c         **** #define LED_PORT IOPORT2
+   6:pwm.c         **** 
+   7:pwm.c         **** static THD_WORKING_AREA(waThread1, 32);
+   8:pwm.c         **** static THD_FUNCTION(Thread1, arg)
+   9:pwm.c         **** {
+  15               		.loc 1 9 0
+  16               		.cfi_startproc
+  17               	.LVL0:
+  18               	/* prologue: function */
+  19               	/* frame size = 0 */
+  20               	/* stack size = 0 */
+  21               	.L__stack_usage = 0
+  10:pwm.c         ****     while (true) {
+  11:pwm.c         ****         palTogglePad(LED_PORT, LED_PAD);
+  22               		.loc 1 11 0
+  23 0000 C0E2      		ldi r28,lo8(32)
+  24               	.LVL1:
+  25               	.L2:
+  26               		.loc 1 11 0 is_stmt 0 discriminator 1
+  27 0002 85B1      		in r24,0x5
+  28 0004 8C27      		eor r24,r28
+  29 0006 85B9      		out 0x5,r24
+  12:pwm.c         ****         chThdSleepMilliseconds(100);
+  30               		.loc 1 12 0 is_stmt 1 discriminator 1
+  31 0008 8BE1      		ldi r24,lo8(27)
+  32 000a 96E0      		ldi r25,lo8(6)
+  33 000c 0E94 0000 		call chThdSleep
+  34               	.LVL2:
+  13:pwm.c         ****     }
+  35               		.loc 1 13 0 discriminator 1
+  36 0010 00C0      		rjmp .L2
+  37               		.cfi_endproc
+  38               	.LFE168:
+  40               		.section	.text.startup.main,"ax",@progbits
+  41               	.global	main
+  43               	main:
+  44               	.LFB169:
+  14:pwm.c         **** }
+  15:pwm.c         **** 
+  16:pwm.c         **** int main(void)
+  17:pwm.c         **** {
+  45               		.loc 1 17 0
+  46               		.cfi_startproc
+  47               	/* prologue: function */
+  48               	/* frame size = 0 */
+  49               	/* stack size = 0 */
+  50               	.L__stack_usage = 0
+  51               	.LVL3:
+  18:pwm.c         ****     int step = 6;
+  19:pwm.c         ****     int width = step;
+  20:pwm.c         **** 
+  21:pwm.c         ****     static PWMConfig pwmcfg = {
+  22:pwm.c         ****         15625, 0x3FF, 0,
+  23:pwm.c         ****         {{PWM_OUTPUT_DISABLED, 0}, {PWM_OUTPUT_ACTIVE_HIGH, 0}}
+  24:pwm.c         ****     };
+  25:pwm.c         **** 
+  26:pwm.c         ****     halInit();
+  52               		.loc 1 26 0
+  53 0000 0E94 0000 		call halInit
+  54               	.LVL4:
+  27:pwm.c         ****     chSysInit();
+  55               		.loc 1 27 0
+  56 0004 0E94 0000 		call chSysInit
+  57               	.LVL5:
+  28:pwm.c         **** 
+  29:pwm.c         ****     pwmStart(&PWMD1, &pwmcfg);
+  58               		.loc 1 29 0
+  59 0008 60E0      		ldi r22,lo8(pwmcfg.3243)
+  60 000a 70E0      		ldi r23,hi8(pwmcfg.3243)
+  61 000c 80E0      		ldi r24,lo8(PWMD1)
+  62 000e 90E0      		ldi r25,hi8(PWMD1)
+  63 0010 0E94 0000 		call pwmStart
+  64               	.LVL6:
+  30:pwm.c         **** 
+  31:pwm.c         ****     palSetPadMode(IOPORT2, 2, PAL_MODE_OUTPUT_PUSHPULL);
+  65               		.loc 1 31 0
+  66 0014 46E0      		ldi r20,lo8(6)
+  67 0016 64E0      		ldi r22,lo8(4)
+  68 0018 83E2      		ldi r24,lo8(35)
+  69 001a 90E0      		ldi r25,0
+  70 001c 0E94 0000 		call _pal_lld_setgroupmode
+  71               	.LVL7:
+  32:pwm.c         ****     palClearPad(LED_PORT, LED_PAD);
+  72               		.loc 1 32 0
+  73 0020 2D98      		cbi 0x5,5
+  33:pwm.c         **** 
+  34:pwm.c         ****     chThdCreateStatic(waThread1, sizeof(waThread1), NORMALPRIO+1, Thread1, NULL);
+  74               		.loc 1 34 0
+  75 0022 00E0      		ldi r16,0
+  76 0024 10E0      		ldi r17,0
+  77 0026 20E0      		ldi r18,lo8(gs(Thread1))
+  78 0028 30E0      		ldi r19,hi8(gs(Thread1))
+  79 002a 41E8      		ldi r20,lo8(-127)
+  80 002c 61E8      		ldi r22,lo8(-127)
+  81 002e 70E0      		ldi r23,0
+  82 0030 80E0      		ldi r24,lo8(waThread1)
+  83 0032 90E0      		ldi r25,hi8(waThread1)
+  84 0034 0E94 0000 		call chThdCreateStatic
+  85               	.LVL8:
+  35:pwm.c         **** 
+  36:pwm.c         ****     while (1) {        
+  37:pwm.c         ****         pwmEnableChannel(&PWMD1, 1, width);
+  86               		.loc 1 37 0
+  87 0038 46E0      		ldi r20,lo8(6)
+  88 003a 50E0      		ldi r21,0
+  89 003c 61E0      		ldi r22,lo8(1)
+  90 003e 80E0      		ldi r24,lo8(PWMD1)
+  91 0040 90E0      		ldi r25,hi8(PWMD1)
+  92 0042 0E94 0000 		call pwmEnableChannel
+  93               	.LVL9:
+  38:pwm.c         ****         width += step;
+  94               		.loc 1 38 0
+  95 0046 CCE0      		ldi r28,lo8(12)
+  96 0048 D0E0      		ldi r29,0
+  18:pwm.c         ****     int width = step;
+  97               		.loc 1 18 0
+  98 004a 06E0      		ldi r16,lo8(6)
+  99 004c 10E0      		ldi r17,0
+ 100               	.LVL10:
+ 101               	.L5:
+  39:pwm.c         ****         if ((width >= 0x3FF) || (width < 10)) {
+  40:pwm.c         ****             width -= step;
+  41:pwm.c         ****             step = -step;
+  42:pwm.c         ****         }
+  43:pwm.c         ****         chThdSleepMilliseconds(10);
+ 102               		.loc 1 43 0
+ 103 004e 8DE9      		ldi r24,lo8(-99)
+ 104 0050 90E0      		ldi r25,0
+ 105 0052 0E94 0000 		call chThdSleep
+ 106               	.LVL11:
+  37:pwm.c         ****         width += step;
+ 107               		.loc 1 37 0
+ 108 0056 AE01      		movw r20,r28
+ 109 0058 61E0      		ldi r22,lo8(1)
+ 110 005a 80E0      		ldi r24,lo8(PWMD1)
+ 111 005c 90E0      		ldi r25,hi8(PWMD1)
+ 112 005e 0E94 0000 		call pwmEnableChannel
+ 113               	.LVL12:
+  38:pwm.c         ****         if ((width >= 0x3FF) || (width < 10)) {
+ 114               		.loc 1 38 0
+ 115 0062 C801      		movw r24,r16
+ 116 0064 8C0F      		add r24,r28
+ 117 0066 9D1F      		adc r25,r29
+ 118               	.LVL13:
+  39:pwm.c         ****         if ((width >= 0x3FF) || (width < 10)) {
+ 119               		.loc 1 39 0
+ 120 0068 9C01      		movw r18,r24
+ 121 006a 2A50      		subi r18,10
+ 122 006c 3109      		sbc r19,__zero_reg__
+ 123 006e 253F      		cpi r18,-11
+ 124 0070 3340      		sbci r19,3
+ 125 0072 00F4      		brsh .L6
+ 126 0074 EC01      		movw r28,r24
+ 127 0076 00C0      		rjmp .L5
+ 128               	.L6:
+ 129               	.LVL14:
+  41:pwm.c         ****         }
+ 130               		.loc 1 41 0
+ 131 0078 1195      		neg r17
+ 132 007a 0195      		neg r16
+ 133 007c 1109      		sbc r17,__zero_reg__
+ 134               	.LVL15:
+ 135 007e 00C0      		rjmp .L5
+ 136               		.cfi_endproc
+ 137               	.LFE169:
+ 139               		.section	.data.pwmcfg.3243,"aw",@progbits
+ 142               	pwmcfg.3243:
+ 143 0000 09        		.byte	9
+ 144 0001 3D        		.byte	61
+ 145 0002 00        		.byte	0
+ 146 0003 00        		.byte	0
+ 147 0004 FF03      		.word	1023
+ 148 0006 0000      		.word	0
+ 149 0008 00        		.byte	0
+ 150 0009 0000      		.word	0
+ 151 000b 01        		.byte	1
+ 152 000c 0000      		.word	0
+ 153               		.section	.bss.waThread1,"aw",@nobits
+ 156               	waThread1:
+ 157 0000 0000 0000 		.zero	129
+ 157      0000 0000 
+ 157      0000 0000 
+ 157      0000 0000 
+ 157      0000 0000 
+ 158               		.text
+ 159               	.Letext0:
+ 160               		.file 2 "/usr/lib/gcc/avr/4.9.2/include/stddef.h"
+ 161               		.file 3 "/usr/lib/avr/include/stdint.h"
+ 162               		.file 4 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
+ 163               		.file 5 "../../../os/rt/include/chsystypes.h"
+ 164               		.file 6 "../../../os/rt/include/chschd.h"
+ 165               		.file 7 "../../../os/rt/include/chtime.h"
+ 166               		.file 8 "../../../os/common/ports/AVR/chcore.h"
+ 167               		.file 9 "../../../os/rt/include/chsem.h"
+ 168               		.file 10 "../../../os/rt/include/chmtx.h"
+ 169               		.file 11 "../../../os/rt/include/chthreads.h"
+ 170               		.file 12 "../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.h"
+ 171               		.file 13 "../../../os/hal/include/hal_pwm.h"
+ 172               		.file 14 "../../../os/hal/ports/AVR/MEGA/LLD/TIMv1/hal_pwm_lld.h"
+ 173               		.file 15 "../../../os/hal/include/hal.h"
+ 174               		.file 16 "../../../os/rt/include/chsys.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 pwm.c
+     /tmp/cclV79aU.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/cclV79aU.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/cclV79aU.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/cclV79aU.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/cclV79aU.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/cclV79aU.s:12     .text.Thread1:0000000000000000 Thread1
+     /tmp/cclV79aU.s:43     .text.startup.main:0000000000000000 main
+     /tmp/cclV79aU.s:142    .data.pwmcfg.3243:0000000000000000 pwmcfg.3243
+     /tmp/cclV79aU.s:156    .bss.waThread1:0000000000000000 waThread1
+
+UNDEFINED SYMBOLS
+chThdSleep
+halInit
+chSysInit
+PWMD1
+pwmStart
+_pal_lld_setgroupmode
+chThdCreateStatic
+pwmEnableChannel
+__do_copy_data
+__do_clear_bss
