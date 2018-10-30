@@ -1,0 +1,2408 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a(vfprintf_min.o)
+                              (vfprintf)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libscanf_min.a(vfscanf_min.o)
+                              (vfscanf)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3.o)
+                              build/obj/chprintf.o (__subsf3)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3x.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3.o) (__addsf3x)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(cmpsf2.o)
+                              build/obj/chprintf.o (__ltsf2)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fixsfsi.o)
+                              build/obj/chprintf.o (__fixsfsi)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fixunssfsi.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fixsfsi.o) (__fixunssfsi)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(floatsisf.o)
+                              build/obj/chprintf.o (__floatunsisf)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_cmp.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(cmpsf2.o) (__fp_cmp)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_inf.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3x.o) (__fp_inf)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_nan.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3x.o) (__fp_nan)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_pscA.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3x.o) (__fp_pscA)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_pscB.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3x.o) (__fp_pscB)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_round.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3.o) (__fp_round)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_split3.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3x.o) (__fp_split3)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_zero.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3x.o) (__fp_zero)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3.o)
+                              build/obj/chprintf.o (__mulsf3)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3x.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3.o) (__mulsf3x)
+/usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodhi4.o)
+                              build/obj/hal_adc_lld.o (__udivmodhi4)
+/usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodsi4.o)
+                              build/obj/chprintf.o (__udivmodsi4)
+/usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_divmodsi4.o)
+                              build/obj/chprintf.o (__divmodsi4)
+/usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_negsi2.o)
+                              /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_divmodsi4.o) (__negsi2)
+/usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o (exit)
+/usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_tablejump2.o)
+                              build/obj/chprintf.o (__tablejump2__)
+/usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+                              build/obj/chsys.o (__do_copy_data)
+/usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+                              build/obj/chsys.o (__do_clear_bss)
+/usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_prologue.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a(vfprintf_min.o) (__prologue_saves__)
+/usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_epilogue.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a(vfprintf_min.o) (__epilogue_restores__)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(isspace.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libscanf_min.a(vfscanf_min.o) (isspace)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(strchr_P.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a(vfprintf_min.o) (strchr_P)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(memcpy.o)
+                              build/obj/hal_buffers.o (memcpy)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(strcmp.o)
+                              build/obj/chregistry.o (strcmp)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(fgetc.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libscanf_min.a(vfscanf_min.o) (fgetc)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(fputc.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a(vfprintf_min.o) (fputc)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(ungetc.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libscanf_min.a(vfscanf_min.o) (ungetc)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(ultoa_invert.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a(vfprintf_min.o) (__ultoa_invert)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(cty_isfalse.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(isspace.o) (__ctype_isfalse)
+
+Alocando simbolos comuns
+Tamanho comum do arquivo de símbolos
+
+flag                0x1               build/obj/adc.o
+ch_idle_thread_wa   0x69              build/obj/chsys.o
+ADCD1               0x15              build/obj/hal_adc_lld.o
+_pal_events         0x0               build/obj/hal_pal_lld.o
+__avr_in_isr        0x1               build/obj/chcore.o
+ch_memcore          0x4               build/obj/chmemcore.o
+SD1                 0x49              build/obj/hal_serial_lld.o
+ch                  0x33              build/obj/chschd.o
+
+Seções de entrada descartadas
+
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+ .text          0x0000000000000000        0x0 build/obj/chsys.o
+ .data          0x0000000000000000        0x0 build/obj/chsys.o
+ .bss           0x0000000000000000        0x0 build/obj/chsys.o
+ .text.chSysHalt
+                0x0000000000000000        0xc build/obj/chsys.o
+ .text.chSysIntegrityCheckI
+                0x0000000000000000      0x12a build/obj/chsys.o
+ .text.chSysGetStatusAndLockX
+                0x0000000000000000       0x12 build/obj/chsys.o
+ .text.chSysRestoreStatusX
+                0x0000000000000000       0x14 build/obj/chsys.o
+ .text          0x0000000000000000        0x0 build/obj/chdebug.o
+ .data          0x0000000000000000        0x0 build/obj/chdebug.o
+ .bss           0x0000000000000000        0x0 build/obj/chdebug.o
+ .debug_info    0x0000000000000000      0x682 build/obj/chdebug.o
+ .debug_abbrev  0x0000000000000000      0x104 build/obj/chdebug.o
+ .debug_aranges
+                0x0000000000000000       0x18 build/obj/chdebug.o
+ .debug_line    0x0000000000000000       0xf1 build/obj/chdebug.o
+ .debug_str     0x0000000000000000      0x45c build/obj/chdebug.o
+ .comment       0x0000000000000000       0x12 build/obj/chdebug.o
+ .text          0x0000000000000000        0x0 build/obj/chtrace.o
+ .data          0x0000000000000000        0x0 build/obj/chtrace.o
+ .bss           0x0000000000000000        0x0 build/obj/chtrace.o
+ .debug_info    0x0000000000000000      0x682 build/obj/chtrace.o
+ .debug_abbrev  0x0000000000000000      0x104 build/obj/chtrace.o
+ .debug_aranges
+                0x0000000000000000       0x18 build/obj/chtrace.o
+ .debug_line    0x0000000000000000       0xf1 build/obj/chtrace.o
+ .debug_str     0x0000000000000000      0x45c build/obj/chtrace.o
+ .comment       0x0000000000000000       0x12 build/obj/chtrace.o
+ .text          0x0000000000000000        0x0 build/obj/chvt.o
+ .data          0x0000000000000000        0x0 build/obj/chvt.o
+ .bss           0x0000000000000000        0x0 build/obj/chvt.o
+ .text          0x0000000000000000        0x0 build/obj/chschd.o
+ .data          0x0000000000000000        0x0 build/obj/chschd.o
+ .bss           0x0000000000000000        0x0 build/obj/chschd.o
+ .text.chSchReadyAheadI
+                0x0000000000000000       0x44 build/obj/chschd.o
+ .text.chSchDoRescheduleBehind
+                0x0000000000000000       0x7a build/obj/chschd.o
+ .text.chSchDoRescheduleAhead
+                0x0000000000000000       0x7a build/obj/chschd.o
+ .text.chSchRescheduleS
+                0x0000000000000000       0x20 build/obj/chschd.o
+ .text          0x0000000000000000        0x0 build/obj/chthreads.o
+ .data          0x0000000000000000        0x0 build/obj/chthreads.o
+ .bss           0x0000000000000000        0x0 build/obj/chthreads.o
+ .text.chThdCreateSuspended
+                0x0000000000000000        0xa build/obj/chthreads.o
+ .text.chThdCreateI
+                0x0000000000000000        0x8 build/obj/chthreads.o
+ .text.chThdStart
+                0x0000000000000000       0x1a build/obj/chthreads.o
+ .text.chThdAddRef
+                0x0000000000000000        0xe build/obj/chthreads.o
+ .text.chThdRelease
+                0x0000000000000000       0x36 build/obj/chthreads.o
+ .text.chThdWait
+                0x0000000000000000       0x44 build/obj/chthreads.o
+ .text.chThdSetPriority
+                0x0000000000000000       0x28 build/obj/chthreads.o
+ .text.chThdTerminate
+                0x0000000000000000        0xe build/obj/chthreads.o
+ .text.chThdSleepUntil
+                0x0000000000000000       0x1c build/obj/chthreads.o
+ .text.chThdSleepUntilWindowed
+                0x0000000000000000       0x36 build/obj/chthreads.o
+ .text.chThdYield
+                0x0000000000000000       0x24 build/obj/chthreads.o
+ .text.chThdSuspendS
+                0x0000000000000000       0x2a build/obj/chthreads.o
+ .text.chThdSuspendTimeoutS
+                0x0000000000000000       0x24 build/obj/chthreads.o
+ .text.chThdResumeS
+                0x0000000000000000       0x18 build/obj/chthreads.o
+ .text.chThdResume
+                0x0000000000000000       0x18 build/obj/chthreads.o
+ .text.chThdDequeueAllI
+                0x0000000000000000       0x44 build/obj/chthreads.o
+ .text          0x0000000000000000        0x0 build/obj/chregistry.o
+ .data          0x0000000000000000        0x0 build/obj/chregistry.o
+ .bss           0x0000000000000000        0x0 build/obj/chregistry.o
+ .text.chRegFirstThread
+                0x0000000000000000        0xe build/obj/chregistry.o
+ .text.chRegNextThread
+                0x0000000000000000       0x1a build/obj/chregistry.o
+ .text.chRegFindThreadByName
+                0x0000000000000000       0x5a build/obj/chregistry.o
+ .text.chRegFindThreadByPointer
+                0x0000000000000000       0x44 build/obj/chregistry.o
+ .text          0x0000000000000000        0x0 build/obj/chsem.o
+ .data          0x0000000000000000        0x0 build/obj/chsem.o
+ .bss           0x0000000000000000        0x0 build/obj/chsem.o
+ .text.chSemObjectInit
+                0x0000000000000000        0xe build/obj/chsem.o
+ .text.chSemResetI
+                0x0000000000000000       0x50 build/obj/chsem.o
+ .text.chSemReset
+                0x0000000000000000        0xe build/obj/chsem.o
+ .text.chSemWait
+                0x0000000000000000       0x62 build/obj/chsem.o
+ .text.chSemWaitS
+                0x0000000000000000       0x5c build/obj/chsem.o
+ .text.chSemWaitTimeoutS
+                0x0000000000000000       0x5e build/obj/chsem.o
+ .text.chSemWaitTimeout
+                0x0000000000000000        0xa build/obj/chsem.o
+ .text.chSemSignal
+                0x0000000000000000       0x40 build/obj/chsem.o
+ .text.chSemSignalI
+                0x0000000000000000       0x38 build/obj/chsem.o
+ .text.chSemAddCounterI
+                0x0000000000000000       0x52 build/obj/chsem.o
+ .text.chSemSignalWait
+                0x0000000000000000       0x9e build/obj/chsem.o
+ .debug_info    0x0000000000000000     0x1071 build/obj/chsem.o
+ .debug_abbrev  0x0000000000000000      0x450 build/obj/chsem.o
+ .debug_loc     0x0000000000000000      0x937 build/obj/chsem.o
+ .debug_aranges
+                0x0000000000000000       0x70 build/obj/chsem.o
+ .debug_ranges  0x0000000000000000       0xf0 build/obj/chsem.o
+ .debug_line    0x0000000000000000      0x4d8 build/obj/chsem.o
+ .debug_str     0x0000000000000000      0x5c5 build/obj/chsem.o
+ .comment       0x0000000000000000       0x12 build/obj/chsem.o
+ .debug_frame   0x0000000000000000      0x14c build/obj/chsem.o
+ .text          0x0000000000000000        0x0 build/obj/chmtx.o
+ .data          0x0000000000000000        0x0 build/obj/chmtx.o
+ .bss           0x0000000000000000        0x0 build/obj/chmtx.o
+ .text.chMtxLockS
+                0x0000000000000000      0x190 build/obj/chmtx.o
+ .text.chMtxLock
+                0x0000000000000000        0xa build/obj/chmtx.o
+ .text.chMtxTryLock
+                0x0000000000000000       0x3c build/obj/chmtx.o
+ .text.chMtxTryLockS
+                0x0000000000000000       0x36 build/obj/chmtx.o
+ .text.chMtxUnlock
+                0x0000000000000000       0x9e build/obj/chmtx.o
+ .text.chMtxUnlockS
+                0x0000000000000000       0x88 build/obj/chmtx.o
+ .text.chMtxUnlockAllS
+                0x0000000000000000       0x8c build/obj/chmtx.o
+ .text.chMtxUnlockAll
+                0x0000000000000000       0x9e build/obj/chmtx.o
+ .text          0x0000000000000000        0x0 build/obj/chcond.o
+ .data          0x0000000000000000        0x0 build/obj/chcond.o
+ .bss           0x0000000000000000        0x0 build/obj/chcond.o
+ .text.chCondObjectInit
+                0x0000000000000000        0xc build/obj/chcond.o
+ .text.chCondSignal
+                0x0000000000000000       0x34 build/obj/chcond.o
+ .text.chCondSignalI
+                0x0000000000000000       0x34 build/obj/chcond.o
+ .text.chCondBroadcastI
+                0x0000000000000000       0x44 build/obj/chcond.o
+ .text.chCondBroadcast
+                0x0000000000000000        0xe build/obj/chcond.o
+ .text.chCondWaitS
+                0x0000000000000000       0x72 build/obj/chcond.o
+ .text.chCondWait
+                0x0000000000000000        0xa build/obj/chcond.o
+ .text.chCondWaitTimeoutS
+                0x0000000000000000       0xa0 build/obj/chcond.o
+ .text.chCondWaitTimeout
+                0x0000000000000000        0xa build/obj/chcond.o
+ .debug_info    0x0000000000000000      0xf1c build/obj/chcond.o
+ .debug_abbrev  0x0000000000000000      0x3fa build/obj/chcond.o
+ .debug_loc     0x0000000000000000      0x604 build/obj/chcond.o
+ .debug_aranges
+                0x0000000000000000       0x60 build/obj/chcond.o
+ .debug_ranges  0x0000000000000000       0x80 build/obj/chcond.o
+ .debug_line    0x0000000000000000      0x3e1 build/obj/chcond.o
+ .debug_str     0x0000000000000000      0x60d build/obj/chcond.o
+ .comment       0x0000000000000000       0x12 build/obj/chcond.o
+ .debug_frame   0x0000000000000000      0x124 build/obj/chcond.o
+ .text          0x0000000000000000        0x0 build/obj/chevents.o
+ .data          0x0000000000000000        0x0 build/obj/chevents.o
+ .bss           0x0000000000000000        0x0 build/obj/chevents.o
+ .text.chEvtRegisterMaskWithFlags
+                0x0000000000000000       0x2a build/obj/chevents.o
+ .text.chEvtUnregister
+                0x0000000000000000       0x2a build/obj/chevents.o
+ .text.chEvtGetAndClearEventsI
+                0x0000000000000000       0x16 build/obj/chevents.o
+ .text.chEvtGetAndClearEvents
+                0x0000000000000000       0x1a build/obj/chevents.o
+ .text.chEvtAddEvents
+                0x0000000000000000       0x14 build/obj/chevents.o
+ .text.chEvtGetAndClearFlags
+                0x0000000000000000        0xc build/obj/chevents.o
+ .text.chEvtSignal
+                0x0000000000000000        0xe build/obj/chevents.o
+ .text.chEvtBroadcastFlags
+                0x0000000000000000        0xe build/obj/chevents.o
+ .text.chEvtGetAndClearFlagsI
+                0x0000000000000000        0x8 build/obj/chevents.o
+ .text.chEvtDispatch
+                0x0000000000000000       0x8e build/obj/chevents.o
+ .text.chEvtWaitOne
+                0x0000000000000000       0x40 build/obj/chevents.o
+ .text.chEvtWaitAny
+                0x0000000000000000       0x3a build/obj/chevents.o
+ .text.chEvtWaitAll
+                0x0000000000000000       0x3e build/obj/chevents.o
+ .text.chEvtWaitOneTimeout
+                0x0000000000000000       0x56 build/obj/chevents.o
+ .text.chEvtWaitAnyTimeout
+                0x0000000000000000       0x52 build/obj/chevents.o
+ .text.chEvtWaitAllTimeout
+                0x0000000000000000       0x58 build/obj/chevents.o
+ .text          0x0000000000000000        0x0 build/obj/chmsg.o
+ .data          0x0000000000000000        0x0 build/obj/chmsg.o
+ .bss           0x0000000000000000        0x0 build/obj/chmsg.o
+ .text.chMsgSend
+                0x0000000000000000       0x4a build/obj/chmsg.o
+ .text.chMsgWait
+                0x0000000000000000       0x56 build/obj/chmsg.o
+ .text.chMsgRelease
+                0x0000000000000000        0xa build/obj/chmsg.o
+ .debug_info    0x0000000000000000      0xa95 build/obj/chmsg.o
+ .debug_abbrev  0x0000000000000000      0x2c1 build/obj/chmsg.o
+ .debug_loc     0x0000000000000000      0x2b1 build/obj/chmsg.o
+ .debug_aranges
+                0x0000000000000000       0x30 build/obj/chmsg.o
+ .debug_ranges  0x0000000000000000       0x20 build/obj/chmsg.o
+ .debug_line    0x0000000000000000      0x22b build/obj/chmsg.o
+ .debug_str     0x0000000000000000      0x514 build/obj/chmsg.o
+ .comment       0x0000000000000000       0x12 build/obj/chmsg.o
+ .debug_frame   0x0000000000000000       0x5c build/obj/chmsg.o
+ .text          0x0000000000000000        0x0 build/obj/chmboxes.o
+ .data          0x0000000000000000        0x0 build/obj/chmboxes.o
+ .bss           0x0000000000000000        0x0 build/obj/chmboxes.o
+ .text.chMBObjectInit
+                0x0000000000000000       0x36 build/obj/chmboxes.o
+ .text.chMBResetI
+                0x0000000000000000       0x36 build/obj/chmboxes.o
+ .text.chMBReset
+                0x0000000000000000        0xe build/obj/chmboxes.o
+ .text.chMBPostTimeoutS
+                0x0000000000000000       0x9e build/obj/chmboxes.o
+ .text.chMBPostTimeout
+                0x0000000000000000        0xa build/obj/chmboxes.o
+ .text.chMBPostI
+                0x0000000000000000       0x66 build/obj/chmboxes.o
+ .text.chMBPostAheadTimeoutS
+                0x0000000000000000       0x9a build/obj/chmboxes.o
+ .text.chMBPostAheadTimeout
+                0x0000000000000000        0xa build/obj/chmboxes.o
+ .text.chMBPostAheadI
+                0x0000000000000000       0x64 build/obj/chmboxes.o
+ .text.chMBFetchTimeoutS
+                0x0000000000000000       0x96 build/obj/chmboxes.o
+ .text.chMBFetchTimeout
+                0x0000000000000000        0xa build/obj/chmboxes.o
+ .text.chMBFetchI
+                0x0000000000000000       0x60 build/obj/chmboxes.o
+ .debug_info    0x0000000000000000     0x1310 build/obj/chmboxes.o
+ .debug_abbrev  0x0000000000000000      0x3c4 build/obj/chmboxes.o
+ .debug_loc     0x0000000000000000      0x92c build/obj/chmboxes.o
+ .debug_aranges
+                0x0000000000000000       0x78 build/obj/chmboxes.o
+ .debug_ranges  0x0000000000000000       0x68 build/obj/chmboxes.o
+ .debug_line    0x0000000000000000      0x545 build/obj/chmboxes.o
+ .debug_str     0x0000000000000000      0x624 build/obj/chmboxes.o
+ .comment       0x0000000000000000       0x12 build/obj/chmboxes.o
+ .debug_frame   0x0000000000000000      0x170 build/obj/chmboxes.o
+ .text          0x0000000000000000        0x0 build/obj/chmemcore.o
+ .data          0x0000000000000000        0x0 build/obj/chmemcore.o
+ .bss           0x0000000000000000        0x0 build/obj/chmemcore.o
+ .text.chCoreAllocAlignedWithOffsetI
+                0x0000000000000000       0x54 build/obj/chmemcore.o
+ .text.chCoreGetStatusX
+                0x0000000000000000       0x12 build/obj/chmemcore.o
+ .text          0x0000000000000000        0x0 build/obj/chheap.o
+ .data          0x0000000000000000        0x0 build/obj/chheap.o
+ .bss           0x0000000000000000        0x0 build/obj/chheap.o
+ .text.chHeapObjectInit
+                0x0000000000000000       0x40 build/obj/chheap.o
+ .text.chHeapAllocAligned
+                0x0000000000000000      0x1fc build/obj/chheap.o
+ .text.chHeapFree
+                0x0000000000000000       0xee build/obj/chheap.o
+ .text.chHeapStatus
+                0x0000000000000000       0xa8 build/obj/chheap.o
+ .text          0x0000000000000000        0x0 build/obj/chmempools.o
+ .data          0x0000000000000000        0x0 build/obj/chmempools.o
+ .bss           0x0000000000000000        0x0 build/obj/chmempools.o
+ .text.chPoolObjectInitAligned
+                0x0000000000000000       0x14 build/obj/chmempools.o
+ .text.chPoolLoadArray
+                0x0000000000000000       0x32 build/obj/chmempools.o
+ .text.chPoolAllocI
+                0x0000000000000000       0x36 build/obj/chmempools.o
+ .text.chPoolAlloc
+                0x0000000000000000       0x42 build/obj/chmempools.o
+ .text.chPoolFreeI
+                0x0000000000000000       0x14 build/obj/chmempools.o
+ .text.chPoolFree
+                0x0000000000000000       0x18 build/obj/chmempools.o
+ .text.chGuardedPoolObjectInitAligned
+                0x0000000000000000       0x18 build/obj/chmempools.o
+ .text.chGuardedPoolAllocTimeoutS
+                0x0000000000000000       0x46 build/obj/chmempools.o
+ .text.chGuardedPoolAllocTimeout
+                0x0000000000000000        0xa build/obj/chmempools.o
+ .text.chGuardedPoolFreeI
+                0x0000000000000000       0x16 build/obj/chmempools.o
+ .text.chGuardedPoolFree
+                0x0000000000000000       0x20 build/obj/chmempools.o
+ .text.chGuardedPoolLoadArray
+                0x0000000000000000       0x3a build/obj/chmempools.o
+ .debug_info    0x0000000000000000     0x116a build/obj/chmempools.o
+ .debug_abbrev  0x0000000000000000      0x45c build/obj/chmempools.o
+ .debug_loc     0x0000000000000000      0x774 build/obj/chmempools.o
+ .debug_aranges
+                0x0000000000000000       0x78 build/obj/chmempools.o
+ .debug_ranges  0x0000000000000000       0xb8 build/obj/chmempools.o
+ .debug_line    0x0000000000000000      0x45a build/obj/chmempools.o
+ .debug_str     0x0000000000000000      0x663 build/obj/chmempools.o
+ .comment       0x0000000000000000       0x12 build/obj/chmempools.o
+ .debug_frame   0x0000000000000000      0x11c build/obj/chmempools.o
+ .text          0x0000000000000000        0x0 build/obj/chcore.o
+ .data          0x0000000000000000        0x0 build/obj/chcore.o
+ .bss           0x0000000000000000        0x0 build/obj/chcore.o
+ .text          0x0000000000000000        0x0 build/obj/osal.o
+ .data          0x0000000000000000        0x0 build/obj/osal.o
+ .bss           0x0000000000000000        0x0 build/obj/osal.o
+ .debug_info    0x0000000000000000      0x682 build/obj/osal.o
+ .debug_abbrev  0x0000000000000000      0x104 build/obj/osal.o
+ .debug_aranges
+                0x0000000000000000       0x18 build/obj/osal.o
+ .debug_line    0x0000000000000000       0xf1 build/obj/osal.o
+ .debug_str     0x0000000000000000      0x45e build/obj/osal.o
+ .comment       0x0000000000000000       0x12 build/obj/osal.o
+ .text          0x0000000000000000        0x0 build/obj/hal.o
+ .data          0x0000000000000000        0x0 build/obj/hal.o
+ .bss           0x0000000000000000        0x0 build/obj/hal.o
+ .text          0x0000000000000000        0x0 build/obj/hal_st.o
+ .data          0x0000000000000000        0x0 build/obj/hal_st.o
+ .bss           0x0000000000000000        0x0 build/obj/hal_st.o
+ .text.stGetAlarm
+                0x0000000000000000        0xa build/obj/hal_st.o
+ .text          0x0000000000000000        0x0 build/obj/hal_buffers.o
+ .data          0x0000000000000000        0x0 build/obj/hal_buffers.o
+ .bss           0x0000000000000000        0x0 build/obj/hal_buffers.o
+ .text.ibqObjectInit
+                0x0000000000000000       0x68 build/obj/hal_buffers.o
+ .text.ibqResetI
+                0x0000000000000000       0x24 build/obj/hal_buffers.o
+ .text.ibqGetEmptyBufferI
+                0x0000000000000000       0x24 build/obj/hal_buffers.o
+ .text.ibqPostFullBufferI
+                0x0000000000000000       0x40 build/obj/hal_buffers.o
+ .text.ibqGetFullBufferTimeoutS
+                0x0000000000000000       0x5e build/obj/hal_buffers.o
+ .text.ibqGetFullBufferTimeout
+                0x0000000000000000        0xa build/obj/hal_buffers.o
+ .text.ibqReleaseEmptyBufferS
+                0x0000000000000000       0x68 build/obj/hal_buffers.o
+ .text.ibqReleaseEmptyBuffer
+                0x0000000000000000        0xa build/obj/hal_buffers.o
+ .text.ibqGetTimeout
+                0x0000000000000000       0x64 build/obj/hal_buffers.o
+ .text.ibqReadTimeout
+                0x0000000000000000      0x152 build/obj/hal_buffers.o
+ .text.obqObjectInit
+                0x0000000000000000       0x68 build/obj/hal_buffers.o
+ .text.obqResetI
+                0x0000000000000000       0x28 build/obj/hal_buffers.o
+ .text.obqGetFullBufferI
+                0x0000000000000000       0x2e build/obj/hal_buffers.o
+ .text.obqReleaseEmptyBufferI
+                0x0000000000000000       0x38 build/obj/hal_buffers.o
+ .text.obqGetEmptyBufferTimeoutS
+                0x0000000000000000       0x5c build/obj/hal_buffers.o
+ .text.obqGetEmptyBufferTimeout
+                0x0000000000000000        0xa build/obj/hal_buffers.o
+ .text.obqPostFullBufferS
+                0x0000000000000000       0x6e build/obj/hal_buffers.o
+ .text.obqPostFullBuffer
+                0x0000000000000000        0xa build/obj/hal_buffers.o
+ .text.obqPutTimeout
+                0x0000000000000000       0x5c build/obj/hal_buffers.o
+ .text.obqWriteTimeout
+                0x0000000000000000      0x158 build/obj/hal_buffers.o
+ .text.obqTryFlushI
+                0x0000000000000000       0x62 build/obj/hal_buffers.o
+ .text.obqFlush
+                0x0000000000000000       0x24 build/obj/hal_buffers.o
+ .debug_info    0x0000000000000000     0x1f28 build/obj/hal_buffers.o
+ .debug_abbrev  0x0000000000000000      0x4ed build/obj/hal_buffers.o
+ .debug_loc     0x0000000000000000     0x1276 build/obj/hal_buffers.o
+ .debug_aranges
+                0x0000000000000000       0xc8 build/obj/hal_buffers.o
+ .debug_ranges  0x0000000000000000      0x178 build/obj/hal_buffers.o
+ .debug_line    0x0000000000000000      0x9b0 build/obj/hal_buffers.o
+ .debug_str     0x0000000000000000      0x86e build/obj/hal_buffers.o
+ .comment       0x0000000000000000       0x12 build/obj/hal_buffers.o
+ .debug_frame   0x0000000000000000      0x2e8 build/obj/hal_buffers.o
+ .text          0x0000000000000000        0x0 build/obj/hal_queues.o
+ .data          0x0000000000000000        0x0 build/obj/hal_queues.o
+ .bss           0x0000000000000000        0x0 build/obj/hal_queues.o
+ .text.iqResetI
+                0x0000000000000000       0x1a build/obj/hal_queues.o
+ .text.iqGetI   0x0000000000000000       0x76 build/obj/hal_queues.o
+ .text.iqReadI  0x0000000000000000       0x38 build/obj/hal_queues.o
+ .text.oqResetI
+                0x0000000000000000       0x24 build/obj/hal_queues.o
+ .text.oqPutI   0x0000000000000000       0x8a build/obj/hal_queues.o
+ .text.oqWriteI
+                0x0000000000000000       0x38 build/obj/hal_queues.o
+ .text          0x0000000000000000        0x0 build/obj/hal_mmcsd.o
+ .data          0x0000000000000000        0x0 build/obj/hal_mmcsd.o
+ .bss           0x0000000000000000        0x0 build/obj/hal_mmcsd.o
+ .debug_info    0x0000000000000000      0x682 build/obj/hal_mmcsd.o
+ .debug_abbrev  0x0000000000000000      0x104 build/obj/hal_mmcsd.o
+ .debug_aranges
+                0x0000000000000000       0x18 build/obj/hal_mmcsd.o
+ .debug_line    0x0000000000000000       0xf1 build/obj/hal_mmcsd.o
+ .debug_str     0x0000000000000000      0x45f build/obj/hal_mmcsd.o
+ .comment       0x0000000000000000       0x12 build/obj/hal_mmcsd.o
+ .text          0x0000000000000000        0x0 build/obj/hal_adc.o
+ .data          0x0000000000000000        0x0 build/obj/hal_adc.o
+ .bss           0x0000000000000000        0x0 build/obj/hal_adc.o
+ .text.adcStop  0x0000000000000000       0x1c build/obj/hal_adc.o
+ .text.adcStartConversionI
+                0x0000000000000000       0x16 build/obj/hal_adc.o
+ .text.adcStopConversion
+                0x0000000000000000       0x30 build/obj/hal_adc.o
+ .text.adcStopConversionI
+                0x0000000000000000       0x30 build/obj/hal_adc.o
+ .text.adcConvert
+                0x0000000000000000       0x32 build/obj/hal_adc.o
+ .text.adcAcquireBus
+                0x0000000000000000        0x6 build/obj/hal_adc.o
+ .text.adcReleaseBus
+                0x0000000000000000        0x6 build/obj/hal_adc.o
+ .text          0x0000000000000000        0x0 build/obj/hal_pal.o
+ .data          0x0000000000000000        0x0 build/obj/hal_pal.o
+ .bss           0x0000000000000000        0x0 build/obj/hal_pal.o
+ .text.palReadBus
+                0x0000000000000000       0x1c build/obj/hal_pal.o
+ .text.palWriteBus
+                0x0000000000000000       0x38 build/obj/hal_pal.o
+ .text.palSetBusMode
+                0x0000000000000000       0x1e build/obj/hal_pal.o
+ .debug_info    0x0000000000000000      0x87a build/obj/hal_pal.o
+ .debug_abbrev  0x0000000000000000      0x1b3 build/obj/hal_pal.o
+ .debug_loc     0x0000000000000000       0xd3 build/obj/hal_pal.o
+ .debug_aranges
+                0x0000000000000000       0x30 build/obj/hal_pal.o
+ .debug_ranges  0x0000000000000000       0x20 build/obj/hal_pal.o
+ .debug_line    0x0000000000000000      0x1bd build/obj/hal_pal.o
+ .debug_str     0x0000000000000000      0x507 build/obj/hal_pal.o
+ .comment       0x0000000000000000       0x12 build/obj/hal_pal.o
+ .debug_frame   0x0000000000000000       0x44 build/obj/hal_pal.o
+ .text          0x0000000000000000        0x0 build/obj/hal_serial.o
+ .data          0x0000000000000000        0x0 build/obj/hal_serial.o
+ .bss           0x0000000000000000        0x0 build/obj/hal_serial.o
+ .text.sdStop   0x0000000000000000       0x2c build/obj/hal_serial.o
+ .text.sdPutWouldBlock
+                0x0000000000000000       0x14 build/obj/hal_serial.o
+ .text.sdGetWouldBlock
+                0x0000000000000000       0x14 build/obj/hal_serial.o
+ .text.sdControl
+                0x0000000000000000        0x6 build/obj/hal_serial.o
+ .text          0x0000000000000000        0x0 build/obj/hal_lld.o
+ .data          0x0000000000000000        0x0 build/obj/hal_lld.o
+ .bss           0x0000000000000000        0x0 build/obj/hal_lld.o
+ .text          0x0000000000000000        0x0 build/obj/hal_adc_lld.o
+ .data          0x0000000000000000        0x0 build/obj/hal_adc_lld.o
+ .bss           0x0000000000000000        0x0 build/obj/hal_adc_lld.o
+ .text.adc_lld_stop
+                0x0000000000000000       0x16 build/obj/hal_adc_lld.o
+ .text.adc_lld_stop_conversion
+                0x0000000000000000        0xc build/obj/hal_adc_lld.o
+ .text          0x0000000000000000        0x0 build/obj/hal_pal_lld.o
+ .data          0x0000000000000000        0x0 build/obj/hal_pal_lld.o
+ .bss           0x0000000000000000        0x0 build/obj/hal_pal_lld.o
+ .text._pal_lld_setgroupmode
+                0x0000000000000000       0x48 build/obj/hal_pal_lld.o
+ .text._pal_lld_enablepadevent
+                0x0000000000000000        0x2 build/obj/hal_pal_lld.o
+ .text._pal_lld_setlineid
+                0x0000000000000000        0xa build/obj/hal_pal_lld.o
+ .text._pal_lld_getportfromline
+                0x0000000000000000        0x6 build/obj/hal_pal_lld.o
+ .text._pal_lld_getpadfromline
+                0x0000000000000000        0x2 build/obj/hal_pal_lld.o
+ COMMON         0x0000000000000000        0x0 build/obj/hal_pal_lld.o
+ .text          0x0000000000000000        0x0 build/obj/hal_st_lld.o
+ .data          0x0000000000000000        0x0 build/obj/hal_st_lld.o
+ .bss           0x0000000000000000        0x0 build/obj/hal_st_lld.o
+ .text          0x0000000000000000        0x0 build/obj/hal_serial_lld.o
+ .data          0x0000000000000000        0x0 build/obj/hal_serial_lld.o
+ .bss           0x0000000000000000        0x0 build/obj/hal_serial_lld.o
+ .text.sd_lld_stop
+                0x0000000000000000       0x16 build/obj/hal_serial_lld.o
+ .text          0x0000000000000000        0x0 build/obj/board.o
+ .data          0x0000000000000000        0x0 build/obj/board.o
+ .bss           0x0000000000000000        0x0 build/obj/board.o
+ .text          0x0000000000000000        0x0 build/obj/evtimer.o
+ .data          0x0000000000000000        0x0 build/obj/evtimer.o
+ .bss           0x0000000000000000        0x0 build/obj/evtimer.o
+ .text.tmrcb    0x0000000000000000       0x22 build/obj/evtimer.o
+ .text.evtObjectInit
+                0x0000000000000000       0x12 build/obj/evtimer.o
+ .text.evtStart
+                0x0000000000000000       0x38 build/obj/evtimer.o
+ .debug_info    0x0000000000000000      0xbae build/obj/evtimer.o
+ .debug_abbrev  0x0000000000000000      0x2d4 build/obj/evtimer.o
+ .debug_loc     0x0000000000000000      0x272 build/obj/evtimer.o
+ .debug_aranges
+                0x0000000000000000       0x30 build/obj/evtimer.o
+ .debug_ranges  0x0000000000000000       0x20 build/obj/evtimer.o
+ .debug_line    0x0000000000000000      0x1e8 build/obj/evtimer.o
+ .debug_str     0x0000000000000000      0x618 build/obj/evtimer.o
+ .comment       0x0000000000000000       0x12 build/obj/evtimer.o
+ .debug_frame   0x0000000000000000       0x68 build/obj/evtimer.o
+ .text          0x0000000000000000        0x0 build/obj/chprintf.o
+ .data          0x0000000000000000        0x0 build/obj/chprintf.o
+ .bss           0x0000000000000000        0x0 build/obj/chprintf.o
+ .text.chsnprintf
+                0x0000000000000000       0x9c build/obj/chprintf.o
+ .text          0x0000000000000000        0x0 build/obj/adc.o
+ .data          0x0000000000000000        0x0 build/obj/adc.o
+ .bss           0x0000000000000000        0x0 build/obj/adc.o
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a(vfprintf_min.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a(vfprintf_min.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a(vfprintf_min.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libscanf_min.a(vfscanf_min.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libscanf_min.a(vfscanf_min.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libscanf_min.a(vfscanf_min.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3x.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3x.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3x.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(cmpsf2.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(cmpsf2.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(cmpsf2.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fixsfsi.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fixsfsi.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fixsfsi.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fixunssfsi.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fixunssfsi.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fixunssfsi.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(floatsisf.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(floatsisf.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(floatsisf.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_cmp.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_cmp.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_cmp.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_inf.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_inf.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_inf.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_nan.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_nan.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_nan.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_pscA.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_pscA.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_pscA.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_pscB.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_pscB.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_pscB.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_round.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_round.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_round.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_split3.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_split3.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_split3.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_zero.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_zero.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_zero.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3x.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3x.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3x.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodhi4.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodhi4.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodhi4.o)
+ .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodhi4.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodsi4.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodsi4.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodsi4.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodsi4.o)
+ .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodsi4.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodsi4.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodsi4.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodsi4.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodsi4.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_divmodsi4.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_divmodsi4.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_divmodsi4.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_divmodsi4.o)
+ .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_divmodsi4.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_divmodsi4.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_divmodsi4.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_divmodsi4.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_divmodsi4.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_negsi2.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_negsi2.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_negsi2.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_negsi2.o)
+ .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_negsi2.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_negsi2.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_negsi2.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_negsi2.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_negsi2.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_tablejump2.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_tablejump2.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_tablejump2.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_tablejump2.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_tablejump2.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_tablejump2.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_tablejump2.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_tablejump2.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_tablejump2.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_prologue.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_prologue.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_prologue.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_prologue.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_prologue.o)
+ .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_prologue.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_prologue.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_prologue.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_prologue.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_epilogue.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_epilogue.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_epilogue.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_epilogue.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_epilogue.o)
+ .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_epilogue.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_epilogue.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_epilogue.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_epilogue.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(isspace.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(isspace.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(isspace.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(strchr_P.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(strchr_P.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(strchr_P.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(memcpy.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(memcpy.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(memcpy.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(strcmp.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(strcmp.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(strcmp.o)
+ .text.avr-libc
+                0x0000000000000000       0x12 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(strcmp.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(fgetc.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(fgetc.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(fgetc.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(fputc.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(fputc.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(fputc.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(ungetc.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(ungetc.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(ungetc.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(ultoa_invert.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(ultoa_invert.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(ultoa_invert.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(cty_isfalse.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(cty_isfalse.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(cty_isfalse.o)
+
+Configuração de Memória
+
+Nome             Origem             Tamanho            Atributos
+text             0x0000000000000000 0x0000000000020000 xr
+data             0x0000000000800060 0x000000000000ffa0 rw !x
+eeprom           0x0000000000810000 0x0000000000010000 rw !x
+fuse             0x0000000000820000 0x0000000000000400 rw !x
+lock             0x0000000000830000 0x0000000000000400 rw !x
+signature        0x0000000000840000 0x0000000000000400 rw !x
+user_signatures  0x0000000000850000 0x0000000000000400 rw !x
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Script do link-editor e mapa de memória
+
+Endereço da seção .data ajustado para 0x800100
+LOAD /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+LOAD build/obj/chsys.o
+LOAD build/obj/chdebug.o
+LOAD build/obj/chtrace.o
+LOAD build/obj/chvt.o
+LOAD build/obj/chschd.o
+LOAD build/obj/chthreads.o
+LOAD build/obj/chregistry.o
+LOAD build/obj/chsem.o
+LOAD build/obj/chmtx.o
+LOAD build/obj/chcond.o
+LOAD build/obj/chevents.o
+LOAD build/obj/chmsg.o
+LOAD build/obj/chmboxes.o
+LOAD build/obj/chmemcore.o
+LOAD build/obj/chheap.o
+LOAD build/obj/chmempools.o
+LOAD build/obj/chcore.o
+LOAD build/obj/osal.o
+LOAD build/obj/hal.o
+LOAD build/obj/hal_st.o
+LOAD build/obj/hal_buffers.o
+LOAD build/obj/hal_queues.o
+LOAD build/obj/hal_mmcsd.o
+LOAD build/obj/hal_adc.o
+LOAD build/obj/hal_pal.o
+LOAD build/obj/hal_serial.o
+LOAD build/obj/hal_lld.o
+LOAD build/obj/hal_adc_lld.o
+LOAD build/obj/hal_pal_lld.o
+LOAD build/obj/hal_st_lld.o
+LOAD build/obj/hal_serial_lld.o
+LOAD build/obj/board.o
+LOAD build/obj/evtimer.o
+LOAD build/obj/chprintf.o
+LOAD build/obj/adc.o
+LOAD /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a
+LOAD /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libscanf_min.a
+LOAD /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a
+START GROUP
+LOAD /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a
+LOAD /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a
+LOAD /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a
+LOAD /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libatmega328p.a
+END GROUP
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x0000000000000000     0x2b6e
+ *(.vectors)
+ .vectors       0x0000000000000000       0x68 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+                0x0000000000000000                __vectors
+                0x0000000000000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ .progmem.gcc_sw_table.chvprintf
+                0x0000000000000068       0xd4 build/obj/chprintf.o
+                0x000000000000013c                . = ALIGN (0x2)
+                0x000000000000013c                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x000000000000013c        0x0 linker stubs
+ *(.trampolines*)
+                0x000000000000013c                __trampolines_end = .
+ *(.progmem*)
+ .progmem.data  0x000000000000013c       0x17 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a(vfprintf_min.o)
+ .progmem.data  0x0000000000000153        0xb /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libscanf_min.a(vfscanf_min.o)
+                0x000000000000015e                . = ALIGN (0x2)
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x000000000000015e                __ctors_start = .
+ *(.ctors)
+                0x000000000000015e                __ctors_end = .
+                0x000000000000015e                __dtors_start = .
+ *(.dtors)
+                0x000000000000015e                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x000000000000015e        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+                0x000000000000015e                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x000000000000015e        0xc /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x000000000000016a       0x16 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+                0x000000000000016a                __do_copy_data
+ .init4         0x0000000000000180       0x10 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+                0x0000000000000180                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000000000000190        0x8 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+ *(.init9)
+ *(.text)
+ .text          0x0000000000000198        0x2 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+                0x0000000000000198                __vector_22
+                0x0000000000000198                __vector_1
+                0x0000000000000198                __vector_24
+                0x0000000000000198                __vector_12
+                0x0000000000000198                __bad_interrupt
+                0x0000000000000198                __vector_6
+                0x0000000000000198                __vector_3
+                0x0000000000000198                __vector_23
+                0x0000000000000198                __vector_25
+                0x0000000000000198                __vector_13
+                0x0000000000000198                __vector_17
+                0x0000000000000198                __vector_7
+                0x0000000000000198                __vector_5
+                0x0000000000000198                __vector_4
+                0x0000000000000198                __vector_9
+                0x0000000000000198                __vector_2
+                0x0000000000000198                __vector_15
+                0x0000000000000198                __vector_8
+                0x0000000000000198                __vector_14
+                0x0000000000000198                __vector_10
+                0x0000000000000198                __vector_16
+                0x0000000000000198                __vector_20
+                0x000000000000019a                . = ALIGN (0x2)
+ *(.text.*)
+ .text._idle_thread
+                0x000000000000019a        0x2 build/obj/chsys.o
+ .text.chSysInit
+                0x000000000000019c       0x2e build/obj/chsys.o
+                0x000000000000019c                chSysInit
+ .text.chSysTimerHandlerI
+                0x00000000000001ca       0xf2 build/obj/chsys.o
+                0x00000000000001ca                chSysTimerHandlerI
+ .text._vt_init
+                0x00000000000002bc       0x1e build/obj/chvt.o
+                0x00000000000002bc                _vt_init
+ .text.chVTDoSetI
+                0x00000000000002da      0x130 build/obj/chvt.o
+                0x00000000000002da                chVTDoSetI
+ .text.chVTDoResetI
+                0x000000000000040a       0xca build/obj/chvt.o
+                0x000000000000040a                chVTDoResetI
+ .text.wakeup   0x00000000000004d4       0xa4 build/obj/chschd.o
+ .text._scheduler_init
+                0x0000000000000578       0x18 build/obj/chschd.o
+                0x0000000000000578                _scheduler_init
+ .text.chSchReadyI
+                0x0000000000000590       0x44 build/obj/chschd.o
+                0x0000000000000590                chSchReadyI
+ .text.chSchGoSleepS
+                0x00000000000005d4       0x38 build/obj/chschd.o
+                0x00000000000005d4                chSchGoSleepS
+ .text.chSchGoSleepTimeoutS
+                0x000000000000060c       0x6a build/obj/chschd.o
+                0x000000000000060c                chSchGoSleepTimeoutS
+ .text.chSchWakeupS
+                0x0000000000000676       0x98 build/obj/chschd.o
+                0x0000000000000676                chSchWakeupS
+ .text.chSchIsPreemptionRequired
+                0x000000000000070e       0x20 build/obj/chschd.o
+                0x000000000000070e                chSchIsPreemptionRequired
+ .text.chSchDoReschedule
+                0x000000000000072e       0x78 build/obj/chschd.o
+                0x000000000000072e                chSchDoReschedule
+ .text._thread_init
+                0x00000000000007a6       0x58 build/obj/chthreads.o
+                0x00000000000007a6                _thread_init
+ .text.chThdCreateSuspendedI
+                0x00000000000007fe       0xae build/obj/chthreads.o
+                0x00000000000007fe                chThdCreateSuspendedI
+ .text.chThdCreate
+                0x00000000000008ac       0x1a build/obj/chthreads.o
+                0x00000000000008ac                chThdCreate
+ .text.chThdCreateStatic
+                0x00000000000008c6       0x8c build/obj/chthreads.o
+                0x00000000000008c6                chThdCreateStatic
+ .text.chThdExitS
+                0x0000000000000952       0x64 build/obj/chthreads.o
+                0x0000000000000952                chThdExitS
+ .text.chThdExit
+                0x00000000000009b6        0x4 build/obj/chthreads.o
+                0x00000000000009b6                chThdExit
+ .text.chThdSleep
+                0x00000000000009ba        0xc build/obj/chthreads.o
+                0x00000000000009ba                chThdSleep
+ .text.chThdResumeI
+                0x00000000000009c6       0x1a build/obj/chthreads.o
+                0x00000000000009c6                chThdResumeI
+ .text.chThdEnqueueTimeoutS
+                0x00000000000009e0       0x3a build/obj/chthreads.o
+                0x00000000000009e0                chThdEnqueueTimeoutS
+ .text.chThdDequeueNextI
+                0x0000000000000a1a       0x32 build/obj/chthreads.o
+                0x0000000000000a1a                chThdDequeueNextI
+ .text.chMtxObjectInit
+                0x0000000000000a4c       0x10 build/obj/chmtx.o
+                0x0000000000000a4c                chMtxObjectInit
+ .text.chEvtSignalI
+                0x0000000000000a5c       0x2c build/obj/chevents.o
+                0x0000000000000a5c                chEvtSignalI
+ .text.chEvtBroadcastFlagsI
+                0x0000000000000a88       0x4a build/obj/chevents.o
+                0x0000000000000a88                chEvtBroadcastFlagsI
+ .text._core_init
+                0x0000000000000ad2       0x16 build/obj/chmemcore.o
+                0x0000000000000ad2                _core_init
+ .text.chCoreAllocAlignedWithOffset
+                0x0000000000000ae8       0x58 build/obj/chmemcore.o
+                0x0000000000000ae8                chCoreAllocAlignedWithOffset
+ .text._heap_init
+                0x0000000000000b40       0x1a build/obj/chheap.o
+                0x0000000000000b40                _heap_init
+ .text._port_switch
+                0x0000000000000b5a       0x5e build/obj/chcore.o
+                0x0000000000000b5a                _port_switch
+ .text._port_thread_start
+                0x0000000000000bb8        0xa build/obj/chcore.o
+                0x0000000000000bb8                _port_thread_start
+ .text.halInit  0x0000000000000bc2       0x10 build/obj/hal.o
+                0x0000000000000bc2                halInit
+ .text.stInit   0x0000000000000bd2        0x2 build/obj/hal_st.o
+                0x0000000000000bd2                stInit
+ .text.stStartAlarm
+                0x0000000000000bd4       0x12 build/obj/hal_st.o
+                0x0000000000000bd4                stStartAlarm
+ .text.stStopAlarm
+                0x0000000000000be6        0x6 build/obj/hal_st.o
+                0x0000000000000be6                stStopAlarm
+ .text.stSetAlarm
+                0x0000000000000bec        0xa build/obj/hal_st.o
+                0x0000000000000bec                stSetAlarm
+ .text.iq_read  0x0000000000000bf6       0xb6 build/obj/hal_queues.o
+ .text.oq_write
+                0x0000000000000cac       0xb6 build/obj/hal_queues.o
+ .text.iqObjectInit
+                0x0000000000000d62       0x34 build/obj/hal_queues.o
+                0x0000000000000d62                iqObjectInit
+ .text.iqPutI   0x0000000000000d96       0x56 build/obj/hal_queues.o
+                0x0000000000000d96                iqPutI
+ .text.iqGetTimeout
+                0x0000000000000dec       0x74 build/obj/hal_queues.o
+                0x0000000000000dec                iqGetTimeout
+ .text.iqReadTimeout
+                0x0000000000000e60       0x8e build/obj/hal_queues.o
+                0x0000000000000e60                iqReadTimeout
+ .text.oqObjectInit
+                0x0000000000000eee       0x34 build/obj/hal_queues.o
+                0x0000000000000eee                oqObjectInit
+ .text.oqPutTimeout
+                0x0000000000000f22       0x80 build/obj/hal_queues.o
+                0x0000000000000f22                oqPutTimeout
+ .text.oqGetI   0x0000000000000fa2       0x58 build/obj/hal_queues.o
+                0x0000000000000fa2                oqGetI
+ .text.oqWriteTimeout
+                0x0000000000000ffa       0x8e build/obj/hal_queues.o
+                0x0000000000000ffa                oqWriteTimeout
+ .text.adcInit  0x0000000000001088        0x2 build/obj/hal_adc.o
+                0x0000000000001088                adcInit
+ .text.adcObjectInit
+                0x000000000000108a       0x20 build/obj/hal_adc.o
+                0x000000000000108a                adcObjectInit
+ .text.adcStart
+                0x00000000000010aa       0x1a build/obj/hal_adc.o
+                0x00000000000010aa                adcStart
+ .text.adcStartConversion
+                0x00000000000010c4       0x1a build/obj/hal_adc.o
+                0x00000000000010c4                adcStartConversion
+ .text._ctl     0x00000000000010de        0x6 build/obj/hal_serial.o
+ .text._readt   0x00000000000010e4        0x4 build/obj/hal_serial.o
+ .text._read    0x00000000000010e8        0x8 build/obj/hal_serial.o
+ .text._writet  0x00000000000010f0        0x4 build/obj/hal_serial.o
+ .text._write   0x00000000000010f4        0x8 build/obj/hal_serial.o
+ .text._gett    0x00000000000010fc        0x4 build/obj/hal_serial.o
+ .text._get     0x0000000000001100        0x8 build/obj/hal_serial.o
+ .text._putt    0x0000000000001108        0x4 build/obj/hal_serial.o
+ .text._put     0x000000000000110c        0x8 build/obj/hal_serial.o
+ .text.sdInit   0x0000000000001114        0x2 build/obj/hal_serial.o
+                0x0000000000001114                sdInit
+ .text.sdObjectInit
+                0x0000000000001116       0x56 build/obj/hal_serial.o
+                0x0000000000001116                sdObjectInit
+ .text.sdStart  0x000000000000116c       0x16 build/obj/hal_serial.o
+                0x000000000000116c                sdStart
+ .text.sdIncomingDataI
+                0x0000000000001182       0x48 build/obj/hal_serial.o
+                0x0000000000001182                sdIncomingDataI
+ .text.sdRequestDataI
+                0x00000000000011ca       0x34 build/obj/hal_serial.o
+                0x00000000000011ca                sdRequestDataI
+ .text.hal_lld_init
+                0x00000000000011fe        0x2 build/obj/hal_lld.o
+                0x00000000000011fe                hal_lld_init
+ .text.__vector_21
+                0x0000000000001200      0x23e build/obj/hal_adc_lld.o
+                0x0000000000001200                __vector_21
+ .text.adc_lld_init
+                0x000000000000143e       0x12 build/obj/hal_adc_lld.o
+                0x000000000000143e                adc_lld_init
+ .text.adc_lld_start
+                0x0000000000001450       0x32 build/obj/hal_adc_lld.o
+                0x0000000000001450                adc_lld_start
+ .text.adc_lld_start_conversion
+                0x0000000000001482       0x4e build/obj/hal_adc_lld.o
+                0x0000000000001482                adc_lld_start_conversion
+ .text._pal_lld_init
+                0x00000000000014d0       0x1c build/obj/hal_pal_lld.o
+                0x00000000000014d0                _pal_lld_init
+ .text.__vector_11
+                0x00000000000014ec       0x58 build/obj/hal_st_lld.o
+                0x00000000000014ec                __vector_11
+ .text.st_lld_init
+                0x0000000000001544       0x2e build/obj/hal_st_lld.o
+                0x0000000000001544                st_lld_init
+ .text.notify1  0x0000000000001572        0xc build/obj/hal_serial_lld.o
+ .text.__vector_18
+                0x000000000000157e       0x82 build/obj/hal_serial_lld.o
+                0x000000000000157e                __vector_18
+ .text.__vector_19
+                0x0000000000001600       0x6e build/obj/hal_serial_lld.o
+                0x0000000000001600                __vector_19
+ .text.sd_lld_init
+                0x000000000000166e        0xe build/obj/hal_serial_lld.o
+                0x000000000000166e                sd_lld_init
+ .text.sd_lld_start
+                0x000000000000167c       0x62 build/obj/hal_serial_lld.o
+                0x000000000000167c                sd_lld_start
+ .text.boardInit
+                0x00000000000016de        0x8 build/obj/board.o
+                0x00000000000016de                boardInit
+ .text.long_to_string_with_divisor
+                0x00000000000016e6      0x106 build/obj/chprintf.o
+ .text.chvprintf
+                0x00000000000017ec      0x5f0 build/obj/chprintf.o
+                0x00000000000017ec                chvprintf
+ .text.chprintf
+                0x0000000000001ddc       0x1e build/obj/chprintf.o
+                0x0000000000001ddc                chprintf
+ .text.adc_cb   0x0000000000001dfa        0x8 build/obj/adc.o
+                0x0000000000001dfa                adc_cb
+ .text.Thread1  0x0000000000001e02       0x22 build/obj/adc.o
+ .text.startup.main
+                0x0000000000001e24       0xfa build/obj/adc.o
+                0x0000000000001e24                main
+ .text.avr-libc
+                0x0000000000001f1e      0x234 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a(vfprintf_min.o)
+                0x0000000000001f1e                vfprintf
+ .text.avr-libc
+                0x0000000000002152      0x384 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libscanf_min.a(vfscanf_min.o)
+                0x00000000000022ec                vfscanf
+ .text.avr-libc.fplib
+                0x00000000000024d6        0xa /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3.o)
+                0x00000000000024d6                __subsf3
+                0x00000000000024d8                __addsf3
+ .text.avr-libc.fplib
+                0x00000000000024e0       0xc0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3x.o)
+                0x00000000000024fa                __addsf3x
+ .text.avr-libc.fplib
+                0x00000000000025a0        0x8 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(cmpsf2.o)
+                0x00000000000025a0                __lesf2
+                0x00000000000025a0                __nesf2
+                0x00000000000025a0                __eqsf2
+                0x00000000000025a0                __cmpsf2
+                0x00000000000025a0                __ltsf2
+ .text.avr-libc.fplib
+                0x00000000000025a8        0xa /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fixsfsi.o)
+                0x00000000000025a8                __fixsfsi
+ .text.avr-libc.fplib
+                0x00000000000025b2       0x58 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fixunssfsi.o)
+                0x00000000000025b2                __fixunssfsi
+ .text.avr-libc.fplib
+                0x000000000000260a       0x7a /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(floatsisf.o)
+                0x000000000000260a                __floatunsisf
+                0x000000000000260e                __floatsisf
+ .text.avr-libc.fplib
+                0x0000000000002684       0x48 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_cmp.o)
+                0x0000000000002684                __fp_cmp
+ .text.avr-libc.fplib
+                0x00000000000026cc        0xc /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_inf.o)
+                0x00000000000026cc                __fp_inf
+ .text.avr-libc.fplib
+                0x00000000000026d8        0x6 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_nan.o)
+                0x00000000000026d8                __fp_nan
+ .text.avr-libc.fplib
+                0x00000000000026de        0xe /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_pscA.o)
+                0x00000000000026de                __fp_pscA
+ .text.avr-libc.fplib
+                0x00000000000026ec        0xe /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_pscB.o)
+                0x00000000000026ec                __fp_pscB
+ .text.avr-libc.fplib
+                0x00000000000026fa       0x22 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_round.o)
+                0x00000000000026fa                __fp_round
+ .text.avr-libc.fplib
+                0x000000000000271c       0x44 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_split3.o)
+                0x000000000000271c                __fp_split3
+                0x000000000000272c                __fp_splitA
+ .text.avr-libc.fplib
+                0x0000000000002760        0xe /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_zero.o)
+                0x0000000000002760                __fp_zero
+                0x0000000000002762                __fp_szero
+ .text.avr-libc.fplib
+                0x000000000000276e        0x4 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3.o)
+                0x000000000000276e                __mulsf3
+ .text.avr-libc.fplib
+                0x0000000000002772       0xc2 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3x.o)
+                0x0000000000002786                __mulsf3x
+                0x000000000000278a                __mulsf3_pse
+ .text.libgcc.div
+                0x0000000000002834       0x28 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodhi4.o)
+                0x0000000000002834                __udivmodhi4
+ .text.libgcc.div
+                0x000000000000285c       0x44 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodsi4.o)
+                0x000000000000285c                __udivmodsi4
+ .text.libgcc.div
+                0x00000000000028a0       0x28 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_divmodsi4.o)
+                0x00000000000028a0                __divmodsi4
+ .text.libgcc.div
+                0x00000000000028c8       0x10 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_negsi2.o)
+                0x00000000000028c8                __negsi2
+ .text.libgcc   0x00000000000028d8        0xc /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_tablejump2.o)
+                0x00000000000028d8                __tablejump2__
+ .text.libgcc.prologue
+                0x00000000000028e4       0x38 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_prologue.o)
+                0x00000000000028e4                __prologue_saves__
+ .text.libgcc.prologue
+                0x000000000000291c       0x36 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_epilogue.o)
+                0x000000000000291c                __epilogue_restores__
+ .text.avr-libc
+                0x0000000000002952       0x10 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(isspace.o)
+                0x0000000000002952                isspace
+ .text.avr-libc
+                0x0000000000002962       0x16 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(strchr_P.o)
+                0x0000000000002962                strchr_P
+ .text.avr-libc
+                0x0000000000002978       0x12 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(memcpy.o)
+                0x0000000000002978                memcpy
+ .text.avr-libc
+                0x000000000000298a       0x7c /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(fgetc.o)
+                0x000000000000298a                fgetc
+ .text.avr-libc
+                0x0000000000002a06       0x70 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(fputc.o)
+                0x0000000000002a06                fputc
+ .text.avr-libc
+                0x0000000000002a76       0x32 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(ungetc.o)
+                0x0000000000002a76                ungetc
+ .text.avr-libc
+                0x0000000000002aa8       0xbc /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(ultoa_invert.o)
+                0x0000000000002aa8                __ultoa_invert
+ .text.avr-libc
+                0x0000000000002b64        0x6 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(cty_isfalse.o)
+                0x0000000000002b64                __ctype_isfalse
+                0x0000000000002b68                __ctype_istrue
+                0x0000000000002b6a                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x0000000000002b6a        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                0x0000000000002b6a                exit
+                0x0000000000002b6a                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x0000000000002b6a        0x4 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ *(.fini0)
+                0x0000000000002b6e                _etext = .
+
+.data           0x0000000000800100       0x94 carregando endereço 0x0000000000002b6e
+                0x0000000000800100                PROVIDE (__data_start, .)
+ *(.data)
+ *(.data*)
+ *(.rodata)
+ .rodata        0x0000000000800100        0x6 build/obj/adc.o
+ *(.rodata*)
+ .rodata.str1.1
+                0x0000000000800106        0x5 build/obj/chsys.o
+ .rodata.idle_descriptor.2665
+                0x000000000080010b        0xb build/obj/chsys.o
+ .rodata.str1.1
+                0x0000000000800116        0x7 build/obj/chthreads.o
+ .rodata.ch_debug
+                0x000000000080011d       0x16 build/obj/chregistry.o
+                0x000000000080011d                ch_debug
+ .rodata.vmt    0x0000000000800133       0x14 build/obj/hal_serial.o
+ .rodata.default_config
+                0x0000000000800147        0x3 build/obj/hal_serial_lld.o
+ .rodata.pal_default_config
+                0x000000000080014a        0x6 build/obj/board.o
+                0x000000000080014a                pal_default_config
+ .rodata.str1.1
+                0x0000000000800150        0x7 build/obj/chprintf.o
+ .rodata.pow10  0x0000000000800157       0x24 build/obj/chprintf.o
+ .rodata.str1.1
+                0x000000000080017b       0x19 build/obj/adc.o
+ *(.gnu.linkonce.d*)
+                0x0000000000800194                . = ALIGN (0x2)
+                0x0000000000800194                _edata = .
+                0x0000000000800194                PROVIDE (__data_end, .)
+
+.bss            0x0000000000800194      0x20f
+                0x0000000000800194                PROVIDE (__bss_start, .)
+ *(.bss)
+ *(.bss*)
+ .bss.static_heap.2661
+                0x0000000000800194       0x80 build/obj/chmemcore.o
+ .bss.default_heap
+                0x0000000000800214        0xe build/obj/chheap.o
+ .bss.waThread1
+                0x0000000000800222       0x81 build/obj/adc.o
+ *(COMMON)
+ COMMON         0x00000000008002a3       0x69 build/obj/chsys.o
+                0x00000000008002a3                ch_idle_thread_wa
+ COMMON         0x000000000080030c       0x33 build/obj/chschd.o
+                0x000000000080030c                ch
+ COMMON         0x000000000080033f        0x4 build/obj/chmemcore.o
+                0x000000000080033f                ch_memcore
+ COMMON         0x0000000000800343        0x1 build/obj/chcore.o
+                0x0000000000800343                __avr_in_isr
+ COMMON         0x0000000000800344       0x15 build/obj/hal_adc_lld.o
+                0x0000000000800344                ADCD1
+ COMMON         0x0000000000800359       0x49 build/obj/hal_serial_lld.o
+                0x0000000000800359                SD1
+ COMMON         0x00000000008003a2        0x1 build/obj/adc.o
+                0x00000000008003a2                flag
+                0x00000000008003a3                PROVIDE (__bss_end, .)
+                0x0000000000002b6e                __data_load_start = LOADADDR (.data)
+                0x0000000000002c02                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00000000008003a3        0x0
+                0x00000000008003a3                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00000000008003a3                PROVIDE (__noinit_end, .)
+                0x00000000008003a3                _end = .
+                0x00000000008003a3                PROVIDE (__heap_start, .)
+
+.eeprom         0x0000000000810000        0x0
+ *(.eeprom*)
+                0x0000000000810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.user_signatures
+ *(.user_signatures*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x11
+ *(.comment)
+ .comment       0x0000000000000000       0x11 build/obj/chsys.o
+                                         0x12 (tamanho de relaxar)
+ .comment       0x0000000000000011       0x12 build/obj/chvt.o
+ .comment       0x0000000000000011       0x12 build/obj/chschd.o
+ .comment       0x0000000000000011       0x12 build/obj/chthreads.o
+ .comment       0x0000000000000011       0x12 build/obj/chregistry.o
+ .comment       0x0000000000000011       0x12 build/obj/chmtx.o
+ .comment       0x0000000000000011       0x12 build/obj/chevents.o
+ .comment       0x0000000000000011       0x12 build/obj/chmemcore.o
+ .comment       0x0000000000000011       0x12 build/obj/chheap.o
+ .comment       0x0000000000000011       0x12 build/obj/chcore.o
+ .comment       0x0000000000000011       0x12 build/obj/hal.o
+ .comment       0x0000000000000011       0x12 build/obj/hal_st.o
+ .comment       0x0000000000000011       0x12 build/obj/hal_queues.o
+ .comment       0x0000000000000011       0x12 build/obj/hal_adc.o
+ .comment       0x0000000000000011       0x12 build/obj/hal_serial.o
+ .comment       0x0000000000000011       0x12 build/obj/hal_lld.o
+ .comment       0x0000000000000011       0x12 build/obj/hal_adc_lld.o
+ .comment       0x0000000000000011       0x12 build/obj/hal_pal_lld.o
+ .comment       0x0000000000000011       0x12 build/obj/hal_st_lld.o
+ .comment       0x0000000000000011       0x12 build/obj/hal_serial_lld.o
+ .comment       0x0000000000000011       0x12 build/obj/board.o
+ .comment       0x0000000000000011       0x12 build/obj/chprintf.o
+ .comment       0x0000000000000011       0x12 build/obj/adc.o
+ .comment       0x0000000000000011       0x12 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a(vfprintf_min.o)
+ .comment       0x0000000000000011       0x12 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libscanf_min.a(vfscanf_min.o)
+ .comment       0x0000000000000011       0x12 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(fgetc.o)
+ .comment       0x0000000000000011       0x12 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(fputc.o)
+ .comment       0x0000000000000011       0x12 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(ungetc.o)
+
+.note.gnu.avr.deviceinfo
+                0x0000000000000000       0x40
+ .note.gnu.avr.deviceinfo
+                0x0000000000000000       0x40 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000      0x778
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x50 build/obj/chsys.o
+ .debug_aranges
+                0x0000000000000050       0x30 build/obj/chvt.o
+ .debug_aranges
+                0x0000000000000080       0x78 build/obj/chschd.o
+ .debug_aranges
+                0x00000000000000f8       0xe8 build/obj/chthreads.o
+ .debug_aranges
+                0x00000000000001e0       0x38 build/obj/chregistry.o
+ .debug_aranges
+                0x0000000000000218       0x60 build/obj/chmtx.o
+ .debug_aranges
+                0x0000000000000278       0xa8 build/obj/chevents.o
+ .debug_aranges
+                0x0000000000000320       0x38 build/obj/chmemcore.o
+ .debug_aranges
+                0x0000000000000358       0x40 build/obj/chheap.o
+ .debug_aranges
+                0x0000000000000398       0x28 build/obj/chcore.o
+ .debug_aranges
+                0x00000000000003c0       0x20 build/obj/hal.o
+ .debug_aranges
+                0x00000000000003e0       0x40 build/obj/hal_st.o
+ .debug_aranges
+                0x0000000000000420       0x98 build/obj/hal_queues.o
+ .debug_aranges
+                0x00000000000004b8       0x70 build/obj/hal_adc.o
+ .debug_aranges
+                0x0000000000000528       0xa8 build/obj/hal_serial.o
+ .debug_aranges
+                0x00000000000005d0       0x20 build/obj/hal_lld.o
+ .debug_aranges
+                0x00000000000005f0       0x48 build/obj/hal_adc_lld.o
+ .debug_aranges
+                0x0000000000000638       0x48 build/obj/hal_pal_lld.o
+ .debug_aranges
+                0x0000000000000680       0x28 build/obj/hal_st_lld.o
+ .debug_aranges
+                0x00000000000006a8       0x48 build/obj/hal_serial_lld.o
+ .debug_aranges
+                0x00000000000006f0       0x20 build/obj/board.o
+ .debug_aranges
+                0x0000000000000710       0x38 build/obj/chprintf.o
+ .debug_aranges
+                0x0000000000000748       0x30 build/obj/adc.o
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000    0x13c9d
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000      0xe7c build/obj/chsys.o
+ .debug_info    0x0000000000000e7c      0x9e4 build/obj/chvt.o
+ .debug_info    0x0000000000001860      0xea9 build/obj/chschd.o
+ .debug_info    0x0000000000002709     0x1df8 build/obj/chthreads.o
+ .debug_info    0x0000000000004501      0xc04 build/obj/chregistry.o
+ .debug_info    0x0000000000005105     0x1027 build/obj/chmtx.o
+ .debug_info    0x000000000000612c     0x140c build/obj/chevents.o
+ .debug_info    0x0000000000007538      0x931 build/obj/chmemcore.o
+ .debug_info    0x0000000000007e69      0xb77 build/obj/chheap.o
+ .debug_info    0x00000000000089e0      0x758 build/obj/chcore.o
+ .debug_info    0x0000000000009138      0x7b9 build/obj/hal.o
+ .debug_info    0x00000000000098f1      0x836 build/obj/hal_st.o
+ .debug_info    0x000000000000a127     0x1847 build/obj/hal_queues.o
+ .debug_info    0x000000000000b96e     0x129b build/obj/hal_adc.o
+ .debug_info    0x000000000000cc09     0x1859 build/obj/hal_serial.o
+ .debug_info    0x000000000000e462      0x6a4 build/obj/hal_lld.o
+ .debug_info    0x000000000000eb06      0xc21 build/obj/hal_adc_lld.o
+ .debug_info    0x000000000000f727      0x986 build/obj/hal_pal_lld.o
+ .debug_info    0x00000000000100ad      0x759 build/obj/hal_st_lld.o
+ .debug_info    0x0000000000010806      0xe8b build/obj/hal_serial_lld.o
+ .debug_info    0x0000000000011691      0x729 build/obj/board.o
+ .debug_info    0x0000000000011dba      0xe7d build/obj/chprintf.o
+ .debug_info    0x0000000000012c37     0x1066 build/obj/adc.o
+
+.debug_abbrev   0x0000000000000000     0x433e
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000      0x447 build/obj/chsys.o
+ .debug_abbrev  0x0000000000000447      0x2d9 build/obj/chvt.o
+ .debug_abbrev  0x0000000000000720      0x3bd build/obj/chschd.o
+ .debug_abbrev  0x0000000000000add      0x476 build/obj/chthreads.o
+ .debug_abbrev  0x0000000000000f53      0x2da build/obj/chregistry.o
+ .debug_abbrev  0x000000000000122d      0x3d8 build/obj/chmtx.o
+ .debug_abbrev  0x0000000000001605      0x42d build/obj/chevents.o
+ .debug_abbrev  0x0000000000001a32      0x29b build/obj/chmemcore.o
+ .debug_abbrev  0x0000000000001ccd      0x2c4 build/obj/chheap.o
+ .debug_abbrev  0x0000000000001f91      0x1a0 build/obj/chcore.o
+ .debug_abbrev  0x0000000000002131      0x19f build/obj/hal.o
+ .debug_abbrev  0x00000000000022d0      0x208 build/obj/hal_st.o
+ .debug_abbrev  0x00000000000024d8      0x42f build/obj/hal_queues.o
+ .debug_abbrev  0x0000000000002907      0x354 build/obj/hal_adc.o
+ .debug_abbrev  0x0000000000002c5b      0x437 build/obj/hal_serial.o
+ .debug_abbrev  0x0000000000003092      0x122 build/obj/hal_lld.o
+ .debug_abbrev  0x00000000000031b4      0x32d build/obj/hal_adc_lld.o
+ .debug_abbrev  0x00000000000034e1      0x1c6 build/obj/hal_pal_lld.o
+ .debug_abbrev  0x00000000000036a7      0x18b build/obj/hal_st_lld.o
+ .debug_abbrev  0x0000000000003832      0x3ae build/obj/hal_serial_lld.o
+ .debug_abbrev  0x0000000000003be0      0x140 build/obj/board.o
+ .debug_abbrev  0x0000000000003d20      0x318 build/obj/chprintf.o
+ .debug_abbrev  0x0000000000004038      0x306 build/obj/adc.o
+
+.debug_line     0x0000000000000000     0x5a06
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x0000000000000000      0x4f3 build/obj/chsys.o
+ .debug_line    0x00000000000004f3      0x364 build/obj/chvt.o
+ .debug_line    0x0000000000000857      0x544 build/obj/chschd.o
+ .debug_line    0x0000000000000d9b      0x8f4 build/obj/chthreads.o
+ .debug_line    0x000000000000168f      0x2e8 build/obj/chregistry.o
+ .debug_line    0x0000000000001977      0x5cd build/obj/chmtx.o
+ .debug_line    0x0000000000001f44      0x65f build/obj/chevents.o
+ .debug_line    0x00000000000025a3      0x281 build/obj/chmemcore.o
+ .debug_line    0x0000000000002824      0x434 build/obj/chheap.o
+ .debug_line    0x0000000000002c58      0x26e build/obj/chcore.o
+ .debug_line    0x0000000000002ec6      0x244 build/obj/hal.o
+ .debug_line    0x000000000000310a      0x1d8 build/obj/hal_st.o
+ .debug_line    0x00000000000032e2      0x757 build/obj/hal_queues.o
+ .debug_line    0x0000000000003a39      0x448 build/obj/hal_adc.o
+ .debug_line    0x0000000000003e81      0x4ab build/obj/hal_serial.o
+ .debug_line    0x000000000000432c      0x136 build/obj/hal_lld.o
+ .debug_line    0x0000000000004462      0x3d7 build/obj/hal_adc_lld.o
+ .debug_line    0x0000000000004839      0x23f build/obj/hal_pal_lld.o
+ .debug_line    0x0000000000004a78      0x1d3 build/obj/hal_st_lld.o
+ .debug_line    0x0000000000004c4b      0x367 build/obj/hal_serial_lld.o
+ .debug_line    0x0000000000004fb2      0x177 build/obj/board.o
+ .debug_line    0x0000000000005129      0x567 build/obj/chprintf.o
+ .debug_line    0x0000000000005690      0x376 build/obj/adc.o
+
+.debug_frame    0x0000000000000000     0x1538
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000       0xb4 build/obj/chsys.o
+ .debug_frame   0x00000000000000b4       0x74 build/obj/chvt.o
+ .debug_frame   0x0000000000000128      0x14c build/obj/chschd.o
+ .debug_frame   0x0000000000000274      0x27c build/obj/chthreads.o
+ .debug_frame   0x00000000000004f0       0x6c build/obj/chregistry.o
+ .debug_frame   0x000000000000055c      0x104 build/obj/chmtx.o
+ .debug_frame   0x0000000000000660      0x204 build/obj/chevents.o
+ .debug_frame   0x0000000000000864       0x54 build/obj/chmemcore.o
+ .debug_frame   0x00000000000008b8      0x124 build/obj/chheap.o
+ .debug_frame   0x00000000000009dc       0x34 build/obj/chcore.o
+ .debug_frame   0x0000000000000a10       0x24 build/obj/hal.o
+ .debug_frame   0x0000000000000a34       0x64 build/obj/hal_st.o
+ .debug_frame   0x0000000000000a98      0x2dc build/obj/hal_queues.o
+ .debug_frame   0x0000000000000d74      0x100 build/obj/hal_adc.o
+ .debug_frame   0x0000000000000e74      0x19c build/obj/hal_serial.o
+ .debug_frame   0x0000000000001010       0x24 build/obj/hal_lld.o
+ .debug_frame   0x0000000000001034      0x104 build/obj/hal_adc_lld.o
+ .debug_frame   0x0000000000001138       0x74 build/obj/hal_pal_lld.o
+ .debug_frame   0x00000000000011ac       0x88 build/obj/hal_st_lld.o
+ .debug_frame   0x0000000000001234      0x11c build/obj/hal_serial_lld.o
+ .debug_frame   0x0000000000001350       0x24 build/obj/board.o
+ .debug_frame   0x0000000000001374      0x16c build/obj/chprintf.o
+ .debug_frame   0x00000000000014e0       0x58 build/obj/adc.o
+
+.debug_str      0x0000000000000000     0x1cbd
+ *(.debug_str)
+ .debug_str     0x0000000000000000      0x760 build/obj/chsys.o
+                                        0x815 (tamanho de relaxar)
+ .debug_str     0x0000000000000760       0x72 build/obj/chvt.o
+                                        0x57b (tamanho de relaxar)
+ .debug_str     0x00000000000007d2      0x153 build/obj/chschd.o
+                                        0x620 (tamanho de relaxar)
+ .debug_str     0x0000000000000925      0x249 build/obj/chthreads.o
+                                        0x7fe (tamanho de relaxar)
+ .debug_str     0x0000000000000b6e       0x8b build/obj/chregistry.o
+                                        0x5bf (tamanho de relaxar)
+ .debug_str     0x0000000000000bf9       0xb9 build/obj/chmtx.o
+                                        0x59a (tamanho de relaxar)
+ .debug_str     0x0000000000000cb2      0x1ed build/obj/chevents.o
+                                        0x6c1 (tamanho de relaxar)
+ .debug_str     0x0000000000000e9f       0xa5 build/obj/chmemcore.o
+                                        0x53d (tamanho de relaxar)
+ .debug_str     0x0000000000000f44       0xef build/obj/chheap.o
+                                        0x58c (tamanho de relaxar)
+ .debug_str     0x0000000000001033       0x39 build/obj/chcore.o
+                                        0x4a6 (tamanho de relaxar)
+ .debug_str     0x000000000000106c       0xa6 build/obj/hal.o
+                                        0x4e5 (tamanho de relaxar)
+ .debug_str     0x0000000000001112       0x83 build/obj/hal_st.o
+                                        0x4fb (tamanho de relaxar)
+ .debug_str     0x0000000000001195      0x1e6 build/obj/hal_queues.o
+                                        0x6b6 (tamanho de relaxar)
+ .debug_str     0x000000000000137b      0x281 build/obj/hal_adc.o
+                                        0x787 (tamanho de relaxar)
+ .debug_str     0x00000000000015fc      0x1c3 build/obj/hal_serial.o
+                                        0x818 (tamanho de relaxar)
+ .debug_str     0x00000000000017bf       0x32 build/obj/hal_lld.o
+                                        0x47e (tamanho de relaxar)
+ .debug_str     0x00000000000017f1       0xed build/obj/hal_adc_lld.o
+                                        0x759 (tamanho de relaxar)
+ .debug_str     0x00000000000018de      0x134 build/obj/hal_pal_lld.o
+                                        0x5c4 (tamanho de relaxar)
+ .debug_str     0x0000000000001a12       0x56 build/obj/hal_st_lld.o
+                                        0x554 (tamanho de relaxar)
+ .debug_str     0x0000000000001a68       0x87 build/obj/hal_serial_lld.o
+                                        0x78d (tamanho de relaxar)
+ .debug_str     0x0000000000001aef       0x2c build/obj/board.o
+                                        0x4b5 (tamanho de relaxar)
+ .debug_str     0x0000000000001b1b      0x159 build/obj/chprintf.o
+                                        0x5e4 (tamanho de relaxar)
+ .debug_str     0x0000000000001c74       0x49 build/obj/adc.o
+                                        0x816 (tamanho de relaxar)
+
+.debug_loc      0x0000000000000000     0x7d82
+ *(.debug_loc)
+ .debug_loc     0x0000000000000000      0x383 build/obj/chsys.o
+ .debug_loc     0x0000000000000383      0x45a build/obj/chvt.o
+ .debug_loc     0x00000000000007dd      0x613 build/obj/chschd.o
+ .debug_loc     0x0000000000000df0     0x1014 build/obj/chthreads.o
+ .debug_loc     0x0000000000001e04      0x25d build/obj/chregistry.o
+ .debug_loc     0x0000000000002061      0x88d build/obj/chmtx.o
+ .debug_loc     0x00000000000028ee      0x9b6 build/obj/chevents.o
+ .debug_loc     0x00000000000032a4      0x28e build/obj/chmemcore.o
+ .debug_loc     0x0000000000003532      0x8e6 build/obj/chheap.o
+ .debug_loc     0x0000000000003e18       0x32 build/obj/hal_st.o
+ .debug_loc     0x0000000000003e4a     0x119a build/obj/hal_queues.o
+ .debug_loc     0x0000000000004fe4      0x750 build/obj/hal_adc.o
+ .debug_loc     0x0000000000005734      0x8f9 build/obj/hal_serial.o
+ .debug_loc     0x000000000000602d      0x3f4 build/obj/hal_adc_lld.o
+ .debug_loc     0x0000000000006421      0x163 build/obj/hal_pal_lld.o
+ .debug_loc     0x0000000000006584       0xcb build/obj/hal_st_lld.o
+ .debug_loc     0x000000000000664f      0x36a build/obj/hal_serial_lld.o
+ .debug_loc     0x00000000000069b9     0x1322 build/obj/chprintf.o
+ .debug_loc     0x0000000000007cdb       0xa7 build/obj/adc.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x0000000000000000      0x978
+ *(.debug_ranges)
+ .debug_ranges  0x0000000000000000       0xd0 build/obj/chsys.o
+ .debug_ranges  0x00000000000000d0       0x78 build/obj/chvt.o
+ .debug_ranges  0x0000000000000148       0x68 build/obj/chschd.o
+ .debug_ranges  0x00000000000001b0      0x120 build/obj/chthreads.o
+ .debug_ranges  0x00000000000002d0       0x70 build/obj/chregistry.o
+ .debug_ranges  0x0000000000000340       0xf8 build/obj/chmtx.o
+ .debug_ranges  0x0000000000000438       0xb0 build/obj/chevents.o
+ .debug_ranges  0x00000000000004e8       0x58 build/obj/chmemcore.o
+ .debug_ranges  0x0000000000000540       0x30 build/obj/chheap.o
+ .debug_ranges  0x0000000000000570       0x18 build/obj/chcore.o
+ .debug_ranges  0x0000000000000588       0x10 build/obj/hal.o
+ .debug_ranges  0x0000000000000598       0x30 build/obj/hal_st.o
+ .debug_ranges  0x00000000000005c8      0x118 build/obj/hal_queues.o
+ .debug_ranges  0x00000000000006e0       0x78 build/obj/hal_adc.o
+ .debug_ranges  0x0000000000000758       0xb0 build/obj/hal_serial.o
+ .debug_ranges  0x0000000000000808       0x10 build/obj/hal_lld.o
+ .debug_ranges  0x0000000000000818       0x50 build/obj/hal_adc_lld.o
+ .debug_ranges  0x0000000000000868       0x38 build/obj/hal_pal_lld.o
+ .debug_ranges  0x00000000000008a0       0x18 build/obj/hal_st_lld.o
+ .debug_ranges  0x00000000000008b8       0x50 build/obj/hal_serial_lld.o
+ .debug_ranges  0x0000000000000908       0x10 build/obj/board.o
+ .debug_ranges  0x0000000000000918       0x28 build/obj/chprintf.o
+ .debug_ranges  0x0000000000000940       0x38 build/obj/adc.o
+
+.debug_macro
+ *(.debug_macro)
+OUTPUT(build/ch.elf elf32-avr)
+LOAD linker stubs
+
+Tabela de Referência Cruzada
+
+Símbolo                                          Arquivo
+ADCD1                                             build/obj/hal_adc_lld.o
+                                                  build/obj/adc.o
+SD1                                               build/obj/hal_serial_lld.o
+                                                  build/obj/adc.o
+__addsf3                                          /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3.o)
+__addsf3x                                         /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3x.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3.o)
+__avr_in_isr                                      build/obj/chcore.o
+                                                  build/obj/hal_serial_lld.o
+                                                  build/obj/hal_st_lld.o
+                                                  build/obj/hal_adc_lld.o
+                                                  build/obj/chsys.o
+__bad_interrupt                                   /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__bss_end                                         /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+__bss_start                                       /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+__cmpsf2                                          /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(cmpsf2.o)
+__ctype_isfalse                                   /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(cty_isfalse.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(isspace.o)
+__ctype_istrue                                    /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(cty_isfalse.o)
+__data_end                                        /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+__data_load_start                                 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+__data_start                                      /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+__divmodsi4                                       /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_divmodsi4.o)
+                                                  build/obj/chprintf.o
+__do_clear_bss                                    /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+                                                  build/obj/adc.o
+                                                  build/obj/hal_serial_lld.o
+                                                  build/obj/hal_pal_lld.o
+                                                  build/obj/hal_adc_lld.o
+                                                  build/obj/chcore.o
+                                                  build/obj/chheap.o
+                                                  build/obj/chmemcore.o
+                                                  build/obj/chschd.o
+                                                  build/obj/chsys.o
+__do_copy_data                                    /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+                                                  build/obj/adc.o
+                                                  build/obj/chprintf.o
+                                                  build/obj/board.o
+                                                  build/obj/hal_serial_lld.o
+                                                  build/obj/hal_serial.o
+                                                  build/obj/chregistry.o
+                                                  build/obj/chthreads.o
+                                                  build/obj/chsys.o
+__epilogue_restores__                             /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_epilogue.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libscanf_min.a(vfscanf_min.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a(vfprintf_min.o)
+__eqsf2                                           /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(cmpsf2.o)
+__fixsfsi                                         /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fixsfsi.o)
+                                                  build/obj/chprintf.o
+__fixunssfsi                                      /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fixunssfsi.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fixsfsi.o)
+__floatsisf                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(floatsisf.o)
+                                                  build/obj/chprintf.o
+__floatunsisf                                     /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(floatsisf.o)
+                                                  build/obj/adc.o
+                                                  build/obj/chprintf.o
+__fp_cmp                                          /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_cmp.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(cmpsf2.o)
+__fp_inf                                          /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_inf.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3x.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3x.o)
+__fp_nan                                          /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_nan.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3x.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3x.o)
+__fp_pscA                                         /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_pscA.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3x.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3x.o)
+__fp_pscB                                         /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_pscB.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3x.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3x.o)
+__fp_round                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_round.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3.o)
+__fp_split3                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_split3.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3x.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3x.o)
+__fp_splitA                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_split3.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fixunssfsi.o)
+__fp_szero                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_zero.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3x.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fixsfsi.o)
+__fp_zero                                         /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fp_zero.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(fixunssfsi.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3x.o)
+__heap_end                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__init                                            /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__lesf2                                           /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(cmpsf2.o)
+__ltsf2                                           /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(cmpsf2.o)
+                                                  build/obj/chprintf.o
+__mulsf3                                          /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3.o)
+                                                  build/obj/adc.o
+                                                  build/obj/chprintf.o
+__mulsf3_pse                                      /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3x.o)
+__mulsf3x                                         /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3x.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(mulsf3.o)
+__negsi2                                          /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_negsi2.o)
+                                                  /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_divmodsi4.o)
+__nesf2                                           /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(cmpsf2.o)
+__prologue_saves__                                /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_prologue.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libscanf_min.a(vfscanf_min.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a(vfprintf_min.o)
+__stack                                           /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__subsf3                                          /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libm.a(addsf3.o)
+                                                  build/obj/chprintf.o
+__tablejump2__                                    /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_tablejump2.o)
+                                                  build/obj/chprintf.o
+__udivmodhi4                                      /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodhi4.o)
+                                                  build/obj/hal_adc_lld.o
+__udivmodsi4                                      /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodsi4.o)
+                                                  /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_divmodsi4.o)
+                                                  build/obj/chprintf.o
+__ultoa_invert                                    /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(ultoa_invert.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a(vfprintf_min.o)
+__vector_1                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_10                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_11                                       build/obj/hal_st_lld.o
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_12                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_13                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_14                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_15                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_16                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_17                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_18                                       build/obj/hal_serial_lld.o
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_19                                       build/obj/hal_serial_lld.o
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_2                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_20                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_21                                       build/obj/hal_adc_lld.o
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_22                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_23                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_24                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_25                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_3                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_4                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_5                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_6                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_7                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_8                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_9                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vector_default                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+__vectors                                         /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+_core_init                                        build/obj/chmemcore.o
+                                                  build/obj/chsys.o
+_exit                                             /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+_heap_init                                        build/obj/chheap.o
+                                                  build/obj/chsys.o
+_pal_events                                       build/obj/hal_pal_lld.o
+_pal_lld_enablepadevent                           build/obj/hal_pal_lld.o
+_pal_lld_getpadfromline                           build/obj/hal_pal_lld.o
+_pal_lld_getportfromline                          build/obj/hal_pal_lld.o
+_pal_lld_init                                     build/obj/hal_pal_lld.o
+                                                  build/obj/hal.o
+_pal_lld_setgroupmode                             build/obj/hal_pal_lld.o
+                                                  build/obj/hal_pal.o
+_pal_lld_setlineid                                build/obj/hal_pal_lld.o
+_port_switch                                      build/obj/chcore.o
+                                                  build/obj/chschd.o
+_port_thread_start                                build/obj/chcore.o
+                                                  build/obj/chthreads.o
+_scheduler_init                                   build/obj/chschd.o
+                                                  build/obj/chsys.o
+_thread_init                                      build/obj/chthreads.o
+                                                  build/obj/chsys.o
+_vt_init                                          build/obj/chvt.o
+                                                  build/obj/chsys.o
+adcAcquireBus                                     build/obj/hal_adc.o
+adcConvert                                        build/obj/hal_adc.o
+adcInit                                           build/obj/hal_adc.o
+                                                  build/obj/hal.o
+adcObjectInit                                     build/obj/hal_adc.o
+                                                  build/obj/hal_adc_lld.o
+adcReleaseBus                                     build/obj/hal_adc.o
+adcStart                                          build/obj/hal_adc.o
+                                                  build/obj/adc.o
+adcStartConversion                                build/obj/hal_adc.o
+                                                  build/obj/adc.o
+adcStartConversionI                               build/obj/hal_adc.o
+adcStop                                           build/obj/hal_adc.o
+adcStopConversion                                 build/obj/hal_adc.o
+adcStopConversionI                                build/obj/hal_adc.o
+adc_cb                                            build/obj/adc.o
+adc_lld_init                                      build/obj/hal_adc_lld.o
+                                                  build/obj/hal_adc.o
+adc_lld_start                                     build/obj/hal_adc_lld.o
+                                                  build/obj/hal_adc.o
+adc_lld_start_conversion                          build/obj/hal_adc_lld.o
+                                                  build/obj/hal_adc.o
+adc_lld_stop                                      build/obj/hal_adc_lld.o
+                                                  build/obj/hal_adc.o
+adc_lld_stop_conversion                           build/obj/hal_adc_lld.o
+                                                  build/obj/hal_adc.o
+boardInit                                         build/obj/board.o
+                                                  build/obj/hal.o
+ch                                                build/obj/chschd.o
+                                                  build/obj/adc.o
+                                                  build/obj/chmsg.o
+                                                  build/obj/chevents.o
+                                                  build/obj/chcond.o
+                                                  build/obj/chmtx.o
+                                                  build/obj/chsem.o
+                                                  build/obj/chregistry.o
+                                                  build/obj/chthreads.o
+                                                  build/obj/chvt.o
+                                                  build/obj/chsys.o
+chCondBroadcast                                   build/obj/chcond.o
+chCondBroadcastI                                  build/obj/chcond.o
+chCondObjectInit                                  build/obj/chcond.o
+chCondSignal                                      build/obj/chcond.o
+chCondSignalI                                     build/obj/chcond.o
+chCondWait                                        build/obj/chcond.o
+chCondWaitS                                       build/obj/chcond.o
+chCondWaitTimeout                                 build/obj/chcond.o
+chCondWaitTimeoutS                                build/obj/chcond.o
+chCoreAllocAlignedWithOffset                      build/obj/chmemcore.o
+                                                  build/obj/chheap.o
+chCoreAllocAlignedWithOffsetI                     build/obj/chmemcore.o
+chCoreGetStatusX                                  build/obj/chmemcore.o
+chEvtAddEvents                                    build/obj/chevents.o
+chEvtBroadcastFlags                               build/obj/chevents.o
+chEvtBroadcastFlagsI                              build/obj/chevents.o
+                                                  build/obj/evtimer.o
+                                                  build/obj/hal_serial_lld.o
+                                                  build/obj/hal_serial.o
+chEvtDispatch                                     build/obj/chevents.o
+chEvtGetAndClearEvents                            build/obj/chevents.o
+chEvtGetAndClearEventsI                           build/obj/chevents.o
+chEvtGetAndClearFlags                             build/obj/chevents.o
+chEvtGetAndClearFlagsI                            build/obj/chevents.o
+chEvtRegisterMaskWithFlags                        build/obj/chevents.o
+chEvtSignal                                       build/obj/chevents.o
+chEvtSignalI                                      build/obj/chevents.o
+chEvtUnregister                                   build/obj/chevents.o
+chEvtWaitAll                                      build/obj/chevents.o
+chEvtWaitAllTimeout                               build/obj/chevents.o
+chEvtWaitAny                                      build/obj/chevents.o
+chEvtWaitAnyTimeout                               build/obj/chevents.o
+chEvtWaitOne                                      build/obj/chevents.o
+chEvtWaitOneTimeout                               build/obj/chevents.o
+chGuardedPoolAllocTimeout                         build/obj/chmempools.o
+chGuardedPoolAllocTimeoutS                        build/obj/chmempools.o
+chGuardedPoolFree                                 build/obj/chmempools.o
+chGuardedPoolFreeI                                build/obj/chmempools.o
+chGuardedPoolLoadArray                            build/obj/chmempools.o
+chGuardedPoolObjectInitAligned                    build/obj/chmempools.o
+chHeapAllocAligned                                build/obj/chheap.o
+chHeapFree                                        build/obj/chheap.o
+chHeapObjectInit                                  build/obj/chheap.o
+chHeapStatus                                      build/obj/chheap.o
+chMBFetchI                                        build/obj/chmboxes.o
+chMBFetchTimeout                                  build/obj/chmboxes.o
+chMBFetchTimeoutS                                 build/obj/chmboxes.o
+chMBObjectInit                                    build/obj/chmboxes.o
+chMBPostAheadI                                    build/obj/chmboxes.o
+chMBPostAheadTimeout                              build/obj/chmboxes.o
+chMBPostAheadTimeoutS                             build/obj/chmboxes.o
+chMBPostI                                         build/obj/chmboxes.o
+chMBPostTimeout                                   build/obj/chmboxes.o
+chMBPostTimeoutS                                  build/obj/chmboxes.o
+chMBReset                                         build/obj/chmboxes.o
+chMBResetI                                        build/obj/chmboxes.o
+chMsgRelease                                      build/obj/chmsg.o
+chMsgSend                                         build/obj/chmsg.o
+chMsgWait                                         build/obj/chmsg.o
+chMtxLock                                         build/obj/chmtx.o
+                                                  build/obj/hal_adc.o
+                                                  build/obj/chheap.o
+chMtxLockS                                        build/obj/chmtx.o
+                                                  build/obj/chcond.o
+chMtxObjectInit                                   build/obj/chmtx.o
+                                                  build/obj/hal_adc.o
+                                                  build/obj/chheap.o
+chMtxTryLock                                      build/obj/chmtx.o
+chMtxTryLockS                                     build/obj/chmtx.o
+chMtxUnlock                                       build/obj/chmtx.o
+                                                  build/obj/hal_adc.o
+                                                  build/obj/chheap.o
+chMtxUnlockAll                                    build/obj/chmtx.o
+chMtxUnlockAllS                                   build/obj/chmtx.o
+chMtxUnlockS                                      build/obj/chmtx.o
+                                                  build/obj/chcond.o
+chPoolAlloc                                       build/obj/chmempools.o
+chPoolAllocI                                      build/obj/chmempools.o
+chPoolFree                                        build/obj/chmempools.o
+chPoolFreeI                                       build/obj/chmempools.o
+chPoolLoadArray                                   build/obj/chmempools.o
+chPoolObjectInitAligned                           build/obj/chmempools.o
+chRegFindThreadByName                             build/obj/chregistry.o
+chRegFindThreadByPointer                          build/obj/chregistry.o
+chRegFirstThread                                  build/obj/chregistry.o
+chRegNextThread                                   build/obj/chregistry.o
+chSchDoReschedule                                 build/obj/chschd.o
+                                                  build/obj/hal_serial_lld.o
+                                                  build/obj/hal_st_lld.o
+                                                  build/obj/hal_adc_lld.o
+chSchDoRescheduleAhead                            build/obj/chschd.o
+chSchDoRescheduleBehind                           build/obj/chschd.o
+                                                  build/obj/chthreads.o
+chSchGoSleepS                                     build/obj/chschd.o
+                                                  build/obj/chmsg.o
+                                                  build/obj/chevents.o
+                                                  build/obj/chcond.o
+                                                  build/obj/chmtx.o
+                                                  build/obj/chsem.o
+                                                  build/obj/chthreads.o
+chSchGoSleepTimeoutS                              build/obj/chschd.o
+                                                  build/obj/chevents.o
+                                                  build/obj/chcond.o
+                                                  build/obj/chsem.o
+                                                  build/obj/chthreads.o
+chSchIsPreemptionRequired                         build/obj/chschd.o
+                                                  build/obj/hal_serial_lld.o
+                                                  build/obj/hal_st_lld.o
+                                                  build/obj/hal_adc_lld.o
+chSchReadyAheadI                                  build/obj/chschd.o
+chSchReadyI                                       build/obj/chschd.o
+                                                  build/obj/chmsg.o
+                                                  build/obj/chevents.o
+                                                  build/obj/chcond.o
+                                                  build/obj/chmtx.o
+                                                  build/obj/chsem.o
+                                                  build/obj/chthreads.o
+chSchRescheduleS                                  build/obj/chschd.o
+                                                  build/obj/hal_serial.o
+                                                  build/obj/chmempools.o
+                                                  build/obj/chmboxes.o
+                                                  build/obj/chevents.o
+                                                  build/obj/chcond.o
+                                                  build/obj/chmtx.o
+                                                  build/obj/chsem.o
+                                                  build/obj/chthreads.o
+                                                  build/obj/chsys.o
+chSchWakeupS                                      build/obj/chschd.o
+                                                  build/obj/chmsg.o
+                                                  build/obj/chcond.o
+                                                  build/obj/chsem.o
+                                                  build/obj/chthreads.o
+chSemAddCounterI                                  build/obj/chsem.o
+chSemObjectInit                                   build/obj/chsem.o
+                                                  build/obj/chmempools.o
+chSemReset                                        build/obj/chsem.o
+chSemResetI                                       build/obj/chsem.o
+chSemSignal                                       build/obj/chsem.o
+chSemSignalI                                      build/obj/chsem.o
+                                                  build/obj/chmempools.o
+chSemSignalWait                                   build/obj/chsem.o
+chSemWait                                         build/obj/chsem.o
+chSemWaitS                                        build/obj/chsem.o
+chSemWaitTimeout                                  build/obj/chsem.o
+chSemWaitTimeoutS                                 build/obj/chsem.o
+                                                  build/obj/chmempools.o
+chSysGetStatusAndLockX                            build/obj/chsys.o
+chSysHalt                                         build/obj/chsys.o
+chSysInit                                         build/obj/chsys.o
+                                                  build/obj/adc.o
+chSysIntegrityCheckI                              build/obj/chsys.o
+chSysRestoreStatusX                               build/obj/chsys.o
+chSysTimerHandlerI                                build/obj/chsys.o
+                                                  build/obj/hal_st_lld.o
+chThdAddRef                                       build/obj/chthreads.o
+chThdCreate                                       build/obj/chthreads.o
+                                                  build/obj/chsys.o
+chThdCreateI                                      build/obj/chthreads.o
+chThdCreateStatic                                 build/obj/chthreads.o
+                                                  build/obj/adc.o
+chThdCreateSuspended                              build/obj/chthreads.o
+chThdCreateSuspendedI                             build/obj/chthreads.o
+chThdDequeueAllI                                  build/obj/chthreads.o
+                                                  build/obj/hal_queues.o
+                                                  build/obj/hal_buffers.o
+                                                  build/obj/chmboxes.o
+chThdDequeueNextI                                 build/obj/chthreads.o
+                                                  build/obj/hal_queues.o
+                                                  build/obj/hal_buffers.o
+                                                  build/obj/chmboxes.o
+chThdEnqueueTimeoutS                              build/obj/chthreads.o
+                                                  build/obj/hal_queues.o
+                                                  build/obj/hal_buffers.o
+                                                  build/obj/chmboxes.o
+chThdExit                                         build/obj/chthreads.o
+                                                  build/obj/chcore.o
+chThdExitS                                        build/obj/chthreads.o
+chThdRelease                                      build/obj/chthreads.o
+chThdResume                                       build/obj/chthreads.o
+chThdResumeI                                      build/obj/chthreads.o
+                                                  build/obj/hal_adc_lld.o
+                                                  build/obj/hal_adc.o
+chThdResumeS                                      build/obj/chthreads.o
+                                                  build/obj/hal_adc.o
+chThdSetPriority                                  build/obj/chthreads.o
+chThdSleep                                        build/obj/chthreads.o
+                                                  build/obj/adc.o
+chThdSleepUntil                                   build/obj/chthreads.o
+chThdSleepUntilWindowed                           build/obj/chthreads.o
+chThdStart                                        build/obj/chthreads.o
+chThdSuspendS                                     build/obj/chthreads.o
+chThdSuspendTimeoutS                              build/obj/chthreads.o
+                                                  build/obj/hal_adc.o
+chThdTerminate                                    build/obj/chthreads.o
+chThdWait                                         build/obj/chthreads.o
+chThdYield                                        build/obj/chthreads.o
+chVTDoResetI                                      build/obj/chvt.o
+                                                  build/obj/evtimer.o
+                                                  build/obj/chschd.o
+chVTDoSetI                                        build/obj/chvt.o
+                                                  build/obj/evtimer.o
+                                                  build/obj/chschd.o
+ch_debug                                          build/obj/chregistry.o
+                                                  build/obj/chsys.o
+ch_idle_thread_wa                                 build/obj/chsys.o
+ch_memcore                                        build/obj/chmemcore.o
+chprintf                                          build/obj/chprintf.o
+                                                  build/obj/adc.o
+chsnprintf                                        build/obj/chprintf.o
+chvprintf                                         build/obj/chprintf.o
+evtObjectInit                                     build/obj/evtimer.o
+evtStart                                          build/obj/evtimer.o
+exit                                              /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+fgetc                                             /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(fgetc.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libscanf_min.a(vfscanf_min.o)
+flag                                              build/obj/adc.o
+fputc                                             /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(fputc.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a(vfprintf_min.o)
+halInit                                           build/obj/hal.o
+                                                  build/obj/adc.o
+hal_lld_init                                      build/obj/hal_lld.o
+                                                  build/obj/hal.o
+ibqGetEmptyBufferI                                build/obj/hal_buffers.o
+ibqGetFullBufferTimeout                           build/obj/hal_buffers.o
+ibqGetFullBufferTimeoutS                          build/obj/hal_buffers.o
+ibqGetTimeout                                     build/obj/hal_buffers.o
+ibqObjectInit                                     build/obj/hal_buffers.o
+ibqPostFullBufferI                                build/obj/hal_buffers.o
+ibqReadTimeout                                    build/obj/hal_buffers.o
+ibqReleaseEmptyBuffer                             build/obj/hal_buffers.o
+ibqReleaseEmptyBufferS                            build/obj/hal_buffers.o
+ibqResetI                                         build/obj/hal_buffers.o
+iqGetI                                            build/obj/hal_queues.o
+iqGetTimeout                                      build/obj/hal_queues.o
+                                                  build/obj/hal_serial.o
+iqObjectInit                                      build/obj/hal_queues.o
+                                                  build/obj/hal_serial.o
+iqPutI                                            build/obj/hal_queues.o
+                                                  build/obj/hal_serial.o
+iqReadI                                           build/obj/hal_queues.o
+iqReadTimeout                                     build/obj/hal_queues.o
+                                                  build/obj/hal_serial.o
+iqResetI                                          build/obj/hal_queues.o
+                                                  build/obj/hal_serial.o
+isspace                                           /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(isspace.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libscanf_min.a(vfscanf_min.o)
+main                                              build/obj/adc.o
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+memcpy                                            /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(memcpy.o)
+                                                  build/obj/hal_queues.o
+                                                  build/obj/hal_buffers.o
+msObjectInit                                      build/obj/chprintf.o
+obqFlush                                          build/obj/hal_buffers.o
+obqGetEmptyBufferTimeout                          build/obj/hal_buffers.o
+obqGetEmptyBufferTimeoutS                         build/obj/hal_buffers.o
+obqGetFullBufferI                                 build/obj/hal_buffers.o
+obqObjectInit                                     build/obj/hal_buffers.o
+obqPostFullBuffer                                 build/obj/hal_buffers.o
+obqPostFullBufferS                                build/obj/hal_buffers.o
+obqPutTimeout                                     build/obj/hal_buffers.o
+obqReleaseEmptyBufferI                            build/obj/hal_buffers.o
+obqResetI                                         build/obj/hal_buffers.o
+obqTryFlushI                                      build/obj/hal_buffers.o
+obqWriteTimeout                                   build/obj/hal_buffers.o
+oqGetI                                            build/obj/hal_queues.o
+                                                  build/obj/hal_serial.o
+oqObjectInit                                      build/obj/hal_queues.o
+                                                  build/obj/hal_serial.o
+oqPutI                                            build/obj/hal_queues.o
+oqPutTimeout                                      build/obj/hal_queues.o
+                                                  build/obj/hal_serial.o
+oqResetI                                          build/obj/hal_queues.o
+                                                  build/obj/hal_serial.o
+oqWriteI                                          build/obj/hal_queues.o
+oqWriteTimeout                                    build/obj/hal_queues.o
+                                                  build/obj/hal_serial.o
+palReadBus                                        build/obj/hal_pal.o
+palSetBusMode                                     build/obj/hal_pal.o
+palWriteBus                                       build/obj/hal_pal.o
+pal_default_config                                build/obj/board.o
+                                                  build/obj/hal.o
+sdControl                                         build/obj/hal_serial.o
+sdGetWouldBlock                                   build/obj/hal_serial.o
+sdIncomingDataI                                   build/obj/hal_serial.o
+                                                  build/obj/hal_serial_lld.o
+sdInit                                            build/obj/hal_serial.o
+                                                  build/obj/hal.o
+sdObjectInit                                      build/obj/hal_serial.o
+                                                  build/obj/hal_serial_lld.o
+sdPutWouldBlock                                   build/obj/hal_serial.o
+sdRequestDataI                                    build/obj/hal_serial.o
+                                                  build/obj/hal_serial_lld.o
+sdStart                                           build/obj/hal_serial.o
+                                                  build/obj/adc.o
+sdStop                                            build/obj/hal_serial.o
+sd_lld_init                                       build/obj/hal_serial_lld.o
+                                                  build/obj/hal_serial.o
+sd_lld_start                                      build/obj/hal_serial_lld.o
+                                                  build/obj/hal_serial.o
+sd_lld_stop                                       build/obj/hal_serial_lld.o
+                                                  build/obj/hal_serial.o
+stGetAlarm                                        build/obj/hal_st.o
+stInit                                            build/obj/hal_st.o
+                                                  build/obj/hal.o
+stSetAlarm                                        build/obj/hal_st.o
+                                                  build/obj/chvt.o
+                                                  build/obj/chsys.o
+stStartAlarm                                      build/obj/hal_st.o
+                                                  build/obj/chvt.o
+stStopAlarm                                       build/obj/hal_st.o
+                                                  build/obj/chvt.o
+                                                  build/obj/chsys.o
+st_lld_init                                       build/obj/hal_st_lld.o
+                                                  build/obj/hal_st.o
+strchr_P                                          /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(strchr_P.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libscanf_min.a(vfscanf_min.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a(vfprintf_min.o)
+strcmp                                            /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(strcmp.o)
+                                                  build/obj/chregistry.o
+ungetc                                            /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libc.a(ungetc.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libscanf_min.a(vfscanf_min.o)
+vfprintf                                          /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libprintf_min.a(vfprintf_min.o)
+vfscanf                                           /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libscanf_min.a(vfscanf_min.o)
