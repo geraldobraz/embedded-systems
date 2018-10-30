@@ -1,0 +1,125 @@
+   1               		.file	"serial.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               		.section	.text.startup.main,"ax",@progbits
+  11               	.global	main
+  13               	main:
+  14               	.LFB169:
+  15               		.file 1 "serial.c"
+   1:serial.c      **** #include <ch.h>
+   2:serial.c      **** #include <hal.h>
+   3:serial.c      **** #include<string.h>
+   4:serial.c      **** 
+   5:serial.c      **** #define LED_PAD PORTB_LED1
+   6:serial.c      **** #define LED_PORT IOPORT2
+   7:serial.c      **** 
+   8:serial.c      **** static THD_WORKING_AREA(waThread1, 32);
+   9:serial.c      **** static THD_FUNCTION(Thread1, arg)
+  10:serial.c      **** {
+  11:serial.c      ****     while (true) {
+  12:serial.c      ****         palTogglePad(LED_PORT, LED_PAD);
+  13:serial.c      ****         chThdSleepMilliseconds(100);
+  14:serial.c      ****     }
+  15:serial.c      **** }
+  16:serial.c      **** 
+  17:serial.c      **** int main(void)
+  18:serial.c      **** {
+  16               		.loc 1 18 0
+  17               		.cfi_startproc
+  18               	/* prologue: function */
+  19               	/* frame size = 0 */
+  20               	/* stack size = 0 */
+  21               	.L__stack_usage = 0
+  22               	.LVL0:
+  19:serial.c      ****     int step = 6;
+  20:serial.c      ****     int width = step;
+  21:serial.c      ****     const char msg[] = "Hello World!";
+  22:serial.c      **** 
+  23:serial.c      ****     //static PWMConfig pwmcfg = {
+  24:serial.c      ****     //    0, 0x3FF, 0,
+  25:serial.c      ****     //    {{PWM_OUTPUT_DISABLED, 0}, {PWM_OUTPUT_ACTIVE_HIGH, 0}}
+  26:serial.c      ****     // };
+  27:serial.c      **** 
+  28:serial.c      ****     halInit();
+  23               		.loc 1 28 0
+  24 0000 0E94 0000 		call halInit
+  25               	.LVL1:
+  29:serial.c      ****     chSysInit();
+  26               		.loc 1 29 0
+  27 0004 0E94 0000 		call chSysInit
+  28               	.LVL2:
+  30:serial.c      **** 
+  31:serial.c      ****    // pwmStart(&PWMD1, &pwmcfg);
+  32:serial.c      ****     sdStart(&SD1,0);
+  29               		.loc 1 32 0
+  30 0008 60E0      		ldi r22,0
+  31 000a 70E0      		ldi r23,0
+  32 000c 80E0      		ldi r24,lo8(SD1)
+  33 000e 90E0      		ldi r25,hi8(SD1)
+  34 0010 0E94 0000 		call sdStart
+  35               	.LVL3:
+  36               	.L2:
+  33:serial.c      **** 
+  34:serial.c      ****     //palSetPadMode(IOPORT2, 2, PAL_MODE_OUTPUT_PUSHPULL);
+  35:serial.c      ****     //palClearPad(LED_PORT, LED_PAD);
+  36:serial.c      **** 
+  37:serial.c      ****     //chThdCreateStatic(waThread1, sizeof(waThread1), NORMALPRIO+1, Thread1, NULL);
+  38:serial.c      **** 
+  39:serial.c      ****     while (1) {
+  40:serial.c      **** 	// sdWrite(&SD1,(const unsigned char*)msg, strlen(msg));        
+  41:serial.c      ****        // pwmEnableChannel(&PWMD1, 1, width);
+  42:serial.c      ****        // width += step;
+  43:serial.c      ****        // if ((width >= 0x3FF) || (width < 10)) {
+  44:serial.c      ****        //     width -= step;
+  45:serial.c      ****        //     step = -step;
+  46:serial.c      ****        // }
+  47:serial.c      ****         chThdSleepMilliseconds(100);
+  37               		.loc 1 47 0 discriminator 1
+  38 0014 8BE1      		ldi r24,lo8(27)
+  39 0016 96E0      		ldi r25,lo8(6)
+  40 0018 0E94 0000 		call chThdSleep
+  41               	.LVL4:
+  48:serial.c      ****     }
+  42               		.loc 1 48 0 discriminator 1
+  43 001c 00C0      		rjmp .L2
+  44               		.cfi_endproc
+  45               	.LFE169:
+  47               		.text
+  48               	.Letext0:
+  49               		.file 2 "/usr/lib/gcc/avr/4.9.2/include/stddef.h"
+  50               		.file 3 "/usr/lib/avr/include/stdint.h"
+  51               		.file 4 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
+  52               		.file 5 "../../../os/rt/include/chsystypes.h"
+  53               		.file 6 "../../../os/rt/include/chschd.h"
+  54               		.file 7 "../../../os/rt/include/chtime.h"
+  55               		.file 8 "../../../os/common/ports/AVR/chcore.h"
+  56               		.file 9 "../../../os/rt/include/chsem.h"
+  57               		.file 10 "../../../os/rt/include/chmtx.h"
+  58               		.file 11 "../../../os/rt/include/chevents.h"
+  59               		.file 12 "../../../os/hal/include/hal_queues.h"
+  60               		.file 13 "../../../os/hal/include/hal_serial.h"
+  61               		.file 14 "../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.h"
+  62               		.file 15 "../../../os/hal/include/hal.h"
+  63               		.file 16 "../../../os/rt/include/chsys.h"
+  64               		.file 17 "../../../os/rt/include/chthreads.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 serial.c
+     /tmp/ccXGN8Gu.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccXGN8Gu.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccXGN8Gu.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccXGN8Gu.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccXGN8Gu.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccXGN8Gu.s:13     .text.startup.main:0000000000000000 main
+
+UNDEFINED SYMBOLS
+halInit
+chSysInit
+SD1
+sdStart
+chThdSleep
