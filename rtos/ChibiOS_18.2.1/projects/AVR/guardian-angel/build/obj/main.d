@@ -1,4 +1,4 @@
-build/obj/adc.o: adc.c ../../../os/rt/include/ch.h chconf.h \
+build/obj/main.o: main.c ../../../os/rt/include/ch.h chconf.h \
  ../../../os/rt/include/chchecks.h ../../../os/license/chlicense.h \
  ../../../os/license/chcustomer.h ../../../os/rt/include/chrestrictions.h \
  ../../../os/common/ports/AVR/compilers/GCC/chtypes.h \

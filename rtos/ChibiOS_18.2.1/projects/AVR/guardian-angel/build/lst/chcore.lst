@@ -10,8 +10,9 @@
   10               		.section	.text._port_switch,"ax",@progbits
   11               		.weak	_port_switch
   13               	_port_switch:
-  14               	.LFB141:
-  15               		.file 1 "../../../os/common/ports/AVR/chcore.c"
+  14               	.LVL0:
+  15               	.LFB141:
+  16               		.file 1 "../../../os/common/ports/AVR/chcore.c"
    1:../../../os/common/ports/AVR/chcore.c **** /*
    2:../../../os/common/ports/AVR/chcore.c ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
    3:../../../os/common/ports/AVR/chcore.c **** 
@@ -84,161 +85,162 @@
   70:../../../os/common/ports/AVR/chcore.c **** __attribute__((naked, weak))
   71:../../../os/common/ports/AVR/chcore.c **** #endif
   72:../../../os/common/ports/AVR/chcore.c **** void _port_switch(thread_t *ntp, thread_t *otp) {
-  16               		.loc 1 72 0
-  17               		.cfi_startproc
-  18               	.LVL0:
+  17               		.loc 1 72 49 view -0
+  18               		.cfi_startproc
   19               	/* prologue: naked */
   20               	/* frame size = 0 */
   21               	/* stack size = 0 */
   22               	.L__stack_usage = 0
   73:../../../os/common/ports/AVR/chcore.c **** 
   74:../../../os/common/ports/AVR/chcore.c ****   (void)ntp;
+  23               		.loc 1 74 3 view .LVU1
   75:../../../os/common/ports/AVR/chcore.c ****   (void)otp;
+  24               		.loc 1 75 3 view .LVU2
   76:../../../os/common/ports/AVR/chcore.c **** 
   77:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("push    r2");
-  23               		.loc 1 77 0
-  24               	/* #APP */
-  25               	 ;  77 "../../../os/common/ports/AVR/chcore.c" 1
-  26 0000 2F92      		push    r2
-  27               	 ;  0 "" 2
+  25               		.loc 1 77 3 view .LVU3
+  26               	/* #APP */
+  27               	 ;  77 "../../../os/common/ports/AVR/chcore.c" 1
+  28 0000 2F92      		push    r2
+  29               	 ;  0 "" 2
   78:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("push    r3");
-  28               		.loc 1 78 0
-  29               	 ;  78 "../../../os/common/ports/AVR/chcore.c" 1
-  30 0002 3F92      		push    r3
-  31               	 ;  0 "" 2
+  30               		.loc 1 78 3 view .LVU4
+  31               	 ;  78 "../../../os/common/ports/AVR/chcore.c" 1
+  32 0002 3F92      		push    r3
+  33               	 ;  0 "" 2
   79:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("push    r4");
-  32               		.loc 1 79 0
-  33               	 ;  79 "../../../os/common/ports/AVR/chcore.c" 1
-  34 0004 4F92      		push    r4
-  35               	 ;  0 "" 2
+  34               		.loc 1 79 3 view .LVU5
+  35               	 ;  79 "../../../os/common/ports/AVR/chcore.c" 1
+  36 0004 4F92      		push    r4
+  37               	 ;  0 "" 2
   80:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("push    r5");
-  36               		.loc 1 80 0
-  37               	 ;  80 "../../../os/common/ports/AVR/chcore.c" 1
-  38 0006 5F92      		push    r5
-  39               	 ;  0 "" 2
+  38               		.loc 1 80 3 view .LVU6
+  39               	 ;  80 "../../../os/common/ports/AVR/chcore.c" 1
+  40 0006 5F92      		push    r5
+  41               	 ;  0 "" 2
   81:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("push    r6");
-  40               		.loc 1 81 0
-  41               	 ;  81 "../../../os/common/ports/AVR/chcore.c" 1
-  42 0008 6F92      		push    r6
-  43               	 ;  0 "" 2
+  42               		.loc 1 81 3 view .LVU7
+  43               	 ;  81 "../../../os/common/ports/AVR/chcore.c" 1
+  44 0008 6F92      		push    r6
+  45               	 ;  0 "" 2
   82:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("push    r7");
-  44               		.loc 1 82 0
-  45               	 ;  82 "../../../os/common/ports/AVR/chcore.c" 1
-  46 000a 7F92      		push    r7
-  47               	 ;  0 "" 2
+  46               		.loc 1 82 3 view .LVU8
+  47               	 ;  82 "../../../os/common/ports/AVR/chcore.c" 1
+  48 000a 7F92      		push    r7
+  49               	 ;  0 "" 2
   83:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("push    r8");
-  48               		.loc 1 83 0
-  49               	 ;  83 "../../../os/common/ports/AVR/chcore.c" 1
-  50 000c 8F92      		push    r8
-  51               	 ;  0 "" 2
+  50               		.loc 1 83 3 view .LVU9
+  51               	 ;  83 "../../../os/common/ports/AVR/chcore.c" 1
+  52 000c 8F92      		push    r8
+  53               	 ;  0 "" 2
   84:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("push    r9");
-  52               		.loc 1 84 0
-  53               	 ;  84 "../../../os/common/ports/AVR/chcore.c" 1
-  54 000e 9F92      		push    r9
-  55               	 ;  0 "" 2
+  54               		.loc 1 84 3 view .LVU10
+  55               	 ;  84 "../../../os/common/ports/AVR/chcore.c" 1
+  56 000e 9F92      		push    r9
+  57               	 ;  0 "" 2
   85:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("push    r10");
-  56               		.loc 1 85 0
-  57               	 ;  85 "../../../os/common/ports/AVR/chcore.c" 1
-  58 0010 AF92      		push    r10
-  59               	 ;  0 "" 2
+  58               		.loc 1 85 3 view .LVU11
+  59               	 ;  85 "../../../os/common/ports/AVR/chcore.c" 1
+  60 0010 AF92      		push    r10
+  61               	 ;  0 "" 2
   86:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("push    r11");
-  60               		.loc 1 86 0
-  61               	 ;  86 "../../../os/common/ports/AVR/chcore.c" 1
-  62 0012 BF92      		push    r11
-  63               	 ;  0 "" 2
+  62               		.loc 1 86 3 view .LVU12
+  63               	 ;  86 "../../../os/common/ports/AVR/chcore.c" 1
+  64 0012 BF92      		push    r11
+  65               	 ;  0 "" 2
   87:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("push    r12");
-  64               		.loc 1 87 0
-  65               	 ;  87 "../../../os/common/ports/AVR/chcore.c" 1
-  66 0014 CF92      		push    r12
-  67               	 ;  0 "" 2
+  66               		.loc 1 87 3 view .LVU13
+  67               	 ;  87 "../../../os/common/ports/AVR/chcore.c" 1
+  68 0014 CF92      		push    r12
+  69               	 ;  0 "" 2
   88:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("push    r13");
-  68               		.loc 1 88 0
-  69               	 ;  88 "../../../os/common/ports/AVR/chcore.c" 1
-  70 0016 DF92      		push    r13
-  71               	 ;  0 "" 2
+  70               		.loc 1 88 3 view .LVU14
+  71               	 ;  88 "../../../os/common/ports/AVR/chcore.c" 1
+  72 0016 DF92      		push    r13
+  73               	 ;  0 "" 2
   89:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("push    r14");
-  72               		.loc 1 89 0
-  73               	 ;  89 "../../../os/common/ports/AVR/chcore.c" 1
-  74 0018 EF92      		push    r14
-  75               	 ;  0 "" 2
+  74               		.loc 1 89 3 view .LVU15
+  75               	 ;  89 "../../../os/common/ports/AVR/chcore.c" 1
+  76 0018 EF92      		push    r14
+  77               	 ;  0 "" 2
   90:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("push    r15");
-  76               		.loc 1 90 0
-  77               	 ;  90 "../../../os/common/ports/AVR/chcore.c" 1
-  78 001a FF92      		push    r15
-  79               	 ;  0 "" 2
+  78               		.loc 1 90 3 view .LVU16
+  79               	 ;  90 "../../../os/common/ports/AVR/chcore.c" 1
+  80 001a FF92      		push    r15
+  81               	 ;  0 "" 2
   91:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("push    r16");
-  80               		.loc 1 91 0
-  81               	 ;  91 "../../../os/common/ports/AVR/chcore.c" 1
-  82 001c 0F93      		push    r16
-  83               	 ;  0 "" 2
+  82               		.loc 1 91 3 view .LVU17
+  83               	 ;  91 "../../../os/common/ports/AVR/chcore.c" 1
+  84 001c 0F93      		push    r16
+  85               	 ;  0 "" 2
   92:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("push    r17");
-  84               		.loc 1 92 0
-  85               	 ;  92 "../../../os/common/ports/AVR/chcore.c" 1
-  86 001e 1F93      		push    r17
-  87               	 ;  0 "" 2
+  86               		.loc 1 92 3 view .LVU18
+  87               	 ;  92 "../../../os/common/ports/AVR/chcore.c" 1
+  88 001e 1F93      		push    r17
+  89               	 ;  0 "" 2
   93:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("push    r28");
-  88               		.loc 1 93 0
-  89               	 ;  93 "../../../os/common/ports/AVR/chcore.c" 1
-  90 0020 CF93      		push    r28
-  91               	 ;  0 "" 2
+  90               		.loc 1 93 3 view .LVU19
+  91               	 ;  93 "../../../os/common/ports/AVR/chcore.c" 1
+  92 0020 CF93      		push    r28
+  93               	 ;  0 "" 2
   94:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("push    r29");
-  92               		.loc 1 94 0
-  93               	 ;  94 "../../../os/common/ports/AVR/chcore.c" 1
-  94 0022 DF93      		push    r29
-  95               	 ;  0 "" 2
+  94               		.loc 1 94 3 view .LVU20
+  95               	 ;  94 "../../../os/common/ports/AVR/chcore.c" 1
+  96 0022 DF93      		push    r29
+  97               	 ;  0 "" 2
   95:../../../os/common/ports/AVR/chcore.c **** 
   96:../../../os/common/ports/AVR/chcore.c **** #if defined(_CHIBIOS_RT_)
   97:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("movw    r30, r22");
-  96               		.loc 1 97 0
-  97               	 ;  97 "../../../os/common/ports/AVR/chcore.c" 1
-  98 0024 FB01      		movw    r30, r22
-  99               	 ;  0 "" 2
+  98               		.loc 1 97 3 view .LVU21
+  99               	 ;  97 "../../../os/common/ports/AVR/chcore.c" 1
+ 100 0024 FB01      		movw    r30, r22
+ 101               	 ;  0 "" 2
   98:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("in      r0, 0x3d");
- 100               		.loc 1 98 0
- 101               	 ;  98 "../../../os/common/ports/AVR/chcore.c" 1
- 102 0026 0DB6      		in      r0, 0x3d
- 103               	 ;  0 "" 2
+ 102               		.loc 1 98 3 view .LVU22
+ 103               	 ;  98 "../../../os/common/ports/AVR/chcore.c" 1
+ 104 0026 0DB6      		in      r0, 0x3d
+ 105               	 ;  0 "" 2
   99:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("std     Z+5, r0");
- 104               		.loc 1 99 0
- 105               	 ;  99 "../../../os/common/ports/AVR/chcore.c" 1
- 106 0028 0582      		std     Z+5, r0
- 107               	 ;  0 "" 2
+ 106               		.loc 1 99 3 view .LVU23
+ 107               	 ;  99 "../../../os/common/ports/AVR/chcore.c" 1
+ 108 0028 0582      		std     Z+5, r0
+ 109               	 ;  0 "" 2
  100:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("in      r0, 0x3e");
- 108               		.loc 1 100 0
- 109               	 ;  100 "../../../os/common/ports/AVR/chcore.c" 1
- 110 002a 0EB6      		in      r0, 0x3e
- 111               	 ;  0 "" 2
+ 110               		.loc 1 100 3 view .LVU24
+ 111               	 ;  100 "../../../os/common/ports/AVR/chcore.c" 1
+ 112 002a 0EB6      		in      r0, 0x3e
+ 113               	 ;  0 "" 2
  101:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("std     Z+6, r0");
- 112               		.loc 1 101 0
- 113               	 ;  101 "../../../os/common/ports/AVR/chcore.c" 1
- 114 002c 0682      		std     Z+6, r0
- 115               	 ;  0 "" 2
+ 114               		.loc 1 101 3 view .LVU25
+ 115               	 ;  101 "../../../os/common/ports/AVR/chcore.c" 1
+ 116 002c 0682      		std     Z+6, r0
+ 117               	 ;  0 "" 2
  102:../../../os/common/ports/AVR/chcore.c **** 
  103:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("movw    r30, r24");
- 116               		.loc 1 103 0
- 117               	 ;  103 "../../../os/common/ports/AVR/chcore.c" 1
- 118 002e FC01      		movw    r30, r24
- 119               	 ;  0 "" 2
+ 118               		.loc 1 103 3 view .LVU26
+ 119               	 ;  103 "../../../os/common/ports/AVR/chcore.c" 1
+ 120 002e FC01      		movw    r30, r24
+ 121               	 ;  0 "" 2
  104:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("ldd     r0, Z+5");
- 120               		.loc 1 104 0
- 121               	 ;  104 "../../../os/common/ports/AVR/chcore.c" 1
- 122 0030 0580      		ldd     r0, Z+5
- 123               	 ;  0 "" 2
+ 122               		.loc 1 104 3 view .LVU27
+ 123               	 ;  104 "../../../os/common/ports/AVR/chcore.c" 1
+ 124 0030 0580      		ldd     r0, Z+5
+ 125               	 ;  0 "" 2
  105:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("out     0x3d, r0");
- 124               		.loc 1 105 0
- 125               	 ;  105 "../../../os/common/ports/AVR/chcore.c" 1
- 126 0032 0DBE      		out     0x3d, r0
- 127               	 ;  0 "" 2
+ 126               		.loc 1 105 3 view .LVU28
+ 127               	 ;  105 "../../../os/common/ports/AVR/chcore.c" 1
+ 128 0032 0DBE      		out     0x3d, r0
+ 129               	 ;  0 "" 2
  106:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("ldd     r0, Z+6");
- 128               		.loc 1 106 0
- 129               	 ;  106 "../../../os/common/ports/AVR/chcore.c" 1
- 130 0034 0680      		ldd     r0, Z+6
- 131               	 ;  0 "" 2
+ 130               		.loc 1 106 3 view .LVU29
+ 131               	 ;  106 "../../../os/common/ports/AVR/chcore.c" 1
+ 132 0034 0680      		ldd     r0, Z+6
+ 133               	 ;  0 "" 2
  107:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("out     0x3e, r0");
- 132               		.loc 1 107 0
- 133               	 ;  107 "../../../os/common/ports/AVR/chcore.c" 1
- 134 0036 0EBE      		out     0x3e, r0
- 135               	 ;  0 "" 2
+ 134               		.loc 1 107 3 view .LVU30
+ 135               	 ;  107 "../../../os/common/ports/AVR/chcore.c" 1
+ 136 0036 0EBE      		out     0x3e, r0
+ 137               	 ;  0 "" 2
  108:../../../os/common/ports/AVR/chcore.c **** #endif
  109:../../../os/common/ports/AVR/chcore.c **** 
  110:../../../os/common/ports/AVR/chcore.c **** #if defined(_CHIBIOS_NIL_)
@@ -256,110 +258,110 @@
  122:../../../os/common/ports/AVR/chcore.c **** #endif
  123:../../../os/common/ports/AVR/chcore.c **** 
  124:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("pop     r29");
- 136               		.loc 1 124 0
- 137               	 ;  124 "../../../os/common/ports/AVR/chcore.c" 1
- 138 0038 DF91      		pop     r29
- 139               	 ;  0 "" 2
+ 138               		.loc 1 124 3 view .LVU31
+ 139               	 ;  124 "../../../os/common/ports/AVR/chcore.c" 1
+ 140 0038 DF91      		pop     r29
+ 141               	 ;  0 "" 2
  125:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("pop     r28");
- 140               		.loc 1 125 0
- 141               	 ;  125 "../../../os/common/ports/AVR/chcore.c" 1
- 142 003a CF91      		pop     r28
- 143               	 ;  0 "" 2
+ 142               		.loc 1 125 3 view .LVU32
+ 143               	 ;  125 "../../../os/common/ports/AVR/chcore.c" 1
+ 144 003a CF91      		pop     r28
+ 145               	 ;  0 "" 2
  126:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("pop     r17");
- 144               		.loc 1 126 0
- 145               	 ;  126 "../../../os/common/ports/AVR/chcore.c" 1
- 146 003c 1F91      		pop     r17
- 147               	 ;  0 "" 2
+ 146               		.loc 1 126 3 view .LVU33
+ 147               	 ;  126 "../../../os/common/ports/AVR/chcore.c" 1
+ 148 003c 1F91      		pop     r17
+ 149               	 ;  0 "" 2
  127:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("pop     r16");
- 148               		.loc 1 127 0
- 149               	 ;  127 "../../../os/common/ports/AVR/chcore.c" 1
- 150 003e 0F91      		pop     r16
- 151               	 ;  0 "" 2
+ 150               		.loc 1 127 3 view .LVU34
+ 151               	 ;  127 "../../../os/common/ports/AVR/chcore.c" 1
+ 152 003e 0F91      		pop     r16
+ 153               	 ;  0 "" 2
  128:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("pop     r15");
- 152               		.loc 1 128 0
- 153               	 ;  128 "../../../os/common/ports/AVR/chcore.c" 1
- 154 0040 FF90      		pop     r15
- 155               	 ;  0 "" 2
+ 154               		.loc 1 128 3 view .LVU35
+ 155               	 ;  128 "../../../os/common/ports/AVR/chcore.c" 1
+ 156 0040 FF90      		pop     r15
+ 157               	 ;  0 "" 2
  129:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("pop     r14");
- 156               		.loc 1 129 0
- 157               	 ;  129 "../../../os/common/ports/AVR/chcore.c" 1
- 158 0042 EF90      		pop     r14
- 159               	 ;  0 "" 2
+ 158               		.loc 1 129 3 view .LVU36
+ 159               	 ;  129 "../../../os/common/ports/AVR/chcore.c" 1
+ 160 0042 EF90      		pop     r14
+ 161               	 ;  0 "" 2
  130:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("pop     r13");
- 160               		.loc 1 130 0
- 161               	 ;  130 "../../../os/common/ports/AVR/chcore.c" 1
- 162 0044 DF90      		pop     r13
- 163               	 ;  0 "" 2
+ 162               		.loc 1 130 3 view .LVU37
+ 163               	 ;  130 "../../../os/common/ports/AVR/chcore.c" 1
+ 164 0044 DF90      		pop     r13
+ 165               	 ;  0 "" 2
  131:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("pop     r12");
- 164               		.loc 1 131 0
- 165               	 ;  131 "../../../os/common/ports/AVR/chcore.c" 1
- 166 0046 CF90      		pop     r12
- 167               	 ;  0 "" 2
+ 166               		.loc 1 131 3 view .LVU38
+ 167               	 ;  131 "../../../os/common/ports/AVR/chcore.c" 1
+ 168 0046 CF90      		pop     r12
+ 169               	 ;  0 "" 2
  132:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("pop     r11");
- 168               		.loc 1 132 0
- 169               	 ;  132 "../../../os/common/ports/AVR/chcore.c" 1
- 170 0048 BF90      		pop     r11
- 171               	 ;  0 "" 2
+ 170               		.loc 1 132 3 view .LVU39
+ 171               	 ;  132 "../../../os/common/ports/AVR/chcore.c" 1
+ 172 0048 BF90      		pop     r11
+ 173               	 ;  0 "" 2
  133:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("pop     r10");
- 172               		.loc 1 133 0
- 173               	 ;  133 "../../../os/common/ports/AVR/chcore.c" 1
- 174 004a AF90      		pop     r10
- 175               	 ;  0 "" 2
+ 174               		.loc 1 133 3 view .LVU40
+ 175               	 ;  133 "../../../os/common/ports/AVR/chcore.c" 1
+ 176 004a AF90      		pop     r10
+ 177               	 ;  0 "" 2
  134:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("pop     r9");
- 176               		.loc 1 134 0
- 177               	 ;  134 "../../../os/common/ports/AVR/chcore.c" 1
- 178 004c 9F90      		pop     r9
- 179               	 ;  0 "" 2
+ 178               		.loc 1 134 3 view .LVU41
+ 179               	 ;  134 "../../../os/common/ports/AVR/chcore.c" 1
+ 180 004c 9F90      		pop     r9
+ 181               	 ;  0 "" 2
  135:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("pop     r8");
- 180               		.loc 1 135 0
- 181               	 ;  135 "../../../os/common/ports/AVR/chcore.c" 1
- 182 004e 8F90      		pop     r8
- 183               	 ;  0 "" 2
+ 182               		.loc 1 135 3 view .LVU42
+ 183               	 ;  135 "../../../os/common/ports/AVR/chcore.c" 1
+ 184 004e 8F90      		pop     r8
+ 185               	 ;  0 "" 2
  136:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("pop     r7");
- 184               		.loc 1 136 0
- 185               	 ;  136 "../../../os/common/ports/AVR/chcore.c" 1
- 186 0050 7F90      		pop     r7
- 187               	 ;  0 "" 2
+ 186               		.loc 1 136 3 view .LVU43
+ 187               	 ;  136 "../../../os/common/ports/AVR/chcore.c" 1
+ 188 0050 7F90      		pop     r7
+ 189               	 ;  0 "" 2
  137:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("pop     r6");
- 188               		.loc 1 137 0
- 189               	 ;  137 "../../../os/common/ports/AVR/chcore.c" 1
- 190 0052 6F90      		pop     r6
- 191               	 ;  0 "" 2
+ 190               		.loc 1 137 3 view .LVU44
+ 191               	 ;  137 "../../../os/common/ports/AVR/chcore.c" 1
+ 192 0052 6F90      		pop     r6
+ 193               	 ;  0 "" 2
  138:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("pop     r5");
- 192               		.loc 1 138 0
- 193               	 ;  138 "../../../os/common/ports/AVR/chcore.c" 1
- 194 0054 5F90      		pop     r5
- 195               	 ;  0 "" 2
+ 194               		.loc 1 138 3 view .LVU45
+ 195               	 ;  138 "../../../os/common/ports/AVR/chcore.c" 1
+ 196 0054 5F90      		pop     r5
+ 197               	 ;  0 "" 2
  139:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("pop     r4");
- 196               		.loc 1 139 0
- 197               	 ;  139 "../../../os/common/ports/AVR/chcore.c" 1
- 198 0056 4F90      		pop     r4
- 199               	 ;  0 "" 2
+ 198               		.loc 1 139 3 view .LVU46
+ 199               	 ;  139 "../../../os/common/ports/AVR/chcore.c" 1
+ 200 0056 4F90      		pop     r4
+ 201               	 ;  0 "" 2
  140:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("pop     r3");
- 200               		.loc 1 140 0
- 201               	 ;  140 "../../../os/common/ports/AVR/chcore.c" 1
- 202 0058 3F90      		pop     r3
- 203               	 ;  0 "" 2
+ 202               		.loc 1 140 3 view .LVU47
+ 203               	 ;  140 "../../../os/common/ports/AVR/chcore.c" 1
+ 204 0058 3F90      		pop     r3
+ 205               	 ;  0 "" 2
  141:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("pop     r2");
- 204               		.loc 1 141 0
- 205               	 ;  141 "../../../os/common/ports/AVR/chcore.c" 1
- 206 005a 2F90      		pop     r2
- 207               	 ;  0 "" 2
+ 206               		.loc 1 141 3 view .LVU48
+ 207               	 ;  141 "../../../os/common/ports/AVR/chcore.c" 1
+ 208 005a 2F90      		pop     r2
+ 209               	 ;  0 "" 2
  142:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("ret");
- 208               		.loc 1 142 0
- 209               	 ;  142 "../../../os/common/ports/AVR/chcore.c" 1
- 210 005c 0895      		ret
- 211               	 ;  0 "" 2
- 212               	/* epilogue start */
- 143:../../../os/common/ports/AVR/chcore.c **** }
- 213               		.loc 1 143 0
+ 210               		.loc 1 142 3 view .LVU49
+ 211               	 ;  142 "../../../os/common/ports/AVR/chcore.c" 1
+ 212 005c 0895      		ret
+ 213               	 ;  0 "" 2
  214               	/* #NOAPP */
- 215               		.cfi_endproc
- 216               	.LFE141:
- 218               		.section	.text._port_thread_start,"ax",@progbits
- 219               	.global	_port_thread_start
- 221               	_port_thread_start:
- 222               	.LFB142:
+ 215               	/* epilogue start */
+ 143:../../../os/common/ports/AVR/chcore.c **** }
+ 216               		.loc 1 143 1 is_stmt 0 view .LVU50
+ 217               		.cfi_endproc
+ 218               	.LFE141:
+ 220               		.section	.text._port_thread_start,"ax",@progbits
+ 221               	.global	_port_thread_start
+ 223               	_port_thread_start:
+ 224               	.LFB142:
  144:../../../os/common/ports/AVR/chcore.c **** 
  145:../../../os/common/ports/AVR/chcore.c **** /**
  146:../../../os/common/ports/AVR/chcore.c ****  * @brief   Start a thread by invoking its work function.
@@ -367,17 +369,406 @@
  148:../../../os/common/ports/AVR/chcore.c ****  *          invoked.
  149:../../../os/common/ports/AVR/chcore.c ****  */
  150:../../../os/common/ports/AVR/chcore.c **** void _port_thread_start(void) {
- 223               		.loc 1 150 0
- 224               		.cfi_startproc
- 225               	/* prologue: function */
- 226               	/* frame size = 0 */
- 227               	/* stack size = 0 */
- 228               	.L__stack_usage = 0
- 229               	.LBB8:
- 230               	.LBB9:
- 231               	.LBB10:
- 232               	.LBB11:
- 233               		.file 2 "../../../os/common/ports/AVR/chcore.h"
+ 225               		.loc 1 150 31 is_stmt 1 view -0
+ 226               		.cfi_startproc
+ 227               	/* prologue: function */
+ 228               	/* frame size = 0 */
+ 229               	/* stack size = 0 */
+ 230               	.L__stack_usage = 0
+ 151:../../../os/common/ports/AVR/chcore.c **** 
+ 152:../../../os/common/ports/AVR/chcore.c ****   chSysUnlock();
+ 231               		.loc 1 152 3 view .LVU52
+ 232               	.LBB8:
+ 233               	.LBI8:
+ 234               		.file 2 "../../../os/rt/include/chsys.h"
+   1:../../../os/rt/include/chsys.h **** /*
+   2:../../../os/rt/include/chsys.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
+   3:../../../os/rt/include/chsys.h **** 
+   4:../../../os/rt/include/chsys.h ****     This file is part of ChibiOS.
+   5:../../../os/rt/include/chsys.h **** 
+   6:../../../os/rt/include/chsys.h ****     ChibiOS is free software; you can redistribute it and/or modify
+   7:../../../os/rt/include/chsys.h ****     it under the terms of the GNU General Public License as published by
+   8:../../../os/rt/include/chsys.h ****     the Free Software Foundation; either version 3 of the License, or
+   9:../../../os/rt/include/chsys.h ****     (at your option) any later version.
+  10:../../../os/rt/include/chsys.h **** 
+  11:../../../os/rt/include/chsys.h ****     ChibiOS is distributed in the hope that it will be useful,
+  12:../../../os/rt/include/chsys.h ****     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:../../../os/rt/include/chsys.h ****     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:../../../os/rt/include/chsys.h ****     GNU General Public License for more details.
+  15:../../../os/rt/include/chsys.h **** 
+  16:../../../os/rt/include/chsys.h ****     You should have received a copy of the GNU General Public License
+  17:../../../os/rt/include/chsys.h ****     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  18:../../../os/rt/include/chsys.h **** */
+  19:../../../os/rt/include/chsys.h **** 
+  20:../../../os/rt/include/chsys.h **** /**
+  21:../../../os/rt/include/chsys.h ****  * @file    chsys.h
+  22:../../../os/rt/include/chsys.h ****  * @brief   System related macros and structures.
+  23:../../../os/rt/include/chsys.h ****  *
+  24:../../../os/rt/include/chsys.h ****  * @addtogroup system
+  25:../../../os/rt/include/chsys.h ****  * @{
+  26:../../../os/rt/include/chsys.h ****  */
+  27:../../../os/rt/include/chsys.h **** 
+  28:../../../os/rt/include/chsys.h **** #ifndef CHSYS_H
+  29:../../../os/rt/include/chsys.h **** #define CHSYS_H
+  30:../../../os/rt/include/chsys.h **** 
+  31:../../../os/rt/include/chsys.h **** /*lint -sem(chSysHalt, r_no)*/
+  32:../../../os/rt/include/chsys.h **** 
+  33:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  34:../../../os/rt/include/chsys.h **** /* Module constants.                                                         */
+  35:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  36:../../../os/rt/include/chsys.h **** 
+  37:../../../os/rt/include/chsys.h **** /**
+  38:../../../os/rt/include/chsys.h ****  * @name    Masks of executable integrity checks.
+  39:../../../os/rt/include/chsys.h ****  * @{
+  40:../../../os/rt/include/chsys.h ****  */
+  41:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_RLIST                  1U
+  42:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_VTLIST                 2U
+  43:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_REGISTRY               4U
+  44:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_PORT                   8U
+  45:../../../os/rt/include/chsys.h **** /** @} */
+  46:../../../os/rt/include/chsys.h **** 
+  47:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  48:../../../os/rt/include/chsys.h **** /* Module pre-compile time settings.                                         */
+  49:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  50:../../../os/rt/include/chsys.h **** 
+  51:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  52:../../../os/rt/include/chsys.h **** /* Derived constants and error checks.                                       */
+  53:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  54:../../../os/rt/include/chsys.h **** 
+  55:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  56:../../../os/rt/include/chsys.h **** /* Module data structures and types.                                         */
+  57:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  58:../../../os/rt/include/chsys.h **** 
+  59:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  60:../../../os/rt/include/chsys.h **** /* Module macros.                                                            */
+  61:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  62:../../../os/rt/include/chsys.h **** 
+  63:../../../os/rt/include/chsys.h **** /**
+  64:../../../os/rt/include/chsys.h ****  * @name    ISRs abstraction macros
+  65:../../../os/rt/include/chsys.h ****  */
+  66:../../../os/rt/include/chsys.h **** /**
+  67:../../../os/rt/include/chsys.h ****  * @brief   Priority level validation macro.
+  68:../../../os/rt/include/chsys.h ****  * @details This macro determines if the passed value is a valid priority
+  69:../../../os/rt/include/chsys.h ****  *          level for the underlying architecture.
+  70:../../../os/rt/include/chsys.h ****  *
+  71:../../../os/rt/include/chsys.h ****  * @param[in] prio      the priority level
+  72:../../../os/rt/include/chsys.h ****  * @return              Priority range result.
+  73:../../../os/rt/include/chsys.h ****  * @retval false        if the priority is invalid or if the architecture
+  74:../../../os/rt/include/chsys.h ****  *                      does not support priorities.
+  75:../../../os/rt/include/chsys.h ****  * @retval true         if the priority is valid.
+  76:../../../os/rt/include/chsys.h ****  */
+  77:../../../os/rt/include/chsys.h **** #if defined(PORT_IRQ_IS_VALID_PRIORITY) || defined(__DOXYGEN__)
+  78:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_PRIORITY(prio)                                      \
+  79:../../../os/rt/include/chsys.h ****   PORT_IRQ_IS_VALID_PRIORITY(prio)
+  80:../../../os/rt/include/chsys.h **** #else
+  81:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_PRIORITY(prio) false
+  82:../../../os/rt/include/chsys.h **** #endif
+  83:../../../os/rt/include/chsys.h **** 
+  84:../../../os/rt/include/chsys.h **** /**
+  85:../../../os/rt/include/chsys.h ****  * @brief   Priority level validation macro.
+  86:../../../os/rt/include/chsys.h ****  * @details This macro determines if the passed value is a valid priority
+  87:../../../os/rt/include/chsys.h ****  *          level that cannot preempt the kernel critical zone.
+  88:../../../os/rt/include/chsys.h ****  *
+  89:../../../os/rt/include/chsys.h ****  * @param[in] prio      the priority level
+  90:../../../os/rt/include/chsys.h ****  * @return              Priority range result.
+  91:../../../os/rt/include/chsys.h ****  * @retval false        if the priority is invalid or if the architecture
+  92:../../../os/rt/include/chsys.h ****  *                      does not support priorities.
+  93:../../../os/rt/include/chsys.h ****  * @retval true         if the priority is valid.
+  94:../../../os/rt/include/chsys.h ****  */
+  95:../../../os/rt/include/chsys.h **** #if defined(PORT_IRQ_IS_VALID_KERNEL_PRIORITY) || defined(__DOXYGEN__)
+  96:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_KERNEL_PRIORITY(prio)                               \
+  97:../../../os/rt/include/chsys.h ****   PORT_IRQ_IS_VALID_KERNEL_PRIORITY(prio)
+  98:../../../os/rt/include/chsys.h **** #else
+  99:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_KERNEL_PRIORITY(prio) false
+ 100:../../../os/rt/include/chsys.h **** #endif
+ 101:../../../os/rt/include/chsys.h **** 
+ 102:../../../os/rt/include/chsys.h **** /**
+ 103:../../../os/rt/include/chsys.h ****  * @brief   IRQ handler enter code.
+ 104:../../../os/rt/include/chsys.h ****  * @note    Usually IRQ handlers functions are also declared naked.
+ 105:../../../os/rt/include/chsys.h ****  * @note    On some architectures this macro can be empty.
+ 106:../../../os/rt/include/chsys.h ****  *
+ 107:../../../os/rt/include/chsys.h ****  * @special
+ 108:../../../os/rt/include/chsys.h ****  */
+ 109:../../../os/rt/include/chsys.h **** #define CH_IRQ_PROLOGUE()                                                   \
+ 110:../../../os/rt/include/chsys.h ****   PORT_IRQ_PROLOGUE();                                                      \
+ 111:../../../os/rt/include/chsys.h ****   CH_CFG_IRQ_PROLOGUE_HOOK();                                               \
+ 112:../../../os/rt/include/chsys.h ****   _stats_increase_irq();                                                    \
+ 113:../../../os/rt/include/chsys.h ****   _trace_isr_enter(__func__);                                               \
+ 114:../../../os/rt/include/chsys.h ****   _dbg_check_enter_isr()
+ 115:../../../os/rt/include/chsys.h **** 
+ 116:../../../os/rt/include/chsys.h **** /**
+ 117:../../../os/rt/include/chsys.h ****  * @brief   IRQ handler exit code.
+ 118:../../../os/rt/include/chsys.h ****  * @note    Usually IRQ handlers function are also declared naked.
+ 119:../../../os/rt/include/chsys.h ****  * @note    This macro usually performs the final reschedule by using
+ 120:../../../os/rt/include/chsys.h ****  *          @p chSchIsPreemptionRequired() and @p chSchDoReschedule().
+ 121:../../../os/rt/include/chsys.h ****  *
+ 122:../../../os/rt/include/chsys.h ****  * @special
+ 123:../../../os/rt/include/chsys.h ****  */
+ 124:../../../os/rt/include/chsys.h **** #define CH_IRQ_EPILOGUE()                                                   \
+ 125:../../../os/rt/include/chsys.h ****   _dbg_check_leave_isr();                                                   \
+ 126:../../../os/rt/include/chsys.h ****   _trace_isr_leave(__func__);                                               \
+ 127:../../../os/rt/include/chsys.h ****   CH_CFG_IRQ_EPILOGUE_HOOK();                                               \
+ 128:../../../os/rt/include/chsys.h ****   PORT_IRQ_EPILOGUE()
+ 129:../../../os/rt/include/chsys.h **** 
+ 130:../../../os/rt/include/chsys.h **** /**
+ 131:../../../os/rt/include/chsys.h ****  * @brief   Standard normal IRQ handler declaration.
+ 132:../../../os/rt/include/chsys.h ****  * @note    @p id can be a function name or a vector number depending on the
+ 133:../../../os/rt/include/chsys.h ****  *          port implementation.
+ 134:../../../os/rt/include/chsys.h ****  *
+ 135:../../../os/rt/include/chsys.h ****  * @special
+ 136:../../../os/rt/include/chsys.h ****  */
+ 137:../../../os/rt/include/chsys.h **** #define CH_IRQ_HANDLER(id) PORT_IRQ_HANDLER(id)
+ 138:../../../os/rt/include/chsys.h **** /** @} */
+ 139:../../../os/rt/include/chsys.h **** 
+ 140:../../../os/rt/include/chsys.h **** /**
+ 141:../../../os/rt/include/chsys.h ****  * @name    Fast ISRs abstraction macros
+ 142:../../../os/rt/include/chsys.h ****  */
+ 143:../../../os/rt/include/chsys.h **** /**
+ 144:../../../os/rt/include/chsys.h ****  * @brief   Standard fast IRQ handler declaration.
+ 145:../../../os/rt/include/chsys.h ****  * @note    @p id can be a function name or a vector number depending on the
+ 146:../../../os/rt/include/chsys.h ****  *          port implementation.
+ 147:../../../os/rt/include/chsys.h ****  * @note    Not all architectures support fast interrupts.
+ 148:../../../os/rt/include/chsys.h ****  *
+ 149:../../../os/rt/include/chsys.h ****  * @special
+ 150:../../../os/rt/include/chsys.h ****  */
+ 151:../../../os/rt/include/chsys.h **** #define CH_FAST_IRQ_HANDLER(id) PORT_FAST_IRQ_HANDLER(id)
+ 152:../../../os/rt/include/chsys.h **** /** @} */
+ 153:../../../os/rt/include/chsys.h **** 
+ 154:../../../os/rt/include/chsys.h **** /**
+ 155:../../../os/rt/include/chsys.h ****  * @name    Time conversion utilities for the realtime counter
+ 156:../../../os/rt/include/chsys.h ****  * @{
+ 157:../../../os/rt/include/chsys.h ****  */
+ 158:../../../os/rt/include/chsys.h **** /**
+ 159:../../../os/rt/include/chsys.h ****  * @brief   Seconds to realtime counter.
+ 160:../../../os/rt/include/chsys.h ****  * @details Converts from seconds to realtime counter cycles.
+ 161:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1.
+ 162:../../../os/rt/include/chsys.h ****  *
+ 163:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 164:../../../os/rt/include/chsys.h ****  * @param[in] sec       number of seconds
+ 165:../../../os/rt/include/chsys.h ****  * @return              The number of cycles.
+ 166:../../../os/rt/include/chsys.h ****  *
+ 167:../../../os/rt/include/chsys.h ****  * @api
+ 168:../../../os/rt/include/chsys.h ****  */
+ 169:../../../os/rt/include/chsys.h **** #define S2RTC(freq, sec) ((freq) * (sec))
+ 170:../../../os/rt/include/chsys.h **** 
+ 171:../../../os/rt/include/chsys.h **** /**
+ 172:../../../os/rt/include/chsys.h ****  * @brief   Milliseconds to realtime counter.
+ 173:../../../os/rt/include/chsys.h ****  * @details Converts from milliseconds to realtime counter cycles.
+ 174:../../../os/rt/include/chsys.h ****  * @note    The result is rounded upward to the next millisecond boundary.
+ 175:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000.
+ 176:../../../os/rt/include/chsys.h ****  *
+ 177:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 178:../../../os/rt/include/chsys.h ****  * @param[in] msec      number of milliseconds
+ 179:../../../os/rt/include/chsys.h ****  * @return              The number of cycles.
+ 180:../../../os/rt/include/chsys.h ****  *
+ 181:../../../os/rt/include/chsys.h ****  * @api
+ 182:../../../os/rt/include/chsys.h ****  */
+ 183:../../../os/rt/include/chsys.h **** #define MS2RTC(freq, msec) (rtcnt_t)((((freq) + 999UL) / 1000UL) * (msec))
+ 184:../../../os/rt/include/chsys.h **** 
+ 185:../../../os/rt/include/chsys.h **** /**
+ 186:../../../os/rt/include/chsys.h ****  * @brief   Microseconds to realtime counter.
+ 187:../../../os/rt/include/chsys.h ****  * @details Converts from microseconds to realtime counter cycles.
+ 188:../../../os/rt/include/chsys.h ****  * @note    The result is rounded upward to the next microsecond boundary.
+ 189:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000000.
+ 190:../../../os/rt/include/chsys.h ****  *
+ 191:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 192:../../../os/rt/include/chsys.h ****  * @param[in] usec      number of microseconds
+ 193:../../../os/rt/include/chsys.h ****  * @return              The number of cycles.
+ 194:../../../os/rt/include/chsys.h ****  *
+ 195:../../../os/rt/include/chsys.h ****  * @api
+ 196:../../../os/rt/include/chsys.h ****  */
+ 197:../../../os/rt/include/chsys.h **** #define US2RTC(freq, usec) (rtcnt_t)((((freq) + 999999UL) / 1000000UL) * (usec))
+ 198:../../../os/rt/include/chsys.h **** 
+ 199:../../../os/rt/include/chsys.h **** /**
+ 200:../../../os/rt/include/chsys.h ****  * @brief   Realtime counter cycles to seconds.
+ 201:../../../os/rt/include/chsys.h ****  * @details Converts from realtime counter cycles number to seconds.
+ 202:../../../os/rt/include/chsys.h ****  * @note    The result is rounded up to the next second boundary.
+ 203:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1.
+ 204:../../../os/rt/include/chsys.h ****  *
+ 205:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 206:../../../os/rt/include/chsys.h ****  * @param[in] n         number of cycles
+ 207:../../../os/rt/include/chsys.h ****  * @return              The number of seconds.
+ 208:../../../os/rt/include/chsys.h ****  *
+ 209:../../../os/rt/include/chsys.h ****  * @api
+ 210:../../../os/rt/include/chsys.h ****  */
+ 211:../../../os/rt/include/chsys.h **** #define RTC2S(freq, n) ((((n) - 1UL) / (freq)) + 1UL)
+ 212:../../../os/rt/include/chsys.h **** 
+ 213:../../../os/rt/include/chsys.h **** /**
+ 214:../../../os/rt/include/chsys.h ****  * @brief   Realtime counter cycles to milliseconds.
+ 215:../../../os/rt/include/chsys.h ****  * @details Converts from realtime counter cycles number to milliseconds.
+ 216:../../../os/rt/include/chsys.h ****  * @note    The result is rounded up to the next millisecond boundary.
+ 217:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000.
+ 218:../../../os/rt/include/chsys.h ****  *
+ 219:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 220:../../../os/rt/include/chsys.h ****  * @param[in] n         number of cycles
+ 221:../../../os/rt/include/chsys.h ****  * @return              The number of milliseconds.
+ 222:../../../os/rt/include/chsys.h ****  *
+ 223:../../../os/rt/include/chsys.h ****  * @api
+ 224:../../../os/rt/include/chsys.h ****  */
+ 225:../../../os/rt/include/chsys.h **** #define RTC2MS(freq, n) ((((n) - 1UL) / ((freq) / 1000UL)) + 1UL)
+ 226:../../../os/rt/include/chsys.h **** 
+ 227:../../../os/rt/include/chsys.h **** /**
+ 228:../../../os/rt/include/chsys.h ****  * @brief   Realtime counter cycles to microseconds.
+ 229:../../../os/rt/include/chsys.h ****  * @details Converts from realtime counter cycles number to microseconds.
+ 230:../../../os/rt/include/chsys.h ****  * @note    The result is rounded up to the next microsecond boundary.
+ 231:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000000.
+ 232:../../../os/rt/include/chsys.h ****  *
+ 233:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 234:../../../os/rt/include/chsys.h ****  * @param[in] n         number of cycles
+ 235:../../../os/rt/include/chsys.h ****  * @return              The number of microseconds.
+ 236:../../../os/rt/include/chsys.h ****  *
+ 237:../../../os/rt/include/chsys.h ****  * @api
+ 238:../../../os/rt/include/chsys.h ****  */
+ 239:../../../os/rt/include/chsys.h **** #define RTC2US(freq, n) ((((n) - 1UL) / ((freq) / 1000000UL)) + 1UL)
+ 240:../../../os/rt/include/chsys.h **** /** @} */
+ 241:../../../os/rt/include/chsys.h **** 
+ 242:../../../os/rt/include/chsys.h **** /**
+ 243:../../../os/rt/include/chsys.h ****  * @brief   Returns the current value of the system real time counter.
+ 244:../../../os/rt/include/chsys.h ****  * @note    This function is only available if the port layer supports the
+ 245:../../../os/rt/include/chsys.h ****  *          option @p PORT_SUPPORTS_RT.
+ 246:../../../os/rt/include/chsys.h ****  *
+ 247:../../../os/rt/include/chsys.h ****  * @return              The value of the system realtime counter of
+ 248:../../../os/rt/include/chsys.h ****  *                      type rtcnt_t.
+ 249:../../../os/rt/include/chsys.h ****  *
+ 250:../../../os/rt/include/chsys.h ****  * @xclass
+ 251:../../../os/rt/include/chsys.h ****  */
+ 252:../../../os/rt/include/chsys.h **** #if (PORT_SUPPORTS_RT == TRUE) || defined(__DOXYGEN__)
+ 253:../../../os/rt/include/chsys.h **** #define chSysGetRealtimeCounterX() (rtcnt_t)port_rt_get_counter_value()
+ 254:../../../os/rt/include/chsys.h **** #endif
+ 255:../../../os/rt/include/chsys.h **** 
+ 256:../../../os/rt/include/chsys.h **** /**
+ 257:../../../os/rt/include/chsys.h ****  * @brief   Performs a context switch.
+ 258:../../../os/rt/include/chsys.h ****  * @note    Not a user function, it is meant to be invoked by the scheduler
+ 259:../../../os/rt/include/chsys.h ****  *          itself or from within the port layer.
+ 260:../../../os/rt/include/chsys.h ****  *
+ 261:../../../os/rt/include/chsys.h ****  * @param[in] ntp       the thread to be switched in
+ 262:../../../os/rt/include/chsys.h ****  * @param[in] otp       the thread to be switched out
+ 263:../../../os/rt/include/chsys.h ****  *
+ 264:../../../os/rt/include/chsys.h ****  * @special
+ 265:../../../os/rt/include/chsys.h ****  */
+ 266:../../../os/rt/include/chsys.h **** #define chSysSwitch(ntp, otp) {                                             \
+ 267:../../../os/rt/include/chsys.h ****                                                                             \
+ 268:../../../os/rt/include/chsys.h ****   _trace_switch(ntp, otp);                                                  \
+ 269:../../../os/rt/include/chsys.h ****   _stats_ctxswc(ntp, otp);                                                  \
+ 270:../../../os/rt/include/chsys.h ****   CH_CFG_CONTEXT_SWITCH_HOOK(ntp, otp);                                     \
+ 271:../../../os/rt/include/chsys.h ****   port_switch(ntp, otp);                                                    \
+ 272:../../../os/rt/include/chsys.h **** }
+ 273:../../../os/rt/include/chsys.h **** 
+ 274:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 275:../../../os/rt/include/chsys.h **** /* External declarations.                                                    */
+ 276:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 277:../../../os/rt/include/chsys.h **** 
+ 278:../../../os/rt/include/chsys.h **** #if !defined(__DOXYGEN__)
+ 279:../../../os/rt/include/chsys.h **** extern stkalign_t ch_idle_thread_wa[];
+ 280:../../../os/rt/include/chsys.h **** #endif
+ 281:../../../os/rt/include/chsys.h **** 
+ 282:../../../os/rt/include/chsys.h **** #ifdef __cplusplus
+ 283:../../../os/rt/include/chsys.h **** extern "C" {
+ 284:../../../os/rt/include/chsys.h **** #endif
+ 285:../../../os/rt/include/chsys.h ****   void chSysInit(void);
+ 286:../../../os/rt/include/chsys.h ****   bool chSysIntegrityCheckI(unsigned testmask);
+ 287:../../../os/rt/include/chsys.h ****   void chSysTimerHandlerI(void);
+ 288:../../../os/rt/include/chsys.h ****   syssts_t chSysGetStatusAndLockX(void);
+ 289:../../../os/rt/include/chsys.h ****   void chSysRestoreStatusX(syssts_t sts);
+ 290:../../../os/rt/include/chsys.h **** #if PORT_SUPPORTS_RT == TRUE
+ 291:../../../os/rt/include/chsys.h ****   bool chSysIsCounterWithinX(rtcnt_t cnt, rtcnt_t start, rtcnt_t end);
+ 292:../../../os/rt/include/chsys.h ****   void chSysPolledDelayX(rtcnt_t cycles);
+ 293:../../../os/rt/include/chsys.h **** #endif
+ 294:../../../os/rt/include/chsys.h **** #ifdef __cplusplus
+ 295:../../../os/rt/include/chsys.h **** }
+ 296:../../../os/rt/include/chsys.h **** #endif
+ 297:../../../os/rt/include/chsys.h **** 
+ 298:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 299:../../../os/rt/include/chsys.h **** /* Module inline functions.                                                  */
+ 300:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 301:../../../os/rt/include/chsys.h **** 
+ 302:../../../os/rt/include/chsys.h **** /**
+ 303:../../../os/rt/include/chsys.h ****  * @brief   Raises the system interrupt priority mask to the maximum level.
+ 304:../../../os/rt/include/chsys.h ****  * @details All the maskable interrupt sources are disabled regardless their
+ 305:../../../os/rt/include/chsys.h ****  *          hardware priority.
+ 306:../../../os/rt/include/chsys.h ****  * @note    Do not invoke this API from within a kernel lock.
+ 307:../../../os/rt/include/chsys.h ****  *
+ 308:../../../os/rt/include/chsys.h ****  * @special
+ 309:../../../os/rt/include/chsys.h ****  */
+ 310:../../../os/rt/include/chsys.h **** static inline void chSysDisable(void) {
+ 311:../../../os/rt/include/chsys.h **** 
+ 312:../../../os/rt/include/chsys.h ****   port_disable();
+ 313:../../../os/rt/include/chsys.h ****   _dbg_check_disable();
+ 314:../../../os/rt/include/chsys.h **** }
+ 315:../../../os/rt/include/chsys.h **** 
+ 316:../../../os/rt/include/chsys.h **** /**
+ 317:../../../os/rt/include/chsys.h ****  * @brief   Raises the system interrupt priority mask to system level.
+ 318:../../../os/rt/include/chsys.h ****  * @details The interrupt sources that should not be able to preempt the kernel
+ 319:../../../os/rt/include/chsys.h ****  *          are disabled, interrupt sources with higher priority are still
+ 320:../../../os/rt/include/chsys.h ****  *          enabled.
+ 321:../../../os/rt/include/chsys.h ****  * @note    Do not invoke this API from within a kernel lock.
+ 322:../../../os/rt/include/chsys.h ****  * @note    This API is no replacement for @p chSysLock(), the @p chSysLock()
+ 323:../../../os/rt/include/chsys.h ****  *          could do more than just disable the interrupts.
+ 324:../../../os/rt/include/chsys.h ****  *
+ 325:../../../os/rt/include/chsys.h ****  * @special
+ 326:../../../os/rt/include/chsys.h ****  */
+ 327:../../../os/rt/include/chsys.h **** static inline void chSysSuspend(void) {
+ 328:../../../os/rt/include/chsys.h **** 
+ 329:../../../os/rt/include/chsys.h ****   port_suspend();
+ 330:../../../os/rt/include/chsys.h ****   _dbg_check_suspend();
+ 331:../../../os/rt/include/chsys.h **** }
+ 332:../../../os/rt/include/chsys.h **** 
+ 333:../../../os/rt/include/chsys.h **** /**
+ 334:../../../os/rt/include/chsys.h ****  * @brief   Lowers the system interrupt priority mask to user level.
+ 335:../../../os/rt/include/chsys.h ****  * @details All the interrupt sources are enabled.
+ 336:../../../os/rt/include/chsys.h ****  * @note    Do not invoke this API from within a kernel lock.
+ 337:../../../os/rt/include/chsys.h ****  * @note    This API is no replacement for @p chSysUnlock(), the
+ 338:../../../os/rt/include/chsys.h ****  *          @p chSysUnlock() could do more than just enable the interrupts.
+ 339:../../../os/rt/include/chsys.h ****  *
+ 340:../../../os/rt/include/chsys.h ****  * @special
+ 341:../../../os/rt/include/chsys.h ****  */
+ 342:../../../os/rt/include/chsys.h **** static inline void chSysEnable(void) {
+ 343:../../../os/rt/include/chsys.h **** 
+ 344:../../../os/rt/include/chsys.h ****   _dbg_check_enable();
+ 345:../../../os/rt/include/chsys.h ****   port_enable();
+ 346:../../../os/rt/include/chsys.h **** }
+ 347:../../../os/rt/include/chsys.h **** 
+ 348:../../../os/rt/include/chsys.h **** /**
+ 349:../../../os/rt/include/chsys.h ****  * @brief   Enters the kernel lock state.
+ 350:../../../os/rt/include/chsys.h ****  *
+ 351:../../../os/rt/include/chsys.h ****  * @special
+ 352:../../../os/rt/include/chsys.h ****  */
+ 353:../../../os/rt/include/chsys.h **** static inline void chSysLock(void) {
+ 354:../../../os/rt/include/chsys.h **** 
+ 355:../../../os/rt/include/chsys.h ****   port_lock();
+ 356:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_thd();
+ 357:../../../os/rt/include/chsys.h ****   _dbg_check_lock();
+ 358:../../../os/rt/include/chsys.h **** }
+ 359:../../../os/rt/include/chsys.h **** 
+ 360:../../../os/rt/include/chsys.h **** /**
+ 361:../../../os/rt/include/chsys.h ****  * @brief   Leaves the kernel lock state.
+ 362:../../../os/rt/include/chsys.h ****  *
+ 363:../../../os/rt/include/chsys.h ****  * @special
+ 364:../../../os/rt/include/chsys.h ****  */
+ 365:../../../os/rt/include/chsys.h **** static inline void chSysUnlock(void) {
+ 235               		.loc 2 365 20 view .LVU53
+ 236               	.LBB9:
+ 366:../../../os/rt/include/chsys.h **** 
+ 367:../../../os/rt/include/chsys.h ****   _dbg_check_unlock();
+ 237               		.loc 2 367 22 view .LVU54
+ 368:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 238               		.loc 2 368 33 view .LVU55
+ 369:../../../os/rt/include/chsys.h **** 
+ 370:../../../os/rt/include/chsys.h ****   /* The following condition can be triggered by the use of i-class functions
+ 371:../../../os/rt/include/chsys.h ****      in a critical section not followed by a chSchResceduleS(), this means
+ 372:../../../os/rt/include/chsys.h ****      that the current thread has a lower priority than the next thread in
+ 373:../../../os/rt/include/chsys.h ****      the ready list.*/
+ 374:../../../os/rt/include/chsys.h ****   chDbgAssert((ch.rlist.queue.next == (thread_t *)&ch.rlist.queue) ||
+ 239               		.loc 2 374 3 view .LVU56
+ 240               		.loc 2 374 3 view .LVU57
+ 375:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 376:../../../os/rt/include/chsys.h ****               "priority order violation");
+ 377:../../../os/rt/include/chsys.h **** 
+ 378:../../../os/rt/include/chsys.h ****   port_unlock();
+ 241               		.loc 2 378 3 view .LVU58
+ 242               	.LBB10:
+ 243               	.LBI10:
+ 244               		.file 3 "../../../os/common/ports/AVR/chcore.h"
    1:../../../os/common/ports/AVR/chcore.h **** /*
    2:../../../os/common/ports/AVR/chcore.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
    3:../../../os/common/ports/AVR/chcore.h **** 
@@ -823,66 +1214,74 @@
  443:../../../os/common/ports/AVR/chcore.h ****  *          actions.
  444:../../../os/common/ports/AVR/chcore.h ****  */
  445:../../../os/common/ports/AVR/chcore.h **** static inline void port_unlock(void) {
+ 245               		.loc 3 445 20 view .LVU59
+ 246               	.LBB11:
  446:../../../os/common/ports/AVR/chcore.h **** 
  447:../../../os/common/ports/AVR/chcore.h ****   asm volatile ("sei" : : : "memory");
- 234               		.loc 2 447 0
- 235               	/* #APP */
- 236               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
- 237 0000 7894      		sei
- 238               	 ;  0 "" 2
- 239               	/* #NOAPP */
- 240               	.LBE11:
- 241               	.LBE10:
- 242               	.LBE9:
- 243               	.LBE8:
- 151:../../../os/common/ports/AVR/chcore.c **** 
- 152:../../../os/common/ports/AVR/chcore.c ****   chSysUnlock();
+ 247               		.loc 3 447 3 view .LVU60
+ 248               	/* #APP */
+ 249               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
+ 250 0000 7894      		sei
+ 251               	 ;  0 "" 2
+ 252               	/* #NOAPP */
+ 253               	.LBE11:
+ 254               	.LBE10:
+ 255               	.LBE9:
+ 256               	.LBE8:
  153:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("movw    r24, r4");
- 244               		.loc 1 153 0
- 245               	/* #APP */
- 246               	 ;  153 "../../../os/common/ports/AVR/chcore.c" 1
- 247 0002 C201      		movw    r24, r4
- 248               	 ;  0 "" 2
+ 257               		.loc 1 153 3 view .LVU61
+ 258               	/* #APP */
+ 259               	 ;  153 "../../../os/common/ports/AVR/chcore.c" 1
+ 260 0002 C201      		movw    r24, r4
+ 261               	 ;  0 "" 2
  154:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("movw    r30, r2");
- 249               		.loc 1 154 0
- 250               	 ;  154 "../../../os/common/ports/AVR/chcore.c" 1
- 251 0004 F101      		movw    r30, r2
- 252               	 ;  0 "" 2
+ 262               		.loc 1 154 3 view .LVU62
+ 263               	 ;  154 "../../../os/common/ports/AVR/chcore.c" 1
+ 264 0004 F101      		movw    r30, r2
+ 265               	 ;  0 "" 2
  155:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("icall");
- 253               		.loc 1 155 0
- 254               	 ;  155 "../../../os/common/ports/AVR/chcore.c" 1
- 255 0006 0995      		icall
- 256               	 ;  0 "" 2
+ 266               		.loc 1 155 3 view .LVU63
+ 267               	 ;  155 "../../../os/common/ports/AVR/chcore.c" 1
+ 268 0006 0995      		icall
+ 269               	 ;  0 "" 2
  156:../../../os/common/ports/AVR/chcore.c **** #if defined(_CHIBIOS_RT_)
  157:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("call    chThdExit");  /* Used for avr5 Architecture. */
- 257               		.loc 1 157 0
- 258               	 ;  157 "../../../os/common/ports/AVR/chcore.c" 1
- 259 0008 0E94 0000 		call    chThdExit
- 260               	 ;  0 "" 2
- 261               	/* #NOAPP */
- 262 000c 0895      		ret
- 263               		.cfi_endproc
- 264               	.LFE142:
- 266               		.comm	__avr_in_isr,1,1
- 267               		.text
- 268               	.Letext0:
- 269               		.file 3 "/usr/lib/avr/include/stdint.h"
- 270               		.file 4 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
- 271               		.file 5 "../../../os/rt/include/chsystypes.h"
- 272               		.file 6 "../../../os/rt/include/chschd.h"
- 273               		.file 7 "../../../os/rt/include/chtime.h"
- 274               		.file 8 "../../../os/rt/include/chsem.h"
- 275               		.file 9 "../../../os/rt/include/chmtx.h"
- 276               		.file 10 "../../../os/rt/include/chsys.h"
+ 270               		.loc 1 157 3 view .LVU64
+ 271               	 ;  157 "../../../os/common/ports/AVR/chcore.c" 1
+ 272 0008 0E94 0000 		call    chThdExit
+ 273               	 ;  0 "" 2
+ 274               	/* #NOAPP */
+ 275               	/* epilogue start */
+ 158:../../../os/common/ports/AVR/chcore.c **** #endif
+ 159:../../../os/common/ports/AVR/chcore.c **** #if defined(_CHIBIOS_NIL_)
+ 160:../../../os/common/ports/AVR/chcore.c ****   asm volatile ("call    chSysHalt");  /* Used for avr5 Architecture. */
+ 161:../../../os/common/ports/AVR/chcore.c **** #endif
+ 162:../../../os/common/ports/AVR/chcore.c **** }
+ 276               		.loc 1 162 1 is_stmt 0 view .LVU65
+ 277 000c 0895      		ret
+ 278               		.cfi_endproc
+ 279               	.LFE142:
+ 281               		.comm	__avr_in_isr,1,1
+ 282               		.text
+ 283               	.Letext0:
+ 284               		.file 4 "/usr/local/Cellar/avr-gcc/8.2.0/avr/include/stdint.h"
+ 285               		.file 5 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
+ 286               		.file 6 "../../../os/rt/include/chsystypes.h"
+ 287               		.file 7 "../../../os/rt/include/chschd.h"
+ 288               		.file 8 "../../../os/rt/include/chtime.h"
+ 289               		.file 9 "../../../os/rt/include/chsem.h"
+ 290               		.file 10 "../../../os/rt/include/chmtx.h"
+ 291               		.file 11 "../../../os/rt/include/chregistry.h"
+ 292               		.file 12 "../../../os/common/oslib/include/chmemcore.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 chcore.c
-     /tmp/ccJVp9Jm.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccJVp9Jm.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccJVp9Jm.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccJVp9Jm.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccJVp9Jm.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccJVp9Jm.s:13     .text._port_switch:0000000000000000 _port_switch
-     /tmp/ccJVp9Jm.s:221    .text._port_thread_start:0000000000000000 _port_thread_start
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccAp41Ib.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccAp41Ib.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccAp41Ib.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccAp41Ib.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccAp41Ib.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccAp41Ib.s:13     .text._port_switch:0000000000000000 _port_switch
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccAp41Ib.s:223    .text._port_thread_start:0000000000000000 _port_thread_start
                             *COM*:0000000000000001 __avr_in_isr
 
 UNDEFINED SYMBOLS

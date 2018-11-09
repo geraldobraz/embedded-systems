@@ -9,8 +9,9 @@
    9               		.cfi_sections	.debug_frame
   10               		.section	.text.tmrcb,"ax",@progbits
   12               	tmrcb:
-  13               	.LFB142:
-  14               		.file 1 "../../../os/various/evtimer.c"
+  13               	.LVL0:
+  14               	.LFB142:
+  15               		.file 1 "../../../os/various/evtimer.c"
    1:../../../os/various/evtimer.c **** /*
    2:../../../os/various/evtimer.c ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio
    3:../../../os/various/evtimer.c **** 
@@ -59,518 +60,426 @@
   46:../../../os/various/evtimer.c **** /*===========================================================================*/
   47:../../../os/various/evtimer.c **** 
   48:../../../os/various/evtimer.c **** static void tmrcb(void *p) {
-  15               		.loc 1 48 0
-  16               		.cfi_startproc
-  17               	.LVL0:
-  18 0000 CF93      		push r28
-  19               	.LCFI0:
-  20               		.cfi_def_cfa_offset 3
-  21               		.cfi_offset 28, -2
-  22 0002 DF93      		push r29
-  23               	.LCFI1:
-  24               		.cfi_def_cfa_offset 4
-  25               		.cfi_offset 29, -3
-  26               	/* prologue: function */
-  27               	/* frame size = 0 */
-  28               	/* stack size = 2 */
-  29               	.L__stack_usage = 2
-  30 0004 EC01      		movw r28,r24
-  31               	.LVL1:
-  32               	.LBB43:
-  33               	.LBB44:
-  34               		.file 2 "../../../os/rt/include/chevents.h"
-   1:../../../os/rt/include/chevents.h **** /*
-   2:../../../os/rt/include/chevents.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
-   3:../../../os/rt/include/chevents.h **** 
-   4:../../../os/rt/include/chevents.h ****     This file is part of ChibiOS.
-   5:../../../os/rt/include/chevents.h **** 
-   6:../../../os/rt/include/chevents.h ****     ChibiOS is free software; you can redistribute it and/or modify
-   7:../../../os/rt/include/chevents.h ****     it under the terms of the GNU General Public License as published by
-   8:../../../os/rt/include/chevents.h ****     the Free Software Foundation; either version 3 of the License, or
-   9:../../../os/rt/include/chevents.h ****     (at your option) any later version.
-  10:../../../os/rt/include/chevents.h **** 
-  11:../../../os/rt/include/chevents.h ****     ChibiOS is distributed in the hope that it will be useful,
-  12:../../../os/rt/include/chevents.h ****     but WITHOUT ANY WARRANTY; without even the implied warranty of
-  13:../../../os/rt/include/chevents.h ****     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  14:../../../os/rt/include/chevents.h ****     GNU General Public License for more details.
-  15:../../../os/rt/include/chevents.h **** 
-  16:../../../os/rt/include/chevents.h ****     You should have received a copy of the GNU General Public License
-  17:../../../os/rt/include/chevents.h ****     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  18:../../../os/rt/include/chevents.h **** */
-  19:../../../os/rt/include/chevents.h **** /*
-  20:../../../os/rt/include/chevents.h ****    Concepts and parts of this file have been contributed by Scott (skute).
-  21:../../../os/rt/include/chevents.h ****  */
-  22:../../../os/rt/include/chevents.h **** 
-  23:../../../os/rt/include/chevents.h **** /**
-  24:../../../os/rt/include/chevents.h ****  * @file    chevents.h
-  25:../../../os/rt/include/chevents.h ****  * @brief   Events macros and structures.
-  26:../../../os/rt/include/chevents.h ****  *
-  27:../../../os/rt/include/chevents.h ****  * @addtogroup events
-  28:../../../os/rt/include/chevents.h ****  * @{
-  29:../../../os/rt/include/chevents.h ****  */
-  30:../../../os/rt/include/chevents.h **** 
-  31:../../../os/rt/include/chevents.h **** #ifndef CHEVENTS_H
-  32:../../../os/rt/include/chevents.h **** #define CHEVENTS_H
-  33:../../../os/rt/include/chevents.h **** 
-  34:../../../os/rt/include/chevents.h **** #if (CH_CFG_USE_EVENTS == TRUE) || defined(__DOXYGEN__)
-  35:../../../os/rt/include/chevents.h **** 
-  36:../../../os/rt/include/chevents.h **** /*===========================================================================*/
-  37:../../../os/rt/include/chevents.h **** /* Module constants.                                                         */
-  38:../../../os/rt/include/chevents.h **** /*===========================================================================*/
-  39:../../../os/rt/include/chevents.h **** 
-  40:../../../os/rt/include/chevents.h **** /*===========================================================================*/
-  41:../../../os/rt/include/chevents.h **** /* Module pre-compile time settings.                                         */
-  42:../../../os/rt/include/chevents.h **** /*===========================================================================*/
-  43:../../../os/rt/include/chevents.h **** 
-  44:../../../os/rt/include/chevents.h **** /*===========================================================================*/
-  45:../../../os/rt/include/chevents.h **** /* Derived constants and error checks.                                       */
-  46:../../../os/rt/include/chevents.h **** /*===========================================================================*/
-  47:../../../os/rt/include/chevents.h **** 
-  48:../../../os/rt/include/chevents.h **** /*===========================================================================*/
-  49:../../../os/rt/include/chevents.h **** /* Module data structures and types.                                         */
-  50:../../../os/rt/include/chevents.h **** /*===========================================================================*/
-  51:../../../os/rt/include/chevents.h **** 
-  52:../../../os/rt/include/chevents.h **** typedef struct event_listener event_listener_t;
-  53:../../../os/rt/include/chevents.h **** 
-  54:../../../os/rt/include/chevents.h **** /**
-  55:../../../os/rt/include/chevents.h ****  * @brief   Event Listener structure.
-  56:../../../os/rt/include/chevents.h ****  */
-  57:../../../os/rt/include/chevents.h **** struct event_listener {
-  58:../../../os/rt/include/chevents.h ****   event_listener_t      *next;          /**< @brief Next Event Listener
-  59:../../../os/rt/include/chevents.h ****                                                     registered on the event
-  60:../../../os/rt/include/chevents.h ****                                                     source.                 */
-  61:../../../os/rt/include/chevents.h ****   thread_t              *listener;      /**< @brief Thread interested in the
-  62:../../../os/rt/include/chevents.h ****                                                     event source.           */
-  63:../../../os/rt/include/chevents.h ****   eventmask_t           events;         /**< @brief Events to be set in
-  64:../../../os/rt/include/chevents.h ****                                                     the listening thread.   */
-  65:../../../os/rt/include/chevents.h ****   eventflags_t          flags;          /**< @brief Flags added to the listener
-  66:../../../os/rt/include/chevents.h ****                                                     by the event source.    */
-  67:../../../os/rt/include/chevents.h ****   eventflags_t          wflags;         /**< @brief Flags that this listener
-  68:../../../os/rt/include/chevents.h ****                                                     interested in.          */
-  69:../../../os/rt/include/chevents.h **** };
-  70:../../../os/rt/include/chevents.h **** 
-  71:../../../os/rt/include/chevents.h **** /**
-  72:../../../os/rt/include/chevents.h ****  * @brief   Event Source structure.
-  73:../../../os/rt/include/chevents.h ****  */
-  74:../../../os/rt/include/chevents.h **** typedef struct event_source {
-  75:../../../os/rt/include/chevents.h ****   event_listener_t      *next;          /**< @brief First Event Listener
-  76:../../../os/rt/include/chevents.h ****                                                     registered on the Event
-  77:../../../os/rt/include/chevents.h ****                                                     Source.                 */
-  78:../../../os/rt/include/chevents.h **** } event_source_t;
-  79:../../../os/rt/include/chevents.h **** 
-  80:../../../os/rt/include/chevents.h **** /**
-  81:../../../os/rt/include/chevents.h ****  * @brief   Event Handler callback function.
-  82:../../../os/rt/include/chevents.h ****  */
-  83:../../../os/rt/include/chevents.h **** typedef void (*evhandler_t)(eventid_t id);
-  84:../../../os/rt/include/chevents.h **** 
-  85:../../../os/rt/include/chevents.h **** /*===========================================================================*/
-  86:../../../os/rt/include/chevents.h **** /* Module macros.                                                            */
-  87:../../../os/rt/include/chevents.h **** /*===========================================================================*/
-  88:../../../os/rt/include/chevents.h **** 
-  89:../../../os/rt/include/chevents.h **** /**
-  90:../../../os/rt/include/chevents.h ****  * @brief   All events allowed mask.
-  91:../../../os/rt/include/chevents.h ****  */
-  92:../../../os/rt/include/chevents.h **** #define ALL_EVENTS      ((eventmask_t)-1)
-  93:../../../os/rt/include/chevents.h **** 
-  94:../../../os/rt/include/chevents.h **** /**
-  95:../../../os/rt/include/chevents.h ****  * @brief   Returns an event mask from an event identifier.
-  96:../../../os/rt/include/chevents.h ****  */
-  97:../../../os/rt/include/chevents.h **** #define EVENT_MASK(eid) ((eventmask_t)1 << (eventmask_t)(eid))
-  98:../../../os/rt/include/chevents.h **** 
-  99:../../../os/rt/include/chevents.h **** /**
- 100:../../../os/rt/include/chevents.h ****  * @brief   Data part of a static event source initializer.
- 101:../../../os/rt/include/chevents.h ****  * @details This macro should be used when statically initializing an event
- 102:../../../os/rt/include/chevents.h ****  *          source that is part of a bigger structure.
- 103:../../../os/rt/include/chevents.h ****  * @param name          the name of the event source variable
- 104:../../../os/rt/include/chevents.h ****  */
- 105:../../../os/rt/include/chevents.h **** #define _EVENTSOURCE_DATA(name) {(event_listener_t *)(&name)}
- 106:../../../os/rt/include/chevents.h **** 
- 107:../../../os/rt/include/chevents.h **** /**
- 108:../../../os/rt/include/chevents.h ****  * @brief   Static event source initializer.
- 109:../../../os/rt/include/chevents.h ****  * @details Statically initialized event sources require no explicit
- 110:../../../os/rt/include/chevents.h ****  *          initialization using @p chEvtInit().
- 111:../../../os/rt/include/chevents.h ****  *
- 112:../../../os/rt/include/chevents.h ****  * @param name          the name of the event source variable
- 113:../../../os/rt/include/chevents.h ****  */
- 114:../../../os/rt/include/chevents.h **** #define EVENTSOURCE_DECL(name) event_source_t name = _EVENTSOURCE_DATA(name)
- 115:../../../os/rt/include/chevents.h **** 
- 116:../../../os/rt/include/chevents.h **** /*===========================================================================*/
- 117:../../../os/rt/include/chevents.h **** /* External declarations.                                                    */
- 118:../../../os/rt/include/chevents.h **** /*===========================================================================*/
- 119:../../../os/rt/include/chevents.h **** 
- 120:../../../os/rt/include/chevents.h **** #ifdef __cplusplus
- 121:../../../os/rt/include/chevents.h **** extern "C" {
- 122:../../../os/rt/include/chevents.h **** #endif
- 123:../../../os/rt/include/chevents.h ****   void chEvtRegisterMaskWithFlags(event_source_t *esp,
- 124:../../../os/rt/include/chevents.h ****                                   event_listener_t *elp,
- 125:../../../os/rt/include/chevents.h ****                                   eventmask_t events,
- 126:../../../os/rt/include/chevents.h ****                                   eventflags_t wflags);
- 127:../../../os/rt/include/chevents.h ****   void chEvtUnregister(event_source_t *esp, event_listener_t *elp);
- 128:../../../os/rt/include/chevents.h ****   eventmask_t chEvtGetAndClearEventsI(eventmask_t events);
- 129:../../../os/rt/include/chevents.h ****   eventmask_t chEvtGetAndClearEvents(eventmask_t events);
- 130:../../../os/rt/include/chevents.h ****   eventmask_t chEvtAddEvents(eventmask_t events);
- 131:../../../os/rt/include/chevents.h ****   eventflags_t chEvtGetAndClearFlags(event_listener_t *elp);
- 132:../../../os/rt/include/chevents.h ****   eventflags_t chEvtGetAndClearFlagsI(event_listener_t *elp);
- 133:../../../os/rt/include/chevents.h ****   void chEvtSignal(thread_t *tp, eventmask_t events);
- 134:../../../os/rt/include/chevents.h ****   void chEvtSignalI(thread_t *tp, eventmask_t events);
- 135:../../../os/rt/include/chevents.h ****   void chEvtBroadcastFlags(event_source_t *esp, eventflags_t flags);
- 136:../../../os/rt/include/chevents.h ****   void chEvtBroadcastFlagsI(event_source_t *esp, eventflags_t flags);
- 137:../../../os/rt/include/chevents.h ****   void chEvtDispatch(const evhandler_t *handlers, eventmask_t events);
- 138:../../../os/rt/include/chevents.h **** #if (CH_CFG_OPTIMIZE_SPEED == TRUE) || (CH_CFG_USE_EVENTS_TIMEOUT == FALSE)
- 139:../../../os/rt/include/chevents.h ****   eventmask_t chEvtWaitOne(eventmask_t events);
- 140:../../../os/rt/include/chevents.h ****   eventmask_t chEvtWaitAny(eventmask_t events);
- 141:../../../os/rt/include/chevents.h ****   eventmask_t chEvtWaitAll(eventmask_t events);
- 142:../../../os/rt/include/chevents.h **** #endif
- 143:../../../os/rt/include/chevents.h **** #if CH_CFG_USE_EVENTS_TIMEOUT == TRUE
- 144:../../../os/rt/include/chevents.h ****   eventmask_t chEvtWaitOneTimeout(eventmask_t events, sysinterval_t timeout);
- 145:../../../os/rt/include/chevents.h ****   eventmask_t chEvtWaitAnyTimeout(eventmask_t events, sysinterval_t timeout);
- 146:../../../os/rt/include/chevents.h ****   eventmask_t chEvtWaitAllTimeout(eventmask_t events, sysinterval_t timeout);
- 147:../../../os/rt/include/chevents.h **** #endif
- 148:../../../os/rt/include/chevents.h **** #ifdef __cplusplus
- 149:../../../os/rt/include/chevents.h **** }
- 150:../../../os/rt/include/chevents.h **** #endif
- 151:../../../os/rt/include/chevents.h **** 
- 152:../../../os/rt/include/chevents.h **** #if (CH_CFG_OPTIMIZE_SPEED == FALSE) && (CH_CFG_USE_EVENTS_TIMEOUT == TRUE)
- 153:../../../os/rt/include/chevents.h **** #define chEvtWaitOne(mask) chEvtWaitOneTimeout(mask, TIME_INFINITE)
- 154:../../../os/rt/include/chevents.h **** #define chEvtWaitAny(mask) chEvtWaitAnyTimeout(mask, TIME_INFINITE)
- 155:../../../os/rt/include/chevents.h **** #define chEvtWaitAll(mask) chEvtWaitAllTimeout(mask, TIME_INFINITE)
- 156:../../../os/rt/include/chevents.h **** #endif
- 157:../../../os/rt/include/chevents.h **** 
- 158:../../../os/rt/include/chevents.h **** /*===========================================================================*/
- 159:../../../os/rt/include/chevents.h **** /* Module inline functions.                                                  */
- 160:../../../os/rt/include/chevents.h **** /*===========================================================================*/
- 161:../../../os/rt/include/chevents.h **** 
- 162:../../../os/rt/include/chevents.h **** /**
- 163:../../../os/rt/include/chevents.h ****  * @brief   Initializes an Event Source.
- 164:../../../os/rt/include/chevents.h ****  * @note    This function can be invoked before the kernel is initialized
- 165:../../../os/rt/include/chevents.h ****  *          because it just prepares a @p event_source_t structure.
- 166:../../../os/rt/include/chevents.h ****  *
- 167:../../../os/rt/include/chevents.h ****  * @param[in] esp       pointer to the @p event_source_t structure
- 168:../../../os/rt/include/chevents.h ****  *
- 169:../../../os/rt/include/chevents.h ****  * @init
- 170:../../../os/rt/include/chevents.h ****  */
- 171:../../../os/rt/include/chevents.h **** static inline void chEvtObjectInit(event_source_t *esp) {
- 172:../../../os/rt/include/chevents.h **** 
- 173:../../../os/rt/include/chevents.h ****   esp->next = (event_listener_t *)esp;
- 174:../../../os/rt/include/chevents.h **** }
- 175:../../../os/rt/include/chevents.h **** 
- 176:../../../os/rt/include/chevents.h **** /**
- 177:../../../os/rt/include/chevents.h ****  * @brief   Registers an Event Listener on an Event Source.
- 178:../../../os/rt/include/chevents.h ****  * @details Once a thread has registered as listener on an event source it
- 179:../../../os/rt/include/chevents.h ****  *          will be notified of all events broadcasted there.
- 180:../../../os/rt/include/chevents.h ****  * @note    Multiple Event Listeners can specify the same bits to be ORed to
- 181:../../../os/rt/include/chevents.h ****  *          different threads.
- 182:../../../os/rt/include/chevents.h ****  *
- 183:../../../os/rt/include/chevents.h ****  * @param[in] esp       pointer to the @p event_source_t structure
- 184:../../../os/rt/include/chevents.h ****  * @param[out] elp      pointer to the @p event_listener_t structure
- 185:../../../os/rt/include/chevents.h ****  * @param[in] events    the mask of events to be ORed to the thread when
- 186:../../../os/rt/include/chevents.h ****  *                      the event source is broadcasted
- 187:../../../os/rt/include/chevents.h ****  *
- 188:../../../os/rt/include/chevents.h ****  * @api
- 189:../../../os/rt/include/chevents.h ****  */
- 190:../../../os/rt/include/chevents.h **** static inline void chEvtRegisterMask(event_source_t *esp,
- 191:../../../os/rt/include/chevents.h ****                                      event_listener_t *elp,
- 192:../../../os/rt/include/chevents.h ****                                      eventmask_t events) {
- 193:../../../os/rt/include/chevents.h **** 
- 194:../../../os/rt/include/chevents.h ****   chEvtRegisterMaskWithFlags(esp, elp, events, (eventflags_t)-1);
- 195:../../../os/rt/include/chevents.h **** }
- 196:../../../os/rt/include/chevents.h **** 
- 197:../../../os/rt/include/chevents.h **** /**
- 198:../../../os/rt/include/chevents.h ****  * @brief   Registers an Event Listener on an Event Source.
- 199:../../../os/rt/include/chevents.h ****  * @note    Multiple Event Listeners can use the same event identifier, the
- 200:../../../os/rt/include/chevents.h ****  *          listener will share the callback function.
- 201:../../../os/rt/include/chevents.h ****  *
- 202:../../../os/rt/include/chevents.h ****  * @param[in] esp       pointer to the  @p event_source_t structure
- 203:../../../os/rt/include/chevents.h ****  * @param[out] elp      pointer to the @p event_listener_t structure
- 204:../../../os/rt/include/chevents.h ****  * @param[in] event     numeric identifier assigned to the Event Listener.
- 205:../../../os/rt/include/chevents.h ****  *                      The value must range between zero and the size, in bit,
- 206:../../../os/rt/include/chevents.h ****  *                      of the @p eventmask_t type minus one.
- 207:../../../os/rt/include/chevents.h ****  *
- 208:../../../os/rt/include/chevents.h ****  * @api
- 209:../../../os/rt/include/chevents.h ****  */
- 210:../../../os/rt/include/chevents.h **** static inline void chEvtRegister(event_source_t *esp,
- 211:../../../os/rt/include/chevents.h ****                                  event_listener_t *elp,
- 212:../../../os/rt/include/chevents.h ****                                  eventid_t event) {
- 213:../../../os/rt/include/chevents.h **** 
- 214:../../../os/rt/include/chevents.h ****   chEvtRegisterMask(esp, elp, EVENT_MASK(event));
- 215:../../../os/rt/include/chevents.h **** }
- 216:../../../os/rt/include/chevents.h **** 
- 217:../../../os/rt/include/chevents.h **** /**
- 218:../../../os/rt/include/chevents.h ****  * @brief   Verifies if there is at least one @p event_listener_t registered.
- 219:../../../os/rt/include/chevents.h ****  *
- 220:../../../os/rt/include/chevents.h ****  * @param[in] esp       pointer to the @p event_source_t structure
- 221:../../../os/rt/include/chevents.h ****  * @return              The event source status.
- 222:../../../os/rt/include/chevents.h ****  *
- 223:../../../os/rt/include/chevents.h ****  * @iclass
- 224:../../../os/rt/include/chevents.h ****  */
- 225:../../../os/rt/include/chevents.h **** static inline bool chEvtIsListeningI(event_source_t *esp) {
- 226:../../../os/rt/include/chevents.h **** 
- 227:../../../os/rt/include/chevents.h ****   return (bool)(esp != (event_source_t *)esp->next);
- 228:../../../os/rt/include/chevents.h **** }
- 229:../../../os/rt/include/chevents.h **** 
- 230:../../../os/rt/include/chevents.h **** /**
- 231:../../../os/rt/include/chevents.h ****  * @brief   Signals all the Event Listeners registered on the specified Event
- 232:../../../os/rt/include/chevents.h ****  *          Source.
- 233:../../../os/rt/include/chevents.h ****  *
- 234:../../../os/rt/include/chevents.h ****  * @param[in] esp       pointer to the @p event_source_t structure
- 235:../../../os/rt/include/chevents.h ****  *
- 236:../../../os/rt/include/chevents.h ****  * @api
- 237:../../../os/rt/include/chevents.h ****  */
- 238:../../../os/rt/include/chevents.h **** static inline void chEvtBroadcast(event_source_t *esp) {
- 239:../../../os/rt/include/chevents.h **** 
- 240:../../../os/rt/include/chevents.h ****   chEvtBroadcastFlags(esp, (eventflags_t)0);
- 241:../../../os/rt/include/chevents.h **** }
- 242:../../../os/rt/include/chevents.h **** 
- 243:../../../os/rt/include/chevents.h **** /**
- 244:../../../os/rt/include/chevents.h ****  * @brief   Signals all the Event Listeners registered on the specified Event
- 245:../../../os/rt/include/chevents.h ****  *          Source.
- 246:../../../os/rt/include/chevents.h ****  * @post    This function does not reschedule so a call to a rescheduling
- 247:../../../os/rt/include/chevents.h ****  *          function must be performed before unlocking the kernel. Note that
- 248:../../../os/rt/include/chevents.h ****  *          interrupt handlers always reschedule on exit so an explicit
- 249:../../../os/rt/include/chevents.h ****  *          reschedule must not be performed in ISRs.
- 250:../../../os/rt/include/chevents.h ****  *
- 251:../../../os/rt/include/chevents.h ****  * @param[in] esp       pointer to the @p event_source_t structure
- 252:../../../os/rt/include/chevents.h ****  *
- 253:../../../os/rt/include/chevents.h ****  * @iclass
- 254:../../../os/rt/include/chevents.h ****  */
- 255:../../../os/rt/include/chevents.h **** static inline void chEvtBroadcastI(event_source_t *esp) {
- 256:../../../os/rt/include/chevents.h **** 
- 257:../../../os/rt/include/chevents.h ****   chEvtBroadcastFlagsI(esp, (eventflags_t)0);
-  35               		.loc 2 257 0
-  36 0006 60E0      		ldi r22,0
-  37 0008 0A96      		adiw r24,10
-  38               	.LVL2:
-  39 000a 0E94 0000 		call chEvtBroadcastFlagsI
-  40               	.LVL3:
-  41               	.LBE44:
-  42               	.LBE43:
+  16               		.loc 1 48 28 view -0
+  17               		.cfi_startproc
+  18               		.loc 1 48 28 is_stmt 0 view .LVU1
+  19 0000 CF93      		push r28
+  20               	.LCFI0:
+  21               		.cfi_def_cfa_offset 3
+  22               		.cfi_offset 28, -2
+  23 0002 DF93      		push r29
+  24               	.LCFI1:
+  25               		.cfi_def_cfa_offset 4
+  26               		.cfi_offset 29, -3
+  27               	/* prologue: function */
+  28               	/* frame size = 0 */
+  29               	/* stack size = 2 */
+  30               	.L__stack_usage = 2
+  31 0004 EC01      		movw r28,r24
   49:../../../os/various/evtimer.c ****   event_timer_t *etp = p;
+  32               		.loc 1 49 3 is_stmt 1 view .LVU2
+  33               	.LVL1:
   50:../../../os/various/evtimer.c **** 
   51:../../../os/various/evtimer.c ****   chSysLockFromISR();
-  52:../../../os/various/evtimer.c ****   chEvtBroadcastI(&etp->et_es);
-  53:../../../os/various/evtimer.c ****   chVTDoSetI(&etp->et_vt, etp->et_interval, tmrcb, etp);
-  43               		.loc 1 53 0
-  44 000e 6C85      		ldd r22,Y+12
-  45 0010 7D85      		ldd r23,Y+13
-  46 0012 9E01      		movw r18,r28
-  47 0014 40E0      		ldi r20,lo8(gs(tmrcb))
-  48 0016 50E0      		ldi r21,hi8(gs(tmrcb))
-  49 0018 CE01      		movw r24,r28
-  50               	/* epilogue start */
-  54:../../../os/various/evtimer.c ****   chSysUnlockFromISR();
-  55:../../../os/various/evtimer.c **** }
-  51               		.loc 1 55 0
-  52 001a DF91      		pop r29
-  53 001c CF91      		pop r28
-  54               	.LVL4:
-  53:../../../os/various/evtimer.c ****   chSysUnlockFromISR();
-  55               		.loc 1 53 0
-  56 001e 0C94 0000 		jmp chVTDoSetI
-  57               	.LVL5:
-  58               		.cfi_endproc
-  59               	.LFE142:
-  61               		.section	.text.evtObjectInit,"ax",@progbits
-  62               	.global	evtObjectInit
-  64               	evtObjectInit:
-  65               	.LFB143:
-  56:../../../os/various/evtimer.c **** 
-  57:../../../os/various/evtimer.c **** /*===========================================================================*/
-  58:../../../os/various/evtimer.c **** /* Module exported functions.                                                */
-  59:../../../os/various/evtimer.c **** /*===========================================================================*/
-  60:../../../os/various/evtimer.c **** 
-  61:../../../os/various/evtimer.c **** /**
-  62:../../../os/various/evtimer.c ****  * @brief Initializes an @p event_timer_t structure.
-  63:../../../os/various/evtimer.c ****  *
-  64:../../../os/various/evtimer.c ****  * @param[out] etp      the @p event_timer_t structure to be initialized
-  65:../../../os/various/evtimer.c ****  * @param[in] time      the interval in system ticks
-  66:../../../os/various/evtimer.c ****  */
-  67:../../../os/various/evtimer.c **** void evtObjectInit(event_timer_t *etp, systime_t time) {
-  66               		.loc 1 67 0
-  67               		.cfi_startproc
-  68               	.LVL6:
-  69               	/* prologue: function */
-  70               	/* frame size = 0 */
-  71               	/* stack size = 0 */
-  72               	.L__stack_usage = 0
-  73 0000 FC01      		movw r30,r24
-  74               	.LVL7:
-  68:../../../os/various/evtimer.c **** 
-  69:../../../os/various/evtimer.c ****   chEvtObjectInit(&etp->et_es);
-  75               		.loc 1 69 0
-  76 0002 0A96      		adiw r24,10
-  77               	.LVL8:
-  78               	.LBB45:
-  79               	.LBB46:
- 173:../../../os/rt/include/chevents.h **** }
-  80               		.loc 2 173 0
-  81 0004 9387      		std Z+11,r25
-  82 0006 8287      		std Z+10,r24
-  83               	.LVL9:
-  84               	.LBE46:
-  85               	.LBE45:
-  86               	.LBB47:
-  87               	.LBB48:
-  88               		.file 3 "../../../os/rt/include/chvt.h"
-   1:../../../os/rt/include/chvt.h **** /*
-   2:../../../os/rt/include/chvt.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
-   3:../../../os/rt/include/chvt.h **** 
-   4:../../../os/rt/include/chvt.h ****     This file is part of ChibiOS.
-   5:../../../os/rt/include/chvt.h **** 
-   6:../../../os/rt/include/chvt.h ****     ChibiOS is free software; you can redistribute it and/or modify
-   7:../../../os/rt/include/chvt.h ****     it under the terms of the GNU General Public License as published by
-   8:../../../os/rt/include/chvt.h ****     the Free Software Foundation; either version 3 of the License, or
-   9:../../../os/rt/include/chvt.h ****     (at your option) any later version.
-  10:../../../os/rt/include/chvt.h **** 
-  11:../../../os/rt/include/chvt.h ****     ChibiOS is distributed in the hope that it will be useful,
-  12:../../../os/rt/include/chvt.h ****     but WITHOUT ANY WARRANTY; without even the implied warranty of
-  13:../../../os/rt/include/chvt.h ****     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  14:../../../os/rt/include/chvt.h ****     GNU General Public License for more details.
-  15:../../../os/rt/include/chvt.h **** 
-  16:../../../os/rt/include/chvt.h ****     You should have received a copy of the GNU General Public License
-  17:../../../os/rt/include/chvt.h ****     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  18:../../../os/rt/include/chvt.h **** */
-  19:../../../os/rt/include/chvt.h **** 
-  20:../../../os/rt/include/chvt.h **** /**
-  21:../../../os/rt/include/chvt.h ****  * @file    chvt.h
-  22:../../../os/rt/include/chvt.h ****  * @brief   Time and Virtual Timers module macros and structures.
-  23:../../../os/rt/include/chvt.h ****  *
-  24:../../../os/rt/include/chvt.h ****  * @addtogroup time
-  25:../../../os/rt/include/chvt.h ****  * @{
-  26:../../../os/rt/include/chvt.h ****  */
-  27:../../../os/rt/include/chvt.h **** 
-  28:../../../os/rt/include/chvt.h **** #ifndef CHVT_H
-  29:../../../os/rt/include/chvt.h **** #define CHVT_H
-  30:../../../os/rt/include/chvt.h **** 
-  31:../../../os/rt/include/chvt.h **** /*===========================================================================*/
-  32:../../../os/rt/include/chvt.h **** /* Module constants.                                                         */
-  33:../../../os/rt/include/chvt.h **** /*===========================================================================*/
-  34:../../../os/rt/include/chvt.h **** 
-  35:../../../os/rt/include/chvt.h **** /*===========================================================================*/
-  36:../../../os/rt/include/chvt.h **** /* Module pre-compile time settings.                                         */
-  37:../../../os/rt/include/chvt.h **** /*===========================================================================*/
-  38:../../../os/rt/include/chvt.h **** 
-  39:../../../os/rt/include/chvt.h **** /*===========================================================================*/
-  40:../../../os/rt/include/chvt.h **** /* Derived constants and error checks.                                       */
-  41:../../../os/rt/include/chvt.h **** /*===========================================================================*/
-  42:../../../os/rt/include/chvt.h **** 
-  43:../../../os/rt/include/chvt.h **** #if (CH_CFG_ST_TIMEDELTA < 0) || (CH_CFG_ST_TIMEDELTA == 1)
-  44:../../../os/rt/include/chvt.h **** #error "invalid CH_CFG_ST_TIMEDELTA specified, must "                       \
-  45:../../../os/rt/include/chvt.h ****        "be zero or greater than one"
-  46:../../../os/rt/include/chvt.h **** #endif
-  47:../../../os/rt/include/chvt.h **** 
-  48:../../../os/rt/include/chvt.h **** //#if (CH_CFG_ST_TIMEDELTA > 0) && (CH_CFG_TIME_QUANTUM > 0)
-  49:../../../os/rt/include/chvt.h **** //#error "CH_CFG_TIME_QUANTUM not supported in tickless mode"
-  50:../../../os/rt/include/chvt.h **** //#endif
-  51:../../../os/rt/include/chvt.h **** 
-  52:../../../os/rt/include/chvt.h **** #if (CH_CFG_ST_TIMEDELTA > 0) && (CH_DBG_THREADS_PROFILING == TRUE)
-  53:../../../os/rt/include/chvt.h **** #error "CH_DBG_THREADS_PROFILING not supported in tickless mode"
-  54:../../../os/rt/include/chvt.h **** #endif
-  55:../../../os/rt/include/chvt.h **** 
-  56:../../../os/rt/include/chvt.h **** /*===========================================================================*/
-  57:../../../os/rt/include/chvt.h **** /* Module data structures and types.                                         */
-  58:../../../os/rt/include/chvt.h **** /*===========================================================================*/
-  59:../../../os/rt/include/chvt.h **** 
-  60:../../../os/rt/include/chvt.h **** /*===========================================================================*/
-  61:../../../os/rt/include/chvt.h **** /* Module macros.                                                            */
-  62:../../../os/rt/include/chvt.h **** /*===========================================================================*/
-  63:../../../os/rt/include/chvt.h **** 
-  64:../../../os/rt/include/chvt.h **** /*===========================================================================*/
-  65:../../../os/rt/include/chvt.h **** /* External declarations.                                                    */
-  66:../../../os/rt/include/chvt.h **** /*===========================================================================*/
-  67:../../../os/rt/include/chvt.h **** 
-  68:../../../os/rt/include/chvt.h **** /*
-  69:../../../os/rt/include/chvt.h ****  * Virtual Timers APIs.
-  70:../../../os/rt/include/chvt.h ****  */
-  71:../../../os/rt/include/chvt.h **** #ifdef __cplusplus
-  72:../../../os/rt/include/chvt.h **** extern "C" {
-  73:../../../os/rt/include/chvt.h **** #endif
-  74:../../../os/rt/include/chvt.h ****   void _vt_init(void);
-  75:../../../os/rt/include/chvt.h ****   void chVTDoSetI(virtual_timer_t *vtp, sysinterval_t delay,
-  76:../../../os/rt/include/chvt.h ****                   vtfunc_t vtfunc, void *par);
-  77:../../../os/rt/include/chvt.h ****   void chVTDoResetI(virtual_timer_t *vtp);
-  78:../../../os/rt/include/chvt.h **** #ifdef __cplusplus
-  79:../../../os/rt/include/chvt.h **** }
-  80:../../../os/rt/include/chvt.h **** #endif
-  81:../../../os/rt/include/chvt.h **** 
-  82:../../../os/rt/include/chvt.h **** /*===========================================================================*/
-  83:../../../os/rt/include/chvt.h **** /* Module inline functions.                                                  */
-  84:../../../os/rt/include/chvt.h **** /*===========================================================================*/
-  85:../../../os/rt/include/chvt.h **** 
-  86:../../../os/rt/include/chvt.h **** /**
-  87:../../../os/rt/include/chvt.h ****  * @brief   Initializes a @p virtual_timer_t object.
-  88:../../../os/rt/include/chvt.h ****  * @note    Initializing a timer object is not strictly required because
-  89:../../../os/rt/include/chvt.h ****  *          the function @p chVTSetI() initializes the object too. This
-  90:../../../os/rt/include/chvt.h ****  *          function is only useful if you need to perform a @p chVTIsArmed()
-  91:../../../os/rt/include/chvt.h ****  *          check before calling @p chVTSetI().
-  92:../../../os/rt/include/chvt.h ****  *
-  93:../../../os/rt/include/chvt.h ****  * @param[out] vtp      the @p virtual_timer_t structure pointer
-  94:../../../os/rt/include/chvt.h ****  *
-  95:../../../os/rt/include/chvt.h ****  * @init
-  96:../../../os/rt/include/chvt.h ****  */
-  97:../../../os/rt/include/chvt.h **** static inline void chVTObjectInit(virtual_timer_t *vtp) {
-  98:../../../os/rt/include/chvt.h **** 
-  99:../../../os/rt/include/chvt.h ****   vtp->func = NULL;
-  89               		.loc 3 99 0
-  90 0008 1782      		std Z+7,__zero_reg__
-  91 000a 1682      		std Z+6,__zero_reg__
-  92               	.LBE48:
-  93               	.LBE47:
-  70:../../../os/various/evtimer.c ****   chVTObjectInit(&etp->et_vt);
-  71:../../../os/various/evtimer.c ****   etp->et_interval = time;
-  94               		.loc 1 71 0
-  95 000c 7587      		std Z+13,r23
-  96 000e 6487      		std Z+12,r22
-  97 0010 0895      		ret
-  98               		.cfi_endproc
-  99               	.LFE143:
- 101               		.section	.text.evtStart,"ax",@progbits
- 102               	.global	evtStart
- 104               	evtStart:
- 105               	.LFB144:
-  72:../../../os/various/evtimer.c **** }
-  73:../../../os/various/evtimer.c **** 
-  74:../../../os/various/evtimer.c **** /**
-  75:../../../os/various/evtimer.c ****  * @brief   Starts the timer
-  76:../../../os/various/evtimer.c ****  * @details If the timer was already running then the function has no effect.
-  77:../../../os/various/evtimer.c ****  *
-  78:../../../os/various/evtimer.c ****  * @param[in] etp       pointer to an initialized @p event_timer_t structure.
-  79:../../../os/various/evtimer.c ****  */
-  80:../../../os/various/evtimer.c **** void evtStart(event_timer_t *etp) {
- 106               		.loc 1 80 0
- 107               		.cfi_startproc
- 108               	.LVL10:
- 109 0000 0F93      		push r16
- 110               	.LCFI2:
- 111               		.cfi_def_cfa_offset 3
- 112               		.cfi_offset 16, -2
- 113 0002 1F93      		push r17
- 114               	.LCFI3:
- 115               		.cfi_def_cfa_offset 4
- 116               		.cfi_offset 17, -3
- 117 0004 CF93      		push r28
- 118               	.LCFI4:
- 119               		.cfi_def_cfa_offset 5
- 120               		.cfi_offset 28, -4
- 121 0006 DF93      		push r29
- 122               	.LCFI5:
- 123               		.cfi_def_cfa_offset 6
- 124               		.cfi_offset 29, -5
- 125               	/* prologue: function */
- 126               	/* frame size = 0 */
- 127               	/* stack size = 4 */
- 128               	.L__stack_usage = 4
- 129 0008 EC01      		movw r28,r24
-  81:../../../os/various/evtimer.c **** 
-  82:../../../os/various/evtimer.c ****   chVTSet(&etp->et_vt, etp->et_interval, tmrcb, etp);
- 130               		.loc 1 82 0
- 131 000a 0C85      		ldd r16,Y+12
- 132 000c 1D85      		ldd r17,Y+13
- 133               	.LVL11:
- 134               	.LBB62:
- 135               	.LBB63:
- 136               	.LBB64:
- 137               	.LBB65:
- 138               		.file 4 "../../../os/common/ports/AVR/chcore.h"
+  34               		.loc 1 51 3 view .LVU3
+  35               		.file 2 "../../../os/rt/include/chsys.h"
+   1:../../../os/rt/include/chsys.h **** /*
+   2:../../../os/rt/include/chsys.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
+   3:../../../os/rt/include/chsys.h **** 
+   4:../../../os/rt/include/chsys.h ****     This file is part of ChibiOS.
+   5:../../../os/rt/include/chsys.h **** 
+   6:../../../os/rt/include/chsys.h ****     ChibiOS is free software; you can redistribute it and/or modify
+   7:../../../os/rt/include/chsys.h ****     it under the terms of the GNU General Public License as published by
+   8:../../../os/rt/include/chsys.h ****     the Free Software Foundation; either version 3 of the License, or
+   9:../../../os/rt/include/chsys.h ****     (at your option) any later version.
+  10:../../../os/rt/include/chsys.h **** 
+  11:../../../os/rt/include/chsys.h ****     ChibiOS is distributed in the hope that it will be useful,
+  12:../../../os/rt/include/chsys.h ****     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:../../../os/rt/include/chsys.h ****     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:../../../os/rt/include/chsys.h ****     GNU General Public License for more details.
+  15:../../../os/rt/include/chsys.h **** 
+  16:../../../os/rt/include/chsys.h ****     You should have received a copy of the GNU General Public License
+  17:../../../os/rt/include/chsys.h ****     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  18:../../../os/rt/include/chsys.h **** */
+  19:../../../os/rt/include/chsys.h **** 
+  20:../../../os/rt/include/chsys.h **** /**
+  21:../../../os/rt/include/chsys.h ****  * @file    chsys.h
+  22:../../../os/rt/include/chsys.h ****  * @brief   System related macros and structures.
+  23:../../../os/rt/include/chsys.h ****  *
+  24:../../../os/rt/include/chsys.h ****  * @addtogroup system
+  25:../../../os/rt/include/chsys.h ****  * @{
+  26:../../../os/rt/include/chsys.h ****  */
+  27:../../../os/rt/include/chsys.h **** 
+  28:../../../os/rt/include/chsys.h **** #ifndef CHSYS_H
+  29:../../../os/rt/include/chsys.h **** #define CHSYS_H
+  30:../../../os/rt/include/chsys.h **** 
+  31:../../../os/rt/include/chsys.h **** /*lint -sem(chSysHalt, r_no)*/
+  32:../../../os/rt/include/chsys.h **** 
+  33:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  34:../../../os/rt/include/chsys.h **** /* Module constants.                                                         */
+  35:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  36:../../../os/rt/include/chsys.h **** 
+  37:../../../os/rt/include/chsys.h **** /**
+  38:../../../os/rt/include/chsys.h ****  * @name    Masks of executable integrity checks.
+  39:../../../os/rt/include/chsys.h ****  * @{
+  40:../../../os/rt/include/chsys.h ****  */
+  41:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_RLIST                  1U
+  42:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_VTLIST                 2U
+  43:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_REGISTRY               4U
+  44:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_PORT                   8U
+  45:../../../os/rt/include/chsys.h **** /** @} */
+  46:../../../os/rt/include/chsys.h **** 
+  47:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  48:../../../os/rt/include/chsys.h **** /* Module pre-compile time settings.                                         */
+  49:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  50:../../../os/rt/include/chsys.h **** 
+  51:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  52:../../../os/rt/include/chsys.h **** /* Derived constants and error checks.                                       */
+  53:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  54:../../../os/rt/include/chsys.h **** 
+  55:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  56:../../../os/rt/include/chsys.h **** /* Module data structures and types.                                         */
+  57:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  58:../../../os/rt/include/chsys.h **** 
+  59:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  60:../../../os/rt/include/chsys.h **** /* Module macros.                                                            */
+  61:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  62:../../../os/rt/include/chsys.h **** 
+  63:../../../os/rt/include/chsys.h **** /**
+  64:../../../os/rt/include/chsys.h ****  * @name    ISRs abstraction macros
+  65:../../../os/rt/include/chsys.h ****  */
+  66:../../../os/rt/include/chsys.h **** /**
+  67:../../../os/rt/include/chsys.h ****  * @brief   Priority level validation macro.
+  68:../../../os/rt/include/chsys.h ****  * @details This macro determines if the passed value is a valid priority
+  69:../../../os/rt/include/chsys.h ****  *          level for the underlying architecture.
+  70:../../../os/rt/include/chsys.h ****  *
+  71:../../../os/rt/include/chsys.h ****  * @param[in] prio      the priority level
+  72:../../../os/rt/include/chsys.h ****  * @return              Priority range result.
+  73:../../../os/rt/include/chsys.h ****  * @retval false        if the priority is invalid or if the architecture
+  74:../../../os/rt/include/chsys.h ****  *                      does not support priorities.
+  75:../../../os/rt/include/chsys.h ****  * @retval true         if the priority is valid.
+  76:../../../os/rt/include/chsys.h ****  */
+  77:../../../os/rt/include/chsys.h **** #if defined(PORT_IRQ_IS_VALID_PRIORITY) || defined(__DOXYGEN__)
+  78:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_PRIORITY(prio)                                      \
+  79:../../../os/rt/include/chsys.h ****   PORT_IRQ_IS_VALID_PRIORITY(prio)
+  80:../../../os/rt/include/chsys.h **** #else
+  81:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_PRIORITY(prio) false
+  82:../../../os/rt/include/chsys.h **** #endif
+  83:../../../os/rt/include/chsys.h **** 
+  84:../../../os/rt/include/chsys.h **** /**
+  85:../../../os/rt/include/chsys.h ****  * @brief   Priority level validation macro.
+  86:../../../os/rt/include/chsys.h ****  * @details This macro determines if the passed value is a valid priority
+  87:../../../os/rt/include/chsys.h ****  *          level that cannot preempt the kernel critical zone.
+  88:../../../os/rt/include/chsys.h ****  *
+  89:../../../os/rt/include/chsys.h ****  * @param[in] prio      the priority level
+  90:../../../os/rt/include/chsys.h ****  * @return              Priority range result.
+  91:../../../os/rt/include/chsys.h ****  * @retval false        if the priority is invalid or if the architecture
+  92:../../../os/rt/include/chsys.h ****  *                      does not support priorities.
+  93:../../../os/rt/include/chsys.h ****  * @retval true         if the priority is valid.
+  94:../../../os/rt/include/chsys.h ****  */
+  95:../../../os/rt/include/chsys.h **** #if defined(PORT_IRQ_IS_VALID_KERNEL_PRIORITY) || defined(__DOXYGEN__)
+  96:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_KERNEL_PRIORITY(prio)                               \
+  97:../../../os/rt/include/chsys.h ****   PORT_IRQ_IS_VALID_KERNEL_PRIORITY(prio)
+  98:../../../os/rt/include/chsys.h **** #else
+  99:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_KERNEL_PRIORITY(prio) false
+ 100:../../../os/rt/include/chsys.h **** #endif
+ 101:../../../os/rt/include/chsys.h **** 
+ 102:../../../os/rt/include/chsys.h **** /**
+ 103:../../../os/rt/include/chsys.h ****  * @brief   IRQ handler enter code.
+ 104:../../../os/rt/include/chsys.h ****  * @note    Usually IRQ handlers functions are also declared naked.
+ 105:../../../os/rt/include/chsys.h ****  * @note    On some architectures this macro can be empty.
+ 106:../../../os/rt/include/chsys.h ****  *
+ 107:../../../os/rt/include/chsys.h ****  * @special
+ 108:../../../os/rt/include/chsys.h ****  */
+ 109:../../../os/rt/include/chsys.h **** #define CH_IRQ_PROLOGUE()                                                   \
+ 110:../../../os/rt/include/chsys.h ****   PORT_IRQ_PROLOGUE();                                                      \
+ 111:../../../os/rt/include/chsys.h ****   CH_CFG_IRQ_PROLOGUE_HOOK();                                               \
+ 112:../../../os/rt/include/chsys.h ****   _stats_increase_irq();                                                    \
+ 113:../../../os/rt/include/chsys.h ****   _trace_isr_enter(__func__);                                               \
+ 114:../../../os/rt/include/chsys.h ****   _dbg_check_enter_isr()
+ 115:../../../os/rt/include/chsys.h **** 
+ 116:../../../os/rt/include/chsys.h **** /**
+ 117:../../../os/rt/include/chsys.h ****  * @brief   IRQ handler exit code.
+ 118:../../../os/rt/include/chsys.h ****  * @note    Usually IRQ handlers function are also declared naked.
+ 119:../../../os/rt/include/chsys.h ****  * @note    This macro usually performs the final reschedule by using
+ 120:../../../os/rt/include/chsys.h ****  *          @p chSchIsPreemptionRequired() and @p chSchDoReschedule().
+ 121:../../../os/rt/include/chsys.h ****  *
+ 122:../../../os/rt/include/chsys.h ****  * @special
+ 123:../../../os/rt/include/chsys.h ****  */
+ 124:../../../os/rt/include/chsys.h **** #define CH_IRQ_EPILOGUE()                                                   \
+ 125:../../../os/rt/include/chsys.h ****   _dbg_check_leave_isr();                                                   \
+ 126:../../../os/rt/include/chsys.h ****   _trace_isr_leave(__func__);                                               \
+ 127:../../../os/rt/include/chsys.h ****   CH_CFG_IRQ_EPILOGUE_HOOK();                                               \
+ 128:../../../os/rt/include/chsys.h ****   PORT_IRQ_EPILOGUE()
+ 129:../../../os/rt/include/chsys.h **** 
+ 130:../../../os/rt/include/chsys.h **** /**
+ 131:../../../os/rt/include/chsys.h ****  * @brief   Standard normal IRQ handler declaration.
+ 132:../../../os/rt/include/chsys.h ****  * @note    @p id can be a function name or a vector number depending on the
+ 133:../../../os/rt/include/chsys.h ****  *          port implementation.
+ 134:../../../os/rt/include/chsys.h ****  *
+ 135:../../../os/rt/include/chsys.h ****  * @special
+ 136:../../../os/rt/include/chsys.h ****  */
+ 137:../../../os/rt/include/chsys.h **** #define CH_IRQ_HANDLER(id) PORT_IRQ_HANDLER(id)
+ 138:../../../os/rt/include/chsys.h **** /** @} */
+ 139:../../../os/rt/include/chsys.h **** 
+ 140:../../../os/rt/include/chsys.h **** /**
+ 141:../../../os/rt/include/chsys.h ****  * @name    Fast ISRs abstraction macros
+ 142:../../../os/rt/include/chsys.h ****  */
+ 143:../../../os/rt/include/chsys.h **** /**
+ 144:../../../os/rt/include/chsys.h ****  * @brief   Standard fast IRQ handler declaration.
+ 145:../../../os/rt/include/chsys.h ****  * @note    @p id can be a function name or a vector number depending on the
+ 146:../../../os/rt/include/chsys.h ****  *          port implementation.
+ 147:../../../os/rt/include/chsys.h ****  * @note    Not all architectures support fast interrupts.
+ 148:../../../os/rt/include/chsys.h ****  *
+ 149:../../../os/rt/include/chsys.h ****  * @special
+ 150:../../../os/rt/include/chsys.h ****  */
+ 151:../../../os/rt/include/chsys.h **** #define CH_FAST_IRQ_HANDLER(id) PORT_FAST_IRQ_HANDLER(id)
+ 152:../../../os/rt/include/chsys.h **** /** @} */
+ 153:../../../os/rt/include/chsys.h **** 
+ 154:../../../os/rt/include/chsys.h **** /**
+ 155:../../../os/rt/include/chsys.h ****  * @name    Time conversion utilities for the realtime counter
+ 156:../../../os/rt/include/chsys.h ****  * @{
+ 157:../../../os/rt/include/chsys.h ****  */
+ 158:../../../os/rt/include/chsys.h **** /**
+ 159:../../../os/rt/include/chsys.h ****  * @brief   Seconds to realtime counter.
+ 160:../../../os/rt/include/chsys.h ****  * @details Converts from seconds to realtime counter cycles.
+ 161:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1.
+ 162:../../../os/rt/include/chsys.h ****  *
+ 163:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 164:../../../os/rt/include/chsys.h ****  * @param[in] sec       number of seconds
+ 165:../../../os/rt/include/chsys.h ****  * @return              The number of cycles.
+ 166:../../../os/rt/include/chsys.h ****  *
+ 167:../../../os/rt/include/chsys.h ****  * @api
+ 168:../../../os/rt/include/chsys.h ****  */
+ 169:../../../os/rt/include/chsys.h **** #define S2RTC(freq, sec) ((freq) * (sec))
+ 170:../../../os/rt/include/chsys.h **** 
+ 171:../../../os/rt/include/chsys.h **** /**
+ 172:../../../os/rt/include/chsys.h ****  * @brief   Milliseconds to realtime counter.
+ 173:../../../os/rt/include/chsys.h ****  * @details Converts from milliseconds to realtime counter cycles.
+ 174:../../../os/rt/include/chsys.h ****  * @note    The result is rounded upward to the next millisecond boundary.
+ 175:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000.
+ 176:../../../os/rt/include/chsys.h ****  *
+ 177:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 178:../../../os/rt/include/chsys.h ****  * @param[in] msec      number of milliseconds
+ 179:../../../os/rt/include/chsys.h ****  * @return              The number of cycles.
+ 180:../../../os/rt/include/chsys.h ****  *
+ 181:../../../os/rt/include/chsys.h ****  * @api
+ 182:../../../os/rt/include/chsys.h ****  */
+ 183:../../../os/rt/include/chsys.h **** #define MS2RTC(freq, msec) (rtcnt_t)((((freq) + 999UL) / 1000UL) * (msec))
+ 184:../../../os/rt/include/chsys.h **** 
+ 185:../../../os/rt/include/chsys.h **** /**
+ 186:../../../os/rt/include/chsys.h ****  * @brief   Microseconds to realtime counter.
+ 187:../../../os/rt/include/chsys.h ****  * @details Converts from microseconds to realtime counter cycles.
+ 188:../../../os/rt/include/chsys.h ****  * @note    The result is rounded upward to the next microsecond boundary.
+ 189:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000000.
+ 190:../../../os/rt/include/chsys.h ****  *
+ 191:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 192:../../../os/rt/include/chsys.h ****  * @param[in] usec      number of microseconds
+ 193:../../../os/rt/include/chsys.h ****  * @return              The number of cycles.
+ 194:../../../os/rt/include/chsys.h ****  *
+ 195:../../../os/rt/include/chsys.h ****  * @api
+ 196:../../../os/rt/include/chsys.h ****  */
+ 197:../../../os/rt/include/chsys.h **** #define US2RTC(freq, usec) (rtcnt_t)((((freq) + 999999UL) / 1000000UL) * (usec))
+ 198:../../../os/rt/include/chsys.h **** 
+ 199:../../../os/rt/include/chsys.h **** /**
+ 200:../../../os/rt/include/chsys.h ****  * @brief   Realtime counter cycles to seconds.
+ 201:../../../os/rt/include/chsys.h ****  * @details Converts from realtime counter cycles number to seconds.
+ 202:../../../os/rt/include/chsys.h ****  * @note    The result is rounded up to the next second boundary.
+ 203:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1.
+ 204:../../../os/rt/include/chsys.h ****  *
+ 205:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 206:../../../os/rt/include/chsys.h ****  * @param[in] n         number of cycles
+ 207:../../../os/rt/include/chsys.h ****  * @return              The number of seconds.
+ 208:../../../os/rt/include/chsys.h ****  *
+ 209:../../../os/rt/include/chsys.h ****  * @api
+ 210:../../../os/rt/include/chsys.h ****  */
+ 211:../../../os/rt/include/chsys.h **** #define RTC2S(freq, n) ((((n) - 1UL) / (freq)) + 1UL)
+ 212:../../../os/rt/include/chsys.h **** 
+ 213:../../../os/rt/include/chsys.h **** /**
+ 214:../../../os/rt/include/chsys.h ****  * @brief   Realtime counter cycles to milliseconds.
+ 215:../../../os/rt/include/chsys.h ****  * @details Converts from realtime counter cycles number to milliseconds.
+ 216:../../../os/rt/include/chsys.h ****  * @note    The result is rounded up to the next millisecond boundary.
+ 217:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000.
+ 218:../../../os/rt/include/chsys.h ****  *
+ 219:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 220:../../../os/rt/include/chsys.h ****  * @param[in] n         number of cycles
+ 221:../../../os/rt/include/chsys.h ****  * @return              The number of milliseconds.
+ 222:../../../os/rt/include/chsys.h ****  *
+ 223:../../../os/rt/include/chsys.h ****  * @api
+ 224:../../../os/rt/include/chsys.h ****  */
+ 225:../../../os/rt/include/chsys.h **** #define RTC2MS(freq, n) ((((n) - 1UL) / ((freq) / 1000UL)) + 1UL)
+ 226:../../../os/rt/include/chsys.h **** 
+ 227:../../../os/rt/include/chsys.h **** /**
+ 228:../../../os/rt/include/chsys.h ****  * @brief   Realtime counter cycles to microseconds.
+ 229:../../../os/rt/include/chsys.h ****  * @details Converts from realtime counter cycles number to microseconds.
+ 230:../../../os/rt/include/chsys.h ****  * @note    The result is rounded up to the next microsecond boundary.
+ 231:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000000.
+ 232:../../../os/rt/include/chsys.h ****  *
+ 233:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 234:../../../os/rt/include/chsys.h ****  * @param[in] n         number of cycles
+ 235:../../../os/rt/include/chsys.h ****  * @return              The number of microseconds.
+ 236:../../../os/rt/include/chsys.h ****  *
+ 237:../../../os/rt/include/chsys.h ****  * @api
+ 238:../../../os/rt/include/chsys.h ****  */
+ 239:../../../os/rt/include/chsys.h **** #define RTC2US(freq, n) ((((n) - 1UL) / ((freq) / 1000000UL)) + 1UL)
+ 240:../../../os/rt/include/chsys.h **** /** @} */
+ 241:../../../os/rt/include/chsys.h **** 
+ 242:../../../os/rt/include/chsys.h **** /**
+ 243:../../../os/rt/include/chsys.h ****  * @brief   Returns the current value of the system real time counter.
+ 244:../../../os/rt/include/chsys.h ****  * @note    This function is only available if the port layer supports the
+ 245:../../../os/rt/include/chsys.h ****  *          option @p PORT_SUPPORTS_RT.
+ 246:../../../os/rt/include/chsys.h ****  *
+ 247:../../../os/rt/include/chsys.h ****  * @return              The value of the system realtime counter of
+ 248:../../../os/rt/include/chsys.h ****  *                      type rtcnt_t.
+ 249:../../../os/rt/include/chsys.h ****  *
+ 250:../../../os/rt/include/chsys.h ****  * @xclass
+ 251:../../../os/rt/include/chsys.h ****  */
+ 252:../../../os/rt/include/chsys.h **** #if (PORT_SUPPORTS_RT == TRUE) || defined(__DOXYGEN__)
+ 253:../../../os/rt/include/chsys.h **** #define chSysGetRealtimeCounterX() (rtcnt_t)port_rt_get_counter_value()
+ 254:../../../os/rt/include/chsys.h **** #endif
+ 255:../../../os/rt/include/chsys.h **** 
+ 256:../../../os/rt/include/chsys.h **** /**
+ 257:../../../os/rt/include/chsys.h ****  * @brief   Performs a context switch.
+ 258:../../../os/rt/include/chsys.h ****  * @note    Not a user function, it is meant to be invoked by the scheduler
+ 259:../../../os/rt/include/chsys.h ****  *          itself or from within the port layer.
+ 260:../../../os/rt/include/chsys.h ****  *
+ 261:../../../os/rt/include/chsys.h ****  * @param[in] ntp       the thread to be switched in
+ 262:../../../os/rt/include/chsys.h ****  * @param[in] otp       the thread to be switched out
+ 263:../../../os/rt/include/chsys.h ****  *
+ 264:../../../os/rt/include/chsys.h ****  * @special
+ 265:../../../os/rt/include/chsys.h ****  */
+ 266:../../../os/rt/include/chsys.h **** #define chSysSwitch(ntp, otp) {                                             \
+ 267:../../../os/rt/include/chsys.h ****                                                                             \
+ 268:../../../os/rt/include/chsys.h ****   _trace_switch(ntp, otp);                                                  \
+ 269:../../../os/rt/include/chsys.h ****   _stats_ctxswc(ntp, otp);                                                  \
+ 270:../../../os/rt/include/chsys.h ****   CH_CFG_CONTEXT_SWITCH_HOOK(ntp, otp);                                     \
+ 271:../../../os/rt/include/chsys.h ****   port_switch(ntp, otp);                                                    \
+ 272:../../../os/rt/include/chsys.h **** }
+ 273:../../../os/rt/include/chsys.h **** 
+ 274:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 275:../../../os/rt/include/chsys.h **** /* External declarations.                                                    */
+ 276:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 277:../../../os/rt/include/chsys.h **** 
+ 278:../../../os/rt/include/chsys.h **** #if !defined(__DOXYGEN__)
+ 279:../../../os/rt/include/chsys.h **** extern stkalign_t ch_idle_thread_wa[];
+ 280:../../../os/rt/include/chsys.h **** #endif
+ 281:../../../os/rt/include/chsys.h **** 
+ 282:../../../os/rt/include/chsys.h **** #ifdef __cplusplus
+ 283:../../../os/rt/include/chsys.h **** extern "C" {
+ 284:../../../os/rt/include/chsys.h **** #endif
+ 285:../../../os/rt/include/chsys.h ****   void chSysInit(void);
+ 286:../../../os/rt/include/chsys.h ****   bool chSysIntegrityCheckI(unsigned testmask);
+ 287:../../../os/rt/include/chsys.h ****   void chSysTimerHandlerI(void);
+ 288:../../../os/rt/include/chsys.h ****   syssts_t chSysGetStatusAndLockX(void);
+ 289:../../../os/rt/include/chsys.h ****   void chSysRestoreStatusX(syssts_t sts);
+ 290:../../../os/rt/include/chsys.h **** #if PORT_SUPPORTS_RT == TRUE
+ 291:../../../os/rt/include/chsys.h ****   bool chSysIsCounterWithinX(rtcnt_t cnt, rtcnt_t start, rtcnt_t end);
+ 292:../../../os/rt/include/chsys.h ****   void chSysPolledDelayX(rtcnt_t cycles);
+ 293:../../../os/rt/include/chsys.h **** #endif
+ 294:../../../os/rt/include/chsys.h **** #ifdef __cplusplus
+ 295:../../../os/rt/include/chsys.h **** }
+ 296:../../../os/rt/include/chsys.h **** #endif
+ 297:../../../os/rt/include/chsys.h **** 
+ 298:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 299:../../../os/rt/include/chsys.h **** /* Module inline functions.                                                  */
+ 300:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 301:../../../os/rt/include/chsys.h **** 
+ 302:../../../os/rt/include/chsys.h **** /**
+ 303:../../../os/rt/include/chsys.h ****  * @brief   Raises the system interrupt priority mask to the maximum level.
+ 304:../../../os/rt/include/chsys.h ****  * @details All the maskable interrupt sources are disabled regardless their
+ 305:../../../os/rt/include/chsys.h ****  *          hardware priority.
+ 306:../../../os/rt/include/chsys.h ****  * @note    Do not invoke this API from within a kernel lock.
+ 307:../../../os/rt/include/chsys.h ****  *
+ 308:../../../os/rt/include/chsys.h ****  * @special
+ 309:../../../os/rt/include/chsys.h ****  */
+ 310:../../../os/rt/include/chsys.h **** static inline void chSysDisable(void) {
+ 311:../../../os/rt/include/chsys.h **** 
+ 312:../../../os/rt/include/chsys.h ****   port_disable();
+ 313:../../../os/rt/include/chsys.h ****   _dbg_check_disable();
+ 314:../../../os/rt/include/chsys.h **** }
+ 315:../../../os/rt/include/chsys.h **** 
+ 316:../../../os/rt/include/chsys.h **** /**
+ 317:../../../os/rt/include/chsys.h ****  * @brief   Raises the system interrupt priority mask to system level.
+ 318:../../../os/rt/include/chsys.h ****  * @details The interrupt sources that should not be able to preempt the kernel
+ 319:../../../os/rt/include/chsys.h ****  *          are disabled, interrupt sources with higher priority are still
+ 320:../../../os/rt/include/chsys.h ****  *          enabled.
+ 321:../../../os/rt/include/chsys.h ****  * @note    Do not invoke this API from within a kernel lock.
+ 322:../../../os/rt/include/chsys.h ****  * @note    This API is no replacement for @p chSysLock(), the @p chSysLock()
+ 323:../../../os/rt/include/chsys.h ****  *          could do more than just disable the interrupts.
+ 324:../../../os/rt/include/chsys.h ****  *
+ 325:../../../os/rt/include/chsys.h ****  * @special
+ 326:../../../os/rt/include/chsys.h ****  */
+ 327:../../../os/rt/include/chsys.h **** static inline void chSysSuspend(void) {
+ 328:../../../os/rt/include/chsys.h **** 
+ 329:../../../os/rt/include/chsys.h ****   port_suspend();
+ 330:../../../os/rt/include/chsys.h ****   _dbg_check_suspend();
+ 331:../../../os/rt/include/chsys.h **** }
+ 332:../../../os/rt/include/chsys.h **** 
+ 333:../../../os/rt/include/chsys.h **** /**
+ 334:../../../os/rt/include/chsys.h ****  * @brief   Lowers the system interrupt priority mask to user level.
+ 335:../../../os/rt/include/chsys.h ****  * @details All the interrupt sources are enabled.
+ 336:../../../os/rt/include/chsys.h ****  * @note    Do not invoke this API from within a kernel lock.
+ 337:../../../os/rt/include/chsys.h ****  * @note    This API is no replacement for @p chSysUnlock(), the
+ 338:../../../os/rt/include/chsys.h ****  *          @p chSysUnlock() could do more than just enable the interrupts.
+ 339:../../../os/rt/include/chsys.h ****  *
+ 340:../../../os/rt/include/chsys.h ****  * @special
+ 341:../../../os/rt/include/chsys.h ****  */
+ 342:../../../os/rt/include/chsys.h **** static inline void chSysEnable(void) {
+ 343:../../../os/rt/include/chsys.h **** 
+ 344:../../../os/rt/include/chsys.h ****   _dbg_check_enable();
+ 345:../../../os/rt/include/chsys.h ****   port_enable();
+ 346:../../../os/rt/include/chsys.h **** }
+ 347:../../../os/rt/include/chsys.h **** 
+ 348:../../../os/rt/include/chsys.h **** /**
+ 349:../../../os/rt/include/chsys.h ****  * @brief   Enters the kernel lock state.
+ 350:../../../os/rt/include/chsys.h ****  *
+ 351:../../../os/rt/include/chsys.h ****  * @special
+ 352:../../../os/rt/include/chsys.h ****  */
+ 353:../../../os/rt/include/chsys.h **** static inline void chSysLock(void) {
+ 354:../../../os/rt/include/chsys.h **** 
+ 355:../../../os/rt/include/chsys.h ****   port_lock();
+ 356:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_thd();
+ 357:../../../os/rt/include/chsys.h ****   _dbg_check_lock();
+ 358:../../../os/rt/include/chsys.h **** }
+ 359:../../../os/rt/include/chsys.h **** 
+ 360:../../../os/rt/include/chsys.h **** /**
+ 361:../../../os/rt/include/chsys.h ****  * @brief   Leaves the kernel lock state.
+ 362:../../../os/rt/include/chsys.h ****  *
+ 363:../../../os/rt/include/chsys.h ****  * @special
+ 364:../../../os/rt/include/chsys.h ****  */
+ 365:../../../os/rt/include/chsys.h **** static inline void chSysUnlock(void) {
+ 366:../../../os/rt/include/chsys.h **** 
+ 367:../../../os/rt/include/chsys.h ****   _dbg_check_unlock();
+ 368:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 369:../../../os/rt/include/chsys.h **** 
+ 370:../../../os/rt/include/chsys.h ****   /* The following condition can be triggered by the use of i-class functions
+ 371:../../../os/rt/include/chsys.h ****      in a critical section not followed by a chSchResceduleS(), this means
+ 372:../../../os/rt/include/chsys.h ****      that the current thread has a lower priority than the next thread in
+ 373:../../../os/rt/include/chsys.h ****      the ready list.*/
+ 374:../../../os/rt/include/chsys.h ****   chDbgAssert((ch.rlist.queue.next == (thread_t *)&ch.rlist.queue) ||
+ 375:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 376:../../../os/rt/include/chsys.h ****               "priority order violation");
+ 377:../../../os/rt/include/chsys.h **** 
+ 378:../../../os/rt/include/chsys.h ****   port_unlock();
+ 379:../../../os/rt/include/chsys.h **** }
+ 380:../../../os/rt/include/chsys.h **** 
+ 381:../../../os/rt/include/chsys.h **** /**
+ 382:../../../os/rt/include/chsys.h ****  * @brief   Enters the kernel lock state from within an interrupt handler.
+ 383:../../../os/rt/include/chsys.h ****  * @note    This API may do nothing on some architectures, it is required
+ 384:../../../os/rt/include/chsys.h ****  *          because on ports that support preemptable interrupt handlers
+ 385:../../../os/rt/include/chsys.h ****  *          it is required to raise the interrupt mask to the same level of
+ 386:../../../os/rt/include/chsys.h ****  *          the system mutual exclusion zone.<br>
+ 387:../../../os/rt/include/chsys.h ****  *          It is good practice to invoke this API before invoking any I-class
+ 388:../../../os/rt/include/chsys.h ****  *          syscall from an interrupt handler.
+ 389:../../../os/rt/include/chsys.h ****  * @note    This API must be invoked exclusively from interrupt handlers.
+ 390:../../../os/rt/include/chsys.h ****  *
+ 391:../../../os/rt/include/chsys.h ****  * @special
+ 392:../../../os/rt/include/chsys.h ****  */
+ 393:../../../os/rt/include/chsys.h **** static inline void chSysLockFromISR(void) {
+ 394:../../../os/rt/include/chsys.h **** 
+ 395:../../../os/rt/include/chsys.h ****   port_lock_from_isr();
+  36               		.loc 2 395 3 view .LVU4
+  37               		.file 3 "../../../os/common/ports/AVR/chcore.h"
    1:../../../os/common/ports/AVR/chcore.h **** /*
    2:../../../os/common/ports/AVR/chcore.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
    3:../../../os/common/ports/AVR/chcore.h **** 
@@ -1008,20 +917,550 @@
  435:../../../os/common/ports/AVR/chcore.h **** static inline void port_lock(void) {
  436:../../../os/common/ports/AVR/chcore.h **** 
  437:../../../os/common/ports/AVR/chcore.h ****   asm volatile ("cli" : : : "memory");
- 139               		.loc 4 437 0
- 140               	/* #APP */
- 141               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
- 142 000e F894      		cli
- 143               	 ;  0 "" 2
- 144               	.LVL12:
- 145               	/* #NOAPP */
- 146               	.LBE65:
- 147               	.LBE64:
- 148               	.LBE63:
- 149               	.LBB66:
- 150               	.LBB67:
- 151               	.LBB68:
- 152               	.LBB69:
+ 438:../../../os/common/ports/AVR/chcore.h **** }
+ 439:../../../os/common/ports/AVR/chcore.h **** 
+ 440:../../../os/common/ports/AVR/chcore.h **** /**
+ 441:../../../os/common/ports/AVR/chcore.h ****  * @brief   Kernel-unlock action.
+ 442:../../../os/common/ports/AVR/chcore.h ****  * @details Usually this function just enables interrupts but may perform more
+ 443:../../../os/common/ports/AVR/chcore.h ****  *          actions.
+ 444:../../../os/common/ports/AVR/chcore.h ****  */
+ 445:../../../os/common/ports/AVR/chcore.h **** static inline void port_unlock(void) {
+ 446:../../../os/common/ports/AVR/chcore.h **** 
+ 447:../../../os/common/ports/AVR/chcore.h ****   asm volatile ("sei" : : : "memory");
+ 448:../../../os/common/ports/AVR/chcore.h **** }
+ 449:../../../os/common/ports/AVR/chcore.h **** 
+ 450:../../../os/common/ports/AVR/chcore.h **** /**
+ 451:../../../os/common/ports/AVR/chcore.h ****  * @brief   Kernel-lock action from an interrupt handler.
+ 452:../../../os/common/ports/AVR/chcore.h ****  * @details This function is invoked before invoking I-class APIs from
+ 453:../../../os/common/ports/AVR/chcore.h ****  *          interrupt handlers. The implementation is architecture dependent,
+ 454:../../../os/common/ports/AVR/chcore.h ****  *          in its simplest form it is void.
+ 455:../../../os/common/ports/AVR/chcore.h ****  * @note    This function is empty in this port.
+ 456:../../../os/common/ports/AVR/chcore.h ****  */
+ 457:../../../os/common/ports/AVR/chcore.h **** static inline void port_lock_from_isr(void) {
+ 458:../../../os/common/ports/AVR/chcore.h **** 
+ 459:../../../os/common/ports/AVR/chcore.h **** }
+  38               		.loc 3 459 1 view .LVU5
+ 396:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_isr();
+  39               		.loc 2 396 34 view .LVU6
+ 397:../../../os/rt/include/chsys.h ****   _dbg_check_lock_from_isr();
+  40               		.loc 2 397 29 view .LVU7
+  52:../../../os/various/evtimer.c ****   chEvtBroadcastI(&etp->et_es);
+  41               		.loc 1 52 3 view .LVU8
+  42               	.LBB43:
+  43               	.LBI43:
+  44               		.file 4 "../../../os/rt/include/chevents.h"
+   1:../../../os/rt/include/chevents.h **** /*
+   2:../../../os/rt/include/chevents.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
+   3:../../../os/rt/include/chevents.h **** 
+   4:../../../os/rt/include/chevents.h ****     This file is part of ChibiOS.
+   5:../../../os/rt/include/chevents.h **** 
+   6:../../../os/rt/include/chevents.h ****     ChibiOS is free software; you can redistribute it and/or modify
+   7:../../../os/rt/include/chevents.h ****     it under the terms of the GNU General Public License as published by
+   8:../../../os/rt/include/chevents.h ****     the Free Software Foundation; either version 3 of the License, or
+   9:../../../os/rt/include/chevents.h ****     (at your option) any later version.
+  10:../../../os/rt/include/chevents.h **** 
+  11:../../../os/rt/include/chevents.h ****     ChibiOS is distributed in the hope that it will be useful,
+  12:../../../os/rt/include/chevents.h ****     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:../../../os/rt/include/chevents.h ****     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:../../../os/rt/include/chevents.h ****     GNU General Public License for more details.
+  15:../../../os/rt/include/chevents.h **** 
+  16:../../../os/rt/include/chevents.h ****     You should have received a copy of the GNU General Public License
+  17:../../../os/rt/include/chevents.h ****     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  18:../../../os/rt/include/chevents.h **** */
+  19:../../../os/rt/include/chevents.h **** /*
+  20:../../../os/rt/include/chevents.h ****    Concepts and parts of this file have been contributed by Scott (skute).
+  21:../../../os/rt/include/chevents.h ****  */
+  22:../../../os/rt/include/chevents.h **** 
+  23:../../../os/rt/include/chevents.h **** /**
+  24:../../../os/rt/include/chevents.h ****  * @file    chevents.h
+  25:../../../os/rt/include/chevents.h ****  * @brief   Events macros and structures.
+  26:../../../os/rt/include/chevents.h ****  *
+  27:../../../os/rt/include/chevents.h ****  * @addtogroup events
+  28:../../../os/rt/include/chevents.h ****  * @{
+  29:../../../os/rt/include/chevents.h ****  */
+  30:../../../os/rt/include/chevents.h **** 
+  31:../../../os/rt/include/chevents.h **** #ifndef CHEVENTS_H
+  32:../../../os/rt/include/chevents.h **** #define CHEVENTS_H
+  33:../../../os/rt/include/chevents.h **** 
+  34:../../../os/rt/include/chevents.h **** #if (CH_CFG_USE_EVENTS == TRUE) || defined(__DOXYGEN__)
+  35:../../../os/rt/include/chevents.h **** 
+  36:../../../os/rt/include/chevents.h **** /*===========================================================================*/
+  37:../../../os/rt/include/chevents.h **** /* Module constants.                                                         */
+  38:../../../os/rt/include/chevents.h **** /*===========================================================================*/
+  39:../../../os/rt/include/chevents.h **** 
+  40:../../../os/rt/include/chevents.h **** /*===========================================================================*/
+  41:../../../os/rt/include/chevents.h **** /* Module pre-compile time settings.                                         */
+  42:../../../os/rt/include/chevents.h **** /*===========================================================================*/
+  43:../../../os/rt/include/chevents.h **** 
+  44:../../../os/rt/include/chevents.h **** /*===========================================================================*/
+  45:../../../os/rt/include/chevents.h **** /* Derived constants and error checks.                                       */
+  46:../../../os/rt/include/chevents.h **** /*===========================================================================*/
+  47:../../../os/rt/include/chevents.h **** 
+  48:../../../os/rt/include/chevents.h **** /*===========================================================================*/
+  49:../../../os/rt/include/chevents.h **** /* Module data structures and types.                                         */
+  50:../../../os/rt/include/chevents.h **** /*===========================================================================*/
+  51:../../../os/rt/include/chevents.h **** 
+  52:../../../os/rt/include/chevents.h **** typedef struct event_listener event_listener_t;
+  53:../../../os/rt/include/chevents.h **** 
+  54:../../../os/rt/include/chevents.h **** /**
+  55:../../../os/rt/include/chevents.h ****  * @brief   Event Listener structure.
+  56:../../../os/rt/include/chevents.h ****  */
+  57:../../../os/rt/include/chevents.h **** struct event_listener {
+  58:../../../os/rt/include/chevents.h ****   event_listener_t      *next;          /**< @brief Next Event Listener
+  59:../../../os/rt/include/chevents.h ****                                                     registered on the event
+  60:../../../os/rt/include/chevents.h ****                                                     source.                 */
+  61:../../../os/rt/include/chevents.h ****   thread_t              *listener;      /**< @brief Thread interested in the
+  62:../../../os/rt/include/chevents.h ****                                                     event source.           */
+  63:../../../os/rt/include/chevents.h ****   eventmask_t           events;         /**< @brief Events to be set in
+  64:../../../os/rt/include/chevents.h ****                                                     the listening thread.   */
+  65:../../../os/rt/include/chevents.h ****   eventflags_t          flags;          /**< @brief Flags added to the listener
+  66:../../../os/rt/include/chevents.h ****                                                     by the event source.    */
+  67:../../../os/rt/include/chevents.h ****   eventflags_t          wflags;         /**< @brief Flags that this listener
+  68:../../../os/rt/include/chevents.h ****                                                     interested in.          */
+  69:../../../os/rt/include/chevents.h **** };
+  70:../../../os/rt/include/chevents.h **** 
+  71:../../../os/rt/include/chevents.h **** /**
+  72:../../../os/rt/include/chevents.h ****  * @brief   Event Source structure.
+  73:../../../os/rt/include/chevents.h ****  */
+  74:../../../os/rt/include/chevents.h **** typedef struct event_source {
+  75:../../../os/rt/include/chevents.h ****   event_listener_t      *next;          /**< @brief First Event Listener
+  76:../../../os/rt/include/chevents.h ****                                                     registered on the Event
+  77:../../../os/rt/include/chevents.h ****                                                     Source.                 */
+  78:../../../os/rt/include/chevents.h **** } event_source_t;
+  79:../../../os/rt/include/chevents.h **** 
+  80:../../../os/rt/include/chevents.h **** /**
+  81:../../../os/rt/include/chevents.h ****  * @brief   Event Handler callback function.
+  82:../../../os/rt/include/chevents.h ****  */
+  83:../../../os/rt/include/chevents.h **** typedef void (*evhandler_t)(eventid_t id);
+  84:../../../os/rt/include/chevents.h **** 
+  85:../../../os/rt/include/chevents.h **** /*===========================================================================*/
+  86:../../../os/rt/include/chevents.h **** /* Module macros.                                                            */
+  87:../../../os/rt/include/chevents.h **** /*===========================================================================*/
+  88:../../../os/rt/include/chevents.h **** 
+  89:../../../os/rt/include/chevents.h **** /**
+  90:../../../os/rt/include/chevents.h ****  * @brief   All events allowed mask.
+  91:../../../os/rt/include/chevents.h ****  */
+  92:../../../os/rt/include/chevents.h **** #define ALL_EVENTS      ((eventmask_t)-1)
+  93:../../../os/rt/include/chevents.h **** 
+  94:../../../os/rt/include/chevents.h **** /**
+  95:../../../os/rt/include/chevents.h ****  * @brief   Returns an event mask from an event identifier.
+  96:../../../os/rt/include/chevents.h ****  */
+  97:../../../os/rt/include/chevents.h **** #define EVENT_MASK(eid) ((eventmask_t)1 << (eventmask_t)(eid))
+  98:../../../os/rt/include/chevents.h **** 
+  99:../../../os/rt/include/chevents.h **** /**
+ 100:../../../os/rt/include/chevents.h ****  * @brief   Data part of a static event source initializer.
+ 101:../../../os/rt/include/chevents.h ****  * @details This macro should be used when statically initializing an event
+ 102:../../../os/rt/include/chevents.h ****  *          source that is part of a bigger structure.
+ 103:../../../os/rt/include/chevents.h ****  * @param name          the name of the event source variable
+ 104:../../../os/rt/include/chevents.h ****  */
+ 105:../../../os/rt/include/chevents.h **** #define _EVENTSOURCE_DATA(name) {(event_listener_t *)(&name)}
+ 106:../../../os/rt/include/chevents.h **** 
+ 107:../../../os/rt/include/chevents.h **** /**
+ 108:../../../os/rt/include/chevents.h ****  * @brief   Static event source initializer.
+ 109:../../../os/rt/include/chevents.h ****  * @details Statically initialized event sources require no explicit
+ 110:../../../os/rt/include/chevents.h ****  *          initialization using @p chEvtInit().
+ 111:../../../os/rt/include/chevents.h ****  *
+ 112:../../../os/rt/include/chevents.h ****  * @param name          the name of the event source variable
+ 113:../../../os/rt/include/chevents.h ****  */
+ 114:../../../os/rt/include/chevents.h **** #define EVENTSOURCE_DECL(name) event_source_t name = _EVENTSOURCE_DATA(name)
+ 115:../../../os/rt/include/chevents.h **** 
+ 116:../../../os/rt/include/chevents.h **** /*===========================================================================*/
+ 117:../../../os/rt/include/chevents.h **** /* External declarations.                                                    */
+ 118:../../../os/rt/include/chevents.h **** /*===========================================================================*/
+ 119:../../../os/rt/include/chevents.h **** 
+ 120:../../../os/rt/include/chevents.h **** #ifdef __cplusplus
+ 121:../../../os/rt/include/chevents.h **** extern "C" {
+ 122:../../../os/rt/include/chevents.h **** #endif
+ 123:../../../os/rt/include/chevents.h ****   void chEvtRegisterMaskWithFlags(event_source_t *esp,
+ 124:../../../os/rt/include/chevents.h ****                                   event_listener_t *elp,
+ 125:../../../os/rt/include/chevents.h ****                                   eventmask_t events,
+ 126:../../../os/rt/include/chevents.h ****                                   eventflags_t wflags);
+ 127:../../../os/rt/include/chevents.h ****   void chEvtUnregister(event_source_t *esp, event_listener_t *elp);
+ 128:../../../os/rt/include/chevents.h ****   eventmask_t chEvtGetAndClearEventsI(eventmask_t events);
+ 129:../../../os/rt/include/chevents.h ****   eventmask_t chEvtGetAndClearEvents(eventmask_t events);
+ 130:../../../os/rt/include/chevents.h ****   eventmask_t chEvtAddEvents(eventmask_t events);
+ 131:../../../os/rt/include/chevents.h ****   eventflags_t chEvtGetAndClearFlags(event_listener_t *elp);
+ 132:../../../os/rt/include/chevents.h ****   eventflags_t chEvtGetAndClearFlagsI(event_listener_t *elp);
+ 133:../../../os/rt/include/chevents.h ****   void chEvtSignal(thread_t *tp, eventmask_t events);
+ 134:../../../os/rt/include/chevents.h ****   void chEvtSignalI(thread_t *tp, eventmask_t events);
+ 135:../../../os/rt/include/chevents.h ****   void chEvtBroadcastFlags(event_source_t *esp, eventflags_t flags);
+ 136:../../../os/rt/include/chevents.h ****   void chEvtBroadcastFlagsI(event_source_t *esp, eventflags_t flags);
+ 137:../../../os/rt/include/chevents.h ****   void chEvtDispatch(const evhandler_t *handlers, eventmask_t events);
+ 138:../../../os/rt/include/chevents.h **** #if (CH_CFG_OPTIMIZE_SPEED == TRUE) || (CH_CFG_USE_EVENTS_TIMEOUT == FALSE)
+ 139:../../../os/rt/include/chevents.h ****   eventmask_t chEvtWaitOne(eventmask_t events);
+ 140:../../../os/rt/include/chevents.h ****   eventmask_t chEvtWaitAny(eventmask_t events);
+ 141:../../../os/rt/include/chevents.h ****   eventmask_t chEvtWaitAll(eventmask_t events);
+ 142:../../../os/rt/include/chevents.h **** #endif
+ 143:../../../os/rt/include/chevents.h **** #if CH_CFG_USE_EVENTS_TIMEOUT == TRUE
+ 144:../../../os/rt/include/chevents.h ****   eventmask_t chEvtWaitOneTimeout(eventmask_t events, sysinterval_t timeout);
+ 145:../../../os/rt/include/chevents.h ****   eventmask_t chEvtWaitAnyTimeout(eventmask_t events, sysinterval_t timeout);
+ 146:../../../os/rt/include/chevents.h ****   eventmask_t chEvtWaitAllTimeout(eventmask_t events, sysinterval_t timeout);
+ 147:../../../os/rt/include/chevents.h **** #endif
+ 148:../../../os/rt/include/chevents.h **** #ifdef __cplusplus
+ 149:../../../os/rt/include/chevents.h **** }
+ 150:../../../os/rt/include/chevents.h **** #endif
+ 151:../../../os/rt/include/chevents.h **** 
+ 152:../../../os/rt/include/chevents.h **** #if (CH_CFG_OPTIMIZE_SPEED == FALSE) && (CH_CFG_USE_EVENTS_TIMEOUT == TRUE)
+ 153:../../../os/rt/include/chevents.h **** #define chEvtWaitOne(mask) chEvtWaitOneTimeout(mask, TIME_INFINITE)
+ 154:../../../os/rt/include/chevents.h **** #define chEvtWaitAny(mask) chEvtWaitAnyTimeout(mask, TIME_INFINITE)
+ 155:../../../os/rt/include/chevents.h **** #define chEvtWaitAll(mask) chEvtWaitAllTimeout(mask, TIME_INFINITE)
+ 156:../../../os/rt/include/chevents.h **** #endif
+ 157:../../../os/rt/include/chevents.h **** 
+ 158:../../../os/rt/include/chevents.h **** /*===========================================================================*/
+ 159:../../../os/rt/include/chevents.h **** /* Module inline functions.                                                  */
+ 160:../../../os/rt/include/chevents.h **** /*===========================================================================*/
+ 161:../../../os/rt/include/chevents.h **** 
+ 162:../../../os/rt/include/chevents.h **** /**
+ 163:../../../os/rt/include/chevents.h ****  * @brief   Initializes an Event Source.
+ 164:../../../os/rt/include/chevents.h ****  * @note    This function can be invoked before the kernel is initialized
+ 165:../../../os/rt/include/chevents.h ****  *          because it just prepares a @p event_source_t structure.
+ 166:../../../os/rt/include/chevents.h ****  *
+ 167:../../../os/rt/include/chevents.h ****  * @param[in] esp       pointer to the @p event_source_t structure
+ 168:../../../os/rt/include/chevents.h ****  *
+ 169:../../../os/rt/include/chevents.h ****  * @init
+ 170:../../../os/rt/include/chevents.h ****  */
+ 171:../../../os/rt/include/chevents.h **** static inline void chEvtObjectInit(event_source_t *esp) {
+ 172:../../../os/rt/include/chevents.h **** 
+ 173:../../../os/rt/include/chevents.h ****   esp->next = (event_listener_t *)esp;
+ 174:../../../os/rt/include/chevents.h **** }
+ 175:../../../os/rt/include/chevents.h **** 
+ 176:../../../os/rt/include/chevents.h **** /**
+ 177:../../../os/rt/include/chevents.h ****  * @brief   Registers an Event Listener on an Event Source.
+ 178:../../../os/rt/include/chevents.h ****  * @details Once a thread has registered as listener on an event source it
+ 179:../../../os/rt/include/chevents.h ****  *          will be notified of all events broadcasted there.
+ 180:../../../os/rt/include/chevents.h ****  * @note    Multiple Event Listeners can specify the same bits to be ORed to
+ 181:../../../os/rt/include/chevents.h ****  *          different threads.
+ 182:../../../os/rt/include/chevents.h ****  *
+ 183:../../../os/rt/include/chevents.h ****  * @param[in] esp       pointer to the @p event_source_t structure
+ 184:../../../os/rt/include/chevents.h ****  * @param[out] elp      pointer to the @p event_listener_t structure
+ 185:../../../os/rt/include/chevents.h ****  * @param[in] events    the mask of events to be ORed to the thread when
+ 186:../../../os/rt/include/chevents.h ****  *                      the event source is broadcasted
+ 187:../../../os/rt/include/chevents.h ****  *
+ 188:../../../os/rt/include/chevents.h ****  * @api
+ 189:../../../os/rt/include/chevents.h ****  */
+ 190:../../../os/rt/include/chevents.h **** static inline void chEvtRegisterMask(event_source_t *esp,
+ 191:../../../os/rt/include/chevents.h ****                                      event_listener_t *elp,
+ 192:../../../os/rt/include/chevents.h ****                                      eventmask_t events) {
+ 193:../../../os/rt/include/chevents.h **** 
+ 194:../../../os/rt/include/chevents.h ****   chEvtRegisterMaskWithFlags(esp, elp, events, (eventflags_t)-1);
+ 195:../../../os/rt/include/chevents.h **** }
+ 196:../../../os/rt/include/chevents.h **** 
+ 197:../../../os/rt/include/chevents.h **** /**
+ 198:../../../os/rt/include/chevents.h ****  * @brief   Registers an Event Listener on an Event Source.
+ 199:../../../os/rt/include/chevents.h ****  * @note    Multiple Event Listeners can use the same event identifier, the
+ 200:../../../os/rt/include/chevents.h ****  *          listener will share the callback function.
+ 201:../../../os/rt/include/chevents.h ****  *
+ 202:../../../os/rt/include/chevents.h ****  * @param[in] esp       pointer to the  @p event_source_t structure
+ 203:../../../os/rt/include/chevents.h ****  * @param[out] elp      pointer to the @p event_listener_t structure
+ 204:../../../os/rt/include/chevents.h ****  * @param[in] event     numeric identifier assigned to the Event Listener.
+ 205:../../../os/rt/include/chevents.h ****  *                      The value must range between zero and the size, in bit,
+ 206:../../../os/rt/include/chevents.h ****  *                      of the @p eventmask_t type minus one.
+ 207:../../../os/rt/include/chevents.h ****  *
+ 208:../../../os/rt/include/chevents.h ****  * @api
+ 209:../../../os/rt/include/chevents.h ****  */
+ 210:../../../os/rt/include/chevents.h **** static inline void chEvtRegister(event_source_t *esp,
+ 211:../../../os/rt/include/chevents.h ****                                  event_listener_t *elp,
+ 212:../../../os/rt/include/chevents.h ****                                  eventid_t event) {
+ 213:../../../os/rt/include/chevents.h **** 
+ 214:../../../os/rt/include/chevents.h ****   chEvtRegisterMask(esp, elp, EVENT_MASK(event));
+ 215:../../../os/rt/include/chevents.h **** }
+ 216:../../../os/rt/include/chevents.h **** 
+ 217:../../../os/rt/include/chevents.h **** /**
+ 218:../../../os/rt/include/chevents.h ****  * @brief   Verifies if there is at least one @p event_listener_t registered.
+ 219:../../../os/rt/include/chevents.h ****  *
+ 220:../../../os/rt/include/chevents.h ****  * @param[in] esp       pointer to the @p event_source_t structure
+ 221:../../../os/rt/include/chevents.h ****  * @return              The event source status.
+ 222:../../../os/rt/include/chevents.h ****  *
+ 223:../../../os/rt/include/chevents.h ****  * @iclass
+ 224:../../../os/rt/include/chevents.h ****  */
+ 225:../../../os/rt/include/chevents.h **** static inline bool chEvtIsListeningI(event_source_t *esp) {
+ 226:../../../os/rt/include/chevents.h **** 
+ 227:../../../os/rt/include/chevents.h ****   return (bool)(esp != (event_source_t *)esp->next);
+ 228:../../../os/rt/include/chevents.h **** }
+ 229:../../../os/rt/include/chevents.h **** 
+ 230:../../../os/rt/include/chevents.h **** /**
+ 231:../../../os/rt/include/chevents.h ****  * @brief   Signals all the Event Listeners registered on the specified Event
+ 232:../../../os/rt/include/chevents.h ****  *          Source.
+ 233:../../../os/rt/include/chevents.h ****  *
+ 234:../../../os/rt/include/chevents.h ****  * @param[in] esp       pointer to the @p event_source_t structure
+ 235:../../../os/rt/include/chevents.h ****  *
+ 236:../../../os/rt/include/chevents.h ****  * @api
+ 237:../../../os/rt/include/chevents.h ****  */
+ 238:../../../os/rt/include/chevents.h **** static inline void chEvtBroadcast(event_source_t *esp) {
+ 239:../../../os/rt/include/chevents.h **** 
+ 240:../../../os/rt/include/chevents.h ****   chEvtBroadcastFlags(esp, (eventflags_t)0);
+ 241:../../../os/rt/include/chevents.h **** }
+ 242:../../../os/rt/include/chevents.h **** 
+ 243:../../../os/rt/include/chevents.h **** /**
+ 244:../../../os/rt/include/chevents.h ****  * @brief   Signals all the Event Listeners registered on the specified Event
+ 245:../../../os/rt/include/chevents.h ****  *          Source.
+ 246:../../../os/rt/include/chevents.h ****  * @post    This function does not reschedule so a call to a rescheduling
+ 247:../../../os/rt/include/chevents.h ****  *          function must be performed before unlocking the kernel. Note that
+ 248:../../../os/rt/include/chevents.h ****  *          interrupt handlers always reschedule on exit so an explicit
+ 249:../../../os/rt/include/chevents.h ****  *          reschedule must not be performed in ISRs.
+ 250:../../../os/rt/include/chevents.h ****  *
+ 251:../../../os/rt/include/chevents.h ****  * @param[in] esp       pointer to the @p event_source_t structure
+ 252:../../../os/rt/include/chevents.h ****  *
+ 253:../../../os/rt/include/chevents.h ****  * @iclass
+ 254:../../../os/rt/include/chevents.h ****  */
+ 255:../../../os/rt/include/chevents.h **** static inline void chEvtBroadcastI(event_source_t *esp) {
+  45               		.loc 4 255 20 view .LVU9
+  46               	.LBB44:
+ 256:../../../os/rt/include/chevents.h **** 
+ 257:../../../os/rt/include/chevents.h ****   chEvtBroadcastFlagsI(esp, (eventflags_t)0);
+  47               		.loc 4 257 3 view .LVU10
+  48 0006 60E0      		ldi r22,0
+  49 0008 0A96      		adiw r24,10
+  50               	.LVL2:
+  51               		.loc 4 257 3 is_stmt 0 view .LVU11
+  52 000a 0E94 0000 		call chEvtBroadcastFlagsI
+  53               	.LVL3:
+  54               		.loc 4 257 3 view .LVU12
+  55               	.LBE44:
+  56               	.LBE43:
+  53:../../../os/various/evtimer.c ****   chVTDoSetI(&etp->et_vt, etp->et_interval, tmrcb, etp);
+  57               		.loc 1 53 3 is_stmt 1 view .LVU13
+  58 000e 6C85      		ldd r22,Y+12
+  59 0010 7D85      		ldd r23,Y+13
+  60 0012 9E01      		movw r18,r28
+  61 0014 40E0      		ldi r20,lo8(gs(tmrcb))
+  62 0016 50E0      		ldi r21,hi8(gs(tmrcb))
+  63 0018 CE01      		movw r24,r28
+  64               	/* epilogue start */
+  54:../../../os/various/evtimer.c ****   chSysUnlockFromISR();
+  55:../../../os/various/evtimer.c **** }
+  65               		.loc 1 55 1 is_stmt 0 view .LVU14
+  66 001a DF91      		pop r29
+  67 001c CF91      		pop r28
+  68               	.LVL4:
+  53:../../../os/various/evtimer.c ****   chVTDoSetI(&etp->et_vt, etp->et_interval, tmrcb, etp);
+  69               		.loc 1 53 3 view .LVU15
+  70 001e 0C94 0000 		jmp chVTDoSetI
+  71               	.LVL5:
+  53:../../../os/various/evtimer.c ****   chVTDoSetI(&etp->et_vt, etp->et_interval, tmrcb, etp);
+  72               		.loc 1 53 3 view .LVU16
+  73               		.cfi_endproc
+  74               	.LFE142:
+  76               		.section	.text.evtObjectInit,"ax",@progbits
+  77               	.global	evtObjectInit
+  79               	evtObjectInit:
+  80               	.LVL6:
+  81               	.LFB143:
+  56:../../../os/various/evtimer.c **** 
+  57:../../../os/various/evtimer.c **** /*===========================================================================*/
+  58:../../../os/various/evtimer.c **** /* Module exported functions.                                                */
+  59:../../../os/various/evtimer.c **** /*===========================================================================*/
+  60:../../../os/various/evtimer.c **** 
+  61:../../../os/various/evtimer.c **** /**
+  62:../../../os/various/evtimer.c ****  * @brief Initializes an @p event_timer_t structure.
+  63:../../../os/various/evtimer.c ****  *
+  64:../../../os/various/evtimer.c ****  * @param[out] etp      the @p event_timer_t structure to be initialized
+  65:../../../os/various/evtimer.c ****  * @param[in] time      the interval in system ticks
+  66:../../../os/various/evtimer.c ****  */
+  67:../../../os/various/evtimer.c **** void evtObjectInit(event_timer_t *etp, systime_t time) {
+  82               		.loc 1 67 56 is_stmt 1 view -0
+  83               		.cfi_startproc
+  84               	/* prologue: function */
+  85               	/* frame size = 0 */
+  86               	/* stack size = 0 */
+  87               	.L__stack_usage = 0
+  88               		.loc 1 67 56 is_stmt 0 view .LVU18
+  89 0000 FC01      		movw r30,r24
+  68:../../../os/various/evtimer.c **** 
+  69:../../../os/various/evtimer.c ****   chEvtObjectInit(&etp->et_es);
+  90               		.loc 1 69 3 is_stmt 1 view .LVU19
+  91               	.LVL7:
+  92               	.LBB45:
+  93               	.LBI45:
+ 171:../../../os/rt/include/chevents.h **** 
+  94               		.loc 4 171 20 view .LVU20
+  95               	.LBB46:
+ 173:../../../os/rt/include/chevents.h **** }
+  96               		.loc 4 173 3 view .LVU21
+  97               	.LBE46:
+  98               	.LBE45:
+  99               		.loc 1 69 3 is_stmt 0 view .LVU22
+ 100 0002 0A96      		adiw r24,10
+ 101               	.LVL8:
+ 102               	.LBB48:
+ 103               	.LBB47:
+ 173:../../../os/rt/include/chevents.h **** }
+ 104               		.loc 4 173 13 view .LVU23
+ 105 0004 9387      		std Z+11,r25
+ 106 0006 8287      		std Z+10,r24
+ 107               	.LVL9:
+ 173:../../../os/rt/include/chevents.h **** }
+ 108               		.loc 4 173 13 view .LVU24
+ 109               	.LBE47:
+ 110               	.LBE48:
+  70:../../../os/various/evtimer.c ****   chVTObjectInit(&etp->et_vt);
+ 111               		.loc 1 70 3 is_stmt 1 view .LVU25
+ 112               	.LBB49:
+ 113               	.LBI49:
+ 114               		.file 5 "../../../os/rt/include/chvt.h"
+   1:../../../os/rt/include/chvt.h **** /*
+   2:../../../os/rt/include/chvt.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
+   3:../../../os/rt/include/chvt.h **** 
+   4:../../../os/rt/include/chvt.h ****     This file is part of ChibiOS.
+   5:../../../os/rt/include/chvt.h **** 
+   6:../../../os/rt/include/chvt.h ****     ChibiOS is free software; you can redistribute it and/or modify
+   7:../../../os/rt/include/chvt.h ****     it under the terms of the GNU General Public License as published by
+   8:../../../os/rt/include/chvt.h ****     the Free Software Foundation; either version 3 of the License, or
+   9:../../../os/rt/include/chvt.h ****     (at your option) any later version.
+  10:../../../os/rt/include/chvt.h **** 
+  11:../../../os/rt/include/chvt.h ****     ChibiOS is distributed in the hope that it will be useful,
+  12:../../../os/rt/include/chvt.h ****     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:../../../os/rt/include/chvt.h ****     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:../../../os/rt/include/chvt.h ****     GNU General Public License for more details.
+  15:../../../os/rt/include/chvt.h **** 
+  16:../../../os/rt/include/chvt.h ****     You should have received a copy of the GNU General Public License
+  17:../../../os/rt/include/chvt.h ****     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  18:../../../os/rt/include/chvt.h **** */
+  19:../../../os/rt/include/chvt.h **** 
+  20:../../../os/rt/include/chvt.h **** /**
+  21:../../../os/rt/include/chvt.h ****  * @file    chvt.h
+  22:../../../os/rt/include/chvt.h ****  * @brief   Time and Virtual Timers module macros and structures.
+  23:../../../os/rt/include/chvt.h ****  *
+  24:../../../os/rt/include/chvt.h ****  * @addtogroup time
+  25:../../../os/rt/include/chvt.h ****  * @{
+  26:../../../os/rt/include/chvt.h ****  */
+  27:../../../os/rt/include/chvt.h **** 
+  28:../../../os/rt/include/chvt.h **** #ifndef CHVT_H
+  29:../../../os/rt/include/chvt.h **** #define CHVT_H
+  30:../../../os/rt/include/chvt.h **** 
+  31:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  32:../../../os/rt/include/chvt.h **** /* Module constants.                                                         */
+  33:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  34:../../../os/rt/include/chvt.h **** 
+  35:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  36:../../../os/rt/include/chvt.h **** /* Module pre-compile time settings.                                         */
+  37:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  38:../../../os/rt/include/chvt.h **** 
+  39:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  40:../../../os/rt/include/chvt.h **** /* Derived constants and error checks.                                       */
+  41:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  42:../../../os/rt/include/chvt.h **** 
+  43:../../../os/rt/include/chvt.h **** #if (CH_CFG_ST_TIMEDELTA < 0) || (CH_CFG_ST_TIMEDELTA == 1)
+  44:../../../os/rt/include/chvt.h **** #error "invalid CH_CFG_ST_TIMEDELTA specified, must "                       \
+  45:../../../os/rt/include/chvt.h ****        "be zero or greater than one"
+  46:../../../os/rt/include/chvt.h **** #endif
+  47:../../../os/rt/include/chvt.h **** 
+  48:../../../os/rt/include/chvt.h **** //#if (CH_CFG_ST_TIMEDELTA > 0) && (CH_CFG_TIME_QUANTUM > 0)
+  49:../../../os/rt/include/chvt.h **** //#error "CH_CFG_TIME_QUANTUM not supported in tickless mode"
+  50:../../../os/rt/include/chvt.h **** //#endif
+  51:../../../os/rt/include/chvt.h **** 
+  52:../../../os/rt/include/chvt.h **** #if (CH_CFG_ST_TIMEDELTA > 0) && (CH_DBG_THREADS_PROFILING == TRUE)
+  53:../../../os/rt/include/chvt.h **** #error "CH_DBG_THREADS_PROFILING not supported in tickless mode"
+  54:../../../os/rt/include/chvt.h **** #endif
+  55:../../../os/rt/include/chvt.h **** 
+  56:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  57:../../../os/rt/include/chvt.h **** /* Module data structures and types.                                         */
+  58:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  59:../../../os/rt/include/chvt.h **** 
+  60:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  61:../../../os/rt/include/chvt.h **** /* Module macros.                                                            */
+  62:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  63:../../../os/rt/include/chvt.h **** 
+  64:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  65:../../../os/rt/include/chvt.h **** /* External declarations.                                                    */
+  66:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  67:../../../os/rt/include/chvt.h **** 
+  68:../../../os/rt/include/chvt.h **** /*
+  69:../../../os/rt/include/chvt.h ****  * Virtual Timers APIs.
+  70:../../../os/rt/include/chvt.h ****  */
+  71:../../../os/rt/include/chvt.h **** #ifdef __cplusplus
+  72:../../../os/rt/include/chvt.h **** extern "C" {
+  73:../../../os/rt/include/chvt.h **** #endif
+  74:../../../os/rt/include/chvt.h ****   void _vt_init(void);
+  75:../../../os/rt/include/chvt.h ****   void chVTDoSetI(virtual_timer_t *vtp, sysinterval_t delay,
+  76:../../../os/rt/include/chvt.h ****                   vtfunc_t vtfunc, void *par);
+  77:../../../os/rt/include/chvt.h ****   void chVTDoResetI(virtual_timer_t *vtp);
+  78:../../../os/rt/include/chvt.h **** #ifdef __cplusplus
+  79:../../../os/rt/include/chvt.h **** }
+  80:../../../os/rt/include/chvt.h **** #endif
+  81:../../../os/rt/include/chvt.h **** 
+  82:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  83:../../../os/rt/include/chvt.h **** /* Module inline functions.                                                  */
+  84:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  85:../../../os/rt/include/chvt.h **** 
+  86:../../../os/rt/include/chvt.h **** /**
+  87:../../../os/rt/include/chvt.h ****  * @brief   Initializes a @p virtual_timer_t object.
+  88:../../../os/rt/include/chvt.h ****  * @note    Initializing a timer object is not strictly required because
+  89:../../../os/rt/include/chvt.h ****  *          the function @p chVTSetI() initializes the object too. This
+  90:../../../os/rt/include/chvt.h ****  *          function is only useful if you need to perform a @p chVTIsArmed()
+  91:../../../os/rt/include/chvt.h ****  *          check before calling @p chVTSetI().
+  92:../../../os/rt/include/chvt.h ****  *
+  93:../../../os/rt/include/chvt.h ****  * @param[out] vtp      the @p virtual_timer_t structure pointer
+  94:../../../os/rt/include/chvt.h ****  *
+  95:../../../os/rt/include/chvt.h ****  * @init
+  96:../../../os/rt/include/chvt.h ****  */
+  97:../../../os/rt/include/chvt.h **** static inline void chVTObjectInit(virtual_timer_t *vtp) {
+ 115               		.loc 5 97 20 view .LVU26
+ 116               	.LBB50:
+  98:../../../os/rt/include/chvt.h **** 
+  99:../../../os/rt/include/chvt.h ****   vtp->func = NULL;
+ 117               		.loc 5 99 3 view .LVU27
+ 118               		.loc 5 99 13 is_stmt 0 view .LVU28
+ 119 0008 1782      		std Z+7,__zero_reg__
+ 120 000a 1682      		std Z+6,__zero_reg__
+ 121               	.LBE50:
+ 122               	.LBE49:
+  71:../../../os/various/evtimer.c ****   etp->et_interval = time;
+ 123               		.loc 1 71 3 is_stmt 1 view .LVU29
+ 124               		.loc 1 71 20 is_stmt 0 view .LVU30
+ 125 000c 7587      		std Z+13,r23
+ 126 000e 6487      		std Z+12,r22
+ 127               	/* epilogue start */
+  72:../../../os/various/evtimer.c **** }
+ 128               		.loc 1 72 1 view .LVU31
+ 129 0010 0895      		ret
+ 130               		.cfi_endproc
+ 131               	.LFE143:
+ 133               		.section	.text.evtStart,"ax",@progbits
+ 134               	.global	evtStart
+ 136               	evtStart:
+ 137               	.LVL10:
+ 138               	.LFB144:
+  73:../../../os/various/evtimer.c **** 
+  74:../../../os/various/evtimer.c **** /**
+  75:../../../os/various/evtimer.c ****  * @brief   Starts the timer
+  76:../../../os/various/evtimer.c ****  * @details If the timer was already running then the function has no effect.
+  77:../../../os/various/evtimer.c ****  *
+  78:../../../os/various/evtimer.c ****  * @param[in] etp       pointer to an initialized @p event_timer_t structure.
+  79:../../../os/various/evtimer.c ****  */
+  80:../../../os/various/evtimer.c **** void evtStart(event_timer_t *etp) {
+ 139               		.loc 1 80 35 is_stmt 1 view -0
+ 140               		.cfi_startproc
+ 141               		.loc 1 80 35 is_stmt 0 view .LVU33
+ 142 0000 0F93      		push r16
+ 143               	.LCFI2:
+ 144               		.cfi_def_cfa_offset 3
+ 145               		.cfi_offset 16, -2
+ 146 0002 1F93      		push r17
+ 147               	.LCFI3:
+ 148               		.cfi_def_cfa_offset 4
+ 149               		.cfi_offset 17, -3
+ 150 0004 CF93      		push r28
+ 151               	.LCFI4:
+ 152               		.cfi_def_cfa_offset 5
+ 153               		.cfi_offset 28, -4
+ 154 0006 DF93      		push r29
+ 155               	.LCFI5:
+ 156               		.cfi_def_cfa_offset 6
+ 157               		.cfi_offset 29, -5
+ 158               	/* prologue: function */
+ 159               	/* frame size = 0 */
+ 160               	/* stack size = 4 */
+ 161               	.L__stack_usage = 4
+ 162 0008 EC01      		movw r28,r24
+  81:../../../os/various/evtimer.c **** 
+  82:../../../os/various/evtimer.c ****   chVTSet(&etp->et_vt, etp->et_interval, tmrcb, etp);
+ 163               		.loc 1 82 3 is_stmt 1 view .LVU34
+ 164 000a 0C85      		ldd r16,Y+12
+ 165 000c 1D85      		ldd r17,Y+13
+ 166               	.LVL11:
+ 167               	.LBB64:
+ 168               	.LBI64:
  100:../../../os/rt/include/chvt.h **** }
  101:../../../os/rt/include/chvt.h **** 
  102:../../../os/rt/include/chvt.h **** /**
@@ -1203,20 +1642,7 @@
  278:../../../os/rt/include/chvt.h **** static inline void chVTResetI(virtual_timer_t *vtp) {
  279:../../../os/rt/include/chvt.h **** 
  280:../../../os/rt/include/chvt.h ****   if (chVTIsArmedI(vtp)) {
- 153               		.loc 3 280 0
- 154 0010 8E81      		ldd r24,Y+6
- 155 0012 9F81      		ldd r25,Y+7
- 156               	.LVL13:
- 157 0014 892B      		or r24,r25
- 158 0016 01F0      		breq .L4
  281:../../../os/rt/include/chvt.h ****     chVTDoResetI(vtp);
- 159               		.loc 3 281 0
- 160 0018 CE01      		movw r24,r28
- 161 001a 0E94 0000 		call chVTDoResetI
- 162               	.LVL14:
- 163               	.L4:
- 164               	.LBE69:
- 165               	.LBE68:
  282:../../../os/rt/include/chvt.h ****   }
  283:../../../os/rt/include/chvt.h **** }
  284:../../../os/rt/include/chvt.h **** 
@@ -1264,74 +1690,207 @@
  326:../../../os/rt/include/chvt.h **** 
  327:../../../os/rt/include/chvt.h ****   chVTResetI(vtp);
  328:../../../os/rt/include/chvt.h ****   chVTDoSetI(vtp, delay, vtfunc, par);
- 166               		.loc 3 328 0
- 167 001e 9E01      		movw r18,r28
- 168 0020 40E0      		ldi r20,lo8(gs(tmrcb))
- 169 0022 50E0      		ldi r21,hi8(gs(tmrcb))
- 170 0024 B801      		movw r22,r16
- 171 0026 CE01      		movw r24,r28
- 172 0028 0E94 0000 		call chVTDoSetI
- 173               	.LVL15:
- 174               	.LBE67:
- 175               	.LBE66:
- 176               	.LBB70:
- 177               	.LBB71:
- 178               	.LBB72:
- 179               	.LBB73:
- 438:../../../os/common/ports/AVR/chcore.h **** }
- 439:../../../os/common/ports/AVR/chcore.h **** 
- 440:../../../os/common/ports/AVR/chcore.h **** /**
- 441:../../../os/common/ports/AVR/chcore.h ****  * @brief   Kernel-unlock action.
- 442:../../../os/common/ports/AVR/chcore.h ****  * @details Usually this function just enables interrupts but may perform more
- 443:../../../os/common/ports/AVR/chcore.h ****  *          actions.
- 444:../../../os/common/ports/AVR/chcore.h ****  */
- 445:../../../os/common/ports/AVR/chcore.h **** static inline void port_unlock(void) {
- 446:../../../os/common/ports/AVR/chcore.h **** 
- 447:../../../os/common/ports/AVR/chcore.h ****   asm volatile ("sei" : : : "memory");
- 180               		.loc 4 447 0
- 181               	/* #APP */
- 182               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
- 183 002c 7894      		sei
- 184               	 ;  0 "" 2
- 185               	/* epilogue start */
- 186               	/* #NOAPP */
- 187               	.LBE73:
- 188               	.LBE72:
- 189               	.LBE71:
- 190               	.LBE70:
- 191               	.LBE62:
+ 329:../../../os/rt/include/chvt.h **** }
+ 330:../../../os/rt/include/chvt.h **** 
+ 331:../../../os/rt/include/chvt.h **** /**
+ 332:../../../os/rt/include/chvt.h ****  * @brief   Enables a virtual timer.
+ 333:../../../os/rt/include/chvt.h ****  * @details If the virtual timer was already enabled then it is re-enabled
+ 334:../../../os/rt/include/chvt.h ****  *          using the new parameters.
+ 335:../../../os/rt/include/chvt.h ****  * @pre     The timer must have been initialized using @p chVTObjectInit()
+ 336:../../../os/rt/include/chvt.h ****  *          or @p chVTDoSetI().
+ 337:../../../os/rt/include/chvt.h ****  *
+ 338:../../../os/rt/include/chvt.h ****  * @param[in] vtp       the @p virtual_timer_t structure pointer
+ 339:../../../os/rt/include/chvt.h ****  * @param[in] delay     the number of ticks before the operation timeouts, the
+ 340:../../../os/rt/include/chvt.h ****  *                      special values are handled as follow:
+ 341:../../../os/rt/include/chvt.h ****  *                      - @a TIME_INFINITE is allowed but interpreted as a
+ 342:../../../os/rt/include/chvt.h ****  *                        normal time specification.
+ 343:../../../os/rt/include/chvt.h ****  *                      - @a TIME_IMMEDIATE this value is not allowed.
+ 344:../../../os/rt/include/chvt.h ****  *                      .
+ 345:../../../os/rt/include/chvt.h ****  * @param[in] vtfunc    the timer callback function. After invoking the
+ 346:../../../os/rt/include/chvt.h ****  *                      callback the timer is disabled and the structure can
+ 347:../../../os/rt/include/chvt.h ****  *                      be disposed or reused.
+ 348:../../../os/rt/include/chvt.h ****  * @param[in] par       a parameter that will be passed to the callback
+ 349:../../../os/rt/include/chvt.h ****  *                      function
+ 350:../../../os/rt/include/chvt.h ****  *
+ 351:../../../os/rt/include/chvt.h ****  * @api
+ 352:../../../os/rt/include/chvt.h ****  */
+ 353:../../../os/rt/include/chvt.h **** static inline void chVTSet(virtual_timer_t *vtp, sysinterval_t delay,
+ 169               		.loc 5 353 20 view .LVU35
+ 170               	.LBE64:
+ 354:../../../os/rt/include/chvt.h ****                            vtfunc_t vtfunc, void *par) {
+ 355:../../../os/rt/include/chvt.h **** 
+ 356:../../../os/rt/include/chvt.h ****   chSysLock();
+ 171               		.loc 5 356 3 view .LVU36
+ 172               	.LBB81:
+ 173               	.LBB65:
+ 174               	.LBI65:
+ 353:../../../os/rt/include/chsys.h **** 
+ 175               		.loc 2 353 20 view .LVU37
+ 176               	.LBE65:
+ 177               	.LBE81:
+ 355:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_thd();
+ 178               		.loc 2 355 3 view .LVU38
+ 179               	.LBB82:
+ 180               	.LBB68:
+ 181               	.LBB66:
+ 182               	.LBI66:
+ 435:../../../os/common/ports/AVR/chcore.h **** 
+ 183               		.loc 3 435 20 view .LVU39
+ 184               	.LBB67:
+ 437:../../../os/common/ports/AVR/chcore.h **** }
+ 185               		.loc 3 437 3 view .LVU40
+ 186               	/* #APP */
+ 187               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
+ 188 000e F894      		cli
+ 189               	 ;  0 "" 2
+ 190               	/* #NOAPP */
+ 191               	.LBE67:
+ 192               	.LBE66:
+ 193               	.LBE68:
+ 194               	.LBE82:
+ 356:../../../os/rt/include/chsys.h ****   _dbg_check_lock();
+ 195               		.loc 2 356 34 view .LVU41
+ 357:../../../os/rt/include/chsys.h **** }
+ 196               		.loc 2 357 20 view .LVU42
+ 357:../../../os/rt/include/chvt.h ****   chVTSetI(vtp, delay, vtfunc, par);
+ 197               		.loc 5 357 3 view .LVU43
+ 198               	.LVL12:
+ 199               	.LBB83:
+ 200               	.LBB69:
+ 201               	.LBI69:
+ 324:../../../os/rt/include/chvt.h ****                             vtfunc_t vtfunc, void *par) {
+ 202               		.loc 5 324 20 view .LVU44
+ 203               	.LBB70:
+ 327:../../../os/rt/include/chvt.h ****   chVTDoSetI(vtp, delay, vtfunc, par);
+ 204               		.loc 5 327 3 view .LVU45
+ 205               	.LBB71:
+ 206               	.LBI71:
+ 278:../../../os/rt/include/chvt.h **** 
+ 207               		.loc 5 278 20 view .LVU46
+ 208               	.LBB72:
+ 280:../../../os/rt/include/chvt.h ****     chVTDoResetI(vtp);
+ 209               		.loc 5 280 3 view .LVU47
+ 280:../../../os/rt/include/chvt.h ****     chVTDoResetI(vtp);
+ 210               		.loc 5 280 3 is_stmt 0 view .LVU48
+ 211               	.LBE72:
+ 212               	.LBE71:
+ 213               	.LBE70:
+ 214               	.LBE69:
+ 215               	.LBE83:
+ 243:../../../os/rt/include/chvt.h **** 
+ 216               		.loc 5 243 21 is_stmt 1 view .LVU49
+ 245:../../../os/rt/include/chvt.h **** }
+ 217               		.loc 5 245 3 view .LVU50
+ 218               	.LBB84:
+ 219               	.LBB76:
+ 220               	.LBB75:
+ 221               	.LBB74:
+ 222               	.LBB73:
+ 280:../../../os/rt/include/chvt.h ****     chVTDoResetI(vtp);
+ 223               		.loc 5 280 6 is_stmt 0 view .LVU51
+ 224 0010 8E81      		ldd r24,Y+6
+ 225 0012 9F81      		ldd r25,Y+7
+ 226               	.LVL13:
+ 280:../../../os/rt/include/chvt.h ****     chVTDoResetI(vtp);
+ 227               		.loc 5 280 6 view .LVU52
+ 228 0014 892B      		or r24,r25
+ 229 0016 01F0      		breq .L5
+ 281:../../../os/rt/include/chvt.h ****   }
+ 230               		.loc 5 281 5 is_stmt 1 view .LVU53
+ 231 0018 CE01      		movw r24,r28
+ 232 001a 0E94 0000 		call chVTDoResetI
+ 233               	.LVL14:
+ 234               	.L5:
+ 281:../../../os/rt/include/chvt.h ****   }
+ 235               		.loc 5 281 5 is_stmt 0 view .LVU54
+ 236               	.LBE73:
+ 237               	.LBE74:
+ 328:../../../os/rt/include/chvt.h **** }
+ 238               		.loc 5 328 3 is_stmt 1 view .LVU55
+ 239 001e 9E01      		movw r18,r28
+ 240 0020 40E0      		ldi r20,lo8(gs(tmrcb))
+ 241 0022 50E0      		ldi r21,hi8(gs(tmrcb))
+ 242 0024 B801      		movw r22,r16
+ 243 0026 CE01      		movw r24,r28
+ 244 0028 0E94 0000 		call chVTDoSetI
+ 245               	.LVL15:
+ 328:../../../os/rt/include/chvt.h **** }
+ 246               		.loc 5 328 3 is_stmt 0 view .LVU56
+ 247               	.LBE75:
+ 248               	.LBE76:
+ 249               	.LBE84:
+ 358:../../../os/rt/include/chvt.h ****   chSysUnlock();
+ 250               		.loc 5 358 3 is_stmt 1 view .LVU57
+ 251               	.LBB85:
+ 252               	.LBB77:
+ 253               	.LBI77:
+ 365:../../../os/rt/include/chsys.h **** 
+ 254               		.loc 2 365 20 view .LVU58
+ 255               	.LBB78:
+ 367:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 256               		.loc 2 367 22 view .LVU59
+ 368:../../../os/rt/include/chsys.h **** 
+ 257               		.loc 2 368 33 view .LVU60
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 258               		.loc 2 374 3 view .LVU61
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 259               		.loc 2 374 3 view .LVU62
+ 378:../../../os/rt/include/chsys.h **** }
+ 260               		.loc 2 378 3 view .LVU63
+ 261               	.LBB79:
+ 262               	.LBI79:
+ 445:../../../os/common/ports/AVR/chcore.h **** 
+ 263               		.loc 3 445 20 view .LVU64
+ 264               	.LBB80:
+ 447:../../../os/common/ports/AVR/chcore.h **** }
+ 265               		.loc 3 447 3 view .LVU65
+ 266               	/* #APP */
+ 267               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
+ 268 002c 7894      		sei
+ 269               	 ;  0 "" 2
+ 270               	.LVL16:
+ 271               	/* #NOAPP */
+ 272               	/* epilogue start */
+ 447:../../../os/common/ports/AVR/chcore.h **** }
+ 273               		.loc 3 447 3 is_stmt 0 view .LVU66
+ 274               	.LBE80:
+ 275               	.LBE79:
+ 276               	.LBE78:
+ 277               	.LBE77:
+ 278               	.LBE85:
   83:../../../os/various/evtimer.c **** }
- 192               		.loc 1 83 0
- 193 002e DF91      		pop r29
- 194 0030 CF91      		pop r28
- 195               	.LVL16:
- 196 0032 1F91      		pop r17
- 197 0034 0F91      		pop r16
- 198               	.LVL17:
- 199 0036 0895      		ret
- 200               		.cfi_endproc
- 201               	.LFE144:
- 203               		.text
- 204               	.Letext0:
- 205               		.file 5 "/usr/lib/avr/include/stdint.h"
- 206               		.file 6 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
- 207               		.file 7 "../../../os/rt/include/chsystypes.h"
- 208               		.file 8 "../../../os/rt/include/chschd.h"
- 209               		.file 9 "../../../os/rt/include/chtime.h"
- 210               		.file 10 "../../../os/rt/include/chsem.h"
- 211               		.file 11 "../../../os/rt/include/chmtx.h"
- 212               		.file 12 "../../../os/various/evtimer.h"
- 213               		.file 13 "../../../os/rt/include/chsys.h"
+ 279               		.loc 1 83 1 view .LVU67
+ 280 002e DF91      		pop r29
+ 281 0030 CF91      		pop r28
+ 282               	.LVL17:
+ 283               		.loc 1 83 1 view .LVU68
+ 284 0032 1F91      		pop r17
+ 285 0034 0F91      		pop r16
+ 286 0036 0895      		ret
+ 287               		.cfi_endproc
+ 288               	.LFE144:
+ 290               		.text
+ 291               	.Letext0:
+ 292               		.file 6 "/usr/local/Cellar/avr-gcc/8.2.0/avr/include/stdint.h"
+ 293               		.file 7 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
+ 294               		.file 8 "../../../os/rt/include/chsystypes.h"
+ 295               		.file 9 "../../../os/rt/include/chschd.h"
+ 296               		.file 10 "../../../os/rt/include/chtime.h"
+ 297               		.file 11 "../../../os/rt/include/chsem.h"
+ 298               		.file 12 "../../../os/rt/include/chmtx.h"
+ 299               		.file 13 "../../../os/rt/include/chregistry.h"
+ 300               		.file 14 "../../../os/common/oslib/include/chmemcore.h"
+ 301               		.file 15 "../../../os/various/evtimer.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 evtimer.c
-     /tmp/ccFlF7tp.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccFlF7tp.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccFlF7tp.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccFlF7tp.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccFlF7tp.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccFlF7tp.s:12     .text.tmrcb:0000000000000000 tmrcb
-     /tmp/ccFlF7tp.s:64     .text.evtObjectInit:0000000000000000 evtObjectInit
-     /tmp/ccFlF7tp.s:104    .text.evtStart:0000000000000000 evtStart
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccmUlHbu.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccmUlHbu.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccmUlHbu.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccmUlHbu.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccmUlHbu.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccmUlHbu.s:12     .text.tmrcb:0000000000000000 tmrcb
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccmUlHbu.s:79     .text.evtObjectInit:0000000000000000 evtObjectInit
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccmUlHbu.s:136    .text.evtStart:0000000000000000 evtStart
 
 UNDEFINED SYMBOLS
 chEvtBroadcastFlagsI

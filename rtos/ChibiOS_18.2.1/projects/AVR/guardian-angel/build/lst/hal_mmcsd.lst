@@ -8,20 +8,32 @@
    8               	.Ltext0:
    9               		.cfi_sections	.debug_frame
   10               	.Letext0:
-  11               		.file 1 "/usr/lib/avr/include/stdint.h"
-  12               		.file 2 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
-  13               		.file 3 "../../../os/rt/include/chsystypes.h"
-  14               		.file 4 "../../../os/rt/include/chschd.h"
-  15               		.file 5 "../../../os/rt/include/chtime.h"
-  16               		.file 6 "../../../os/common/ports/AVR/chcore.h"
-  17               		.file 7 "../../../os/rt/include/chsem.h"
-  18               		.file 8 "../../../os/rt/include/chmtx.h"
+  11               		.file 1 "/usr/local/Cellar/avr-gcc/8.2.0/lib/avr-gcc/8/gcc/avr/8.2.0/include/stddef.h"
+  12               		.file 2 "/usr/local/Cellar/avr-gcc/8.2.0/avr/include/stdint.h"
+  13               		.file 3 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
+  14               		.file 4 "../../../os/rt/include/chsystypes.h"
+  15               		.file 5 "../../../os/rt/include/chschd.h"
+  16               		.file 6 "../../../os/rt/include/chtime.h"
+  17               		.file 7 "../../../os/common/ports/AVR/chcore.h"
+  18               		.file 8 "../../../os/rt/include/chsem.h"
+  19               		.file 9 "../../../os/rt/include/chmtx.h"
+  20               		.file 10 "../../../os/rt/include/chsys.h"
+  21               		.file 11 "../../../os/rt/include/chregistry.h"
+  22               		.file 12 "../../../os/rt/include/chevents.h"
+  23               		.file 13 "../../../os/common/oslib/include/chmemcore.h"
+  24               		.file 14 "../../../os/hal/include/hal_queues.h"
+  25               		.file 15 "../../../os/hal/include/hal_pal.h"
+  26               		.file 16 "../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.h"
+  27               		.file 17 "../../../os/hal/include/hal_adc.h"
+  28               		.file 18 "../../../os/hal/ports/AVR/MEGA/LLD/ADCv1/hal_adc_lld.h"
+  29               		.file 19 "../../../os/hal/include/hal_serial.h"
+  30               		.file 20 "../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal_mmcsd.c
-     /tmp/ccRY07ER.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccRY07ER.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccRY07ER.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccRY07ER.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccRY07ER.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccKUwlpD.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccKUwlpD.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccKUwlpD.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccKUwlpD.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccKUwlpD.s:6      *ABS*:0000000000000001 __zero_reg__
 
 NO UNDEFINED SYMBOLS

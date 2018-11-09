@@ -9,8 +9,9 @@
    9               		.cfi_sections	.debug_frame
   10               		.section	.text.notify1,"ax",@progbits
   12               	notify1:
-  13               	.LFB174:
-  14               		.file 1 "../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c"
+  13               	.LVL0:
+  14               	.LFB174:
+  15               		.file 1 "../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c"
    1:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** /*
    2:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio
    3:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
@@ -137,31 +138,35 @@
  124:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
  125:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #if AVR_SERIAL_USE_USART0 || defined(__DOXYGEN__)
  126:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** static void notify1(io_queue_t *qp) {
-  15               		.loc 1 126 0
-  16               		.cfi_startproc
-  17               	.LVL0:
+  16               		.loc 1 126 37 view -0
+  17               		.cfi_startproc
   18               	/* prologue: function */
   19               	/* frame size = 0 */
   20               	/* stack size = 0 */
   21               	.L__stack_usage = 0
  127:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
  128:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   (void)qp;
+  22               		.loc 1 128 3 view .LVU1
  129:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UCSR0B |= (1 << UDRIE0);
-  22               		.loc 1 129 0
-  23 0000 E1EC      		ldi r30,lo8(-63)
-  24 0002 F0E0      		ldi r31,0
-  25 0004 8081      		ld r24,Z
-  26               	.LVL1:
-  27 0006 8062      		ori r24,lo8(32)
-  28 0008 8083      		st Z,r24
-  29 000a 0895      		ret
-  30               		.cfi_endproc
-  31               	.LFE174:
-  33               		.section	.text.__vector_18,"ax",@progbits
-  34               	.global	__vector_18
-  36               	__vector_18:
-  37               	.LFB177:
+  23               		.loc 1 129 3 view .LVU2
+  24               		.loc 1 129 10 is_stmt 0 view .LVU3
+  25 0000 E1EC      		ldi r30,lo8(-63)
+  26 0002 F0E0      		ldi r31,0
+  27 0004 8081      		ld r24,Z
+  28               	.LVL1:
+  29               		.loc 1 129 10 view .LVU4
+  30 0006 8062      		ori r24,lo8(32)
+  31 0008 8083      		st Z,r24
+  32               	/* epilogue start */
  130:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
+  33               		.loc 1 130 1 view .LVU5
+  34 000a 0895      		ret
+  35               		.cfi_endproc
+  36               	.LFE174:
+  38               		.section	.text.__vector_18,"ax",@progbits
+  39               	.global	__vector_18
+  41               	__vector_18:
+  42               	.LFB177:
  131:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
  132:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** /**
  133:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****  * @brief   USART0 initialization.
@@ -289,162 +294,103 @@
  255:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****  * @isr
  256:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****  */
  257:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** OSAL_IRQ_HANDLER(AVR_SD1_RX_VECT) {
-  38               		.loc 1 257 0
-  39               		.cfi_startproc
-  40 0000 1F92      		push r1
-  41               	.LCFI0:
-  42               		.cfi_def_cfa_offset 3
-  43               		.cfi_offset 1, -2
-  44 0002 0F92      		push r0
-  45               	.LCFI1:
-  46               		.cfi_def_cfa_offset 4
-  47               		.cfi_offset 0, -3
-  48 0004 0FB6      		in r0,__SREG__
-  49 0006 0F92      		push r0
-  50 0008 1124      		clr __zero_reg__
-  51 000a 2F93      		push r18
-  52               	.LCFI2:
-  53               		.cfi_def_cfa_offset 5
-  54               		.cfi_offset 18, -4
-  55 000c 3F93      		push r19
-  56               	.LCFI3:
-  57               		.cfi_def_cfa_offset 6
-  58               		.cfi_offset 19, -5
-  59 000e 4F93      		push r20
-  60               	.LCFI4:
-  61               		.cfi_def_cfa_offset 7
-  62               		.cfi_offset 20, -6
-  63 0010 5F93      		push r21
-  64               	.LCFI5:
-  65               		.cfi_def_cfa_offset 8
-  66               		.cfi_offset 21, -7
-  67 0012 6F93      		push r22
-  68               	.LCFI6:
-  69               		.cfi_def_cfa_offset 9
-  70               		.cfi_offset 22, -8
-  71 0014 7F93      		push r23
-  72               	.LCFI7:
-  73               		.cfi_def_cfa_offset 10
-  74               		.cfi_offset 23, -9
-  75 0016 8F93      		push r24
-  76               	.LCFI8:
-  77               		.cfi_def_cfa_offset 11
-  78               		.cfi_offset 24, -10
-  79 0018 9F93      		push r25
-  80               	.LCFI9:
-  81               		.cfi_def_cfa_offset 12
-  82               		.cfi_offset 25, -11
-  83 001a AF93      		push r26
-  84               	.LCFI10:
-  85               		.cfi_def_cfa_offset 13
-  86               		.cfi_offset 26, -12
-  87 001c BF93      		push r27
-  88               	.LCFI11:
-  89               		.cfi_def_cfa_offset 14
-  90               		.cfi_offset 27, -13
-  91 001e EF93      		push r30
-  92               	.LCFI12:
-  93               		.cfi_def_cfa_offset 15
-  94               		.cfi_offset 30, -14
-  95 0020 FF93      		push r31
-  96               	.LCFI13:
-  97               		.cfi_def_cfa_offset 16
-  98               		.cfi_offset 31, -15
-  99               	/* prologue: Signal */
- 100               	/* frame size = 0 */
- 101               	/* stack size = 15 */
- 102               	.L__stack_usage = 15
+  43               		.loc 1 257 35 is_stmt 1 view -0
+  44               		.cfi_startproc
+  45 0000 1F92      		push r1
+  46               	.LCFI0:
+  47               		.cfi_def_cfa_offset 3
+  48               		.cfi_offset 1, -2
+  49 0002 0F92      		push r0
+  50               	.LCFI1:
+  51               		.cfi_def_cfa_offset 4
+  52               		.cfi_offset 0, -3
+  53 0004 0FB6      		in r0,__SREG__
+  54 0006 0F92      		push r0
+  55 0008 1124      		clr __zero_reg__
+  56 000a 2F93      		push r18
+  57               	.LCFI2:
+  58               		.cfi_def_cfa_offset 5
+  59               		.cfi_offset 18, -4
+  60 000c 3F93      		push r19
+  61               	.LCFI3:
+  62               		.cfi_def_cfa_offset 6
+  63               		.cfi_offset 19, -5
+  64 000e 4F93      		push r20
+  65               	.LCFI4:
+  66               		.cfi_def_cfa_offset 7
+  67               		.cfi_offset 20, -6
+  68 0010 5F93      		push r21
+  69               	.LCFI5:
+  70               		.cfi_def_cfa_offset 8
+  71               		.cfi_offset 21, -7
+  72 0012 6F93      		push r22
+  73               	.LCFI6:
+  74               		.cfi_def_cfa_offset 9
+  75               		.cfi_offset 22, -8
+  76 0014 7F93      		push r23
+  77               	.LCFI7:
+  78               		.cfi_def_cfa_offset 10
+  79               		.cfi_offset 23, -9
+  80 0016 8F93      		push r24
+  81               	.LCFI8:
+  82               		.cfi_def_cfa_offset 11
+  83               		.cfi_offset 24, -10
+  84 0018 9F93      		push r25
+  85               	.LCFI9:
+  86               		.cfi_def_cfa_offset 12
+  87               		.cfi_offset 25, -11
+  88 001a AF93      		push r26
+  89               	.LCFI10:
+  90               		.cfi_def_cfa_offset 13
+  91               		.cfi_offset 26, -12
+  92 001c BF93      		push r27
+  93               	.LCFI11:
+  94               		.cfi_def_cfa_offset 14
+  95               		.cfi_offset 27, -13
+  96 001e EF93      		push r30
+  97               	.LCFI12:
+  98               		.cfi_def_cfa_offset 15
+  99               		.cfi_offset 30, -14
+ 100 0020 FF93      		push r31
+ 101               	.LCFI13:
+ 102               		.cfi_def_cfa_offset 16
+ 103               		.cfi_offset 31, -15
+ 104               	/* prologue: Signal */
+ 105               	/* frame size = 0 */
+ 106               	/* stack size = 15 */
+ 107               	.L__stack_usage = 15
  258:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   uint8_t sra;
+ 108               		.loc 1 258 3 view .LVU7
  259:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
  260:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   OSAL_IRQ_PROLOGUE();
- 103               		.loc 1 260 0
- 104 0022 81E0      		ldi r24,lo8(1)
- 105 0024 8093 0000 		sts __avr_in_isr,r24
+ 109               		.loc 1 260 3 view .LVU8
+ 110               		.loc 1 260 3 view .LVU9
+ 111 0022 81E0      		ldi r24,lo8(1)
+ 112 0024 8093 0000 		sts __avr_in_isr,r24
+ 113               		.loc 1 260 3 view .LVU10
+ 114               		.loc 1 260 3 view .LVU11
+ 115               		.loc 1 260 3 view .LVU12
+ 116               		.loc 1 260 3 view .LVU13
+ 117               		.loc 1 260 3 view .LVU14
+ 118               		.loc 1 260 22 view .LVU15
  261:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
  262:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   sra = UCSR0A;
- 106               		.loc 1 262 0
- 107 0028 8091 C000 		lds r24,192
- 108               	.LVL2:
+ 119               		.loc 1 262 3 view .LVU16
+ 120               		.loc 1 262 7 is_stmt 0 view .LVU17
+ 121 0028 8091 C000 		lds r24,192
+ 122               	.LVL2:
  263:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   if (sra & ((1 << DOR0) | (1 << UPE0) | (1 << FE0)))
- 109               		.loc 1 263 0
- 110 002c 982F      		mov r25,r24
- 111 002e 9C71      		andi r25,lo8(28)
- 112 0030 01F4      		brne .L22
- 113               	.LVL3:
- 114               	.L3:
+ 123               		.loc 1 263 3 is_stmt 1 view .LVU18
+ 124               		.loc 1 263 6 is_stmt 0 view .LVU19
+ 125 002c 982F      		mov r25,r24
+ 126 002e 9C71      		andi r25,lo8(28)
+ 127 0030 01F4      		brne .L22
+ 128               	.LVL3:
+ 129               	.L4:
  264:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     set_error(sra, &SD1);
  265:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   osalSysLockFromISR();
- 266:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   sdIncomingDataI(&SD1, UDR0);
- 115               		.loc 1 266 0
- 116 0032 6091 C600 		lds r22,198
- 117 0036 80E0      		ldi r24,lo8(SD1)
- 118 0038 90E0      		ldi r25,hi8(SD1)
- 119 003a 0E94 0000 		call sdIncomingDataI
- 120               	.LVL4:
- 267:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   osalSysUnlockFromISR();
- 268:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
- 269:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   OSAL_IRQ_EPILOGUE();
- 121               		.loc 1 269 0
- 122 003e 1092 0000 		sts __avr_in_isr,__zero_reg__
- 123 0042 0E94 0000 		call chSchIsPreemptionRequired
- 124               	.LVL5:
- 125 0046 8111      		cpse r24,__zero_reg__
- 126               		.loc 1 269 0 is_stmt 0 discriminator 1
- 127 0048 0E94 0000 		call chSchDoReschedule
- 128               	.LVL6:
- 129               	.L2:
- 130               	/* epilogue start */
- 270:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
- 131               		.loc 1 270 0 is_stmt 1
- 132 004c FF91      		pop r31
- 133 004e EF91      		pop r30
- 134 0050 BF91      		pop r27
- 135 0052 AF91      		pop r26
- 136 0054 9F91      		pop r25
- 137 0056 8F91      		pop r24
- 138 0058 7F91      		pop r23
- 139 005a 6F91      		pop r22
- 140 005c 5F91      		pop r21
- 141 005e 4F91      		pop r20
- 142 0060 3F91      		pop r19
- 143 0062 2F91      		pop r18
- 144 0064 0F90      		pop r0
- 145 0066 0FBE      		out __SREG__,r0
- 146 0068 0F90      		pop r0
- 147 006a 1F90      		pop r1
- 148 006c 1895      		reti
- 149               	.LVL7:
- 150               	.L22:
- 151               	.LBB32:
- 152               	.LBB33:
- 114:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     sts |= SD_OVERRUN_ERROR;
- 153               		.loc 1 114 0
- 154 006e 83FD      		sbrc r24,3
- 155 0070 00C0      		rjmp .L23
-  93:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   uint8_t dor = 0;
- 156               		.loc 1 93 0
- 157 0072 60E0      		ldi r22,0
- 158               	.L4:
- 159               	.LVL8:
- 116:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     sts |= SD_PARITY_ERROR;
- 160               		.loc 1 116 0
- 161 0074 82FD      		sbrc r24,2
- 117:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   if (sra & fe)
- 162               		.loc 1 117 0
- 163 0076 6062      		ori r22,lo8(32)
- 164               	.LVL9:
- 165               	.L5:
- 118:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     sts |= SD_FRAMING_ERROR;
- 166               		.loc 1 118 0
- 167 0078 84FD      		sbrc r24,4
- 119:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   osalSysLockFromISR();
- 168               		.loc 1 119 0
- 169 007a 6064      		ori r22,lo8(64)
- 170               	.LVL10:
- 171               	.L6:
- 172               	.LBB34:
- 173               	.LBB35:
- 174               		.file 2 "../../../os/hal/osal/rt/osal.h"
+ 130               		.loc 1 265 3 is_stmt 1 view .LVU20
+ 131               		.file 2 "../../../os/hal/osal/rt/osal.h"
    1:../../../os/hal/osal/rt/osal.h **** /*
    2:../../../os/hal/osal/rt/osal.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio
    3:../../../os/hal/osal/rt/osal.h **** 
@@ -978,6 +924,878 @@
  531:../../../os/hal/osal/rt/osal.h **** static inline void osalSysLockFromISR(void) {
  532:../../../os/hal/osal/rt/osal.h **** 
  533:../../../os/hal/osal/rt/osal.h ****   chSysLockFromISR();
+ 132               		.loc 2 533 3 view .LVU21
+ 133               		.file 3 "../../../os/rt/include/chsys.h"
+   1:../../../os/rt/include/chsys.h **** /*
+   2:../../../os/rt/include/chsys.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
+   3:../../../os/rt/include/chsys.h **** 
+   4:../../../os/rt/include/chsys.h ****     This file is part of ChibiOS.
+   5:../../../os/rt/include/chsys.h **** 
+   6:../../../os/rt/include/chsys.h ****     ChibiOS is free software; you can redistribute it and/or modify
+   7:../../../os/rt/include/chsys.h ****     it under the terms of the GNU General Public License as published by
+   8:../../../os/rt/include/chsys.h ****     the Free Software Foundation; either version 3 of the License, or
+   9:../../../os/rt/include/chsys.h ****     (at your option) any later version.
+  10:../../../os/rt/include/chsys.h **** 
+  11:../../../os/rt/include/chsys.h ****     ChibiOS is distributed in the hope that it will be useful,
+  12:../../../os/rt/include/chsys.h ****     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:../../../os/rt/include/chsys.h ****     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:../../../os/rt/include/chsys.h ****     GNU General Public License for more details.
+  15:../../../os/rt/include/chsys.h **** 
+  16:../../../os/rt/include/chsys.h ****     You should have received a copy of the GNU General Public License
+  17:../../../os/rt/include/chsys.h ****     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  18:../../../os/rt/include/chsys.h **** */
+  19:../../../os/rt/include/chsys.h **** 
+  20:../../../os/rt/include/chsys.h **** /**
+  21:../../../os/rt/include/chsys.h ****  * @file    chsys.h
+  22:../../../os/rt/include/chsys.h ****  * @brief   System related macros and structures.
+  23:../../../os/rt/include/chsys.h ****  *
+  24:../../../os/rt/include/chsys.h ****  * @addtogroup system
+  25:../../../os/rt/include/chsys.h ****  * @{
+  26:../../../os/rt/include/chsys.h ****  */
+  27:../../../os/rt/include/chsys.h **** 
+  28:../../../os/rt/include/chsys.h **** #ifndef CHSYS_H
+  29:../../../os/rt/include/chsys.h **** #define CHSYS_H
+  30:../../../os/rt/include/chsys.h **** 
+  31:../../../os/rt/include/chsys.h **** /*lint -sem(chSysHalt, r_no)*/
+  32:../../../os/rt/include/chsys.h **** 
+  33:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  34:../../../os/rt/include/chsys.h **** /* Module constants.                                                         */
+  35:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  36:../../../os/rt/include/chsys.h **** 
+  37:../../../os/rt/include/chsys.h **** /**
+  38:../../../os/rt/include/chsys.h ****  * @name    Masks of executable integrity checks.
+  39:../../../os/rt/include/chsys.h ****  * @{
+  40:../../../os/rt/include/chsys.h ****  */
+  41:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_RLIST                  1U
+  42:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_VTLIST                 2U
+  43:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_REGISTRY               4U
+  44:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_PORT                   8U
+  45:../../../os/rt/include/chsys.h **** /** @} */
+  46:../../../os/rt/include/chsys.h **** 
+  47:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  48:../../../os/rt/include/chsys.h **** /* Module pre-compile time settings.                                         */
+  49:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  50:../../../os/rt/include/chsys.h **** 
+  51:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  52:../../../os/rt/include/chsys.h **** /* Derived constants and error checks.                                       */
+  53:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  54:../../../os/rt/include/chsys.h **** 
+  55:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  56:../../../os/rt/include/chsys.h **** /* Module data structures and types.                                         */
+  57:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  58:../../../os/rt/include/chsys.h **** 
+  59:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  60:../../../os/rt/include/chsys.h **** /* Module macros.                                                            */
+  61:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  62:../../../os/rt/include/chsys.h **** 
+  63:../../../os/rt/include/chsys.h **** /**
+  64:../../../os/rt/include/chsys.h ****  * @name    ISRs abstraction macros
+  65:../../../os/rt/include/chsys.h ****  */
+  66:../../../os/rt/include/chsys.h **** /**
+  67:../../../os/rt/include/chsys.h ****  * @brief   Priority level validation macro.
+  68:../../../os/rt/include/chsys.h ****  * @details This macro determines if the passed value is a valid priority
+  69:../../../os/rt/include/chsys.h ****  *          level for the underlying architecture.
+  70:../../../os/rt/include/chsys.h ****  *
+  71:../../../os/rt/include/chsys.h ****  * @param[in] prio      the priority level
+  72:../../../os/rt/include/chsys.h ****  * @return              Priority range result.
+  73:../../../os/rt/include/chsys.h ****  * @retval false        if the priority is invalid or if the architecture
+  74:../../../os/rt/include/chsys.h ****  *                      does not support priorities.
+  75:../../../os/rt/include/chsys.h ****  * @retval true         if the priority is valid.
+  76:../../../os/rt/include/chsys.h ****  */
+  77:../../../os/rt/include/chsys.h **** #if defined(PORT_IRQ_IS_VALID_PRIORITY) || defined(__DOXYGEN__)
+  78:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_PRIORITY(prio)                                      \
+  79:../../../os/rt/include/chsys.h ****   PORT_IRQ_IS_VALID_PRIORITY(prio)
+  80:../../../os/rt/include/chsys.h **** #else
+  81:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_PRIORITY(prio) false
+  82:../../../os/rt/include/chsys.h **** #endif
+  83:../../../os/rt/include/chsys.h **** 
+  84:../../../os/rt/include/chsys.h **** /**
+  85:../../../os/rt/include/chsys.h ****  * @brief   Priority level validation macro.
+  86:../../../os/rt/include/chsys.h ****  * @details This macro determines if the passed value is a valid priority
+  87:../../../os/rt/include/chsys.h ****  *          level that cannot preempt the kernel critical zone.
+  88:../../../os/rt/include/chsys.h ****  *
+  89:../../../os/rt/include/chsys.h ****  * @param[in] prio      the priority level
+  90:../../../os/rt/include/chsys.h ****  * @return              Priority range result.
+  91:../../../os/rt/include/chsys.h ****  * @retval false        if the priority is invalid or if the architecture
+  92:../../../os/rt/include/chsys.h ****  *                      does not support priorities.
+  93:../../../os/rt/include/chsys.h ****  * @retval true         if the priority is valid.
+  94:../../../os/rt/include/chsys.h ****  */
+  95:../../../os/rt/include/chsys.h **** #if defined(PORT_IRQ_IS_VALID_KERNEL_PRIORITY) || defined(__DOXYGEN__)
+  96:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_KERNEL_PRIORITY(prio)                               \
+  97:../../../os/rt/include/chsys.h ****   PORT_IRQ_IS_VALID_KERNEL_PRIORITY(prio)
+  98:../../../os/rt/include/chsys.h **** #else
+  99:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_KERNEL_PRIORITY(prio) false
+ 100:../../../os/rt/include/chsys.h **** #endif
+ 101:../../../os/rt/include/chsys.h **** 
+ 102:../../../os/rt/include/chsys.h **** /**
+ 103:../../../os/rt/include/chsys.h ****  * @brief   IRQ handler enter code.
+ 104:../../../os/rt/include/chsys.h ****  * @note    Usually IRQ handlers functions are also declared naked.
+ 105:../../../os/rt/include/chsys.h ****  * @note    On some architectures this macro can be empty.
+ 106:../../../os/rt/include/chsys.h ****  *
+ 107:../../../os/rt/include/chsys.h ****  * @special
+ 108:../../../os/rt/include/chsys.h ****  */
+ 109:../../../os/rt/include/chsys.h **** #define CH_IRQ_PROLOGUE()                                                   \
+ 110:../../../os/rt/include/chsys.h ****   PORT_IRQ_PROLOGUE();                                                      \
+ 111:../../../os/rt/include/chsys.h ****   CH_CFG_IRQ_PROLOGUE_HOOK();                                               \
+ 112:../../../os/rt/include/chsys.h ****   _stats_increase_irq();                                                    \
+ 113:../../../os/rt/include/chsys.h ****   _trace_isr_enter(__func__);                                               \
+ 114:../../../os/rt/include/chsys.h ****   _dbg_check_enter_isr()
+ 115:../../../os/rt/include/chsys.h **** 
+ 116:../../../os/rt/include/chsys.h **** /**
+ 117:../../../os/rt/include/chsys.h ****  * @brief   IRQ handler exit code.
+ 118:../../../os/rt/include/chsys.h ****  * @note    Usually IRQ handlers function are also declared naked.
+ 119:../../../os/rt/include/chsys.h ****  * @note    This macro usually performs the final reschedule by using
+ 120:../../../os/rt/include/chsys.h ****  *          @p chSchIsPreemptionRequired() and @p chSchDoReschedule().
+ 121:../../../os/rt/include/chsys.h ****  *
+ 122:../../../os/rt/include/chsys.h ****  * @special
+ 123:../../../os/rt/include/chsys.h ****  */
+ 124:../../../os/rt/include/chsys.h **** #define CH_IRQ_EPILOGUE()                                                   \
+ 125:../../../os/rt/include/chsys.h ****   _dbg_check_leave_isr();                                                   \
+ 126:../../../os/rt/include/chsys.h ****   _trace_isr_leave(__func__);                                               \
+ 127:../../../os/rt/include/chsys.h ****   CH_CFG_IRQ_EPILOGUE_HOOK();                                               \
+ 128:../../../os/rt/include/chsys.h ****   PORT_IRQ_EPILOGUE()
+ 129:../../../os/rt/include/chsys.h **** 
+ 130:../../../os/rt/include/chsys.h **** /**
+ 131:../../../os/rt/include/chsys.h ****  * @brief   Standard normal IRQ handler declaration.
+ 132:../../../os/rt/include/chsys.h ****  * @note    @p id can be a function name or a vector number depending on the
+ 133:../../../os/rt/include/chsys.h ****  *          port implementation.
+ 134:../../../os/rt/include/chsys.h ****  *
+ 135:../../../os/rt/include/chsys.h ****  * @special
+ 136:../../../os/rt/include/chsys.h ****  */
+ 137:../../../os/rt/include/chsys.h **** #define CH_IRQ_HANDLER(id) PORT_IRQ_HANDLER(id)
+ 138:../../../os/rt/include/chsys.h **** /** @} */
+ 139:../../../os/rt/include/chsys.h **** 
+ 140:../../../os/rt/include/chsys.h **** /**
+ 141:../../../os/rt/include/chsys.h ****  * @name    Fast ISRs abstraction macros
+ 142:../../../os/rt/include/chsys.h ****  */
+ 143:../../../os/rt/include/chsys.h **** /**
+ 144:../../../os/rt/include/chsys.h ****  * @brief   Standard fast IRQ handler declaration.
+ 145:../../../os/rt/include/chsys.h ****  * @note    @p id can be a function name or a vector number depending on the
+ 146:../../../os/rt/include/chsys.h ****  *          port implementation.
+ 147:../../../os/rt/include/chsys.h ****  * @note    Not all architectures support fast interrupts.
+ 148:../../../os/rt/include/chsys.h ****  *
+ 149:../../../os/rt/include/chsys.h ****  * @special
+ 150:../../../os/rt/include/chsys.h ****  */
+ 151:../../../os/rt/include/chsys.h **** #define CH_FAST_IRQ_HANDLER(id) PORT_FAST_IRQ_HANDLER(id)
+ 152:../../../os/rt/include/chsys.h **** /** @} */
+ 153:../../../os/rt/include/chsys.h **** 
+ 154:../../../os/rt/include/chsys.h **** /**
+ 155:../../../os/rt/include/chsys.h ****  * @name    Time conversion utilities for the realtime counter
+ 156:../../../os/rt/include/chsys.h ****  * @{
+ 157:../../../os/rt/include/chsys.h ****  */
+ 158:../../../os/rt/include/chsys.h **** /**
+ 159:../../../os/rt/include/chsys.h ****  * @brief   Seconds to realtime counter.
+ 160:../../../os/rt/include/chsys.h ****  * @details Converts from seconds to realtime counter cycles.
+ 161:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1.
+ 162:../../../os/rt/include/chsys.h ****  *
+ 163:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 164:../../../os/rt/include/chsys.h ****  * @param[in] sec       number of seconds
+ 165:../../../os/rt/include/chsys.h ****  * @return              The number of cycles.
+ 166:../../../os/rt/include/chsys.h ****  *
+ 167:../../../os/rt/include/chsys.h ****  * @api
+ 168:../../../os/rt/include/chsys.h ****  */
+ 169:../../../os/rt/include/chsys.h **** #define S2RTC(freq, sec) ((freq) * (sec))
+ 170:../../../os/rt/include/chsys.h **** 
+ 171:../../../os/rt/include/chsys.h **** /**
+ 172:../../../os/rt/include/chsys.h ****  * @brief   Milliseconds to realtime counter.
+ 173:../../../os/rt/include/chsys.h ****  * @details Converts from milliseconds to realtime counter cycles.
+ 174:../../../os/rt/include/chsys.h ****  * @note    The result is rounded upward to the next millisecond boundary.
+ 175:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000.
+ 176:../../../os/rt/include/chsys.h ****  *
+ 177:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 178:../../../os/rt/include/chsys.h ****  * @param[in] msec      number of milliseconds
+ 179:../../../os/rt/include/chsys.h ****  * @return              The number of cycles.
+ 180:../../../os/rt/include/chsys.h ****  *
+ 181:../../../os/rt/include/chsys.h ****  * @api
+ 182:../../../os/rt/include/chsys.h ****  */
+ 183:../../../os/rt/include/chsys.h **** #define MS2RTC(freq, msec) (rtcnt_t)((((freq) + 999UL) / 1000UL) * (msec))
+ 184:../../../os/rt/include/chsys.h **** 
+ 185:../../../os/rt/include/chsys.h **** /**
+ 186:../../../os/rt/include/chsys.h ****  * @brief   Microseconds to realtime counter.
+ 187:../../../os/rt/include/chsys.h ****  * @details Converts from microseconds to realtime counter cycles.
+ 188:../../../os/rt/include/chsys.h ****  * @note    The result is rounded upward to the next microsecond boundary.
+ 189:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000000.
+ 190:../../../os/rt/include/chsys.h ****  *
+ 191:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 192:../../../os/rt/include/chsys.h ****  * @param[in] usec      number of microseconds
+ 193:../../../os/rt/include/chsys.h ****  * @return              The number of cycles.
+ 194:../../../os/rt/include/chsys.h ****  *
+ 195:../../../os/rt/include/chsys.h ****  * @api
+ 196:../../../os/rt/include/chsys.h ****  */
+ 197:../../../os/rt/include/chsys.h **** #define US2RTC(freq, usec) (rtcnt_t)((((freq) + 999999UL) / 1000000UL) * (usec))
+ 198:../../../os/rt/include/chsys.h **** 
+ 199:../../../os/rt/include/chsys.h **** /**
+ 200:../../../os/rt/include/chsys.h ****  * @brief   Realtime counter cycles to seconds.
+ 201:../../../os/rt/include/chsys.h ****  * @details Converts from realtime counter cycles number to seconds.
+ 202:../../../os/rt/include/chsys.h ****  * @note    The result is rounded up to the next second boundary.
+ 203:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1.
+ 204:../../../os/rt/include/chsys.h ****  *
+ 205:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 206:../../../os/rt/include/chsys.h ****  * @param[in] n         number of cycles
+ 207:../../../os/rt/include/chsys.h ****  * @return              The number of seconds.
+ 208:../../../os/rt/include/chsys.h ****  *
+ 209:../../../os/rt/include/chsys.h ****  * @api
+ 210:../../../os/rt/include/chsys.h ****  */
+ 211:../../../os/rt/include/chsys.h **** #define RTC2S(freq, n) ((((n) - 1UL) / (freq)) + 1UL)
+ 212:../../../os/rt/include/chsys.h **** 
+ 213:../../../os/rt/include/chsys.h **** /**
+ 214:../../../os/rt/include/chsys.h ****  * @brief   Realtime counter cycles to milliseconds.
+ 215:../../../os/rt/include/chsys.h ****  * @details Converts from realtime counter cycles number to milliseconds.
+ 216:../../../os/rt/include/chsys.h ****  * @note    The result is rounded up to the next millisecond boundary.
+ 217:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000.
+ 218:../../../os/rt/include/chsys.h ****  *
+ 219:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 220:../../../os/rt/include/chsys.h ****  * @param[in] n         number of cycles
+ 221:../../../os/rt/include/chsys.h ****  * @return              The number of milliseconds.
+ 222:../../../os/rt/include/chsys.h ****  *
+ 223:../../../os/rt/include/chsys.h ****  * @api
+ 224:../../../os/rt/include/chsys.h ****  */
+ 225:../../../os/rt/include/chsys.h **** #define RTC2MS(freq, n) ((((n) - 1UL) / ((freq) / 1000UL)) + 1UL)
+ 226:../../../os/rt/include/chsys.h **** 
+ 227:../../../os/rt/include/chsys.h **** /**
+ 228:../../../os/rt/include/chsys.h ****  * @brief   Realtime counter cycles to microseconds.
+ 229:../../../os/rt/include/chsys.h ****  * @details Converts from realtime counter cycles number to microseconds.
+ 230:../../../os/rt/include/chsys.h ****  * @note    The result is rounded up to the next microsecond boundary.
+ 231:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000000.
+ 232:../../../os/rt/include/chsys.h ****  *
+ 233:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 234:../../../os/rt/include/chsys.h ****  * @param[in] n         number of cycles
+ 235:../../../os/rt/include/chsys.h ****  * @return              The number of microseconds.
+ 236:../../../os/rt/include/chsys.h ****  *
+ 237:../../../os/rt/include/chsys.h ****  * @api
+ 238:../../../os/rt/include/chsys.h ****  */
+ 239:../../../os/rt/include/chsys.h **** #define RTC2US(freq, n) ((((n) - 1UL) / ((freq) / 1000000UL)) + 1UL)
+ 240:../../../os/rt/include/chsys.h **** /** @} */
+ 241:../../../os/rt/include/chsys.h **** 
+ 242:../../../os/rt/include/chsys.h **** /**
+ 243:../../../os/rt/include/chsys.h ****  * @brief   Returns the current value of the system real time counter.
+ 244:../../../os/rt/include/chsys.h ****  * @note    This function is only available if the port layer supports the
+ 245:../../../os/rt/include/chsys.h ****  *          option @p PORT_SUPPORTS_RT.
+ 246:../../../os/rt/include/chsys.h ****  *
+ 247:../../../os/rt/include/chsys.h ****  * @return              The value of the system realtime counter of
+ 248:../../../os/rt/include/chsys.h ****  *                      type rtcnt_t.
+ 249:../../../os/rt/include/chsys.h ****  *
+ 250:../../../os/rt/include/chsys.h ****  * @xclass
+ 251:../../../os/rt/include/chsys.h ****  */
+ 252:../../../os/rt/include/chsys.h **** #if (PORT_SUPPORTS_RT == TRUE) || defined(__DOXYGEN__)
+ 253:../../../os/rt/include/chsys.h **** #define chSysGetRealtimeCounterX() (rtcnt_t)port_rt_get_counter_value()
+ 254:../../../os/rt/include/chsys.h **** #endif
+ 255:../../../os/rt/include/chsys.h **** 
+ 256:../../../os/rt/include/chsys.h **** /**
+ 257:../../../os/rt/include/chsys.h ****  * @brief   Performs a context switch.
+ 258:../../../os/rt/include/chsys.h ****  * @note    Not a user function, it is meant to be invoked by the scheduler
+ 259:../../../os/rt/include/chsys.h ****  *          itself or from within the port layer.
+ 260:../../../os/rt/include/chsys.h ****  *
+ 261:../../../os/rt/include/chsys.h ****  * @param[in] ntp       the thread to be switched in
+ 262:../../../os/rt/include/chsys.h ****  * @param[in] otp       the thread to be switched out
+ 263:../../../os/rt/include/chsys.h ****  *
+ 264:../../../os/rt/include/chsys.h ****  * @special
+ 265:../../../os/rt/include/chsys.h ****  */
+ 266:../../../os/rt/include/chsys.h **** #define chSysSwitch(ntp, otp) {                                             \
+ 267:../../../os/rt/include/chsys.h ****                                                                             \
+ 268:../../../os/rt/include/chsys.h ****   _trace_switch(ntp, otp);                                                  \
+ 269:../../../os/rt/include/chsys.h ****   _stats_ctxswc(ntp, otp);                                                  \
+ 270:../../../os/rt/include/chsys.h ****   CH_CFG_CONTEXT_SWITCH_HOOK(ntp, otp);                                     \
+ 271:../../../os/rt/include/chsys.h ****   port_switch(ntp, otp);                                                    \
+ 272:../../../os/rt/include/chsys.h **** }
+ 273:../../../os/rt/include/chsys.h **** 
+ 274:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 275:../../../os/rt/include/chsys.h **** /* External declarations.                                                    */
+ 276:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 277:../../../os/rt/include/chsys.h **** 
+ 278:../../../os/rt/include/chsys.h **** #if !defined(__DOXYGEN__)
+ 279:../../../os/rt/include/chsys.h **** extern stkalign_t ch_idle_thread_wa[];
+ 280:../../../os/rt/include/chsys.h **** #endif
+ 281:../../../os/rt/include/chsys.h **** 
+ 282:../../../os/rt/include/chsys.h **** #ifdef __cplusplus
+ 283:../../../os/rt/include/chsys.h **** extern "C" {
+ 284:../../../os/rt/include/chsys.h **** #endif
+ 285:../../../os/rt/include/chsys.h ****   void chSysInit(void);
+ 286:../../../os/rt/include/chsys.h ****   bool chSysIntegrityCheckI(unsigned testmask);
+ 287:../../../os/rt/include/chsys.h ****   void chSysTimerHandlerI(void);
+ 288:../../../os/rt/include/chsys.h ****   syssts_t chSysGetStatusAndLockX(void);
+ 289:../../../os/rt/include/chsys.h ****   void chSysRestoreStatusX(syssts_t sts);
+ 290:../../../os/rt/include/chsys.h **** #if PORT_SUPPORTS_RT == TRUE
+ 291:../../../os/rt/include/chsys.h ****   bool chSysIsCounterWithinX(rtcnt_t cnt, rtcnt_t start, rtcnt_t end);
+ 292:../../../os/rt/include/chsys.h ****   void chSysPolledDelayX(rtcnt_t cycles);
+ 293:../../../os/rt/include/chsys.h **** #endif
+ 294:../../../os/rt/include/chsys.h **** #ifdef __cplusplus
+ 295:../../../os/rt/include/chsys.h **** }
+ 296:../../../os/rt/include/chsys.h **** #endif
+ 297:../../../os/rt/include/chsys.h **** 
+ 298:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 299:../../../os/rt/include/chsys.h **** /* Module inline functions.                                                  */
+ 300:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 301:../../../os/rt/include/chsys.h **** 
+ 302:../../../os/rt/include/chsys.h **** /**
+ 303:../../../os/rt/include/chsys.h ****  * @brief   Raises the system interrupt priority mask to the maximum level.
+ 304:../../../os/rt/include/chsys.h ****  * @details All the maskable interrupt sources are disabled regardless their
+ 305:../../../os/rt/include/chsys.h ****  *          hardware priority.
+ 306:../../../os/rt/include/chsys.h ****  * @note    Do not invoke this API from within a kernel lock.
+ 307:../../../os/rt/include/chsys.h ****  *
+ 308:../../../os/rt/include/chsys.h ****  * @special
+ 309:../../../os/rt/include/chsys.h ****  */
+ 310:../../../os/rt/include/chsys.h **** static inline void chSysDisable(void) {
+ 311:../../../os/rt/include/chsys.h **** 
+ 312:../../../os/rt/include/chsys.h ****   port_disable();
+ 313:../../../os/rt/include/chsys.h ****   _dbg_check_disable();
+ 314:../../../os/rt/include/chsys.h **** }
+ 315:../../../os/rt/include/chsys.h **** 
+ 316:../../../os/rt/include/chsys.h **** /**
+ 317:../../../os/rt/include/chsys.h ****  * @brief   Raises the system interrupt priority mask to system level.
+ 318:../../../os/rt/include/chsys.h ****  * @details The interrupt sources that should not be able to preempt the kernel
+ 319:../../../os/rt/include/chsys.h ****  *          are disabled, interrupt sources with higher priority are still
+ 320:../../../os/rt/include/chsys.h ****  *          enabled.
+ 321:../../../os/rt/include/chsys.h ****  * @note    Do not invoke this API from within a kernel lock.
+ 322:../../../os/rt/include/chsys.h ****  * @note    This API is no replacement for @p chSysLock(), the @p chSysLock()
+ 323:../../../os/rt/include/chsys.h ****  *          could do more than just disable the interrupts.
+ 324:../../../os/rt/include/chsys.h ****  *
+ 325:../../../os/rt/include/chsys.h ****  * @special
+ 326:../../../os/rt/include/chsys.h ****  */
+ 327:../../../os/rt/include/chsys.h **** static inline void chSysSuspend(void) {
+ 328:../../../os/rt/include/chsys.h **** 
+ 329:../../../os/rt/include/chsys.h ****   port_suspend();
+ 330:../../../os/rt/include/chsys.h ****   _dbg_check_suspend();
+ 331:../../../os/rt/include/chsys.h **** }
+ 332:../../../os/rt/include/chsys.h **** 
+ 333:../../../os/rt/include/chsys.h **** /**
+ 334:../../../os/rt/include/chsys.h ****  * @brief   Lowers the system interrupt priority mask to user level.
+ 335:../../../os/rt/include/chsys.h ****  * @details All the interrupt sources are enabled.
+ 336:../../../os/rt/include/chsys.h ****  * @note    Do not invoke this API from within a kernel lock.
+ 337:../../../os/rt/include/chsys.h ****  * @note    This API is no replacement for @p chSysUnlock(), the
+ 338:../../../os/rt/include/chsys.h ****  *          @p chSysUnlock() could do more than just enable the interrupts.
+ 339:../../../os/rt/include/chsys.h ****  *
+ 340:../../../os/rt/include/chsys.h ****  * @special
+ 341:../../../os/rt/include/chsys.h ****  */
+ 342:../../../os/rt/include/chsys.h **** static inline void chSysEnable(void) {
+ 343:../../../os/rt/include/chsys.h **** 
+ 344:../../../os/rt/include/chsys.h ****   _dbg_check_enable();
+ 345:../../../os/rt/include/chsys.h ****   port_enable();
+ 346:../../../os/rt/include/chsys.h **** }
+ 347:../../../os/rt/include/chsys.h **** 
+ 348:../../../os/rt/include/chsys.h **** /**
+ 349:../../../os/rt/include/chsys.h ****  * @brief   Enters the kernel lock state.
+ 350:../../../os/rt/include/chsys.h ****  *
+ 351:../../../os/rt/include/chsys.h ****  * @special
+ 352:../../../os/rt/include/chsys.h ****  */
+ 353:../../../os/rt/include/chsys.h **** static inline void chSysLock(void) {
+ 354:../../../os/rt/include/chsys.h **** 
+ 355:../../../os/rt/include/chsys.h ****   port_lock();
+ 356:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_thd();
+ 357:../../../os/rt/include/chsys.h ****   _dbg_check_lock();
+ 358:../../../os/rt/include/chsys.h **** }
+ 359:../../../os/rt/include/chsys.h **** 
+ 360:../../../os/rt/include/chsys.h **** /**
+ 361:../../../os/rt/include/chsys.h ****  * @brief   Leaves the kernel lock state.
+ 362:../../../os/rt/include/chsys.h ****  *
+ 363:../../../os/rt/include/chsys.h ****  * @special
+ 364:../../../os/rt/include/chsys.h ****  */
+ 365:../../../os/rt/include/chsys.h **** static inline void chSysUnlock(void) {
+ 366:../../../os/rt/include/chsys.h **** 
+ 367:../../../os/rt/include/chsys.h ****   _dbg_check_unlock();
+ 368:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 369:../../../os/rt/include/chsys.h **** 
+ 370:../../../os/rt/include/chsys.h ****   /* The following condition can be triggered by the use of i-class functions
+ 371:../../../os/rt/include/chsys.h ****      in a critical section not followed by a chSchResceduleS(), this means
+ 372:../../../os/rt/include/chsys.h ****      that the current thread has a lower priority than the next thread in
+ 373:../../../os/rt/include/chsys.h ****      the ready list.*/
+ 374:../../../os/rt/include/chsys.h ****   chDbgAssert((ch.rlist.queue.next == (thread_t *)&ch.rlist.queue) ||
+ 375:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 376:../../../os/rt/include/chsys.h ****               "priority order violation");
+ 377:../../../os/rt/include/chsys.h **** 
+ 378:../../../os/rt/include/chsys.h ****   port_unlock();
+ 379:../../../os/rt/include/chsys.h **** }
+ 380:../../../os/rt/include/chsys.h **** 
+ 381:../../../os/rt/include/chsys.h **** /**
+ 382:../../../os/rt/include/chsys.h ****  * @brief   Enters the kernel lock state from within an interrupt handler.
+ 383:../../../os/rt/include/chsys.h ****  * @note    This API may do nothing on some architectures, it is required
+ 384:../../../os/rt/include/chsys.h ****  *          because on ports that support preemptable interrupt handlers
+ 385:../../../os/rt/include/chsys.h ****  *          it is required to raise the interrupt mask to the same level of
+ 386:../../../os/rt/include/chsys.h ****  *          the system mutual exclusion zone.<br>
+ 387:../../../os/rt/include/chsys.h ****  *          It is good practice to invoke this API before invoking any I-class
+ 388:../../../os/rt/include/chsys.h ****  *          syscall from an interrupt handler.
+ 389:../../../os/rt/include/chsys.h ****  * @note    This API must be invoked exclusively from interrupt handlers.
+ 390:../../../os/rt/include/chsys.h ****  *
+ 391:../../../os/rt/include/chsys.h ****  * @special
+ 392:../../../os/rt/include/chsys.h ****  */
+ 393:../../../os/rt/include/chsys.h **** static inline void chSysLockFromISR(void) {
+ 394:../../../os/rt/include/chsys.h **** 
+ 395:../../../os/rt/include/chsys.h ****   port_lock_from_isr();
+ 134               		.loc 3 395 3 view .LVU22
+ 135               		.file 4 "../../../os/common/ports/AVR/chcore.h"
+   1:../../../os/common/ports/AVR/chcore.h **** /*
+   2:../../../os/common/ports/AVR/chcore.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
+   3:../../../os/common/ports/AVR/chcore.h **** 
+   4:../../../os/common/ports/AVR/chcore.h ****     This file is part of ChibiOS.
+   5:../../../os/common/ports/AVR/chcore.h **** 
+   6:../../../os/common/ports/AVR/chcore.h ****     ChibiOS is free software; you can redistribute it and/or modify
+   7:../../../os/common/ports/AVR/chcore.h ****     it under the terms of the GNU General Public License as published by
+   8:../../../os/common/ports/AVR/chcore.h ****     the Free Software Foundation; either version 3 of the License, or
+   9:../../../os/common/ports/AVR/chcore.h ****     (at your option) any later version.
+  10:../../../os/common/ports/AVR/chcore.h **** 
+  11:../../../os/common/ports/AVR/chcore.h ****     ChibiOS is distributed in the hope that it will be useful,
+  12:../../../os/common/ports/AVR/chcore.h ****     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:../../../os/common/ports/AVR/chcore.h ****     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:../../../os/common/ports/AVR/chcore.h ****     GNU General Public License for more details.
+  15:../../../os/common/ports/AVR/chcore.h **** 
+  16:../../../os/common/ports/AVR/chcore.h ****     You should have received a copy of the GNU General Public License
+  17:../../../os/common/ports/AVR/chcore.h ****     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  18:../../../os/common/ports/AVR/chcore.h **** */
+  19:../../../os/common/ports/AVR/chcore.h **** 
+  20:../../../os/common/ports/AVR/chcore.h **** /**
+  21:../../../os/common/ports/AVR/chcore.h ****  * @file    templates/chcore.h
+  22:../../../os/common/ports/AVR/chcore.h ****  * @brief   Port related template macros and structures.
+  23:../../../os/common/ports/AVR/chcore.h ****  * @details This file is a template of the system driver macros provided by
+  24:../../../os/common/ports/AVR/chcore.h ****  *          a port.
+  25:../../../os/common/ports/AVR/chcore.h ****  *
+  26:../../../os/common/ports/AVR/chcore.h ****  * @addtogroup core
+  27:../../../os/common/ports/AVR/chcore.h ****  * @{
+  28:../../../os/common/ports/AVR/chcore.h ****  */
+  29:../../../os/common/ports/AVR/chcore.h **** 
+  30:../../../os/common/ports/AVR/chcore.h **** #ifndef CHCORE_H
+  31:../../../os/common/ports/AVR/chcore.h **** #define CHCORE_H
+  32:../../../os/common/ports/AVR/chcore.h **** 
+  33:../../../os/common/ports/AVR/chcore.h **** #include <avr/io.h>
+  34:../../../os/common/ports/AVR/chcore.h **** #include <avr/interrupt.h>
+  35:../../../os/common/ports/AVR/chcore.h **** 
+  36:../../../os/common/ports/AVR/chcore.h **** extern bool __avr_in_isr;
+  37:../../../os/common/ports/AVR/chcore.h **** 
+  38:../../../os/common/ports/AVR/chcore.h **** /*===========================================================================*/
+  39:../../../os/common/ports/AVR/chcore.h **** /* Module constants.                                                         */
+  40:../../../os/common/ports/AVR/chcore.h **** /*===========================================================================*/
+  41:../../../os/common/ports/AVR/chcore.h **** 
+  42:../../../os/common/ports/AVR/chcore.h **** /**
+  43:../../../os/common/ports/AVR/chcore.h ****  * @name    Port Capabilities and Constants
+  44:../../../os/common/ports/AVR/chcore.h ****  * @{
+  45:../../../os/common/ports/AVR/chcore.h ****  */
+  46:../../../os/common/ports/AVR/chcore.h **** /**
+  47:../../../os/common/ports/AVR/chcore.h ****  * @brief   This port supports a realtime counter.
+  48:../../../os/common/ports/AVR/chcore.h ****  */
+  49:../../../os/common/ports/AVR/chcore.h **** #define PORT_SUPPORTS_RT                FALSE
+  50:../../../os/common/ports/AVR/chcore.h **** 
+  51:../../../os/common/ports/AVR/chcore.h **** /**
+  52:../../../os/common/ports/AVR/chcore.h ****  * @brief   Natural alignment constant.
+  53:../../../os/common/ports/AVR/chcore.h ****  * @note    It is the minimum alignment for pointer-size variables.
+  54:../../../os/common/ports/AVR/chcore.h ****  */
+  55:../../../os/common/ports/AVR/chcore.h **** #define PORT_NATURAL_ALIGN              1U
+  56:../../../os/common/ports/AVR/chcore.h **** 
+  57:../../../os/common/ports/AVR/chcore.h **** /**
+  58:../../../os/common/ports/AVR/chcore.h ****  * @brief   Stack alignment constant.
+  59:../../../os/common/ports/AVR/chcore.h ****  * @note    It is the alignement required for the stack pointer.
+  60:../../../os/common/ports/AVR/chcore.h ****  */
+  61:../../../os/common/ports/AVR/chcore.h **** #define PORT_STACK_ALIGN                1U
+  62:../../../os/common/ports/AVR/chcore.h **** 
+  63:../../../os/common/ports/AVR/chcore.h **** /**
+  64:../../../os/common/ports/AVR/chcore.h ****  * @brief   Working Areas alignment constant.
+  65:../../../os/common/ports/AVR/chcore.h ****  * @note    It is the alignment to be enforced for thread working areas.
+  66:../../../os/common/ports/AVR/chcore.h ****  */
+  67:../../../os/common/ports/AVR/chcore.h **** #define PORT_WORKING_AREA_ALIGN         1U
+  68:../../../os/common/ports/AVR/chcore.h **** /** @} */
+  69:../../../os/common/ports/AVR/chcore.h **** 
+  70:../../../os/common/ports/AVR/chcore.h **** /**
+  71:../../../os/common/ports/AVR/chcore.h ****  * @name    Architecture and Compiler
+  72:../../../os/common/ports/AVR/chcore.h ****  * @{
+  73:../../../os/common/ports/AVR/chcore.h ****  */
+  74:../../../os/common/ports/AVR/chcore.h **** /**
+  75:../../../os/common/ports/AVR/chcore.h ****  * @brief   Macro defining an AVR architecture.
+  76:../../../os/common/ports/AVR/chcore.h ****  */
+  77:../../../os/common/ports/AVR/chcore.h **** #define PORT_ARCHITECTURE_AVR
+  78:../../../os/common/ports/AVR/chcore.h **** 
+  79:../../../os/common/ports/AVR/chcore.h **** /**
+  80:../../../os/common/ports/AVR/chcore.h ****  * @brief   Macro defining the specific AVR architecture.
+  81:../../../os/common/ports/AVR/chcore.h ****  */
+  82:../../../os/common/ports/AVR/chcore.h **** #define PORT_ARCHITECTURE_AVR_MEGAAVR
+  83:../../../os/common/ports/AVR/chcore.h **** 
+  84:../../../os/common/ports/AVR/chcore.h **** /**
+  85:../../../os/common/ports/AVR/chcore.h ****  * @brief   Name of the implemented architecture.
+  86:../../../os/common/ports/AVR/chcore.h ****  */
+  87:../../../os/common/ports/AVR/chcore.h **** #define PORT_ARCHITECTURE_NAME          "MegaAVR"
+  88:../../../os/common/ports/AVR/chcore.h **** 
+  89:../../../os/common/ports/AVR/chcore.h **** /**
+  90:../../../os/common/ports/AVR/chcore.h ****  * @brief   Compiler name and version.
+  91:../../../os/common/ports/AVR/chcore.h ****  */
+  92:../../../os/common/ports/AVR/chcore.h **** #if defined(__GNUC__) || defined(__DOXYGEN__)
+  93:../../../os/common/ports/AVR/chcore.h **** #define PORT_COMPILER_NAME              "GCC " __VERSION__
+  94:../../../os/common/ports/AVR/chcore.h **** 
+  95:../../../os/common/ports/AVR/chcore.h **** #else
+  96:../../../os/common/ports/AVR/chcore.h **** #error "unsupported compiler"
+  97:../../../os/common/ports/AVR/chcore.h **** #endif
+  98:../../../os/common/ports/AVR/chcore.h **** 
+  99:../../../os/common/ports/AVR/chcore.h **** /**
+ 100:../../../os/common/ports/AVR/chcore.h ****  * @brief   Port-specific information string.
+ 101:../../../os/common/ports/AVR/chcore.h ****  */
+ 102:../../../os/common/ports/AVR/chcore.h **** #define PORT_INFO                       "None"
+ 103:../../../os/common/ports/AVR/chcore.h **** /** @} */
+ 104:../../../os/common/ports/AVR/chcore.h **** 
+ 105:../../../os/common/ports/AVR/chcore.h **** /*===========================================================================*/
+ 106:../../../os/common/ports/AVR/chcore.h **** /* Module pre-compile time settings.                                         */
+ 107:../../../os/common/ports/AVR/chcore.h **** /*===========================================================================*/
+ 108:../../../os/common/ports/AVR/chcore.h **** 
+ 109:../../../os/common/ports/AVR/chcore.h **** /**
+ 110:../../../os/common/ports/AVR/chcore.h ****  * @brief   Stack size for the system idle thread.
+ 111:../../../os/common/ports/AVR/chcore.h ****  * @details This size depends on the idle thread implementation, usually
+ 112:../../../os/common/ports/AVR/chcore.h ****  *          the idle thread should take no more space than those reserved
+ 113:../../../os/common/ports/AVR/chcore.h ****  *          by @p PORT_INT_REQUIRED_STACK.
+ 114:../../../os/common/ports/AVR/chcore.h ****  */
+ 115:../../../os/common/ports/AVR/chcore.h **** #if !defined(PORT_IDLE_THREAD_STACK_SIZE) || defined(__DOXYGEN__)
+ 116:../../../os/common/ports/AVR/chcore.h **** #define PORT_IDLE_THREAD_STACK_SIZE     8
+ 117:../../../os/common/ports/AVR/chcore.h **** #endif
+ 118:../../../os/common/ports/AVR/chcore.h **** 
+ 119:../../../os/common/ports/AVR/chcore.h **** /**
+ 120:../../../os/common/ports/AVR/chcore.h ****  * @brief   Per-thread stack overhead for interrupts servicing.
+ 121:../../../os/common/ports/AVR/chcore.h ****  * @details This constant is used in the calculation of the correct working
+ 122:../../../os/common/ports/AVR/chcore.h ****  *          area size.
+ 123:../../../os/common/ports/AVR/chcore.h ****  */
+ 124:../../../os/common/ports/AVR/chcore.h **** #if !defined(PORT_INT_REQUIRED_STACK) || defined(__DOXYGEN__)
+ 125:../../../os/common/ports/AVR/chcore.h **** #define PORT_INT_REQUIRED_STACK         32
+ 126:../../../os/common/ports/AVR/chcore.h **** #endif
+ 127:../../../os/common/ports/AVR/chcore.h **** 
+ 128:../../../os/common/ports/AVR/chcore.h **** /**
+ 129:../../../os/common/ports/AVR/chcore.h ****  * @brief   Enables an alternative timer implementation.
+ 130:../../../os/common/ports/AVR/chcore.h ****  * @details Usually the port uses a timer interface defined in the file
+ 131:../../../os/common/ports/AVR/chcore.h ****  *          @p chcore_timer.h, if this option is enabled then the file
+ 132:../../../os/common/ports/AVR/chcore.h ****  *          @p chcore_timer_alt.h is included instead.
+ 133:../../../os/common/ports/AVR/chcore.h ****  */
+ 134:../../../os/common/ports/AVR/chcore.h **** #if !defined(PORT_USE_ALT_TIMER) || defined(__DOXYGEN__)
+ 135:../../../os/common/ports/AVR/chcore.h **** #define PORT_USE_ALT_TIMER              FALSE
+ 136:../../../os/common/ports/AVR/chcore.h **** #endif
+ 137:../../../os/common/ports/AVR/chcore.h **** 
+ 138:../../../os/common/ports/AVR/chcore.h **** /**
+ 139:../../../os/common/ports/AVR/chcore.h ****  * @brief   Enables a "wait for interrupt" instruction in the idle loop.
+ 140:../../../os/common/ports/AVR/chcore.h ****  */
+ 141:../../../os/common/ports/AVR/chcore.h **** #if !defined(PORT_AVR_WFI_SLEEP_IDLE) || defined(__DOXYGEN__)
+ 142:../../../os/common/ports/AVR/chcore.h **** #define PORT_AVR_WFI_SLEEP_IDLE      FALSE
+ 143:../../../os/common/ports/AVR/chcore.h **** #endif
+ 144:../../../os/common/ports/AVR/chcore.h **** 
+ 145:../../../os/common/ports/AVR/chcore.h **** /*===========================================================================*/
+ 146:../../../os/common/ports/AVR/chcore.h **** /* Derived constants and error checks.                                       */
+ 147:../../../os/common/ports/AVR/chcore.h **** /*===========================================================================*/
+ 148:../../../os/common/ports/AVR/chcore.h **** 
+ 149:../../../os/common/ports/AVR/chcore.h **** /*===========================================================================*/
+ 150:../../../os/common/ports/AVR/chcore.h **** /* Module data structures and types.                                         */
+ 151:../../../os/common/ports/AVR/chcore.h **** /*===========================================================================*/
+ 152:../../../os/common/ports/AVR/chcore.h **** 
+ 153:../../../os/common/ports/AVR/chcore.h **** /* The following code is not processed when the file is included from an
+ 154:../../../os/common/ports/AVR/chcore.h ****    asm module.*/
+ 155:../../../os/common/ports/AVR/chcore.h **** #if !defined(_FROM_ASM_)
+ 156:../../../os/common/ports/AVR/chcore.h **** 
+ 157:../../../os/common/ports/AVR/chcore.h **** /**
+ 158:../../../os/common/ports/AVR/chcore.h ****  * @brief   Type of stack and memory alignment enforcement.
+ 159:../../../os/common/ports/AVR/chcore.h ****  * @note    In this architecture the stack alignment is enforced to 8 bits.
+ 160:../../../os/common/ports/AVR/chcore.h ****  */
+ 161:../../../os/common/ports/AVR/chcore.h **** typedef uint8_t stkalign_t;
+ 162:../../../os/common/ports/AVR/chcore.h **** 
+ 163:../../../os/common/ports/AVR/chcore.h **** /**
+ 164:../../../os/common/ports/AVR/chcore.h ****  * @brief   Interrupt saved context.
+ 165:../../../os/common/ports/AVR/chcore.h ****  * @details This structure represents the stack frame saved during a
+ 166:../../../os/common/ports/AVR/chcore.h ****  *          preemption-capable interrupt handler.
+ 167:../../../os/common/ports/AVR/chcore.h ****  * @note    R2 and R13 are not saved because those are assumed to be immutable
+ 168:../../../os/common/ports/AVR/chcore.h ****  *          during the system life cycle.
+ 169:../../../os/common/ports/AVR/chcore.h ****  */
+ 170:../../../os/common/ports/AVR/chcore.h **** struct port_extctx {
+ 171:../../../os/common/ports/AVR/chcore.h ****   uint8_t       _next;
+ 172:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r31;
+ 173:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r30;
+ 174:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r27;
+ 175:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r26;
+ 176:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r25;
+ 177:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r24;
+ 178:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r23;
+ 179:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r22;
+ 180:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r21;
+ 181:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r20;
+ 182:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r19;
+ 183:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r18;
+ 184:../../../os/common/ports/AVR/chcore.h ****   uint8_t       sr;
+ 185:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r1;
+ 186:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r0;
+ 187:../../../os/common/ports/AVR/chcore.h **** #if defined(__AVR_3_BYTE_PC__)
+ 188:../../../os/common/ports/AVR/chcore.h ****   uint8_t       pcx;
+ 189:../../../os/common/ports/AVR/chcore.h **** #endif
+ 190:../../../os/common/ports/AVR/chcore.h ****   uint16_t      pc;
+ 191:../../../os/common/ports/AVR/chcore.h **** };
+ 192:../../../os/common/ports/AVR/chcore.h **** 
+ 193:../../../os/common/ports/AVR/chcore.h **** /**
+ 194:../../../os/common/ports/AVR/chcore.h ****  * @brief   System saved context.
+ 195:../../../os/common/ports/AVR/chcore.h ****  * @details This structure represents the inner stack frame during a context
+ 196:../../../os/common/ports/AVR/chcore.h ****  *          switching.
+ 197:../../../os/common/ports/AVR/chcore.h ****  * @note    R2 and R13 are not saved because those are assumed to be immutable
+ 198:../../../os/common/ports/AVR/chcore.h ****  *          during the system life cycle.
+ 199:../../../os/common/ports/AVR/chcore.h ****  * @note    LR is stored in the caller context so it is not present in this
+ 200:../../../os/common/ports/AVR/chcore.h ****  *          structure.
+ 201:../../../os/common/ports/AVR/chcore.h ****  */
+ 202:../../../os/common/ports/AVR/chcore.h **** struct port_intctx {
+ 203:../../../os/common/ports/AVR/chcore.h ****   uint8_t       _next;
+ 204:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r29;
+ 205:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r28;
+ 206:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r17;
+ 207:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r16;
+ 208:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r15;
+ 209:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r14;
+ 210:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r13;
+ 211:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r12;
+ 212:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r11;
+ 213:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r10;
+ 214:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r9;
+ 215:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r8;
+ 216:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r7;
+ 217:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r6;
+ 218:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r5;
+ 219:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r4;
+ 220:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r3;
+ 221:../../../os/common/ports/AVR/chcore.h ****   uint8_t       r2;
+ 222:../../../os/common/ports/AVR/chcore.h **** #if defined(__AVR_3_BYTE_PC__)
+ 223:../../../os/common/ports/AVR/chcore.h ****   uint8_t       pcx;
+ 224:../../../os/common/ports/AVR/chcore.h **** #endif
+ 225:../../../os/common/ports/AVR/chcore.h ****   uint8_t       pcl;
+ 226:../../../os/common/ports/AVR/chcore.h ****   uint8_t       pch;
+ 227:../../../os/common/ports/AVR/chcore.h **** };
+ 228:../../../os/common/ports/AVR/chcore.h **** 
+ 229:../../../os/common/ports/AVR/chcore.h **** /**
+ 230:../../../os/common/ports/AVR/chcore.h ****  * @brief   Platform dependent part of the @p thread_t structure.
+ 231:../../../os/common/ports/AVR/chcore.h ****  * @details This structure usually contains just the saved stack pointer
+ 232:../../../os/common/ports/AVR/chcore.h ****  *          defined as a pointer to a @p port_intctx structure.
+ 233:../../../os/common/ports/AVR/chcore.h ****  */
+ 234:../../../os/common/ports/AVR/chcore.h **** struct port_context {
+ 235:../../../os/common/ports/AVR/chcore.h ****   struct port_intctx *sp;
+ 236:../../../os/common/ports/AVR/chcore.h **** };
+ 237:../../../os/common/ports/AVR/chcore.h **** 
+ 238:../../../os/common/ports/AVR/chcore.h **** #endif /* !defined(_FROM_ASM_) */
+ 239:../../../os/common/ports/AVR/chcore.h **** 
+ 240:../../../os/common/ports/AVR/chcore.h **** /*===========================================================================*/
+ 241:../../../os/common/ports/AVR/chcore.h **** /* Module macros.                                                            */
+ 242:../../../os/common/ports/AVR/chcore.h **** /*===========================================================================*/
+ 243:../../../os/common/ports/AVR/chcore.h **** 
+ 244:../../../os/common/ports/AVR/chcore.h **** /**
+ 245:../../../os/common/ports/AVR/chcore.h ****  * @brief   Platform dependent part of the @p chThdCreateI() API.
+ 246:../../../os/common/ports/AVR/chcore.h ****  * @details This code usually setup the context switching frame represented
+ 247:../../../os/common/ports/AVR/chcore.h ****  *          by an @p port_intctx structure.
+ 248:../../../os/common/ports/AVR/chcore.h ****  */
+ 249:../../../os/common/ports/AVR/chcore.h **** #if defined(__AVR_3_BYTE_PC__) || defined(__DOXYGEN__)
+ 250:../../../os/common/ports/AVR/chcore.h **** #define PORT_SETUP_CONTEXT(tp, wbase, wtop, pf, arg) {                      \
+ 251:../../../os/common/ports/AVR/chcore.h ****   tp->ctx.sp = (struct port_intctx *)((uint8_t *)(wtop) -                   \
+ 252:../../../os/common/ports/AVR/chcore.h ****                                       sizeof(struct port_intctx));          \
+ 253:../../../os/common/ports/AVR/chcore.h ****   tp->ctx.sp->r2  = (uint8_t)(0xff & (uint16_t)pf);                         \
+ 254:../../../os/common/ports/AVR/chcore.h ****   tp->ctx.sp->r3  = (uint8_t)((uint16_t)(pf) >> 8);                         \
+ 255:../../../os/common/ports/AVR/chcore.h ****   tp->ctx.sp->r4  = (uint8_t)(0xff & (uint16_t)arg);                        \
+ 256:../../../os/common/ports/AVR/chcore.h ****   tp->ctx.sp->r5  = (uint8_t)((uint16_t)(arg) >> 8);                        \
+ 257:../../../os/common/ports/AVR/chcore.h ****   tp->ctx.sp->pcx = (uint8_t)0;                                             \
+ 258:../../../os/common/ports/AVR/chcore.h ****   tp->ctx.sp->pcl = (uint16_t)_port_thread_start >> 8;                      \
+ 259:../../../os/common/ports/AVR/chcore.h ****   tp->ctx.sp->pch = (uint8_t)(0xff & (uint16_t)_port_thread_start);         \
+ 260:../../../os/common/ports/AVR/chcore.h **** }
+ 261:../../../os/common/ports/AVR/chcore.h **** #else /* !__AVR_3_BYTE_PC__ */
+ 262:../../../os/common/ports/AVR/chcore.h **** #define PORT_SETUP_CONTEXT(tp, wbase, wtop, pf, arg) {                      \
+ 263:../../../os/common/ports/AVR/chcore.h ****   tp->ctx.sp = (struct port_intctx *)((uint8_t *)(wtop) -                   \
+ 264:../../../os/common/ports/AVR/chcore.h ****                                       sizeof(struct port_intctx));          \
+ 265:../../../os/common/ports/AVR/chcore.h ****   tp->ctx.sp->r2  = (uint8_t)(0xff & (uint16_t)pf);                         \
+ 266:../../../os/common/ports/AVR/chcore.h ****   tp->ctx.sp->r3  = (uint8_t)((uint16_t)(pf) >> 8);                         \
+ 267:../../../os/common/ports/AVR/chcore.h ****   tp->ctx.sp->r4  = (uint8_t)(0xff & (uint16_t)arg);                        \
+ 268:../../../os/common/ports/AVR/chcore.h ****   tp->ctx.sp->r5  = (uint8_t)((uint16_t)(arg) >> 8);                        \
+ 269:../../../os/common/ports/AVR/chcore.h ****   tp->ctx.sp->pcl = (uint16_t)_port_thread_start >> 8;                      \
+ 270:../../../os/common/ports/AVR/chcore.h ****   tp->ctx.sp->pch = (uint8_t)(0xff & (uint16_t)_port_thread_start);         \
+ 271:../../../os/common/ports/AVR/chcore.h **** }
+ 272:../../../os/common/ports/AVR/chcore.h **** #endif /* !__AVR_3_BYTE_PC__ */
+ 273:../../../os/common/ports/AVR/chcore.h **** 
+ 274:../../../os/common/ports/AVR/chcore.h **** /**
+ 275:../../../os/common/ports/AVR/chcore.h ****  * @brief   Computes the thread working area global size.
+ 276:../../../os/common/ports/AVR/chcore.h ****  * @note    There is no need to perform alignments in this macro.
+ 277:../../../os/common/ports/AVR/chcore.h ****  */
+ 278:../../../os/common/ports/AVR/chcore.h **** #define PORT_WA_SIZE(n) ((sizeof(struct port_intctx) - 1) +                \
+ 279:../../../os/common/ports/AVR/chcore.h ****                          (sizeof(struct port_extctx) - 1) +                \
+ 280:../../../os/common/ports/AVR/chcore.h ****                          ((size_t)(n)) + ((size_t)(PORT_INT_REQUIRED_STACK)))
+ 281:../../../os/common/ports/AVR/chcore.h **** 
+ 282:../../../os/common/ports/AVR/chcore.h **** /**
+ 283:../../../os/common/ports/AVR/chcore.h ****  * @brief   Static working area allocation.
+ 284:../../../os/common/ports/AVR/chcore.h ****  * @details This macro is used to allocate a static thread working area
+ 285:../../../os/common/ports/AVR/chcore.h ****  *          aligned as both position and size.
+ 286:../../../os/common/ports/AVR/chcore.h ****  *
+ 287:../../../os/common/ports/AVR/chcore.h ****  * @param[in] s         the name to be assigned to the stack array
+ 288:../../../os/common/ports/AVR/chcore.h ****  * @param[in] n         the stack size to be assigned to the thread
+ 289:../../../os/common/ports/AVR/chcore.h ****  */
+ 290:../../../os/common/ports/AVR/chcore.h **** #define PORT_WORKING_AREA(s, n)                                             \
+ 291:../../../os/common/ports/AVR/chcore.h ****   stkalign_t s[THD_WORKING_AREA_SIZE(n) / sizeof (stkalign_t)]
+ 292:../../../os/common/ports/AVR/chcore.h **** 
+ 293:../../../os/common/ports/AVR/chcore.h **** /**
+ 294:../../../os/common/ports/AVR/chcore.h ****  * @brief   Priority level verification macro.
+ 295:../../../os/common/ports/AVR/chcore.h ****  */
+ 296:../../../os/common/ports/AVR/chcore.h **** #define PORT_IRQ_IS_VALID_PRIORITY(n) false
+ 297:../../../os/common/ports/AVR/chcore.h **** 
+ 298:../../../os/common/ports/AVR/chcore.h **** /**
+ 299:../../../os/common/ports/AVR/chcore.h ****  * @brief   Priority level verification macro.
+ 300:../../../os/common/ports/AVR/chcore.h ****  */
+ 301:../../../os/common/ports/AVR/chcore.h **** #define PORT_IRQ_IS_VALID_KERNEL_PRIORITY(n) false
+ 302:../../../os/common/ports/AVR/chcore.h **** 
+ 303:../../../os/common/ports/AVR/chcore.h **** /**
+ 304:../../../os/common/ports/AVR/chcore.h ****  * @brief   IRQ prologue code.
+ 305:../../../os/common/ports/AVR/chcore.h ****  * @details This macro must be inserted at the start of all IRQ handlers
+ 306:../../../os/common/ports/AVR/chcore.h ****  *          enabled to invoke system APIs.
+ 307:../../../os/common/ports/AVR/chcore.h ****  * @note    This code tricks the compiler to save all the specified registers
+ 308:../../../os/common/ports/AVR/chcore.h ****  *          by "touching" them.
+ 309:../../../os/common/ports/AVR/chcore.h ****  */
+ 310:../../../os/common/ports/AVR/chcore.h **** #define PORT_IRQ_PROLOGUE() {                                               \
+ 311:../../../os/common/ports/AVR/chcore.h ****   asm ("" : : : "r18", "r19", "r20", "r21", "r22", "r23", "r24",            \
+ 312:../../../os/common/ports/AVR/chcore.h ****                 "r25", "r26", "r27", "r30", "r31");                         \
+ 313:../../../os/common/ports/AVR/chcore.h ****   __avr_in_isr = true;                                                      \
+ 314:../../../os/common/ports/AVR/chcore.h **** }
+ 315:../../../os/common/ports/AVR/chcore.h **** 
+ 316:../../../os/common/ports/AVR/chcore.h **** /**
+ 317:../../../os/common/ports/AVR/chcore.h ****  * @brief   IRQ epilogue code.
+ 318:../../../os/common/ports/AVR/chcore.h ****  * @details This macro must be inserted at the end of all IRQ handlers
+ 319:../../../os/common/ports/AVR/chcore.h ****  *          enabled to invoke system APIs.
+ 320:../../../os/common/ports/AVR/chcore.h ****  */
+ 321:../../../os/common/ports/AVR/chcore.h **** #define PORT_IRQ_EPILOGUE() {                                               \
+ 322:../../../os/common/ports/AVR/chcore.h ****   __avr_in_isr = false;                                                     \
+ 323:../../../os/common/ports/AVR/chcore.h ****   _dbg_check_lock();                                                        \
+ 324:../../../os/common/ports/AVR/chcore.h ****   if (chSchIsPreemptionRequired())                                          \
+ 325:../../../os/common/ports/AVR/chcore.h ****     chSchDoReschedule();                                                    \
+ 326:../../../os/common/ports/AVR/chcore.h ****   _dbg_check_unlock();                                                      \
+ 327:../../../os/common/ports/AVR/chcore.h **** }
+ 328:../../../os/common/ports/AVR/chcore.h **** 
+ 329:../../../os/common/ports/AVR/chcore.h **** /**
+ 330:../../../os/common/ports/AVR/chcore.h ****  * @brief   IRQ handler function declaration.
+ 331:../../../os/common/ports/AVR/chcore.h ****  * @note    @p id can be a function name or a vector number depending on the
+ 332:../../../os/common/ports/AVR/chcore.h ****  *          port implementation.
+ 333:../../../os/common/ports/AVR/chcore.h ****  */
+ 334:../../../os/common/ports/AVR/chcore.h **** #define PORT_IRQ_HANDLER(id) ISR(id)
+ 335:../../../os/common/ports/AVR/chcore.h **** 
+ 336:../../../os/common/ports/AVR/chcore.h **** /**
+ 337:../../../os/common/ports/AVR/chcore.h ****  * @brief   Fast IRQ handler function declaration.
+ 338:../../../os/common/ports/AVR/chcore.h ****  * @note    @p id can be a function name or a vector number depending on the
+ 339:../../../os/common/ports/AVR/chcore.h ****  *          port implementation.
+ 340:../../../os/common/ports/AVR/chcore.h ****  */
+ 341:../../../os/common/ports/AVR/chcore.h **** #define PORT_FAST_IRQ_HANDLER(id) ISR(id)
+ 342:../../../os/common/ports/AVR/chcore.h **** 
+ 343:../../../os/common/ports/AVR/chcore.h **** /**
+ 344:../../../os/common/ports/AVR/chcore.h ****  * @brief   Performs a context switch between two threads.
+ 345:../../../os/common/ports/AVR/chcore.h ****  * @details This is the most critical code in any port, this function
+ 346:../../../os/common/ports/AVR/chcore.h ****  *          is responsible for the context switch between 2 threads.
+ 347:../../../os/common/ports/AVR/chcore.h ****  * @note    The implementation of this code affects <b>directly</b> the context
+ 348:../../../os/common/ports/AVR/chcore.h ****  *          switch performance so optimize here as much as you can.
+ 349:../../../os/common/ports/AVR/chcore.h ****  *
+ 350:../../../os/common/ports/AVR/chcore.h ****  * @param[in] ntp       the thread to be switched in
+ 351:../../../os/common/ports/AVR/chcore.h ****  * @param[in] otp       the thread to be switched out
+ 352:../../../os/common/ports/AVR/chcore.h ****  */
+ 353:../../../os/common/ports/AVR/chcore.h **** #define port_switch(ntp, otp) {                                             \
+ 354:../../../os/common/ports/AVR/chcore.h ****   _port_switch(ntp, otp);                                                   \
+ 355:../../../os/common/ports/AVR/chcore.h ****   asm volatile ("" : : : "memory");                                         \
+ 356:../../../os/common/ports/AVR/chcore.h **** }
+ 357:../../../os/common/ports/AVR/chcore.h **** 
+ 358:../../../os/common/ports/AVR/chcore.h **** 
+ 359:../../../os/common/ports/AVR/chcore.h **** /**
+ 360:../../../os/common/ports/AVR/chcore.h ****  * @brief   Port-related initialization code.
+ 361:../../../os/common/ports/AVR/chcore.h ****  * @note    This function is empty in this port.
+ 362:../../../os/common/ports/AVR/chcore.h ****  */
+ 363:../../../os/common/ports/AVR/chcore.h **** #define port_init() {                                                       \
+ 364:../../../os/common/ports/AVR/chcore.h ****   __avr_in_isr = true;                                                      \
+ 365:../../../os/common/ports/AVR/chcore.h **** }
+ 366:../../../os/common/ports/AVR/chcore.h **** 
+ 367:../../../os/common/ports/AVR/chcore.h **** /*===========================================================================*/
+ 368:../../../os/common/ports/AVR/chcore.h **** /* External declarations.                                                    */
+ 369:../../../os/common/ports/AVR/chcore.h **** /*===========================================================================*/
+ 370:../../../os/common/ports/AVR/chcore.h **** 
+ 371:../../../os/common/ports/AVR/chcore.h **** /* The following code is not processed when the file is included from an
+ 372:../../../os/common/ports/AVR/chcore.h ****    asm module.*/
+ 373:../../../os/common/ports/AVR/chcore.h **** #if !defined(_FROM_ASM_)
+ 374:../../../os/common/ports/AVR/chcore.h **** 
+ 375:../../../os/common/ports/AVR/chcore.h **** #ifdef __cplusplus
+ 376:../../../os/common/ports/AVR/chcore.h **** extern "C" {
+ 377:../../../os/common/ports/AVR/chcore.h **** #endif
+ 378:../../../os/common/ports/AVR/chcore.h ****   void _port_switch(thread_t *ntp, thread_t *otp);
+ 379:../../../os/common/ports/AVR/chcore.h ****   void _port_thread_start(void);
+ 380:../../../os/common/ports/AVR/chcore.h **** #ifdef __cplusplus
+ 381:../../../os/common/ports/AVR/chcore.h **** }
+ 382:../../../os/common/ports/AVR/chcore.h **** #endif
+ 383:../../../os/common/ports/AVR/chcore.h **** 
+ 384:../../../os/common/ports/AVR/chcore.h **** #endif /* !defined(_FROM_ASM_) */
+ 385:../../../os/common/ports/AVR/chcore.h **** 
+ 386:../../../os/common/ports/AVR/chcore.h **** /*===========================================================================*/
+ 387:../../../os/common/ports/AVR/chcore.h **** /* Module inline functions.                                                  */
+ 388:../../../os/common/ports/AVR/chcore.h **** /*===========================================================================*/
+ 389:../../../os/common/ports/AVR/chcore.h **** 
+ 390:../../../os/common/ports/AVR/chcore.h **** /* The following code is not processed when the file is included from an
+ 391:../../../os/common/ports/AVR/chcore.h ****    asm module.*/
+ 392:../../../os/common/ports/AVR/chcore.h **** #if !defined(_FROM_ASM_)
+ 393:../../../os/common/ports/AVR/chcore.h **** 
+ 394:../../../os/common/ports/AVR/chcore.h **** /**
+ 395:../../../os/common/ports/AVR/chcore.h ****  * @brief   Returns a word encoding the current interrupts status.
+ 396:../../../os/common/ports/AVR/chcore.h ****  *
+ 397:../../../os/common/ports/AVR/chcore.h ****  * @return              The interrupts status.
+ 398:../../../os/common/ports/AVR/chcore.h ****  */
+ 399:../../../os/common/ports/AVR/chcore.h **** static inline syssts_t port_get_irq_status(void) {
+ 400:../../../os/common/ports/AVR/chcore.h **** 
+ 401:../../../os/common/ports/AVR/chcore.h ****   return SREG;
+ 402:../../../os/common/ports/AVR/chcore.h **** }
+ 403:../../../os/common/ports/AVR/chcore.h **** 
+ 404:../../../os/common/ports/AVR/chcore.h **** /**
+ 405:../../../os/common/ports/AVR/chcore.h ****  * @brief   Checks the interrupt status.
+ 406:../../../os/common/ports/AVR/chcore.h ****  *
+ 407:../../../os/common/ports/AVR/chcore.h ****  * @param[in] sts       the interrupt status word
+ 408:../../../os/common/ports/AVR/chcore.h ****  *
+ 409:../../../os/common/ports/AVR/chcore.h ****  * @return              The interrupt status.
+ 410:../../../os/common/ports/AVR/chcore.h ****  * @retval false        the word specified a disabled interrupts status.
+ 411:../../../os/common/ports/AVR/chcore.h ****  * @retval true         the word specified an enabled interrupts status.
+ 412:../../../os/common/ports/AVR/chcore.h ****  */
+ 413:../../../os/common/ports/AVR/chcore.h **** static inline bool port_irq_enabled(syssts_t sts) {
+ 414:../../../os/common/ports/AVR/chcore.h **** 
+ 415:../../../os/common/ports/AVR/chcore.h ****   return (bool)((sts & 0x80) != 0);
+ 416:../../../os/common/ports/AVR/chcore.h **** }
+ 417:../../../os/common/ports/AVR/chcore.h **** 
+ 418:../../../os/common/ports/AVR/chcore.h **** /**
+ 419:../../../os/common/ports/AVR/chcore.h ****  * @brief   Determines the current execution context.
+ 420:../../../os/common/ports/AVR/chcore.h ****  *
+ 421:../../../os/common/ports/AVR/chcore.h ****  * @return              The execution context.
+ 422:../../../os/common/ports/AVR/chcore.h ****  * @retval false        not running in ISR mode.
+ 423:../../../os/common/ports/AVR/chcore.h ****  * @retval true         running in ISR mode.
+ 424:../../../os/common/ports/AVR/chcore.h ****  */
+ 425:../../../os/common/ports/AVR/chcore.h **** static inline bool port_is_isr_context(void) {
+ 426:../../../os/common/ports/AVR/chcore.h **** 
+ 427:../../../os/common/ports/AVR/chcore.h ****   return __avr_in_isr;
+ 428:../../../os/common/ports/AVR/chcore.h **** }
+ 429:../../../os/common/ports/AVR/chcore.h **** 
+ 430:../../../os/common/ports/AVR/chcore.h **** /**
+ 431:../../../os/common/ports/AVR/chcore.h ****  * @brief   Kernel-lock action.
+ 432:../../../os/common/ports/AVR/chcore.h ****  * @details Usually this function just disables interrupts but may perform more
+ 433:../../../os/common/ports/AVR/chcore.h ****  *          actions.
+ 434:../../../os/common/ports/AVR/chcore.h ****  */
+ 435:../../../os/common/ports/AVR/chcore.h **** static inline void port_lock(void) {
+ 436:../../../os/common/ports/AVR/chcore.h **** 
+ 437:../../../os/common/ports/AVR/chcore.h ****   asm volatile ("cli" : : : "memory");
+ 438:../../../os/common/ports/AVR/chcore.h **** }
+ 439:../../../os/common/ports/AVR/chcore.h **** 
+ 440:../../../os/common/ports/AVR/chcore.h **** /**
+ 441:../../../os/common/ports/AVR/chcore.h ****  * @brief   Kernel-unlock action.
+ 442:../../../os/common/ports/AVR/chcore.h ****  * @details Usually this function just enables interrupts but may perform more
+ 443:../../../os/common/ports/AVR/chcore.h ****  *          actions.
+ 444:../../../os/common/ports/AVR/chcore.h ****  */
+ 445:../../../os/common/ports/AVR/chcore.h **** static inline void port_unlock(void) {
+ 446:../../../os/common/ports/AVR/chcore.h **** 
+ 447:../../../os/common/ports/AVR/chcore.h ****   asm volatile ("sei" : : : "memory");
+ 448:../../../os/common/ports/AVR/chcore.h **** }
+ 449:../../../os/common/ports/AVR/chcore.h **** 
+ 450:../../../os/common/ports/AVR/chcore.h **** /**
+ 451:../../../os/common/ports/AVR/chcore.h ****  * @brief   Kernel-lock action from an interrupt handler.
+ 452:../../../os/common/ports/AVR/chcore.h ****  * @details This function is invoked before invoking I-class APIs from
+ 453:../../../os/common/ports/AVR/chcore.h ****  *          interrupt handlers. The implementation is architecture dependent,
+ 454:../../../os/common/ports/AVR/chcore.h ****  *          in its simplest form it is void.
+ 455:../../../os/common/ports/AVR/chcore.h ****  * @note    This function is empty in this port.
+ 456:../../../os/common/ports/AVR/chcore.h ****  */
+ 457:../../../os/common/ports/AVR/chcore.h **** static inline void port_lock_from_isr(void) {
+ 458:../../../os/common/ports/AVR/chcore.h **** 
+ 459:../../../os/common/ports/AVR/chcore.h **** }
+ 136               		.loc 4 459 1 view .LVU23
+ 396:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_isr();
+ 137               		.loc 3 396 34 view .LVU24
+ 397:../../../os/rt/include/chsys.h ****   _dbg_check_lock_from_isr();
+ 138               		.loc 3 397 29 view .LVU25
+ 266:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   sdIncomingDataI(&SD1, UDR0);
+ 139               		.loc 1 266 3 view .LVU26
+ 140 0032 6091 C600 		lds r22,198
+ 141 0036 80E0      		ldi r24,lo8(SD1)
+ 142 0038 90E0      		ldi r25,hi8(SD1)
+ 143 003a 0E94 0000 		call sdIncomingDataI
+ 144               	.LVL4:
+ 267:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   osalSysUnlockFromISR();
+ 145               		.loc 1 267 3 view .LVU27
  534:../../../os/hal/osal/rt/osal.h **** }
  535:../../../os/hal/osal/rt/osal.h **** 
  536:../../../os/hal/osal/rt/osal.h **** /**
@@ -989,6 +1807,159 @@
  542:../../../os/hal/osal/rt/osal.h **** static inline void osalSysUnlockFromISR(void) {
  543:../../../os/hal/osal/rt/osal.h **** 
  544:../../../os/hal/osal/rt/osal.h ****   chSysUnlockFromISR();
+ 146               		.loc 2 544 3 view .LVU28
+ 398:../../../os/rt/include/chsys.h **** }
+ 399:../../../os/rt/include/chsys.h **** 
+ 400:../../../os/rt/include/chsys.h **** /**
+ 401:../../../os/rt/include/chsys.h ****  * @brief   Leaves the kernel lock state from within an interrupt handler.
+ 402:../../../os/rt/include/chsys.h ****  *
+ 403:../../../os/rt/include/chsys.h ****  * @note    This API may do nothing on some architectures, it is required
+ 404:../../../os/rt/include/chsys.h ****  *          because on ports that support preemptable interrupt handlers
+ 405:../../../os/rt/include/chsys.h ****  *          it is required to raise the interrupt mask to the same level of
+ 406:../../../os/rt/include/chsys.h ****  *          the system mutual exclusion zone.<br>
+ 407:../../../os/rt/include/chsys.h ****  *          It is good practice to invoke this API after invoking any I-class
+ 408:../../../os/rt/include/chsys.h ****  *          syscall from an interrupt handler.
+ 409:../../../os/rt/include/chsys.h ****  * @note    This API must be invoked exclusively from interrupt handlers.
+ 410:../../../os/rt/include/chsys.h ****  *
+ 411:../../../os/rt/include/chsys.h ****  * @special
+ 412:../../../os/rt/include/chsys.h ****  */
+ 413:../../../os/rt/include/chsys.h **** static inline void chSysUnlockFromISR(void) {
+ 414:../../../os/rt/include/chsys.h **** 
+ 415:../../../os/rt/include/chsys.h ****   _dbg_check_unlock_from_isr();
+ 147               		.loc 3 415 31 view .LVU29
+ 416:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_isr();
+ 148               		.loc 3 416 33 view .LVU30
+ 417:../../../os/rt/include/chsys.h ****   port_unlock_from_isr();
+ 149               		.loc 3 417 3 view .LVU31
+ 460:../../../os/common/ports/AVR/chcore.h **** 
+ 461:../../../os/common/ports/AVR/chcore.h **** /**
+ 462:../../../os/common/ports/AVR/chcore.h ****  * @brief   Kernel-unlock action from an interrupt handler.
+ 463:../../../os/common/ports/AVR/chcore.h ****  * @details This function is invoked after invoking I-class APIs from interrupt
+ 464:../../../os/common/ports/AVR/chcore.h ****  *          handlers. The implementation is architecture dependent, in its
+ 465:../../../os/common/ports/AVR/chcore.h ****  *          simplest form it is void.
+ 466:../../../os/common/ports/AVR/chcore.h ****  * @note    This function is empty in this port.
+ 467:../../../os/common/ports/AVR/chcore.h ****  */
+ 468:../../../os/common/ports/AVR/chcore.h **** static inline void port_unlock_from_isr(void) {
+ 469:../../../os/common/ports/AVR/chcore.h **** 
+ 470:../../../os/common/ports/AVR/chcore.h **** }
+ 150               		.loc 4 470 1 view .LVU32
+ 268:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
+ 269:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   OSAL_IRQ_EPILOGUE();
+ 151               		.loc 1 269 3 view .LVU33
+ 152               		.loc 1 269 3 view .LVU34
+ 153               		.loc 1 269 3 view .LVU35
+ 154               		.loc 1 269 3 view .LVU36
+ 155               		.loc 1 269 3 view .LVU37
+ 156 003e 1092 0000 		sts __avr_in_isr,__zero_reg__
+ 157               		.loc 1 269 3 view .LVU38
+ 158               		.loc 1 269 3 view .LVU39
+ 159 0042 0E94 0000 		call chSchIsPreemptionRequired
+ 160               	.LVL5:
+ 161 0046 8111      		cpse r24,__zero_reg__
+ 162 0048 00C0      		rjmp .L23
+ 163               	.L3:
+ 164               	/* epilogue start */
+ 270:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
+ 165               		.loc 1 270 1 is_stmt 0 view .LVU40
+ 166 004a FF91      		pop r31
+ 167 004c EF91      		pop r30
+ 168 004e BF91      		pop r27
+ 169 0050 AF91      		pop r26
+ 170 0052 9F91      		pop r25
+ 171 0054 8F91      		pop r24
+ 172 0056 7F91      		pop r23
+ 173 0058 6F91      		pop r22
+ 174 005a 5F91      		pop r21
+ 175 005c 4F91      		pop r20
+ 176 005e 3F91      		pop r19
+ 177 0060 2F91      		pop r18
+ 178 0062 0F90      		pop r0
+ 179 0064 0FBE      		out __SREG__,r0
+ 180 0066 0F90      		pop r0
+ 181 0068 1F90      		pop r1
+ 182 006a 1895      		reti
+ 183               	.LVL6:
+ 184               	.L22:
+ 264:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   osalSysLockFromISR();
+ 185               		.loc 1 264 5 is_stmt 1 view .LVU41
+ 186               	.LBB32:
+ 187               	.LBI32:
+  92:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   eventflags_t sts = 0;
+ 188               		.loc 1 92 13 view .LVU42
+ 189               	.LBB33:
+  93:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   uint8_t dor = 0;
+ 190               		.loc 1 93 3 view .LVU43
+  94:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   uint8_t upe = 0;
+ 191               		.loc 1 94 3 view .LVU44
+  95:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   uint8_t fe = 0;
+ 192               		.loc 1 95 3 view .LVU45
+  96:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
+ 193               		.loc 1 96 3 view .LVU46
+  99:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     dor = (1 << DOR0);
+ 194               		.loc 1 99 3 view .LVU47
+ 100:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     upe = (1 << UPE0);
+ 195               		.loc 1 100 5 view .LVU48
+ 101:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     fe = (1 << FE0);
+ 196               		.loc 1 101 5 view .LVU49
+ 102:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   }
+ 197               		.loc 1 102 5 view .LVU50
+ 114:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     sts |= SD_OVERRUN_ERROR;
+ 198               		.loc 1 114 3 view .LVU51
+ 115:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   if (sra & upe)
+ 199               		.loc 1 115 9 is_stmt 0 view .LVU52
+ 200 006c 60E8      		ldi r22,lo8(-128)
+ 114:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     sts |= SD_OVERRUN_ERROR;
+ 201               		.loc 1 114 6 view .LVU53
+ 202 006e 83FF      		sbrs r24,3
+  93:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   uint8_t dor = 0;
+ 203               		.loc 1 93 16 view .LVU54
+ 204 0070 60E0      		ldi r22,0
+ 205               	.L5:
+ 206               	.LVL7:
+ 116:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     sts |= SD_PARITY_ERROR;
+ 207               		.loc 1 116 3 is_stmt 1 view .LVU55
+ 116:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     sts |= SD_PARITY_ERROR;
+ 208               		.loc 1 116 6 is_stmt 0 view .LVU56
+ 209 0072 82FD      		sbrc r24,2
+ 117:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   if (sra & fe)
+ 210               		.loc 1 117 5 is_stmt 1 view .LVU57
+ 117:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   if (sra & fe)
+ 211               		.loc 1 117 9 is_stmt 0 view .LVU58
+ 212 0074 6062      		ori r22,lo8(32)
+ 213               	.LVL8:
+ 214               	.L6:
+ 118:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     sts |= SD_FRAMING_ERROR;
+ 215               		.loc 1 118 3 is_stmt 1 view .LVU59
+ 118:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     sts |= SD_FRAMING_ERROR;
+ 216               		.loc 1 118 6 is_stmt 0 view .LVU60
+ 217 0076 84FD      		sbrc r24,4
+ 119:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   osalSysLockFromISR();
+ 218               		.loc 1 119 5 is_stmt 1 view .LVU61
+ 119:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   osalSysLockFromISR();
+ 219               		.loc 1 119 9 is_stmt 0 view .LVU62
+ 220 0078 6064      		ori r22,lo8(64)
+ 221               	.LVL9:
+ 222               	.L7:
+ 120:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   chnAddFlagsI(sdp, sts);
+ 223               		.loc 1 120 3 is_stmt 1 view .LVU63
+ 224               	.LBE33:
+ 225               	.LBE32:
+ 533:../../../os/hal/osal/rt/osal.h **** }
+ 226               		.loc 2 533 3 view .LVU64
+ 395:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_isr();
+ 227               		.loc 3 395 3 view .LVU65
+ 459:../../../os/common/ports/AVR/chcore.h **** 
+ 228               		.loc 4 459 1 view .LVU66
+ 396:../../../os/rt/include/chsys.h ****   _dbg_check_lock_from_isr();
+ 229               		.loc 3 396 34 view .LVU67
+ 397:../../../os/rt/include/chsys.h **** }
+ 230               		.loc 3 397 29 view .LVU68
+ 231               	.LBB37:
+ 232               	.LBB36:
+ 121:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   osalSysUnlockFromISR();
+ 233               		.loc 1 121 3 view .LVU69
+ 234               	.LBB34:
+ 235               	.LBI34:
  545:../../../os/hal/osal/rt/osal.h **** }
  546:../../../os/hal/osal/rt/osal.h **** 
  547:../../../os/hal/osal/rt/osal.h **** /**
@@ -1337,32 +2308,54 @@
  890:../../../os/hal/osal/rt/osal.h ****  * @iclass
  891:../../../os/hal/osal/rt/osal.h ****  */
  892:../../../os/hal/osal/rt/osal.h **** static inline void osalEventBroadcastFlagsI(event_source_t *esp,
+ 236               		.loc 2 892 20 view .LVU70
+ 237               	.LBB35:
  893:../../../os/hal/osal/rt/osal.h ****                                             eventflags_t flags) {
  894:../../../os/hal/osal/rt/osal.h **** 
  895:../../../os/hal/osal/rt/osal.h ****   chEvtBroadcastFlagsI(esp, flags);
- 175               		.loc 2 895 0
- 176 007c 80E0      		ldi r24,lo8(SD1+2)
- 177 007e 90E0      		ldi r25,hi8(SD1+2)
- 178               	.LVL11:
- 179 0080 0E94 0000 		call chEvtBroadcastFlagsI
- 180               	.LVL12:
- 181 0084 00C0      		rjmp .L3
- 182               	.LVL13:
- 183               	.L23:
- 184               	.LBE35:
- 185               	.LBE34:
- 115:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   if (sra & upe)
- 186               		.loc 1 115 0
- 187 0086 60E8      		ldi r22,lo8(-128)
- 188 0088 00C0      		rjmp .L4
- 189               	.LBE33:
- 190               	.LBE32:
- 191               		.cfi_endproc
- 192               	.LFE177:
- 194               		.section	.text.__vector_19,"ax",@progbits
- 195               	.global	__vector_19
- 197               	__vector_19:
- 198               	.LFB178:
+ 238               		.loc 2 895 3 view .LVU71
+ 239 007a 80E0      		ldi r24,lo8(SD1+2)
+ 240 007c 90E0      		ldi r25,hi8(SD1+2)
+ 241               	.LVL10:
+ 242               		.loc 2 895 3 is_stmt 0 view .LVU72
+ 243 007e 0E94 0000 		call chEvtBroadcastFlagsI
+ 244               	.LVL11:
+ 245               		.loc 2 895 3 view .LVU73
+ 246               	.LBE35:
+ 247               	.LBE34:
+ 121:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   osalSysUnlockFromISR();
+ 248               		.loc 1 121 25 is_stmt 1 view .LVU74
+ 122:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
+ 249               		.loc 1 122 3 view .LVU75
+ 250               	.LBE36:
+ 251               	.LBE37:
+ 544:../../../os/hal/osal/rt/osal.h **** }
+ 252               		.loc 2 544 3 view .LVU76
+ 415:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_isr();
+ 253               		.loc 3 415 31 view .LVU77
+ 416:../../../os/rt/include/chsys.h ****   port_unlock_from_isr();
+ 254               		.loc 3 416 33 view .LVU78
+ 255               		.loc 3 417 3 view .LVU79
+ 256               		.loc 4 470 1 view .LVU80
+ 257 0082 00C0      		rjmp .L4
+ 258               	.LVL12:
+ 259               	.L23:
+ 269:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
+ 260               		.loc 1 269 3 discriminator 1 view .LVU81
+ 261 0084 0E94 0000 		call chSchDoReschedule
+ 262               	.LVL13:
+ 269:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
+ 263               		.loc 1 269 3 discriminator 1 view .LVU82
+ 269:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
+ 264               		.loc 1 269 22 discriminator 1 view .LVU83
+ 265               		.loc 1 270 1 is_stmt 0 discriminator 1 view .LVU84
+ 266 0088 00C0      		rjmp .L3
+ 267               		.cfi_endproc
+ 268               	.LFE177:
+ 270               		.section	.text.__vector_19,"ax",@progbits
+ 271               	.global	__vector_19
+ 273               	__vector_19:
+ 274               	.LFB178:
  271:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
  272:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** /**
  273:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****  * @brief   USART0 TX interrupt handler.
@@ -1370,143 +2363,210 @@
  275:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****  * @isr
  276:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****  */
  277:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** OSAL_IRQ_HANDLER(AVR_SD1_TX_VECT) {
- 199               		.loc 1 277 0
- 200               		.cfi_startproc
- 201 0000 1F92      		push r1
- 202               	.LCFI14:
- 203               		.cfi_def_cfa_offset 3
- 204               		.cfi_offset 1, -2
- 205 0002 0F92      		push r0
- 206               	.LCFI15:
- 207               		.cfi_def_cfa_offset 4
- 208               		.cfi_offset 0, -3
- 209 0004 0FB6      		in r0,__SREG__
- 210 0006 0F92      		push r0
- 211 0008 1124      		clr __zero_reg__
- 212 000a 2F93      		push r18
- 213               	.LCFI16:
- 214               		.cfi_def_cfa_offset 5
- 215               		.cfi_offset 18, -4
- 216 000c 3F93      		push r19
- 217               	.LCFI17:
- 218               		.cfi_def_cfa_offset 6
- 219               		.cfi_offset 19, -5
- 220 000e 4F93      		push r20
- 221               	.LCFI18:
- 222               		.cfi_def_cfa_offset 7
- 223               		.cfi_offset 20, -6
- 224 0010 5F93      		push r21
- 225               	.LCFI19:
- 226               		.cfi_def_cfa_offset 8
- 227               		.cfi_offset 21, -7
- 228 0012 6F93      		push r22
- 229               	.LCFI20:
- 230               		.cfi_def_cfa_offset 9
- 231               		.cfi_offset 22, -8
- 232 0014 7F93      		push r23
- 233               	.LCFI21:
- 234               		.cfi_def_cfa_offset 10
- 235               		.cfi_offset 23, -9
- 236 0016 8F93      		push r24
- 237               	.LCFI22:
- 238               		.cfi_def_cfa_offset 11
- 239               		.cfi_offset 24, -10
- 240 0018 9F93      		push r25
- 241               	.LCFI23:
- 242               		.cfi_def_cfa_offset 12
- 243               		.cfi_offset 25, -11
- 244 001a AF93      		push r26
- 245               	.LCFI24:
- 246               		.cfi_def_cfa_offset 13
- 247               		.cfi_offset 26, -12
- 248 001c BF93      		push r27
- 249               	.LCFI25:
- 250               		.cfi_def_cfa_offset 14
- 251               		.cfi_offset 27, -13
- 252 001e EF93      		push r30
- 253               	.LCFI26:
- 254               		.cfi_def_cfa_offset 15
- 255               		.cfi_offset 30, -14
- 256 0020 FF93      		push r31
- 257               	.LCFI27:
- 258               		.cfi_def_cfa_offset 16
- 259               		.cfi_offset 31, -15
- 260               	/* prologue: Signal */
- 261               	/* frame size = 0 */
- 262               	/* stack size = 15 */
- 263               	.L__stack_usage = 15
+ 275               		.loc 1 277 35 is_stmt 1 view -0
+ 276               		.cfi_startproc
+ 277 0000 1F92      		push r1
+ 278               	.LCFI14:
+ 279               		.cfi_def_cfa_offset 3
+ 280               		.cfi_offset 1, -2
+ 281 0002 0F92      		push r0
+ 282               	.LCFI15:
+ 283               		.cfi_def_cfa_offset 4
+ 284               		.cfi_offset 0, -3
+ 285 0004 0FB6      		in r0,__SREG__
+ 286 0006 0F92      		push r0
+ 287 0008 1124      		clr __zero_reg__
+ 288 000a 2F93      		push r18
+ 289               	.LCFI16:
+ 290               		.cfi_def_cfa_offset 5
+ 291               		.cfi_offset 18, -4
+ 292 000c 3F93      		push r19
+ 293               	.LCFI17:
+ 294               		.cfi_def_cfa_offset 6
+ 295               		.cfi_offset 19, -5
+ 296 000e 4F93      		push r20
+ 297               	.LCFI18:
+ 298               		.cfi_def_cfa_offset 7
+ 299               		.cfi_offset 20, -6
+ 300 0010 5F93      		push r21
+ 301               	.LCFI19:
+ 302               		.cfi_def_cfa_offset 8
+ 303               		.cfi_offset 21, -7
+ 304 0012 6F93      		push r22
+ 305               	.LCFI20:
+ 306               		.cfi_def_cfa_offset 9
+ 307               		.cfi_offset 22, -8
+ 308 0014 7F93      		push r23
+ 309               	.LCFI21:
+ 310               		.cfi_def_cfa_offset 10
+ 311               		.cfi_offset 23, -9
+ 312 0016 8F93      		push r24
+ 313               	.LCFI22:
+ 314               		.cfi_def_cfa_offset 11
+ 315               		.cfi_offset 24, -10
+ 316 0018 9F93      		push r25
+ 317               	.LCFI23:
+ 318               		.cfi_def_cfa_offset 12
+ 319               		.cfi_offset 25, -11
+ 320 001a AF93      		push r26
+ 321               	.LCFI24:
+ 322               		.cfi_def_cfa_offset 13
+ 323               		.cfi_offset 26, -12
+ 324 001c BF93      		push r27
+ 325               	.LCFI25:
+ 326               		.cfi_def_cfa_offset 14
+ 327               		.cfi_offset 27, -13
+ 328 001e EF93      		push r30
+ 329               	.LCFI26:
+ 330               		.cfi_def_cfa_offset 15
+ 331               		.cfi_offset 30, -14
+ 332 0020 FF93      		push r31
+ 333               	.LCFI27:
+ 334               		.cfi_def_cfa_offset 16
+ 335               		.cfi_offset 31, -15
+ 336               	/* prologue: Signal */
+ 337               	/* frame size = 0 */
+ 338               	/* stack size = 15 */
+ 339               	.L__stack_usage = 15
  278:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   msg_t b;
+ 340               		.loc 1 278 3 view .LVU86
  279:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
  280:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   OSAL_IRQ_PROLOGUE();
- 264               		.loc 1 280 0
- 265 0022 81E0      		ldi r24,lo8(1)
- 266 0024 8093 0000 		sts __avr_in_isr,r24
+ 341               		.loc 1 280 3 view .LVU87
+ 342               		.loc 1 280 3 view .LVU88
+ 343 0022 81E0      		ldi r24,lo8(1)
+ 344 0024 8093 0000 		sts __avr_in_isr,r24
+ 345               		.loc 1 280 3 view .LVU89
+ 346               		.loc 1 280 3 view .LVU90
+ 347               		.loc 1 280 3 view .LVU91
+ 348               		.loc 1 280 3 view .LVU92
+ 349               		.loc 1 280 3 view .LVU93
+ 350               		.loc 1 280 22 view .LVU94
  281:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
  282:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   osalSysLockFromISR();
+ 351               		.loc 1 282 3 view .LVU95
+ 533:../../../os/hal/osal/rt/osal.h **** }
+ 352               		.loc 2 533 3 view .LVU96
+ 395:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_isr();
+ 353               		.loc 3 395 3 view .LVU97
+ 459:../../../os/common/ports/AVR/chcore.h **** 
+ 354               		.loc 4 459 1 view .LVU98
+ 396:../../../os/rt/include/chsys.h ****   _dbg_check_lock_from_isr();
+ 355               		.loc 3 396 34 view .LVU99
+ 397:../../../os/rt/include/chsys.h **** }
+ 356               		.loc 3 397 29 view .LVU100
  283:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   b = sdRequestDataI(&SD1);
- 267               		.loc 1 283 0
- 268 0028 80E0      		ldi r24,lo8(SD1)
- 269 002a 90E0      		ldi r25,hi8(SD1)
- 270 002c 0E94 0000 		call sdRequestDataI
- 271               	.LVL14:
+ 357               		.loc 1 283 3 view .LVU101
+ 358               		.loc 1 283 7 is_stmt 0 view .LVU102
+ 359 0028 80E0      		ldi r24,lo8(SD1)
+ 360 002a 90E0      		ldi r25,hi8(SD1)
+ 361 002c 0E94 0000 		call sdRequestDataI
+ 362               	.LVL14:
  284:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   osalSysUnlockFromISR();
+ 363               		.loc 1 284 3 is_stmt 1 view .LVU103
+ 544:../../../os/hal/osal/rt/osal.h **** }
+ 364               		.loc 2 544 3 view .LVU104
+ 415:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_isr();
+ 365               		.loc 3 415 31 view .LVU105
+ 416:../../../os/rt/include/chsys.h ****   port_unlock_from_isr();
+ 366               		.loc 3 416 33 view .LVU106
+ 367               		.loc 3 417 3 view .LVU107
+ 368               		.loc 4 470 1 view .LVU108
  285:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   if (b < MSG_OK)
- 272               		.loc 1 285 0
- 273 0030 97FD      		sbrc r25,7
- 274 0032 00C0      		rjmp .L31
+ 369               		.loc 1 285 3 view .LVU109
+ 370               		.loc 1 285 6 is_stmt 0 view .LVU110
+ 371 0030 97FD      		sbrc r25,7
+ 372 0032 00C0      		rjmp .L31
  286:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     UCSR0B &= ~(1 << UDRIE0);
  287:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   else
  288:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     UDR0 = b;
- 275               		.loc 1 288 0
- 276 0034 8093 C600 		sts 198,r24
- 277               	.LVL15:
- 278               	.L26:
+ 373               		.loc 1 288 5 is_stmt 1 view .LVU111
+ 374               		.loc 1 288 10 is_stmt 0 view .LVU112
+ 375 0034 8093 C600 		sts 198,r24
  289:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
  290:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   OSAL_IRQ_EPILOGUE();
- 279               		.loc 1 290 0
- 280 0038 1092 0000 		sts __avr_in_isr,__zero_reg__
- 281 003c 0E94 0000 		call chSchIsPreemptionRequired
- 282               	.LVL16:
- 283 0040 8111      		cpse r24,__zero_reg__
- 284               		.loc 1 290 0 is_stmt 0 discriminator 1
- 285 0042 0E94 0000 		call chSchDoReschedule
- 286               	.LVL17:
- 287               	.L24:
- 288               	/* epilogue start */
+ 376               		.loc 1 290 3 is_stmt 1 view .LVU113
+ 377               		.loc 1 290 3 view .LVU114
+ 378               		.loc 1 290 3 view .LVU115
+ 379               		.loc 1 290 3 view .LVU116
+ 380               		.loc 1 290 3 view .LVU117
+ 381 0038 1092 0000 		sts __avr_in_isr,__zero_reg__
+ 382               		.loc 1 290 3 view .LVU118
+ 383               		.loc 1 290 3 view .LVU119
+ 384 003c 0E94 0000 		call chSchIsPreemptionRequired
+ 385               	.LVL15:
+ 386               		.loc 1 290 3 is_stmt 0 view .LVU120
+ 387 0040 8111      		cpse r24,__zero_reg__
+ 388 0042 00C0      		rjmp .L32
+ 389               	.L24:
+ 390               	/* epilogue start */
  291:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
- 289               		.loc 1 291 0 is_stmt 1
- 290 0046 FF91      		pop r31
- 291 0048 EF91      		pop r30
- 292 004a BF91      		pop r27
- 293 004c AF91      		pop r26
- 294 004e 9F91      		pop r25
- 295 0050 8F91      		pop r24
- 296 0052 7F91      		pop r23
- 297 0054 6F91      		pop r22
- 298 0056 5F91      		pop r21
- 299 0058 4F91      		pop r20
- 300 005a 3F91      		pop r19
- 301 005c 2F91      		pop r18
- 302 005e 0F90      		pop r0
- 303 0060 0FBE      		out __SREG__,r0
- 304 0062 0F90      		pop r0
- 305 0064 1F90      		pop r1
- 306 0066 1895      		reti
- 307               	.LVL18:
- 308               	.L31:
+ 391               		.loc 1 291 1 view .LVU121
+ 392 0044 FF91      		pop r31
+ 393 0046 EF91      		pop r30
+ 394 0048 BF91      		pop r27
+ 395 004a AF91      		pop r26
+ 396 004c 9F91      		pop r25
+ 397 004e 8F91      		pop r24
+ 398 0050 7F91      		pop r23
+ 399 0052 6F91      		pop r22
+ 400 0054 5F91      		pop r21
+ 401 0056 4F91      		pop r20
+ 402 0058 3F91      		pop r19
+ 403 005a 2F91      		pop r18
+ 404 005c 0F90      		pop r0
+ 405 005e 0FBE      		out __SREG__,r0
+ 406 0060 0F90      		pop r0
+ 407 0062 1F90      		pop r1
+ 408 0064 1895      		reti
+ 409               	.LVL16:
+ 410               	.L31:
  286:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     UCSR0B &= ~(1 << UDRIE0);
- 309               		.loc 1 286 0
- 310 0068 8091 C100 		lds r24,193
- 311               	.LVL19:
- 312 006c 8F7D      		andi r24,lo8(-33)
- 313 006e 8093 C100 		sts 193,r24
- 314 0072 00C0      		rjmp .L26
- 315               		.cfi_endproc
- 316               	.LFE178:
- 318               		.section	.text.sd_lld_init,"ax",@progbits
- 319               	.global	sd_lld_init
- 321               	sd_lld_init:
- 322               	.LFB179:
+ 411               		.loc 1 286 5 is_stmt 1 view .LVU122
+ 286:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     UCSR0B &= ~(1 << UDRIE0);
+ 412               		.loc 1 286 12 is_stmt 0 view .LVU123
+ 413 0066 8091 C100 		lds r24,193
+ 414               	.LVL17:
+ 286:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     UCSR0B &= ~(1 << UDRIE0);
+ 415               		.loc 1 286 12 view .LVU124
+ 416 006a 8F7D      		andi r24,lo8(-33)
+ 417 006c 8093 C100 		sts 193,r24
+ 290:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
+ 418               		.loc 1 290 3 is_stmt 1 view .LVU125
+ 290:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
+ 419               		.loc 1 290 3 view .LVU126
+ 290:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
+ 420               		.loc 1 290 3 view .LVU127
+ 290:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
+ 421               		.loc 1 290 3 view .LVU128
+ 290:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
+ 422               		.loc 1 290 3 view .LVU129
+ 423 0070 1092 0000 		sts __avr_in_isr,__zero_reg__
+ 290:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
+ 424               		.loc 1 290 3 view .LVU130
+ 290:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
+ 425               		.loc 1 290 3 view .LVU131
+ 426 0074 0E94 0000 		call chSchIsPreemptionRequired
+ 427               	.LVL18:
+ 428 0078 8823      		tst r24
+ 429 007a 01F0      		breq .L24
+ 430               	.L32:
+ 290:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
+ 431               		.loc 1 290 3 discriminator 1 view .LVU132
+ 432 007c 0E94 0000 		call chSchDoReschedule
+ 433               	.LVL19:
+ 290:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
+ 434               		.loc 1 290 3 discriminator 1 view .LVU133
+ 290:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
+ 435               		.loc 1 290 22 discriminator 1 view .LVU134
+ 436               		.loc 1 291 1 is_stmt 0 discriminator 1 view .LVU135
+ 437 0080 00C0      		rjmp .L24
+ 438               		.cfi_endproc
+ 439               	.LFE178:
+ 441               		.section	.text.sd_lld_init,"ax",@progbits
+ 442               	.global	sd_lld_init
+ 444               	sd_lld_init:
+ 445               	.LFB179:
  292:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #endif /* AVR_SERIAL_USE_USART0 */
  293:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
  294:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #if AVR_SERIAL_USE_USART1 || defined(__DOXYGEN__)
@@ -1562,30 +2622,31 @@
  344:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****  * @notapi
  345:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****  */
  346:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** void sd_lld_init(void) {
- 323               		.loc 1 346 0
- 324               		.cfi_startproc
- 325               	/* prologue: function */
- 326               	/* frame size = 0 */
- 327               	/* stack size = 0 */
- 328               	.L__stack_usage = 0
+ 446               		.loc 1 346 24 is_stmt 1 view -0
+ 447               		.cfi_startproc
+ 448               	/* prologue: function */
+ 449               	/* frame size = 0 */
+ 450               	/* stack size = 0 */
+ 451               	.L__stack_usage = 0
  347:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
  348:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #if AVR_SERIAL_USE_USART0
  349:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   sdObjectInit(&SD1, NULL, notify1);
- 329               		.loc 1 349 0
- 330 0000 40E0      		ldi r20,lo8(gs(notify1))
- 331 0002 50E0      		ldi r21,hi8(gs(notify1))
- 332 0004 60E0      		ldi r22,0
- 333 0006 70E0      		ldi r23,0
- 334 0008 80E0      		ldi r24,lo8(SD1)
- 335 000a 90E0      		ldi r25,hi8(SD1)
- 336 000c 0C94 0000 		jmp sdObjectInit
- 337               	.LVL20:
- 338               		.cfi_endproc
- 339               	.LFE179:
- 341               		.section	.text.sd_lld_start,"ax",@progbits
- 342               	.global	sd_lld_start
- 344               	sd_lld_start:
- 345               	.LFB180:
+ 452               		.loc 1 349 3 view .LVU137
+ 453 0000 40E0      		ldi r20,lo8(gs(notify1))
+ 454 0002 50E0      		ldi r21,hi8(gs(notify1))
+ 455 0004 70E0      		ldi r23,0
+ 456 0006 60E0      		ldi r22,0
+ 457 0008 80E0      		ldi r24,lo8(SD1)
+ 458 000a 90E0      		ldi r25,hi8(SD1)
+ 459 000c 0C94 0000 		jmp sdObjectInit
+ 460               	.LVL20:
+ 461               		.cfi_endproc
+ 462               	.LFE179:
+ 464               		.section	.text.sd_lld_start,"ax",@progbits
+ 465               	.global	sd_lld_start
+ 467               	sd_lld_start:
+ 468               	.LVL21:
+ 469               	.LFB180:
  350:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #endif
  351:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #if AVR_SERIAL_USE_USART1
  352:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   sdObjectInit(&SD2, NULL, notify2);
@@ -1603,121 +2664,31 @@
  364:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****  * @notapi
  365:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****  */
  366:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** void sd_lld_start(SerialDriver *sdp, const SerialConfig *config) {
- 346               		.loc 1 366 0
- 347               		.cfi_startproc
- 348               	.LVL21:
- 349               	/* prologue: function */
- 350               	/* frame size = 0 */
- 351               	/* stack size = 0 */
- 352               	.L__stack_usage = 0
+ 470               		.loc 1 366 66 view -0
+ 471               		.cfi_startproc
+ 472               	/* prologue: function */
+ 473               	/* frame size = 0 */
+ 474               	/* stack size = 0 */
+ 475               	.L__stack_usage = 0
  367:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
  368:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   if (config == NULL)
- 353               		.loc 1 368 0
- 354 0000 6115      		cp r22,__zero_reg__
- 355 0002 7105      		cpc r23,__zero_reg__
- 356 0004 01F0      		breq .L44
- 357               	.LVL22:
- 358               	.L34:
+ 476               		.loc 1 368 3 view .LVU139
+ 477               		.loc 1 368 6 is_stmt 0 view .LVU140
+ 478 0000 6115      		cp r22,__zero_reg__
+ 479 0002 7105      		cpc r23,__zero_reg__
+ 480 0004 01F0      		breq .L35
  369:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     config = &default_config;
  370:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
  371:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #if AVR_SERIAL_USE_USART0
  372:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   if (&SD1 == sdp) {
- 359               		.loc 1 372 0
- 360 0006 8050      		subi r24,lo8(SD1)
- 361 0008 9040      		sbci r25,hi8(SD1)
- 362 000a 01F0      		breq .L45
- 363 000c 0895      		ret
- 364               	.L45:
- 365               	.LVL23:
- 366               	.LBB38:
- 367               	.LBB39:
- 141:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UBRR0H = (config->sc_brr >> 8) & 0x0f;
- 368               		.loc 1 141 0
- 369 000e FB01      		movw r30,r22
- 370 0010 8081      		ld r24,Z
- 371               	.LVL24:
- 372 0012 8093 C400 		sts 196,r24
- 142:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UCSR0A = (1 << U2X0);
- 373               		.loc 1 142 0
- 374 0016 8181      		ldd r24,Z+1
- 375 0018 8F70      		andi r24,lo8(15)
- 376 001a 8093 C500 		sts 197,r24
- 143:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UCSR0B = (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0);
- 377               		.loc 1 143 0
- 378 001e 82E0      		ldi r24,lo8(2)
- 379 0020 8093 C000 		sts 192,r24
- 144:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   switch (config->sc_bits_per_char) {
- 380               		.loc 1 144 0
- 381 0024 88E9      		ldi r24,lo8(-104)
- 382 0026 8093 C100 		sts 193,r24
- 145:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   case USART_CHAR_SIZE_5:
- 383               		.loc 1 145 0
- 384 002a 8281      		ldd r24,Z+2
- 385 002c 8130      		cpi r24,lo8(1)
- 386 002e 01F0      		breq .L37
- 387 0030 00F0      		brlo .L41
- 388 0032 8230      		cpi r24,lo8(2)
- 389 0034 01F0      		breq .L39
- 390 0036 8430      		cpi r24,lo8(4)
- 391 0038 01F4      		brne .L46
- 156:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     ucsr0c = (1 << UCSZ00) | (1 << UCSZ01);
- 392               		.loc 1 156 0
- 393 003a 8091 C100 		lds r24,193
- 394 003e 8460      		ori r24,lo8(4)
- 395 0040 8093 C100 		sts 193,r24
- 396               	.LVL25:
- 157:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     break;
- 397               		.loc 1 157 0
- 398 0044 86E0      		ldi r24,lo8(6)
- 399               	.LVL26:
- 400               	.L38:
- 167:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #endif
- 401               		.loc 1 167 0
- 402 0046 8093 C200 		sts 194,r24
- 403 004a 0895      		ret
- 404               	.LVL27:
- 405               	.L44:
- 406               	.LBE39:
- 407               	.LBE38:
- 369:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
- 408               		.loc 1 369 0
- 409 004c 60E0      		ldi r22,lo8(default_config)
- 410 004e 70E0      		ldi r23,hi8(default_config)
- 411               	.LVL28:
- 412 0050 00C0      		rjmp .L34
- 413               	.LVL29:
- 414               	.L39:
- 415               	.LBB41:
- 416               	.LBB40:
- 153:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     break;
- 417               		.loc 1 153 0
- 418 0052 84E0      		ldi r24,lo8(4)
- 419 0054 00C0      		rjmp .L38
- 420               	.LVL30:
- 421               	.L46:
- 161:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   }
- 422               		.loc 1 161 0
- 423 0056 86E0      		ldi r24,lo8(6)
- 424 0058 00C0      		rjmp .L38
- 425               	.LVL31:
- 426               	.L41:
- 147:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     break;
- 427               		.loc 1 147 0
- 428 005a 80E0      		ldi r24,0
- 429 005c 00C0      		rjmp .L38
- 430               	.L37:
- 150:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     break;
- 431               		.loc 1 150 0
- 432 005e 82E0      		ldi r24,lo8(2)
- 433 0060 00C0      		rjmp .L38
- 434               	.LBE40:
- 435               	.LBE41:
- 436               		.cfi_endproc
- 437               	.LFE180:
- 439               		.section	.text.sd_lld_stop,"ax",@progbits
- 440               	.global	sd_lld_stop
- 442               	sd_lld_stop:
- 443               	.LFB181:
+ 481               		.loc 1 372 3 is_stmt 1 view .LVU141
+ 482               		.loc 1 372 6 is_stmt 0 view .LVU142
+ 483 0006 8050      		subi r24,lo8(SD1)
+ 484 0008 9040      		sbci r25,hi8(SD1)
+ 485 000a 01F0      		breq .L43
+ 486               	.LVL22:
+ 487               	.L34:
+ 488               	/* epilogue start */
  373:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     usart0_init(config);
  374:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     return;
  375:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   }
@@ -1729,6 +2700,176 @@
  381:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   }
  382:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #endif
  383:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
+ 489               		.loc 1 383 1 view .LVU143
+ 490 000c 0895      		ret
+ 491               	.LVL23:
+ 492               	.L35:
+ 369:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     config = &default_config;
+ 493               		.loc 1 369 5 is_stmt 1 view .LVU144
+ 372:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     usart0_init(config);
+ 494               		.loc 1 372 3 view .LVU145
+ 372:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     usart0_init(config);
+ 495               		.loc 1 372 6 is_stmt 0 view .LVU146
+ 496 000e 8050      		subi r24,lo8(SD1)
+ 497 0010 9040      		sbci r25,hi8(SD1)
+ 498 0012 01F4      		brne .L34
+ 373:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     usart0_init(config);
+ 499               		.loc 1 373 5 is_stmt 1 view .LVU147
+ 500               	.LBB40:
+ 501               	.LBI40:
+ 137:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
+ 502               		.loc 1 137 13 view .LVU148
+ 503               	.LVL24:
+ 504               	.LBB41:
+ 139:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
+ 505               		.loc 1 139 3 view .LVU149
+ 141:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UBRR0H = (config->sc_brr >> 8) & 0x0f;
+ 506               		.loc 1 141 3 view .LVU150
+ 141:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UBRR0H = (config->sc_brr >> 8) & 0x0f;
+ 507               		.loc 1 141 10 is_stmt 0 view .LVU151
+ 508 0014 80E1      		ldi r24,lo8(16)
+ 509               	.LVL25:
+ 141:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UBRR0H = (config->sc_brr >> 8) & 0x0f;
+ 510               		.loc 1 141 10 view .LVU152
+ 511 0016 8093 C400 		sts 196,r24
+ 142:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UCSR0A = (1 << U2X0);
+ 512               		.loc 1 142 3 is_stmt 1 view .LVU153
+ 142:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UCSR0A = (1 << U2X0);
+ 513               		.loc 1 142 10 is_stmt 0 view .LVU154
+ 514 001a 1092 C500 		sts 197,__zero_reg__
+ 143:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UCSR0B = (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0);
+ 515               		.loc 1 143 3 is_stmt 1 view .LVU155
+ 143:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UCSR0B = (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0);
+ 516               		.loc 1 143 10 is_stmt 0 view .LVU156
+ 517 001e 82E0      		ldi r24,lo8(2)
+ 518 0020 8093 C000 		sts 192,r24
+ 144:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   switch (config->sc_bits_per_char) {
+ 519               		.loc 1 144 3 is_stmt 1 view .LVU157
+ 144:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   switch (config->sc_bits_per_char) {
+ 520               		.loc 1 144 10 is_stmt 0 view .LVU158
+ 521 0024 88E9      		ldi r24,lo8(-104)
+ 522 0026 8093 C100 		sts 193,r24
+ 145:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   case USART_CHAR_SIZE_5:
+ 523               		.loc 1 145 3 is_stmt 1 view .LVU159
+ 161:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   }
+ 524               		.loc 1 161 12 is_stmt 0 view .LVU160
+ 525 002a 86E0      		ldi r24,lo8(6)
+ 526               	.LVL26:
+ 527               	.L37:
+ 167:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #endif
+ 528               		.loc 1 167 3 is_stmt 1 view .LVU161
+ 167:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #endif
+ 529               		.loc 1 167 10 is_stmt 0 view .LVU162
+ 530 002c 8093 C200 		sts 194,r24
+ 531 0030 0895      		ret
+ 532               	.LVL27:
+ 533               	.L43:
+ 167:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #endif
+ 534               		.loc 1 167 10 view .LVU163
+ 535               	.LBE41:
+ 536               	.LBE40:
+ 373:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     return;
+ 537               		.loc 1 373 5 is_stmt 1 view .LVU164
+ 538               	.LBB43:
+ 137:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
+ 539               		.loc 1 137 13 view .LVU165
+ 540               	.LBB42:
+ 139:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
+ 541               		.loc 1 139 3 view .LVU166
+ 141:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UBRR0H = (config->sc_brr >> 8) & 0x0f;
+ 542               		.loc 1 141 3 view .LVU167
+ 141:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UBRR0H = (config->sc_brr >> 8) & 0x0f;
+ 543               		.loc 1 141 10 is_stmt 0 view .LVU168
+ 544 0032 FB01      		movw r30,r22
+ 545 0034 8081      		ld r24,Z
+ 546               	.LVL28:
+ 141:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UBRR0H = (config->sc_brr >> 8) & 0x0f;
+ 547               		.loc 1 141 10 view .LVU169
+ 548 0036 8093 C400 		sts 196,r24
+ 142:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UCSR0A = (1 << U2X0);
+ 549               		.loc 1 142 3 is_stmt 1 view .LVU170
+ 142:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UCSR0A = (1 << U2X0);
+ 550               		.loc 1 142 28 is_stmt 0 view .LVU171
+ 551 003a 8181      		ldd r24,Z+1
+ 142:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UCSR0A = (1 << U2X0);
+ 552               		.loc 1 142 34 view .LVU172
+ 553 003c 8F70      		andi r24,lo8(15)
+ 142:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UCSR0A = (1 << U2X0);
+ 554               		.loc 1 142 10 view .LVU173
+ 555 003e 8093 C500 		sts 197,r24
+ 143:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UCSR0B = (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0);
+ 556               		.loc 1 143 3 is_stmt 1 view .LVU174
+ 143:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UCSR0B = (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0);
+ 557               		.loc 1 143 10 is_stmt 0 view .LVU175
+ 558 0042 82E0      		ldi r24,lo8(2)
+ 559 0044 8093 C000 		sts 192,r24
+ 144:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   switch (config->sc_bits_per_char) {
+ 560               		.loc 1 144 3 is_stmt 1 view .LVU176
+ 144:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   switch (config->sc_bits_per_char) {
+ 561               		.loc 1 144 10 is_stmt 0 view .LVU177
+ 562 0048 88E9      		ldi r24,lo8(-104)
+ 563 004a 8093 C100 		sts 193,r24
+ 145:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   case USART_CHAR_SIZE_5:
+ 564               		.loc 1 145 3 is_stmt 1 view .LVU178
+ 145:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   case USART_CHAR_SIZE_5:
+ 565               		.loc 1 145 17 is_stmt 0 view .LVU179
+ 566 004e 8281      		ldd r24,Z+2
+ 567 0050 8130      		cpi r24,lo8(1)
+ 568 0052 01F0      		breq .L39
+ 145:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   case USART_CHAR_SIZE_5:
+ 569               		.loc 1 145 17 view .LVU180
+ 570 0054 8823      		tst r24
+ 571 0056 01F0      		breq .L40
+ 572 0058 8230      		cpi r24,lo8(2)
+ 573 005a 01F0      		breq .L41
+ 574 005c 8430      		cpi r24,lo8(4)
+ 575 005e 01F4      		brne .L42
+ 156:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     ucsr0c = (1 << UCSZ00) | (1 << UCSZ01);
+ 576               		.loc 1 156 5 is_stmt 1 view .LVU181
+ 156:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     ucsr0c = (1 << UCSZ00) | (1 << UCSZ01);
+ 577               		.loc 1 156 12 is_stmt 0 view .LVU182
+ 578 0060 8091 C100 		lds r24,193
+ 579 0064 8460      		ori r24,lo8(4)
+ 580 0066 8093 C100 		sts 193,r24
+ 157:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     break;
+ 581               		.loc 1 157 5 is_stmt 1 view .LVU183
+ 582               	.LVL29:
+ 158:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   case USART_CHAR_SIZE_8:
+ 583               		.loc 1 158 5 view .LVU184
+ 157:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     break;
+ 584               		.loc 1 157 12 is_stmt 0 view .LVU185
+ 585 006a 86E0      		ldi r24,lo8(6)
+ 586 006c 00C0      		rjmp .L37
+ 587               	.LVL30:
+ 588               	.L41:
+ 153:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     break;
+ 589               		.loc 1 153 12 view .LVU186
+ 590 006e 84E0      		ldi r24,lo8(4)
+ 591 0070 00C0      		rjmp .L37
+ 592               	.L40:
+ 147:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     break;
+ 593               		.loc 1 147 12 view .LVU187
+ 594 0072 80E0      		ldi r24,0
+ 595 0074 00C0      		rjmp .L37
+ 596               	.L39:
+ 150:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     break;
+ 597               		.loc 1 150 12 view .LVU188
+ 598 0076 82E0      		ldi r24,lo8(2)
+ 599 0078 00C0      		rjmp .L37
+ 600               	.L42:
+ 161:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   }
+ 601               		.loc 1 161 12 view .LVU189
+ 602 007a 86E0      		ldi r24,lo8(6)
+ 603 007c 00C0      		rjmp .L37
+ 604               	.LBE42:
+ 605               	.LBE43:
+ 606               		.cfi_endproc
+ 607               	.LFE180:
+ 609               		.section	.text.sd_lld_stop,"ax",@progbits
+ 610               	.global	sd_lld_stop
+ 612               	sd_lld_stop:
+ 613               	.LVL31:
+ 614               	.LFB181:
  384:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
  385:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** /**
  386:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****  * @brief   Low level serial driver stop.
@@ -1740,82 +2881,102 @@
  392:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****  * @notapi
  393:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****  */
  394:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** void sd_lld_stop(SerialDriver *sdp) {
- 444               		.loc 1 394 0
- 445               		.cfi_startproc
- 446               	.LVL32:
- 447               	/* prologue: function */
- 448               	/* frame size = 0 */
- 449               	/* stack size = 0 */
- 450               	.L__stack_usage = 0
+ 615               		.loc 1 394 37 is_stmt 1 view -0
+ 616               		.cfi_startproc
+ 617               	/* prologue: function */
+ 618               	/* frame size = 0 */
+ 619               	/* stack size = 0 */
+ 620               	.L__stack_usage = 0
  395:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
  396:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #if AVR_SERIAL_USE_USART0
  397:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   if (&SD1 == sdp)
- 451               		.loc 1 397 0
- 452 0000 8050      		subi r24,lo8(SD1)
- 453 0002 9040      		sbci r25,hi8(SD1)
- 454 0004 01F0      		breq .L49
- 455 0006 0895      		ret
- 456               	.L49:
- 457               	.LBB42:
- 458               	.LBB43:
+ 621               		.loc 1 397 3 view .LVU191
+ 622               		.loc 1 397 6 is_stmt 0 view .LVU192
+ 623 0000 8050      		subi r24,lo8(SD1)
+ 624 0002 9040      		sbci r25,hi8(SD1)
+ 625 0004 01F0      		breq .L46
+ 626               	/* epilogue start */
+ 398:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     usart0_deinit();
+ 399:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #endif
+ 400:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #if AVR_SERIAL_USE_USART1
+ 401:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   if (&SD2 == sdp)
+ 402:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     usart1_deinit();
+ 403:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #endif
+ 404:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** }
+ 627               		.loc 1 404 1 view .LVU193
+ 628 0006 0895      		ret
+ 629               	.L46:
+ 398:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****     usart0_deinit();
+ 630               		.loc 1 398 5 is_stmt 1 view .LVU194
+ 631               	.LBB44:
+ 632               	.LBI44:
+ 174:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** 
+ 633               		.loc 1 174 13 view .LVU195
+ 634               	.LBB45:
  176:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UCSR0B = 0;
- 459               		.loc 1 176 0
- 460 0008 1092 C000 		sts 192,__zero_reg__
+ 635               		.loc 1 176 3 view .LVU196
+ 176:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c ****   UCSR0B = 0;
+ 636               		.loc 1 176 10 is_stmt 0 view .LVU197
+ 637 0008 1092 C000 		sts 192,__zero_reg__
  177:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #if defined(__AVR_ATmega162__)
- 461               		.loc 1 177 0
- 462 000c 1092 C100 		sts 193,__zero_reg__
+ 638               		.loc 1 177 3 is_stmt 1 view .LVU198
+ 177:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #if defined(__AVR_ATmega162__)
+ 639               		.loc 1 177 10 is_stmt 0 view .LVU199
+ 640 000c 1092 C100 		sts 193,__zero_reg__
  181:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #endif
- 463               		.loc 1 181 0
- 464 0010 1092 C200 		sts 194,__zero_reg__
- 465 0014 0895      		ret
- 466               	.LBE43:
- 467               	.LBE42:
- 468               		.cfi_endproc
- 469               	.LFE181:
- 471               		.section	.rodata.default_config,"a",@progbits
- 474               	default_config:
- 475 0000 1000      		.word	16
- 476 0002 03        		.byte	3
- 477               		.comm	SD1,73,1
- 478               		.text
- 479               	.Letext0:
- 480               		.file 3 "/usr/lib/gcc/avr/4.9.2/include/stddef.h"
- 481               		.file 4 "/usr/lib/avr/include/stdint.h"
- 482               		.file 5 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
- 483               		.file 6 "../../../os/rt/include/chsystypes.h"
- 484               		.file 7 "../../../os/rt/include/chschd.h"
- 485               		.file 8 "../../../os/rt/include/chtime.h"
- 486               		.file 9 "../../../os/common/ports/AVR/chcore.h"
- 487               		.file 10 "../../../os/rt/include/chsem.h"
- 488               		.file 11 "../../../os/rt/include/chmtx.h"
- 489               		.file 12 "../../../os/rt/include/chevents.h"
- 490               		.file 13 "../../../os/hal/include/hal_queues.h"
- 491               		.file 14 "../../../os/hal/include/hal_serial.h"
- 492               		.file 15 "../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.h"
- 493               		.file 16 "../../../os/rt/include/chsys.h"
+ 641               		.loc 1 181 3 is_stmt 1 view .LVU200
+ 181:../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.c **** #endif
+ 642               		.loc 1 181 10 is_stmt 0 view .LVU201
+ 643 0010 1092 C200 		sts 194,__zero_reg__
+ 644               	/* epilogue start */
+ 645               	.LBE45:
+ 646               	.LBE44:
+ 647               		.loc 1 404 1 view .LVU202
+ 648 0014 0895      		ret
+ 649               		.cfi_endproc
+ 650               	.LFE181:
+ 652               		.comm	SD1,73,1
+ 653               		.text
+ 654               	.Letext0:
+ 655               		.file 5 "/usr/local/Cellar/avr-gcc/8.2.0/lib/avr-gcc/8/gcc/avr/8.2.0/include/stddef.h"
+ 656               		.file 6 "/usr/local/Cellar/avr-gcc/8.2.0/avr/include/stdint.h"
+ 657               		.file 7 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
+ 658               		.file 8 "../../../os/rt/include/chsystypes.h"
+ 659               		.file 9 "../../../os/rt/include/chschd.h"
+ 660               		.file 10 "../../../os/rt/include/chtime.h"
+ 661               		.file 11 "../../../os/rt/include/chsem.h"
+ 662               		.file 12 "../../../os/rt/include/chmtx.h"
+ 663               		.file 13 "../../../os/rt/include/chregistry.h"
+ 664               		.file 14 "../../../os/rt/include/chevents.h"
+ 665               		.file 15 "../../../os/common/oslib/include/chmemcore.h"
+ 666               		.file 16 "../../../os/hal/include/hal_queues.h"
+ 667               		.file 17 "../../../os/hal/include/hal_pal.h"
+ 668               		.file 18 "../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.h"
+ 669               		.file 19 "../../../os/hal/include/hal_adc.h"
+ 670               		.file 20 "../../../os/hal/ports/AVR/MEGA/LLD/ADCv1/hal_adc_lld.h"
+ 671               		.file 21 "../../../os/hal/include/hal_serial.h"
+ 672               		.file 22 "../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal_serial_lld.c
-     /tmp/ccTTVmve.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccTTVmve.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccTTVmve.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccTTVmve.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccTTVmve.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccTTVmve.s:12     .text.notify1:0000000000000000 notify1
-     /tmp/ccTTVmve.s:36     .text.__vector_18:0000000000000000 __vector_18
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCBU4CS.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCBU4CS.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCBU4CS.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCBU4CS.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCBU4CS.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCBU4CS.s:12     .text.notify1:0000000000000000 notify1
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCBU4CS.s:41     .text.__vector_18:0000000000000000 __vector_18
                             *COM*:0000000000000049 SD1
-     /tmp/ccTTVmve.s:197    .text.__vector_19:0000000000000000 __vector_19
-     /tmp/ccTTVmve.s:321    .text.sd_lld_init:0000000000000000 sd_lld_init
-     /tmp/ccTTVmve.s:344    .text.sd_lld_start:0000000000000000 sd_lld_start
-     /tmp/ccTTVmve.s:474    .rodata.default_config:0000000000000000 default_config
-     /tmp/ccTTVmve.s:442    .text.sd_lld_stop:0000000000000000 sd_lld_stop
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCBU4CS.s:273    .text.__vector_19:0000000000000000 __vector_19
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCBU4CS.s:444    .text.sd_lld_init:0000000000000000 sd_lld_init
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCBU4CS.s:467    .text.sd_lld_start:0000000000000000 sd_lld_start
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCBU4CS.s:612    .text.sd_lld_stop:0000000000000000 sd_lld_stop
 
 UNDEFINED SYMBOLS
 __avr_in_isr
 sdIncomingDataI
 chSchIsPreemptionRequired
-chSchDoReschedule
 chEvtBroadcastFlagsI
+chSchDoReschedule
 sdRequestDataI
 sdObjectInit
-__do_copy_data
 __do_clear_bss

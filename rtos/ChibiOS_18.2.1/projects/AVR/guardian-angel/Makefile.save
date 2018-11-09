@@ -208,7 +208,7 @@ else
 endif
 
 # AVR serial port.
-AVRDUDE_PORT = /dev/tty.usbmodemFD121
+AVRDUDE_PORT = /dev/tty
 
 AVRDUDE_WRITE_FLASH = -D -U flash:w:$(BUILDDIR)/$(PROJECT).hex
 
@@ -221,7 +221,6 @@ endif
 ifeq ($(USE_AVRDUDE_NO_VERIFY),no)
 	AVRDUDE_NO_VERIFY = -V
 endif
-
 # Check verbosity level activation.
 ifeq ($(USE_VERBOSE_PROGRAMMATION),yes)
 	AVRDUDE_VERBOSE = -v -v

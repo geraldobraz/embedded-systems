@@ -54,7 +54,7 @@
   40:../../../os/hal/boards/ARDUINO_NANO/board.c ****  * Board-specific initialization code.
   41:../../../os/hal/boards/ARDUINO_NANO/board.c ****  */
   42:../../../os/hal/boards/ARDUINO_NANO/board.c **** void boardInit(void) {
-  16               		.loc 1 42 0
+  16               		.loc 1 42 22 view -0
   17               		.cfi_startproc
   18               	/* prologue: function */
   19               	/* frame size = 0 */
@@ -65,43 +65,60 @@
   45:../../../os/hal/boards/ARDUINO_NANO/board.c ****    * External interrupts setup, all disabled initially.
   46:../../../os/hal/boards/ARDUINO_NANO/board.c ****    */
   47:../../../os/hal/boards/ARDUINO_NANO/board.c ****   EICRA  = 0x00;
-  22               		.loc 1 47 0
-  23 0000 1092 6900 		sts 105,__zero_reg__
+  22               		.loc 1 47 3 view .LVU1
+  23               		.loc 1 47 10 is_stmt 0 view .LVU2
+  24 0000 1092 6900 		sts 105,__zero_reg__
   48:../../../os/hal/boards/ARDUINO_NANO/board.c ****   EIMSK  = 0x00;
-  24               		.loc 1 48 0
-  25 0004 1DBA      		out 0x1d,__zero_reg__
-  26 0006 0895      		ret
-  27               		.cfi_endproc
-  28               	.LFE173:
-  30               	.global	pal_default_config
-  31               		.section	.rodata.pal_default_config,"a",@progbits
-  34               	pal_default_config:
-  35 0000 FF        		.byte	-1
-  36 0001 20        		.byte	32
-  37 0002 FF        		.byte	-1
-  38 0003 00        		.byte	0
-  39 0004 FF        		.byte	-1
-  40 0005 02        		.byte	2
-  41               		.text
-  42               	.Letext0:
-  43               		.file 2 "/usr/lib/avr/include/stdint.h"
-  44               		.file 3 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
-  45               		.file 4 "../../../os/rt/include/chsystypes.h"
-  46               		.file 5 "../../../os/rt/include/chschd.h"
-  47               		.file 6 "../../../os/rt/include/chtime.h"
-  48               		.file 7 "../../../os/common/ports/AVR/chcore.h"
-  49               		.file 8 "../../../os/rt/include/chsem.h"
-  50               		.file 9 "../../../os/rt/include/chmtx.h"
-  51               		.file 10 "../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.h"
+  25               		.loc 1 48 3 is_stmt 1 view .LVU3
+  26               		.loc 1 48 10 is_stmt 0 view .LVU4
+  27 0004 1DBA      		out 0x1d,__zero_reg__
+  28               	/* epilogue start */
+  49:../../../os/hal/boards/ARDUINO_NANO/board.c **** 
+  50:../../../os/hal/boards/ARDUINO_NANO/board.c **** }
+  29               		.loc 1 50 1 view .LVU5
+  30 0006 0895      		ret
+  31               		.cfi_endproc
+  32               	.LFE173:
+  34               	.global	pal_default_config
+  35               		.section	.rodata.pal_default_config,"a"
+  38               	pal_default_config:
+  39 0000 FF        		.byte	-1
+  40 0001 20        		.byte	32
+  41 0002 FF        		.byte	-1
+  42 0003 00        		.byte	0
+  43 0004 FF        		.byte	-1
+  44 0005 02        		.byte	2
+  45               		.text
+  46               	.Letext0:
+  47               		.file 2 "/usr/local/Cellar/avr-gcc/8.2.0/lib/avr-gcc/8/gcc/avr/8.2.0/include/stddef.h"
+  48               		.file 3 "/usr/local/Cellar/avr-gcc/8.2.0/avr/include/stdint.h"
+  49               		.file 4 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
+  50               		.file 5 "../../../os/rt/include/chsystypes.h"
+  51               		.file 6 "../../../os/rt/include/chschd.h"
+  52               		.file 7 "../../../os/rt/include/chtime.h"
+  53               		.file 8 "../../../os/common/ports/AVR/chcore.h"
+  54               		.file 9 "../../../os/rt/include/chsem.h"
+  55               		.file 10 "../../../os/rt/include/chmtx.h"
+  56               		.file 11 "../../../os/rt/include/chsys.h"
+  57               		.file 12 "../../../os/rt/include/chregistry.h"
+  58               		.file 13 "../../../os/rt/include/chevents.h"
+  59               		.file 14 "../../../os/common/oslib/include/chmemcore.h"
+  60               		.file 15 "../../../os/hal/include/hal_queues.h"
+  61               		.file 16 "../../../os/hal/include/hal_pal.h"
+  62               		.file 17 "../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.h"
+  63               		.file 18 "../../../os/hal/include/hal_adc.h"
+  64               		.file 19 "../../../os/hal/ports/AVR/MEGA/LLD/ADCv1/hal_adc_lld.h"
+  65               		.file 20 "../../../os/hal/include/hal_serial.h"
+  66               		.file 21 "../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 board.c
-     /tmp/cchhmSum.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/cchhmSum.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/cchhmSum.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/cchhmSum.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/cchhmSum.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/cchhmSum.s:13     .text.boardInit:0000000000000000 boardInit
-     /tmp/cchhmSum.s:34     .rodata.pal_default_config:0000000000000000 pal_default_config
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc6ae0Zi.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc6ae0Zi.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc6ae0Zi.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc6ae0Zi.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc6ae0Zi.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc6ae0Zi.s:13     .text.boardInit:0000000000000000 boardInit
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc6ae0Zi.s:38     .rodata.pal_default_config:0000000000000000 pal_default_config
 
 UNDEFINED SYMBOLS
 __do_copy_data

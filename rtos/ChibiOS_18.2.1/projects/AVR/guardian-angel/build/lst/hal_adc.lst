@@ -68,7 +68,7 @@
   54:../../../os/hal/src/hal_adc.c ****  * @init
   55:../../../os/hal/src/hal_adc.c ****  */
   56:../../../os/hal/src/hal_adc.c **** void adcInit(void) {
-  16               		.loc 1 56 0
+  16               		.loc 1 56 20 view -0
   17               		.cfi_startproc
   18               	/* prologue: function */
   19               	/* frame size = 0 */
@@ -76,7 +76,7 @@
   21               	.L__stack_usage = 0
   57:../../../os/hal/src/hal_adc.c **** 
   58:../../../os/hal/src/hal_adc.c ****   adc_lld_init();
-  22               		.loc 1 58 0
+  22               		.loc 1 58 3 view .LVU1
   23 0000 0C94 0000 		jmp adc_lld_init
   24               	.LVL0:
   25               		.cfi_endproc
@@ -84,7 +84,8 @@
   28               		.section	.text.adcObjectInit,"ax",@progbits
   29               	.global	adcObjectInit
   31               	adcObjectInit:
-  32               	.LFB174:
+  32               	.LVL1:
+  33               	.LFB174:
   59:../../../os/hal/src/hal_adc.c **** }
   60:../../../os/hal/src/hal_adc.c **** 
   61:../../../os/hal/src/hal_adc.c **** /**
@@ -95,45 +96,56 @@
   66:../../../os/hal/src/hal_adc.c ****  * @init
   67:../../../os/hal/src/hal_adc.c ****  */
   68:../../../os/hal/src/hal_adc.c **** void adcObjectInit(ADCDriver *adcp) {
-  33               		.loc 1 68 0
-  34               		.cfi_startproc
-  35               	.LVL1:
+  34               		.loc 1 68 37 view -0
+  35               		.cfi_startproc
   36               	/* prologue: function */
   37               	/* frame size = 0 */
   38               	/* stack size = 0 */
   39               	.L__stack_usage = 0
-  40 0000 FC01      		movw r30,r24
+  40               		.loc 1 68 37 is_stmt 0 view .LVU3
+  41 0000 FC01      		movw r30,r24
   69:../../../os/hal/src/hal_adc.c **** 
   70:../../../os/hal/src/hal_adc.c ****   adcp->state    = ADC_STOP;
-  41               		.loc 1 70 0
-  42 0002 81E0      		ldi r24,lo8(1)
-  43               	.LVL2:
-  44 0004 8083      		st Z,r24
+  42               		.loc 1 70 3 is_stmt 1 view .LVU4
+  43               		.loc 1 70 18 is_stmt 0 view .LVU5
+  44 0002 81E0      		ldi r24,lo8(1)
+  45               	.LVL2:
+  46               		.loc 1 70 18 view .LVU6
+  47 0004 8083      		st Z,r24
   71:../../../os/hal/src/hal_adc.c ****   adcp->config   = NULL;
-  45               		.loc 1 71 0
-  46 0006 1282      		std Z+2,__zero_reg__
-  47 0008 1182      		std Z+1,__zero_reg__
+  48               		.loc 1 71 3 is_stmt 1 view .LVU7
+  49               		.loc 1 71 18 is_stmt 0 view .LVU8
+  50 0006 1282      		std Z+2,__zero_reg__
+  51 0008 1182      		std Z+1,__zero_reg__
   72:../../../os/hal/src/hal_adc.c ****   adcp->samples  = NULL;
-  48               		.loc 1 72 0
-  49 000a 1482      		std Z+4,__zero_reg__
-  50 000c 1382      		std Z+3,__zero_reg__
+  52               		.loc 1 72 3 is_stmt 1 view .LVU9
+  53               		.loc 1 72 18 is_stmt 0 view .LVU10
+  54 000a 1482      		std Z+4,__zero_reg__
+  55 000c 1382      		std Z+3,__zero_reg__
   73:../../../os/hal/src/hal_adc.c ****   adcp->depth    = 0;
-  51               		.loc 1 73 0
-  52 000e 1682      		std Z+6,__zero_reg__
-  53 0010 1582      		std Z+5,__zero_reg__
+  56               		.loc 1 73 3 is_stmt 1 view .LVU11
+  57               		.loc 1 73 18 is_stmt 0 view .LVU12
+  58 000e 1682      		std Z+6,__zero_reg__
+  59 0010 1582      		std Z+5,__zero_reg__
   74:../../../os/hal/src/hal_adc.c ****   adcp->grpp     = NULL;
-  54               		.loc 1 74 0
-  55 0012 1086      		std Z+8,__zero_reg__
-  56 0014 1782      		std Z+7,__zero_reg__
+  60               		.loc 1 74 3 is_stmt 1 view .LVU13
+  61               		.loc 1 74 18 is_stmt 0 view .LVU14
+  62 0012 1086      		std Z+8,__zero_reg__
+  63 0014 1782      		std Z+7,__zero_reg__
   75:../../../os/hal/src/hal_adc.c **** #if ADC_USE_WAIT == TRUE
   76:../../../os/hal/src/hal_adc.c ****   adcp->thread   = NULL;
-  57               		.loc 1 76 0
-  58 0016 1286      		std Z+10,__zero_reg__
-  59 0018 1186      		std Z+9,__zero_reg__
-  60               	.LVL3:
-  61               	.LBB85:
-  62               	.LBB86:
-  63               		.file 2 "../../../os/hal/osal/rt/osal.h"
+  64               		.loc 1 76 3 is_stmt 1 view .LVU15
+  65               		.loc 1 76 18 is_stmt 0 view .LVU16
+  66 0016 1286      		std Z+10,__zero_reg__
+  67 0018 1186      		std Z+9,__zero_reg__
+  77:../../../os/hal/src/hal_adc.c **** #endif
+  78:../../../os/hal/src/hal_adc.c **** #if ADC_USE_MUTUAL_EXCLUSION == TRUE
+  79:../../../os/hal/src/hal_adc.c ****   osalMutexObjectInit(&adcp->mutex);
+  68               		.loc 1 79 3 is_stmt 1 view .LVU17
+  69               	.LVL3:
+  70               	.LBB85:
+  71               	.LBI85:
+  72               		.file 2 "../../../os/hal/osal/rt/osal.h"
    1:../../../os/hal/osal/rt/osal.h **** /*
    2:../../../os/hal/osal/rt/osal.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio
    3:../../../os/hal/osal/rt/osal.h **** 
@@ -1105,26 +1117,28 @@
  969:../../../os/hal/osal/rt/osal.h ****  * @init
  970:../../../os/hal/osal/rt/osal.h ****  */
  971:../../../os/hal/osal/rt/osal.h **** static inline void osalMutexObjectInit(mutex_t *mp) {
+  73               		.loc 2 971 20 view .LVU18
+  74               	.LBB86:
  972:../../../os/hal/osal/rt/osal.h **** 
  973:../../../os/hal/osal/rt/osal.h **** #if CH_CFG_USE_MUTEXES
  974:../../../os/hal/osal/rt/osal.h ****   chMtxObjectInit(mp);
-  64               		.loc 2 974 0
-  65 001a CF01      		movw r24,r30
-  66 001c 0B96      		adiw r24,11
-  67               	.LVL4:
-  68 001e 0C94 0000 		jmp chMtxObjectInit
-  69               	.LVL5:
-  70               	.LBE86:
-  71               	.LBE85:
-  72               		.cfi_endproc
-  73               	.LFE174:
-  75               		.section	.text.adcStart,"ax",@progbits
-  76               	.global	adcStart
-  78               	adcStart:
-  79               	.LFB175:
-  77:../../../os/hal/src/hal_adc.c **** #endif
-  78:../../../os/hal/src/hal_adc.c **** #if ADC_USE_MUTUAL_EXCLUSION == TRUE
-  79:../../../os/hal/src/hal_adc.c ****   osalMutexObjectInit(&adcp->mutex);
+  75               		.loc 2 974 3 view .LVU19
+  76 001a CF01      		movw r24,r30
+  77 001c 0B96      		adiw r24,11
+  78               	.LVL4:
+  79               		.loc 2 974 3 is_stmt 0 view .LVU20
+  80 001e 0C94 0000 		jmp chMtxObjectInit
+  81               	.LVL5:
+  82               		.loc 2 974 3 view .LVU21
+  83               	.LBE86:
+  84               	.LBE85:
+  85               		.cfi_endproc
+  86               	.LFE174:
+  88               		.section	.text.adcStart,"ax",@progbits
+  89               	.global	adcStart
+  91               	adcStart:
+  92               	.LVL6:
+  93               	.LFB175:
   80:../../../os/hal/src/hal_adc.c **** #endif
   81:../../../os/hal/src/hal_adc.c **** #if defined(ADC_DRIVER_EXT_INIT_HOOK)
   82:../../../os/hal/src/hal_adc.c ****   ADC_DRIVER_EXT_INIT_HOOK(adcp);
@@ -1141,27 +1155,404 @@
   93:../../../os/hal/src/hal_adc.c ****  * @api
   94:../../../os/hal/src/hal_adc.c ****  */
   95:../../../os/hal/src/hal_adc.c **** void adcStart(ADCDriver *adcp, const ADCConfig *config) {
-  80               		.loc 1 95 0
-  81               		.cfi_startproc
-  82               	.LVL6:
-  83 0000 CF93      		push r28
-  84               	.LCFI0:
-  85               		.cfi_def_cfa_offset 3
-  86               		.cfi_offset 28, -2
-  87 0002 DF93      		push r29
-  88               	.LCFI1:
-  89               		.cfi_def_cfa_offset 4
-  90               		.cfi_offset 29, -3
-  91               	/* prologue: function */
-  92               	/* frame size = 0 */
-  93               	/* stack size = 2 */
-  94               	.L__stack_usage = 2
-  95 0004 EC01      		movw r28,r24
-  96               	.LBB87:
-  97               	.LBB88:
-  98               	.LBB89:
-  99               	.LBB90:
- 100               		.file 3 "../../../os/common/ports/AVR/chcore.h"
+  94               		.loc 1 95 57 is_stmt 1 view -0
+  95               		.cfi_startproc
+  96               		.loc 1 95 57 is_stmt 0 view .LVU23
+  97 0000 CF93      		push r28
+  98               	.LCFI0:
+  99               		.cfi_def_cfa_offset 3
+ 100               		.cfi_offset 28, -2
+ 101 0002 DF93      		push r29
+ 102               	.LCFI1:
+ 103               		.cfi_def_cfa_offset 4
+ 104               		.cfi_offset 29, -3
+ 105               	/* prologue: function */
+ 106               	/* frame size = 0 */
+ 107               	/* stack size = 2 */
+ 108               	.L__stack_usage = 2
+ 109 0004 EC01      		movw r28,r24
+  96:../../../os/hal/src/hal_adc.c **** 
+  97:../../../os/hal/src/hal_adc.c ****   osalDbgCheck(adcp != NULL);
+ 110               		.loc 1 97 3 is_stmt 1 view .LVU24
+ 111               		.loc 1 97 3 view .LVU25
+  98:../../../os/hal/src/hal_adc.c **** 
+  99:../../../os/hal/src/hal_adc.c ****   osalSysLock();
+ 112               		.loc 1 99 3 view .LVU26
+ 113               	.LBB87:
+ 114               	.LBI87:
+ 509:../../../os/hal/osal/rt/osal.h **** 
+ 115               		.loc 2 509 20 view .LVU27
+ 116               	.LBE87:
+ 511:../../../os/hal/osal/rt/osal.h **** }
+ 117               		.loc 2 511 3 view .LVU28
+ 118               	.LBB92:
+ 119               	.LBB88:
+ 120               	.LBI88:
+ 121               		.file 3 "../../../os/rt/include/chsys.h"
+   1:../../../os/rt/include/chsys.h **** /*
+   2:../../../os/rt/include/chsys.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
+   3:../../../os/rt/include/chsys.h **** 
+   4:../../../os/rt/include/chsys.h ****     This file is part of ChibiOS.
+   5:../../../os/rt/include/chsys.h **** 
+   6:../../../os/rt/include/chsys.h ****     ChibiOS is free software; you can redistribute it and/or modify
+   7:../../../os/rt/include/chsys.h ****     it under the terms of the GNU General Public License as published by
+   8:../../../os/rt/include/chsys.h ****     the Free Software Foundation; either version 3 of the License, or
+   9:../../../os/rt/include/chsys.h ****     (at your option) any later version.
+  10:../../../os/rt/include/chsys.h **** 
+  11:../../../os/rt/include/chsys.h ****     ChibiOS is distributed in the hope that it will be useful,
+  12:../../../os/rt/include/chsys.h ****     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:../../../os/rt/include/chsys.h ****     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:../../../os/rt/include/chsys.h ****     GNU General Public License for more details.
+  15:../../../os/rt/include/chsys.h **** 
+  16:../../../os/rt/include/chsys.h ****     You should have received a copy of the GNU General Public License
+  17:../../../os/rt/include/chsys.h ****     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  18:../../../os/rt/include/chsys.h **** */
+  19:../../../os/rt/include/chsys.h **** 
+  20:../../../os/rt/include/chsys.h **** /**
+  21:../../../os/rt/include/chsys.h ****  * @file    chsys.h
+  22:../../../os/rt/include/chsys.h ****  * @brief   System related macros and structures.
+  23:../../../os/rt/include/chsys.h ****  *
+  24:../../../os/rt/include/chsys.h ****  * @addtogroup system
+  25:../../../os/rt/include/chsys.h ****  * @{
+  26:../../../os/rt/include/chsys.h ****  */
+  27:../../../os/rt/include/chsys.h **** 
+  28:../../../os/rt/include/chsys.h **** #ifndef CHSYS_H
+  29:../../../os/rt/include/chsys.h **** #define CHSYS_H
+  30:../../../os/rt/include/chsys.h **** 
+  31:../../../os/rt/include/chsys.h **** /*lint -sem(chSysHalt, r_no)*/
+  32:../../../os/rt/include/chsys.h **** 
+  33:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  34:../../../os/rt/include/chsys.h **** /* Module constants.                                                         */
+  35:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  36:../../../os/rt/include/chsys.h **** 
+  37:../../../os/rt/include/chsys.h **** /**
+  38:../../../os/rt/include/chsys.h ****  * @name    Masks of executable integrity checks.
+  39:../../../os/rt/include/chsys.h ****  * @{
+  40:../../../os/rt/include/chsys.h ****  */
+  41:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_RLIST                  1U
+  42:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_VTLIST                 2U
+  43:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_REGISTRY               4U
+  44:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_PORT                   8U
+  45:../../../os/rt/include/chsys.h **** /** @} */
+  46:../../../os/rt/include/chsys.h **** 
+  47:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  48:../../../os/rt/include/chsys.h **** /* Module pre-compile time settings.                                         */
+  49:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  50:../../../os/rt/include/chsys.h **** 
+  51:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  52:../../../os/rt/include/chsys.h **** /* Derived constants and error checks.                                       */
+  53:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  54:../../../os/rt/include/chsys.h **** 
+  55:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  56:../../../os/rt/include/chsys.h **** /* Module data structures and types.                                         */
+  57:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  58:../../../os/rt/include/chsys.h **** 
+  59:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  60:../../../os/rt/include/chsys.h **** /* Module macros.                                                            */
+  61:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  62:../../../os/rt/include/chsys.h **** 
+  63:../../../os/rt/include/chsys.h **** /**
+  64:../../../os/rt/include/chsys.h ****  * @name    ISRs abstraction macros
+  65:../../../os/rt/include/chsys.h ****  */
+  66:../../../os/rt/include/chsys.h **** /**
+  67:../../../os/rt/include/chsys.h ****  * @brief   Priority level validation macro.
+  68:../../../os/rt/include/chsys.h ****  * @details This macro determines if the passed value is a valid priority
+  69:../../../os/rt/include/chsys.h ****  *          level for the underlying architecture.
+  70:../../../os/rt/include/chsys.h ****  *
+  71:../../../os/rt/include/chsys.h ****  * @param[in] prio      the priority level
+  72:../../../os/rt/include/chsys.h ****  * @return              Priority range result.
+  73:../../../os/rt/include/chsys.h ****  * @retval false        if the priority is invalid or if the architecture
+  74:../../../os/rt/include/chsys.h ****  *                      does not support priorities.
+  75:../../../os/rt/include/chsys.h ****  * @retval true         if the priority is valid.
+  76:../../../os/rt/include/chsys.h ****  */
+  77:../../../os/rt/include/chsys.h **** #if defined(PORT_IRQ_IS_VALID_PRIORITY) || defined(__DOXYGEN__)
+  78:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_PRIORITY(prio)                                      \
+  79:../../../os/rt/include/chsys.h ****   PORT_IRQ_IS_VALID_PRIORITY(prio)
+  80:../../../os/rt/include/chsys.h **** #else
+  81:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_PRIORITY(prio) false
+  82:../../../os/rt/include/chsys.h **** #endif
+  83:../../../os/rt/include/chsys.h **** 
+  84:../../../os/rt/include/chsys.h **** /**
+  85:../../../os/rt/include/chsys.h ****  * @brief   Priority level validation macro.
+  86:../../../os/rt/include/chsys.h ****  * @details This macro determines if the passed value is a valid priority
+  87:../../../os/rt/include/chsys.h ****  *          level that cannot preempt the kernel critical zone.
+  88:../../../os/rt/include/chsys.h ****  *
+  89:../../../os/rt/include/chsys.h ****  * @param[in] prio      the priority level
+  90:../../../os/rt/include/chsys.h ****  * @return              Priority range result.
+  91:../../../os/rt/include/chsys.h ****  * @retval false        if the priority is invalid or if the architecture
+  92:../../../os/rt/include/chsys.h ****  *                      does not support priorities.
+  93:../../../os/rt/include/chsys.h ****  * @retval true         if the priority is valid.
+  94:../../../os/rt/include/chsys.h ****  */
+  95:../../../os/rt/include/chsys.h **** #if defined(PORT_IRQ_IS_VALID_KERNEL_PRIORITY) || defined(__DOXYGEN__)
+  96:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_KERNEL_PRIORITY(prio)                               \
+  97:../../../os/rt/include/chsys.h ****   PORT_IRQ_IS_VALID_KERNEL_PRIORITY(prio)
+  98:../../../os/rt/include/chsys.h **** #else
+  99:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_KERNEL_PRIORITY(prio) false
+ 100:../../../os/rt/include/chsys.h **** #endif
+ 101:../../../os/rt/include/chsys.h **** 
+ 102:../../../os/rt/include/chsys.h **** /**
+ 103:../../../os/rt/include/chsys.h ****  * @brief   IRQ handler enter code.
+ 104:../../../os/rt/include/chsys.h ****  * @note    Usually IRQ handlers functions are also declared naked.
+ 105:../../../os/rt/include/chsys.h ****  * @note    On some architectures this macro can be empty.
+ 106:../../../os/rt/include/chsys.h ****  *
+ 107:../../../os/rt/include/chsys.h ****  * @special
+ 108:../../../os/rt/include/chsys.h ****  */
+ 109:../../../os/rt/include/chsys.h **** #define CH_IRQ_PROLOGUE()                                                   \
+ 110:../../../os/rt/include/chsys.h ****   PORT_IRQ_PROLOGUE();                                                      \
+ 111:../../../os/rt/include/chsys.h ****   CH_CFG_IRQ_PROLOGUE_HOOK();                                               \
+ 112:../../../os/rt/include/chsys.h ****   _stats_increase_irq();                                                    \
+ 113:../../../os/rt/include/chsys.h ****   _trace_isr_enter(__func__);                                               \
+ 114:../../../os/rt/include/chsys.h ****   _dbg_check_enter_isr()
+ 115:../../../os/rt/include/chsys.h **** 
+ 116:../../../os/rt/include/chsys.h **** /**
+ 117:../../../os/rt/include/chsys.h ****  * @brief   IRQ handler exit code.
+ 118:../../../os/rt/include/chsys.h ****  * @note    Usually IRQ handlers function are also declared naked.
+ 119:../../../os/rt/include/chsys.h ****  * @note    This macro usually performs the final reschedule by using
+ 120:../../../os/rt/include/chsys.h ****  *          @p chSchIsPreemptionRequired() and @p chSchDoReschedule().
+ 121:../../../os/rt/include/chsys.h ****  *
+ 122:../../../os/rt/include/chsys.h ****  * @special
+ 123:../../../os/rt/include/chsys.h ****  */
+ 124:../../../os/rt/include/chsys.h **** #define CH_IRQ_EPILOGUE()                                                   \
+ 125:../../../os/rt/include/chsys.h ****   _dbg_check_leave_isr();                                                   \
+ 126:../../../os/rt/include/chsys.h ****   _trace_isr_leave(__func__);                                               \
+ 127:../../../os/rt/include/chsys.h ****   CH_CFG_IRQ_EPILOGUE_HOOK();                                               \
+ 128:../../../os/rt/include/chsys.h ****   PORT_IRQ_EPILOGUE()
+ 129:../../../os/rt/include/chsys.h **** 
+ 130:../../../os/rt/include/chsys.h **** /**
+ 131:../../../os/rt/include/chsys.h ****  * @brief   Standard normal IRQ handler declaration.
+ 132:../../../os/rt/include/chsys.h ****  * @note    @p id can be a function name or a vector number depending on the
+ 133:../../../os/rt/include/chsys.h ****  *          port implementation.
+ 134:../../../os/rt/include/chsys.h ****  *
+ 135:../../../os/rt/include/chsys.h ****  * @special
+ 136:../../../os/rt/include/chsys.h ****  */
+ 137:../../../os/rt/include/chsys.h **** #define CH_IRQ_HANDLER(id) PORT_IRQ_HANDLER(id)
+ 138:../../../os/rt/include/chsys.h **** /** @} */
+ 139:../../../os/rt/include/chsys.h **** 
+ 140:../../../os/rt/include/chsys.h **** /**
+ 141:../../../os/rt/include/chsys.h ****  * @name    Fast ISRs abstraction macros
+ 142:../../../os/rt/include/chsys.h ****  */
+ 143:../../../os/rt/include/chsys.h **** /**
+ 144:../../../os/rt/include/chsys.h ****  * @brief   Standard fast IRQ handler declaration.
+ 145:../../../os/rt/include/chsys.h ****  * @note    @p id can be a function name or a vector number depending on the
+ 146:../../../os/rt/include/chsys.h ****  *          port implementation.
+ 147:../../../os/rt/include/chsys.h ****  * @note    Not all architectures support fast interrupts.
+ 148:../../../os/rt/include/chsys.h ****  *
+ 149:../../../os/rt/include/chsys.h ****  * @special
+ 150:../../../os/rt/include/chsys.h ****  */
+ 151:../../../os/rt/include/chsys.h **** #define CH_FAST_IRQ_HANDLER(id) PORT_FAST_IRQ_HANDLER(id)
+ 152:../../../os/rt/include/chsys.h **** /** @} */
+ 153:../../../os/rt/include/chsys.h **** 
+ 154:../../../os/rt/include/chsys.h **** /**
+ 155:../../../os/rt/include/chsys.h ****  * @name    Time conversion utilities for the realtime counter
+ 156:../../../os/rt/include/chsys.h ****  * @{
+ 157:../../../os/rt/include/chsys.h ****  */
+ 158:../../../os/rt/include/chsys.h **** /**
+ 159:../../../os/rt/include/chsys.h ****  * @brief   Seconds to realtime counter.
+ 160:../../../os/rt/include/chsys.h ****  * @details Converts from seconds to realtime counter cycles.
+ 161:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1.
+ 162:../../../os/rt/include/chsys.h ****  *
+ 163:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 164:../../../os/rt/include/chsys.h ****  * @param[in] sec       number of seconds
+ 165:../../../os/rt/include/chsys.h ****  * @return              The number of cycles.
+ 166:../../../os/rt/include/chsys.h ****  *
+ 167:../../../os/rt/include/chsys.h ****  * @api
+ 168:../../../os/rt/include/chsys.h ****  */
+ 169:../../../os/rt/include/chsys.h **** #define S2RTC(freq, sec) ((freq) * (sec))
+ 170:../../../os/rt/include/chsys.h **** 
+ 171:../../../os/rt/include/chsys.h **** /**
+ 172:../../../os/rt/include/chsys.h ****  * @brief   Milliseconds to realtime counter.
+ 173:../../../os/rt/include/chsys.h ****  * @details Converts from milliseconds to realtime counter cycles.
+ 174:../../../os/rt/include/chsys.h ****  * @note    The result is rounded upward to the next millisecond boundary.
+ 175:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000.
+ 176:../../../os/rt/include/chsys.h ****  *
+ 177:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 178:../../../os/rt/include/chsys.h ****  * @param[in] msec      number of milliseconds
+ 179:../../../os/rt/include/chsys.h ****  * @return              The number of cycles.
+ 180:../../../os/rt/include/chsys.h ****  *
+ 181:../../../os/rt/include/chsys.h ****  * @api
+ 182:../../../os/rt/include/chsys.h ****  */
+ 183:../../../os/rt/include/chsys.h **** #define MS2RTC(freq, msec) (rtcnt_t)((((freq) + 999UL) / 1000UL) * (msec))
+ 184:../../../os/rt/include/chsys.h **** 
+ 185:../../../os/rt/include/chsys.h **** /**
+ 186:../../../os/rt/include/chsys.h ****  * @brief   Microseconds to realtime counter.
+ 187:../../../os/rt/include/chsys.h ****  * @details Converts from microseconds to realtime counter cycles.
+ 188:../../../os/rt/include/chsys.h ****  * @note    The result is rounded upward to the next microsecond boundary.
+ 189:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000000.
+ 190:../../../os/rt/include/chsys.h ****  *
+ 191:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 192:../../../os/rt/include/chsys.h ****  * @param[in] usec      number of microseconds
+ 193:../../../os/rt/include/chsys.h ****  * @return              The number of cycles.
+ 194:../../../os/rt/include/chsys.h ****  *
+ 195:../../../os/rt/include/chsys.h ****  * @api
+ 196:../../../os/rt/include/chsys.h ****  */
+ 197:../../../os/rt/include/chsys.h **** #define US2RTC(freq, usec) (rtcnt_t)((((freq) + 999999UL) / 1000000UL) * (usec))
+ 198:../../../os/rt/include/chsys.h **** 
+ 199:../../../os/rt/include/chsys.h **** /**
+ 200:../../../os/rt/include/chsys.h ****  * @brief   Realtime counter cycles to seconds.
+ 201:../../../os/rt/include/chsys.h ****  * @details Converts from realtime counter cycles number to seconds.
+ 202:../../../os/rt/include/chsys.h ****  * @note    The result is rounded up to the next second boundary.
+ 203:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1.
+ 204:../../../os/rt/include/chsys.h ****  *
+ 205:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 206:../../../os/rt/include/chsys.h ****  * @param[in] n         number of cycles
+ 207:../../../os/rt/include/chsys.h ****  * @return              The number of seconds.
+ 208:../../../os/rt/include/chsys.h ****  *
+ 209:../../../os/rt/include/chsys.h ****  * @api
+ 210:../../../os/rt/include/chsys.h ****  */
+ 211:../../../os/rt/include/chsys.h **** #define RTC2S(freq, n) ((((n) - 1UL) / (freq)) + 1UL)
+ 212:../../../os/rt/include/chsys.h **** 
+ 213:../../../os/rt/include/chsys.h **** /**
+ 214:../../../os/rt/include/chsys.h ****  * @brief   Realtime counter cycles to milliseconds.
+ 215:../../../os/rt/include/chsys.h ****  * @details Converts from realtime counter cycles number to milliseconds.
+ 216:../../../os/rt/include/chsys.h ****  * @note    The result is rounded up to the next millisecond boundary.
+ 217:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000.
+ 218:../../../os/rt/include/chsys.h ****  *
+ 219:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 220:../../../os/rt/include/chsys.h ****  * @param[in] n         number of cycles
+ 221:../../../os/rt/include/chsys.h ****  * @return              The number of milliseconds.
+ 222:../../../os/rt/include/chsys.h ****  *
+ 223:../../../os/rt/include/chsys.h ****  * @api
+ 224:../../../os/rt/include/chsys.h ****  */
+ 225:../../../os/rt/include/chsys.h **** #define RTC2MS(freq, n) ((((n) - 1UL) / ((freq) / 1000UL)) + 1UL)
+ 226:../../../os/rt/include/chsys.h **** 
+ 227:../../../os/rt/include/chsys.h **** /**
+ 228:../../../os/rt/include/chsys.h ****  * @brief   Realtime counter cycles to microseconds.
+ 229:../../../os/rt/include/chsys.h ****  * @details Converts from realtime counter cycles number to microseconds.
+ 230:../../../os/rt/include/chsys.h ****  * @note    The result is rounded up to the next microsecond boundary.
+ 231:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000000.
+ 232:../../../os/rt/include/chsys.h ****  *
+ 233:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 234:../../../os/rt/include/chsys.h ****  * @param[in] n         number of cycles
+ 235:../../../os/rt/include/chsys.h ****  * @return              The number of microseconds.
+ 236:../../../os/rt/include/chsys.h ****  *
+ 237:../../../os/rt/include/chsys.h ****  * @api
+ 238:../../../os/rt/include/chsys.h ****  */
+ 239:../../../os/rt/include/chsys.h **** #define RTC2US(freq, n) ((((n) - 1UL) / ((freq) / 1000000UL)) + 1UL)
+ 240:../../../os/rt/include/chsys.h **** /** @} */
+ 241:../../../os/rt/include/chsys.h **** 
+ 242:../../../os/rt/include/chsys.h **** /**
+ 243:../../../os/rt/include/chsys.h ****  * @brief   Returns the current value of the system real time counter.
+ 244:../../../os/rt/include/chsys.h ****  * @note    This function is only available if the port layer supports the
+ 245:../../../os/rt/include/chsys.h ****  *          option @p PORT_SUPPORTS_RT.
+ 246:../../../os/rt/include/chsys.h ****  *
+ 247:../../../os/rt/include/chsys.h ****  * @return              The value of the system realtime counter of
+ 248:../../../os/rt/include/chsys.h ****  *                      type rtcnt_t.
+ 249:../../../os/rt/include/chsys.h ****  *
+ 250:../../../os/rt/include/chsys.h ****  * @xclass
+ 251:../../../os/rt/include/chsys.h ****  */
+ 252:../../../os/rt/include/chsys.h **** #if (PORT_SUPPORTS_RT == TRUE) || defined(__DOXYGEN__)
+ 253:../../../os/rt/include/chsys.h **** #define chSysGetRealtimeCounterX() (rtcnt_t)port_rt_get_counter_value()
+ 254:../../../os/rt/include/chsys.h **** #endif
+ 255:../../../os/rt/include/chsys.h **** 
+ 256:../../../os/rt/include/chsys.h **** /**
+ 257:../../../os/rt/include/chsys.h ****  * @brief   Performs a context switch.
+ 258:../../../os/rt/include/chsys.h ****  * @note    Not a user function, it is meant to be invoked by the scheduler
+ 259:../../../os/rt/include/chsys.h ****  *          itself or from within the port layer.
+ 260:../../../os/rt/include/chsys.h ****  *
+ 261:../../../os/rt/include/chsys.h ****  * @param[in] ntp       the thread to be switched in
+ 262:../../../os/rt/include/chsys.h ****  * @param[in] otp       the thread to be switched out
+ 263:../../../os/rt/include/chsys.h ****  *
+ 264:../../../os/rt/include/chsys.h ****  * @special
+ 265:../../../os/rt/include/chsys.h ****  */
+ 266:../../../os/rt/include/chsys.h **** #define chSysSwitch(ntp, otp) {                                             \
+ 267:../../../os/rt/include/chsys.h ****                                                                             \
+ 268:../../../os/rt/include/chsys.h ****   _trace_switch(ntp, otp);                                                  \
+ 269:../../../os/rt/include/chsys.h ****   _stats_ctxswc(ntp, otp);                                                  \
+ 270:../../../os/rt/include/chsys.h ****   CH_CFG_CONTEXT_SWITCH_HOOK(ntp, otp);                                     \
+ 271:../../../os/rt/include/chsys.h ****   port_switch(ntp, otp);                                                    \
+ 272:../../../os/rt/include/chsys.h **** }
+ 273:../../../os/rt/include/chsys.h **** 
+ 274:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 275:../../../os/rt/include/chsys.h **** /* External declarations.                                                    */
+ 276:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 277:../../../os/rt/include/chsys.h **** 
+ 278:../../../os/rt/include/chsys.h **** #if !defined(__DOXYGEN__)
+ 279:../../../os/rt/include/chsys.h **** extern stkalign_t ch_idle_thread_wa[];
+ 280:../../../os/rt/include/chsys.h **** #endif
+ 281:../../../os/rt/include/chsys.h **** 
+ 282:../../../os/rt/include/chsys.h **** #ifdef __cplusplus
+ 283:../../../os/rt/include/chsys.h **** extern "C" {
+ 284:../../../os/rt/include/chsys.h **** #endif
+ 285:../../../os/rt/include/chsys.h ****   void chSysInit(void);
+ 286:../../../os/rt/include/chsys.h ****   bool chSysIntegrityCheckI(unsigned testmask);
+ 287:../../../os/rt/include/chsys.h ****   void chSysTimerHandlerI(void);
+ 288:../../../os/rt/include/chsys.h ****   syssts_t chSysGetStatusAndLockX(void);
+ 289:../../../os/rt/include/chsys.h ****   void chSysRestoreStatusX(syssts_t sts);
+ 290:../../../os/rt/include/chsys.h **** #if PORT_SUPPORTS_RT == TRUE
+ 291:../../../os/rt/include/chsys.h ****   bool chSysIsCounterWithinX(rtcnt_t cnt, rtcnt_t start, rtcnt_t end);
+ 292:../../../os/rt/include/chsys.h ****   void chSysPolledDelayX(rtcnt_t cycles);
+ 293:../../../os/rt/include/chsys.h **** #endif
+ 294:../../../os/rt/include/chsys.h **** #ifdef __cplusplus
+ 295:../../../os/rt/include/chsys.h **** }
+ 296:../../../os/rt/include/chsys.h **** #endif
+ 297:../../../os/rt/include/chsys.h **** 
+ 298:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 299:../../../os/rt/include/chsys.h **** /* Module inline functions.                                                  */
+ 300:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 301:../../../os/rt/include/chsys.h **** 
+ 302:../../../os/rt/include/chsys.h **** /**
+ 303:../../../os/rt/include/chsys.h ****  * @brief   Raises the system interrupt priority mask to the maximum level.
+ 304:../../../os/rt/include/chsys.h ****  * @details All the maskable interrupt sources are disabled regardless their
+ 305:../../../os/rt/include/chsys.h ****  *          hardware priority.
+ 306:../../../os/rt/include/chsys.h ****  * @note    Do not invoke this API from within a kernel lock.
+ 307:../../../os/rt/include/chsys.h ****  *
+ 308:../../../os/rt/include/chsys.h ****  * @special
+ 309:../../../os/rt/include/chsys.h ****  */
+ 310:../../../os/rt/include/chsys.h **** static inline void chSysDisable(void) {
+ 311:../../../os/rt/include/chsys.h **** 
+ 312:../../../os/rt/include/chsys.h ****   port_disable();
+ 313:../../../os/rt/include/chsys.h ****   _dbg_check_disable();
+ 314:../../../os/rt/include/chsys.h **** }
+ 315:../../../os/rt/include/chsys.h **** 
+ 316:../../../os/rt/include/chsys.h **** /**
+ 317:../../../os/rt/include/chsys.h ****  * @brief   Raises the system interrupt priority mask to system level.
+ 318:../../../os/rt/include/chsys.h ****  * @details The interrupt sources that should not be able to preempt the kernel
+ 319:../../../os/rt/include/chsys.h ****  *          are disabled, interrupt sources with higher priority are still
+ 320:../../../os/rt/include/chsys.h ****  *          enabled.
+ 321:../../../os/rt/include/chsys.h ****  * @note    Do not invoke this API from within a kernel lock.
+ 322:../../../os/rt/include/chsys.h ****  * @note    This API is no replacement for @p chSysLock(), the @p chSysLock()
+ 323:../../../os/rt/include/chsys.h ****  *          could do more than just disable the interrupts.
+ 324:../../../os/rt/include/chsys.h ****  *
+ 325:../../../os/rt/include/chsys.h ****  * @special
+ 326:../../../os/rt/include/chsys.h ****  */
+ 327:../../../os/rt/include/chsys.h **** static inline void chSysSuspend(void) {
+ 328:../../../os/rt/include/chsys.h **** 
+ 329:../../../os/rt/include/chsys.h ****   port_suspend();
+ 330:../../../os/rt/include/chsys.h ****   _dbg_check_suspend();
+ 331:../../../os/rt/include/chsys.h **** }
+ 332:../../../os/rt/include/chsys.h **** 
+ 333:../../../os/rt/include/chsys.h **** /**
+ 334:../../../os/rt/include/chsys.h ****  * @brief   Lowers the system interrupt priority mask to user level.
+ 335:../../../os/rt/include/chsys.h ****  * @details All the interrupt sources are enabled.
+ 336:../../../os/rt/include/chsys.h ****  * @note    Do not invoke this API from within a kernel lock.
+ 337:../../../os/rt/include/chsys.h ****  * @note    This API is no replacement for @p chSysUnlock(), the
+ 338:../../../os/rt/include/chsys.h ****  *          @p chSysUnlock() could do more than just enable the interrupts.
+ 339:../../../os/rt/include/chsys.h ****  *
+ 340:../../../os/rt/include/chsys.h ****  * @special
+ 341:../../../os/rt/include/chsys.h ****  */
+ 342:../../../os/rt/include/chsys.h **** static inline void chSysEnable(void) {
+ 343:../../../os/rt/include/chsys.h **** 
+ 344:../../../os/rt/include/chsys.h ****   _dbg_check_enable();
+ 345:../../../os/rt/include/chsys.h ****   port_enable();
+ 346:../../../os/rt/include/chsys.h **** }
+ 347:../../../os/rt/include/chsys.h **** 
+ 348:../../../os/rt/include/chsys.h **** /**
+ 349:../../../os/rt/include/chsys.h ****  * @brief   Enters the kernel lock state.
+ 350:../../../os/rt/include/chsys.h ****  *
+ 351:../../../os/rt/include/chsys.h ****  * @special
+ 352:../../../os/rt/include/chsys.h ****  */
+ 353:../../../os/rt/include/chsys.h **** static inline void chSysLock(void) {
+ 122               		.loc 3 353 20 view .LVU29
+ 123               	.LBE88:
+ 124               	.LBE92:
+ 354:../../../os/rt/include/chsys.h **** 
+ 355:../../../os/rt/include/chsys.h ****   port_lock();
+ 125               		.loc 3 355 3 view .LVU30
+ 126               	.LBB93:
+ 127               	.LBB91:
+ 128               	.LBB89:
+ 129               	.LBI89:
+ 130               		.file 4 "../../../os/common/ports/AVR/chcore.h"
    1:../../../os/common/ports/AVR/chcore.h **** /*
    2:../../../os/common/ports/AVR/chcore.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
    3:../../../os/common/ports/AVR/chcore.h **** 
@@ -1597,41 +1988,84 @@
  433:../../../os/common/ports/AVR/chcore.h ****  *          actions.
  434:../../../os/common/ports/AVR/chcore.h ****  */
  435:../../../os/common/ports/AVR/chcore.h **** static inline void port_lock(void) {
+ 131               		.loc 4 435 20 view .LVU31
+ 132               	.LBB90:
  436:../../../os/common/ports/AVR/chcore.h **** 
  437:../../../os/common/ports/AVR/chcore.h ****   asm volatile ("cli" : : : "memory");
- 101               		.loc 3 437 0
- 102               	/* #APP */
- 103               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
- 104 0006 F894      		cli
- 105               	 ;  0 "" 2
- 106               	/* #NOAPP */
- 107               	.LBE90:
- 108               	.LBE89:
- 109               	.LBE88:
- 110               	.LBE87:
-  96:../../../os/hal/src/hal_adc.c **** 
-  97:../../../os/hal/src/hal_adc.c ****   osalDbgCheck(adcp != NULL);
-  98:../../../os/hal/src/hal_adc.c **** 
-  99:../../../os/hal/src/hal_adc.c ****   osalSysLock();
+ 133               		.loc 4 437 3 view .LVU32
+ 134               	/* #APP */
+ 135               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
+ 136 0006 F894      		cli
+ 137               	 ;  0 "" 2
+ 138               	/* #NOAPP */
+ 139               	.LBE90:
+ 140               	.LBE89:
+ 141               	.LBE91:
+ 142               	.LBE93:
+ 356:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_thd();
+ 143               		.loc 3 356 34 view .LVU33
+ 357:../../../os/rt/include/chsys.h ****   _dbg_check_lock();
+ 144               		.loc 3 357 20 view .LVU34
  100:../../../os/hal/src/hal_adc.c ****   osalDbgAssert((adcp->state == ADC_STOP) || (adcp->state == ADC_READY),
+ 145               		.loc 1 100 3 view .LVU35
+ 146               		.loc 1 100 3 view .LVU36
  101:../../../os/hal/src/hal_adc.c ****                 "invalid state");
  102:../../../os/hal/src/hal_adc.c ****   adcp->config = config;
- 111               		.loc 1 102 0
- 112 0008 7A83      		std Y+2,r23
- 113 000a 6983      		std Y+1,r22
+ 147               		.loc 1 102 3 view .LVU37
+ 148               		.loc 1 102 16 is_stmt 0 view .LVU38
+ 149 0008 7A83      		std Y+2,r23
+ 150 000a 6983      		std Y+1,r22
  103:../../../os/hal/src/hal_adc.c ****   adc_lld_start(adcp);
- 114               		.loc 1 103 0
- 115 000c 0E94 0000 		call adc_lld_start
- 116               	.LVL7:
+ 151               		.loc 1 103 3 is_stmt 1 view .LVU39
+ 152 000c 0E94 0000 		call adc_lld_start
+ 153               	.LVL7:
  104:../../../os/hal/src/hal_adc.c ****   adcp->state = ADC_READY;
- 117               		.loc 1 104 0
- 118 0010 82E0      		ldi r24,lo8(2)
- 119 0012 8883      		st Y,r24
- 120               	.LBB91:
- 121               	.LBB92:
- 122               	.LBB93:
- 123               	.LBB94:
- 124               	.LBB95:
+ 154               		.loc 1 104 3 view .LVU40
+ 155               		.loc 1 104 15 is_stmt 0 view .LVU41
+ 156 0010 82E0      		ldi r24,lo8(2)
+ 157 0012 8883      		st Y,r24
+ 105:../../../os/hal/src/hal_adc.c ****   osalSysUnlock();
+ 158               		.loc 1 105 3 is_stmt 1 view .LVU42
+ 159               	.LBB94:
+ 160               	.LBI94:
+ 520:../../../os/hal/osal/rt/osal.h **** 
+ 161               		.loc 2 520 20 view .LVU43
+ 162               	.LBE94:
+ 522:../../../os/hal/osal/rt/osal.h **** }
+ 163               		.loc 2 522 3 view .LVU44
+ 164               	.LBB99:
+ 165               	.LBB95:
+ 166               	.LBI95:
+ 358:../../../os/rt/include/chsys.h **** }
+ 359:../../../os/rt/include/chsys.h **** 
+ 360:../../../os/rt/include/chsys.h **** /**
+ 361:../../../os/rt/include/chsys.h ****  * @brief   Leaves the kernel lock state.
+ 362:../../../os/rt/include/chsys.h ****  *
+ 363:../../../os/rt/include/chsys.h ****  * @special
+ 364:../../../os/rt/include/chsys.h ****  */
+ 365:../../../os/rt/include/chsys.h **** static inline void chSysUnlock(void) {
+ 167               		.loc 3 365 20 view .LVU45
+ 168               	.LBB96:
+ 366:../../../os/rt/include/chsys.h **** 
+ 367:../../../os/rt/include/chsys.h ****   _dbg_check_unlock();
+ 169               		.loc 3 367 22 view .LVU46
+ 368:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 170               		.loc 3 368 33 view .LVU47
+ 369:../../../os/rt/include/chsys.h **** 
+ 370:../../../os/rt/include/chsys.h ****   /* The following condition can be triggered by the use of i-class functions
+ 371:../../../os/rt/include/chsys.h ****      in a critical section not followed by a chSchResceduleS(), this means
+ 372:../../../os/rt/include/chsys.h ****      that the current thread has a lower priority than the next thread in
+ 373:../../../os/rt/include/chsys.h ****      the ready list.*/
+ 374:../../../os/rt/include/chsys.h ****   chDbgAssert((ch.rlist.queue.next == (thread_t *)&ch.rlist.queue) ||
+ 171               		.loc 3 374 3 view .LVU48
+ 172               		.loc 3 374 3 view .LVU49
+ 375:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 376:../../../os/rt/include/chsys.h ****               "priority order violation");
+ 377:../../../os/rt/include/chsys.h **** 
+ 378:../../../os/rt/include/chsys.h ****   port_unlock();
+ 173               		.loc 3 378 3 view .LVU50
+ 174               	.LBB97:
+ 175               	.LBI97:
  438:../../../os/common/ports/AVR/chcore.h **** }
  439:../../../os/common/ports/AVR/chcore.h **** 
  440:../../../os/common/ports/AVR/chcore.h **** /**
@@ -1640,33 +2074,36 @@
  443:../../../os/common/ports/AVR/chcore.h ****  *          actions.
  444:../../../os/common/ports/AVR/chcore.h ****  */
  445:../../../os/common/ports/AVR/chcore.h **** static inline void port_unlock(void) {
+ 176               		.loc 4 445 20 view .LVU51
+ 177               	.LBB98:
  446:../../../os/common/ports/AVR/chcore.h **** 
  447:../../../os/common/ports/AVR/chcore.h ****   asm volatile ("sei" : : : "memory");
- 125               		.loc 3 447 0
- 126               	/* #APP */
- 127               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
- 128 0014 7894      		sei
- 129               	 ;  0 "" 2
- 130               	/* epilogue start */
- 131               	/* #NOAPP */
- 132               	.LBE95:
- 133               	.LBE94:
- 134               	.LBE93:
- 135               	.LBE92:
- 136               	.LBE91:
- 105:../../../os/hal/src/hal_adc.c ****   osalSysUnlock();
+ 178               		.loc 4 447 3 view .LVU52
+ 179               	/* #APP */
+ 180               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
+ 181 0014 7894      		sei
+ 182               	 ;  0 "" 2
+ 183               	/* #NOAPP */
+ 184               	/* epilogue start */
+ 185               	.LBE98:
+ 186               	.LBE97:
+ 187               	.LBE96:
+ 188               	.LBE95:
+ 189               	.LBE99:
  106:../../../os/hal/src/hal_adc.c **** }
- 137               		.loc 1 106 0
- 138 0016 DF91      		pop r29
- 139 0018 CF91      		pop r28
- 140               	.LVL8:
- 141 001a 0895      		ret
- 142               		.cfi_endproc
- 143               	.LFE175:
- 145               		.section	.text.adcStop,"ax",@progbits
- 146               	.global	adcStop
- 148               	adcStop:
- 149               	.LFB176:
+ 190               		.loc 1 106 1 is_stmt 0 view .LVU53
+ 191 0016 DF91      		pop r29
+ 192 0018 CF91      		pop r28
+ 193               	.LVL8:
+ 194               		.loc 1 106 1 view .LVU54
+ 195 001a 0895      		ret
+ 196               		.cfi_endproc
+ 197               	.LFE175:
+ 199               		.section	.text.adcStop,"ax",@progbits
+ 200               	.global	adcStop
+ 202               	adcStop:
+ 203               	.LVL9:
+ 204               	.LFB176:
  107:../../../os/hal/src/hal_adc.c **** 
  108:../../../os/hal/src/hal_adc.c **** /**
  109:../../../os/hal/src/hal_adc.c ****  * @brief   Deactivates the ADC peripheral.
@@ -1676,88 +2113,143 @@
  113:../../../os/hal/src/hal_adc.c ****  * @api
  114:../../../os/hal/src/hal_adc.c ****  */
  115:../../../os/hal/src/hal_adc.c **** void adcStop(ADCDriver *adcp) {
- 150               		.loc 1 115 0
- 151               		.cfi_startproc
- 152               	.LVL9:
- 153 0000 CF93      		push r28
- 154               	.LCFI2:
- 155               		.cfi_def_cfa_offset 3
- 156               		.cfi_offset 28, -2
- 157 0002 DF93      		push r29
- 158               	.LCFI3:
- 159               		.cfi_def_cfa_offset 4
- 160               		.cfi_offset 29, -3
- 161               	/* prologue: function */
- 162               	/* frame size = 0 */
- 163               	/* stack size = 2 */
- 164               	.L__stack_usage = 2
- 165 0004 EC01      		movw r28,r24
- 166               	.LBB96:
- 167               	.LBB97:
- 168               	.LBB98:
- 169               	.LBB99:
- 437:../../../os/common/ports/AVR/chcore.h **** }
- 170               		.loc 3 437 0
- 171               	/* #APP */
- 172               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
- 173 0006 F894      		cli
- 174               	 ;  0 "" 2
- 175               	/* #NOAPP */
- 176               	.LBE99:
- 177               	.LBE98:
- 178               	.LBE97:
- 179               	.LBE96:
+ 205               		.loc 1 115 31 is_stmt 1 view -0
+ 206               		.cfi_startproc
+ 207               		.loc 1 115 31 is_stmt 0 view .LVU56
+ 208 0000 CF93      		push r28
+ 209               	.LCFI2:
+ 210               		.cfi_def_cfa_offset 3
+ 211               		.cfi_offset 28, -2
+ 212 0002 DF93      		push r29
+ 213               	.LCFI3:
+ 214               		.cfi_def_cfa_offset 4
+ 215               		.cfi_offset 29, -3
+ 216               	/* prologue: function */
+ 217               	/* frame size = 0 */
+ 218               	/* stack size = 2 */
+ 219               	.L__stack_usage = 2
+ 220 0004 EC01      		movw r28,r24
  116:../../../os/hal/src/hal_adc.c **** 
  117:../../../os/hal/src/hal_adc.c ****   osalDbgCheck(adcp != NULL);
+ 221               		.loc 1 117 3 is_stmt 1 view .LVU57
+ 222               		.loc 1 117 3 view .LVU58
  118:../../../os/hal/src/hal_adc.c **** 
  119:../../../os/hal/src/hal_adc.c ****   osalSysLock();
+ 223               		.loc 1 119 3 view .LVU59
+ 224               	.LBB100:
+ 225               	.LBI100:
+ 509:../../../os/hal/osal/rt/osal.h **** 
+ 226               		.loc 2 509 20 view .LVU60
+ 227               	.LBE100:
+ 511:../../../os/hal/osal/rt/osal.h **** }
+ 228               		.loc 2 511 3 view .LVU61
+ 229               	.LBB105:
+ 230               	.LBB101:
+ 231               	.LBI101:
+ 353:../../../os/rt/include/chsys.h **** 
+ 232               		.loc 3 353 20 view .LVU62
+ 233               	.LBE101:
+ 234               	.LBE105:
+ 355:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_thd();
+ 235               		.loc 3 355 3 view .LVU63
+ 236               	.LBB106:
+ 237               	.LBB104:
+ 238               	.LBB102:
+ 239               	.LBI102:
+ 435:../../../os/common/ports/AVR/chcore.h **** 
+ 240               		.loc 4 435 20 view .LVU64
+ 241               	.LBB103:
+ 437:../../../os/common/ports/AVR/chcore.h **** }
+ 242               		.loc 4 437 3 view .LVU65
+ 243               	/* #APP */
+ 244               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
+ 245 0006 F894      		cli
+ 246               	 ;  0 "" 2
+ 247               	/* #NOAPP */
+ 248               	.LBE103:
+ 249               	.LBE102:
+ 250               	.LBE104:
+ 251               	.LBE106:
+ 356:../../../os/rt/include/chsys.h ****   _dbg_check_lock();
+ 252               		.loc 3 356 34 view .LVU66
+ 357:../../../os/rt/include/chsys.h **** }
+ 253               		.loc 3 357 20 view .LVU67
  120:../../../os/hal/src/hal_adc.c **** 
  121:../../../os/hal/src/hal_adc.c ****   osalDbgAssert((adcp->state == ADC_STOP) || (adcp->state == ADC_READY),
+ 254               		.loc 1 121 3 view .LVU68
+ 255               		.loc 1 121 3 view .LVU69
  122:../../../os/hal/src/hal_adc.c ****                 "invalid state");
  123:../../../os/hal/src/hal_adc.c **** 
  124:../../../os/hal/src/hal_adc.c ****   adc_lld_stop(adcp);
- 180               		.loc 1 124 0
- 181 0008 0E94 0000 		call adc_lld_stop
- 182               	.LVL10:
+ 256               		.loc 1 124 3 view .LVU70
+ 257 0008 0E94 0000 		call adc_lld_stop
+ 258               	.LVL10:
  125:../../../os/hal/src/hal_adc.c ****   adcp->config = NULL;
- 183               		.loc 1 125 0
- 184 000c 1A82      		std Y+2,__zero_reg__
- 185 000e 1982      		std Y+1,__zero_reg__
+ 259               		.loc 1 125 3 view .LVU71
+ 260               		.loc 1 125 16 is_stmt 0 view .LVU72
+ 261 000c 1A82      		std Y+2,__zero_reg__
+ 262 000e 1982      		std Y+1,__zero_reg__
  126:../../../os/hal/src/hal_adc.c ****   adcp->state  = ADC_STOP;
- 186               		.loc 1 126 0
- 187 0010 81E0      		ldi r24,lo8(1)
- 188 0012 8883      		st Y,r24
- 189               	.LBB100:
- 190               	.LBB101:
- 191               	.LBB102:
- 192               	.LBB103:
- 193               	.LBB104:
- 194               		.loc 3 447 0
- 195               	/* #APP */
- 196               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
- 197 0014 7894      		sei
- 198               	 ;  0 "" 2
- 199               	/* epilogue start */
- 200               	/* #NOAPP */
- 201               	.LBE104:
- 202               	.LBE103:
- 203               	.LBE102:
- 204               	.LBE101:
- 205               	.LBE100:
+ 263               		.loc 1 126 3 is_stmt 1 view .LVU73
+ 264               		.loc 1 126 16 is_stmt 0 view .LVU74
+ 265 0010 81E0      		ldi r24,lo8(1)
+ 266 0012 8883      		st Y,r24
  127:../../../os/hal/src/hal_adc.c **** 
  128:../../../os/hal/src/hal_adc.c ****   osalSysUnlock();
+ 267               		.loc 1 128 3 is_stmt 1 view .LVU75
+ 268               	.LBB107:
+ 269               	.LBI107:
+ 520:../../../os/hal/osal/rt/osal.h **** 
+ 270               		.loc 2 520 20 view .LVU76
+ 271               	.LBE107:
+ 522:../../../os/hal/osal/rt/osal.h **** }
+ 272               		.loc 2 522 3 view .LVU77
+ 273               	.LBB112:
+ 274               	.LBB108:
+ 275               	.LBI108:
+ 365:../../../os/rt/include/chsys.h **** 
+ 276               		.loc 3 365 20 view .LVU78
+ 277               	.LBB109:
+ 367:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 278               		.loc 3 367 22 view .LVU79
+ 368:../../../os/rt/include/chsys.h **** 
+ 279               		.loc 3 368 33 view .LVU80
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 280               		.loc 3 374 3 view .LVU81
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 281               		.loc 3 374 3 view .LVU82
+ 282               		.loc 3 378 3 view .LVU83
+ 283               	.LBB110:
+ 284               	.LBI110:
+ 445:../../../os/common/ports/AVR/chcore.h **** 
+ 285               		.loc 4 445 20 view .LVU84
+ 286               	.LBB111:
+ 287               		.loc 4 447 3 view .LVU85
+ 288               	/* #APP */
+ 289               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
+ 290 0014 7894      		sei
+ 291               	 ;  0 "" 2
+ 292               	/* #NOAPP */
+ 293               	/* epilogue start */
+ 294               	.LBE111:
+ 295               	.LBE110:
+ 296               	.LBE109:
+ 297               	.LBE108:
+ 298               	.LBE112:
  129:../../../os/hal/src/hal_adc.c **** }
- 206               		.loc 1 129 0
- 207 0016 DF91      		pop r29
- 208 0018 CF91      		pop r28
- 209               	.LVL11:
- 210 001a 0895      		ret
- 211               		.cfi_endproc
- 212               	.LFE176:
- 214               		.section	.text.adcStartConversion,"ax",@progbits
- 215               	.global	adcStartConversion
- 217               	adcStartConversion:
- 218               	.LFB177:
+ 299               		.loc 1 129 1 is_stmt 0 view .LVU86
+ 300 0016 DF91      		pop r29
+ 301 0018 CF91      		pop r28
+ 302               	.LVL11:
+ 303               		.loc 1 129 1 view .LVU87
+ 304 001a 0895      		ret
+ 305               		.cfi_endproc
+ 306               	.LFE176:
+ 308               		.section	.text.adcStartConversion,"ax",@progbits
+ 309               	.global	adcStartConversion
+ 311               	adcStartConversion:
+ 312               	.LVL12:
+ 313               	.LFB177:
  130:../../../os/hal/src/hal_adc.c **** 
  131:../../../os/hal/src/hal_adc.c **** /**
  132:../../../os/hal/src/hal_adc.c ****  * @brief   Starts an ADC conversion.
@@ -1779,34 +2271,58 @@
  148:../../../os/hal/src/hal_adc.c ****                         const ADCConversionGroup *grpp,
  149:../../../os/hal/src/hal_adc.c ****                         adcsample_t *samples,
  150:../../../os/hal/src/hal_adc.c ****                         size_t depth) {
- 219               		.loc 1 150 0
- 220               		.cfi_startproc
- 221               	.LVL12:
- 222               	/* prologue: function */
- 223               	/* frame size = 0 */
- 224               	/* stack size = 0 */
- 225               	.L__stack_usage = 0
- 226               	.LBB105:
- 227               	.LBB106:
- 228               	.LBB107:
- 229               	.LBB108:
- 437:../../../os/common/ports/AVR/chcore.h **** }
- 230               		.loc 3 437 0
- 231               	/* #APP */
- 232               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
- 233 0000 F894      		cli
- 234               	 ;  0 "" 2
- 235               	.LVL13:
- 236               	/* #NOAPP */
- 237               	.LBE108:
- 238               	.LBE107:
- 239               	.LBE106:
- 240               	.LBE105:
- 241               	.LBB109:
- 242               	.LBB110:
+ 314               		.loc 1 150 39 is_stmt 1 view -0
+ 315               		.cfi_startproc
+ 316               	/* prologue: function */
+ 317               	/* frame size = 0 */
+ 318               	/* stack size = 0 */
+ 319               	.L__stack_usage = 0
  151:../../../os/hal/src/hal_adc.c **** 
  152:../../../os/hal/src/hal_adc.c ****   osalSysLock();
+ 320               		.loc 1 152 3 view .LVU89
+ 321               	.LBB113:
+ 322               	.LBI113:
+ 509:../../../os/hal/osal/rt/osal.h **** 
+ 323               		.loc 2 509 20 view .LVU90
+ 324               	.LBE113:
+ 511:../../../os/hal/osal/rt/osal.h **** }
+ 325               		.loc 2 511 3 view .LVU91
+ 326               	.LBB118:
+ 327               	.LBB114:
+ 328               	.LBI114:
+ 353:../../../os/rt/include/chsys.h **** 
+ 329               		.loc 3 353 20 view .LVU92
+ 330               	.LBE114:
+ 331               	.LBE118:
+ 355:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_thd();
+ 332               		.loc 3 355 3 view .LVU93
+ 333               	.LBB119:
+ 334               	.LBB117:
+ 335               	.LBB115:
+ 336               	.LBI115:
+ 435:../../../os/common/ports/AVR/chcore.h **** 
+ 337               		.loc 4 435 20 view .LVU94
+ 338               	.LBB116:
+ 437:../../../os/common/ports/AVR/chcore.h **** }
+ 339               		.loc 4 437 3 view .LVU95
+ 340               	/* #APP */
+ 341               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
+ 342 0000 F894      		cli
+ 343               	 ;  0 "" 2
+ 344               	/* #NOAPP */
+ 345               	.LBE116:
+ 346               	.LBE115:
+ 347               	.LBE117:
+ 348               	.LBE119:
+ 356:../../../os/rt/include/chsys.h ****   _dbg_check_lock();
+ 349               		.loc 3 356 34 view .LVU96
+ 357:../../../os/rt/include/chsys.h **** }
+ 350               		.loc 3 357 20 view .LVU97
  153:../../../os/hal/src/hal_adc.c ****   adcStartConversionI(adcp, grpp, samples, depth);
+ 351               		.loc 1 153 3 view .LVU98
+ 352               	.LVL13:
+ 353               	.LBB120:
+ 354               	.LBI120:
  154:../../../os/hal/src/hal_adc.c ****   osalSysUnlock();
  155:../../../os/hal/src/hal_adc.c **** }
  156:../../../os/hal/src/hal_adc.c **** 
@@ -1829,100 +2345,162 @@
  173:../../../os/hal/src/hal_adc.c ****  * @iclass
  174:../../../os/hal/src/hal_adc.c ****  */
  175:../../../os/hal/src/hal_adc.c **** void adcStartConversionI(ADCDriver *adcp,
+ 355               		.loc 1 175 6 view .LVU99
+ 356               	.LBB121:
  176:../../../os/hal/src/hal_adc.c ****                          const ADCConversionGroup *grpp,
  177:../../../os/hal/src/hal_adc.c ****                          adcsample_t *samples,
  178:../../../os/hal/src/hal_adc.c ****                          size_t depth) {
  179:../../../os/hal/src/hal_adc.c **** 
  180:../../../os/hal/src/hal_adc.c ****   osalDbgCheckClassI();
+ 357               		.loc 1 180 23 view .LVU100
  181:../../../os/hal/src/hal_adc.c ****   osalDbgCheck((adcp != NULL) && (grpp != NULL) && (samples != NULL) &&
+ 358               		.loc 1 181 3 view .LVU101
+ 359               		.loc 1 181 3 view .LVU102
  182:../../../os/hal/src/hal_adc.c ****                (depth > 0U) && ((depth == 1U) || ((depth & 1U) == 0U)));
  183:../../../os/hal/src/hal_adc.c ****   osalDbgAssert((adcp->state == ADC_READY) ||
+ 360               		.loc 1 183 3 view .LVU103
+ 361               		.loc 1 183 3 view .LVU104
  184:../../../os/hal/src/hal_adc.c ****                 (adcp->state == ADC_COMPLETE) ||
  185:../../../os/hal/src/hal_adc.c ****                 (adcp->state == ADC_ERROR),
  186:../../../os/hal/src/hal_adc.c ****                 "not ready");
  187:../../../os/hal/src/hal_adc.c **** 
  188:../../../os/hal/src/hal_adc.c ****   adcp->samples  = samples;
- 243               		.loc 1 188 0
- 244 0002 FC01      		movw r30,r24
- 245 0004 5483      		std Z+4,r21
- 246 0006 4383      		std Z+3,r20
+ 362               		.loc 1 188 3 view .LVU105
+ 363               		.loc 1 188 18 is_stmt 0 view .LVU106
+ 364 0002 FC01      		movw r30,r24
+ 365 0004 5483      		std Z+4,r21
+ 366 0006 4383      		std Z+3,r20
  189:../../../os/hal/src/hal_adc.c ****   adcp->depth    = depth;
- 247               		.loc 1 189 0
- 248 0008 3683      		std Z+6,r19
- 249 000a 2583      		std Z+5,r18
+ 367               		.loc 1 189 3 is_stmt 1 view .LVU107
+ 368               		.loc 1 189 18 is_stmt 0 view .LVU108
+ 369 0008 3683      		std Z+6,r19
+ 370 000a 2583      		std Z+5,r18
  190:../../../os/hal/src/hal_adc.c ****   adcp->grpp     = grpp;
- 250               		.loc 1 190 0
- 251 000c 7087      		std Z+8,r23
- 252 000e 6783      		std Z+7,r22
+ 371               		.loc 1 190 3 is_stmt 1 view .LVU109
+ 372               		.loc 1 190 18 is_stmt 0 view .LVU110
+ 373 000c 7087      		std Z+8,r23
+ 374 000e 6783      		std Z+7,r22
  191:../../../os/hal/src/hal_adc.c ****   adcp->state    = ADC_ACTIVE;
- 253               		.loc 1 191 0
- 254 0010 23E0      		ldi r18,lo8(3)
- 255               	.LVL14:
- 256 0012 2083      		st Z,r18
+ 375               		.loc 1 191 3 is_stmt 1 view .LVU111
+ 376               		.loc 1 191 18 is_stmt 0 view .LVU112
+ 377 0010 23E0      		ldi r18,lo8(3)
+ 378               	.LVL14:
+ 379               		.loc 1 191 18 view .LVU113
+ 380 0012 2083      		st Z,r18
  192:../../../os/hal/src/hal_adc.c ****   adc_lld_start_conversion(adcp);
- 257               		.loc 1 192 0
- 258 0014 0E94 0000 		call adc_lld_start_conversion
- 259               	.LVL15:
- 260               	.LBE110:
- 261               	.LBE109:
- 262               	.LBB111:
- 263               	.LBB112:
- 264               	.LBB113:
- 265               	.LBB114:
- 266               	.LBB115:
- 267               		.loc 3 447 0
- 268               	/* #APP */
- 269               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
- 270 0018 7894      		sei
- 271               	 ;  0 "" 2
- 272               	/* #NOAPP */
- 273 001a 0895      		ret
- 274               	.LBE115:
- 275               	.LBE114:
- 276               	.LBE113:
- 277               	.LBE112:
- 278               	.LBE111:
- 279               		.cfi_endproc
- 280               	.LFE177:
- 282               		.section	.text.adcStartConversionI,"ax",@progbits
- 283               	.global	adcStartConversionI
- 285               	adcStartConversionI:
- 286               	.LFB178:
+ 381               		.loc 1 192 3 is_stmt 1 view .LVU114
+ 382 0014 0E94 0000 		call adc_lld_start_conversion
+ 383               	.LVL15:
+ 384               		.loc 1 192 3 is_stmt 0 view .LVU115
+ 385               	.LBE121:
+ 386               	.LBE120:
+ 154:../../../os/hal/src/hal_adc.c **** }
+ 387               		.loc 1 154 3 is_stmt 1 view .LVU116
+ 388               	.LBB122:
+ 389               	.LBI122:
+ 520:../../../os/hal/osal/rt/osal.h **** 
+ 390               		.loc 2 520 20 view .LVU117
+ 391               	.LBE122:
+ 522:../../../os/hal/osal/rt/osal.h **** }
+ 392               		.loc 2 522 3 view .LVU118
+ 393               	.LBB127:
+ 394               	.LBB123:
+ 395               	.LBI123:
+ 365:../../../os/rt/include/chsys.h **** 
+ 396               		.loc 3 365 20 view .LVU119
+ 397               	.LBB124:
+ 367:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 398               		.loc 3 367 22 view .LVU120
+ 368:../../../os/rt/include/chsys.h **** 
+ 399               		.loc 3 368 33 view .LVU121
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 400               		.loc 3 374 3 view .LVU122
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 401               		.loc 3 374 3 view .LVU123
+ 402               		.loc 3 378 3 view .LVU124
+ 403               	.LBB125:
+ 404               	.LBI125:
+ 445:../../../os/common/ports/AVR/chcore.h **** 
+ 405               		.loc 4 445 20 view .LVU125
+ 406               	.LBB126:
+ 407               		.loc 4 447 3 view .LVU126
+ 408               	/* #APP */
+ 409               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
+ 410 0018 7894      		sei
+ 411               	 ;  0 "" 2
+ 412               	/* #NOAPP */
+ 413               	/* epilogue start */
+ 414               	.LBE126:
+ 415               	.LBE125:
+ 416               	.LBE124:
+ 417               	.LBE123:
+ 418               	.LBE127:
+ 155:../../../os/hal/src/hal_adc.c **** 
+ 419               		.loc 1 155 1 is_stmt 0 view .LVU127
+ 420 001a 0895      		ret
+ 421               		.cfi_endproc
+ 422               	.LFE177:
+ 424               		.section	.text.adcStartConversionI,"ax",@progbits
+ 425               	.global	adcStartConversionI
+ 427               	adcStartConversionI:
+ 428               	.LVL16:
+ 429               	.LFB178:
  178:../../../os/hal/src/hal_adc.c **** 
- 287               		.loc 1 178 0
- 288               		.cfi_startproc
- 289               	.LVL16:
- 290               	/* prologue: function */
- 291               	/* frame size = 0 */
- 292               	/* stack size = 0 */
- 293               	.L__stack_usage = 0
+ 430               		.loc 1 178 40 is_stmt 1 view -0
+ 431               		.cfi_startproc
+ 432               	/* prologue: function */
+ 433               	/* frame size = 0 */
+ 434               	/* stack size = 0 */
+ 435               	.L__stack_usage = 0
+ 180:../../../os/hal/src/hal_adc.c ****   osalDbgCheck((adcp != NULL) && (grpp != NULL) && (samples != NULL) &&
+ 436               		.loc 1 180 23 view .LVU129
+ 181:../../../os/hal/src/hal_adc.c ****                (depth > 0U) && ((depth == 1U) || ((depth & 1U) == 0U)));
+ 437               		.loc 1 181 3 view .LVU130
+ 181:../../../os/hal/src/hal_adc.c ****                (depth > 0U) && ((depth == 1U) || ((depth & 1U) == 0U)));
+ 438               		.loc 1 181 3 view .LVU131
+ 183:../../../os/hal/src/hal_adc.c ****                 (adcp->state == ADC_COMPLETE) ||
+ 439               		.loc 1 183 3 view .LVU132
+ 183:../../../os/hal/src/hal_adc.c ****                 (adcp->state == ADC_COMPLETE) ||
+ 440               		.loc 1 183 3 view .LVU133
  188:../../../os/hal/src/hal_adc.c ****   adcp->depth    = depth;
- 294               		.loc 1 188 0
- 295 0000 FC01      		movw r30,r24
- 296 0002 5483      		std Z+4,r21
- 297 0004 4383      		std Z+3,r20
+ 441               		.loc 1 188 3 view .LVU134
+ 188:../../../os/hal/src/hal_adc.c ****   adcp->depth    = depth;
+ 442               		.loc 1 188 18 is_stmt 0 view .LVU135
+ 443 0000 FC01      		movw r30,r24
+ 444 0002 5483      		std Z+4,r21
+ 445 0004 4383      		std Z+3,r20
  189:../../../os/hal/src/hal_adc.c ****   adcp->grpp     = grpp;
- 298               		.loc 1 189 0
- 299 0006 3683      		std Z+6,r19
- 300 0008 2583      		std Z+5,r18
+ 446               		.loc 1 189 3 is_stmt 1 view .LVU136
+ 189:../../../os/hal/src/hal_adc.c ****   adcp->grpp     = grpp;
+ 447               		.loc 1 189 18 is_stmt 0 view .LVU137
+ 448 0006 3683      		std Z+6,r19
+ 449 0008 2583      		std Z+5,r18
  190:../../../os/hal/src/hal_adc.c ****   adcp->state    = ADC_ACTIVE;
- 301               		.loc 1 190 0
- 302 000a 7087      		std Z+8,r23
- 303 000c 6783      		std Z+7,r22
+ 450               		.loc 1 190 3 is_stmt 1 view .LVU138
+ 190:../../../os/hal/src/hal_adc.c ****   adcp->state    = ADC_ACTIVE;
+ 451               		.loc 1 190 18 is_stmt 0 view .LVU139
+ 452 000a 7087      		std Z+8,r23
+ 453 000c 6783      		std Z+7,r22
  191:../../../os/hal/src/hal_adc.c ****   adc_lld_start_conversion(adcp);
- 304               		.loc 1 191 0
- 305 000e 23E0      		ldi r18,lo8(3)
- 306               	.LVL17:
- 307 0010 2083      		st Z,r18
- 308               		.loc 1 192 0
- 309 0012 0C94 0000 		jmp adc_lld_start_conversion
- 310               	.LVL18:
- 311               		.cfi_endproc
- 312               	.LFE178:
- 314               		.section	.text.adcStopConversion,"ax",@progbits
- 315               	.global	adcStopConversion
- 317               	adcStopConversion:
- 318               	.LFB179:
+ 454               		.loc 1 191 3 is_stmt 1 view .LVU140
+ 191:../../../os/hal/src/hal_adc.c ****   adc_lld_start_conversion(adcp);
+ 455               		.loc 1 191 18 is_stmt 0 view .LVU141
+ 456 000e 23E0      		ldi r18,lo8(3)
+ 457               	.LVL17:
+ 191:../../../os/hal/src/hal_adc.c ****   adc_lld_start_conversion(adcp);
+ 458               		.loc 1 191 18 view .LVU142
+ 459 0010 2083      		st Z,r18
+ 460               		.loc 1 192 3 is_stmt 1 view .LVU143
+ 461 0012 0C94 0000 		jmp adc_lld_start_conversion
+ 462               	.LVL18:
+ 463               		.loc 1 192 3 is_stmt 0 view .LVU144
+ 464               		.cfi_endproc
+ 465               	.LFE178:
+ 467               		.section	.text.adcStopConversion,"ax",@progbits
+ 468               	.global	adcStopConversion
+ 470               	adcStopConversion:
+ 471               	.LVL19:
+ 472               	.LFB179:
  193:../../../os/hal/src/hal_adc.c **** }
  194:../../../os/hal/src/hal_adc.c **** 
  195:../../../os/hal/src/hal_adc.c **** /**
@@ -1936,107 +2514,174 @@
  203:../../../os/hal/src/hal_adc.c ****  * @api
  204:../../../os/hal/src/hal_adc.c ****  */
  205:../../../os/hal/src/hal_adc.c **** void adcStopConversion(ADCDriver *adcp) {
- 319               		.loc 1 205 0
- 320               		.cfi_startproc
- 321               	.LVL19:
- 322 0000 CF93      		push r28
- 323               	.LCFI4:
- 324               		.cfi_def_cfa_offset 3
- 325               		.cfi_offset 28, -2
- 326 0002 DF93      		push r29
- 327               	.LCFI5:
- 328               		.cfi_def_cfa_offset 4
- 329               		.cfi_offset 29, -3
- 330               	/* prologue: function */
- 331               	/* frame size = 0 */
- 332               	/* stack size = 2 */
- 333               	.L__stack_usage = 2
- 334               	.LBB116:
- 335               	.LBB117:
- 336               	.LBB118:
- 337               	.LBB119:
- 437:../../../os/common/ports/AVR/chcore.h **** }
- 338               		.loc 3 437 0
- 339               	/* #APP */
- 340               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
- 341 0004 F894      		cli
- 342               	 ;  0 "" 2
- 343               	/* #NOAPP */
- 344               	.LBE119:
- 345               	.LBE118:
- 346               	.LBE117:
- 347               	.LBE116:
+ 473               		.loc 1 205 41 is_stmt 1 view -0
+ 474               		.cfi_startproc
+ 475               		.loc 1 205 41 is_stmt 0 view .LVU146
+ 476 0000 CF93      		push r28
+ 477               	.LCFI4:
+ 478               		.cfi_def_cfa_offset 3
+ 479               		.cfi_offset 28, -2
+ 480 0002 DF93      		push r29
+ 481               	.LCFI5:
+ 482               		.cfi_def_cfa_offset 4
+ 483               		.cfi_offset 29, -3
+ 484               	/* prologue: function */
+ 485               	/* frame size = 0 */
+ 486               	/* stack size = 2 */
+ 487               	.L__stack_usage = 2
+ 488 0004 EC01      		movw r28,r24
  206:../../../os/hal/src/hal_adc.c **** 
  207:../../../os/hal/src/hal_adc.c ****   osalDbgCheck(adcp != NULL);
+ 489               		.loc 1 207 3 is_stmt 1 view .LVU147
+ 490               		.loc 1 207 3 view .LVU148
  208:../../../os/hal/src/hal_adc.c **** 
  209:../../../os/hal/src/hal_adc.c ****   osalSysLock();
+ 491               		.loc 1 209 3 view .LVU149
+ 492               	.LBB128:
+ 493               	.LBI128:
+ 509:../../../os/hal/osal/rt/osal.h **** 
+ 494               		.loc 2 509 20 view .LVU150
+ 495               	.LBE128:
+ 511:../../../os/hal/osal/rt/osal.h **** }
+ 496               		.loc 2 511 3 view .LVU151
+ 497               	.LBB133:
+ 498               	.LBB129:
+ 499               	.LBI129:
+ 353:../../../os/rt/include/chsys.h **** 
+ 500               		.loc 3 353 20 view .LVU152
+ 501               	.LBE129:
+ 502               	.LBE133:
+ 355:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_thd();
+ 503               		.loc 3 355 3 view .LVU153
+ 504               	.LBB134:
+ 505               	.LBB132:
+ 506               	.LBB130:
+ 507               	.LBI130:
+ 435:../../../os/common/ports/AVR/chcore.h **** 
+ 508               		.loc 4 435 20 view .LVU154
+ 509               	.LBB131:
+ 437:../../../os/common/ports/AVR/chcore.h **** }
+ 510               		.loc 4 437 3 view .LVU155
+ 511               	/* #APP */
+ 512               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
+ 513 0006 F894      		cli
+ 514               	 ;  0 "" 2
+ 515               	/* #NOAPP */
+ 516               	.LBE131:
+ 517               	.LBE130:
+ 518               	.LBE132:
+ 519               	.LBE134:
+ 356:../../../os/rt/include/chsys.h ****   _dbg_check_lock();
+ 520               		.loc 3 356 34 view .LVU156
+ 357:../../../os/rt/include/chsys.h **** }
+ 521               		.loc 3 357 20 view .LVU157
  210:../../../os/hal/src/hal_adc.c ****   osalDbgAssert((adcp->state == ADC_READY) || (adcp->state == ADC_ACTIVE),
+ 522               		.loc 1 210 3 view .LVU158
+ 523               		.loc 1 210 3 view .LVU159
  211:../../../os/hal/src/hal_adc.c ****                 "invalid state");
  212:../../../os/hal/src/hal_adc.c ****   if (adcp->state != ADC_READY) {
- 348               		.loc 1 212 0
- 349 0006 FC01      		movw r30,r24
- 350 0008 2081      		ld r18,Z
- 351 000a 2230      		cpi r18,lo8(2)
- 352 000c 01F0      		breq .L8
- 353 000e EC01      		movw r28,r24
+ 524               		.loc 1 212 3 view .LVU160
+ 525               		.loc 1 212 6 is_stmt 0 view .LVU161
+ 526 0008 8881      		ld r24,Y
+ 527               	.LVL20:
+ 528               		.loc 1 212 6 view .LVU162
+ 529 000a 8230      		cpi r24,lo8(2)
+ 530 000c 01F0      		breq .L9
  213:../../../os/hal/src/hal_adc.c ****     adc_lld_stop_conversion(adcp);
- 354               		.loc 1 213 0
- 355 0010 0E94 0000 		call adc_lld_stop_conversion
- 356               	.LVL20:
+ 531               		.loc 1 213 5 is_stmt 1 view .LVU163
+ 532 000e CE01      		movw r24,r28
+ 533 0010 0E94 0000 		call adc_lld_stop_conversion
+ 534               	.LVL21:
  214:../../../os/hal/src/hal_adc.c ****     adcp->grpp  = NULL;
- 357               		.loc 1 214 0
- 358 0014 1886      		std Y+8,__zero_reg__
- 359 0016 1F82      		std Y+7,__zero_reg__
+ 535               		.loc 1 214 5 view .LVU164
+ 536               		.loc 1 214 17 is_stmt 0 view .LVU165
+ 537 0014 1886      		std Y+8,__zero_reg__
+ 538 0016 1F82      		std Y+7,__zero_reg__
  215:../../../os/hal/src/hal_adc.c ****     adcp->state = ADC_READY;
- 360               		.loc 1 215 0
- 361 0018 82E0      		ldi r24,lo8(2)
- 362 001a 8883      		st Y,r24
- 363               	.LVL21:
- 364               	.LBB120:
- 365               	.LBB121:
- 790:../../../os/hal/osal/rt/osal.h **** }
- 366               		.loc 2 790 0
- 367 001c 6EEF      		ldi r22,lo8(-2)
- 368 001e 7FEF      		ldi r23,lo8(-1)
- 369 0020 CE01      		movw r24,r28
- 370 0022 0996      		adiw r24,9
- 371               	.LVL22:
- 372 0024 0E94 0000 		call chThdResumeS
- 373               	.LVL23:
- 374               	.L8:
- 375               	.LBE121:
- 376               	.LBE120:
- 377               	.LBB122:
- 378               	.LBB123:
- 379               	.LBB124:
- 380               	.LBB125:
- 381               	.LBB126:
- 382               		.loc 3 447 0
- 383               	/* #APP */
- 384               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
- 385 0028 7894      		sei
- 386               	 ;  0 "" 2
- 387               	/* epilogue start */
- 388               	/* #NOAPP */
- 389               	.LBE126:
- 390               	.LBE125:
- 391               	.LBE124:
- 392               	.LBE123:
- 393               	.LBE122:
+ 539               		.loc 1 215 5 is_stmt 1 view .LVU166
+ 540               		.loc 1 215 17 is_stmt 0 view .LVU167
+ 541 0018 82E0      		ldi r24,lo8(2)
+ 542 001a 8883      		st Y,r24
  216:../../../os/hal/src/hal_adc.c ****     _adc_reset_s(adcp);
+ 543               		.loc 1 216 5 is_stmt 1 view .LVU168
+ 544               	.LVL22:
+ 545               	.LBB135:
+ 546               	.LBI135:
+ 788:../../../os/hal/osal/rt/osal.h **** 
+ 547               		.loc 2 788 20 view .LVU169
+ 548               	.LBB136:
+ 790:../../../os/hal/osal/rt/osal.h **** }
+ 549               		.loc 2 790 3 view .LVU170
+ 550 001c 6EEF      		ldi r22,lo8(-2)
+ 551 001e 7FEF      		ldi r23,lo8(-1)
+ 552 0020 CE01      		movw r24,r28
+ 553 0022 0996      		adiw r24,9
+ 554               	.LVL23:
+ 790:../../../os/hal/osal/rt/osal.h **** }
+ 555               		.loc 2 790 3 is_stmt 0 view .LVU171
+ 556 0024 0E94 0000 		call chThdResumeS
+ 557               	.LVL24:
+ 558               	.L9:
+ 790:../../../os/hal/osal/rt/osal.h **** }
+ 559               		.loc 2 790 3 view .LVU172
+ 560               	.LBE136:
+ 561               	.LBE135:
  217:../../../os/hal/src/hal_adc.c ****   }
  218:../../../os/hal/src/hal_adc.c ****   osalSysUnlock();
+ 562               		.loc 1 218 3 is_stmt 1 view .LVU173
+ 563               	.LBB137:
+ 564               	.LBI137:
+ 520:../../../os/hal/osal/rt/osal.h **** 
+ 565               		.loc 2 520 20 view .LVU174
+ 566               	.LBE137:
+ 522:../../../os/hal/osal/rt/osal.h **** }
+ 567               		.loc 2 522 3 view .LVU175
+ 568               	.LBB142:
+ 569               	.LBB138:
+ 570               	.LBI138:
+ 365:../../../os/rt/include/chsys.h **** 
+ 571               		.loc 3 365 20 view .LVU176
+ 572               	.LBB139:
+ 367:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 573               		.loc 3 367 22 view .LVU177
+ 368:../../../os/rt/include/chsys.h **** 
+ 574               		.loc 3 368 33 view .LVU178
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 575               		.loc 3 374 3 view .LVU179
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 576               		.loc 3 374 3 view .LVU180
+ 577               		.loc 3 378 3 view .LVU181
+ 578               	.LBB140:
+ 579               	.LBI140:
+ 445:../../../os/common/ports/AVR/chcore.h **** 
+ 580               		.loc 4 445 20 view .LVU182
+ 581               	.LBB141:
+ 582               		.loc 4 447 3 view .LVU183
+ 583               	/* #APP */
+ 584               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
+ 585 0028 7894      		sei
+ 586               	 ;  0 "" 2
+ 587               	/* #NOAPP */
+ 588               	/* epilogue start */
+ 589               	.LBE141:
+ 590               	.LBE140:
+ 591               	.LBE139:
+ 592               	.LBE138:
+ 593               	.LBE142:
  219:../../../os/hal/src/hal_adc.c **** }
- 394               		.loc 1 219 0
- 395 002a DF91      		pop r29
- 396 002c CF91      		pop r28
- 397 002e 0895      		ret
- 398               		.cfi_endproc
- 399               	.LFE179:
- 401               		.section	.text.adcStopConversionI,"ax",@progbits
- 402               	.global	adcStopConversionI
- 404               	adcStopConversionI:
- 405               	.LFB180:
+ 594               		.loc 1 219 1 is_stmt 0 view .LVU184
+ 595 002a DF91      		pop r29
+ 596 002c CF91      		pop r28
+ 597               	.LVL25:
+ 598               		.loc 1 219 1 view .LVU185
+ 599 002e 0895      		ret
+ 600               		.cfi_endproc
+ 601               	.LFE179:
+ 603               		.section	.text.adcStopConversionI,"ax",@progbits
+ 604               	.global	adcStopConversionI
+ 606               	adcStopConversionI:
+ 607               	.LVL26:
+ 608               	.LFB180:
  220:../../../os/hal/src/hal_adc.c **** 
  221:../../../os/hal/src/hal_adc.c **** /**
  222:../../../os/hal/src/hal_adc.c ****  * @brief   Stops an ongoing conversion.
@@ -2049,88 +2694,116 @@
  229:../../../os/hal/src/hal_adc.c ****  * @iclass
  230:../../../os/hal/src/hal_adc.c ****  */
  231:../../../os/hal/src/hal_adc.c **** void adcStopConversionI(ADCDriver *adcp) {
- 406               		.loc 1 231 0
- 407               		.cfi_startproc
- 408               	.LVL24:
- 409 0000 CF93      		push r28
- 410               	.LCFI6:
- 411               		.cfi_def_cfa_offset 3
- 412               		.cfi_offset 28, -2
- 413 0002 DF93      		push r29
- 414               	.LCFI7:
- 415               		.cfi_def_cfa_offset 4
- 416               		.cfi_offset 29, -3
- 417               	/* prologue: function */
- 418               	/* frame size = 0 */
- 419               	/* stack size = 2 */
- 420               	.L__stack_usage = 2
+ 609               		.loc 1 231 42 is_stmt 1 view -0
+ 610               		.cfi_startproc
+ 611               		.loc 1 231 42 is_stmt 0 view .LVU187
+ 612 0000 CF93      		push r28
+ 613               	.LCFI6:
+ 614               		.cfi_def_cfa_offset 3
+ 615               		.cfi_offset 28, -2
+ 616 0002 DF93      		push r29
+ 617               	.LCFI7:
+ 618               		.cfi_def_cfa_offset 4
+ 619               		.cfi_offset 29, -3
+ 620               	/* prologue: function */
+ 621               	/* frame size = 0 */
+ 622               	/* stack size = 2 */
+ 623               	.L__stack_usage = 2
+ 624 0004 EC01      		movw r28,r24
  232:../../../os/hal/src/hal_adc.c **** 
  233:../../../os/hal/src/hal_adc.c ****   osalDbgCheckClassI();
+ 625               		.loc 1 233 23 is_stmt 1 view .LVU188
  234:../../../os/hal/src/hal_adc.c ****   osalDbgCheck(adcp != NULL);
+ 626               		.loc 1 234 3 view .LVU189
+ 627               		.loc 1 234 3 view .LVU190
  235:../../../os/hal/src/hal_adc.c ****   osalDbgAssert((adcp->state == ADC_READY) ||
+ 628               		.loc 1 235 3 view .LVU191
+ 629               		.loc 1 235 3 view .LVU192
  236:../../../os/hal/src/hal_adc.c ****                 (adcp->state == ADC_ACTIVE) ||
  237:../../../os/hal/src/hal_adc.c ****                 (adcp->state == ADC_COMPLETE),
  238:../../../os/hal/src/hal_adc.c ****                 "invalid state");
  239:../../../os/hal/src/hal_adc.c **** 
  240:../../../os/hal/src/hal_adc.c ****   if (adcp->state != ADC_READY) {
- 421               		.loc 1 240 0
- 422 0004 FC01      		movw r30,r24
- 423 0006 2081      		ld r18,Z
- 424 0008 2230      		cpi r18,lo8(2)
- 425 000a 01F0      		breq .L13
- 426 000c EC01      		movw r28,r24
+ 630               		.loc 1 240 3 view .LVU193
+ 631               		.loc 1 240 6 is_stmt 0 view .LVU194
+ 632 0006 8881      		ld r24,Y
+ 633               	.LVL27:
+ 634               		.loc 1 240 6 view .LVU195
+ 635 0008 8230      		cpi r24,lo8(2)
+ 636 000a 01F4      		brne .L15
+ 637               	/* epilogue start */
  241:../../../os/hal/src/hal_adc.c ****     adc_lld_stop_conversion(adcp);
- 427               		.loc 1 241 0
- 428 000e 0E94 0000 		call adc_lld_stop_conversion
- 429               	.LVL25:
  242:../../../os/hal/src/hal_adc.c ****     adcp->grpp  = NULL;
- 430               		.loc 1 242 0
- 431 0012 1886      		std Y+8,__zero_reg__
- 432 0014 1F82      		std Y+7,__zero_reg__
  243:../../../os/hal/src/hal_adc.c ****     adcp->state = ADC_READY;
- 433               		.loc 1 243 0
- 434 0016 82E0      		ldi r24,lo8(2)
- 435 0018 8883      		st Y,r24
- 436               	.LVL26:
- 437               	.LBB127:
- 438               	.LBB128:
- 775:../../../os/hal/osal/rt/osal.h **** }
- 439               		.loc 2 775 0
- 440 001a 6EEF      		ldi r22,lo8(-2)
- 441 001c 7FEF      		ldi r23,lo8(-1)
- 442 001e CE01      		movw r24,r28
- 443 0020 0996      		adiw r24,9
- 444               	.LVL27:
- 445               	/* epilogue start */
- 446               	.LBE128:
- 447               	.LBE127:
  244:../../../os/hal/src/hal_adc.c ****     _adc_reset_i(adcp);
  245:../../../os/hal/src/hal_adc.c ****   }
  246:../../../os/hal/src/hal_adc.c **** }
- 448               		.loc 1 246 0
- 449 0022 DF91      		pop r29
- 450 0024 CF91      		pop r28
- 451               	.LVL28:
- 452               	.LBB130:
- 453               	.LBB129:
+ 638               		.loc 1 246 1 view .LVU196
+ 639 000c DF91      		pop r29
+ 640 000e CF91      		pop r28
+ 641               	.LVL28:
+ 642               		.loc 1 246 1 view .LVU197
+ 643 0010 0895      		ret
+ 644               	.LVL29:
+ 645               	.L15:
+ 241:../../../os/hal/src/hal_adc.c ****     adc_lld_stop_conversion(adcp);
+ 646               		.loc 1 241 5 is_stmt 1 view .LVU198
+ 647 0012 CE01      		movw r24,r28
+ 648 0014 0E94 0000 		call adc_lld_stop_conversion
+ 649               	.LVL30:
+ 242:../../../os/hal/src/hal_adc.c ****     adcp->state = ADC_READY;
+ 650               		.loc 1 242 5 view .LVU199
+ 242:../../../os/hal/src/hal_adc.c ****     adcp->state = ADC_READY;
+ 651               		.loc 1 242 17 is_stmt 0 view .LVU200
+ 652 0018 1886      		std Y+8,__zero_reg__
+ 653 001a 1F82      		std Y+7,__zero_reg__
+ 243:../../../os/hal/src/hal_adc.c ****     _adc_reset_i(adcp);
+ 654               		.loc 1 243 5 is_stmt 1 view .LVU201
+ 243:../../../os/hal/src/hal_adc.c ****     _adc_reset_i(adcp);
+ 655               		.loc 1 243 17 is_stmt 0 view .LVU202
+ 656 001c 82E0      		ldi r24,lo8(2)
+ 657 001e 8883      		st Y,r24
+ 244:../../../os/hal/src/hal_adc.c ****   }
+ 658               		.loc 1 244 5 is_stmt 1 view .LVU203
+ 659               	.LVL31:
+ 660               	.LBB143:
+ 661               	.LBI143:
+ 773:../../../os/hal/osal/rt/osal.h **** 
+ 662               		.loc 2 773 20 view .LVU204
+ 663               	.LBB144:
  775:../../../os/hal/osal/rt/osal.h **** }
- 454               		.loc 2 775 0
- 455 0026 0C94 0000 		jmp chThdResumeI
- 456               	.LVL29:
- 457               	.L13:
- 458               	/* epilogue start */
- 459               	.LBE129:
- 460               	.LBE130:
- 461               		.loc 1 246 0
- 462 002a DF91      		pop r29
- 463 002c CF91      		pop r28
- 464 002e 0895      		ret
- 465               		.cfi_endproc
- 466               	.LFE180:
- 468               		.section	.text.adcConvert,"ax",@progbits
- 469               	.global	adcConvert
- 471               	adcConvert:
- 472               	.LFB181:
+ 664               		.loc 2 775 3 view .LVU205
+ 665 0020 6EEF      		ldi r22,lo8(-2)
+ 666 0022 7FEF      		ldi r23,lo8(-1)
+ 667 0024 CE01      		movw r24,r28
+ 668 0026 0996      		adiw r24,9
+ 669               	.LVL32:
+ 670               	/* epilogue start */
+ 775:../../../os/hal/osal/rt/osal.h **** }
+ 671               		.loc 2 775 3 is_stmt 0 view .LVU206
+ 672               	.LBE144:
+ 673               	.LBE143:
+ 674               		.loc 1 246 1 view .LVU207
+ 675 0028 DF91      		pop r29
+ 676 002a CF91      		pop r28
+ 677               	.LVL33:
+ 678               	.LBB146:
+ 679               	.LBB145:
+ 775:../../../os/hal/osal/rt/osal.h **** }
+ 680               		.loc 2 775 3 view .LVU208
+ 681 002c 0C94 0000 		jmp chThdResumeI
+ 682               	.LVL34:
+ 775:../../../os/hal/osal/rt/osal.h **** }
+ 683               		.loc 2 775 3 view .LVU209
+ 684               	.LBE145:
+ 685               	.LBE146:
+ 686               		.cfi_endproc
+ 687               	.LFE180:
+ 689               		.section	.text.adcConvert,"ax",@progbits
+ 690               	.global	adcConvert
+ 692               	adcConvert:
+ 693               	.LVL35:
+ 694               	.LFB181:
  247:../../../os/hal/src/hal_adc.c **** 
  248:../../../os/hal/src/hal_adc.c **** #if (ADC_USE_WAIT == TRUE) || defined(__DOXYGEN__)
  249:../../../os/hal/src/hal_adc.c **** /**
@@ -2160,114 +2833,203 @@
  273:../../../os/hal/src/hal_adc.c ****                  const ADCConversionGroup *grpp,
  274:../../../os/hal/src/hal_adc.c ****                  adcsample_t *samples,
  275:../../../os/hal/src/hal_adc.c ****                  size_t depth) {
- 473               		.loc 1 275 0
- 474               		.cfi_startproc
- 475               	.LVL30:
- 476 0000 CF93      		push r28
- 477               	.LCFI8:
- 478               		.cfi_def_cfa_offset 3
- 479               		.cfi_offset 28, -2
- 480 0002 DF93      		push r29
- 481               	.LCFI9:
- 482               		.cfi_def_cfa_offset 4
- 483               		.cfi_offset 29, -3
- 484               	/* prologue: function */
- 485               	/* frame size = 0 */
- 486               	/* stack size = 2 */
- 487               	.L__stack_usage = 2
- 488 0004 EC01      		movw r28,r24
- 489               	.LBB131:
- 490               	.LBB132:
- 491               	.LBB133:
- 492               	.LBB134:
- 437:../../../os/common/ports/AVR/chcore.h **** }
- 493               		.loc 3 437 0
- 494               	/* #APP */
- 495               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
- 496 0006 F894      		cli
- 497               	 ;  0 "" 2
- 498               	.LVL31:
- 499               	/* #NOAPP */
- 500               	.LBE134:
- 501               	.LBE133:
- 502               	.LBE132:
- 503               	.LBE131:
- 504               	.LBB135:
- 505               	.LBB136:
- 188:../../../os/hal/src/hal_adc.c ****   adcp->depth    = depth;
- 506               		.loc 1 188 0
- 507 0008 5C83      		std Y+4,r21
- 508 000a 4B83      		std Y+3,r20
- 189:../../../os/hal/src/hal_adc.c ****   adcp->grpp     = grpp;
- 509               		.loc 1 189 0
- 510 000c 3E83      		std Y+6,r19
- 511 000e 2D83      		std Y+5,r18
- 190:../../../os/hal/src/hal_adc.c ****   adcp->state    = ADC_ACTIVE;
- 512               		.loc 1 190 0
- 513 0010 7887      		std Y+8,r23
- 514 0012 6F83      		std Y+7,r22
- 191:../../../os/hal/src/hal_adc.c ****   adc_lld_start_conversion(adcp);
- 515               		.loc 1 191 0
- 516 0014 83E0      		ldi r24,lo8(3)
- 517               	.LVL32:
- 518 0016 8883      		st Y,r24
- 192:../../../os/hal/src/hal_adc.c **** }
- 519               		.loc 1 192 0
- 520 0018 CE01      		movw r24,r28
- 521 001a 0E94 0000 		call adc_lld_start_conversion
- 522               	.LVL33:
- 523               	.LBE136:
- 524               	.LBE135:
- 525               	.LBB137:
- 526               	.LBB138:
- 735:../../../os/hal/osal/rt/osal.h **** }
- 527               		.loc 2 735 0
- 528 001e 6FEF      		ldi r22,lo8(-1)
- 529 0020 7FEF      		ldi r23,lo8(-1)
- 530 0022 CE01      		movw r24,r28
- 531 0024 0996      		adiw r24,9
- 532               	.LVL34:
- 533 0026 0E94 0000 		call chThdSuspendTimeoutS
- 534               	.LVL35:
- 535               	.LBE138:
- 536               	.LBE137:
- 537               	.LBB139:
- 538               	.LBB140:
- 539               	.LBB141:
- 540               	.LBB142:
- 541               	.LBB143:
- 542               		.loc 3 447 0
- 543               	/* #APP */
- 544               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
- 545 002a 7894      		sei
- 546               	 ;  0 "" 2
- 547               	/* epilogue start */
- 548               	/* #NOAPP */
- 549               	.LBE143:
- 550               	.LBE142:
- 551               	.LBE141:
- 552               	.LBE140:
- 553               	.LBE139:
+ 695               		.loc 1 275 32 is_stmt 1 view -0
+ 696               		.cfi_startproc
+ 697               		.loc 1 275 32 is_stmt 0 view .LVU211
+ 698 0000 CF93      		push r28
+ 699               	.LCFI8:
+ 700               		.cfi_def_cfa_offset 3
+ 701               		.cfi_offset 28, -2
+ 702 0002 DF93      		push r29
+ 703               	.LCFI9:
+ 704               		.cfi_def_cfa_offset 4
+ 705               		.cfi_offset 29, -3
+ 706               	/* prologue: function */
+ 707               	/* frame size = 0 */
+ 708               	/* stack size = 2 */
+ 709               	.L__stack_usage = 2
+ 710 0004 EC01      		movw r28,r24
  276:../../../os/hal/src/hal_adc.c ****   msg_t msg;
+ 711               		.loc 1 276 3 is_stmt 1 view .LVU212
  277:../../../os/hal/src/hal_adc.c **** 
  278:../../../os/hal/src/hal_adc.c ****   osalSysLock();
+ 712               		.loc 1 278 3 view .LVU213
+ 713               	.LBB147:
+ 714               	.LBI147:
+ 509:../../../os/hal/osal/rt/osal.h **** 
+ 715               		.loc 2 509 20 view .LVU214
+ 716               	.LBE147:
+ 511:../../../os/hal/osal/rt/osal.h **** }
+ 717               		.loc 2 511 3 view .LVU215
+ 718               	.LBB152:
+ 719               	.LBB148:
+ 720               	.LBI148:
+ 353:../../../os/rt/include/chsys.h **** 
+ 721               		.loc 3 353 20 view .LVU216
+ 722               	.LBE148:
+ 723               	.LBE152:
+ 355:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_thd();
+ 724               		.loc 3 355 3 view .LVU217
+ 725               	.LBB153:
+ 726               	.LBB151:
+ 727               	.LBB149:
+ 728               	.LBI149:
+ 435:../../../os/common/ports/AVR/chcore.h **** 
+ 729               		.loc 4 435 20 view .LVU218
+ 730               	.LBB150:
+ 437:../../../os/common/ports/AVR/chcore.h **** }
+ 731               		.loc 4 437 3 view .LVU219
+ 732               	/* #APP */
+ 733               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
+ 734 0006 F894      		cli
+ 735               	 ;  0 "" 2
+ 736               	/* #NOAPP */
+ 737               	.LBE150:
+ 738               	.LBE149:
+ 739               	.LBE151:
+ 740               	.LBE153:
+ 356:../../../os/rt/include/chsys.h ****   _dbg_check_lock();
+ 741               		.loc 3 356 34 view .LVU220
+ 357:../../../os/rt/include/chsys.h **** }
+ 742               		.loc 3 357 20 view .LVU221
  279:../../../os/hal/src/hal_adc.c ****   osalDbgAssert(adcp->thread == NULL, "already waiting");
+ 743               		.loc 1 279 3 view .LVU222
+ 744               		.loc 1 279 3 view .LVU223
  280:../../../os/hal/src/hal_adc.c ****   adcStartConversionI(adcp, grpp, samples, depth);
+ 745               		.loc 1 280 3 view .LVU224
+ 746               	.LVL36:
+ 747               	.LBB154:
+ 748               	.LBI154:
+ 175:../../../os/hal/src/hal_adc.c ****                          const ADCConversionGroup *grpp,
+ 749               		.loc 1 175 6 view .LVU225
+ 750               	.LBB155:
+ 180:../../../os/hal/src/hal_adc.c ****   osalDbgCheck((adcp != NULL) && (grpp != NULL) && (samples != NULL) &&
+ 751               		.loc 1 180 23 view .LVU226
+ 181:../../../os/hal/src/hal_adc.c ****                (depth > 0U) && ((depth == 1U) || ((depth & 1U) == 0U)));
+ 752               		.loc 1 181 3 view .LVU227
+ 181:../../../os/hal/src/hal_adc.c ****                (depth > 0U) && ((depth == 1U) || ((depth & 1U) == 0U)));
+ 753               		.loc 1 181 3 view .LVU228
+ 183:../../../os/hal/src/hal_adc.c ****                 (adcp->state == ADC_COMPLETE) ||
+ 754               		.loc 1 183 3 view .LVU229
+ 183:../../../os/hal/src/hal_adc.c ****                 (adcp->state == ADC_COMPLETE) ||
+ 755               		.loc 1 183 3 view .LVU230
+ 188:../../../os/hal/src/hal_adc.c ****   adcp->depth    = depth;
+ 756               		.loc 1 188 3 view .LVU231
+ 188:../../../os/hal/src/hal_adc.c ****   adcp->depth    = depth;
+ 757               		.loc 1 188 18 is_stmt 0 view .LVU232
+ 758 0008 5C83      		std Y+4,r21
+ 759 000a 4B83      		std Y+3,r20
+ 189:../../../os/hal/src/hal_adc.c ****   adcp->grpp     = grpp;
+ 760               		.loc 1 189 3 is_stmt 1 view .LVU233
+ 189:../../../os/hal/src/hal_adc.c ****   adcp->grpp     = grpp;
+ 761               		.loc 1 189 18 is_stmt 0 view .LVU234
+ 762 000c 3E83      		std Y+6,r19
+ 763 000e 2D83      		std Y+5,r18
+ 190:../../../os/hal/src/hal_adc.c ****   adcp->state    = ADC_ACTIVE;
+ 764               		.loc 1 190 3 is_stmt 1 view .LVU235
+ 190:../../../os/hal/src/hal_adc.c ****   adcp->state    = ADC_ACTIVE;
+ 765               		.loc 1 190 18 is_stmt 0 view .LVU236
+ 766 0010 7887      		std Y+8,r23
+ 767 0012 6F83      		std Y+7,r22
+ 191:../../../os/hal/src/hal_adc.c ****   adc_lld_start_conversion(adcp);
+ 768               		.loc 1 191 3 is_stmt 1 view .LVU237
+ 191:../../../os/hal/src/hal_adc.c ****   adc_lld_start_conversion(adcp);
+ 769               		.loc 1 191 18 is_stmt 0 view .LVU238
+ 770 0014 83E0      		ldi r24,lo8(3)
+ 771               	.LVL37:
+ 191:../../../os/hal/src/hal_adc.c ****   adc_lld_start_conversion(adcp);
+ 772               		.loc 1 191 18 view .LVU239
+ 773 0016 8883      		st Y,r24
+ 192:../../../os/hal/src/hal_adc.c **** }
+ 774               		.loc 1 192 3 is_stmt 1 view .LVU240
+ 775 0018 CE01      		movw r24,r28
+ 776 001a 0E94 0000 		call adc_lld_start_conversion
+ 777               	.LVL38:
+ 192:../../../os/hal/src/hal_adc.c **** }
+ 778               		.loc 1 192 3 is_stmt 0 view .LVU241
+ 779               	.LBE155:
+ 780               	.LBE154:
  281:../../../os/hal/src/hal_adc.c ****   msg = osalThreadSuspendS(&adcp->thread);
+ 781               		.loc 1 281 3 is_stmt 1 view .LVU242
+ 782               	.LBB156:
+ 783               	.LBI156:
+ 733:../../../os/hal/osal/rt/osal.h **** 
+ 784               		.loc 2 733 21 view .LVU243
+ 785               	.LBB157:
+ 735:../../../os/hal/osal/rt/osal.h **** }
+ 786               		.loc 2 735 3 view .LVU244
+ 735:../../../os/hal/osal/rt/osal.h **** }
+ 787               		.loc 2 735 10 is_stmt 0 view .LVU245
+ 788 001e 6FEF      		ldi r22,lo8(-1)
+ 789 0020 7FEF      		ldi r23,lo8(-1)
+ 790 0022 CE01      		movw r24,r28
+ 791 0024 0996      		adiw r24,9
+ 792               	.LVL39:
+ 735:../../../os/hal/osal/rt/osal.h **** }
+ 793               		.loc 2 735 10 view .LVU246
+ 794 0026 0E94 0000 		call chThdSuspendTimeoutS
+ 795               	.LVL40:
+ 735:../../../os/hal/osal/rt/osal.h **** }
+ 796               		.loc 2 735 10 view .LVU247
+ 797               	.LBE157:
+ 798               	.LBE156:
  282:../../../os/hal/src/hal_adc.c ****   osalSysUnlock();
+ 799               		.loc 1 282 3 is_stmt 1 view .LVU248
+ 800               	.LBB158:
+ 801               	.LBI158:
+ 520:../../../os/hal/osal/rt/osal.h **** 
+ 802               		.loc 2 520 20 view .LVU249
+ 803               	.LBE158:
+ 522:../../../os/hal/osal/rt/osal.h **** }
+ 804               		.loc 2 522 3 view .LVU250
+ 805               	.LBB163:
+ 806               	.LBB159:
+ 807               	.LBI159:
+ 365:../../../os/rt/include/chsys.h **** 
+ 808               		.loc 3 365 20 view .LVU251
+ 809               	.LBB160:
+ 367:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 810               		.loc 3 367 22 view .LVU252
+ 368:../../../os/rt/include/chsys.h **** 
+ 811               		.loc 3 368 33 view .LVU253
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 812               		.loc 3 374 3 view .LVU254
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 813               		.loc 3 374 3 view .LVU255
+ 814               		.loc 3 378 3 view .LVU256
+ 815               	.LBB161:
+ 816               	.LBI161:
+ 445:../../../os/common/ports/AVR/chcore.h **** 
+ 817               		.loc 4 445 20 view .LVU257
+ 818               	.LBB162:
+ 819               		.loc 4 447 3 view .LVU258
+ 820               	/* #APP */
+ 821               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
+ 822 002a 7894      		sei
+ 823               	 ;  0 "" 2
+ 824               	/* #NOAPP */
+ 825               	.LBE162:
+ 826               	.LBE161:
+ 827               	.LBE160:
+ 828               	.LBE159:
+ 829               	.LBE163:
  283:../../../os/hal/src/hal_adc.c ****   return msg;
+ 830               		.loc 1 283 3 view .LVU259
+ 831               	/* epilogue start */
  284:../../../os/hal/src/hal_adc.c **** }
- 554               		.loc 1 284 0
- 555 002c DF91      		pop r29
- 556 002e CF91      		pop r28
- 557               	.LVL36:
- 558 0030 0895      		ret
- 559               		.cfi_endproc
- 560               	.LFE181:
- 562               		.section	.text.adcAcquireBus,"ax",@progbits
- 563               	.global	adcAcquireBus
- 565               	adcAcquireBus:
- 566               	.LFB182:
+ 832               		.loc 1 284 1 is_stmt 0 view .LVU260
+ 833 002c DF91      		pop r29
+ 834 002e CF91      		pop r28
+ 835               	.LVL41:
+ 836               		.loc 1 284 1 view .LVU261
+ 837 0030 0895      		ret
+ 838               		.cfi_endproc
+ 839               	.LFE181:
+ 841               		.section	.text.adcAcquireBus,"ax",@progbits
+ 842               	.global	adcAcquireBus
+ 844               	adcAcquireBus:
+ 845               	.LVL42:
+ 846               	.LFB182:
  285:../../../os/hal/src/hal_adc.c **** #endif /* ADC_USE_WAIT == TRUE */
  286:../../../os/hal/src/hal_adc.c **** 
  287:../../../os/hal/src/hal_adc.c **** #if (ADC_USE_MUTUAL_EXCLUSION == TRUE) || defined(__DOXYGEN__)
@@ -2283,15 +3045,21 @@
  297:../../../os/hal/src/hal_adc.c ****  * @api
  298:../../../os/hal/src/hal_adc.c ****  */
  299:../../../os/hal/src/hal_adc.c **** void adcAcquireBus(ADCDriver *adcp) {
- 567               		.loc 1 299 0
- 568               		.cfi_startproc
- 569               	.LVL37:
- 570               	/* prologue: function */
- 571               	/* frame size = 0 */
- 572               	/* stack size = 0 */
- 573               	.L__stack_usage = 0
- 574               	.LBB144:
- 575               	.LBB145:
+ 847               		.loc 1 299 37 is_stmt 1 view -0
+ 848               		.cfi_startproc
+ 849               	/* prologue: function */
+ 850               	/* frame size = 0 */
+ 851               	/* stack size = 0 */
+ 852               	.L__stack_usage = 0
+ 300:../../../os/hal/src/hal_adc.c **** 
+ 301:../../../os/hal/src/hal_adc.c ****   osalDbgCheck(adcp != NULL);
+ 853               		.loc 1 301 3 view .LVU263
+ 854               		.loc 1 301 3 view .LVU264
+ 302:../../../os/hal/src/hal_adc.c **** 
+ 303:../../../os/hal/src/hal_adc.c ****   osalMutexLock(&adcp->mutex);
+ 855               		.loc 1 303 3 view .LVU265
+ 856               	.LBB164:
+ 857               	.LBI164:
  975:../../../os/hal/osal/rt/osal.h **** #elif CH_CFG_USE_SEMAPHORES
  976:../../../os/hal/osal/rt/osal.h ****   chSemObjectInit((semaphore_t *)mp, 1);
  977:../../../os/hal/osal/rt/osal.h **** #else
@@ -2309,26 +3077,27 @@
  989:../../../os/hal/osal/rt/osal.h ****  * @api
  990:../../../os/hal/osal/rt/osal.h ****  */
  991:../../../os/hal/osal/rt/osal.h **** static inline void osalMutexLock(mutex_t *mp) {
+ 858               		.loc 2 991 20 view .LVU266
+ 859               	.LBB165:
  992:../../../os/hal/osal/rt/osal.h **** 
  993:../../../os/hal/osal/rt/osal.h **** #if CH_CFG_USE_MUTEXES
  994:../../../os/hal/osal/rt/osal.h ****   chMtxLock(mp);
- 576               		.loc 2 994 0
- 577 0000 0B96      		adiw r24,11
- 578               	.LVL38:
- 579 0002 0C94 0000 		jmp chMtxLock
- 580               	.LVL39:
- 581               	.LBE145:
- 582               	.LBE144:
- 583               		.cfi_endproc
- 584               	.LFE182:
- 586               		.section	.text.adcReleaseBus,"ax",@progbits
- 587               	.global	adcReleaseBus
- 589               	adcReleaseBus:
- 590               	.LFB183:
- 300:../../../os/hal/src/hal_adc.c **** 
- 301:../../../os/hal/src/hal_adc.c ****   osalDbgCheck(adcp != NULL);
- 302:../../../os/hal/src/hal_adc.c **** 
- 303:../../../os/hal/src/hal_adc.c ****   osalMutexLock(&adcp->mutex);
+ 860               		.loc 2 994 3 view .LVU267
+ 861 0000 0B96      		adiw r24,11
+ 862               	.LVL43:
+ 863               		.loc 2 994 3 is_stmt 0 view .LVU268
+ 864 0002 0C94 0000 		jmp chMtxLock
+ 865               	.LVL44:
+ 866               		.loc 2 994 3 view .LVU269
+ 867               	.LBE165:
+ 868               	.LBE164:
+ 869               		.cfi_endproc
+ 870               	.LFE182:
+ 872               		.section	.text.adcReleaseBus,"ax",@progbits
+ 873               	.global	adcReleaseBus
+ 875               	adcReleaseBus:
+ 876               	.LVL45:
+ 877               	.LFB183:
  304:../../../os/hal/src/hal_adc.c **** }
  305:../../../os/hal/src/hal_adc.c **** 
  306:../../../os/hal/src/hal_adc.c **** /**
@@ -2341,15 +3110,21 @@
  313:../../../os/hal/src/hal_adc.c ****  * @api
  314:../../../os/hal/src/hal_adc.c ****  */
  315:../../../os/hal/src/hal_adc.c **** void adcReleaseBus(ADCDriver *adcp) {
- 591               		.loc 1 315 0
- 592               		.cfi_startproc
- 593               	.LVL40:
- 594               	/* prologue: function */
- 595               	/* frame size = 0 */
- 596               	/* stack size = 0 */
- 597               	.L__stack_usage = 0
- 598               	.LBB146:
- 599               	.LBB147:
+ 878               		.loc 1 315 37 is_stmt 1 view -0
+ 879               		.cfi_startproc
+ 880               	/* prologue: function */
+ 881               	/* frame size = 0 */
+ 882               	/* stack size = 0 */
+ 883               	.L__stack_usage = 0
+ 316:../../../os/hal/src/hal_adc.c **** 
+ 317:../../../os/hal/src/hal_adc.c ****   osalDbgCheck(adcp != NULL);
+ 884               		.loc 1 317 3 view .LVU271
+ 885               		.loc 1 317 3 view .LVU272
+ 318:../../../os/hal/src/hal_adc.c **** 
+ 319:../../../os/hal/src/hal_adc.c ****   osalMutexUnlock(&adcp->mutex);
+ 886               		.loc 1 319 3 view .LVU273
+ 887               	.LBB166:
+ 888               	.LBI166:
  995:../../../os/hal/osal/rt/osal.h **** #elif CH_CFG_USE_SEMAPHORES
  996:../../../os/hal/osal/rt/osal.h ****   chSemWait((semaphore_t *)mp);
  997:../../../os/hal/osal/rt/osal.h **** #else
@@ -2371,50 +3146,61 @@
 1013:../../../os/hal/osal/rt/osal.h ****  * @api
 1014:../../../os/hal/osal/rt/osal.h ****  */
 1015:../../../os/hal/osal/rt/osal.h **** static inline void osalMutexUnlock(mutex_t *mp) {
+ 889               		.loc 2 1015 20 view .LVU274
+ 890               	.LBB167:
 1016:../../../os/hal/osal/rt/osal.h **** 
 1017:../../../os/hal/osal/rt/osal.h **** #if CH_CFG_USE_MUTEXES
 1018:../../../os/hal/osal/rt/osal.h ****   chMtxUnlock(mp);
- 600               		.loc 2 1018 0
- 601 0000 0B96      		adiw r24,11
- 602               	.LVL41:
- 603 0002 0C94 0000 		jmp chMtxUnlock
- 604               	.LVL42:
- 605               	.LBE147:
- 606               	.LBE146:
- 607               		.cfi_endproc
- 608               	.LFE183:
- 610               		.text
- 611               	.Letext0:
- 612               		.file 4 "/usr/lib/gcc/avr/4.9.2/include/stddef.h"
- 613               		.file 5 "/usr/lib/avr/include/stdint.h"
- 614               		.file 6 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
- 615               		.file 7 "../../../os/rt/include/chsystypes.h"
- 616               		.file 8 "../../../os/rt/include/chschd.h"
- 617               		.file 9 "../../../os/rt/include/chtime.h"
- 618               		.file 10 "../../../os/rt/include/chsem.h"
- 619               		.file 11 "../../../os/rt/include/chmtx.h"
- 620               		.file 12 "../../../os/hal/include/hal_adc.h"
- 621               		.file 13 "../../../os/hal/ports/AVR/MEGA/LLD/ADCv1/hal_adc_lld.h"
- 622               		.file 14 "../../../os/rt/include/chsys.h"
- 623               		.file 15 "../../../os/rt/include/chthreads.h"
+ 891               		.loc 2 1018 3 view .LVU275
+ 892 0000 0B96      		adiw r24,11
+ 893               	.LVL46:
+ 894               		.loc 2 1018 3 is_stmt 0 view .LVU276
+ 895 0002 0C94 0000 		jmp chMtxUnlock
+ 896               	.LVL47:
+ 897               		.loc 2 1018 3 view .LVU277
+ 898               	.LBE167:
+ 899               	.LBE166:
+ 900               		.cfi_endproc
+ 901               	.LFE183:
+ 903               		.text
+ 904               	.Letext0:
+ 905               		.file 5 "/usr/local/Cellar/avr-gcc/8.2.0/lib/avr-gcc/8/gcc/avr/8.2.0/include/stddef.h"
+ 906               		.file 6 "/usr/local/Cellar/avr-gcc/8.2.0/avr/include/stdint.h"
+ 907               		.file 7 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
+ 908               		.file 8 "../../../os/rt/include/chsystypes.h"
+ 909               		.file 9 "../../../os/rt/include/chschd.h"
+ 910               		.file 10 "../../../os/rt/include/chtime.h"
+ 911               		.file 11 "../../../os/rt/include/chsem.h"
+ 912               		.file 12 "../../../os/rt/include/chmtx.h"
+ 913               		.file 13 "../../../os/rt/include/chregistry.h"
+ 914               		.file 14 "../../../os/rt/include/chevents.h"
+ 915               		.file 15 "../../../os/common/oslib/include/chmemcore.h"
+ 916               		.file 16 "../../../os/hal/include/hal_queues.h"
+ 917               		.file 17 "../../../os/hal/include/hal_pal.h"
+ 918               		.file 18 "../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.h"
+ 919               		.file 19 "../../../os/hal/include/hal_adc.h"
+ 920               		.file 20 "../../../os/hal/ports/AVR/MEGA/LLD/ADCv1/hal_adc_lld.h"
+ 921               		.file 21 "../../../os/hal/include/hal_serial.h"
+ 922               		.file 22 "../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.h"
+ 923               		.file 23 "../../../os/rt/include/chthreads.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal_adc.c
-     /tmp/ccHGGN8S.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccHGGN8S.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccHGGN8S.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccHGGN8S.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccHGGN8S.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccHGGN8S.s:13     .text.adcInit:0000000000000000 adcInit
-     /tmp/ccHGGN8S.s:31     .text.adcObjectInit:0000000000000000 adcObjectInit
-     /tmp/ccHGGN8S.s:78     .text.adcStart:0000000000000000 adcStart
-     /tmp/ccHGGN8S.s:148    .text.adcStop:0000000000000000 adcStop
-     /tmp/ccHGGN8S.s:217    .text.adcStartConversion:0000000000000000 adcStartConversion
-     /tmp/ccHGGN8S.s:285    .text.adcStartConversionI:0000000000000000 adcStartConversionI
-     /tmp/ccHGGN8S.s:317    .text.adcStopConversion:0000000000000000 adcStopConversion
-     /tmp/ccHGGN8S.s:404    .text.adcStopConversionI:0000000000000000 adcStopConversionI
-     /tmp/ccHGGN8S.s:471    .text.adcConvert:0000000000000000 adcConvert
-     /tmp/ccHGGN8S.s:565    .text.adcAcquireBus:0000000000000000 adcAcquireBus
-     /tmp/ccHGGN8S.s:589    .text.adcReleaseBus:0000000000000000 adcReleaseBus
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cccRGNLS.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cccRGNLS.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cccRGNLS.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cccRGNLS.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cccRGNLS.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cccRGNLS.s:13     .text.adcInit:0000000000000000 adcInit
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cccRGNLS.s:31     .text.adcObjectInit:0000000000000000 adcObjectInit
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cccRGNLS.s:91     .text.adcStart:0000000000000000 adcStart
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cccRGNLS.s:202    .text.adcStop:0000000000000000 adcStop
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cccRGNLS.s:311    .text.adcStartConversion:0000000000000000 adcStartConversion
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cccRGNLS.s:427    .text.adcStartConversionI:0000000000000000 adcStartConversionI
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cccRGNLS.s:470    .text.adcStopConversion:0000000000000000 adcStopConversion
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cccRGNLS.s:606    .text.adcStopConversionI:0000000000000000 adcStopConversionI
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cccRGNLS.s:692    .text.adcConvert:0000000000000000 adcConvert
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cccRGNLS.s:844    .text.adcAcquireBus:0000000000000000 adcAcquireBus
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cccRGNLS.s:875    .text.adcReleaseBus:0000000000000000 adcReleaseBus
 
 UNDEFINED SYMBOLS
 adc_lld_init

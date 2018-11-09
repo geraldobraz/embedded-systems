@@ -8,7 +8,7 @@
    8               	.Ltext0:
    9               		.cfi_sections	.debug_frame
   10               	.Letext0:
-  11               		.file 1 "/usr/lib/avr/include/stdint.h"
+  11               		.file 1 "/usr/local/Cellar/avr-gcc/8.2.0/avr/include/stdint.h"
   12               		.file 2 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
   13               		.file 3 "../../../os/rt/include/chsystypes.h"
   14               		.file 4 "../../../os/rt/include/chschd.h"
@@ -16,12 +16,15 @@
   16               		.file 6 "../../../os/common/ports/AVR/chcore.h"
   17               		.file 7 "../../../os/rt/include/chsem.h"
   18               		.file 8 "../../../os/rt/include/chmtx.h"
+  19               		.file 9 "../../../os/rt/include/chsys.h"
+  20               		.file 10 "../../../os/rt/include/chregistry.h"
+  21               		.file 11 "../../../os/common/oslib/include/chmemcore.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 osal.c
-     /tmp/ccqfO3So.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccqfO3So.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccqfO3So.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccqfO3So.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccqfO3So.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc4lLSbK.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc4lLSbK.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc4lLSbK.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc4lLSbK.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc4lLSbK.s:6      *ABS*:0000000000000001 __zero_reg__
 
 NO UNDEFINED SYMBOLS

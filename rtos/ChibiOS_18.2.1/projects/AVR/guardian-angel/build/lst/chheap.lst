@@ -119,7 +119,7 @@
  105:../../../os/common/oslib/src/chheap.c ****  * @notapi
  106:../../../os/common/oslib/src/chheap.c ****  */
  107:../../../os/common/oslib/src/chheap.c **** void _heap_init(void) {
-  16               		.loc 1 107 0
+  16               		.loc 1 107 23 view -0
   17               		.cfi_startproc
   18               	/* prologue: function */
   19               	/* frame size = 0 */
@@ -127,34 +127,38 @@
   21               	.L__stack_usage = 0
  108:../../../os/common/oslib/src/chheap.c **** 
  109:../../../os/common/oslib/src/chheap.c ****   default_heap.provider = chCoreAllocAlignedWithOffset;
-  22               		.loc 1 109 0
-  23 0000 E0E0      		ldi r30,lo8(default_heap)
-  24 0002 F0E0      		ldi r31,hi8(default_heap)
-  25 0004 80E0      		ldi r24,lo8(gs(chCoreAllocAlignedWithOffset))
-  26 0006 90E0      		ldi r25,hi8(gs(chCoreAllocAlignedWithOffset))
-  27 0008 9183      		std Z+1,r25
-  28 000a 8083      		st Z,r24
+  22               		.loc 1 109 3 view .LVU1
+  23               		.loc 1 109 25 is_stmt 0 view .LVU2
+  24 0000 E0E0      		ldi r30,lo8(default_heap)
+  25 0002 F0E0      		ldi r31,hi8(default_heap)
+  26 0004 80E0      		ldi r24,lo8(gs(chCoreAllocAlignedWithOffset))
+  27 0006 90E0      		ldi r25,hi8(gs(chCoreAllocAlignedWithOffset))
+  28 0008 9183      		std Z+1,r25
+  29 000a 8083      		st Z,r24
  110:../../../os/common/oslib/src/chheap.c ****   H_NEXT(&default_heap.header) = NULL;
-  29               		.loc 1 110 0
-  30 000c 1382      		std Z+3,__zero_reg__
-  31 000e 1282      		std Z+2,__zero_reg__
+  30               		.loc 1 110 3 is_stmt 1 view .LVU3
+  31               		.loc 1 110 32 is_stmt 0 view .LVU4
+  32 000c 1382      		std Z+3,__zero_reg__
+  33 000e 1282      		std Z+2,__zero_reg__
  111:../../../os/common/oslib/src/chheap.c ****   H_PAGES(&default_heap.header) = 0;
-  32               		.loc 1 111 0
-  33 0010 1582      		std Z+5,__zero_reg__
-  34 0012 1482      		std Z+4,__zero_reg__
+  34               		.loc 1 111 3 is_stmt 1 view .LVU5
+  35               		.loc 1 111 33 is_stmt 0 view .LVU6
+  36 0010 1582      		std Z+5,__zero_reg__
+  37 0012 1482      		std Z+4,__zero_reg__
  112:../../../os/common/oslib/src/chheap.c **** #if (CH_CFG_USE_MUTEXES == TRUE) || defined(__DOXYGEN__)
  113:../../../os/common/oslib/src/chheap.c ****   chMtxObjectInit(&default_heap.mtx);
-  35               		.loc 1 113 0
-  36 0014 80E0      		ldi r24,lo8(default_heap+6)
-  37 0016 90E0      		ldi r25,hi8(default_heap+6)
-  38 0018 0C94 0000 		jmp chMtxObjectInit
-  39               	.LVL0:
-  40               		.cfi_endproc
-  41               	.LFE141:
-  43               		.section	.text.chHeapObjectInit,"ax",@progbits
-  44               	.global	chHeapObjectInit
-  46               	chHeapObjectInit:
-  47               	.LFB142:
+  38               		.loc 1 113 3 is_stmt 1 view .LVU7
+  39 0014 80E0      		ldi r24,lo8(default_heap+6)
+  40 0016 90E0      		ldi r25,hi8(default_heap+6)
+  41 0018 0C94 0000 		jmp chMtxObjectInit
+  42               	.LVL0:
+  43               		.cfi_endproc
+  44               	.LFE141:
+  46               		.section	.text.chHeapObjectInit,"ax",@progbits
+  47               	.global	chHeapObjectInit
+  49               	chHeapObjectInit:
+  50               	.LVL1:
+  51               	.LFB142:
  114:../../../os/common/oslib/src/chheap.c **** #else
  115:../../../os/common/oslib/src/chheap.c ****   chSemObjectInit(&default_heap.sem, (cnt_t)1);
  116:../../../os/common/oslib/src/chheap.c **** #endif
@@ -173,82 +177,97 @@
  129:../../../os/common/oslib/src/chheap.c ****  * @init
  130:../../../os/common/oslib/src/chheap.c ****  */
  131:../../../os/common/oslib/src/chheap.c **** void chHeapObjectInit(memory_heap_t *heapp, void *buf, size_t size) {
-  48               		.loc 1 131 0
-  49               		.cfi_startproc
-  50               	.LVL1:
-  51               	/* prologue: function */
-  52               	/* frame size = 0 */
-  53               	/* stack size = 0 */
-  54               	.L__stack_usage = 0
+  52               		.loc 1 131 69 view -0
+  53               		.cfi_startproc
+  54               	/* prologue: function */
+  55               	/* frame size = 0 */
+  56               	/* stack size = 0 */
+  57               	.L__stack_usage = 0
  132:../../../os/common/oslib/src/chheap.c ****   heap_header_t *hp = (heap_header_t *)MEM_ALIGN_NEXT(buf, CH_HEAP_ALIGNMENT);
-  55               		.loc 1 132 0
-  56 0000 FB01      		movw r30,r22
-  57 0002 3396      		adiw r30,3
-  58 0004 EC7F      		andi r30,252
-  59               	.LVL2:
+  58               		.loc 1 132 3 view .LVU9
+  59               		.loc 1 132 40 is_stmt 0 view .LVU10
+  60 0000 FB01      		movw r30,r22
+  61 0002 3396      		adiw r30,3
+  62 0004 EC7F      		andi r30,252
+  63               	.LVL2:
  133:../../../os/common/oslib/src/chheap.c **** 
  134:../../../os/common/oslib/src/chheap.c ****   chDbgCheck((heapp != NULL) && (size > 0U));
+  64               		.loc 1 134 3 is_stmt 1 view .LVU11
+  65               		.loc 1 134 3 view .LVU12
  135:../../../os/common/oslib/src/chheap.c **** 
  136:../../../os/common/oslib/src/chheap.c ****   /* Adjusting the size in case the initial block was not correctly
  137:../../../os/common/oslib/src/chheap.c ****      aligned.*/
  138:../../../os/common/oslib/src/chheap.c ****   /*lint -save -e9033 [10.8] Required cast operations.*/
  139:../../../os/common/oslib/src/chheap.c ****   size -= (size_t)((uint8_t *)hp - (uint8_t *)buf);
+  66               		.loc 1 139 3 view .LVU13
  140:../../../os/common/oslib/src/chheap.c ****   /*lint restore*/
  141:../../../os/common/oslib/src/chheap.c **** 
  142:../../../os/common/oslib/src/chheap.c ****   /* Initializing the heap header.*/
  143:../../../os/common/oslib/src/chheap.c ****   heapp->provider = NULL;
-  60               		.loc 1 143 0
-  61 0006 DC01      		movw r26,r24
-  62 0008 1196      		adiw r26,1
-  63 000a 1C92      		st X,__zero_reg__
-  64 000c 1E92      		st -X,__zero_reg__
+  67               		.loc 1 143 3 view .LVU14
+  68               		.loc 1 143 19 is_stmt 0 view .LVU15
+  69 0006 DC01      		movw r26,r24
+  70 0008 1196      		adiw r26,1
+  71 000a 1C92      		st X,__zero_reg__
+  72 000c 1E92      		st -X,__zero_reg__
  144:../../../os/common/oslib/src/chheap.c ****   H_NEXT(&heapp->header) = hp;
-  65               		.loc 1 144 0
-  66 000e 1396      		adiw r26,2+1
-  67 0010 FC93      		st X,r31
-  68 0012 EE93      		st -X,r30
-  69 0014 1297      		sbiw r26,2
+  73               		.loc 1 144 3 is_stmt 1 view .LVU16
+  74               		.loc 1 144 26 is_stmt 0 view .LVU17
+  75 000e 1396      		adiw r26,2+1
+  76 0010 FC93      		st X,r31
+  77 0012 EE93      		st -X,r30
+  78 0014 1297      		sbiw r26,2
  145:../../../os/common/oslib/src/chheap.c ****   H_PAGES(&heapp->header) = 0;
-  70               		.loc 1 145 0
-  71 0016 1596      		adiw r26,4+1
-  72 0018 1C92      		st X,__zero_reg__
-  73 001a 1E92      		st -X,__zero_reg__
-  74 001c 1497      		sbiw r26,4
+  79               		.loc 1 145 3 is_stmt 1 view .LVU18
+  80               		.loc 1 145 27 is_stmt 0 view .LVU19
+  81 0016 1596      		adiw r26,4+1
+  82 0018 1C92      		st X,__zero_reg__
+  83 001a 1E92      		st -X,__zero_reg__
+  84 001c 1497      		sbiw r26,4
  146:../../../os/common/oslib/src/chheap.c ****   H_NEXT(hp) = NULL;
-  75               		.loc 1 146 0
-  76 001e 1182      		std Z+1,__zero_reg__
-  77 0020 1082      		st Z,__zero_reg__
-  78 0022 4450      		subi r20,4
-  79 0024 5109      		sbc r21,__zero_reg__
-  80               	.LVL3:
- 139:../../../os/common/oslib/src/chheap.c ****   /*lint restore*/
-  81               		.loc 1 139 0
-  82 0026 6E1B      		sub r22,r30
-  83 0028 7F0B      		sbc r23,r31
-  84               	.LVL4:
+  85               		.loc 1 146 3 is_stmt 1 view .LVU20
+  86               		.loc 1 146 14 is_stmt 0 view .LVU21
+  87 001e 1182      		std Z+1,__zero_reg__
+  88 0020 1082      		st Z,__zero_reg__
  147:../../../os/common/oslib/src/chheap.c ****   H_PAGES(hp) = (size - sizeof (heap_header_t)) / CH_HEAP_ALIGNMENT;
-  85               		.loc 1 147 0
-  86 002a 640F      		add r22,r20
-  87 002c 751F      		adc r23,r21
-  88 002e 7695      		lsr r23
-  89 0030 6795      		ror r22
-  90 0032 7695      		lsr r23
-  91 0034 6795      		ror r22
-  92 0036 7383      		std Z+3,r23
-  93 0038 6283      		std Z+2,r22
+  89               		.loc 1 147 3 is_stmt 1 view .LVU22
+  90               		.loc 1 147 23 is_stmt 0 view .LVU23
+  91 0022 4450      		subi r20,4
+  92 0024 5109      		sbc r21,__zero_reg__
+  93               	.LVL3:
+ 139:../../../os/common/oslib/src/chheap.c ****   /*lint restore*/
+  94               		.loc 1 139 34 view .LVU24
+  95 0026 9F01      		movw r18,r30
+  96 0028 261B      		sub r18,r22
+  97 002a 370B      		sbc r19,r23
+  98               		.loc 1 147 23 view .LVU25
+  99 002c 421B      		sub r20,r18
+ 100 002e 530B      		sbc r21,r19
+ 101               	.LVL4:
+ 102               		.loc 1 147 49 view .LVU26
+ 103 0030 5695      		lsr r21
+ 104 0032 4795      		ror r20
+ 105 0034 5695      		lsr r21
+ 106 0036 4795      		ror r20
+ 107               		.loc 1 147 15 view .LVU27
+ 108 0038 5383      		std Z+3,r21
+ 109 003a 4283      		std Z+2,r20
  148:../../../os/common/oslib/src/chheap.c **** #if (CH_CFG_USE_MUTEXES == TRUE) || defined(__DOXYGEN__)
  149:../../../os/common/oslib/src/chheap.c ****   chMtxObjectInit(&heapp->mtx);
-  94               		.loc 1 149 0
-  95 003a 0696      		adiw r24,6
-  96               	.LVL5:
-  97 003c 0C94 0000 		jmp chMtxObjectInit
-  98               	.LVL6:
-  99               		.cfi_endproc
- 100               	.LFE142:
- 102               		.section	.text.chHeapAllocAligned,"ax",@progbits
- 103               	.global	chHeapAllocAligned
- 105               	chHeapAllocAligned:
- 106               	.LFB143:
+ 110               		.loc 1 149 3 is_stmt 1 view .LVU28
+ 111 003c 0696      		adiw r24,6
+ 112               	.LVL5:
+ 113               		.loc 1 149 3 is_stmt 0 view .LVU29
+ 114 003e 0C94 0000 		jmp chMtxObjectInit
+ 115               	.LVL6:
+ 116               		.loc 1 149 3 view .LVU30
+ 117               		.cfi_endproc
+ 118               	.LFE142:
+ 120               		.section	.text.chHeapAllocAligned,"ax",@progbits
+ 121               	.global	chHeapAllocAligned
+ 123               	chHeapAllocAligned:
+ 124               	.LVL7:
+ 125               	.LFB143:
  150:../../../os/common/oslib/src/chheap.c **** #else
  151:../../../os/common/oslib/src/chheap.c ****   chSemObjectInit(&heapp->sem, (cnt_t)1);
  152:../../../os/common/oslib/src/chheap.c **** #endif
@@ -272,231 +291,233 @@
  170:../../../os/common/oslib/src/chheap.c ****  * @api
  171:../../../os/common/oslib/src/chheap.c ****  */
  172:../../../os/common/oslib/src/chheap.c **** void *chHeapAllocAligned(memory_heap_t *heapp, size_t size, unsigned align) {
- 107               		.loc 1 172 0
- 108               		.cfi_startproc
- 109               	.LVL7:
- 110 0000 2F92      		push r2
- 111               	.LCFI0:
- 112               		.cfi_def_cfa_offset 3
- 113               		.cfi_offset 2, -2
- 114 0002 3F92      		push r3
- 115               	.LCFI1:
- 116               		.cfi_def_cfa_offset 4
- 117               		.cfi_offset 3, -3
- 118 0004 4F92      		push r4
- 119               	.LCFI2:
- 120               		.cfi_def_cfa_offset 5
- 121               		.cfi_offset 4, -4
- 122 0006 5F92      		push r5
- 123               	.LCFI3:
- 124               		.cfi_def_cfa_offset 6
- 125               		.cfi_offset 5, -5
- 126 0008 6F92      		push r6
- 127               	.LCFI4:
- 128               		.cfi_def_cfa_offset 7
- 129               		.cfi_offset 6, -6
- 130 000a 7F92      		push r7
- 131               	.LCFI5:
- 132               		.cfi_def_cfa_offset 8
- 133               		.cfi_offset 7, -7
- 134 000c 8F92      		push r8
- 135               	.LCFI6:
- 136               		.cfi_def_cfa_offset 9
- 137               		.cfi_offset 8, -8
- 138 000e 9F92      		push r9
- 139               	.LCFI7:
- 140               		.cfi_def_cfa_offset 10
- 141               		.cfi_offset 9, -9
- 142 0010 AF92      		push r10
- 143               	.LCFI8:
- 144               		.cfi_def_cfa_offset 11
- 145               		.cfi_offset 10, -10
- 146 0012 BF92      		push r11
- 147               	.LCFI9:
- 148               		.cfi_def_cfa_offset 12
- 149               		.cfi_offset 11, -11
- 150 0014 CF92      		push r12
- 151               	.LCFI10:
- 152               		.cfi_def_cfa_offset 13
- 153               		.cfi_offset 12, -12
- 154 0016 DF92      		push r13
- 155               	.LCFI11:
- 156               		.cfi_def_cfa_offset 14
- 157               		.cfi_offset 13, -13
- 158 0018 EF92      		push r14
- 159               	.LCFI12:
- 160               		.cfi_def_cfa_offset 15
- 161               		.cfi_offset 14, -14
- 162 001a FF92      		push r15
- 163               	.LCFI13:
- 164               		.cfi_def_cfa_offset 16
- 165               		.cfi_offset 15, -15
- 166 001c 0F93      		push r16
- 167               	.LCFI14:
- 168               		.cfi_def_cfa_offset 17
- 169               		.cfi_offset 16, -16
- 170 001e 1F93      		push r17
- 171               	.LCFI15:
- 172               		.cfi_def_cfa_offset 18
- 173               		.cfi_offset 17, -17
- 174 0020 CF93      		push r28
- 175               	.LCFI16:
- 176               		.cfi_def_cfa_offset 19
- 177               		.cfi_offset 28, -18
- 178 0022 DF93      		push r29
- 179               	.LCFI17:
- 180               		.cfi_def_cfa_offset 20
- 181               		.cfi_offset 29, -19
- 182               	/* prologue: function */
- 183               	/* frame size = 0 */
- 184               	/* stack size = 18 */
- 185               	.L__stack_usage = 18
- 186 0024 5C01      		movw r10,r24
- 187 0026 3B01      		movw r6,r22
- 188 0028 7A01      		movw r14,r20
+ 126               		.loc 1 172 77 is_stmt 1 view -0
+ 127               		.cfi_startproc
+ 128               		.loc 1 172 77 is_stmt 0 view .LVU32
+ 129 0000 2F92      		push r2
+ 130               	.LCFI0:
+ 131               		.cfi_def_cfa_offset 3
+ 132               		.cfi_offset 2, -2
+ 133 0002 3F92      		push r3
+ 134               	.LCFI1:
+ 135               		.cfi_def_cfa_offset 4
+ 136               		.cfi_offset 3, -3
+ 137 0004 4F92      		push r4
+ 138               	.LCFI2:
+ 139               		.cfi_def_cfa_offset 5
+ 140               		.cfi_offset 4, -4
+ 141 0006 5F92      		push r5
+ 142               	.LCFI3:
+ 143               		.cfi_def_cfa_offset 6
+ 144               		.cfi_offset 5, -5
+ 145 0008 6F92      		push r6
+ 146               	.LCFI4:
+ 147               		.cfi_def_cfa_offset 7
+ 148               		.cfi_offset 6, -6
+ 149 000a 7F92      		push r7
+ 150               	.LCFI5:
+ 151               		.cfi_def_cfa_offset 8
+ 152               		.cfi_offset 7, -7
+ 153 000c 8F92      		push r8
+ 154               	.LCFI6:
+ 155               		.cfi_def_cfa_offset 9
+ 156               		.cfi_offset 8, -8
+ 157 000e 9F92      		push r9
+ 158               	.LCFI7:
+ 159               		.cfi_def_cfa_offset 10
+ 160               		.cfi_offset 9, -9
+ 161 0010 AF92      		push r10
+ 162               	.LCFI8:
+ 163               		.cfi_def_cfa_offset 11
+ 164               		.cfi_offset 10, -10
+ 165 0012 BF92      		push r11
+ 166               	.LCFI9:
+ 167               		.cfi_def_cfa_offset 12
+ 168               		.cfi_offset 11, -11
+ 169 0014 CF92      		push r12
+ 170               	.LCFI10:
+ 171               		.cfi_def_cfa_offset 13
+ 172               		.cfi_offset 12, -12
+ 173 0016 DF92      		push r13
+ 174               	.LCFI11:
+ 175               		.cfi_def_cfa_offset 14
+ 176               		.cfi_offset 13, -13
+ 177 0018 EF92      		push r14
+ 178               	.LCFI12:
+ 179               		.cfi_def_cfa_offset 15
+ 180               		.cfi_offset 14, -14
+ 181 001a FF92      		push r15
+ 182               	.LCFI13:
+ 183               		.cfi_def_cfa_offset 16
+ 184               		.cfi_offset 15, -15
+ 185 001c 0F93      		push r16
+ 186               	.LCFI14:
+ 187               		.cfi_def_cfa_offset 17
+ 188               		.cfi_offset 16, -16
+ 189 001e 1F93      		push r17
+ 190               	.LCFI15:
+ 191               		.cfi_def_cfa_offset 18
+ 192               		.cfi_offset 17, -17
+ 193 0020 CF93      		push r28
+ 194               	.LCFI16:
+ 195               		.cfi_def_cfa_offset 19
+ 196               		.cfi_offset 28, -18
+ 197 0022 DF93      		push r29
+ 198               	.LCFI17:
+ 199               		.cfi_def_cfa_offset 20
+ 200               		.cfi_offset 29, -19
+ 201               	/* prologue: function */
+ 202               	/* frame size = 0 */
+ 203               	/* stack size = 18 */
+ 204               	.L__stack_usage = 18
+ 205 0024 5C01      		movw r10,r24
+ 206 0026 2B01      		movw r4,r22
  173:../../../os/common/oslib/src/chheap.c ****   heap_header_t *qp, *hp, *ahp;
+ 207               		.loc 1 173 3 is_stmt 1 view .LVU33
  174:../../../os/common/oslib/src/chheap.c ****   size_t pages;
+ 208               		.loc 1 174 3 view .LVU34
  175:../../../os/common/oslib/src/chheap.c **** 
  176:../../../os/common/oslib/src/chheap.c ****   chDbgCheck((size > 0U) && MEM_IS_VALID_ALIGNMENT(align));
+ 209               		.loc 1 176 3 view .LVU35
+ 210               		.loc 1 176 3 view .LVU36
  177:../../../os/common/oslib/src/chheap.c **** 
  178:../../../os/common/oslib/src/chheap.c ****   /* If an heap is not specified then the default system header is used.*/
  179:../../../os/common/oslib/src/chheap.c ****   if (heapp == NULL) {
- 189               		.loc 1 179 0
- 190 002a 892B      		or r24,r25
- 191 002c 01F4      		brne .+2
- 192 002e 00C0      		rjmp .L17
- 193               	.L4:
- 194               	.LVL8:
+ 211               		.loc 1 179 3 view .LVU37
+ 212               		.loc 1 179 6 is_stmt 0 view .LVU38
+ 213 0028 892B      		or r24,r25
+ 214 002a 01F4      		brne .+2
+ 215 002c 00C0      		rjmp .L18
+ 216               	.L5:
+ 217               	.LVL8:
  180:../../../os/common/oslib/src/chheap.c ****     heapp = &default_heap;
  181:../../../os/common/oslib/src/chheap.c ****   }
  182:../../../os/common/oslib/src/chheap.c **** 
  183:../../../os/common/oslib/src/chheap.c ****   /* Minimum alignment is constrained by the heap header structure size.*/
  184:../../../os/common/oslib/src/chheap.c ****   if (align < CH_HEAP_ALIGNMENT) {
- 195               		.loc 1 184 0
- 196 0030 64E0      		ldi r22,4
- 197 0032 E616      		cp r14,r22
- 198 0034 F104      		cpc r15,__zero_reg__
- 199               	.LVL9:
- 200 0036 00F4      		brsh .L5
+ 218               		.loc 1 184 3 is_stmt 1 view .LVU39
+ 219 002e 4A01      		movw r8,r20
+ 220 0030 4430      		cpi r20,4
+ 221 0032 5105      		cpc r21,__zero_reg__
+ 222 0034 00F4      		brsh .L6
+ 223               	.LVL9:
+ 224               		.loc 1 184 3 is_stmt 0 view .LVU40
+ 225 0036 94E0      		ldi r25,lo8(4)
+ 226 0038 892E      		mov r8,r25
+ 227 003a 912C      		mov r9,__zero_reg__
+ 228               	.LVL10:
+ 229               	.L6:
  185:../../../os/common/oslib/src/chheap.c ****     align = CH_HEAP_ALIGNMENT;
- 201               		.loc 1 185 0
- 202 0038 E4E0      		ldi r30,lo8(4)
- 203 003a EE2E      		mov r14,r30
- 204 003c F12C      		mov r15,__zero_reg__
- 205               	.L5:
- 206               	.LVL10:
  186:../../../os/common/oslib/src/chheap.c ****   }
  187:../../../os/common/oslib/src/chheap.c **** 
  188:../../../os/common/oslib/src/chheap.c ****   /* Size is converted in number of elementary allocation units.*/
  189:../../../os/common/oslib/src/chheap.c ****   pages = MEM_ALIGN_NEXT(size, CH_HEAP_ALIGNMENT) / CH_HEAP_ALIGNMENT;
- 207               		.loc 1 189 0
- 208 003e 6301      		movw r12,r6
- 209 0040 83E0      		ldi r24,3
- 210 0042 C80E      		add r12,r24
- 211 0044 D11C      		adc r13,__zero_reg__
- 212 0046 D694      		lsr r13
- 213 0048 C794      		ror r12
- 214 004a D694      		lsr r13
- 215 004c C794      		ror r12
- 216               	.LVL11:
+ 230               		.loc 1 189 3 is_stmt 1 view .LVU41
+ 231               		.loc 1 189 11 is_stmt 0 view .LVU42
+ 232 003c 8201      		movw r16,r4
+ 233 003e 0D5F      		subi r16,-3
+ 234 0040 1F4F      		sbci r17,-1
+ 235               		.loc 1 189 9 view .LVU43
+ 236 0042 1801      		movw r2,r16
+ 237 0044 3694      		lsr r3
+ 238 0046 2794      		ror r2
+ 239 0048 3694      		lsr r3
+ 240 004a 2794      		ror r2
+ 241               	.LVL11:
  190:../../../os/common/oslib/src/chheap.c **** 
  191:../../../os/common/oslib/src/chheap.c ****   /* Taking heap mutex/semaphore.*/
  192:../../../os/common/oslib/src/chheap.c ****   H_LOCK(heapp);
- 217               		.loc 1 192 0
- 218 004e 4501      		movw r8,r10
- 219 0050 A6E0      		ldi r26,6
- 220 0052 8A0E      		add r8,r26
- 221 0054 911C      		adc r9,__zero_reg__
- 222 0056 C401      		movw r24,r8
- 223 0058 0E94 0000 		call chMtxLock
- 224               	.LVL12:
+ 242               		.loc 1 192 3 is_stmt 1 view .LVU44
+ 243 004c 3501      		movw r6,r10
+ 244 004e 86E0      		ldi r24,6
+ 245 0050 680E      		add r6,r24
+ 246 0052 711C      		adc r7,__zero_reg__
+ 247 0054 C301      		movw r24,r6
+ 248 0056 0E94 0000 		call chMtxLock
+ 249               	.LVL12:
  193:../../../os/common/oslib/src/chheap.c **** 
  194:../../../os/common/oslib/src/chheap.c ****   /* Start of the free blocks list.*/
  195:../../../os/common/oslib/src/chheap.c ****   qp = &heapp->header;
- 225               		.loc 1 195 0
- 226 005c E501      		movw r28,r10
- 227 005e 2296      		adiw r28,2
- 228               	.LVL13:
+ 250               		.loc 1 195 3 view .LVU45
+ 251               		.loc 1 195 6 is_stmt 0 view .LVU46
+ 252 005a D501      		movw r26,r10
+ 253 005c 1296      		adiw r26,2
+ 254               	.LVL13:
  196:../../../os/common/oslib/src/chheap.c ****   while (H_NEXT(qp) != NULL) {
+ 255               		.loc 1 196 3 is_stmt 1 view .LVU47
  197:../../../os/common/oslib/src/chheap.c **** 
  198:../../../os/common/oslib/src/chheap.c ****     /* Next free block.*/
  199:../../../os/common/oslib/src/chheap.c ****     hp = H_NEXT(qp);
  200:../../../os/common/oslib/src/chheap.c **** 
  201:../../../os/common/oslib/src/chheap.c ****     /* Pointer aligned to the requested alignment.*/
  202:../../../os/common/oslib/src/chheap.c ****     ahp = (heap_header_t *)MEM_ALIGN_NEXT(H_BLOCK(hp), align) - 1U;
- 229               		.loc 1 202 0
- 230 0060 8827      		clr r24
- 231 0062 9927      		clr r25
- 232 0064 8E19      		sub r24,r14
- 233 0066 9F09      		sbc r25,r15
+ 256               		.loc 1 202 28 is_stmt 0 view .LVU48
+ 257 005e 6401      		movw r12,r8
+ 258 0060 E3E0      		ldi r30,3
+ 259 0062 CE0E      		add r12,r30
+ 260 0064 D11C      		adc r13,__zero_reg__
+ 261 0066 EE24      		clr r14
+ 262 0068 FF24      		clr r15
+ 263 006a E818      		sub r14,r8
+ 264 006c F908      		sbc r15,r9
  196:../../../os/common/oslib/src/chheap.c ****   while (H_NEXT(qp) != NULL) {
- 234               		.loc 1 196 0
- 235 0068 E881      		ld r30,Y
- 236 006a F981      		ldd r31,Y+1
- 237 006c 3097      		sbiw r30,0
- 238 006e 01F0      		breq .L18
- 239               	.L13:
- 240               	.LVL14:
- 241               		.loc 1 202 0
- 242 0070 AF01      		movw r20,r30
- 243 0072 4C5F      		subi r20,-4
- 244 0074 5F4F      		sbci r21,-1
- 245 0076 9F01      		movw r18,r30
- 246 0078 2D5F      		subi r18,-3
- 247 007a 3F4F      		sbci r19,-1
- 248 007c 2E0D      		add r18,r14
- 249 007e 3F1D      		adc r19,r15
- 250 0080 2823      		and r18,r24
- 251 0082 3923      		and r19,r25
- 252 0084 2450      		subi r18,4
- 253 0086 3109      		sbc r19,__zero_reg__
- 254               	.LVL15:
+ 265               		.loc 1 196 10 view .LVU49
+ 266 006e ED91      		ld r30,X+
+ 267 0070 FC91      		ld r31,X
+ 268 0072 1197      		sbiw r26,1
+ 196:../../../os/common/oslib/src/chheap.c ****   while (H_NEXT(qp) != NULL) {
+ 269               		.loc 1 196 9 view .LVU50
+ 270 0074 3097      		sbiw r30,0
+ 271 0076 01F0      		breq .L19
+ 272               	.L13:
+ 199:../../../os/common/oslib/src/chheap.c **** 
+ 273               		.loc 1 199 5 is_stmt 1 view .LVU51
+ 274               	.LVL14:
+ 275               		.loc 1 202 5 view .LVU52
+ 276               		.loc 1 202 28 is_stmt 0 view .LVU53
+ 277 0078 EF01      		movw r28,r30
+ 278 007a CC0D      		add r28,r12
+ 279 007c DD1D      		adc r29,r13
+ 280 007e CE21      		and r28,r14
+ 281 0080 DF21      		and r29,r15
+ 282               		.loc 1 202 63 view .LVU54
+ 283 0082 AE01      		movw r20,r28
+ 284 0084 4450      		subi r20,4
+ 285 0086 5109      		sbc r21,__zero_reg__
+ 286               	.LVL15:
  203:../../../os/common/oslib/src/chheap.c **** 
  204:../../../os/common/oslib/src/chheap.c ****     if ((ahp < H_LIMIT(hp)) && (pages <= NPAGES(H_LIMIT(hp), ahp + 1U))) {
- 255               		.loc 1 204 0
- 256 0088 0281      		ldd r16,Z+2
- 257 008a 1381      		ldd r17,Z+3
- 258 008c D801      		movw r26,r16
- 259 008e 1196      		adiw r26,1
- 260 0090 AA0F      		lsl r26
- 261 0092 BB1F      		rol r27
- 262 0094 AA0F      		lsl r26
- 263 0096 BB1F      		rol r27
- 264 0098 BF01      		movw r22,r30
- 265 009a 6A0F      		add r22,r26
- 266 009c 7B1F      		adc r23,r27
- 267 009e 2617      		cp r18,r22
- 268 00a0 3707      		cpc r19,r23
- 269 00a2 00F4      		brsh .L7
- 270               		.loc 1 204 0 is_stmt 0 discriminator 1
- 271 00a4 1D01      		movw r2,r26
- 272 00a6 64E0      		ldi r22,4
- 273 00a8 261A      		sub r2,r22
- 274 00aa 3108      		sbc r3,__zero_reg__
- 275 00ac BF01      		movw r22,r30
- 276 00ae 621B      		sub r22,r18
- 277 00b0 730B      		sbc r23,r19
- 278 00b2 620D      		add r22,r2
- 279 00b4 731D      		adc r23,r3
- 280 00b6 7595      		asr r23
- 281 00b8 6795      		ror r22
- 282 00ba 7595      		asr r23
- 283 00bc 6795      		ror r22
- 284 00be 6C15      		cp r22,r12
- 285 00c0 7D05      		cpc r23,r13
- 286 00c2 00F4      		brsh .L19
- 287               	.L7:
- 196:../../../os/common/oslib/src/chheap.c ****   while (H_NEXT(qp) != NULL) {
- 288               		.loc 1 196 0 is_stmt 1
- 289 00c4 EF01      		movw r28,r30
- 290               	.LVL16:
- 291 00c6 E881      		ld r30,Y
- 292 00c8 F981      		ldd r31,Y+1
- 293               	.LVL17:
- 294 00ca 3097      		sbiw r30,0
- 295 00cc 01F4      		brne .L13
- 296               	.LVL18:
- 297               	.L18:
+ 287               		.loc 1 204 5 is_stmt 1 view .LVU55
+ 288               		.loc 1 204 16 is_stmt 0 view .LVU56
+ 289 0088 8281      		ldd r24,Z+2
+ 290 008a 9381      		ldd r25,Z+3
+ 291 008c 9C01      		movw r18,r24
+ 292 008e 2F5F      		subi r18,-1
+ 293 0090 3F4F      		sbci r19,-1
+ 294 0092 220F      		lsl r18
+ 295 0094 331F      		rol r19
+ 296 0096 220F      		lsl r18
+ 297 0098 331F      		rol r19
+ 298 009a 2E0F      		add r18,r30
+ 299 009c 3F1F      		adc r19,r31
+ 300               		.loc 1 204 8 view .LVU57
+ 301 009e 4217      		cp r20,r18
+ 302 00a0 5307      		cpc r21,r19
+ 303 00a2 00F4      		brsh .L8
+ 304               		.loc 1 204 42 discriminator 1 view .LVU58
+ 305 00a4 B901      		movw r22,r18
+ 306 00a6 6C1B      		sub r22,r28
+ 307 00a8 7D0B      		sbc r23,r29
+ 308 00aa 7595      		asr r23
+ 309 00ac 6795      		ror r22
+ 310 00ae 7595      		asr r23
+ 311 00b0 6795      		ror r22
+ 312               		.loc 1 204 29 discriminator 1 view .LVU59
+ 313 00b2 6215      		cp r22,r2
+ 314 00b4 7305      		cpc r23,r3
+ 315 00b6 00F4      		brsh .L20
+ 316               	.L8:
+ 317               	.LBB2:
  205:../../../os/common/oslib/src/chheap.c ****       /* The block is large enough to contain a correctly aligned area
  206:../../../os/common/oslib/src/chheap.c ****          of sufficient size.*/
  207:../../../os/common/oslib/src/chheap.c **** 
@@ -536,6 +557,23 @@
  241:../../../os/common/oslib/src/chheap.c ****           H_NEXT(fp) = H_NEXT(hp);
  242:../../../os/common/oslib/src/chheap.c ****           H_PAGES(fp) = NPAGES(H_LIMIT(hp), H_BLOCK(fp));
  243:../../../os/common/oslib/src/chheap.c ****           H_NEXT(qp) = fp;
+ 318               		.loc 1 243 22 view .LVU60
+ 319 00b8 DF01      		movw r26,r30
+ 320               	.LVL16:
+ 321               		.loc 1 243 22 view .LVU61
+ 322               	.LBE2:
+ 196:../../../os/common/oslib/src/chheap.c **** 
+ 323               		.loc 1 196 10 view .LVU62
+ 324 00ba ED91      		ld r30,X+
+ 325 00bc FC91      		ld r31,X
+ 326 00be 1197      		sbiw r26,1
+ 327               	.LVL17:
+ 196:../../../os/common/oslib/src/chheap.c **** 
+ 328               		.loc 1 196 9 view .LVU63
+ 329 00c0 3097      		sbiw r30,0
+ 330 00c2 01F4      		brne .L13
+ 331               	.LVL18:
+ 332               	.L19:
  244:../../../os/common/oslib/src/chheap.c ****         }
  245:../../../os/common/oslib/src/chheap.c ****       }
  246:../../../os/common/oslib/src/chheap.c **** 
@@ -557,275 +595,343 @@
  262:../../../os/common/oslib/src/chheap.c **** 
  263:../../../os/common/oslib/src/chheap.c ****   /* Releasing heap mutex/semaphore.*/
  264:../../../os/common/oslib/src/chheap.c ****   H_UNLOCK(heapp);
- 298               		.loc 1 264 0
- 299 00ce C401      		movw r24,r8
- 300 00d0 0E94 0000 		call chMtxUnlock
- 301               	.LVL19:
+ 333               		.loc 1 264 3 is_stmt 1 view .LVU64
+ 334 00c4 C301      		movw r24,r6
+ 335 00c6 0E94 0000 		call chMtxUnlock
+ 336               	.LVL19:
  265:../../../os/common/oslib/src/chheap.c **** 
  266:../../../os/common/oslib/src/chheap.c ****   /* More memory is required, tries to get it from the associated provider
  267:../../../os/common/oslib/src/chheap.c ****      else fails.*/
  268:../../../os/common/oslib/src/chheap.c ****   if (heapp->provider != NULL) {
- 302               		.loc 1 268 0
- 303 00d4 D501      		movw r26,r10
- 304 00d6 ED91      		ld r30,X+
- 305 00d8 FC91      		ld r31,X
- 306 00da 3097      		sbiw r30,0
- 307 00dc 01F4      		brne .+2
- 308 00de 00C0      		rjmp .L15
+ 337               		.loc 1 268 3 view .LVU65
+ 338               		.loc 1 268 12 is_stmt 0 view .LVU66
+ 339 00ca D501      		movw r26,r10
+ 340 00cc ED91      		ld r30,X+
+ 341 00ce FC91      		ld r31,X
+ 342               		.loc 1 268 6 view .LVU67
+ 343 00d0 3097      		sbiw r30,0
+ 344 00d2 01F4      		brne .+2
+ 345 00d4 00C0      		rjmp .L14
  269:../../../os/common/oslib/src/chheap.c ****     ahp = heapp->provider((pages + 1U) * CH_HEAP_ALIGNMENT,
- 309               		.loc 1 269 0
- 310 00e0 C601      		movw r24,r12
- 311 00e2 0196      		adiw r24,1
- 312 00e4 44E0      		ldi r20,lo8(4)
- 313 00e6 50E0      		ldi r21,0
- 314 00e8 B701      		movw r22,r14
- 315 00ea 880F      		lsl r24
- 316 00ec 991F      		rol r25
- 317 00ee 880F      		lsl r24
- 318 00f0 991F      		rol r25
- 319 00f2 0995      		icall
- 320               	.LVL20:
+ 346               		.loc 1 269 5 is_stmt 1 view .LVU68
+ 347               		.loc 1 269 11 is_stmt 0 view .LVU69
+ 348 00d6 C101      		movw r24,r2
+ 349 00d8 0196      		adiw r24,1
+ 350 00da 44E0      		ldi r20,lo8(4)
+ 351 00dc 50E0      		ldi r21,0
+ 352 00de B401      		movw r22,r8
+ 353 00e0 880F      		lsl r24
+ 354 00e2 991F      		rol r25
+ 355 00e4 880F      		lsl r24
+ 356 00e6 991F      		rol r25
+ 357 00e8 0995      		icall
+ 358               	.LVL20:
+ 359 00ea EC01      		movw r28,r24
+ 360               	.LVL21:
  270:../../../os/common/oslib/src/chheap.c ****                           align,
  271:../../../os/common/oslib/src/chheap.c ****                           sizeof (heap_header_t));
  272:../../../os/common/oslib/src/chheap.c ****     if (ahp != NULL) {
- 321               		.loc 1 272 0
- 322 00f4 0097      		sbiw r24,0
- 323 00f6 01F4      		brne .+2
- 324 00f8 00C0      		rjmp .L15
- 325               	.LVL21:
+ 361               		.loc 1 272 5 is_stmt 1 view .LVU70
+ 362               		.loc 1 272 8 is_stmt 0 view .LVU71
+ 363 00ec 0097      		sbiw r24,0
+ 364 00ee 01F0      		breq .L4
  273:../../../os/common/oslib/src/chheap.c ****       hp = ahp - 1U;
+ 365               		.loc 1 273 7 is_stmt 1 view .LVU72
+ 366               	.LVL22:
  274:../../../os/common/oslib/src/chheap.c ****       H_HEAP(hp) = heapp;
- 326               		.loc 1 274 0
- 327 00fa FC01      		movw r30,r24
- 328 00fc 3497      		sbiw r30,4
- 329               	.LVL22:
- 330 00fe B182      		std Z+1,r11
- 331 0100 A082      		st Z,r10
+ 367               		.loc 1 274 7 view .LVU73
+ 368               		.loc 1 274 18 is_stmt 0 view .LVU74
+ 369 00f0 FC01      		movw r30,r24
+ 370 00f2 3497      		sbiw r30,4
+ 371               	.LVL23:
+ 372               		.loc 1 274 18 view .LVU75
+ 373 00f4 B182      		std Z+1,r11
+ 374 00f6 A082      		st Z,r10
  275:../../../os/common/oslib/src/chheap.c ****       H_SIZE(hp) = size;
- 332               		.loc 1 275 0
- 333 0102 7382      		std Z+3,r7
- 334 0104 6282      		std Z+2,r6
- 335               	.LVL23:
- 336               	.L12:
- 337               	/* epilogue start */
+ 375               		.loc 1 275 7 is_stmt 1 view .LVU76
+ 376               		.loc 1 275 18 is_stmt 0 view .LVU77
+ 377 00f8 5382      		std Z+3,r5
+ 378 00fa 4282      		std Z+2,r4
  276:../../../os/common/oslib/src/chheap.c **** 
  277:../../../os/common/oslib/src/chheap.c ****       /*lint -save -e9087 [11.3] Safe cast.*/
  278:../../../os/common/oslib/src/chheap.c ****       return (void *)ahp;
+ 379               		.loc 1 278 7 is_stmt 1 view .LVU78
+ 380               	.LVL24:
+ 381               	.L4:
  279:../../../os/common/oslib/src/chheap.c ****       /*lint -restore*/
  280:../../../os/common/oslib/src/chheap.c ****     }
  281:../../../os/common/oslib/src/chheap.c ****   }
  282:../../../os/common/oslib/src/chheap.c **** 
  283:../../../os/common/oslib/src/chheap.c ****   return NULL;
  284:../../../os/common/oslib/src/chheap.c **** }
- 338               		.loc 1 284 0
- 339 0106 DF91      		pop r29
- 340 0108 CF91      		pop r28
- 341               	.LVL24:
- 342 010a 1F91      		pop r17
- 343 010c 0F91      		pop r16
- 344 010e FF90      		pop r15
- 345 0110 EF90      		pop r14
- 346 0112 DF90      		pop r13
- 347 0114 CF90      		pop r12
- 348 0116 BF90      		pop r11
- 349 0118 AF90      		pop r10
- 350               	.LVL25:
- 351 011a 9F90      		pop r9
- 352 011c 8F90      		pop r8
- 353               	.LVL26:
- 354 011e 7F90      		pop r7
- 355 0120 6F90      		pop r6
- 356               	.LVL27:
- 357 0122 5F90      		pop r5
- 358 0124 4F90      		pop r4
- 359 0126 3F90      		pop r3
- 360 0128 2F90      		pop r2
- 361 012a 0895      		ret
- 362               	.LVL28:
- 363               	.L19:
- 364 012c 7901      		movw r14,r18
- 365               	.LVL29:
- 202:../../../os/common/oslib/src/chheap.c **** 
- 366               		.loc 1 202 0
- 367 012e 2A01      		movw r4,r20
+ 382               		.loc 1 284 1 is_stmt 0 view .LVU79
+ 383 00fc CE01      		movw r24,r28
+ 384               	/* epilogue start */
+ 385 00fe DF91      		pop r29
+ 386 0100 CF91      		pop r28
+ 387 0102 1F91      		pop r17
+ 388 0104 0F91      		pop r16
+ 389 0106 FF90      		pop r15
+ 390 0108 EF90      		pop r14
+ 391 010a DF90      		pop r13
+ 392 010c CF90      		pop r12
+ 393 010e BF90      		pop r11
+ 394 0110 AF90      		pop r10
+ 395               	.LVL25:
+ 396               		.loc 1 284 1 view .LVU80
+ 397 0112 9F90      		pop r9
+ 398 0114 8F90      		pop r8
+ 399               	.LVL26:
+ 400               		.loc 1 284 1 view .LVU81
+ 401 0116 7F90      		pop r7
+ 402 0118 6F90      		pop r6
+ 403               	.LVL27:
+ 404               		.loc 1 284 1 view .LVU82
+ 405 011a 5F90      		pop r5
+ 406 011c 4F90      		pop r4
+ 407               	.LVL28:
+ 408               		.loc 1 284 1 view .LVU83
+ 409 011e 3F90      		pop r3
+ 410 0120 2F90      		pop r2
+ 411               	.LVL29:
+ 412               		.loc 1 284 1 view .LVU84
+ 413 0122 0895      		ret
+ 414               	.LVL30:
+ 415               	.L20:
  208:../../../os/common/oslib/src/chheap.c ****         /* The block is not properly aligned, must split it.*/
- 368               		.loc 1 208 0
- 369 0130 E217      		cp r30,r18
- 370 0132 F307      		cpc r31,r19
- 371 0134 00F4      		brsh .L8
- 372               	.LVL30:
- 373               	.LBB2:
- 213:../../../os/common/oslib/src/chheap.c ****         if (bpages > pages) {
- 374               		.loc 1 213 0
- 375 0136 C901      		movw r24,r18
- 376               	.LVL31:
- 377 0138 841B      		sub r24,r20
- 378 013a 950B      		sbc r25,r21
- 379 013c 9595      		asr r25
- 380 013e 8795      		ror r24
- 381 0140 9595      		asr r25
- 382 0142 8795      		ror r24
- 383 0144 9383      		std Z+3,r25
- 384 0146 8283      		std Z+2,r24
- 214:../../../os/common/oslib/src/chheap.c ****           /* The block is bigger than required, must split the excess.*/
- 385               		.loc 1 214 0
- 386 0148 C616      		cp r12,r22
- 387 014a D706      		cpc r13,r23
- 388 014c 00F4      		brsh .L9
- 389               	.LBB3:
- 219:../../../os/common/oslib/src/chheap.c ****           H_PAGES(fp) = (bpages - pages) - 1U;
- 390               		.loc 1 219 0
- 391 014e D601      		movw r26,r12
- 392 0150 1196      		adiw r26,1
- 393 0152 AA0F      		lsl r26
- 394 0154 BB1F      		rol r27
- 395 0156 AA0F      		lsl r26
- 396 0158 BB1F      		rol r27
- 397 015a A20F      		add r26,r18
- 398 015c B31F      		adc r27,r19
- 399               	.LVL32:
- 400 015e C094      		com r12
- 401 0160 D094      		com r13
- 402               	.LVL33:
- 220:../../../os/common/oslib/src/chheap.c **** 
- 403               		.loc 1 220 0
- 404 0162 6C0D      		add r22,r12
- 405 0164 7D1D      		adc r23,r13
- 406               	.LVL34:
- 407 0166 1396      		adiw r26,2+1
- 408 0168 7C93      		st X,r23
- 409 016a 6E93      		st -X,r22
- 410 016c 1297      		sbiw r26,2
- 223:../../../os/common/oslib/src/chheap.c ****           H_NEXT(hp) = fp;
- 411               		.loc 1 223 0
- 412 016e 8081      		ld r24,Z
- 413 0170 9181      		ldd r25,Z+1
- 414 0172 1196      		adiw r26,1
- 415 0174 9C93      		st X,r25
- 416 0176 8E93      		st -X,r24
- 224:../../../os/common/oslib/src/chheap.c ****         }
- 417               		.loc 1 224 0
- 418 0178 B183      		std Z+1,r27
- 419 017a A083      		st Z,r26
- 420               	.LVL35:
- 421               	.L9:
- 422 017c 2901      		movw r4,r18
- 423 017e 84E0      		ldi r24,4
- 424 0180 480E      		add r4,r24
- 425 0182 511C      		adc r5,__zero_reg__
- 426               	.LBE3:
- 427               	.LBE2:
- 428 0184 00C0      		rjmp .L10
- 429               	.LVL36:
- 430               	.L8:
+ 416               		.loc 1 208 7 is_stmt 1 view .LVU85
+ 417 0124 7F01      		movw r14,r30
+ 418 0126 14E0      		ldi r17,4
+ 419 0128 E10E      		add r14,r17
+ 420 012a F11C      		adc r15,__zero_reg__
+ 208:../../../os/common/oslib/src/chheap.c ****         /* The block is not properly aligned, must split it.*/
+ 421               		.loc 1 208 10 is_stmt 0 view .LVU86
+ 422 012c E417      		cp r30,r20
+ 423 012e F507      		cpc r31,r21
+ 424 0130 00F0      		brlo .L21
  232:../../../os/common/oslib/src/chheap.c ****           /* Exact size, getting the whole block.*/
- 431               		.loc 1 232 0
- 432 0186 C016      		cp r12,r16
- 433 0188 D106      		cpc r13,r17
- 434 018a 01F0      		breq .L20
- 435               	.LBB4:
+ 425               		.loc 1 232 9 is_stmt 1 view .LVU87
+ 426 0132 4081      		ld r20,Z
+ 427 0134 5181      		ldd r21,Z+1
+ 428               	.LVL31:
+ 232:../../../os/common/oslib/src/chheap.c ****           /* Exact size, getting the whole block.*/
+ 429               		.loc 1 232 12 is_stmt 0 view .LVU88
+ 430 0136 8215      		cp r24,r2
+ 431 0138 9305      		cpc r25,r3
+ 432 013a 01F4      		brne .+2
+ 433 013c 00C0      		rjmp .L22
+ 434               	.LBB3:
+ 238:../../../os/common/oslib/src/chheap.c **** 
+ 435               		.loc 1 238 11 is_stmt 1 view .LVU89
  240:../../../os/common/oslib/src/chheap.c ****           H_NEXT(fp) = H_NEXT(hp);
- 436               		.loc 1 240 0
- 437 018c C601      		movw r24,r12
- 438               	.LVL37:
- 439 018e 0196      		adiw r24,1
- 440 0190 880F      		lsl r24
- 441 0192 991F      		rol r25
- 442 0194 880F      		lsl r24
- 443 0196 991F      		rol r25
- 444 0198 8E0F      		add r24,r30
- 445 019a 9F1F      		adc r25,r31
- 446               	.LVL38:
+ 436               		.loc 1 240 11 view .LVU90
+ 240:../../../os/common/oslib/src/chheap.c ****           H_NEXT(fp) = H_NEXT(hp);
+ 437               		.loc 1 240 28 is_stmt 0 view .LVU91
+ 438 013e E101      		movw r28,r2
+ 439               	.LVL32:
+ 240:../../../os/common/oslib/src/chheap.c ****           H_NEXT(fp) = H_NEXT(hp);
+ 440               		.loc 1 240 28 view .LVU92
+ 441 0140 2196      		adiw r28,1
+ 442 0142 CC0F      		lsl r28
+ 443 0144 DD1F      		rol r29
+ 444 0146 CC0F      		lsl r28
+ 445 0148 DD1F      		rol r29
+ 240:../../../os/common/oslib/src/chheap.c ****           H_NEXT(fp) = H_NEXT(hp);
+ 446               		.loc 1 240 14 view .LVU93
+ 447 014a CE0F      		add r28,r30
+ 448 014c DF1F      		adc r29,r31
+ 449               	.LVL33:
  241:../../../os/common/oslib/src/chheap.c ****           H_PAGES(fp) = NPAGES(H_LIMIT(hp), H_BLOCK(fp));
- 447               		.loc 1 241 0
- 448 019c 2081      		ld r18,Z
- 449 019e 3181      		ldd r19,Z+1
- 450 01a0 DC01      		movw r26,r24
- 451 01a2 2D93      		st X+,r18
- 452 01a4 3C93      		st X,r19
+ 450               		.loc 1 241 11 is_stmt 1 view .LVU94
+ 241:../../../os/common/oslib/src/chheap.c ****           H_PAGES(fp) = NPAGES(H_LIMIT(hp), H_BLOCK(fp));
+ 451               		.loc 1 241 22 is_stmt 0 view .LVU95
+ 452 014e 5983      		std Y+1,r21
+ 453 0150 4883      		st Y,r20
  242:../../../os/common/oslib/src/chheap.c ****           H_NEXT(qp) = fp;
- 453               		.loc 1 242 0
- 454 01a6 9F01      		movw r18,r30
- 455 01a8 281B      		sub r18,r24
- 456 01aa 390B      		sbc r19,r25
- 457 01ac D101      		movw r26,r2
- 458 01ae A20F      		add r26,r18
- 459 01b0 B31F      		adc r27,r19
- 460 01b2 9D01      		movw r18,r26
- 461 01b4 3595      		asr r19
- 462 01b6 2795      		ror r18
- 463 01b8 3595      		asr r19
- 464 01ba 2795      		ror r18
- 465 01bc DC01      		movw r26,r24
- 466 01be 1396      		adiw r26,2+1
- 467 01c0 3C93      		st X,r19
- 468 01c2 2E93      		st -X,r18
- 469 01c4 1297      		sbiw r26,2
+ 454               		.loc 1 242 11 is_stmt 1 view .LVU96
+ 242:../../../os/common/oslib/src/chheap.c ****           H_NEXT(qp) = fp;
+ 455               		.loc 1 242 25 is_stmt 0 view .LVU97
+ 456 0152 CE01      		movw r24,r28
+ 457 0154 0496      		adiw r24,4
+ 458 0156 281B      		sub r18,r24
+ 459 0158 390B      		sbc r19,r25
+ 460 015a 3595      		asr r19
+ 461 015c 2795      		ror r18
+ 462 015e 3595      		asr r19
+ 463 0160 2795      		ror r18
+ 242:../../../os/common/oslib/src/chheap.c ****           H_NEXT(qp) = fp;
+ 464               		.loc 1 242 23 view .LVU98
+ 465 0162 3B83      		std Y+3,r19
+ 466 0164 2A83      		std Y+2,r18
  243:../../../os/common/oslib/src/chheap.c ****         }
- 470               		.loc 1 243 0
- 471 01c6 9983      		std Y+1,r25
- 472 01c8 8883      		st Y,r24
- 473               	.LBE4:
- 196:../../../os/common/oslib/src/chheap.c **** 
- 474               		.loc 1 196 0
- 475 01ca 7F01      		movw r14,r30
- 476               	.LVL39:
- 477               	.L10:
+ 467               		.loc 1 243 11 is_stmt 1 view .LVU99
+ 243:../../../os/common/oslib/src/chheap.c ****         }
+ 468               		.loc 1 243 22 is_stmt 0 view .LVU100
+ 469 0166 CD93      		st X+,r28
+ 470 0168 DC93      		st X,r29
+ 471 016a E701      		movw r28,r14
+ 472               	.LVL34:
+ 243:../../../os/common/oslib/src/chheap.c ****         }
+ 473               		.loc 1 243 22 view .LVU101
+ 474 016c AF01      		movw r20,r30
+ 475               	.LVL35:
+ 476               	.L10:
+ 243:../../../os/common/oslib/src/chheap.c ****         }
+ 477               		.loc 1 243 22 view .LVU102
+ 478               	.LBE3:
  248:../../../os/common/oslib/src/chheap.c ****       H_HEAP(hp) = heapp;
- 478               		.loc 1 248 0
- 479 01cc F701      		movw r30,r14
- 480 01ce 7382      		std Z+3,r7
- 481 01d0 6282      		std Z+2,r6
+ 479               		.loc 1 248 7 is_stmt 1 view .LVU103
+ 248:../../../os/common/oslib/src/chheap.c ****       H_HEAP(hp) = heapp;
+ 480               		.loc 1 248 18 is_stmt 0 view .LVU104
+ 481 016e DA01      		movw r26,r20
+ 482 0170 1396      		adiw r26,2+1
+ 483 0172 5C92      		st X,r5
+ 484 0174 4E92      		st -X,r4
+ 485 0176 1297      		sbiw r26,2
  249:../../../os/common/oslib/src/chheap.c **** 
- 482               		.loc 1 249 0
- 483 01d2 B182      		std Z+1,r11
- 484 01d4 A082      		st Z,r10
+ 486               		.loc 1 249 7 is_stmt 1 view .LVU105
+ 249:../../../os/common/oslib/src/chheap.c **** 
+ 487               		.loc 1 249 18 is_stmt 0 view .LVU106
+ 488 0178 AD92      		st X+,r10
+ 489 017a BC92      		st X,r11
  252:../../../os/common/oslib/src/chheap.c **** 
- 485               		.loc 1 252 0
- 486 01d6 C401      		movw r24,r8
- 487 01d8 0E94 0000 		call chMtxUnlock
- 488               	.LVL40:
+ 490               		.loc 1 252 7 is_stmt 1 view .LVU107
+ 491 017c C301      		movw r24,r6
+ 492 017e 0E94 0000 		call chMtxUnlock
+ 493               	.LVL36:
  255:../../../os/common/oslib/src/chheap.c ****       /*lint -restore*/
- 489               		.loc 1 255 0
- 490 01dc C201      		movw r24,r4
- 491 01de 00C0      		rjmp .L12
- 492               	.LVL41:
- 493               	.L17:
+ 494               		.loc 1 255 7 view .LVU108
+ 255:../../../os/common/oslib/src/chheap.c ****       /*lint -restore*/
+ 495               		.loc 1 255 14 is_stmt 0 view .LVU109
+ 496 0182 00C0      		rjmp .L4
+ 497               	.LVL37:
+ 498               	.L18:
  180:../../../os/common/oslib/src/chheap.c ****   }
- 494               		.loc 1 180 0
- 495 01e0 F0E0      		ldi r31,lo8(default_heap)
- 496 01e2 AF2E      		mov r10,r31
- 497 01e4 F0E0      		ldi r31,hi8(default_heap)
- 498 01e6 BF2E      		mov r11,r31
- 499               	.LVL42:
- 500 01e8 00C0      		rjmp .L4
- 501               	.LVL43:
- 502               	.L20:
- 234:../../../os/common/oslib/src/chheap.c ****         }
- 503               		.loc 1 234 0
- 504 01ea 8081      		ld r24,Z
- 505 01ec 9181      		ldd r25,Z+1
- 506               	.LVL44:
- 507 01ee 9983      		std Y+1,r25
- 508 01f0 8883      		st Y,r24
- 196:../../../os/common/oslib/src/chheap.c **** 
- 509               		.loc 1 196 0
- 510 01f2 7F01      		movw r14,r30
- 511               	.LVL45:
- 512 01f4 00C0      		rjmp .L10
- 513               	.LVL46:
- 514               	.L15:
+ 499               		.loc 1 180 11 view .LVU110
+ 500 0184 20E0      		ldi r18,lo8(default_heap)
+ 501 0186 A22E      		mov r10,r18
+ 502 0188 20E0      		ldi r18,hi8(default_heap)
+ 503 018a B22E      		mov r11,r18
+ 504               	.LVL38:
+ 180:../../../os/common/oslib/src/chheap.c ****   }
+ 505               		.loc 1 180 11 view .LVU111
+ 506 018c 00C0      		rjmp .L5
+ 507               	.LVL39:
+ 508               	.L21:
+ 509               	.LBB4:
+ 210:../../../os/common/oslib/src/chheap.c **** 
+ 510               		.loc 1 210 9 is_stmt 1 view .LVU112
+ 212:../../../os/common/oslib/src/chheap.c ****         H_PAGES(hp) = NPAGES(ahp, H_BLOCK(hp));
+ 511               		.loc 1 212 9 view .LVU113
+ 213:../../../os/common/oslib/src/chheap.c ****         if (bpages > pages) {
+ 512               		.loc 1 213 9 view .LVU114
+ 213:../../../os/common/oslib/src/chheap.c ****         if (bpages > pages) {
+ 513               		.loc 1 213 23 is_stmt 0 view .LVU115
+ 514 018e CA01      		movw r24,r20
+ 515 0190 8E19      		sub r24,r14
+ 516 0192 9F09      		sbc r25,r15
+ 517 0194 9595      		asr r25
+ 518 0196 8795      		ror r24
+ 519 0198 9595      		asr r25
+ 520 019a 8795      		ror r24
+ 213:../../../os/common/oslib/src/chheap.c ****         if (bpages > pages) {
+ 521               		.loc 1 213 21 view .LVU116
+ 522 019c 9383      		std Z+3,r25
+ 523 019e 8283      		std Z+2,r24
+ 214:../../../os/common/oslib/src/chheap.c ****           /* The block is bigger than required, must split the excess.*/
+ 524               		.loc 1 214 9 is_stmt 1 view .LVU117
+ 214:../../../os/common/oslib/src/chheap.c ****           /* The block is bigger than required, must split the excess.*/
+ 525               		.loc 1 214 12 is_stmt 0 view .LVU118
+ 526 01a0 2616      		cp r2,r22
+ 527 01a2 3706      		cpc r3,r23
+ 528 01a4 00F4      		brsh .L10
+ 529               	.LBB5:
+ 216:../../../os/common/oslib/src/chheap.c **** 
+ 530               		.loc 1 216 11 is_stmt 1 view .LVU119
+ 219:../../../os/common/oslib/src/chheap.c ****           H_PAGES(fp) = (bpages - pages) - 1U;
+ 531               		.loc 1 219 11 view .LVU120
+ 219:../../../os/common/oslib/src/chheap.c ****           H_PAGES(fp) = (bpages - pages) - 1U;
+ 532               		.loc 1 219 29 is_stmt 0 view .LVU121
+ 533 01a6 D101      		movw r26,r2
+ 534               	.LVL40:
+ 219:../../../os/common/oslib/src/chheap.c ****           H_PAGES(fp) = (bpages - pages) - 1U;
+ 535               		.loc 1 219 29 view .LVU122
+ 536 01a8 1196      		adiw r26,1
+ 537 01aa AA0F      		lsl r26
+ 538 01ac BB1F      		rol r27
+ 539 01ae AA0F      		lsl r26
+ 540 01b0 BB1F      		rol r27
+ 219:../../../os/common/oslib/src/chheap.c ****           H_PAGES(fp) = (bpages - pages) - 1U;
+ 541               		.loc 1 219 14 view .LVU123
+ 542 01b2 A40F      		add r26,r20
+ 543 01b4 B51F      		adc r27,r21
+ 544               	.LVL41:
+ 220:../../../os/common/oslib/src/chheap.c **** 
+ 545               		.loc 1 220 11 is_stmt 1 view .LVU124
+ 220:../../../os/common/oslib/src/chheap.c **** 
+ 546               		.loc 1 220 42 is_stmt 0 view .LVU125
+ 547 01b6 8101      		movw r16,r2
+ 548 01b8 0095      		com r16
+ 549 01ba 1095      		com r17
+ 550 01bc 600F      		add r22,r16
+ 551 01be 711F      		adc r23,r17
+ 552               	.LVL42:
+ 220:../../../os/common/oslib/src/chheap.c **** 
+ 553               		.loc 1 220 23 view .LVU126
+ 554 01c0 1396      		adiw r26,2+1
+ 555 01c2 7C93      		st X,r23
+ 556 01c4 6E93      		st -X,r22
+ 557 01c6 1297      		sbiw r26,2
+ 223:../../../os/common/oslib/src/chheap.c ****           H_NEXT(hp) = fp;
+ 558               		.loc 1 223 11 is_stmt 1 view .LVU127
+ 223:../../../os/common/oslib/src/chheap.c ****           H_NEXT(hp) = fp;
+ 559               		.loc 1 223 24 is_stmt 0 view .LVU128
+ 560 01c8 8081      		ld r24,Z
+ 561 01ca 9181      		ldd r25,Z+1
+ 223:../../../os/common/oslib/src/chheap.c ****           H_NEXT(hp) = fp;
+ 562               		.loc 1 223 22 view .LVU129
+ 563 01cc 1196      		adiw r26,1
+ 564 01ce 9C93      		st X,r25
+ 565 01d0 8E93      		st -X,r24
+ 224:../../../os/common/oslib/src/chheap.c ****         }
+ 566               		.loc 1 224 11 is_stmt 1 view .LVU130
+ 224:../../../os/common/oslib/src/chheap.c ****         }
+ 567               		.loc 1 224 22 is_stmt 0 view .LVU131
+ 568 01d2 B183      		std Z+1,r27
+ 569 01d4 A083      		st Z,r26
+ 570 01d6 00C0      		rjmp .L10
+ 571               	.LVL43:
+ 572               	.L14:
+ 224:../../../os/common/oslib/src/chheap.c ****         }
+ 573               		.loc 1 224 22 view .LVU132
+ 574               	.LBE5:
+ 575               	.LBE4:
  283:../../../os/common/oslib/src/chheap.c **** }
- 515               		.loc 1 283 0
- 516 01f6 80E0      		ldi r24,0
- 517 01f8 90E0      		ldi r25,0
- 518 01fa 00C0      		rjmp .L12
- 519               		.cfi_endproc
- 520               	.LFE143:
- 522               		.section	.text.chHeapFree,"ax",@progbits
- 523               	.global	chHeapFree
- 525               	chHeapFree:
- 526               	.LFB144:
+ 576               		.loc 1 283 10 view .LVU133
+ 577 01d8 D0E0      		ldi r29,0
+ 578 01da C0E0      		ldi r28,0
+ 579 01dc 00C0      		rjmp .L4
+ 580               	.LVL44:
+ 581               	.L22:
+ 234:../../../os/common/oslib/src/chheap.c ****         }
+ 582               		.loc 1 234 11 is_stmt 1 view .LVU134
+ 234:../../../os/common/oslib/src/chheap.c ****         }
+ 583               		.loc 1 234 22 is_stmt 0 view .LVU135
+ 584 01de 4D93      		st X+,r20
+ 585 01e0 5C93      		st X,r21
+ 586 01e2 E701      		movw r28,r14
+ 587               	.LVL45:
+ 234:../../../os/common/oslib/src/chheap.c ****         }
+ 588               		.loc 1 234 22 view .LVU136
+ 589 01e4 AF01      		movw r20,r30
+ 590 01e6 00C0      		rjmp .L10
+ 591               		.cfi_endproc
+ 592               	.LFE143:
+ 594               		.section	.text.chHeapFree,"ax",@progbits
+ 595               	.global	chHeapFree
+ 597               	chHeapFree:
+ 598               	.LVL46:
+ 599               	.LFB144:
  285:../../../os/common/oslib/src/chheap.c **** 
  286:../../../os/common/oslib/src/chheap.c **** /**
  287:../../../os/common/oslib/src/chheap.c ****  * @brief   Frees a previously allocated memory block.
@@ -835,261 +941,284 @@
  291:../../../os/common/oslib/src/chheap.c ****  * @api
  292:../../../os/common/oslib/src/chheap.c ****  */
  293:../../../os/common/oslib/src/chheap.c **** void chHeapFree(void *p) {
- 527               		.loc 1 293 0
- 528               		.cfi_startproc
- 529               	.LVL47:
- 530 0000 EF92      		push r14
- 531               	.LCFI18:
- 532               		.cfi_def_cfa_offset 3
- 533               		.cfi_offset 14, -2
- 534 0002 FF92      		push r15
- 535               	.LCFI19:
- 536               		.cfi_def_cfa_offset 4
- 537               		.cfi_offset 15, -3
- 538 0004 0F93      		push r16
- 539               	.LCFI20:
- 540               		.cfi_def_cfa_offset 5
- 541               		.cfi_offset 16, -4
- 542 0006 1F93      		push r17
- 543               	.LCFI21:
- 544               		.cfi_def_cfa_offset 6
- 545               		.cfi_offset 17, -5
- 546 0008 CF93      		push r28
- 547               	.LCFI22:
- 548               		.cfi_def_cfa_offset 7
- 549               		.cfi_offset 28, -6
- 550 000a DF93      		push r29
- 551               	.LCFI23:
- 552               		.cfi_def_cfa_offset 8
- 553               		.cfi_offset 29, -7
- 554               	/* prologue: function */
- 555               	/* frame size = 0 */
- 556               	/* stack size = 6 */
- 557               	.L__stack_usage = 6
+ 600               		.loc 1 293 26 is_stmt 1 view -0
+ 601               		.cfi_startproc
+ 602               		.loc 1 293 26 is_stmt 0 view .LVU138
+ 603 0000 EF92      		push r14
+ 604               	.LCFI18:
+ 605               		.cfi_def_cfa_offset 3
+ 606               		.cfi_offset 14, -2
+ 607 0002 FF92      		push r15
+ 608               	.LCFI19:
+ 609               		.cfi_def_cfa_offset 4
+ 610               		.cfi_offset 15, -3
+ 611 0004 0F93      		push r16
+ 612               	.LCFI20:
+ 613               		.cfi_def_cfa_offset 5
+ 614               		.cfi_offset 16, -4
+ 615 0006 1F93      		push r17
+ 616               	.LCFI21:
+ 617               		.cfi_def_cfa_offset 6
+ 618               		.cfi_offset 17, -5
+ 619 0008 CF93      		push r28
+ 620               	.LCFI22:
+ 621               		.cfi_def_cfa_offset 7
+ 622               		.cfi_offset 28, -6
+ 623 000a DF93      		push r29
+ 624               	.LCFI23:
+ 625               		.cfi_def_cfa_offset 8
+ 626               		.cfi_offset 29, -7
+ 627               	/* prologue: function */
+ 628               	/* frame size = 0 */
+ 629               	/* stack size = 6 */
+ 630               	.L__stack_usage = 6
  294:../../../os/common/oslib/src/chheap.c ****   heap_header_t *qp, *hp;
+ 631               		.loc 1 294 3 is_stmt 1 view .LVU139
  295:../../../os/common/oslib/src/chheap.c ****   memory_heap_t *heapp;
+ 632               		.loc 1 295 3 view .LVU140
  296:../../../os/common/oslib/src/chheap.c **** 
  297:../../../os/common/oslib/src/chheap.c ****   chDbgCheck((p != NULL) && MEM_IS_ALIGNED(p, CH_HEAP_ALIGNMENT));
+ 633               		.loc 1 297 3 view .LVU141
+ 634               		.loc 1 297 3 view .LVU142
  298:../../../os/common/oslib/src/chheap.c **** 
  299:../../../os/common/oslib/src/chheap.c ****   /*lint -save -e9087 [11.3] Safe cast.*/
  300:../../../os/common/oslib/src/chheap.c ****   hp = (heap_header_t *)p - 1U;
- 558               		.loc 1 300 0
- 559 000c EC01      		movw r28,r24
- 560 000e 2497      		sbiw r28,4
- 561               	.LVL48:
+ 635               		.loc 1 300 3 view .LVU143
+ 636               		.loc 1 300 6 is_stmt 0 view .LVU144
+ 637 000c EC01      		movw r28,r24
+ 638 000e 2497      		sbiw r28,4
+ 639               	.LVL47:
  301:../../../os/common/oslib/src/chheap.c ****   /*lint -restore*/
  302:../../../os/common/oslib/src/chheap.c ****   heapp = H_HEAP(hp);
- 562               		.loc 1 302 0
- 563 0010 E880      		ld r14,Y
- 564 0012 F980      		ldd r15,Y+1
- 565               	.LVL49:
+ 640               		.loc 1 302 3 is_stmt 1 view .LVU145
+ 641               		.loc 1 302 9 is_stmt 0 view .LVU146
+ 642 0010 E880      		ld r14,Y
+ 643 0012 F980      		ldd r15,Y+1
+ 644               	.LVL48:
  303:../../../os/common/oslib/src/chheap.c ****   qp = &heapp->header;
- 566               		.loc 1 303 0
- 567 0014 8701      		movw r16,r14
- 568 0016 0E5F      		subi r16,-2
- 569 0018 1F4F      		sbci r17,-1
- 570               	.LVL50:
+ 645               		.loc 1 303 3 is_stmt 1 view .LVU147
+ 646               		.loc 1 303 6 is_stmt 0 view .LVU148
+ 647 0014 8701      		movw r16,r14
+ 648 0016 0E5F      		subi r16,-2
+ 649 0018 1F4F      		sbci r17,-1
+ 650               	.LVL49:
  304:../../../os/common/oslib/src/chheap.c **** 
  305:../../../os/common/oslib/src/chheap.c ****   /* Size is converted in number of elementary allocation units.*/
  306:../../../os/common/oslib/src/chheap.c ****   H_PAGES(hp) = MEM_ALIGN_NEXT(H_SIZE(hp),
- 571               		.loc 1 306 0
- 572 001a 8A81      		ldd r24,Y+2
- 573 001c 9B81      		ldd r25,Y+3
- 574               	.LVL51:
- 575 001e 0396      		adiw r24,3
+ 651               		.loc 1 306 3 is_stmt 1 view .LVU149
+ 652               		.loc 1 306 17 is_stmt 0 view .LVU150
+ 653 001a 8A81      		ldd r24,Y+2
+ 654 001c 9B81      		ldd r25,Y+3
+ 655               	.LVL50:
+ 656               		.loc 1 306 17 view .LVU151
+ 657 001e 0396      		adiw r24,3
  307:../../../os/common/oslib/src/chheap.c ****                                CH_HEAP_ALIGNMENT) / CH_HEAP_ALIGNMENT;
- 576               		.loc 1 307 0
- 577 0020 9695      		lsr r25
- 578 0022 8795      		ror r24
- 579 0024 9695      		lsr r25
- 580 0026 8795      		ror r24
+ 658               		.loc 1 307 51 view .LVU152
+ 659 0020 9695      		lsr r25
+ 660 0022 8795      		ror r24
+ 661 0024 9695      		lsr r25
+ 662 0026 8795      		ror r24
  306:../../../os/common/oslib/src/chheap.c ****                                CH_HEAP_ALIGNMENT) / CH_HEAP_ALIGNMENT;
- 581               		.loc 1 306 0
- 582 0028 9B83      		std Y+3,r25
- 583 002a 8A83      		std Y+2,r24
+ 663               		.loc 1 306 15 view .LVU153
+ 664 0028 9B83      		std Y+3,r25
+ 665 002a 8A83      		std Y+2,r24
  308:../../../os/common/oslib/src/chheap.c **** 
  309:../../../os/common/oslib/src/chheap.c ****   /* Taking heap mutex/semaphore.*/
  310:../../../os/common/oslib/src/chheap.c ****   H_LOCK(heapp);
- 584               		.loc 1 310 0
- 585 002c 86E0      		ldi r24,6
- 586 002e E80E      		add r14,r24
- 587 0030 F11C      		adc r15,__zero_reg__
- 588               	.LVL52:
- 589 0032 C701      		movw r24,r14
- 590 0034 0E94 0000 		call chMtxLock
- 591               	.LVL53:
+ 666               		.loc 1 310 3 is_stmt 1 view .LVU154
+ 667 002c 86E0      		ldi r24,6
+ 668 002e E80E      		add r14,r24
+ 669 0030 F11C      		adc r15,__zero_reg__
+ 670               	.LVL51:
+ 671               		.loc 1 310 3 is_stmt 0 view .LVU155
+ 672 0032 C701      		movw r24,r14
+ 673 0034 0E94 0000 		call chMtxLock
+ 674               	.LVL52:
  303:../../../os/common/oslib/src/chheap.c **** 
- 592               		.loc 1 303 0
- 593 0038 F801      		movw r30,r16
- 594               	.LVL54:
- 595               	.L28:
+ 675               		.loc 1 303 6 view .LVU156
+ 676 0038 F801      		movw r30,r16
+ 677               	.LVL53:
+ 678               	.L24:
  311:../../../os/common/oslib/src/chheap.c **** 
  312:../../../os/common/oslib/src/chheap.c ****   while (true) {
+ 679               		.loc 1 312 3 is_stmt 1 view .LVU157
  313:../../../os/common/oslib/src/chheap.c ****     chDbgAssert((hp < qp) || (hp >= H_LIMIT(qp)), "within free block");
+ 680               		.loc 1 313 5 view .LVU158
+ 681               		.loc 1 313 5 view .LVU159
  314:../../../os/common/oslib/src/chheap.c **** 
  315:../../../os/common/oslib/src/chheap.c ****     if (((qp == &heapp->header) || (hp > qp)) &&
- 596               		.loc 1 315 0
- 597 003a E017      		cp r30,r16
- 598 003c F107      		cpc r31,r17
- 599 003e 01F0      		breq .L22
- 600               	.L33:
- 601               		.loc 1 315 0 is_stmt 0 discriminator 2
- 602 0040 EC17      		cp r30,r28
- 603 0042 FD07      		cpc r31,r29
- 604 0044 00F0      		brlo .L22
- 605 0046 0190      		ld __tmp_reg__,Z+
- 606 0048 F081      		ld r31,Z
- 607 004a E02D      		mov r30,__tmp_reg__
- 608               	.LVL55:
- 609               		.loc 1 315 0
- 610 004c E017      		cp r30,r16
- 611 004e F107      		cpc r31,r17
- 612 0050 01F4      		brne .L33
- 613               	.L22:
+ 682               		.loc 1 315 5 view .LVU160
+ 683 003a 8081      		ld r24,Z
+ 684 003c 9181      		ldd r25,Z+1
+ 685               		.loc 1 315 8 is_stmt 0 view .LVU161
+ 686 003e E017      		cp r30,r16
+ 687 0040 F107      		cpc r31,r17
+ 688 0042 01F0      		breq .L25
+ 689               		.loc 1 315 33 discriminator 2 view .LVU162
+ 690 0044 EC17      		cp r30,r28
+ 691 0046 FD07      		cpc r31,r29
+ 692 0048 00F4      		brsh .L26
+ 693               	.L25:
+ 694               		.loc 1 315 47 discriminator 3 view .LVU163
+ 695 004a 0097      		sbiw r24,0
+ 696 004c 01F0      		breq .L27
  316:../../../os/common/oslib/src/chheap.c ****         ((H_NEXT(qp) == NULL) || (hp < H_NEXT(qp)))) {
- 614               		.loc 1 316 0 is_stmt 1 discriminator 3
- 615 0052 2081      		ld r18,Z
- 616 0054 3181      		ldd r19,Z+1
- 315:../../../os/common/oslib/src/chheap.c ****         ((H_NEXT(qp) == NULL) || (hp < H_NEXT(qp)))) {
- 617               		.loc 1 315 0 discriminator 3
- 618 0056 2115      		cp r18,__zero_reg__
- 619 0058 3105      		cpc r19,__zero_reg__
- 620 005a 01F0      		breq .L24
- 621               		.loc 1 316 0
- 622 005c C217      		cp r28,r18
- 623 005e D307      		cpc r29,r19
- 624 0060 00F0      		brlo .L24
- 625 0062 F901      		movw r30,r18
- 626               	.LVL56:
+ 697               		.loc 1 316 31 view .LVU164
+ 698 004e C817      		cp r28,r24
+ 699 0050 D907      		cpc r29,r25
+ 700 0052 00F0      		brlo .L27
+ 701               	.L26:
+ 293:../../../os/common/oslib/src/chheap.c ****   heap_header_t *qp, *hp;
+ 702               		.loc 1 293 26 view .LVU165
+ 703 0054 FC01      		movw r30,r24
+ 704               	.LVL54:
+ 293:../../../os/common/oslib/src/chheap.c ****   heap_header_t *qp, *hp;
+ 705               		.loc 1 293 26 view .LVU166
+ 706 0056 00C0      		rjmp .L24
+ 707               	.LVL55:
+ 708               	.L27:
  317:../../../os/common/oslib/src/chheap.c ****       /* Insertion after qp.*/
  318:../../../os/common/oslib/src/chheap.c ****       H_NEXT(hp) = H_NEXT(qp);
+ 709               		.loc 1 318 7 is_stmt 1 view .LVU167
+ 710               		.loc 1 318 18 is_stmt 0 view .LVU168
+ 711 0058 9983      		std Y+1,r25
+ 712 005a 8883      		st Y,r24
  319:../../../os/common/oslib/src/chheap.c ****       H_NEXT(qp) = hp;
+ 713               		.loc 1 319 7 is_stmt 1 view .LVU169
+ 714               		.loc 1 319 18 is_stmt 0 view .LVU170
+ 715 005c D183      		std Z+1,r29
+ 716 005e C083      		st Z,r28
  320:../../../os/common/oslib/src/chheap.c ****       /* Verifies if the newly inserted block should be merged.*/
  321:../../../os/common/oslib/src/chheap.c ****       if (H_LIMIT(hp) == H_NEXT(hp)) {
+ 717               		.loc 1 321 7 is_stmt 1 view .LVU171
+ 718               		.loc 1 321 11 is_stmt 0 view .LVU172
+ 719 0060 8A81      		ldd r24,Y+2
+ 720 0062 9B81      		ldd r25,Y+3
+ 721 0064 0196      		adiw r24,1
+ 722               		.loc 1 321 26 view .LVU173
+ 723 0066 A881      		ld r26,Y
+ 724 0068 B981      		ldd r27,Y+1
+ 725               		.loc 1 321 11 view .LVU174
+ 726 006a 9C01      		movw r18,r24
+ 727 006c 220F      		lsl r18
+ 728 006e 331F      		rol r19
+ 729 0070 220F      		lsl r18
+ 730 0072 331F      		rol r19
+ 731 0074 2C0F      		add r18,r28
+ 732 0076 3D1F      		adc r19,r29
+ 733               		.loc 1 321 10 view .LVU175
+ 734 0078 A217      		cp r26,r18
+ 735 007a B307      		cpc r27,r19
+ 736 007c 01F0      		breq .L33
+ 737               	.L28:
  322:../../../os/common/oslib/src/chheap.c ****         /* Merge with the next block.*/
  323:../../../os/common/oslib/src/chheap.c ****         H_PAGES(hp) += H_PAGES(H_NEXT(hp)) + 1U;
  324:../../../os/common/oslib/src/chheap.c ****         H_NEXT(hp) = H_NEXT(H_NEXT(hp));
  325:../../../os/common/oslib/src/chheap.c ****       }
  326:../../../os/common/oslib/src/chheap.c ****       if ((H_LIMIT(qp) == hp)) {
+ 738               		.loc 1 326 7 is_stmt 1 view .LVU176
+ 739               		.loc 1 326 12 is_stmt 0 view .LVU177
+ 740 007e 2281      		ldd r18,Z+2
+ 741 0080 3381      		ldd r19,Z+3
+ 742 0082 C901      		movw r24,r18
+ 743 0084 0196      		adiw r24,1
+ 744 0086 880F      		lsl r24
+ 745 0088 991F      		rol r25
+ 746 008a 880F      		lsl r24
+ 747 008c 991F      		rol r25
+ 748 008e 8E0F      		add r24,r30
+ 749 0090 9F1F      		adc r25,r31
+ 750               		.loc 1 326 10 view .LVU178
+ 751 0092 C817      		cp r28,r24
+ 752 0094 D907      		cpc r29,r25
+ 753 0096 01F0      		breq .L34
+ 754               	.L29:
  327:../../../os/common/oslib/src/chheap.c ****         /* Merge with the previous block.*/
  328:../../../os/common/oslib/src/chheap.c ****         H_PAGES(qp) += H_PAGES(hp) + 1U;
  329:../../../os/common/oslib/src/chheap.c ****         H_NEXT(qp) = H_NEXT(hp);
  330:../../../os/common/oslib/src/chheap.c ****       }
  331:../../../os/common/oslib/src/chheap.c ****       break;
+ 755               		.loc 1 331 7 is_stmt 1 view .LVU179
  332:../../../os/common/oslib/src/chheap.c ****     }
  333:../../../os/common/oslib/src/chheap.c ****     qp = H_NEXT(qp);
  334:../../../os/common/oslib/src/chheap.c ****   }
- 627               		.loc 1 334 0
- 628 0064 00C0      		rjmp .L28
- 629               	.LVL57:
- 630               	.L24:
- 318:../../../os/common/oslib/src/chheap.c ****       H_NEXT(qp) = hp;
- 631               		.loc 1 318 0
- 632 0066 3983      		std Y+1,r19
- 633 0068 2883      		st Y,r18
- 319:../../../os/common/oslib/src/chheap.c ****       /* Verifies if the newly inserted block should be merged.*/
- 634               		.loc 1 319 0
- 635 006a D183      		std Z+1,r29
- 636 006c C083      		st Z,r28
- 321:../../../os/common/oslib/src/chheap.c ****         /* Merge with the next block.*/
- 637               		.loc 1 321 0
- 638 006e 8A81      		ldd r24,Y+2
- 639 0070 9B81      		ldd r25,Y+3
- 640 0072 DC01      		movw r26,r24
- 641 0074 1196      		adiw r26,1
- 642 0076 AA0F      		lsl r26
- 643 0078 BB1F      		rol r27
- 644 007a AA0F      		lsl r26
- 645 007c BB1F      		rol r27
- 646 007e AC0F      		add r26,r28
- 647 0080 BD1F      		adc r27,r29
- 648 0082 2881      		ld r18,Y
- 649 0084 3981      		ldd r19,Y+1
- 650 0086 A217      		cp r26,r18
- 651 0088 B307      		cpc r27,r19
- 652 008a 01F0      		breq .L34
- 653               	.L26:
- 326:../../../os/common/oslib/src/chheap.c ****         /* Merge with the previous block.*/
- 654               		.loc 1 326 0
- 655 008c 2281      		ldd r18,Z+2
- 656 008e 3381      		ldd r19,Z+3
- 657 0090 C901      		movw r24,r18
- 658 0092 0196      		adiw r24,1
- 659 0094 880F      		lsl r24
- 660 0096 991F      		rol r25
- 661 0098 880F      		lsl r24
- 662 009a 991F      		rol r25
- 663 009c 8E0F      		add r24,r30
- 664 009e 9F1F      		adc r25,r31
- 665 00a0 C817      		cp r28,r24
- 666 00a2 D907      		cpc r29,r25
- 667 00a4 01F0      		breq .L35
- 668               	.L27:
  335:../../../os/common/oslib/src/chheap.c **** 
  336:../../../os/common/oslib/src/chheap.c ****   /* Releasing heap mutex/semaphore.*/
  337:../../../os/common/oslib/src/chheap.c ****   H_UNLOCK(heapp);
- 669               		.loc 1 337 0
- 670 00a6 C701      		movw r24,r14
- 671               	/* epilogue start */
+ 756               		.loc 1 337 3 view .LVU180
+ 757 0098 C701      		movw r24,r14
+ 758               	/* epilogue start */
  338:../../../os/common/oslib/src/chheap.c **** 
  339:../../../os/common/oslib/src/chheap.c ****   return;
  340:../../../os/common/oslib/src/chheap.c **** }
- 672               		.loc 1 340 0
- 673 00a8 DF91      		pop r29
- 674 00aa CF91      		pop r28
- 675               	.LVL58:
- 676 00ac 1F91      		pop r17
- 677 00ae 0F91      		pop r16
- 678 00b0 FF90      		pop r15
- 679 00b2 EF90      		pop r14
- 680               	.LVL59:
+ 759               		.loc 1 340 1 is_stmt 0 view .LVU181
+ 760 009a DF91      		pop r29
+ 761 009c CF91      		pop r28
+ 762               	.LVL56:
+ 763               		.loc 1 340 1 view .LVU182
+ 764 009e 1F91      		pop r17
+ 765 00a0 0F91      		pop r16
+ 766 00a2 FF90      		pop r15
+ 767 00a4 EF90      		pop r14
+ 768               	.LVL57:
  337:../../../os/common/oslib/src/chheap.c **** 
- 681               		.loc 1 337 0
- 682 00b4 0C94 0000 		jmp chMtxUnlock
- 683               	.LVL60:
- 684               	.L34:
+ 769               		.loc 1 337 3 view .LVU183
+ 770 00a6 0C94 0000 		jmp chMtxUnlock
+ 771               	.LVL58:
+ 772               	.L33:
  323:../../../os/common/oslib/src/chheap.c ****         H_NEXT(hp) = H_NEXT(H_NEXT(hp));
- 685               		.loc 1 323 0
- 686 00b8 1296      		adiw r26,2
- 687 00ba 2D91      		ld r18,X+
- 688 00bc 3C91      		ld r19,X
- 689 00be 1397      		sbiw r26,2+1
- 690 00c0 820F      		add r24,r18
- 691 00c2 931F      		adc r25,r19
- 692 00c4 0196      		adiw r24,1
- 693 00c6 9B83      		std Y+3,r25
- 694 00c8 8A83      		std Y+2,r24
+ 773               		.loc 1 323 9 is_stmt 1 view .LVU184
+ 323:../../../os/common/oslib/src/chheap.c ****         H_NEXT(hp) = H_NEXT(H_NEXT(hp));
+ 774               		.loc 1 323 21 is_stmt 0 view .LVU185
+ 775 00aa 1296      		adiw r26,2
+ 776 00ac 2D91      		ld r18,X+
+ 777 00ae 3C91      		ld r19,X
+ 778 00b0 1397      		sbiw r26,2+1
+ 779 00b2 820F      		add r24,r18
+ 780 00b4 931F      		adc r25,r19
+ 781 00b6 9B83      		std Y+3,r25
+ 782 00b8 8A83      		std Y+2,r24
  324:../../../os/common/oslib/src/chheap.c ****       }
- 695               		.loc 1 324 0
- 696 00ca 8D91      		ld r24,X+
- 697 00cc 9C91      		ld r25,X
- 698 00ce 9983      		std Y+1,r25
- 699 00d0 8883      		st Y,r24
- 700 00d2 00C0      		rjmp .L26
- 701               	.L35:
+ 783               		.loc 1 324 9 is_stmt 1 view .LVU186
+ 324:../../../os/common/oslib/src/chheap.c ****       }
+ 784               		.loc 1 324 22 is_stmt 0 view .LVU187
+ 785 00ba 8D91      		ld r24,X+
+ 786 00bc 9C91      		ld r25,X
+ 324:../../../os/common/oslib/src/chheap.c ****       }
+ 787               		.loc 1 324 20 view .LVU188
+ 788 00be 9983      		std Y+1,r25
+ 789 00c0 8883      		st Y,r24
+ 790 00c2 00C0      		rjmp .L28
+ 791               	.L34:
  328:../../../os/common/oslib/src/chheap.c ****         H_NEXT(qp) = H_NEXT(hp);
- 702               		.loc 1 328 0
- 703 00d4 8A81      		ldd r24,Y+2
- 704 00d6 9B81      		ldd r25,Y+3
- 705 00d8 280F      		add r18,r24
- 706 00da 391F      		adc r19,r25
- 707 00dc 2F5F      		subi r18,-1
- 708 00de 3F4F      		sbci r19,-1
- 709 00e0 3383      		std Z+3,r19
- 710 00e2 2283      		std Z+2,r18
+ 792               		.loc 1 328 9 is_stmt 1 view .LVU189
+ 328:../../../os/common/oslib/src/chheap.c ****         H_NEXT(qp) = H_NEXT(hp);
+ 793               		.loc 1 328 21 is_stmt 0 view .LVU190
+ 794 00c4 8A81      		ldd r24,Y+2
+ 795 00c6 9B81      		ldd r25,Y+3
+ 796 00c8 0196      		adiw r24,1
+ 797 00ca 280F      		add r18,r24
+ 798 00cc 391F      		adc r19,r25
+ 799 00ce 3383      		std Z+3,r19
+ 800 00d0 2283      		std Z+2,r18
  329:../../../os/common/oslib/src/chheap.c ****       }
- 711               		.loc 1 329 0
- 712 00e4 8881      		ld r24,Y
- 713 00e6 9981      		ldd r25,Y+1
- 714 00e8 9183      		std Z+1,r25
- 715 00ea 8083      		st Z,r24
- 716 00ec 00C0      		rjmp .L27
- 717               		.cfi_endproc
- 718               	.LFE144:
- 720               		.section	.text.chHeapStatus,"ax",@progbits
- 721               	.global	chHeapStatus
- 723               	chHeapStatus:
- 724               	.LFB145:
+ 801               		.loc 1 329 9 is_stmt 1 view .LVU191
+ 329:../../../os/common/oslib/src/chheap.c ****       }
+ 802               		.loc 1 329 22 is_stmt 0 view .LVU192
+ 803 00d2 8881      		ld r24,Y
+ 804 00d4 9981      		ldd r25,Y+1
+ 329:../../../os/common/oslib/src/chheap.c ****       }
+ 805               		.loc 1 329 20 view .LVU193
+ 806 00d6 9183      		std Z+1,r25
+ 807 00d8 8083      		st Z,r24
+ 808 00da 00C0      		rjmp .L29
+ 809               		.cfi_endproc
+ 810               	.LFE144:
+ 812               		.section	.text.chHeapStatus,"ax",@progbits
+ 813               	.global	chHeapStatus
+ 815               	chHeapStatus:
+ 816               	.LVL59:
+ 817               	.LFB145:
  341:../../../os/common/oslib/src/chheap.c **** 
  342:../../../os/common/oslib/src/chheap.c **** /**
  343:../../../os/common/oslib/src/chheap.c ****  * @brief   Reports the heap status.
@@ -1107,135 +1236,145 @@
  355:../../../os/common/oslib/src/chheap.c ****  * @api
  356:../../../os/common/oslib/src/chheap.c ****  */
  357:../../../os/common/oslib/src/chheap.c **** size_t chHeapStatus(memory_heap_t *heapp, size_t *totalp, size_t *largestp) {
- 725               		.loc 1 357 0
- 726               		.cfi_startproc
- 727               	.LVL61:
- 728 0000 CF92      		push r12
- 729               	.LCFI24:
- 730               		.cfi_def_cfa_offset 3
- 731               		.cfi_offset 12, -2
- 732 0002 DF92      		push r13
- 733               	.LCFI25:
- 734               		.cfi_def_cfa_offset 4
- 735               		.cfi_offset 13, -3
- 736 0004 EF92      		push r14
- 737               	.LCFI26:
- 738               		.cfi_def_cfa_offset 5
- 739               		.cfi_offset 14, -4
- 740 0006 FF92      		push r15
- 741               	.LCFI27:
- 742               		.cfi_def_cfa_offset 6
- 743               		.cfi_offset 15, -5
- 744 0008 0F93      		push r16
- 745               	.LCFI28:
- 746               		.cfi_def_cfa_offset 7
- 747               		.cfi_offset 16, -6
- 748 000a 1F93      		push r17
- 749               	.LCFI29:
- 750               		.cfi_def_cfa_offset 8
- 751               		.cfi_offset 17, -7
- 752 000c CF93      		push r28
- 753               	.LCFI30:
- 754               		.cfi_def_cfa_offset 9
- 755               		.cfi_offset 28, -8
- 756 000e DF93      		push r29
- 757               	.LCFI31:
- 758               		.cfi_def_cfa_offset 10
- 759               		.cfi_offset 29, -9
- 760               	/* prologue: function */
- 761               	/* frame size = 0 */
- 762               	/* stack size = 8 */
- 763               	.L__stack_usage = 8
- 764 0010 EC01      		movw r28,r24
- 765 0012 7B01      		movw r14,r22
- 766 0014 8A01      		movw r16,r20
+ 818               		.loc 1 357 77 is_stmt 1 view -0
+ 819               		.cfi_startproc
+ 820               		.loc 1 357 77 is_stmt 0 view .LVU195
+ 821 0000 CF92      		push r12
+ 822               	.LCFI24:
+ 823               		.cfi_def_cfa_offset 3
+ 824               		.cfi_offset 12, -2
+ 825 0002 DF92      		push r13
+ 826               	.LCFI25:
+ 827               		.cfi_def_cfa_offset 4
+ 828               		.cfi_offset 13, -3
+ 829 0004 EF92      		push r14
+ 830               	.LCFI26:
+ 831               		.cfi_def_cfa_offset 5
+ 832               		.cfi_offset 14, -4
+ 833 0006 FF92      		push r15
+ 834               	.LCFI27:
+ 835               		.cfi_def_cfa_offset 6
+ 836               		.cfi_offset 15, -5
+ 837 0008 0F93      		push r16
+ 838               	.LCFI28:
+ 839               		.cfi_def_cfa_offset 7
+ 840               		.cfi_offset 16, -6
+ 841 000a 1F93      		push r17
+ 842               	.LCFI29:
+ 843               		.cfi_def_cfa_offset 8
+ 844               		.cfi_offset 17, -7
+ 845 000c CF93      		push r28
+ 846               	.LCFI30:
+ 847               		.cfi_def_cfa_offset 9
+ 848               		.cfi_offset 28, -8
+ 849 000e DF93      		push r29
+ 850               	.LCFI31:
+ 851               		.cfi_def_cfa_offset 10
+ 852               		.cfi_offset 29, -9
+ 853               	/* prologue: function */
+ 854               	/* frame size = 0 */
+ 855               	/* stack size = 8 */
+ 856               	.L__stack_usage = 8
+ 857 0010 EC01      		movw r28,r24
+ 858 0012 6B01      		movw r12,r22
+ 859 0014 7A01      		movw r14,r20
  358:../../../os/common/oslib/src/chheap.c ****   heap_header_t *qp;
+ 860               		.loc 1 358 3 is_stmt 1 view .LVU196
  359:../../../os/common/oslib/src/chheap.c ****   size_t n, tpages, lpages;
+ 861               		.loc 1 359 3 view .LVU197
  360:../../../os/common/oslib/src/chheap.c **** 
  361:../../../os/common/oslib/src/chheap.c ****   if (heapp == NULL) {
- 767               		.loc 1 361 0
- 768 0016 892B      		or r24,r25
- 769 0018 01F4      		brne .+2
- 770 001a 00C0      		rjmp .L49
- 771               	.L37:
- 772               	.LVL62:
+ 862               		.loc 1 361 3 view .LVU198
+ 863               		.loc 1 361 6 is_stmt 0 view .LVU199
+ 864 0016 892B      		or r24,r25
+ 865 0018 01F4      		brne .+2
+ 866 001a 00C0      		rjmp .L50
+ 867               	.L36:
+ 868               	.LVL60:
  362:../../../os/common/oslib/src/chheap.c ****     heapp = &default_heap;
  363:../../../os/common/oslib/src/chheap.c ****   }
  364:../../../os/common/oslib/src/chheap.c **** 
  365:../../../os/common/oslib/src/chheap.c ****   H_LOCK(heapp);
- 773               		.loc 1 365 0
- 774 001c 6E01      		movw r12,r28
- 775 001e 86E0      		ldi r24,6
- 776 0020 C80E      		add r12,r24
- 777 0022 D11C      		adc r13,__zero_reg__
- 778 0024 C601      		movw r24,r12
- 779 0026 0E94 0000 		call chMtxLock
- 780               	.LVL63:
+ 869               		.loc 1 365 3 is_stmt 1 view .LVU200
+ 870 001c 8E01      		movw r16,r28
+ 871 001e 0A5F      		subi r16,-6
+ 872 0020 1F4F      		sbci r17,-1
+ 873 0022 C801      		movw r24,r16
+ 874 0024 0E94 0000 		call chMtxLock
+ 875               	.LVL61:
  366:../../../os/common/oslib/src/chheap.c ****   tpages = 0U;
+ 876               		.loc 1 366 3 view .LVU201
  367:../../../os/common/oslib/src/chheap.c ****   lpages = 0U;
+ 877               		.loc 1 367 3 view .LVU202
  368:../../../os/common/oslib/src/chheap.c ****   n = 0U;
+ 878               		.loc 1 368 3 view .LVU203
  369:../../../os/common/oslib/src/chheap.c ****   qp = &heapp->header;
- 781               		.loc 1 369 0
- 782 002a FE01      		movw r30,r28
- 783 002c 3296      		adiw r30,2
- 784               	.LVL64:
- 367:../../../os/common/oslib/src/chheap.c ****   n = 0U;
- 785               		.loc 1 367 0
- 786 002e 80E0      		ldi r24,0
- 787 0030 90E0      		ldi r25,0
- 366:../../../os/common/oslib/src/chheap.c ****   tpages = 0U;
- 788               		.loc 1 366 0
- 789 0032 A0E0      		ldi r26,0
- 790 0034 B0E0      		ldi r27,0
- 368:../../../os/common/oslib/src/chheap.c ****   qp = &heapp->header;
- 791               		.loc 1 368 0
- 792 0036 C0E0      		ldi r28,0
- 793 0038 D0E0      		ldi r29,0
- 794               	.LVL65:
- 795               	.L38:
+ 879               		.loc 1 369 3 view .LVU204
  370:../../../os/common/oslib/src/chheap.c ****   while (H_NEXT(qp) != NULL) {
- 796               		.loc 1 370 0
- 797 003a 0190      		ld __tmp_reg__,Z+
- 798 003c F081      		ld r31,Z
- 799 003e E02D      		mov r30,__tmp_reg__
- 800               	.LVL66:
- 801 0040 3097      		sbiw r30,0
- 802 0042 01F0      		breq .L50
- 803               	.L40:
- 804               	.LBB5:
+ 880               		.loc 1 370 3 view .LVU205
+ 881               		.loc 1 370 10 is_stmt 0 view .LVU206
+ 882 0028 EA81      		ldd r30,Y+2
+ 883 002a FB81      		ldd r31,Y+3
+ 367:../../../os/common/oslib/src/chheap.c ****   n = 0U;
+ 884               		.loc 1 367 10 view .LVU207
+ 885 002c 50E0      		ldi r21,0
+ 886 002e 40E0      		ldi r20,0
+ 366:../../../os/common/oslib/src/chheap.c ****   lpages = 0U;
+ 887               		.loc 1 366 10 view .LVU208
+ 888 0030 30E0      		ldi r19,0
+ 889 0032 20E0      		ldi r18,0
+ 368:../../../os/common/oslib/src/chheap.c ****   qp = &heapp->header;
+ 890               		.loc 1 368 5 view .LVU209
+ 891 0034 D0E0      		ldi r29,0
+ 892 0036 C0E0      		ldi r28,0
+ 893               	.LVL62:
+ 894               		.loc 1 370 9 view .LVU210
+ 895 0038 3097      		sbiw r30,0
+ 896 003a 01F0      		breq .L37
+ 897               	.LVL63:
+ 898               	.L39:
+ 899               	.LBB6:
  371:../../../os/common/oslib/src/chheap.c ****     size_t pages = H_PAGES(H_NEXT(qp));
- 805               		.loc 1 371 0
- 806 0044 2281      		ldd r18,Z+2
- 807 0046 3381      		ldd r19,Z+3
- 808               	.LVL67:
+ 900               		.loc 1 371 5 is_stmt 1 view .LVU211
+ 901               		.loc 1 371 12 is_stmt 0 view .LVU212
+ 902 003c 8281      		ldd r24,Z+2
+ 903 003e 9381      		ldd r25,Z+3
+ 904               	.LVL64:
  372:../../../os/common/oslib/src/chheap.c **** 
  373:../../../os/common/oslib/src/chheap.c ****     /* Updating counters.*/
  374:../../../os/common/oslib/src/chheap.c ****     n++;
- 809               		.loc 1 374 0
- 810 0048 2196      		adiw r28,1
- 811               	.LVL68:
+ 905               		.loc 1 374 5 is_stmt 1 view .LVU213
+ 906               		.loc 1 374 6 is_stmt 0 view .LVU214
+ 907 0040 2196      		adiw r28,1
+ 908               	.LVL65:
  375:../../../os/common/oslib/src/chheap.c ****     tpages += pages;
- 812               		.loc 1 375 0
- 813 004a A20F      		add r26,r18
- 814 004c B31F      		adc r27,r19
- 815               	.LVL69:
- 816 004e 8217      		cp r24,r18
- 817 0050 9307      		cpc r25,r19
- 818 0052 00F4      		brsh .L38
- 819 0054 C901      		movw r24,r18
- 820               	.LVL70:
- 821               	.LBE5:
- 370:../../../os/common/oslib/src/chheap.c ****     size_t pages = H_PAGES(H_NEXT(qp));
- 822               		.loc 1 370 0
- 823 0056 0190      		ld __tmp_reg__,Z+
- 824 0058 F081      		ld r31,Z
- 825 005a E02D      		mov r30,__tmp_reg__
- 826               	.LVL71:
- 827 005c 3097      		sbiw r30,0
- 828 005e 01F4      		brne .L40
- 829               	.LVL72:
- 830               	.L50:
+ 909               		.loc 1 375 5 is_stmt 1 view .LVU215
+ 910               		.loc 1 375 12 is_stmt 0 view .LVU216
+ 911 0042 280F      		add r18,r24
+ 912 0044 391F      		adc r19,r25
+ 913               	.LVL66:
  376:../../../os/common/oslib/src/chheap.c ****     if (pages > lpages) {
+ 914               		.loc 1 376 5 is_stmt 1 view .LVU217
+ 915 0046 4817      		cp r20,r24
+ 916 0048 5907      		cpc r21,r25
+ 917 004a 00F4      		brsh .L38
+ 918 004c AC01      		movw r20,r24
+ 919               	.LVL67:
+ 920               	.L38:
+ 921               		.loc 1 376 5 is_stmt 0 view .LVU218
+ 922               	.LBE6:
+ 370:../../../os/common/oslib/src/chheap.c ****     size_t pages = H_PAGES(H_NEXT(qp));
+ 923               		.loc 1 370 10 view .LVU219
+ 924 004e 0190      		ld __tmp_reg__,Z+
+ 925 0050 F081      		ld r31,Z
+ 926 0052 E02D      		mov r30,__tmp_reg__
+ 927               	.LVL68:
+ 370:../../../os/common/oslib/src/chheap.c ****     size_t pages = H_PAGES(H_NEXT(qp));
+ 928               		.loc 1 370 9 view .LVU220
+ 929 0054 3097      		sbiw r30,0
+ 930 0056 01F4      		brne .L39
+ 931               	.LVL69:
+ 932               	.L37:
  377:../../../os/common/oslib/src/chheap.c ****       lpages = pages;
  378:../../../os/common/oslib/src/chheap.c ****     }
  379:../../../os/common/oslib/src/chheap.c **** 
@@ -1244,106 +1383,115 @@
  382:../../../os/common/oslib/src/chheap.c **** 
  383:../../../os/common/oslib/src/chheap.c ****   /* Writing out fragmented free memory.*/
  384:../../../os/common/oslib/src/chheap.c ****   if (totalp != NULL) {
- 831               		.loc 1 384 0
- 832 0060 E114      		cp r14,__zero_reg__
- 833 0062 F104      		cpc r15,__zero_reg__
- 834 0064 01F0      		breq .L41
+ 933               		.loc 1 384 3 is_stmt 1 view .LVU221
+ 934               		.loc 1 384 6 is_stmt 0 view .LVU222
+ 935 0058 C114      		cp r12,__zero_reg__
+ 936 005a D104      		cpc r13,__zero_reg__
+ 937 005c 01F0      		breq .L40
  385:../../../os/common/oslib/src/chheap.c ****     *totalp = tpages * CH_HEAP_ALIGNMENT;
- 835               		.loc 1 385 0
- 836 0066 AA0F      		lsl r26
- 837 0068 BB1F      		rol r27
- 838 006a AA0F      		lsl r26
- 839 006c BB1F      		rol r27
- 840               	.LVL73:
- 841 006e F701      		movw r30,r14
- 842 0070 B183      		std Z+1,r27
- 843 0072 A083      		st Z,r26
- 844               	.L41:
+ 938               		.loc 1 385 5 is_stmt 1 view .LVU223
+ 939               		.loc 1 385 22 is_stmt 0 view .LVU224
+ 940 005e 220F      		lsl r18
+ 941 0060 331F      		rol r19
+ 942 0062 220F      		lsl r18
+ 943 0064 331F      		rol r19
+ 944               		.loc 1 385 13 view .LVU225
+ 945 0066 F601      		movw r30,r12
+ 946 0068 3183      		std Z+1,r19
+ 947 006a 2083      		st Z,r18
+ 948               	.L40:
  386:../../../os/common/oslib/src/chheap.c ****   }
  387:../../../os/common/oslib/src/chheap.c **** 
  388:../../../os/common/oslib/src/chheap.c ****   /* Writing out unfragmented free memory.*/
  389:../../../os/common/oslib/src/chheap.c ****   if (largestp != NULL) {
- 845               		.loc 1 389 0
- 846 0074 0115      		cp r16,__zero_reg__
- 847 0076 1105      		cpc r17,__zero_reg__
- 848 0078 01F0      		breq .L42
+ 949               		.loc 1 389 3 is_stmt 1 view .LVU226
+ 950               		.loc 1 389 6 is_stmt 0 view .LVU227
+ 951 006c E114      		cp r14,__zero_reg__
+ 952 006e F104      		cpc r15,__zero_reg__
+ 953 0070 01F0      		breq .L41
  390:../../../os/common/oslib/src/chheap.c ****     *largestp = lpages * CH_HEAP_ALIGNMENT;
- 849               		.loc 1 390 0
- 850 007a 880F      		lsl r24
- 851 007c 991F      		rol r25
- 852 007e 880F      		lsl r24
- 853 0080 991F      		rol r25
- 854               	.LVL74:
- 855 0082 F801      		movw r30,r16
- 856 0084 9183      		std Z+1,r25
- 857 0086 8083      		st Z,r24
- 858               	.L42:
+ 954               		.loc 1 390 5 is_stmt 1 view .LVU228
+ 955               		.loc 1 390 24 is_stmt 0 view .LVU229
+ 956 0072 440F      		lsl r20
+ 957 0074 551F      		rol r21
+ 958 0076 440F      		lsl r20
+ 959 0078 551F      		rol r21
+ 960               		.loc 1 390 15 view .LVU230
+ 961 007a F701      		movw r30,r14
+ 962 007c 5183      		std Z+1,r21
+ 963 007e 4083      		st Z,r20
+ 964               	.L41:
  391:../../../os/common/oslib/src/chheap.c ****   }
  392:../../../os/common/oslib/src/chheap.c ****   H_UNLOCK(heapp);
- 859               		.loc 1 392 0
- 860 0088 C601      		movw r24,r12
- 861 008a 0E94 0000 		call chMtxUnlock
- 862               	.LVL75:
+ 965               		.loc 1 392 3 is_stmt 1 view .LVU231
+ 966 0080 C801      		movw r24,r16
+ 967 0082 0E94 0000 		call chMtxUnlock
+ 968               	.LVL70:
  393:../../../os/common/oslib/src/chheap.c **** 
  394:../../../os/common/oslib/src/chheap.c ****   return n;
+ 969               		.loc 1 394 3 view .LVU232
  395:../../../os/common/oslib/src/chheap.c **** }
- 863               		.loc 1 395 0
- 864 008e CE01      		movw r24,r28
- 865               	/* epilogue start */
- 866 0090 DF91      		pop r29
- 867 0092 CF91      		pop r28
- 868               	.LVL76:
- 869 0094 1F91      		pop r17
- 870 0096 0F91      		pop r16
- 871               	.LVL77:
- 872 0098 FF90      		pop r15
- 873 009a EF90      		pop r14
- 874               	.LVL78:
- 875 009c DF90      		pop r13
- 876 009e CF90      		pop r12
- 877               	.LVL79:
- 878 00a0 0895      		ret
- 879               	.LVL80:
- 880               	.L49:
+ 970               		.loc 1 395 1 is_stmt 0 view .LVU233
+ 971 0086 CE01      		movw r24,r28
+ 972               	/* epilogue start */
+ 973 0088 DF91      		pop r29
+ 974 008a CF91      		pop r28
+ 975 008c 1F91      		pop r17
+ 976 008e 0F91      		pop r16
+ 977               	.LVL71:
+ 978               		.loc 1 395 1 view .LVU234
+ 979 0090 FF90      		pop r15
+ 980 0092 EF90      		pop r14
+ 981               	.LVL72:
+ 982               		.loc 1 395 1 view .LVU235
+ 983 0094 DF90      		pop r13
+ 984 0096 CF90      		pop r12
+ 985               	.LVL73:
+ 986               		.loc 1 395 1 view .LVU236
+ 987 0098 0895      		ret
+ 988               	.LVL74:
+ 989               	.L50:
  362:../../../os/common/oslib/src/chheap.c ****   }
- 881               		.loc 1 362 0
- 882 00a2 C0E0      		ldi r28,lo8(default_heap)
- 883 00a4 D0E0      		ldi r29,hi8(default_heap)
- 884 00a6 00C0      		rjmp .L37
- 885               		.cfi_endproc
- 886               	.LFE145:
- 888               		.section	.bss.default_heap,"aw",@nobits
- 891               	default_heap:
- 892 0000 0000 0000 		.zero	14
- 892      0000 0000 
- 892      0000 0000 
- 892      0000 
- 893               		.text
- 894               	.Letext0:
- 895               		.file 2 "/usr/lib/gcc/avr/4.9.2/include/stddef.h"
- 896               		.file 3 "/usr/lib/avr/include/stdint.h"
- 897               		.file 4 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
- 898               		.file 5 "../../../os/rt/include/chsystypes.h"
- 899               		.file 6 "../../../os/rt/include/chschd.h"
- 900               		.file 7 "../../../os/rt/include/chtime.h"
- 901               		.file 8 "../../../os/common/ports/AVR/chcore.h"
- 902               		.file 9 "../../../os/rt/include/chsem.h"
- 903               		.file 10 "../../../os/rt/include/chmtx.h"
- 904               		.file 11 "../../../os/common/oslib/include/chmemcore.h"
- 905               		.file 12 "../../../os/common/oslib/include/chheap.h"
+ 990               		.loc 1 362 11 view .LVU237
+ 991 009a C0E0      		ldi r28,lo8(default_heap)
+ 992 009c D0E0      		ldi r29,hi8(default_heap)
+ 993 009e 00C0      		rjmp .L36
+ 994               		.cfi_endproc
+ 995               	.LFE145:
+ 997               		.section	.bss.default_heap,"aw",@nobits
+ 1000               	default_heap:
+ 1001 0000 0000 0000 		.zero	14
+ 1001      0000 0000 
+ 1001      0000 0000 
+ 1001      0000 
+ 1002               		.text
+ 1003               	.Letext0:
+ 1004               		.file 2 "/usr/local/Cellar/avr-gcc/8.2.0/lib/avr-gcc/8/gcc/avr/8.2.0/include/stddef.h"
+ 1005               		.file 3 "/usr/local/Cellar/avr-gcc/8.2.0/avr/include/stdint.h"
+ 1006               		.file 4 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
+ 1007               		.file 5 "../../../os/rt/include/chsystypes.h"
+ 1008               		.file 6 "../../../os/rt/include/chschd.h"
+ 1009               		.file 7 "../../../os/rt/include/chtime.h"
+ 1010               		.file 8 "../../../os/common/ports/AVR/chcore.h"
+ 1011               		.file 9 "../../../os/rt/include/chsem.h"
+ 1012               		.file 10 "../../../os/rt/include/chmtx.h"
+ 1013               		.file 11 "../../../os/rt/include/chsys.h"
+ 1014               		.file 12 "../../../os/rt/include/chregistry.h"
+ 1015               		.file 13 "../../../os/common/oslib/include/chmemcore.h"
+ 1016               		.file 14 "../../../os/common/oslib/include/chheap.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 chheap.c
-     /tmp/ccvbfZbb.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccvbfZbb.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccvbfZbb.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccvbfZbb.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccvbfZbb.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccvbfZbb.s:13     .text._heap_init:0000000000000000 _heap_init
-     /tmp/ccvbfZbb.s:891    .bss.default_heap:0000000000000000 default_heap
-     /tmp/ccvbfZbb.s:46     .text.chHeapObjectInit:0000000000000000 chHeapObjectInit
-     /tmp/ccvbfZbb.s:105    .text.chHeapAllocAligned:0000000000000000 chHeapAllocAligned
-     /tmp/ccvbfZbb.s:525    .text.chHeapFree:0000000000000000 chHeapFree
-     /tmp/ccvbfZbb.s:723    .text.chHeapStatus:0000000000000000 chHeapStatus
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccubNBEp.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccubNBEp.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccubNBEp.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccubNBEp.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccubNBEp.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccubNBEp.s:13     .text._heap_init:0000000000000000 _heap_init
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccubNBEp.s:1000   .bss.default_heap:0000000000000000 default_heap
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccubNBEp.s:49     .text.chHeapObjectInit:0000000000000000 chHeapObjectInit
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccubNBEp.s:123    .text.chHeapAllocAligned:0000000000000000 chHeapAllocAligned
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccubNBEp.s:597    .text.chHeapFree:0000000000000000 chHeapFree
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccubNBEp.s:815    .text.chHeapStatus:0000000000000000 chHeapStatus
 
 UNDEFINED SYMBOLS
 chCoreAllocAlignedWithOffset

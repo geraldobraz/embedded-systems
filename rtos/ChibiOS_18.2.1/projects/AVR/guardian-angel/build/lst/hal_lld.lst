@@ -64,32 +64,47 @@
   50:../../../os/hal/ports/AVR/MEGA/ATMEGAxx/hal_lld.c ****  * @notapi
   51:../../../os/hal/ports/AVR/MEGA/ATMEGAxx/hal_lld.c ****  */
   52:../../../os/hal/ports/AVR/MEGA/ATMEGAxx/hal_lld.c **** void hal_lld_init(void) {
-  16               		.loc 1 52 0
+  16               		.loc 1 52 25 view -0
   17               		.cfi_startproc
   18               	/* prologue: function */
   19               	/* frame size = 0 */
   20               	/* stack size = 0 */
   21               	.L__stack_usage = 0
-  22 0000 0895      		ret
-  23               		.cfi_endproc
-  24               	.LFE173:
-  26               		.text
-  27               	.Letext0:
-  28               		.file 2 "/usr/lib/avr/include/stdint.h"
-  29               		.file 3 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
-  30               		.file 4 "../../../os/rt/include/chsystypes.h"
-  31               		.file 5 "../../../os/rt/include/chschd.h"
-  32               		.file 6 "../../../os/rt/include/chtime.h"
-  33               		.file 7 "../../../os/common/ports/AVR/chcore.h"
-  34               		.file 8 "../../../os/rt/include/chsem.h"
-  35               		.file 9 "../../../os/rt/include/chmtx.h"
+  53:../../../os/hal/ports/AVR/MEGA/ATMEGAxx/hal_lld.c **** }
+  22               		.loc 1 53 1 view .LVU1
+  23               	/* epilogue start */
+  24 0000 0895      		ret
+  25               		.cfi_endproc
+  26               	.LFE173:
+  28               		.text
+  29               	.Letext0:
+  30               		.file 2 "/usr/local/Cellar/avr-gcc/8.2.0/lib/avr-gcc/8/gcc/avr/8.2.0/include/stddef.h"
+  31               		.file 3 "/usr/local/Cellar/avr-gcc/8.2.0/avr/include/stdint.h"
+  32               		.file 4 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
+  33               		.file 5 "../../../os/rt/include/chsystypes.h"
+  34               		.file 6 "../../../os/rt/include/chschd.h"
+  35               		.file 7 "../../../os/rt/include/chtime.h"
+  36               		.file 8 "../../../os/common/ports/AVR/chcore.h"
+  37               		.file 9 "../../../os/rt/include/chsem.h"
+  38               		.file 10 "../../../os/rt/include/chmtx.h"
+  39               		.file 11 "../../../os/rt/include/chsys.h"
+  40               		.file 12 "../../../os/rt/include/chregistry.h"
+  41               		.file 13 "../../../os/rt/include/chevents.h"
+  42               		.file 14 "../../../os/common/oslib/include/chmemcore.h"
+  43               		.file 15 "../../../os/hal/include/hal_queues.h"
+  44               		.file 16 "../../../os/hal/include/hal_pal.h"
+  45               		.file 17 "../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.h"
+  46               		.file 18 "../../../os/hal/include/hal_adc.h"
+  47               		.file 19 "../../../os/hal/ports/AVR/MEGA/LLD/ADCv1/hal_adc_lld.h"
+  48               		.file 20 "../../../os/hal/include/hal_serial.h"
+  49               		.file 21 "../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal_lld.c
-     /tmp/ccfQebgb.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccfQebgb.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccfQebgb.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccfQebgb.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccfQebgb.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccfQebgb.s:13     .text.hal_lld_init:0000000000000000 hal_lld_init
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccyyJFav.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccyyJFav.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccyyJFav.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccyyJFav.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccyyJFav.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccyyJFav.s:13     .text.hal_lld_init:0000000000000000 hal_lld_init
 
 NO UNDEFINED SYMBOLS

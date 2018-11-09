@@ -73,7 +73,7 @@
   59:../../../os/rt/src/chvt.c ****  * @notapi
   60:../../../os/rt/src/chvt.c ****  */
   61:../../../os/rt/src/chvt.c **** void _vt_init(void) {
-  16               		.loc 1 61 0
+  16               		.loc 1 61 21 view -0
   17               		.cfi_startproc
   18               	/* prologue: function */
   19               	/* frame size = 0 */
@@ -81,39 +81,46 @@
   21               	.L__stack_usage = 0
   62:../../../os/rt/src/chvt.c **** 
   63:../../../os/rt/src/chvt.c ****   ch.vtlist.next = (virtual_timer_t *)&ch.vtlist;
-  22               		.loc 1 63 0
-  23 0000 E0E0      		ldi r30,lo8(ch)
-  24 0002 F0E0      		ldi r31,hi8(ch)
-  25 0004 80E0      		ldi r24,lo8(ch+13)
-  26 0006 90E0      		ldi r25,hi8(ch+13)
-  27 0008 9687      		std Z+14,r25
-  28 000a 8587      		std Z+13,r24
+  22               		.loc 1 63 3 view .LVU1
+  23               		.loc 1 63 18 is_stmt 0 view .LVU2
+  24 0000 E0E0      		ldi r30,lo8(ch)
+  25 0002 F0E0      		ldi r31,hi8(ch)
+  26 0004 80E0      		ldi r24,lo8(ch+13)
+  27 0006 90E0      		ldi r25,hi8(ch+13)
+  28 0008 9687      		std Z+14,r25
+  29 000a 8587      		std Z+13,r24
   64:../../../os/rt/src/chvt.c ****   ch.vtlist.prev = (virtual_timer_t *)&ch.vtlist;
-  29               		.loc 1 64 0
-  30 000c 908B      		std Z+16,r25
-  31 000e 8787      		std Z+15,r24
+  30               		.loc 1 64 3 is_stmt 1 view .LVU3
+  31               		.loc 1 64 18 is_stmt 0 view .LVU4
+  32 000c 908B      		std Z+16,r25
+  33 000e 8787      		std Z+15,r24
   65:../../../os/rt/src/chvt.c ****   ch.vtlist.delta = (sysinterval_t)-1;
-  32               		.loc 1 65 0
-  33 0010 8FEF      		ldi r24,lo8(-1)
-  34 0012 9FEF      		ldi r25,lo8(-1)
-  35 0014 928B      		std Z+18,r25
-  36 0016 818B      		std Z+17,r24
+  34               		.loc 1 65 3 is_stmt 1 view .LVU5
+  35               		.loc 1 65 19 is_stmt 0 view .LVU6
+  36 0010 8FEF      		ldi r24,lo8(-1)
+  37 0012 9FEF      		ldi r25,lo8(-1)
+  38 0014 928B      		std Z+18,r25
+  39 0016 818B      		std Z+17,r24
   66:../../../os/rt/src/chvt.c **** #if CH_CFG_ST_TIMEDELTA == 0
   67:../../../os/rt/src/chvt.c ****   ch.vtlist.systime = (systime_t)0;
   68:../../../os/rt/src/chvt.c **** #else /* CH_CFG_ST_TIMEDELTA > 0 */
   69:../../../os/rt/src/chvt.c ****   ch.vtlist.lasttime = (systime_t)0;
-  37               		.loc 1 69 0
-  38 0018 148A      		std Z+20,__zero_reg__
-  39 001a 138A      		std Z+19,__zero_reg__
-  40 001c 0895      		ret
-  41               		.cfi_endproc
-  42               	.LFE141:
-  44               		.section	.text.chVTDoSetI,"ax",@progbits
-  45               	.global	chVTDoSetI
-  47               	chVTDoSetI:
-  48               	.LFB142:
+  40               		.loc 1 69 3 is_stmt 1 view .LVU7
+  41               		.loc 1 69 22 is_stmt 0 view .LVU8
+  42 0018 148A      		std Z+20,__zero_reg__
+  43 001a 138A      		std Z+19,__zero_reg__
+  44               	/* epilogue start */
   70:../../../os/rt/src/chvt.c **** #endif /* CH_CFG_ST_TIMEDELTA > 0 */
   71:../../../os/rt/src/chvt.c **** }
+  45               		.loc 1 71 1 view .LVU9
+  46 001c 0895      		ret
+  47               		.cfi_endproc
+  48               	.LFE141:
+  50               		.section	.text.chVTDoSetI,"ax",@progbits
+  51               	.global	chVTDoSetI
+  53               	chVTDoSetI:
+  54               	.LVL0:
+  55               	.LFB142:
   72:../../../os/rt/src/chvt.c **** 
   73:../../../os/rt/src/chvt.c **** /**
   74:../../../os/rt/src/chvt.c ****  * @brief   Enables a virtual timer.
@@ -139,63 +146,320 @@
   94:../../../os/rt/src/chvt.c ****  */
   95:../../../os/rt/src/chvt.c **** void chVTDoSetI(virtual_timer_t *vtp, sysinterval_t delay,
   96:../../../os/rt/src/chvt.c ****                 vtfunc_t vtfunc, void *par) {
-  49               		.loc 1 96 0
-  50               		.cfi_startproc
-  51               	.LVL0:
-  52 0000 EF92      		push r14
-  53               	.LCFI0:
-  54               		.cfi_def_cfa_offset 3
-  55               		.cfi_offset 14, -2
-  56 0002 FF92      		push r15
-  57               	.LCFI1:
-  58               		.cfi_def_cfa_offset 4
-  59               		.cfi_offset 15, -3
-  60 0004 0F93      		push r16
-  61               	.LCFI2:
-  62               		.cfi_def_cfa_offset 5
-  63               		.cfi_offset 16, -4
-  64 0006 1F93      		push r17
-  65               	.LCFI3:
-  66               		.cfi_def_cfa_offset 6
-  67               		.cfi_offset 17, -5
-  68 0008 CF93      		push r28
-  69               	.LCFI4:
-  70               		.cfi_def_cfa_offset 7
-  71               		.cfi_offset 28, -6
-  72 000a DF93      		push r29
-  73               	.LCFI5:
-  74               		.cfi_def_cfa_offset 8
-  75               		.cfi_offset 29, -7
-  76               	/* prologue: function */
-  77               	/* frame size = 0 */
-  78               	/* stack size = 6 */
-  79               	.L__stack_usage = 6
-  80 000c 7C01      		movw r14,r24
+  56               		.loc 1 96 45 is_stmt 1 view -0
+  57               		.cfi_startproc
+  58               		.loc 1 96 45 is_stmt 0 view .LVU11
+  59 0000 EF92      		push r14
+  60               	.LCFI0:
+  61               		.cfi_def_cfa_offset 3
+  62               		.cfi_offset 14, -2
+  63 0002 FF92      		push r15
+  64               	.LCFI1:
+  65               		.cfi_def_cfa_offset 4
+  66               		.cfi_offset 15, -3
+  67 0004 0F93      		push r16
+  68               	.LCFI2:
+  69               		.cfi_def_cfa_offset 5
+  70               		.cfi_offset 16, -4
+  71 0006 1F93      		push r17
+  72               	.LCFI3:
+  73               		.cfi_def_cfa_offset 6
+  74               		.cfi_offset 17, -5
+  75 0008 CF93      		push r28
+  76               	.LCFI4:
+  77               		.cfi_def_cfa_offset 7
+  78               		.cfi_offset 28, -6
+  79 000a DF93      		push r29
+  80               	.LCFI5:
+  81               		.cfi_def_cfa_offset 8
+  82               		.cfi_offset 29, -7
+  83               	/* prologue: function */
+  84               	/* frame size = 0 */
+  85               	/* stack size = 6 */
+  86               	.L__stack_usage = 6
+  87 000c 7C01      		movw r14,r24
   97:../../../os/rt/src/chvt.c ****   virtual_timer_t *p;
+  88               		.loc 1 97 3 is_stmt 1 view .LVU12
   98:../../../os/rt/src/chvt.c ****   sysinterval_t delta;
+  89               		.loc 1 98 3 view .LVU13
   99:../../../os/rt/src/chvt.c **** 
  100:../../../os/rt/src/chvt.c ****   chDbgCheckClassI();
+  90               		.loc 1 100 21 view .LVU14
  101:../../../os/rt/src/chvt.c ****   chDbgCheck((vtp != NULL) && (vtfunc != NULL) && (delay != TIME_IMMEDIATE));
+  91               		.loc 1 101 3 view .LVU15
+  92               		.loc 1 101 3 view .LVU16
  102:../../../os/rt/src/chvt.c **** 
  103:../../../os/rt/src/chvt.c ****   vtp->par = par;
-  81               		.loc 1 103 0
-  82 000e DC01      		movw r26,r24
-  83 0010 1996      		adiw r26,8+1
-  84 0012 3C93      		st X,r19
-  85 0014 2E93      		st -X,r18
-  86 0016 1897      		sbiw r26,8
+  93               		.loc 1 103 3 view .LVU17
+  94               		.loc 1 103 12 is_stmt 0 view .LVU18
+  95 000e DC01      		movw r26,r24
+  96 0010 1996      		adiw r26,8+1
+  97 0012 3C93      		st X,r19
+  98 0014 2E93      		st -X,r18
+  99 0016 1897      		sbiw r26,8
  104:../../../os/rt/src/chvt.c ****   vtp->func = vtfunc;
-  87               		.loc 1 104 0
-  88 0018 1796      		adiw r26,6+1
-  89 001a 5C93      		st X,r21
-  90 001c 4E93      		st -X,r20
-  91 001e 1697      		sbiw r26,6
-  92               	.LBB40:
-  93               	.LBB41:
-  94               	.LBB42:
-  95               	.LBB43:
-  96               	.LBB44:
-  97               		.file 2 "../../../os/hal/ports/AVR/MEGA/LLD/TIMv1/hal_st_lld.h"
+ 100               		.loc 1 104 3 is_stmt 1 view .LVU19
+ 101               		.loc 1 104 13 is_stmt 0 view .LVU20
+ 102 0018 1796      		adiw r26,6+1
+ 103 001a 5C93      		st X,r21
+ 104 001c 4E93      		st -X,r20
+ 105 001e 1697      		sbiw r26,6
+ 106               	.LBB40:
+ 105:../../../os/rt/src/chvt.c **** 
+ 106:../../../os/rt/src/chvt.c **** #if CH_CFG_ST_TIMEDELTA > 0
+ 107:../../../os/rt/src/chvt.c ****   {
+ 108:../../../os/rt/src/chvt.c ****     systime_t now = chVTGetSystemTimeX();
+ 107               		.loc 1 108 5 is_stmt 1 view .LVU21
+ 108               	.LBB41:
+ 109               	.LBI41:
+ 110               		.file 2 "../../../os/rt/include/chvt.h"
+   1:../../../os/rt/include/chvt.h **** /*
+   2:../../../os/rt/include/chvt.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
+   3:../../../os/rt/include/chvt.h **** 
+   4:../../../os/rt/include/chvt.h ****     This file is part of ChibiOS.
+   5:../../../os/rt/include/chvt.h **** 
+   6:../../../os/rt/include/chvt.h ****     ChibiOS is free software; you can redistribute it and/or modify
+   7:../../../os/rt/include/chvt.h ****     it under the terms of the GNU General Public License as published by
+   8:../../../os/rt/include/chvt.h ****     the Free Software Foundation; either version 3 of the License, or
+   9:../../../os/rt/include/chvt.h ****     (at your option) any later version.
+  10:../../../os/rt/include/chvt.h **** 
+  11:../../../os/rt/include/chvt.h ****     ChibiOS is distributed in the hope that it will be useful,
+  12:../../../os/rt/include/chvt.h ****     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:../../../os/rt/include/chvt.h ****     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:../../../os/rt/include/chvt.h ****     GNU General Public License for more details.
+  15:../../../os/rt/include/chvt.h **** 
+  16:../../../os/rt/include/chvt.h ****     You should have received a copy of the GNU General Public License
+  17:../../../os/rt/include/chvt.h ****     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  18:../../../os/rt/include/chvt.h **** */
+  19:../../../os/rt/include/chvt.h **** 
+  20:../../../os/rt/include/chvt.h **** /**
+  21:../../../os/rt/include/chvt.h ****  * @file    chvt.h
+  22:../../../os/rt/include/chvt.h ****  * @brief   Time and Virtual Timers module macros and structures.
+  23:../../../os/rt/include/chvt.h ****  *
+  24:../../../os/rt/include/chvt.h ****  * @addtogroup time
+  25:../../../os/rt/include/chvt.h ****  * @{
+  26:../../../os/rt/include/chvt.h ****  */
+  27:../../../os/rt/include/chvt.h **** 
+  28:../../../os/rt/include/chvt.h **** #ifndef CHVT_H
+  29:../../../os/rt/include/chvt.h **** #define CHVT_H
+  30:../../../os/rt/include/chvt.h **** 
+  31:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  32:../../../os/rt/include/chvt.h **** /* Module constants.                                                         */
+  33:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  34:../../../os/rt/include/chvt.h **** 
+  35:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  36:../../../os/rt/include/chvt.h **** /* Module pre-compile time settings.                                         */
+  37:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  38:../../../os/rt/include/chvt.h **** 
+  39:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  40:../../../os/rt/include/chvt.h **** /* Derived constants and error checks.                                       */
+  41:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  42:../../../os/rt/include/chvt.h **** 
+  43:../../../os/rt/include/chvt.h **** #if (CH_CFG_ST_TIMEDELTA < 0) || (CH_CFG_ST_TIMEDELTA == 1)
+  44:../../../os/rt/include/chvt.h **** #error "invalid CH_CFG_ST_TIMEDELTA specified, must "                       \
+  45:../../../os/rt/include/chvt.h ****        "be zero or greater than one"
+  46:../../../os/rt/include/chvt.h **** #endif
+  47:../../../os/rt/include/chvt.h **** 
+  48:../../../os/rt/include/chvt.h **** //#if (CH_CFG_ST_TIMEDELTA > 0) && (CH_CFG_TIME_QUANTUM > 0)
+  49:../../../os/rt/include/chvt.h **** //#error "CH_CFG_TIME_QUANTUM not supported in tickless mode"
+  50:../../../os/rt/include/chvt.h **** //#endif
+  51:../../../os/rt/include/chvt.h **** 
+  52:../../../os/rt/include/chvt.h **** #if (CH_CFG_ST_TIMEDELTA > 0) && (CH_DBG_THREADS_PROFILING == TRUE)
+  53:../../../os/rt/include/chvt.h **** #error "CH_DBG_THREADS_PROFILING not supported in tickless mode"
+  54:../../../os/rt/include/chvt.h **** #endif
+  55:../../../os/rt/include/chvt.h **** 
+  56:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  57:../../../os/rt/include/chvt.h **** /* Module data structures and types.                                         */
+  58:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  59:../../../os/rt/include/chvt.h **** 
+  60:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  61:../../../os/rt/include/chvt.h **** /* Module macros.                                                            */
+  62:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  63:../../../os/rt/include/chvt.h **** 
+  64:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  65:../../../os/rt/include/chvt.h **** /* External declarations.                                                    */
+  66:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  67:../../../os/rt/include/chvt.h **** 
+  68:../../../os/rt/include/chvt.h **** /*
+  69:../../../os/rt/include/chvt.h ****  * Virtual Timers APIs.
+  70:../../../os/rt/include/chvt.h ****  */
+  71:../../../os/rt/include/chvt.h **** #ifdef __cplusplus
+  72:../../../os/rt/include/chvt.h **** extern "C" {
+  73:../../../os/rt/include/chvt.h **** #endif
+  74:../../../os/rt/include/chvt.h ****   void _vt_init(void);
+  75:../../../os/rt/include/chvt.h ****   void chVTDoSetI(virtual_timer_t *vtp, sysinterval_t delay,
+  76:../../../os/rt/include/chvt.h ****                   vtfunc_t vtfunc, void *par);
+  77:../../../os/rt/include/chvt.h ****   void chVTDoResetI(virtual_timer_t *vtp);
+  78:../../../os/rt/include/chvt.h **** #ifdef __cplusplus
+  79:../../../os/rt/include/chvt.h **** }
+  80:../../../os/rt/include/chvt.h **** #endif
+  81:../../../os/rt/include/chvt.h **** 
+  82:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  83:../../../os/rt/include/chvt.h **** /* Module inline functions.                                                  */
+  84:../../../os/rt/include/chvt.h **** /*===========================================================================*/
+  85:../../../os/rt/include/chvt.h **** 
+  86:../../../os/rt/include/chvt.h **** /**
+  87:../../../os/rt/include/chvt.h ****  * @brief   Initializes a @p virtual_timer_t object.
+  88:../../../os/rt/include/chvt.h ****  * @note    Initializing a timer object is not strictly required because
+  89:../../../os/rt/include/chvt.h ****  *          the function @p chVTSetI() initializes the object too. This
+  90:../../../os/rt/include/chvt.h ****  *          function is only useful if you need to perform a @p chVTIsArmed()
+  91:../../../os/rt/include/chvt.h ****  *          check before calling @p chVTSetI().
+  92:../../../os/rt/include/chvt.h ****  *
+  93:../../../os/rt/include/chvt.h ****  * @param[out] vtp      the @p virtual_timer_t structure pointer
+  94:../../../os/rt/include/chvt.h ****  *
+  95:../../../os/rt/include/chvt.h ****  * @init
+  96:../../../os/rt/include/chvt.h ****  */
+  97:../../../os/rt/include/chvt.h **** static inline void chVTObjectInit(virtual_timer_t *vtp) {
+  98:../../../os/rt/include/chvt.h **** 
+  99:../../../os/rt/include/chvt.h ****   vtp->func = NULL;
+ 100:../../../os/rt/include/chvt.h **** }
+ 101:../../../os/rt/include/chvt.h **** 
+ 102:../../../os/rt/include/chvt.h **** /**
+ 103:../../../os/rt/include/chvt.h ****  * @brief   Current system time.
+ 104:../../../os/rt/include/chvt.h ****  * @details Returns the number of system ticks since the @p chSysInit()
+ 105:../../../os/rt/include/chvt.h ****  *          invocation.
+ 106:../../../os/rt/include/chvt.h ****  * @note    The counter can reach its maximum and then restart from zero.
+ 107:../../../os/rt/include/chvt.h ****  * @note    This function can be called from any context but its atomicity
+ 108:../../../os/rt/include/chvt.h ****  *          is not guaranteed on architectures whose word size is less than
+ 109:../../../os/rt/include/chvt.h ****  *          @p systime_t size.
+ 110:../../../os/rt/include/chvt.h ****  *
+ 111:../../../os/rt/include/chvt.h ****  * @return              The system time in ticks.
+ 112:../../../os/rt/include/chvt.h ****  *
+ 113:../../../os/rt/include/chvt.h ****  * @xclass
+ 114:../../../os/rt/include/chvt.h ****  */
+ 115:../../../os/rt/include/chvt.h **** static inline systime_t chVTGetSystemTimeX(void) {
+ 111               		.loc 2 115 25 view .LVU22
+ 112               	.LBE41:
+ 113               	.LBE40:
+ 116:../../../os/rt/include/chvt.h **** 
+ 117:../../../os/rt/include/chvt.h **** #if CH_CFG_ST_TIMEDELTA == 0
+ 118:../../../os/rt/include/chvt.h ****   return ch.vtlist.systime;
+ 119:../../../os/rt/include/chvt.h **** #else /* CH_CFG_ST_TIMEDELTA > 0 */
+ 120:../../../os/rt/include/chvt.h ****   return port_timer_get_time();
+ 114               		.loc 2 120 3 view .LVU23
+ 115               	.LBB61:
+ 116               	.LBB46:
+ 117               	.LBB42:
+ 118               	.LBI42:
+ 119               		.file 3 "../../../os/common/ports/AVR/chcore_timer.h"
+   1:../../../os/common/ports/AVR/chcore_timer.h **** /*
+   2:../../../os/common/ports/AVR/chcore_timer.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
+   3:../../../os/common/ports/AVR/chcore_timer.h **** 
+   4:../../../os/common/ports/AVR/chcore_timer.h ****     This file is part of ChibiOS.
+   5:../../../os/common/ports/AVR/chcore_timer.h **** 
+   6:../../../os/common/ports/AVR/chcore_timer.h ****     ChibiOS is free software; you can redistribute it and/or modify
+   7:../../../os/common/ports/AVR/chcore_timer.h ****     it under the terms of the GNU General Public License as published by
+   8:../../../os/common/ports/AVR/chcore_timer.h ****     the Free Software Foundation; either version 3 of the License, or
+   9:../../../os/common/ports/AVR/chcore_timer.h ****     (at your option) any later version.
+  10:../../../os/common/ports/AVR/chcore_timer.h **** 
+  11:../../../os/common/ports/AVR/chcore_timer.h ****     ChibiOS is distributed in the hope that it will be useful,
+  12:../../../os/common/ports/AVR/chcore_timer.h ****     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:../../../os/common/ports/AVR/chcore_timer.h ****     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:../../../os/common/ports/AVR/chcore_timer.h ****     GNU General Public License for more details.
+  15:../../../os/common/ports/AVR/chcore_timer.h **** 
+  16:../../../os/common/ports/AVR/chcore_timer.h ****     You should have received a copy of the GNU General Public License
+  17:../../../os/common/ports/AVR/chcore_timer.h ****     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  18:../../../os/common/ports/AVR/chcore_timer.h **** */
+  19:../../../os/common/ports/AVR/chcore_timer.h **** 
+  20:../../../os/common/ports/AVR/chcore_timer.h **** /**
+  21:../../../os/common/ports/AVR/chcore_timer.h ****  * @file    AVR/chcore_timer.h
+  22:../../../os/common/ports/AVR/chcore_timer.h ****  * @brief   System timer header file.
+  23:../../../os/common/ports/AVR/chcore_timer.h ****  *
+  24:../../../os/common/ports/AVR/chcore_timer.h ****  * @addtogroup AVR_TIMER
+  25:../../../os/common/ports/AVR/chcore_timer.h ****  * @{
+  26:../../../os/common/ports/AVR/chcore_timer.h ****  */
+  27:../../../os/common/ports/AVR/chcore_timer.h **** 
+  28:../../../os/common/ports/AVR/chcore_timer.h **** #ifndef CHCORE_TIMER_H
+  29:../../../os/common/ports/AVR/chcore_timer.h **** #define CHCORE_TIMER_H
+  30:../../../os/common/ports/AVR/chcore_timer.h **** 
+  31:../../../os/common/ports/AVR/chcore_timer.h **** /* This is the only header in the HAL designed to be include-able alone.*/
+  32:../../../os/common/ports/AVR/chcore_timer.h **** #include "hal_st.h"
+  33:../../../os/common/ports/AVR/chcore_timer.h **** 
+  34:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
+  35:../../../os/common/ports/AVR/chcore_timer.h **** /* Module constants.                                                         */
+  36:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
+  37:../../../os/common/ports/AVR/chcore_timer.h **** 
+  38:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
+  39:../../../os/common/ports/AVR/chcore_timer.h **** /* Module pre-compile time settings.                                         */
+  40:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
+  41:../../../os/common/ports/AVR/chcore_timer.h **** 
+  42:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
+  43:../../../os/common/ports/AVR/chcore_timer.h **** /* Derived constants and error checks.                                       */
+  44:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
+  45:../../../os/common/ports/AVR/chcore_timer.h **** 
+  46:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
+  47:../../../os/common/ports/AVR/chcore_timer.h **** /* Module data structures and types.                                         */
+  48:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
+  49:../../../os/common/ports/AVR/chcore_timer.h **** 
+  50:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
+  51:../../../os/common/ports/AVR/chcore_timer.h **** /* Module macros.                                                            */
+  52:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
+  53:../../../os/common/ports/AVR/chcore_timer.h **** 
+  54:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
+  55:../../../os/common/ports/AVR/chcore_timer.h **** /* External declarations.                                                    */
+  56:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
+  57:../../../os/common/ports/AVR/chcore_timer.h **** 
+  58:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
+  59:../../../os/common/ports/AVR/chcore_timer.h **** /* Module inline functions.                                                  */
+  60:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
+  61:../../../os/common/ports/AVR/chcore_timer.h **** 
+  62:../../../os/common/ports/AVR/chcore_timer.h **** /**
+  63:../../../os/common/ports/AVR/chcore_timer.h ****  * @brief   Starts the alarm.
+  64:../../../os/common/ports/AVR/chcore_timer.h ****  * @note    Makes sure that no spurious alarms are triggered after
+  65:../../../os/common/ports/AVR/chcore_timer.h ****  *          this call.
+  66:../../../os/common/ports/AVR/chcore_timer.h ****  *
+  67:../../../os/common/ports/AVR/chcore_timer.h ****  * @param[in] time      the time to be set for the first alarm
+  68:../../../os/common/ports/AVR/chcore_timer.h ****  *
+  69:../../../os/common/ports/AVR/chcore_timer.h ****  * @notapi
+  70:../../../os/common/ports/AVR/chcore_timer.h ****  */
+  71:../../../os/common/ports/AVR/chcore_timer.h **** static inline void port_timer_start_alarm(systime_t time) {
+  72:../../../os/common/ports/AVR/chcore_timer.h **** 
+  73:../../../os/common/ports/AVR/chcore_timer.h ****   stStartAlarm(time);
+  74:../../../os/common/ports/AVR/chcore_timer.h **** }
+  75:../../../os/common/ports/AVR/chcore_timer.h **** 
+  76:../../../os/common/ports/AVR/chcore_timer.h **** /**
+  77:../../../os/common/ports/AVR/chcore_timer.h ****  * @brief   Stops the alarm interrupt.
+  78:../../../os/common/ports/AVR/chcore_timer.h ****  *
+  79:../../../os/common/ports/AVR/chcore_timer.h ****  * @notapi
+  80:../../../os/common/ports/AVR/chcore_timer.h ****  */
+  81:../../../os/common/ports/AVR/chcore_timer.h **** static inline void port_timer_stop_alarm(void) {
+  82:../../../os/common/ports/AVR/chcore_timer.h **** 
+  83:../../../os/common/ports/AVR/chcore_timer.h ****   stStopAlarm();
+  84:../../../os/common/ports/AVR/chcore_timer.h **** }
+  85:../../../os/common/ports/AVR/chcore_timer.h **** 
+  86:../../../os/common/ports/AVR/chcore_timer.h **** /**
+  87:../../../os/common/ports/AVR/chcore_timer.h ****  * @brief   Sets the alarm time.
+  88:../../../os/common/ports/AVR/chcore_timer.h ****  *
+  89:../../../os/common/ports/AVR/chcore_timer.h ****  * @param[in] time      the time to be set for the next alarm
+  90:../../../os/common/ports/AVR/chcore_timer.h ****  *
+  91:../../../os/common/ports/AVR/chcore_timer.h ****  * @notapi
+  92:../../../os/common/ports/AVR/chcore_timer.h ****  */
+  93:../../../os/common/ports/AVR/chcore_timer.h **** static inline void port_timer_set_alarm(systime_t time) {
+  94:../../../os/common/ports/AVR/chcore_timer.h **** 
+  95:../../../os/common/ports/AVR/chcore_timer.h ****   stSetAlarm(time);
+  96:../../../os/common/ports/AVR/chcore_timer.h **** }
+  97:../../../os/common/ports/AVR/chcore_timer.h **** 
+  98:../../../os/common/ports/AVR/chcore_timer.h **** /**
+  99:../../../os/common/ports/AVR/chcore_timer.h ****  * @brief   Returns the system time.
+ 100:../../../os/common/ports/AVR/chcore_timer.h ****  *
+ 101:../../../os/common/ports/AVR/chcore_timer.h ****  * @return              The system time.
+ 102:../../../os/common/ports/AVR/chcore_timer.h ****  *
+ 103:../../../os/common/ports/AVR/chcore_timer.h ****  * @notapi
+ 104:../../../os/common/ports/AVR/chcore_timer.h ****  */
+ 105:../../../os/common/ports/AVR/chcore_timer.h **** static inline systime_t port_timer_get_time(void) {
+ 120               		.loc 3 105 25 view .LVU24
+ 121               	.LBE42:
+ 122               	.LBE46:
+ 123               	.LBE61:
+ 106:../../../os/common/ports/AVR/chcore_timer.h **** 
+ 107:../../../os/common/ports/AVR/chcore_timer.h ****   return stGetCounter();
+ 124               		.loc 3 107 3 view .LVU25
+ 125               	.LBB62:
+ 126               	.LBB47:
+ 127               	.LBB45:
+ 128               	.LBB43:
+ 129               	.LBI43:
+ 130               		.file 4 "../../../os/hal/ports/AVR/MEGA/LLD/TIMv1/hal_st_lld.h"
    1:../../../os/hal/ports/AVR/MEGA/LLD/TIMv1/hal_st_lld.h **** /*
    2:../../../os/hal/ports/AVR/MEGA/LLD/TIMv1/hal_st_lld.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio
    3:../../../os/hal/ports/AVR/MEGA/LLD/TIMv1/hal_st_lld.h **** 
@@ -283,45 +547,48 @@
   85:../../../os/hal/ports/AVR/MEGA/LLD/TIMv1/hal_st_lld.h ****  * @notapi
   86:../../../os/hal/ports/AVR/MEGA/LLD/TIMv1/hal_st_lld.h ****  */
   87:../../../os/hal/ports/AVR/MEGA/LLD/TIMv1/hal_st_lld.h **** static inline systime_t st_lld_get_counter(void) {
+ 131               		.loc 4 87 25 view .LVU26
+ 132               	.LBB44:
   88:../../../os/hal/ports/AVR/MEGA/LLD/TIMv1/hal_st_lld.h **** 
   89:../../../os/hal/ports/AVR/MEGA/LLD/TIMv1/hal_st_lld.h ****   return (systime_t) TCNT1;
-  98               		.loc 2 89 0
-  99 0020 2091 8400 		lds r18,132
- 100 0024 3091 8500 		lds r19,132+1
- 101               	.LVL1:
- 102               	.LBE44:
- 103               	.LBE43:
- 104               	.LBE42:
- 105               	.LBE41:
- 105:../../../os/rt/src/chvt.c **** 
- 106:../../../os/rt/src/chvt.c **** #if CH_CFG_ST_TIMEDELTA > 0
- 107:../../../os/rt/src/chvt.c ****   {
- 108:../../../os/rt/src/chvt.c ****     systime_t now = chVTGetSystemTimeX();
+ 133               		.loc 4 89 3 view .LVU27
+ 134               		.loc 4 89 10 is_stmt 0 view .LVU28
+ 135 0020 8091 8400 		lds r24,132
+ 136 0024 9091 8500 		lds r25,132+1
+ 137               	.LVL1:
+ 138               		.loc 4 89 10 view .LVU29
+ 139               	.LBE44:
+ 140               	.LBE43:
+ 141               	.LBE45:
+ 142               	.LBE47:
  109:../../../os/rt/src/chvt.c **** 
  110:../../../os/rt/src/chvt.c ****     /* If the requested delay is lower than the minimum safe delta then it
  111:../../../os/rt/src/chvt.c ****        is raised to the minimum safe value.*/
  112:../../../os/rt/src/chvt.c ****     if (delay < (sysinterval_t)CH_CFG_ST_TIMEDELTA) {
- 106               		.loc 1 112 0
- 107 0028 6230      		cpi r22,2
- 108 002a 7105      		cpc r23,__zero_reg__
- 109 002c 00F4      		brsh .+2
- 110 002e 00C0      		rjmp .L15
- 111               	.LVL2:
- 112               	.L3:
+ 143               		.loc 1 112 5 is_stmt 1 view .LVU30
+ 144 0028 EB01      		movw r28,r22
+ 145 002a 6230      		cpi r22,2
+ 146 002c 7105      		cpc r23,__zero_reg__
+ 147 002e 00F4      		brsh .L4
+ 148 0030 C2E0      		ldi r28,lo8(2)
+ 149 0032 D0E0      		ldi r29,0
+ 150               	.L4:
+ 151               	.LVL2:
  113:../../../os/rt/src/chvt.c ****       delay = (sysinterval_t)CH_CFG_ST_TIMEDELTA;
  114:../../../os/rt/src/chvt.c ****     }
  115:../../../os/rt/src/chvt.c **** 
  116:../../../os/rt/src/chvt.c ****     /* Special case where the timers list is empty.*/
  117:../../../os/rt/src/chvt.c ****     if (&ch.vtlist == (virtual_timers_list_t *)ch.vtlist.next) {
- 113               		.loc 1 117 0
- 114 0030 0091 0000 		lds r16,ch+13
- 115 0034 1091 0000 		lds r17,ch+13+1
- 116 0038 B0E0      		ldi r27,hi8(ch+13)
- 117 003a 0030      		cpi r16,lo8(ch+13)
- 118 003c 1B07      		cpc r17,r27
- 119 003e 01F4      		brne .+2
- 120 0040 00C0      		rjmp .L16
- 121               	.LVL3:
+ 152               		.loc 1 117 5 view .LVU31
+ 153               		.loc 1 117 57 is_stmt 0 view .LVU32
+ 154 0034 0091 0000 		lds r16,ch+13
+ 155 0038 1091 0000 		lds r17,ch+13+1
+ 156               		.loc 1 117 8 view .LVU33
+ 157 003c B0E0      		ldi r27,hi8(ch+13)
+ 158 003e 0030      		cpi r16,lo8(ch+13)
+ 159 0040 1B07      		cpc r17,r27
+ 160 0042 01F4      		brne .+2
+ 161 0044 00C0      		rjmp .L12
  118:../../../os/rt/src/chvt.c **** 
  119:../../../os/rt/src/chvt.c ****       /* The delta list is empty, the current time becomes the new
  120:../../../os/rt/src/chvt.c ****          delta list base time, the timer is inserted.*/
@@ -347,17 +614,20 @@
  140:../../../os/rt/src/chvt.c **** 
  141:../../../os/rt/src/chvt.c ****     /* Pointer to the first element in the delta list, which is non-empty.*/
  142:../../../os/rt/src/chvt.c ****     p = ch.vtlist.next;
+ 162               		.loc 1 142 5 is_stmt 1 view .LVU34
+ 163               	.LVL3:
  143:../../../os/rt/src/chvt.c **** 
  144:../../../os/rt/src/chvt.c ****     /* Delay as delta from 'lasttime'. Note, it can overflow and the value
  145:../../../os/rt/src/chvt.c ****        becomes lower than 'now'.*/
  146:../../../os/rt/src/chvt.c ****     delta = chTimeDiffX(ch.vtlist.lasttime, now) + delay;
- 122               		.loc 1 146 0
- 123 0042 8091 0000 		lds r24,ch+19
- 124 0046 9091 0000 		lds r25,ch+19+1
- 125               	.LVL4:
- 126               	.LBB45:
- 127               	.LBB46:
- 128               		.file 3 "../../../os/rt/include/chtime.h"
+ 164               		.loc 1 146 5 view .LVU35
+ 165               		.loc 1 146 13 is_stmt 0 view .LVU36
+ 166 0046 4091 0000 		lds r20,ch+19
+ 167 004a 5091 0000 		lds r21,ch+19+1
+ 168               	.LVL4:
+ 169               	.LBB48:
+ 170               	.LBI48:
+ 171               		.file 5 "../../../os/rt/include/chtime.h"
    1:../../../os/rt/include/chtime.h **** /*
    2:../../../os/rt/include/chtime.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
    3:../../../os/rt/include/chtime.h **** 
@@ -849,48 +1119,59 @@
  489:../../../os/rt/include/chtime.h ****  * @xclass
  490:../../../os/rt/include/chtime.h ****  */
  491:../../../os/rt/include/chtime.h **** static inline sysinterval_t chTimeDiffX(systime_t start, systime_t end) {
+ 172               		.loc 5 491 29 is_stmt 1 view .LVU37
+ 173               	.LBB49:
  492:../../../os/rt/include/chtime.h **** 
  493:../../../os/rt/include/chtime.h ****   /*lint -save -e9033 [10.8] This cast is required by the operation, it is
  494:../../../os/rt/include/chtime.h ****     known that the destination type can be wider.*/
  495:../../../os/rt/include/chtime.h ****   return (sysinterval_t)((systime_t)(end - start));
- 129               		.loc 3 495 0
- 130 004a 281B      		sub r18,r24
- 131 004c 390B      		sbc r19,r25
- 132               	.LBE46:
- 133               	.LBE45:
- 134               		.loc 1 146 0
- 135 004e EB01      		movw r28,r22
- 136 0050 C20F      		add r28,r18
- 137 0052 D31F      		adc r29,r19
- 138               	.LVL5:
+ 174               		.loc 5 495 3 view .LVU38
+ 175               		.loc 5 495 10 is_stmt 0 view .LVU39
+ 176 004e 841B      		sub r24,r20
+ 177 0050 950B      		sbc r25,r21
+ 178               	.LVL5:
+ 179               		.loc 5 495 10 view .LVU40
+ 180               	.LBE49:
+ 181               	.LBE48:
+ 182               		.loc 1 146 11 view .LVU41
+ 183 0052 C80F      		add r28,r24
+ 184 0054 D91F      		adc r29,r25
+ 185               	.LVL6:
  147:../../../os/rt/src/chvt.c **** 
  148:../../../os/rt/src/chvt.c ****     if (delta < chTimeDiffX(ch.vtlist.lasttime, now)) {
+ 186               		.loc 1 148 5 is_stmt 1 view .LVU42
+ 187               		.loc 1 148 5 is_stmt 0 view .LVU43
+ 188               	.LBE62:
+ 189               		.loc 5 495 3 is_stmt 1 view .LVU44
+ 190               		.loc 5 495 3 is_stmt 0 view .LVU45
+ 191 0056 D801      		movw r26,r16
+ 192 0058 1496      		adiw r26,4
+ 193 005a 2D91      		ld r18,X+
+ 194 005c 3C91      		ld r19,X
+ 195 005e 1597      		sbiw r26,4+1
+ 196               	.LVL7:
+ 197               	.LBB63:
+ 198               		.loc 1 148 8 view .LVU46
+ 199 0060 C817      		cp r28,r24
+ 200 0062 D907      		cpc r29,r25
+ 201 0064 00F0      		brlo .L13
  149:../../../os/rt/src/chvt.c ****       /* Scenario where a very large delay excedeed the numeric range, it
  150:../../../os/rt/src/chvt.c ****          requires a special handling. We need to skip the first element and
  151:../../../os/rt/src/chvt.c ****          adjust the delta to wrap back in the previous numeric range.*/
  152:../../../os/rt/src/chvt.c ****       delta -= p->delta;
- 139               		.loc 1 152 0
- 140 0054 D801      		movw r26,r16
- 148:../../../os/rt/src/chvt.c ****       /* Scenario where a very large delay excedeed the numeric range, it
- 141               		.loc 1 148 0
- 142 0056 C217      		cp r28,r18
- 143 0058 D307      		cpc r29,r19
- 144 005a 00F0      		brlo .L17
  153:../../../os/rt/src/chvt.c ****       p = p->next;
  154:../../../os/rt/src/chvt.c ****     }
  155:../../../os/rt/src/chvt.c ****     else if (delta < p->delta) {
- 145               		.loc 1 155 0
- 146 005c 1496      		adiw r26,4
- 147 005e 2D91      		ld r18,X+
- 148 0060 3C91      		ld r19,X
- 149 0062 1597      		sbiw r26,4+1
- 150 0064 C217      		cp r28,r18
- 151 0066 D307      		cpc r29,r19
- 152 0068 00F4      		brsh .L8
- 153 006a 00C0      		rjmp .L18
- 154               	.LVL6:
- 155               	.L10:
- 156               	.LBE40:
+ 202               		.loc 1 155 10 is_stmt 1 view .LVU47
+ 203               		.loc 1 155 13 is_stmt 0 view .LVU48
+ 204 0066 C217      		cp r28,r18
+ 205 0068 D307      		cpc r29,r19
+ 206 006a 00F4      		brsh .+2
+ 207 006c 00C0      		rjmp .L14
+ 208               	.LVL8:
+ 209               	.L7:
+ 210               		.loc 1 155 13 view .LVU49
+ 211               	.LBE63:
  156:../../../os/rt/src/chvt.c ****       sysinterval_t deadline_delta;
  157:../../../os/rt/src/chvt.c **** 
  158:../../../os/rt/src/chvt.c ****       /* A small delay that will become the first element in the delta list
@@ -916,301 +1197,283 @@
  178:../../../os/rt/src/chvt.c ****   /* The delta list is scanned in order to find the correct position for
  179:../../../os/rt/src/chvt.c ****      this timer. */
  180:../../../os/rt/src/chvt.c ****   while (p->delta < delta) {
+ 212               		.loc 1 180 9 view .LVU50
+ 213 006e 2C17      		cp r18,r28
+ 214 0070 3D07      		cpc r19,r29
+ 215 0072 00F4      		brsh .L9
+ 216               	.L8:
  181:../../../os/rt/src/chvt.c ****     /* Debug assert if the timer is already in the list.*/
  182:../../../os/rt/src/chvt.c ****     chDbgAssert(p != vtp, "timer already armed");
+ 217               		.loc 1 182 5 is_stmt 1 view .LVU51
+ 218               		.loc 1 182 5 view .LVU52
  183:../../../os/rt/src/chvt.c **** 
  184:../../../os/rt/src/chvt.c ****     delta -= p->delta;
- 157               		.loc 1 184 0
- 158 006c C21B      		sub r28,r18
- 159 006e D30B      		sbc r29,r19
- 160               	.LVL7:
+ 219               		.loc 1 184 5 view .LVU53
+ 220               		.loc 1 184 11 is_stmt 0 view .LVU54
+ 221 0074 C21B      		sub r28,r18
+ 222 0076 D30B      		sbc r29,r19
+ 223               	.LVL9:
  185:../../../os/rt/src/chvt.c ****     p = p->next;
- 161               		.loc 1 185 0
- 162 0070 D801      		movw r26,r16
- 163               	.LVL8:
- 164               	.L12:
- 165               	.LBB54:
- 153:../../../os/rt/src/chvt.c ****       p = p->next;
- 166               		.loc 1 153 0
- 167 0072 0D91      		ld r16,X+
- 168 0074 1C91      		ld r17,X
- 169               	.LVL9:
- 170 0076 F801      		movw r30,r16
- 171 0078 2481      		ldd r18,Z+4
- 172 007a 3581      		ldd r19,Z+5
- 173               	.L8:
- 174               	.LBE54:
+ 224               		.loc 1 185 5 is_stmt 1 view .LVU55
+ 225               		.loc 1 185 7 is_stmt 0 view .LVU56
+ 226 0078 F801      		movw r30,r16
+ 227 007a 0081      		ld r16,Z
+ 228 007c 1181      		ldd r17,Z+1
+ 229               	.LVL10:
  180:../../../os/rt/src/chvt.c ****     /* Debug assert if the timer is already in the list.*/
- 175               		.loc 1 180 0
- 176 007c 2C17      		cp r18,r28
- 177 007e 3D07      		cpc r19,r29
- 178 0080 00F0      		brlo .L10
+ 230               		.loc 1 180 11 view .LVU57
+ 231 007e D801      		movw r26,r16
+ 232 0080 1496      		adiw r26,4
+ 233 0082 2D91      		ld r18,X+
+ 234 0084 3C91      		ld r19,X
+ 180:../../../os/rt/src/chvt.c ****     /* Debug assert if the timer is already in the list.*/
+ 235               		.loc 1 180 9 view .LVU58
+ 236 0086 2C17      		cp r18,r28
+ 237 0088 3D07      		cpc r19,r29
+ 238 008a 00F0      		brlo .L8
+ 239               	.L9:
  186:../../../os/rt/src/chvt.c ****   }
  187:../../../os/rt/src/chvt.c **** 
  188:../../../os/rt/src/chvt.c ****   /* The timer is inserted in the delta list.*/
  189:../../../os/rt/src/chvt.c ****   vtp->next = p;
- 179               		.loc 1 189 0
- 180 0082 D701      		movw r26,r14
- 181 0084 0D93      		st X+,r16
- 182 0086 1C93      		st X,r17
+ 240               		.loc 1 189 3 is_stmt 1 view .LVU59
+ 241               		.loc 1 189 13 is_stmt 0 view .LVU60
+ 242 008c F701      		movw r30,r14
+ 243 008e 1183      		std Z+1,r17
+ 244 0090 0083      		st Z,r16
  190:../../../os/rt/src/chvt.c ****   vtp->prev = vtp->next->prev;
- 183               		.loc 1 190 0
- 184 0088 D801      		movw r26,r16
- 185 008a 1296      		adiw r26,2
- 186 008c ED91      		ld r30,X+
- 187 008e FC91      		ld r31,X
- 188 0090 1397      		sbiw r26,2+1
- 189 0092 D701      		movw r26,r14
- 190 0094 1396      		adiw r26,2+1
- 191 0096 FC93      		st X,r31
- 192 0098 EE93      		st -X,r30
- 193 009a 1297      		sbiw r26,2
+ 245               		.loc 1 190 3 is_stmt 1 view .LVU61
+ 246               		.loc 1 190 24 is_stmt 0 view .LVU62
+ 247 0092 D801      		movw r26,r16
+ 248 0094 1296      		adiw r26,2
+ 249 0096 ED91      		ld r30,X+
+ 250 0098 FC91      		ld r31,X
+ 251               		.loc 1 190 13 view .LVU63
+ 252 009a D701      		movw r26,r14
+ 253 009c 1396      		adiw r26,2+1
+ 254 009e FC93      		st X,r31
+ 255 00a0 EE93      		st -X,r30
+ 256 00a2 1297      		sbiw r26,2
  191:../../../os/rt/src/chvt.c ****   vtp->prev->next = vtp;
- 194               		.loc 1 191 0
- 195 009c F182      		std Z+1,r15
- 196 009e E082      		st Z,r14
+ 257               		.loc 1 191 3 is_stmt 1 view .LVU64
+ 258               		.loc 1 191 19 is_stmt 0 view .LVU65
+ 259 00a4 F182      		std Z+1,r15
+ 260 00a6 E082      		st Z,r14
  192:../../../os/rt/src/chvt.c ****   p->prev = vtp;
- 197               		.loc 1 192 0
- 198 00a0 F801      		movw r30,r16
- 199 00a2 F382      		std Z+3,r15
- 200 00a4 E282      		std Z+2,r14
+ 261               		.loc 1 192 3 is_stmt 1 view .LVU66
+ 262               		.loc 1 192 11 is_stmt 0 view .LVU67
+ 263 00a8 F801      		movw r30,r16
+ 264 00aa F382      		std Z+3,r15
+ 265 00ac E282      		std Z+2,r14
  193:../../../os/rt/src/chvt.c ****   vtp->delta = delta;
- 201               		.loc 1 193 0
- 202 00a6 1596      		adiw r26,4+1
- 203 00a8 DC93      		st X,r29
- 204 00aa CE93      		st -X,r28
- 205 00ac 1497      		sbiw r26,4
+ 266               		.loc 1 193 3 is_stmt 1 view .LVU68
+ 267               		.loc 1 193 14 is_stmt 0 view .LVU69
+ 268 00ae 1596      		adiw r26,4+1
+ 269 00b0 DC93      		st X,r29
+ 270 00b2 CE93      		st -X,r28
+ 271 00b4 1497      		sbiw r26,4
  194:../../../os/rt/src/chvt.c **** 
  195:../../../os/rt/src/chvt.c ****   /* Calculate new delta for the following entry.*/
  196:../../../os/rt/src/chvt.c ****   p->delta -= delta;
- 206               		.loc 1 196 0
- 207 00ae 8481      		ldd r24,Z+4
- 208 00b0 9581      		ldd r25,Z+5
- 209 00b2 8C1B      		sub r24,r28
- 210 00b4 9D0B      		sbc r25,r29
- 211 00b6 9583      		std Z+5,r25
- 212 00b8 8483      		std Z+4,r24
+ 272               		.loc 1 196 3 is_stmt 1 view .LVU70
+ 273               		.loc 1 196 12 is_stmt 0 view .LVU71
+ 274 00b6 8481      		ldd r24,Z+4
+ 275 00b8 9581      		ldd r25,Z+5
+ 276 00ba 8C1B      		sub r24,r28
+ 277 00bc 9D0B      		sbc r25,r29
+ 278 00be 9583      		std Z+5,r25
+ 279 00c0 8483      		std Z+4,r24
  197:../../../os/rt/src/chvt.c **** 
  198:../../../os/rt/src/chvt.c ****   /* Special case when the timer is in last position in the list, the
  199:../../../os/rt/src/chvt.c ****      value in the header must be restored.*/
  200:../../../os/rt/src/chvt.c ****   ch.vtlist.delta = (sysinterval_t)-1;
- 213               		.loc 1 200 0
- 214 00ba 8FEF      		ldi r24,lo8(-1)
- 215 00bc 9FEF      		ldi r25,lo8(-1)
- 216 00be 9093 0000 		sts ch+17+1,r25
- 217 00c2 8093 0000 		sts ch+17,r24
- 218               	/* epilogue start */
+ 280               		.loc 1 200 3 is_stmt 1 view .LVU72
+ 281               		.loc 1 200 19 is_stmt 0 view .LVU73
+ 282 00c2 8FEF      		ldi r24,lo8(-1)
+ 283 00c4 9FEF      		ldi r25,lo8(-1)
+ 284 00c6 9093 0000 		sts ch+17+1,r25
+ 285 00ca 8093 0000 		sts ch+17,r24
+ 286               	/* epilogue start */
  201:../../../os/rt/src/chvt.c **** }
- 219               		.loc 1 201 0
- 220 00c6 DF91      		pop r29
- 221 00c8 CF91      		pop r28
- 222               	.LVL10:
- 223 00ca 1F91      		pop r17
- 224 00cc 0F91      		pop r16
- 225               	.LVL11:
- 226 00ce FF90      		pop r15
- 227 00d0 EF90      		pop r14
- 228               	.LVL12:
- 229 00d2 0895      		ret
- 230               	.LVL13:
- 231               	.L17:
- 232               	.LBB55:
+ 287               		.loc 1 201 1 view .LVU74
+ 288 00ce DF91      		pop r29
+ 289 00d0 CF91      		pop r28
+ 290               	.LVL11:
+ 291               		.loc 1 201 1 view .LVU75
+ 292 00d2 1F91      		pop r17
+ 293 00d4 0F91      		pop r16
+ 294               	.LVL12:
+ 295               		.loc 1 201 1 view .LVU76
+ 296 00d6 FF90      		pop r15
+ 297 00d8 EF90      		pop r14
+ 298               	.LVL13:
+ 299               		.loc 1 201 1 view .LVU77
+ 300 00da 0895      		ret
+ 301               	.LVL14:
+ 302               	.L13:
+ 303               	.LBB64:
  152:../../../os/rt/src/chvt.c ****       p = p->next;
- 233               		.loc 1 152 0
- 234 00d4 1496      		adiw r26,4
- 235 00d6 8D91      		ld r24,X+
- 236 00d8 9C91      		ld r25,X
- 237 00da 1597      		sbiw r26,4+1
- 238               	.LVL14:
- 239 00dc C81B      		sub r28,r24
- 240 00de D90B      		sbc r29,r25
- 241               	.LVL15:
- 242 00e0 00C0      		rjmp .L12
- 243               	.LVL16:
- 244               	.L15:
- 113:../../../os/rt/src/chvt.c ****     }
- 245               		.loc 1 113 0
- 246 00e2 62E0      		ldi r22,lo8(2)
- 247 00e4 70E0      		ldi r23,0
- 248               	.LVL17:
- 249 00e6 00C0      		rjmp .L3
- 250               	.LVL18:
- 251               	.L18:
- 252               	.LBB47:
- 253               	.LBB48:
- 254               	.LBB49:
- 255               		.file 4 "../../../os/common/ports/AVR/chcore_timer.h"
-   1:../../../os/common/ports/AVR/chcore_timer.h **** /*
-   2:../../../os/common/ports/AVR/chcore_timer.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
-   3:../../../os/common/ports/AVR/chcore_timer.h **** 
-   4:../../../os/common/ports/AVR/chcore_timer.h ****     This file is part of ChibiOS.
-   5:../../../os/common/ports/AVR/chcore_timer.h **** 
-   6:../../../os/common/ports/AVR/chcore_timer.h ****     ChibiOS is free software; you can redistribute it and/or modify
-   7:../../../os/common/ports/AVR/chcore_timer.h ****     it under the terms of the GNU General Public License as published by
-   8:../../../os/common/ports/AVR/chcore_timer.h ****     the Free Software Foundation; either version 3 of the License, or
-   9:../../../os/common/ports/AVR/chcore_timer.h ****     (at your option) any later version.
-  10:../../../os/common/ports/AVR/chcore_timer.h **** 
-  11:../../../os/common/ports/AVR/chcore_timer.h ****     ChibiOS is distributed in the hope that it will be useful,
-  12:../../../os/common/ports/AVR/chcore_timer.h ****     but WITHOUT ANY WARRANTY; without even the implied warranty of
-  13:../../../os/common/ports/AVR/chcore_timer.h ****     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  14:../../../os/common/ports/AVR/chcore_timer.h ****     GNU General Public License for more details.
-  15:../../../os/common/ports/AVR/chcore_timer.h **** 
-  16:../../../os/common/ports/AVR/chcore_timer.h ****     You should have received a copy of the GNU General Public License
-  17:../../../os/common/ports/AVR/chcore_timer.h ****     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  18:../../../os/common/ports/AVR/chcore_timer.h **** */
-  19:../../../os/common/ports/AVR/chcore_timer.h **** 
-  20:../../../os/common/ports/AVR/chcore_timer.h **** /**
-  21:../../../os/common/ports/AVR/chcore_timer.h ****  * @file    AVR/chcore_timer.h
-  22:../../../os/common/ports/AVR/chcore_timer.h ****  * @brief   System timer header file.
-  23:../../../os/common/ports/AVR/chcore_timer.h ****  *
-  24:../../../os/common/ports/AVR/chcore_timer.h ****  * @addtogroup AVR_TIMER
-  25:../../../os/common/ports/AVR/chcore_timer.h ****  * @{
-  26:../../../os/common/ports/AVR/chcore_timer.h ****  */
-  27:../../../os/common/ports/AVR/chcore_timer.h **** 
-  28:../../../os/common/ports/AVR/chcore_timer.h **** #ifndef CHCORE_TIMER_H
-  29:../../../os/common/ports/AVR/chcore_timer.h **** #define CHCORE_TIMER_H
-  30:../../../os/common/ports/AVR/chcore_timer.h **** 
-  31:../../../os/common/ports/AVR/chcore_timer.h **** /* This is the only header in the HAL designed to be include-able alone.*/
-  32:../../../os/common/ports/AVR/chcore_timer.h **** #include "hal_st.h"
-  33:../../../os/common/ports/AVR/chcore_timer.h **** 
-  34:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
-  35:../../../os/common/ports/AVR/chcore_timer.h **** /* Module constants.                                                         */
-  36:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
-  37:../../../os/common/ports/AVR/chcore_timer.h **** 
-  38:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
-  39:../../../os/common/ports/AVR/chcore_timer.h **** /* Module pre-compile time settings.                                         */
-  40:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
-  41:../../../os/common/ports/AVR/chcore_timer.h **** 
-  42:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
-  43:../../../os/common/ports/AVR/chcore_timer.h **** /* Derived constants and error checks.                                       */
-  44:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
-  45:../../../os/common/ports/AVR/chcore_timer.h **** 
-  46:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
-  47:../../../os/common/ports/AVR/chcore_timer.h **** /* Module data structures and types.                                         */
-  48:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
-  49:../../../os/common/ports/AVR/chcore_timer.h **** 
-  50:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
-  51:../../../os/common/ports/AVR/chcore_timer.h **** /* Module macros.                                                            */
-  52:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
-  53:../../../os/common/ports/AVR/chcore_timer.h **** 
-  54:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
-  55:../../../os/common/ports/AVR/chcore_timer.h **** /* External declarations.                                                    */
-  56:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
-  57:../../../os/common/ports/AVR/chcore_timer.h **** 
-  58:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
-  59:../../../os/common/ports/AVR/chcore_timer.h **** /* Module inline functions.                                                  */
-  60:../../../os/common/ports/AVR/chcore_timer.h **** /*===========================================================================*/
-  61:../../../os/common/ports/AVR/chcore_timer.h **** 
-  62:../../../os/common/ports/AVR/chcore_timer.h **** /**
-  63:../../../os/common/ports/AVR/chcore_timer.h ****  * @brief   Starts the alarm.
-  64:../../../os/common/ports/AVR/chcore_timer.h ****  * @note    Makes sure that no spurious alarms are triggered after
-  65:../../../os/common/ports/AVR/chcore_timer.h ****  *          this call.
-  66:../../../os/common/ports/AVR/chcore_timer.h ****  *
-  67:../../../os/common/ports/AVR/chcore_timer.h ****  * @param[in] time      the time to be set for the first alarm
-  68:../../../os/common/ports/AVR/chcore_timer.h ****  *
-  69:../../../os/common/ports/AVR/chcore_timer.h ****  * @notapi
-  70:../../../os/common/ports/AVR/chcore_timer.h ****  */
-  71:../../../os/common/ports/AVR/chcore_timer.h **** static inline void port_timer_start_alarm(systime_t time) {
-  72:../../../os/common/ports/AVR/chcore_timer.h **** 
-  73:../../../os/common/ports/AVR/chcore_timer.h ****   stStartAlarm(time);
-  74:../../../os/common/ports/AVR/chcore_timer.h **** }
-  75:../../../os/common/ports/AVR/chcore_timer.h **** 
-  76:../../../os/common/ports/AVR/chcore_timer.h **** /**
-  77:../../../os/common/ports/AVR/chcore_timer.h ****  * @brief   Stops the alarm interrupt.
-  78:../../../os/common/ports/AVR/chcore_timer.h ****  *
-  79:../../../os/common/ports/AVR/chcore_timer.h ****  * @notapi
-  80:../../../os/common/ports/AVR/chcore_timer.h ****  */
-  81:../../../os/common/ports/AVR/chcore_timer.h **** static inline void port_timer_stop_alarm(void) {
-  82:../../../os/common/ports/AVR/chcore_timer.h **** 
-  83:../../../os/common/ports/AVR/chcore_timer.h ****   stStopAlarm();
-  84:../../../os/common/ports/AVR/chcore_timer.h **** }
-  85:../../../os/common/ports/AVR/chcore_timer.h **** 
-  86:../../../os/common/ports/AVR/chcore_timer.h **** /**
-  87:../../../os/common/ports/AVR/chcore_timer.h ****  * @brief   Sets the alarm time.
-  88:../../../os/common/ports/AVR/chcore_timer.h ****  *
-  89:../../../os/common/ports/AVR/chcore_timer.h ****  * @param[in] time      the time to be set for the next alarm
-  90:../../../os/common/ports/AVR/chcore_timer.h ****  *
-  91:../../../os/common/ports/AVR/chcore_timer.h ****  * @notapi
-  92:../../../os/common/ports/AVR/chcore_timer.h ****  */
-  93:../../../os/common/ports/AVR/chcore_timer.h **** static inline void port_timer_set_alarm(systime_t time) {
-  94:../../../os/common/ports/AVR/chcore_timer.h **** 
-  95:../../../os/common/ports/AVR/chcore_timer.h ****   stSetAlarm(time);
- 256               		.loc 4 95 0
- 257 00e8 8C0F      		add r24,r28
- 258 00ea 9D1F      		adc r25,r29
- 259               	.LVL19:
- 260 00ec 0E94 0000 		call stSetAlarm
- 261               	.LVL20:
- 262 00f0 F801      		movw r30,r16
- 263 00f2 2481      		ldd r18,Z+4
- 264 00f4 3581      		ldd r19,Z+5
- 265 00f6 00C0      		rjmp .L8
- 266               	.LVL21:
- 267               	.L16:
- 268               	.LBE49:
- 269               	.LBE48:
- 270               	.LBE47:
+ 304               		.loc 1 152 7 is_stmt 1 view .LVU78
+ 152:../../../os/rt/src/chvt.c ****       p = p->next;
+ 305               		.loc 1 152 13 is_stmt 0 view .LVU79
+ 306 00dc C21B      		sub r28,r18
+ 307 00de D30B      		sbc r29,r19
+ 308               	.LVL15:
+ 153:../../../os/rt/src/chvt.c ****     }
+ 309               		.loc 1 153 7 is_stmt 1 view .LVU80
+ 153:../../../os/rt/src/chvt.c ****     }
+ 310               		.loc 1 153 9 is_stmt 0 view .LVU81
+ 311 00e0 0D91      		ld r16,X+
+ 312 00e2 1C91      		ld r17,X
+ 313               	.LVL16:
+ 153:../../../os/rt/src/chvt.c ****     }
+ 314               		.loc 1 153 9 view .LVU82
+ 315 00e4 F801      		movw r30,r16
+ 316 00e6 2481      		ldd r18,Z+4
+ 317 00e8 3581      		ldd r19,Z+5
+ 318 00ea 00C0      		rjmp .L7
+ 319               	.L14:
+ 320               	.LBB50:
+ 156:../../../os/rt/src/chvt.c **** 
+ 321               		.loc 1 156 7 is_stmt 1 view .LVU83
+ 160:../../../os/rt/src/chvt.c **** #if CH_CFG_INTERVALS_SIZE > CH_CFG_ST_RESOLUTION
+ 322               		.loc 1 160 7 view .LVU84
+ 323               	.LVL17:
+ 167:../../../os/rt/src/chvt.c ****     }
+ 324               		.loc 1 167 7 view .LVU85
+ 325               	.LBB51:
+ 326               	.LBI51:
+ 472:../../../os/rt/include/chtime.h ****                                    sysinterval_t interval) {
+ 327               		.loc 5 472 25 view .LVU86
+ 328               	.LBB52:
+ 479:../../../os/rt/include/chtime.h **** }
+ 329               		.loc 5 479 3 view .LVU87
+ 479:../../../os/rt/include/chtime.h **** }
+ 330               		.loc 5 479 3 is_stmt 0 view .LVU88
+ 331               	.LBE52:
+ 332               	.LBE51:
+ 333               	.LBB53:
+ 334               	.LBI53:
+  93:../../../os/common/ports/AVR/chcore_timer.h **** 
+ 335               		.loc 3 93 20 is_stmt 1 view .LVU89
+ 336               	.LBB54:
+  95:../../../os/common/ports/AVR/chcore_timer.h **** }
+ 337               		.loc 3 95 3 view .LVU90
+ 338 00ec CA01      		movw r24,r20
+ 339 00ee 8C0F      		add r24,r28
+ 340 00f0 9D1F      		adc r25,r29
+ 341               	.LVL18:
+  95:../../../os/common/ports/AVR/chcore_timer.h **** }
+ 342               		.loc 3 95 3 is_stmt 0 view .LVU91
+ 343 00f2 0E94 0000 		call stSetAlarm
+ 344               	.LVL19:
+  95:../../../os/common/ports/AVR/chcore_timer.h **** }
+ 345               		.loc 3 95 3 view .LVU92
+ 346 00f6 D801      		movw r26,r16
+ 347 00f8 1496      		adiw r26,4
+ 348 00fa 2D91      		ld r18,X+
+ 349 00fc 3C91      		ld r19,X
+ 350 00fe 00C0      		rjmp .L7
+ 351               	.LVL20:
+ 352               	.L12:
+  95:../../../os/common/ports/AVR/chcore_timer.h **** }
+ 353               		.loc 3 95 3 view .LVU93
+ 354               	.LBE54:
+ 355               	.LBE53:
+ 356               	.LBE50:
  121:../../../os/rt/src/chvt.c ****       ch.vtlist.next = vtp;
- 271               		.loc 1 121 0
- 272 00f8 3093 0000 		sts ch+19+1,r19
- 273 00fc 2093 0000 		sts ch+19,r18
+ 357               		.loc 1 121 7 is_stmt 1 view .LVU94
+ 121:../../../os/rt/src/chvt.c ****       ch.vtlist.next = vtp;
+ 358               		.loc 1 121 26 is_stmt 0 view .LVU95
+ 359 0100 9093 0000 		sts ch+19+1,r25
+ 360 0104 8093 0000 		sts ch+19,r24
  122:../../../os/rt/src/chvt.c ****       ch.vtlist.prev = vtp;
- 274               		.loc 1 122 0
- 275 0100 F092 0000 		sts ch+13+1,r15
- 276 0104 E092 0000 		sts ch+13,r14
+ 361               		.loc 1 122 7 is_stmt 1 view .LVU96
+ 122:../../../os/rt/src/chvt.c ****       ch.vtlist.prev = vtp;
+ 362               		.loc 1 122 22 is_stmt 0 view .LVU97
+ 363 0108 F092 0000 		sts ch+13+1,r15
+ 364 010c E092 0000 		sts ch+13,r14
  123:../../../os/rt/src/chvt.c ****       vtp->next = (virtual_timer_t *)&ch.vtlist;
- 277               		.loc 1 123 0
- 278 0108 F092 0000 		sts ch+15+1,r15
- 279 010c E092 0000 		sts ch+15,r14
+ 365               		.loc 1 123 7 is_stmt 1 view .LVU98
+ 123:../../../os/rt/src/chvt.c ****       vtp->next = (virtual_timer_t *)&ch.vtlist;
+ 366               		.loc 1 123 22 is_stmt 0 view .LVU99
+ 367 0110 F092 0000 		sts ch+15+1,r15
+ 368 0114 E092 0000 		sts ch+15,r14
  124:../../../os/rt/src/chvt.c ****       vtp->prev = (virtual_timer_t *)&ch.vtlist;
- 280               		.loc 1 124 0
- 281 0110 F701      		movw r30,r14
- 282 0112 1183      		std Z+1,r17
- 283 0114 0083      		st Z,r16
+ 369               		.loc 1 124 7 is_stmt 1 view .LVU100
+ 124:../../../os/rt/src/chvt.c ****       vtp->prev = (virtual_timer_t *)&ch.vtlist;
+ 370               		.loc 1 124 17 is_stmt 0 view .LVU101
+ 371 0118 F701      		movw r30,r14
+ 372 011a 1183      		std Z+1,r17
+ 373 011c 0083      		st Z,r16
  125:../../../os/rt/src/chvt.c ****       vtp->delta = delay;
- 284               		.loc 1 125 0
- 285 0116 1383      		std Z+3,r17
- 286 0118 0283      		std Z+2,r16
+ 374               		.loc 1 125 7 is_stmt 1 view .LVU102
+ 125:../../../os/rt/src/chvt.c ****       vtp->delta = delay;
+ 375               		.loc 1 125 17 is_stmt 0 view .LVU103
+ 376 011e 1383      		std Z+3,r17
+ 377 0120 0283      		std Z+2,r16
  126:../../../os/rt/src/chvt.c **** 
- 287               		.loc 1 126 0
- 288 011a 7583      		std Z+5,r23
- 289 011c 6483      		std Z+4,r22
- 290               	.LVL22:
- 291               	.LBB50:
- 292               	.LBB51:
+ 378               		.loc 1 126 7 is_stmt 1 view .LVU104
+ 126:../../../os/rt/src/chvt.c **** 
+ 379               		.loc 1 126 18 is_stmt 0 view .LVU105
+ 380 0122 D583      		std Z+5,r29
+ 381 0124 C483      		std Z+4,r28
+ 136:../../../os/rt/src/chvt.c **** 
+ 382               		.loc 1 136 7 is_stmt 1 view .LVU106
+ 383               	.LVL21:
+ 384               	.LBB55:
+ 385               	.LBI55:
+ 472:../../../os/rt/include/chtime.h ****                                    sysinterval_t interval) {
+ 386               		.loc 5 472 25 view .LVU107
+ 387               	.LBB56:
+ 479:../../../os/rt/include/chtime.h **** }
+ 388               		.loc 5 479 3 view .LVU108
+ 479:../../../os/rt/include/chtime.h **** }
+ 389               		.loc 5 479 3 is_stmt 0 view .LVU109
+ 390               	.LBE56:
+ 391               	.LBE55:
+ 392               	.LBB57:
+ 393               	.LBI57:
+  71:../../../os/common/ports/AVR/chcore_timer.h **** 
+ 394               		.loc 3 71 20 is_stmt 1 view .LVU110
+ 395               	.LBB58:
   73:../../../os/common/ports/AVR/chcore_timer.h **** }
- 293               		.loc 4 73 0
- 294 011e CB01      		movw r24,r22
- 295 0120 820F      		add r24,r18
- 296 0122 931F      		adc r25,r19
- 297               	/* epilogue start */
- 298               	.LBE51:
- 299               	.LBE50:
- 300               	.LBE55:
- 301               		.loc 1 201 0
- 302 0124 DF91      		pop r29
- 303 0126 CF91      		pop r28
- 304 0128 1F91      		pop r17
- 305 012a 0F91      		pop r16
- 306 012c FF90      		pop r15
- 307 012e EF90      		pop r14
- 308               	.LVL23:
- 309               	.LBB56:
- 310               	.LBB53:
- 311               	.LBB52:
+ 396               		.loc 3 73 3 view .LVU111
+ 397 0126 8C0F      		add r24,r28
+ 398 0128 9D1F      		adc r25,r29
+ 399               	/* epilogue start */
+ 400               	.LBE58:
+ 401               	.LBE57:
+ 402               	.LBE64:
+ 403               		.loc 1 201 1 is_stmt 0 view .LVU112
+ 404 012a DF91      		pop r29
+ 405 012c CF91      		pop r28
+ 406               	.LVL22:
+ 407               		.loc 1 201 1 view .LVU113
+ 408 012e 1F91      		pop r17
+ 409 0130 0F91      		pop r16
+ 410 0132 FF90      		pop r15
+ 411 0134 EF90      		pop r14
+ 412               	.LVL23:
+ 413               	.LBB65:
+ 414               	.LBB60:
+ 415               	.LBB59:
   73:../../../os/common/ports/AVR/chcore_timer.h **** }
- 312               		.loc 4 73 0
- 313 0130 0C94 0000 		jmp stStartAlarm
- 314               	.LVL24:
- 315               	.LBE52:
- 316               	.LBE53:
- 317               	.LBE56:
- 318               		.cfi_endproc
- 319               	.LFE142:
- 321               		.section	.text.chVTDoResetI,"ax",@progbits
- 322               	.global	chVTDoResetI
- 324               	chVTDoResetI:
- 325               	.LFB143:
+ 416               		.loc 3 73 3 view .LVU114
+ 417 0136 0C94 0000 		jmp stStartAlarm
+ 418               	.LVL24:
+  73:../../../os/common/ports/AVR/chcore_timer.h **** }
+ 419               		.loc 3 73 3 view .LVU115
+ 420               	.LBE59:
+ 421               	.LBE60:
+ 422               	.LBE65:
+ 423               		.cfi_endproc
+ 424               	.LFE142:
+ 426               		.section	.text.chVTDoResetI,"ax",@progbits
+ 427               	.global	chVTDoResetI
+ 429               	chVTDoResetI:
+ 430               	.LVL25:
+ 431               	.LFB143:
  202:../../../os/rt/src/chvt.c **** 
  203:../../../os/rt/src/chvt.c **** /**
  204:../../../os/rt/src/chvt.c ****  * @brief   Disables a Virtual Timer.
@@ -1221,26 +1484,31 @@
  209:../../../os/rt/src/chvt.c ****  * @iclass
  210:../../../os/rt/src/chvt.c ****  */
  211:../../../os/rt/src/chvt.c **** void chVTDoResetI(virtual_timer_t *vtp) {
- 326               		.loc 1 211 0
- 327               		.cfi_startproc
- 328               	.LVL25:
- 329 0000 CF93      		push r28
- 330               	.LCFI6:
- 331               		.cfi_def_cfa_offset 3
- 332               		.cfi_offset 28, -2
- 333 0002 DF93      		push r29
- 334               	.LCFI7:
- 335               		.cfi_def_cfa_offset 4
- 336               		.cfi_offset 29, -3
- 337               	/* prologue: function */
- 338               	/* frame size = 0 */
- 339               	/* stack size = 2 */
- 340               	.L__stack_usage = 2
- 341 0004 FC01      		movw r30,r24
+ 432               		.loc 1 211 41 is_stmt 1 view -0
+ 433               		.cfi_startproc
+ 434               		.loc 1 211 41 is_stmt 0 view .LVU117
+ 435 0000 CF93      		push r28
+ 436               	.LCFI6:
+ 437               		.cfi_def_cfa_offset 3
+ 438               		.cfi_offset 28, -2
+ 439 0002 DF93      		push r29
+ 440               	.LCFI7:
+ 441               		.cfi_def_cfa_offset 4
+ 442               		.cfi_offset 29, -3
+ 443               	/* prologue: function */
+ 444               	/* frame size = 0 */
+ 445               	/* stack size = 2 */
+ 446               	.L__stack_usage = 2
+ 447 0004 FC01      		movw r30,r24
  212:../../../os/rt/src/chvt.c **** 
  213:../../../os/rt/src/chvt.c ****   chDbgCheckClassI();
+ 448               		.loc 1 213 21 is_stmt 1 view .LVU118
  214:../../../os/rt/src/chvt.c ****   chDbgCheck(vtp != NULL);
+ 449               		.loc 1 214 3 view .LVU119
+ 450               		.loc 1 214 3 view .LVU120
  215:../../../os/rt/src/chvt.c ****   chDbgAssert(vtp->func != NULL, "timer not set or already triggered");
+ 451               		.loc 1 215 3 view .LVU121
+ 452               		.loc 1 215 3 view .LVU122
  216:../../../os/rt/src/chvt.c **** 
  217:../../../os/rt/src/chvt.c **** #if CH_CFG_ST_TIMEDELTA == 0
  218:../../../os/rt/src/chvt.c **** 
@@ -1257,63 +1525,73 @@
  229:../../../os/rt/src/chvt.c ****   ch.vtlist.delta = (sysinterval_t)-1;
  230:../../../os/rt/src/chvt.c **** #else /* CH_CFG_ST_TIMEDELTA > 0 */
  231:../../../os/rt/src/chvt.c ****   sysinterval_t nowdelta, delta;
+ 453               		.loc 1 231 3 view .LVU123
  232:../../../os/rt/src/chvt.c **** 
  233:../../../os/rt/src/chvt.c ****   /* If the timer is not the first of the list then it is simply unlinked
  234:../../../os/rt/src/chvt.c ****      else the operation is more complex.*/
  235:../../../os/rt/src/chvt.c ****   if (ch.vtlist.next != vtp) {
- 342               		.loc 1 235 0
- 343 0006 A091 0000 		lds r26,ch+13
- 344 000a B091 0000 		lds r27,ch+13+1
- 345 000e A817      		cp r26,r24
- 346 0010 B907      		cpc r27,r25
- 347 0012 01F0      		breq .L20
+ 454               		.loc 1 235 3 view .LVU124
+ 455 0006 A081      		ld r26,Z
+ 456 0008 B181      		ldd r27,Z+1
+ 457               		.loc 1 235 6 is_stmt 0 view .LVU125
+ 458 000a C091 0000 		lds r28,ch+13
+ 459 000e D091 0000 		lds r29,ch+13+1
+ 460 0012 C817      		cp r28,r24
+ 461 0014 D907      		cpc r29,r25
+ 462 0016 01F0      		breq .L16
  236:../../../os/rt/src/chvt.c ****     /* Removing the element from the delta list.*/
  237:../../../os/rt/src/chvt.c ****     vtp->prev->next = vtp->next;
- 348               		.loc 1 237 0
- 349 0014 C281      		ldd r28,Z+2
- 350 0016 D381      		ldd r29,Z+3
- 351 0018 8081      		ld r24,Z
- 352 001a 9181      		ldd r25,Z+1
- 353               	.LVL26:
- 354 001c 9983      		std Y+1,r25
- 355 001e 8883      		st Y,r24
+ 463               		.loc 1 237 5 is_stmt 1 view .LVU126
+ 464               		.loc 1 237 8 is_stmt 0 view .LVU127
+ 465 0018 C281      		ldd r28,Z+2
+ 466 001a D381      		ldd r29,Z+3
+ 467               		.loc 1 237 21 view .LVU128
+ 468 001c B983      		std Y+1,r27
+ 469 001e A883      		st Y,r26
  238:../../../os/rt/src/chvt.c ****     vtp->next->prev = vtp->prev;
- 356               		.loc 1 238 0
- 357 0020 A081      		ld r26,Z
- 358 0022 B181      		ldd r27,Z+1
- 359 0024 1396      		adiw r26,2+1
- 360 0026 DC93      		st X,r29
- 361 0028 CE93      		st -X,r28
- 362 002a 1297      		sbiw r26,2
+ 470               		.loc 1 238 5 is_stmt 1 view .LVU129
+ 471               		.loc 1 238 8 is_stmt 0 view .LVU130
+ 472 0020 A081      		ld r26,Z
+ 473 0022 B181      		ldd r27,Z+1
+ 474               		.loc 1 238 21 view .LVU131
+ 475 0024 1396      		adiw r26,2+1
+ 476 0026 DC93      		st X,r29
+ 477 0028 CE93      		st -X,r28
+ 478 002a 1297      		sbiw r26,2
  239:../../../os/rt/src/chvt.c ****     vtp->func = NULL;
- 363               		.loc 1 239 0
- 364 002c 1782      		std Z+7,__zero_reg__
- 365 002e 1682      		std Z+6,__zero_reg__
+ 479               		.loc 1 239 5 is_stmt 1 view .LVU132
+ 480               		.loc 1 239 15 is_stmt 0 view .LVU133
+ 481 002c 1782      		std Z+7,__zero_reg__
+ 482 002e 1682      		std Z+6,__zero_reg__
  240:../../../os/rt/src/chvt.c **** 
  241:../../../os/rt/src/chvt.c ****     /* Adding delta to the next element, if it is not the last one.*/
  242:../../../os/rt/src/chvt.c ****     if (&ch.vtlist != (virtual_timers_list_t *)vtp->next)
- 366               		.loc 1 242 0
- 367 0030 80E0      		ldi r24,hi8(ch+13)
- 368 0032 A030      		cpi r26,lo8(ch+13)
- 369 0034 B807      		cpc r27,r24
- 370 0036 01F0      		breq .L19
+ 483               		.loc 1 242 5 is_stmt 1 view .LVU134
+ 484               		.loc 1 242 8 is_stmt 0 view .LVU135
+ 485 0030 80E0      		ldi r24,hi8(ch+13)
+ 486 0032 A030      		cpi r26,lo8(ch+13)
+ 487 0034 B807      		cpc r27,r24
+ 488               	.LVL26:
+ 489               		.loc 1 242 8 view .LVU136
+ 490 0036 01F0      		breq .L15
  243:../../../os/rt/src/chvt.c ****       vtp->next->delta += vtp->delta;
- 371               		.loc 1 243 0
- 372 0038 1496      		adiw r26,4
- 373 003a 2D91      		ld r18,X+
- 374 003c 3C91      		ld r19,X
- 375 003e 1597      		sbiw r26,4+1
- 376 0040 8481      		ldd r24,Z+4
- 377 0042 9581      		ldd r25,Z+5
- 378 0044 820F      		add r24,r18
- 379 0046 931F      		adc r25,r19
- 380 0048 1596      		adiw r26,4+1
- 381 004a 9C93      		st X,r25
- 382 004c 8E93      		st -X,r24
- 383 004e 1497      		sbiw r26,4
- 384               	.LVL27:
- 385               	.L19:
- 386               	/* epilogue start */
+ 491               		.loc 1 243 7 is_stmt 1 view .LVU137
+ 492               		.loc 1 243 24 is_stmt 0 view .LVU138
+ 493 0038 1496      		adiw r26,4
+ 494 003a 8D91      		ld r24,X+
+ 495 003c 9C91      		ld r25,X
+ 496 003e 1597      		sbiw r26,4+1
+ 497 0040 2481      		ldd r18,Z+4
+ 498 0042 3581      		ldd r19,Z+5
+ 499 0044 820F      		add r24,r18
+ 500 0046 931F      		adc r25,r19
+ 501 0048 1596      		adiw r26,4+1
+ 502 004a 9C93      		st X,r25
+ 503 004c 8E93      		st -X,r24
+ 504 004e 1497      		sbiw r26,4
+ 505               	.LVL27:
+ 506               	.L15:
+ 507               	/* epilogue start */
  244:../../../os/rt/src/chvt.c **** 
  245:../../../os/rt/src/chvt.c ****     return;
  246:../../../os/rt/src/chvt.c ****   }
@@ -1368,155 +1646,280 @@
  295:../../../os/rt/src/chvt.c ****   port_timer_set_alarm(chTimeAddX(ch.vtlist.lasttime, delta));
  296:../../../os/rt/src/chvt.c **** #endif /* CH_CFG_ST_TIMEDELTA > 0 */
  297:../../../os/rt/src/chvt.c **** }
- 387               		.loc 1 297 0
- 388 0050 DF91      		pop r29
- 389 0052 CF91      		pop r28
- 390 0054 0895      		ret
- 391               	.LVL28:
- 392               	.L20:
+ 508               		.loc 1 297 1 view .LVU139
+ 509 0050 DF91      		pop r29
+ 510 0052 CF91      		pop r28
+ 511 0054 0895      		ret
+ 512               	.LVL28:
+ 513               	.L16:
  249:../../../os/rt/src/chvt.c ****   ch.vtlist.next->prev = (virtual_timer_t *)&ch.vtlist;
- 393               		.loc 1 249 0
- 394 0056 ED91      		ld r30,X+
- 395 0058 FC91      		ld r31,X
- 396 005a 1197      		sbiw r26,1
- 397 005c F093 0000 		sts ch+13+1,r31
- 398 0060 E093 0000 		sts ch+13,r30
+ 514               		.loc 1 249 3 is_stmt 1 view .LVU140
+ 249:../../../os/rt/src/chvt.c ****   ch.vtlist.next->prev = (virtual_timer_t *)&ch.vtlist;
+ 515               		.loc 1 249 18 is_stmt 0 view .LVU141
+ 516 0056 B093 0000 		sts ch+13+1,r27
+ 517 005a A093 0000 		sts ch+13,r26
  250:../../../os/rt/src/chvt.c ****   vtp->func = NULL;
- 399               		.loc 1 250 0
- 400 0064 80E0      		ldi r24,lo8(ch+13)
- 401 0066 90E0      		ldi r25,hi8(ch+13)
- 402               	.LVL29:
- 403 0068 9383      		std Z+3,r25
- 404 006a 8283      		std Z+2,r24
+ 518               		.loc 1 250 3 is_stmt 1 view .LVU142
+ 250:../../../os/rt/src/chvt.c ****   vtp->func = NULL;
+ 519               		.loc 1 250 24 is_stmt 0 view .LVU143
+ 520 005e 80E0      		ldi r24,lo8(ch+13)
+ 521 0060 90E0      		ldi r25,hi8(ch+13)
+ 522               	.LVL29:
+ 250:../../../os/rt/src/chvt.c ****   vtp->func = NULL;
+ 523               		.loc 1 250 24 view .LVU144
+ 524 0062 1396      		adiw r26,2+1
+ 525 0064 9C93      		st X,r25
+ 526 0066 8E93      		st -X,r24
+ 527 0068 1297      		sbiw r26,2
  251:../../../os/rt/src/chvt.c **** 
- 405               		.loc 1 251 0
- 406 006c 1796      		adiw r26,6+1
- 407 006e 1C92      		st X,__zero_reg__
- 408 0070 1E92      		st -X,__zero_reg__
- 409 0072 1697      		sbiw r26,6
+ 528               		.loc 1 251 3 is_stmt 1 view .LVU145
+ 251:../../../os/rt/src/chvt.c **** 
+ 529               		.loc 1 251 13 is_stmt 0 view .LVU146
+ 530 006a 1F82      		std Y+7,__zero_reg__
+ 531 006c 1E82      		std Y+6,__zero_reg__
  254:../../../os/rt/src/chvt.c ****     port_timer_stop_alarm();
- 410               		.loc 1 254 0
- 411 0074 E817      		cp r30,r24
- 412 0076 F907      		cpc r31,r25
- 413 0078 01F0      		breq .L26
+ 532               		.loc 1 254 3 is_stmt 1 view .LVU147
+ 254:../../../os/rt/src/chvt.c ****     port_timer_stop_alarm();
+ 533               		.loc 1 254 6 is_stmt 0 view .LVU148
+ 534 006e A817      		cp r26,r24
+ 535 0070 B907      		cpc r27,r25
+ 536               	.LVL30:
+ 254:../../../os/rt/src/chvt.c ****     port_timer_stop_alarm();
+ 537               		.loc 1 254 6 view .LVU149
+ 538 0072 01F0      		breq .L22
  261:../../../os/rt/src/chvt.c **** 
- 414               		.loc 1 261 0
- 415 007a 1496      		adiw r26,4
- 416 007c 2D91      		ld r18,X+
- 417 007e 3C91      		ld r19,X
- 418 0080 1597      		sbiw r26,4+1
- 419 0082 8481      		ldd r24,Z+4
- 420 0084 9581      		ldd r25,Z+5
- 421 0086 820F      		add r24,r18
- 422 0088 931F      		adc r25,r19
- 423 008a 9583      		std Z+5,r25
- 424 008c 8483      		std Z+4,r24
- 425               	.LBB57:
- 426               	.LBB58:
- 427               	.LBB59:
- 428               	.LBB60:
- 429               		.loc 2 89 0
- 430 008e 2091 8400 		lds r18,132
- 431 0092 3091 8500 		lds r19,132+1
- 432               	.LBE60:
- 433               	.LBE59:
- 434               	.LBE58:
- 435               	.LBE57:
+ 539               		.loc 1 261 3 is_stmt 1 view .LVU150
+ 261:../../../os/rt/src/chvt.c **** 
+ 540               		.loc 1 261 25 is_stmt 0 view .LVU151
+ 541 0074 1496      		adiw r26,4
+ 542 0076 8D91      		ld r24,X+
+ 543 0078 9C91      		ld r25,X
+ 544 007a 1597      		sbiw r26,4+1
+ 545 007c 2C81      		ldd r18,Y+4
+ 546 007e 3D81      		ldd r19,Y+5
+ 547 0080 820F      		add r24,r18
+ 548 0082 931F      		adc r25,r19
+ 549 0084 1596      		adiw r26,4+1
+ 550 0086 9C93      		st X,r25
+ 551 0088 8E93      		st -X,r24
+ 552 008a 1497      		sbiw r26,4
  270:../../../os/rt/src/chvt.c **** 
- 436               		.loc 1 270 0
- 437 0096 4091 0000 		lds r20,ch+19
- 438 009a 5091 0000 		lds r21,ch+19+1
- 439               	.LVL30:
- 440               	.LBB61:
- 441               	.LBB62:
- 442               		.loc 3 495 0
- 443 009e 241B      		sub r18,r20
- 444 00a0 350B      		sbc r19,r21
- 445               	.LVL31:
- 446               	.LBE62:
- 447               	.LBE61:
+ 553               		.loc 1 270 3 is_stmt 1 view .LVU152
+ 554               	.LBB66:
+ 555               	.LBI66:
+ 115:../../../os/rt/include/chvt.h **** 
+ 556               		.loc 2 115 25 view .LVU153
+ 557               	.LBE66:
+ 558               		.loc 2 120 3 view .LVU154
+ 559               	.LBB71:
+ 560               	.LBB67:
+ 561               	.LBI67:
+ 105:../../../os/common/ports/AVR/chcore_timer.h **** 
+ 562               		.loc 3 105 25 view .LVU155
+ 563               	.LBE67:
+ 564               	.LBE71:
+ 565               		.loc 3 107 3 view .LVU156
+ 566               	.LBB72:
+ 567               	.LBB70:
+ 568               	.LBB68:
+ 569               	.LBI68:
+  87:../../../os/hal/ports/AVR/MEGA/LLD/TIMv1/hal_st_lld.h **** 
+ 570               		.loc 4 87 25 view .LVU157
+ 571               	.LBB69:
+ 572               		.loc 4 89 3 view .LVU158
+ 573               		.loc 4 89 10 is_stmt 0 view .LVU159
+ 574 008c 4091 8400 		lds r20,132
+ 575 0090 5091 8500 		lds r21,132+1
+ 576               	.LBE69:
+ 577               	.LBE68:
+ 578               	.LBE70:
+ 579               	.LBE72:
+ 270:../../../os/rt/src/chvt.c **** 
+ 580               		.loc 1 270 14 view .LVU160
+ 581 0094 2091 0000 		lds r18,ch+19
+ 582 0098 3091 0000 		lds r19,ch+19+1
+ 583               	.LVL31:
+ 584               	.LBB73:
+ 585               	.LBI73:
+ 491:../../../os/rt/include/chtime.h **** 
+ 586               		.loc 5 491 29 is_stmt 1 view .LVU161
+ 587               	.LBB74:
+ 588               		.loc 5 495 3 view .LVU162
+ 589               		.loc 5 495 10 is_stmt 0 view .LVU163
+ 590 009c BA01      		movw r22,r20
+ 591 009e 621B      		sub r22,r18
+ 592 00a0 730B      		sbc r23,r19
+ 593               	.LVL32:
+ 594               		.loc 5 495 10 view .LVU164
+ 595               	.LBE74:
+ 596               	.LBE73:
  274:../../../os/rt/src/chvt.c ****     return;
- 448               		.loc 1 274 0
- 449 00a2 2817      		cp r18,r24
- 450 00a4 3907      		cpc r19,r25
- 451 00a6 00F4      		brsh .L19
- 452               	.LVL32:
+ 597               		.loc 1 274 3 is_stmt 1 view .LVU165
+ 274:../../../os/rt/src/chvt.c ****     return;
+ 598               		.loc 1 274 6 is_stmt 0 view .LVU166
+ 599 00a2 6817      		cp r22,r24
+ 600 00a4 7907      		cpc r23,r25
+ 601 00a6 00F4      		brsh .L15
  279:../../../os/rt/src/chvt.c **** 
- 453               		.loc 1 279 0
- 454 00a8 BC01      		movw r22,r24
- 455 00aa 621B      		sub r22,r18
- 456 00ac 730B      		sbc r23,r19
- 457               	.LVL33:
+ 602               		.loc 1 279 3 is_stmt 1 view .LVU167
+ 603               	.LVL33:
  283:../../../os/rt/src/chvt.c ****     delta = nowdelta + (sysinterval_t)CH_CFG_ST_TIMEDELTA;
- 458               		.loc 1 283 0
- 459 00ae 6230      		cpi r22,2
- 460 00b0 7105      		cpc r23,__zero_reg__
- 461 00b2 00F0      		brlo .L27
- 462               	.LVL34:
- 463               	.L25:
- 464               	.LBB63:
- 465               	.LBB64:
- 466               		.loc 4 95 0
- 467 00b4 840F      		add r24,r20
- 468 00b6 951F      		adc r25,r21
- 469               	.LVL35:
- 470               	/* epilogue start */
- 471               	.LBE64:
- 472               	.LBE63:
- 473               		.loc 1 297 0
- 474 00b8 DF91      		pop r29
- 475 00ba CF91      		pop r28
- 476               	.LBB66:
- 477               	.LBB65:
- 478               		.loc 4 95 0
- 479 00bc 0C94 0000 		jmp stSetAlarm
- 480               	.LVL36:
- 481               	.L27:
- 482               	.LBE65:
- 483               	.LBE66:
+ 604               		.loc 1 283 3 view .LVU168
+ 279:../../../os/rt/src/chvt.c **** 
+ 605               		.loc 1 279 9 is_stmt 0 view .LVU169
+ 606 00a8 F901      		movw r30,r18
+ 607 00aa E41B      		sub r30,r20
+ 608 00ac F50B      		sbc r31,r21
+ 609 00ae AF01      		movw r20,r30
+ 610               	.LVL34:
+ 279:../../../os/rt/src/chvt.c **** 
+ 611               		.loc 1 279 9 view .LVU170
+ 612 00b0 480F      		add r20,r24
+ 613 00b2 591F      		adc r21,r25
+ 614               	.LVL35:
+ 283:../../../os/rt/src/chvt.c ****     delta = nowdelta + (sysinterval_t)CH_CFG_ST_TIMEDELTA;
+ 615               		.loc 1 283 6 view .LVU171
+ 616 00b4 4230      		cpi r20,2
+ 617 00b6 5105      		cpc r21,__zero_reg__
+ 618 00b8 00F0      		brlo .L23
+ 619               	.LVL36:
+ 295:../../../os/rt/src/chvt.c **** #endif /* CH_CFG_ST_TIMEDELTA > 0 */
+ 620               		.loc 1 295 3 is_stmt 1 view .LVU172
+ 621               	.LBB75:
+ 622               	.LBI75:
+ 472:../../../os/rt/include/chtime.h ****                                    sysinterval_t interval) {
+ 623               		.loc 5 472 25 view .LVU173
+ 624               	.LBB76:
+ 479:../../../os/rt/include/chtime.h **** }
+ 625               		.loc 5 479 3 view .LVU174
+ 479:../../../os/rt/include/chtime.h **** }
+ 626               		.loc 5 479 3 is_stmt 0 view .LVU175
+ 627               	.LBE76:
+ 628               	.LBE75:
+ 629               	.LBB78:
+ 630               	.LBI78:
+  93:../../../os/common/ports/AVR/chcore_timer.h **** 
+ 631               		.loc 3 93 20 is_stmt 1 view .LVU176
+ 632               	.LBB79:
+  95:../../../os/common/ports/AVR/chcore_timer.h **** }
+ 633               		.loc 3 95 3 view .LVU177
+ 634 00ba 820F      		add r24,r18
+ 635 00bc 931F      		adc r25,r19
+ 636               	.LVL37:
+ 637               	/* epilogue start */
+  95:../../../os/common/ports/AVR/chcore_timer.h **** }
+ 638               		.loc 3 95 3 is_stmt 0 view .LVU178
+ 639               	.LBE79:
+ 640               	.LBE78:
+ 641               		.loc 1 297 1 view .LVU179
+ 642 00be DF91      		pop r29
+ 643 00c0 CF91      		pop r28
+ 644               	.LBB83:
+ 645               	.LBB80:
+  95:../../../os/common/ports/AVR/chcore_timer.h **** }
+ 646               		.loc 3 95 3 view .LVU180
+ 647 00c2 0C94 0000 		jmp stSetAlarm
+ 648               	.LVL38:
+ 649               	.L23:
+  95:../../../os/common/ports/AVR/chcore_timer.h **** }
+ 650               		.loc 3 95 3 view .LVU181
+ 651               	.LBE80:
+ 652               	.LBE83:
  284:../../../os/rt/src/chvt.c ****   }
- 484               		.loc 1 284 0
- 485 00c0 C901      		movw r24,r18
- 486 00c2 0296      		adiw r24,2
- 487               	.LVL37:
- 488 00c4 00C0      		rjmp .L25
- 489               	.LVL38:
- 490               	.L26:
- 491               	/* epilogue start */
- 492               		.loc 1 297 0
- 493 00c6 DF91      		pop r29
- 494 00c8 CF91      		pop r28
- 495               	.LBB67:
- 496               	.LBB68:
+ 653               		.loc 1 284 5 is_stmt 1 view .LVU182
+ 284:../../../os/rt/src/chvt.c ****   }
+ 654               		.loc 1 284 11 is_stmt 0 view .LVU183
+ 655 00c6 CB01      		movw r24,r22
+ 656 00c8 0296      		adiw r24,2
+ 657               	.LVL39:
+ 295:../../../os/rt/src/chvt.c **** #endif /* CH_CFG_ST_TIMEDELTA > 0 */
+ 658               		.loc 1 295 3 is_stmt 1 view .LVU184
+ 659               	.LBB84:
+ 472:../../../os/rt/include/chtime.h ****                                    sysinterval_t interval) {
+ 660               		.loc 5 472 25 view .LVU185
+ 661               	.LBB77:
+ 479:../../../os/rt/include/chtime.h **** }
+ 662               		.loc 5 479 3 view .LVU186
+ 479:../../../os/rt/include/chtime.h **** }
+ 663               		.loc 5 479 3 is_stmt 0 view .LVU187
+ 664               	.LBE77:
+ 665               	.LBE84:
+ 666               	.LBB85:
+  93:../../../os/common/ports/AVR/chcore_timer.h **** 
+ 667               		.loc 3 93 20 is_stmt 1 view .LVU188
+ 668               	.LBB81:
+  95:../../../os/common/ports/AVR/chcore_timer.h **** }
+ 669               		.loc 3 95 3 view .LVU189
+ 670 00ca 820F      		add r24,r18
+ 671 00cc 931F      		adc r25,r19
+ 672               	.LVL40:
+ 673               	/* epilogue start */
+  95:../../../os/common/ports/AVR/chcore_timer.h **** }
+ 674               		.loc 3 95 3 is_stmt 0 view .LVU190
+ 675               	.LBE81:
+ 676               	.LBE85:
+ 677               		.loc 1 297 1 view .LVU191
+ 678 00ce DF91      		pop r29
+ 679 00d0 CF91      		pop r28
+ 680               	.LBB86:
+ 681               	.LBB82:
+  95:../../../os/common/ports/AVR/chcore_timer.h **** }
+ 682               		.loc 3 95 3 view .LVU192
+ 683 00d2 0C94 0000 		jmp stSetAlarm
+ 684               	.LVL41:
+ 685               	.L22:
+  95:../../../os/common/ports/AVR/chcore_timer.h **** }
+ 686               		.loc 3 95 3 view .LVU193
+ 687               	.LBE82:
+ 688               	.LBE86:
+ 255:../../../os/rt/src/chvt.c **** 
+ 689               		.loc 1 255 5 is_stmt 1 view .LVU194
+ 690               	.LBB87:
+ 691               	.LBI87:
+  81:../../../os/common/ports/AVR/chcore_timer.h **** 
+ 692               		.loc 3 81 20 view .LVU195
+ 693               	.LBB88:
   83:../../../os/common/ports/AVR/chcore_timer.h **** }
- 497               		.loc 4 83 0
- 498 00ca 0C94 0000 		jmp stStopAlarm
- 499               	.LVL39:
- 500               	.LBE68:
- 501               	.LBE67:
- 502               		.cfi_endproc
- 503               	.LFE143:
- 505               		.text
- 506               	.Letext0:
- 507               		.file 5 "/usr/lib/avr/include/stdint.h"
- 508               		.file 6 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
- 509               		.file 7 "../../../os/rt/include/chsystypes.h"
- 510               		.file 8 "../../../os/rt/include/chschd.h"
- 511               		.file 9 "../../../os/common/ports/AVR/chcore.h"
- 512               		.file 10 "../../../os/rt/include/chsem.h"
- 513               		.file 11 "../../../os/rt/include/chmtx.h"
- 514               		.file 12 "../../../os/rt/include/chvt.h"
- 515               		.file 13 "../../../os/hal/include/hal_st.h"
+ 694               		.loc 3 83 3 view .LVU196
+ 695               	/* epilogue start */
+ 696               	.LBE88:
+ 697               	.LBE87:
+ 698               		.loc 1 297 1 is_stmt 0 view .LVU197
+ 699 00d6 DF91      		pop r29
+ 700 00d8 CF91      		pop r28
+ 701               	.LBB90:
+ 702               	.LBB89:
+  83:../../../os/common/ports/AVR/chcore_timer.h **** }
+ 703               		.loc 3 83 3 view .LVU198
+ 704 00da 0C94 0000 		jmp stStopAlarm
+ 705               	.LVL42:
+ 706               	.LBE89:
+ 707               	.LBE90:
+ 708               		.cfi_endproc
+ 709               	.LFE143:
+ 711               		.text
+ 712               	.Letext0:
+ 713               		.file 6 "/usr/local/Cellar/avr-gcc/8.2.0/avr/include/stdint.h"
+ 714               		.file 7 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
+ 715               		.file 8 "../../../os/rt/include/chsystypes.h"
+ 716               		.file 9 "../../../os/rt/include/chschd.h"
+ 717               		.file 10 "../../../os/common/ports/AVR/chcore.h"
+ 718               		.file 11 "../../../os/rt/include/chsem.h"
+ 719               		.file 12 "../../../os/rt/include/chmtx.h"
+ 720               		.file 13 "../../../os/rt/include/chsys.h"
+ 721               		.file 14 "../../../os/rt/include/chregistry.h"
+ 722               		.file 15 "../../../os/common/oslib/include/chmemcore.h"
+ 723               		.file 16 "../../../os/hal/include/hal_st.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 chvt.c
-     /tmp/ccIB9LXd.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccIB9LXd.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccIB9LXd.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccIB9LXd.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccIB9LXd.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccIB9LXd.s:13     .text._vt_init:0000000000000000 _vt_init
-     /tmp/ccIB9LXd.s:47     .text.chVTDoSetI:0000000000000000 chVTDoSetI
-     /tmp/ccIB9LXd.s:324    .text.chVTDoResetI:0000000000000000 chVTDoResetI
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc7QTdVU.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc7QTdVU.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc7QTdVU.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc7QTdVU.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc7QTdVU.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc7QTdVU.s:13     .text._vt_init:0000000000000000 _vt_init
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc7QTdVU.s:53     .text.chVTDoSetI:0000000000000000 chVTDoSetI
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cc7QTdVU.s:429    .text.chVTDoResetI:0000000000000000 chVTDoResetI
 
 UNDEFINED SYMBOLS
 ch

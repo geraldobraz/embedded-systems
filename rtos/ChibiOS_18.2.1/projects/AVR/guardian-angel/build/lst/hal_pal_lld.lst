@@ -10,8 +10,9 @@
   10               		.section	.text._pal_lld_init,"ax",@progbits
   11               	.global	_pal_lld_init
   13               	_pal_lld_init:
-  14               	.LFB173:
-  15               		.file 1 "../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c"
+  14               	.LVL0:
+  15               	.LFB173:
+  16               		.file 1 "../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c"
    1:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** /*
    2:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio
    3:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** 
@@ -73,14 +74,14 @@
   59:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****  * @notapi
   60:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****  */
   61:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** void _pal_lld_init(const PALConfig *config) {
-  16               		.loc 1 61 0
-  17               		.cfi_startproc
-  18               	.LVL0:
+  17               		.loc 1 61 45 view -0
+  18               		.cfi_startproc
   19               	/* prologue: function */
   20               	/* frame size = 0 */
   21               	/* stack size = 0 */
   22               	.L__stack_usage = 0
-  23 0000 FC01      		movw r30,r24
+  23               		.loc 1 61 45 is_stmt 0 view .LVU1
+  24 0000 FC01      		movw r30,r24
   62:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** 
   63:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** #if defined(PORTA) || defined(__DOXYGEN__)
   64:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   PORTA = config->porta.out;
@@ -89,43 +90,49 @@
   67:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** 
   68:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** #if defined(PORTB) || defined(__DOXYGEN__)
   69:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   PORTB = config->portb.out;
-  24               		.loc 1 69 0
-  25 0002 8081      		ld r24,Z
-  26               	.LVL1:
-  27 0004 85B9      		out 0x5,r24
+  25               		.loc 1 69 3 is_stmt 1 view .LVU2
+  26               		.loc 1 69 24 is_stmt 0 view .LVU3
+  27 0002 8081      		ld r24,Z
+  28               	.LVL1:
+  29               		.loc 1 69 9 view .LVU4
+  30 0004 85B9      		out 0x5,r24
   70:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   DDRB = config->portb.dir;
-  28               		.loc 1 70 0
-  29 0006 8181      		ldd r24,Z+1
-  30 0008 84B9      		out 0x4,r24
+  31               		.loc 1 70 3 is_stmt 1 view .LVU5
+  32               		.loc 1 70 23 is_stmt 0 view .LVU6
+  33 0006 8181      		ldd r24,Z+1
+  34               		.loc 1 70 8 view .LVU7
+  35 0008 84B9      		out 0x4,r24
   71:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** #endif
   72:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** 
   73:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** #if defined(PORTC) || defined(__DOXYGEN__)
   74:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   PORTC = config->portc.out;
-  31               		.loc 1 74 0
-  32 000a 8281      		ldd r24,Z+2
-  33 000c 88B9      		out 0x8,r24
+  36               		.loc 1 74 3 is_stmt 1 view .LVU8
+  37               		.loc 1 74 24 is_stmt 0 view .LVU9
+  38 000a 8281      		ldd r24,Z+2
+  39               		.loc 1 74 9 view .LVU10
+  40 000c 88B9      		out 0x8,r24
   75:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   DDRC = config->portc.dir;
-  34               		.loc 1 75 0
-  35 000e 8381      		ldd r24,Z+3
-  36 0010 87B9      		out 0x7,r24
+  41               		.loc 1 75 3 is_stmt 1 view .LVU11
+  42               		.loc 1 75 23 is_stmt 0 view .LVU12
+  43 000e 8381      		ldd r24,Z+3
+  44               		.loc 1 75 8 view .LVU13
+  45 0010 87B9      		out 0x7,r24
   76:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** #endif
   77:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** 
   78:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** #if defined(PORTD) || defined(__DOXYGEN__)
   79:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   PORTD = config->portd.out;
-  37               		.loc 1 79 0
-  38 0012 8481      		ldd r24,Z+4
-  39 0014 8BB9      		out 0xb,r24
+  46               		.loc 1 79 3 is_stmt 1 view .LVU14
+  47               		.loc 1 79 24 is_stmt 0 view .LVU15
+  48 0012 8481      		ldd r24,Z+4
+  49               		.loc 1 79 9 view .LVU16
+  50 0014 8BB9      		out 0xb,r24
   80:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   DDRD = config->portd.dir;
-  40               		.loc 1 80 0
-  41 0016 8581      		ldd r24,Z+5
-  42 0018 8AB9      		out 0xa,r24
-  43 001a 0895      		ret
-  44               		.cfi_endproc
-  45               	.LFE173:
-  47               		.section	.text._pal_lld_setgroupmode,"ax",@progbits
-  48               	.global	_pal_lld_setgroupmode
-  50               	_pal_lld_setgroupmode:
-  51               	.LFB174:
+  51               		.loc 1 80 3 is_stmt 1 view .LVU17
+  52               		.loc 1 80 23 is_stmt 0 view .LVU18
+  53 0016 8581      		ldd r24,Z+5
+  54               		.loc 1 80 8 view .LVU19
+  55 0018 8AB9      		out 0xa,r24
+  56               	/* epilogue start */
   81:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** #endif
   82:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** 
   83:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** #if defined(PORTE) || defined(__DOXYGEN__)
@@ -163,6 +170,15 @@
  115:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   DDRL = config->portl.dir;
  116:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** #endif
  117:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** }
+  57               		.loc 1 117 1 view .LVU20
+  58 001a 0895      		ret
+  59               		.cfi_endproc
+  60               	.LFE173:
+  62               		.section	.text._pal_lld_setgroupmode,"ax",@progbits
+  63               	.global	_pal_lld_setgroupmode
+  65               	_pal_lld_setgroupmode:
+  66               	.LVL2:
+  67               	.LFB174:
  118:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** 
  119:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** /**
  120:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****  * @brief   Pads mode setup.
@@ -184,24 +200,24 @@
  136:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** void _pal_lld_setgroupmode(ioportid_t port,
  137:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****                            ioportmask_t mask,
  138:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****                            iomode_t mode) {
-  52               		.loc 1 138 0
-  53               		.cfi_startproc
-  54               	.LVL2:
-  55               	/* prologue: function */
-  56               	/* frame size = 0 */
-  57               	/* stack size = 0 */
-  58               	.L__stack_usage = 0
-  59 0000 FC01      		movw r30,r24
+  68               		.loc 1 138 43 is_stmt 1 view -0
+  69               		.cfi_startproc
+  70               	/* prologue: function */
+  71               	/* frame size = 0 */
+  72               	/* stack size = 0 */
+  73               	.L__stack_usage = 0
+  74               		.loc 1 138 43 is_stmt 0 view .LVU22
+  75 0000 FC01      		movw r30,r24
  139:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** 
  140:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   switch (mode) {
-  60               		.loc 1 140 0
-  61 0002 4230      		cpi r20,lo8(2)
-  62 0004 01F0      		breq .L4
-  63 0006 00F0      		brlo .L24
-  64 0008 4530      		cpi r20,lo8(5)
-  65 000a 01F0      		breq .L4
-  66 000c 4630      		cpi r20,lo8(6)
-  67 000e 01F4      		brne .L25
+  76               		.loc 1 140 3 is_stmt 1 view .LVU23
+  77 0002 4230      		cpi r20,lo8(2)
+  78 0004 01F0      		breq .L4
+  79 0006 00F0      		brlo .L25
+  80 0008 4530      		cpi r20,lo8(5)
+  81 000a 01F0      		breq .L4
+  82 000c 4630      		cpi r20,lo8(6)
+  83 000e 01F4      		brne .L26
  141:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   case PAL_MODE_RESET:
  142:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   case PAL_MODE_INPUT:
  143:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   case PAL_MODE_INPUT_ANALOG:
@@ -215,74 +231,100 @@
  151:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     break;
  152:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   case PAL_MODE_OUTPUT_PUSHPULL:
  153:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     port->dir |= mask;
-  68               		.loc 1 153 0
-  69 0010 8181      		ldd r24,Z+1
-  70               	.LVL3:
-  71 0012 682B      		or r22,r24
-  72               	.LVL4:
-  73 0014 6183      		std Z+1,r22
-  74               	.L2:
-  75 0016 0895      		ret
-  76               	.LVL5:
-  77               	.L25:
- 140:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   case PAL_MODE_RESET:
-  78               		.loc 1 140 0
-  79 0018 4330      		cpi r20,lo8(3)
-  80 001a 01F4      		brne .L2
-  81               	.L6:
- 149:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     port->out |= mask;
-  82               		.loc 1 149 0
-  83 001c 8181      		ldd r24,Z+1
-  84               	.LVL6:
-  85 001e 962F      		mov r25,r22
-  86 0020 9095      		com r25
-  87 0022 8923      		and r24,r25
-  88 0024 8183      		std Z+1,r24
- 150:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     break;
-  89               		.loc 1 150 0
-  90 0026 8281      		ldd r24,Z+2
-  91 0028 682B      		or r22,r24
-  92               	.LVL7:
-  93 002a 6283      		std Z+2,r22
- 151:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   case PAL_MODE_OUTPUT_PUSHPULL:
-  94               		.loc 1 151 0
-  95 002c 0895      		ret
-  96               	.LVL8:
-  97               	.L24:
- 140:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   case PAL_MODE_RESET:
-  98               		.loc 1 140 0
-  99 002e 4423      		tst r20
- 100 0030 01F0      		breq .L4
- 101 0032 4130      		cpi r20,lo8(1)
- 102 0034 01F0      		breq .L6
- 103 0036 0895      		ret
- 104               	.L4:
- 144:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     port->out &= ~mask;
- 105               		.loc 1 144 0
- 106 0038 8181      		ldd r24,Z+1
- 107               	.LVL9:
- 108 003a 6095      		com r22
- 109               	.LVL10:
- 110 003c 8623      		and r24,r22
- 111 003e 8183      		std Z+1,r24
- 145:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     break;
- 112               		.loc 1 145 0
- 113 0040 8281      		ldd r24,Z+2
- 114 0042 6823      		and r22,r24
- 115               	.LVL11:
- 116 0044 6283      		std Z+2,r22
- 146:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   case PAL_MODE_UNCONNECTED:
- 117               		.loc 1 146 0
- 118 0046 0895      		ret
- 119               		.cfi_endproc
- 120               	.LFE174:
- 122               		.section	.text._pal_lld_enablepadevent,"ax",@progbits
- 123               	.global	_pal_lld_enablepadevent
- 125               	_pal_lld_enablepadevent:
- 126               	.LFB175:
+  84               		.loc 1 153 5 view .LVU24
+  85               		.loc 1 153 15 is_stmt 0 view .LVU25
+  86 0010 8181      		ldd r24,Z+1
+  87               	.LVL3:
+  88               		.loc 1 153 15 view .LVU26
+  89 0012 682B      		or r22,r24
+  90               	.LVL4:
+  91               		.loc 1 153 15 view .LVU27
+  92 0014 6183      		std Z+1,r22
  154:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     break;
+  93               		.loc 1 154 5 is_stmt 1 view .LVU28
+  94               	/* epilogue start */
  155:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   }
  156:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** }
+  95               		.loc 1 156 1 is_stmt 0 view .LVU29
+  96 0016 0895      		ret
+  97               	.LVL5:
+  98               	.L26:
+  99               		.loc 1 156 1 view .LVU30
+ 100 0018 4330      		cpi r20,lo8(3)
+ 101 001a 01F0      		breq .L6
+ 102               	/* epilogue start */
+ 103 001c 0895      		ret
+ 104               	.L25:
+ 105 001e 4423      		tst r20
+ 106 0020 01F0      		breq .L4
+ 107 0022 4130      		cpi r20,lo8(1)
+ 108 0024 01F4      		brne .L27
+ 109               	.L6:
+ 149:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     port->out |= mask;
+ 110               		.loc 1 149 5 is_stmt 1 view .LVU31
+ 149:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     port->out |= mask;
+ 111               		.loc 1 149 15 is_stmt 0 view .LVU32
+ 112 0026 9181      		ldd r25,Z+1
+ 113 0028 862F      		mov r24,r22
+ 114               	.LVL6:
+ 149:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     port->out |= mask;
+ 115               		.loc 1 149 15 view .LVU33
+ 116 002a 8095      		com r24
+ 117 002c 8923      		and r24,r25
+ 118 002e 8183      		std Z+1,r24
+ 150:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     break;
+ 119               		.loc 1 150 5 is_stmt 1 view .LVU34
+ 150:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     break;
+ 120               		.loc 1 150 15 is_stmt 0 view .LVU35
+ 121 0030 8281      		ldd r24,Z+2
+ 122 0032 682B      		or r22,r24
+ 123               	.LVL7:
+ 150:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     break;
+ 124               		.loc 1 150 15 view .LVU36
+ 125 0034 6283      		std Z+2,r22
+ 151:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   case PAL_MODE_OUTPUT_PUSHPULL:
+ 126               		.loc 1 151 5 is_stmt 1 view .LVU37
+ 127 0036 0895      		ret
+ 128               	.LVL8:
+ 129               	.L27:
+ 151:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   case PAL_MODE_OUTPUT_PUSHPULL:
+ 130               		.loc 1 151 5 is_stmt 0 view .LVU38
+ 131 0038 0895      		ret
+ 132               	.L4:
+ 144:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     port->out &= ~mask;
+ 133               		.loc 1 144 5 is_stmt 1 view .LVU39
+ 144:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     port->out &= ~mask;
+ 134               		.loc 1 144 15 is_stmt 0 view .LVU40
+ 135 003a 8181      		ldd r24,Z+1
+ 136               	.LVL9:
+ 144:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     port->out &= ~mask;
+ 137               		.loc 1 144 15 view .LVU41
+ 138 003c 6095      		com r22
+ 139               	.LVL10:
+ 144:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     port->out &= ~mask;
+ 140               		.loc 1 144 15 view .LVU42
+ 141 003e 8623      		and r24,r22
+ 142 0040 8183      		std Z+1,r24
+ 145:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     break;
+ 143               		.loc 1 145 5 is_stmt 1 view .LVU43
+ 145:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     break;
+ 144               		.loc 1 145 15 is_stmt 0 view .LVU44
+ 145 0042 8281      		ldd r24,Z+2
+ 146 0044 6823      		and r22,r24
+ 147               	.LVL11:
+ 145:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****     break;
+ 148               		.loc 1 145 15 view .LVU45
+ 149 0046 6283      		std Z+2,r22
+ 146:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   case PAL_MODE_UNCONNECTED:
+ 150               		.loc 1 146 5 is_stmt 1 view .LVU46
+ 151 0048 0895      		ret
+ 152               		.cfi_endproc
+ 153               	.LFE174:
+ 155               		.section	.text._pal_lld_enablepadevent,"ax",@progbits
+ 156               	.global	_pal_lld_enablepadevent
+ 158               	_pal_lld_enablepadevent:
+ 159               	.LVL12:
+ 160               	.LFB175:
  157:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** 
  158:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** /**
  159:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****  * @brief   Pad event enable.
@@ -302,28 +344,35 @@
  173:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****                              ioeventmode_t  mode,
  174:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****                              palcallback_t  callback,
  175:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****                              void           *arg) {
- 127               		.loc 1 175 0
- 128               		.cfi_startproc
- 129               	.LVL12:
- 130               	/* prologue: function */
- 131               	/* frame size = 0 */
- 132               	/* stack size = 0 */
- 133               	.L__stack_usage = 0
- 134 0000 0895      		ret
- 135               		.cfi_endproc
- 136               	.LFE175:
- 138               		.section	.text._pal_lld_setlineid,"ax",@progbits
- 139               	.global	_pal_lld_setlineid
- 141               	_pal_lld_setlineid:
- 142               	.LFB176:
+ 161               		.loc 1 175 51 view -0
+ 162               		.cfi_startproc
+ 163               	/* prologue: function */
+ 164               	/* frame size = 0 */
+ 165               	/* stack size = 0 */
+ 166               	.L__stack_usage = 0
  176:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   (void)port;
+ 167               		.loc 1 176 3 view .LVU48
  177:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   (void)pad;
+ 168               		.loc 1 177 3 view .LVU49
  178:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   (void)mode;
+ 169               		.loc 1 178 3 view .LVU50
  179:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   (void)callback;
+ 170               		.loc 1 179 3 view .LVU51
  180:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   (void)arg;
+ 171               		.loc 1 180 3 view .LVU52
+ 172               	/* epilogue start */
  181:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** 
  182:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   /* TODO: Implement the interruption here. */
  183:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** }
+ 173               		.loc 1 183 1 is_stmt 0 view .LVU53
+ 174 0000 0895      		ret
+ 175               		.cfi_endproc
+ 176               	.LFE175:
+ 178               		.section	.text._pal_lld_setlineid,"ax",@progbits
+ 179               	.global	_pal_lld_setlineid
+ 181               	_pal_lld_setlineid:
+ 182               	.LVL13:
+ 183               	.LFB176:
  184:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** 
  185:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** /**
  186:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****  * @brief   Make a line identifier with a given port and pad identifiers.
@@ -336,36 +385,42 @@
  193:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****  * @notapi
  194:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****  */
  195:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** ioline_t _pal_lld_setlineid(ioportid_t port, uint8_t pad) {
- 143               		.loc 1 195 0
- 144               		.cfi_startproc
- 145               	.LVL13:
- 146               	/* prologue: function */
- 147               	/* frame size = 0 */
- 148               	/* stack size = 0 */
- 149               	.L__stack_usage = 0
- 150               		.loc 1 195 0
- 151 0000 282F      		mov r18,r24
- 152 0002 862F      		mov r24,r22
- 153               	.LVL14:
+ 184               		.loc 1 195 59 is_stmt 1 view -0
+ 185               		.cfi_startproc
+ 186               	/* prologue: function */
+ 187               	/* frame size = 0 */
+ 188               	/* stack size = 0 */
+ 189               	.L__stack_usage = 0
+ 190               		.loc 1 195 59 is_stmt 0 view .LVU55
+ 191 0000 282F      		mov r18,r24
+ 192 0002 862F      		mov r24,r22
+ 193               	.LVL14:
  196:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** 
  197:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   ioline_t line;
+ 194               		.loc 1 197 3 is_stmt 1 view .LVU56
  198:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** 
  199:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   line.port = port;
+ 195               		.loc 1 199 3 view .LVU57
  200:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   line.pad  = pad;
+ 196               		.loc 1 200 3 view .LVU58
  201:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** 
  202:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   return line;
+ 197               		.loc 1 202 3 view .LVU59
  203:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** }
- 154               		.loc 1 203 0
- 155 0004 622F      		mov r22,r18
- 156               	.LVL15:
- 157 0006 792F      		mov r23,r25
- 158 0008 0895      		ret
- 159               		.cfi_endproc
- 160               	.LFE176:
- 162               		.section	.text._pal_lld_getportfromline,"ax",@progbits
- 163               	.global	_pal_lld_getportfromline
- 165               	_pal_lld_getportfromline:
- 166               	.LFB177:
+ 198               		.loc 1 203 1 is_stmt 0 view .LVU60
+ 199 0004 622F      		mov r22,r18
+ 200               	.LVL15:
+ 201               		.loc 1 203 1 view .LVU61
+ 202 0006 792F      		mov r23,r25
+ 203               	/* epilogue start */
+ 204 0008 0895      		ret
+ 205               		.cfi_endproc
+ 206               	.LFE176:
+ 208               		.section	.text._pal_lld_getportfromline,"ax",@progbits
+ 209               	.global	_pal_lld_getportfromline
+ 211               	_pal_lld_getportfromline:
+ 212               	.LVL16:
+ 213               	.LFB177:
  204:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** 
  205:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** /**
  206:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****  * @brief   Get a port identifier from a line identifier.
@@ -377,26 +432,28 @@
  212:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****  * @notapi
  213:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****  */
  214:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** ioportid_t _pal_lld_getportfromline(ioline_t line) {
- 167               		.loc 1 214 0
- 168               		.cfi_startproc
- 169               	.LVL16:
- 170               	/* prologue: function */
- 171               	/* frame size = 0 */
- 172               	/* stack size = 0 */
- 173               	.L__stack_usage = 0
- 174 0000 A82F      		mov r26,r24
- 175 0002 CB01      		movw r24,r22
+ 214               		.loc 1 214 52 is_stmt 1 view -0
+ 215               		.cfi_startproc
+ 216               	/* prologue: function */
+ 217               	/* frame size = 0 */
+ 218               	/* stack size = 0 */
+ 219               	.L__stack_usage = 0
+ 220               		.loc 1 214 52 is_stmt 0 view .LVU63
+ 221 0000 CB01      		movw r24,r22
  215:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** 
  216:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   return line.port;
+ 222               		.loc 1 216 3 is_stmt 1 view .LVU64
+ 223               	/* epilogue start */
  217:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** }
- 176               		.loc 1 217 0
- 177 0004 0895      		ret
- 178               		.cfi_endproc
- 179               	.LFE177:
- 181               		.section	.text._pal_lld_getpadfromline,"ax",@progbits
- 182               	.global	_pal_lld_getpadfromline
- 184               	_pal_lld_getpadfromline:
- 185               	.LFB178:
+ 224               		.loc 1 217 1 is_stmt 0 view .LVU65
+ 225 0002 0895      		ret
+ 226               		.cfi_endproc
+ 227               	.LFE177:
+ 229               		.section	.text._pal_lld_getpadfromline,"ax",@progbits
+ 230               	.global	_pal_lld_getpadfromline
+ 232               	_pal_lld_getpadfromline:
+ 233               	.LVL17:
+ 234               	.LFB178:
  218:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** 
  219:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** /**
  220:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****  * @brief   Get a pad identifier from a line identifier.
@@ -408,46 +465,57 @@
  226:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****  * @notapi
  227:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****  */
  228:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** uint8_t _pal_lld_getpadfromline(ioline_t line) {
- 186               		.loc 1 228 0
- 187               		.cfi_startproc
- 188               	.LVL17:
- 189               	/* prologue: function */
- 190               	/* frame size = 0 */
- 191               	/* stack size = 0 */
- 192               	.L__stack_usage = 0
+ 235               		.loc 1 228 48 is_stmt 1 view -0
+ 236               		.cfi_startproc
+ 237               	/* prologue: function */
+ 238               	/* frame size = 0 */
+ 239               	/* stack size = 0 */
+ 240               	.L__stack_usage = 0
  229:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** 
  230:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c ****   return line.pad;
+ 241               		.loc 1 230 3 view .LVU67
+ 242               	/* epilogue start */
  231:../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.c **** }
- 193               		.loc 1 231 0
- 194 0000 0895      		ret
- 195               		.cfi_endproc
- 196               	.LFE178:
- 198               		.comm	_pal_events,0,1
- 199               		.text
- 200               	.Letext0:
- 201               		.file 2 "/usr/lib/avr/include/stdint.h"
- 202               		.file 3 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
- 203               		.file 4 "../../../os/rt/include/chsystypes.h"
- 204               		.file 5 "../../../os/rt/include/chschd.h"
- 205               		.file 6 "../../../os/rt/include/chtime.h"
- 206               		.file 7 "../../../os/common/ports/AVR/chcore.h"
- 207               		.file 8 "../../../os/rt/include/chsem.h"
- 208               		.file 9 "../../../os/rt/include/chmtx.h"
- 209               		.file 10 "../../../os/hal/include/hal_pal.h"
- 210               		.file 11 "../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.h"
+ 243               		.loc 1 231 1 is_stmt 0 view .LVU68
+ 244 0000 0895      		ret
+ 245               		.cfi_endproc
+ 246               	.LFE178:
+ 248               		.comm	_pal_events,0,1
+ 249               		.text
+ 250               	.Letext0:
+ 251               		.file 2 "/usr/local/Cellar/avr-gcc/8.2.0/lib/avr-gcc/8/gcc/avr/8.2.0/include/stddef.h"
+ 252               		.file 3 "/usr/local/Cellar/avr-gcc/8.2.0/avr/include/stdint.h"
+ 253               		.file 4 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
+ 254               		.file 5 "../../../os/rt/include/chsystypes.h"
+ 255               		.file 6 "../../../os/rt/include/chschd.h"
+ 256               		.file 7 "../../../os/rt/include/chtime.h"
+ 257               		.file 8 "../../../os/common/ports/AVR/chcore.h"
+ 258               		.file 9 "../../../os/rt/include/chsem.h"
+ 259               		.file 10 "../../../os/rt/include/chmtx.h"
+ 260               		.file 11 "../../../os/rt/include/chsys.h"
+ 261               		.file 12 "../../../os/rt/include/chregistry.h"
+ 262               		.file 13 "../../../os/rt/include/chevents.h"
+ 263               		.file 14 "../../../os/common/oslib/include/chmemcore.h"
+ 264               		.file 15 "../../../os/hal/include/hal_queues.h"
+ 265               		.file 16 "../../../os/hal/include/hal_pal.h"
+ 266               		.file 17 "../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.h"
+ 267               		.file 18 "../../../os/hal/include/hal_adc.h"
+ 268               		.file 19 "../../../os/hal/ports/AVR/MEGA/LLD/ADCv1/hal_adc_lld.h"
+ 269               		.file 20 "../../../os/hal/include/hal_serial.h"
+ 270               		.file 21 "../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal_pal_lld.c
-     /tmp/ccBn5Pea.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccBn5Pea.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccBn5Pea.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccBn5Pea.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccBn5Pea.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccBn5Pea.s:13     .text._pal_lld_init:0000000000000000 _pal_lld_init
-     /tmp/ccBn5Pea.s:50     .text._pal_lld_setgroupmode:0000000000000000 _pal_lld_setgroupmode
-     /tmp/ccBn5Pea.s:125    .text._pal_lld_enablepadevent:0000000000000000 _pal_lld_enablepadevent
-     /tmp/ccBn5Pea.s:141    .text._pal_lld_setlineid:0000000000000000 _pal_lld_setlineid
-     /tmp/ccBn5Pea.s:165    .text._pal_lld_getportfromline:0000000000000000 _pal_lld_getportfromline
-     /tmp/ccBn5Pea.s:184    .text._pal_lld_getpadfromline:0000000000000000 _pal_lld_getpadfromline
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccL9s6jh.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccL9s6jh.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccL9s6jh.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccL9s6jh.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccL9s6jh.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccL9s6jh.s:13     .text._pal_lld_init:0000000000000000 _pal_lld_init
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccL9s6jh.s:65     .text._pal_lld_setgroupmode:0000000000000000 _pal_lld_setgroupmode
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccL9s6jh.s:158    .text._pal_lld_enablepadevent:0000000000000000 _pal_lld_enablepadevent
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccL9s6jh.s:181    .text._pal_lld_setlineid:0000000000000000 _pal_lld_setlineid
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccL9s6jh.s:211    .text._pal_lld_getportfromline:0000000000000000 _pal_lld_getportfromline
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccL9s6jh.s:232    .text._pal_lld_getpadfromline:0000000000000000 _pal_lld_getpadfromline
                             *COM*:0000000000000000 _pal_events
 
 UNDEFINED SYMBOLS

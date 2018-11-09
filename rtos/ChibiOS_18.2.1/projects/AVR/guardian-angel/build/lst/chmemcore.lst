@@ -93,7 +93,7 @@
   79:../../../os/common/oslib/src/chmemcore.c ****  * @notapi
   80:../../../os/common/oslib/src/chmemcore.c ****  */
   81:../../../os/common/oslib/src/chmemcore.c **** void _core_init(void) {
-  16               		.loc 1 81 0
+  16               		.loc 1 81 23 view -0
   17               		.cfi_startproc
   18               	/* prologue: function */
   19               	/* frame size = 0 */
@@ -109,30 +109,36 @@
   89:../../../os/common/oslib/src/chmemcore.c ****   /*lint restore*/
   90:../../../os/common/oslib/src/chmemcore.c **** #else
   91:../../../os/common/oslib/src/chmemcore.c ****   static uint8_t static_heap[CH_CFG_MEMCORE_SIZE];
+  22               		.loc 1 91 3 view .LVU1
   92:../../../os/common/oslib/src/chmemcore.c **** 
   93:../../../os/common/oslib/src/chmemcore.c ****   ch_memcore.nextmem = &static_heap[0];
-  22               		.loc 1 93 0
-  23 0000 E0E0      		ldi r30,lo8(ch_memcore)
-  24 0002 F0E0      		ldi r31,hi8(ch_memcore)
-  25 0004 80E0      		ldi r24,lo8(static_heap.2661)
-  26 0006 90E0      		ldi r25,hi8(static_heap.2661)
-  27 0008 9183      		std Z+1,r25
-  28 000a 8083      		st Z,r24
+  23               		.loc 1 93 3 view .LVU2
+  24               		.loc 1 93 22 is_stmt 0 view .LVU3
+  25 0000 E0E0      		ldi r30,lo8(ch_memcore)
+  26 0002 F0E0      		ldi r31,hi8(ch_memcore)
+  27 0004 80E0      		ldi r24,lo8(static_heap.2691)
+  28 0006 90E0      		ldi r25,hi8(static_heap.2691)
+  29 0008 9183      		std Z+1,r25
+  30 000a 8083      		st Z,r24
   94:../../../os/common/oslib/src/chmemcore.c ****   ch_memcore.endmem  = &static_heap[CH_CFG_MEMCORE_SIZE];
-  29               		.loc 1 94 0
-  30 000c 80E0      		ldi r24,lo8(static_heap.2661+128)
-  31 000e 90E0      		ldi r25,hi8(static_heap.2661+128)
-  32 0010 9383      		std Z+3,r25
-  33 0012 8283      		std Z+2,r24
-  34 0014 0895      		ret
-  35               		.cfi_endproc
-  36               	.LFE141:
-  38               		.section	.text.chCoreAllocAlignedWithOffsetI,"ax",@progbits
-  39               	.global	chCoreAllocAlignedWithOffsetI
-  41               	chCoreAllocAlignedWithOffsetI:
-  42               	.LFB142:
+  31               		.loc 1 94 3 is_stmt 1 view .LVU4
+  32               		.loc 1 94 22 is_stmt 0 view .LVU5
+  33 000c 80E0      		ldi r24,lo8(static_heap.2691+128)
+  34 000e 90E0      		ldi r25,hi8(static_heap.2691+128)
+  35 0010 9383      		std Z+3,r25
+  36 0012 8283      		std Z+2,r24
+  37               	/* epilogue start */
   95:../../../os/common/oslib/src/chmemcore.c **** #endif
   96:../../../os/common/oslib/src/chmemcore.c **** }
+  38               		.loc 1 96 1 view .LVU6
+  39 0014 0895      		ret
+  40               		.cfi_endproc
+  41               	.LFE141:
+  43               		.section	.text.chCoreAllocAlignedWithOffsetI,"ax",@progbits
+  44               	.global	chCoreAllocAlignedWithOffsetI
+  46               	chCoreAllocAlignedWithOffsetI:
+  47               	.LVL0:
+  48               	.LFB142:
   97:../../../os/common/oslib/src/chmemcore.c **** 
   98:../../../os/common/oslib/src/chmemcore.c **** /**
   99:../../../os/common/oslib/src/chmemcore.c ****  * @brief   Allocates a memory block.
@@ -151,97 +157,108 @@
  112:../../../os/common/oslib/src/chmemcore.c **** void *chCoreAllocAlignedWithOffsetI(size_t size,
  113:../../../os/common/oslib/src/chmemcore.c ****                                     unsigned align,
  114:../../../os/common/oslib/src/chmemcore.c ****                                     size_t offset) {
-  43               		.loc 1 114 0
-  44               		.cfi_startproc
-  45               	.LVL0:
-  46               	/* prologue: function */
-  47               	/* frame size = 0 */
-  48               	/* stack size = 0 */
-  49               	.L__stack_usage = 0
-  50 0000 0197      		sbiw r24,1
-  51               	.LVL1:
+  49               		.loc 1 114 52 is_stmt 1 view -0
+  50               		.cfi_startproc
+  51               	/* prologue: function */
+  52               	/* frame size = 0 */
+  53               	/* stack size = 0 */
+  54               	.L__stack_usage = 0
  115:../../../os/common/oslib/src/chmemcore.c ****   uint8_t *p, *next;
+  55               		.loc 1 115 3 view .LVU8
  116:../../../os/common/oslib/src/chmemcore.c **** 
  117:../../../os/common/oslib/src/chmemcore.c ****   chDbgCheckClassI();
+  56               		.loc 1 117 21 view .LVU9
  118:../../../os/common/oslib/src/chmemcore.c ****   chDbgCheck(MEM_IS_VALID_ALIGNMENT(align));
+  57               		.loc 1 118 3 view .LVU10
+  58               		.loc 1 118 3 view .LVU11
  119:../../../os/common/oslib/src/chmemcore.c **** 
  120:../../../os/common/oslib/src/chmemcore.c ****   size = MEM_ALIGN_NEXT(size, align);
-  52               		.loc 1 120 0
-  53 0002 860F      		add r24,r22
-  54 0004 971F      		adc r25,r23
-  55               	.LVL2:
-  56 0006 EE27      		clr r30
-  57 0008 FF27      		clr r31
-  58 000a E61B      		sub r30,r22
-  59 000c F70B      		sbc r31,r23
-  60               	.LVL3:
+  59               		.loc 1 120 3 view .LVU12
+  60               		.loc 1 120 10 is_stmt 0 view .LVU13
+  61 0000 9C01      		movw r18,r24
+  62 0002 2150      		subi r18,1
+  63 0004 3109      		sbc r19,__zero_reg__
+  64 0006 260F      		add r18,r22
+  65 0008 371F      		adc r19,r23
+  66 000a AA27      		clr r26
+  67 000c BB27      		clr r27
+  68 000e A61B      		sub r26,r22
+  69 0010 B70B      		sbc r27,r23
+  70               	.LVL1:
  121:../../../os/common/oslib/src/chmemcore.c ****   p = (uint8_t *)MEM_ALIGN_NEXT(ch_memcore.nextmem + offset, align);
-  61               		.loc 1 121 0
-  62 000e 2091 0000 		lds r18,ch_memcore
-  63 0012 3091 0000 		lds r19,ch_memcore+1
-  64 0016 420F      		add r20,r18
-  65 0018 531F      		adc r21,r19
-  66               	.LVL4:
-  67 001a 4150      		subi r20,1
-  68 001c 5109      		sbc r21,__zero_reg__
-  69 001e 640F      		add r22,r20
-  70 0020 751F      		adc r23,r21
-  71               	.LVL5:
-  72 0022 6E23      		and r22,r30
-  73 0024 7F23      		and r23,r31
-  74               	.LVL6:
- 120:../../../os/common/oslib/src/chmemcore.c ****   p = (uint8_t *)MEM_ALIGN_NEXT(ch_memcore.nextmem + offset, align);
-  75               		.loc 1 120 0
-  76 0026 8E23      		and r24,r30
-  77 0028 9F23      		and r25,r31
-  78               	.LVL7:
+  71               		.loc 1 121 3 is_stmt 1 view .LVU14
+  72               		.loc 1 121 18 is_stmt 0 view .LVU15
+  73 0012 E091 0000 		lds r30,ch_memcore
+  74 0016 F091 0000 		lds r31,ch_memcore+1
+  75 001a 4E0F      		add r20,r30
+  76 001c 5F1F      		adc r21,r31
+  77               	.LVL2:
+  78               		.loc 1 121 18 view .LVU16
+  79 001e 4150      		subi r20,1
+  80 0020 5109      		sbc r21,__zero_reg__
+  81 0022 460F      		add r20,r22
+  82 0024 571F      		adc r21,r23
+  83 0026 CA01      		movw r24,r20
+  84 0028 8A23      		and r24,r26
+  85 002a 9B23      		and r25,r27
+  86               	.LVL3:
  122:../../../os/common/oslib/src/chmemcore.c ****   next = p + size;
-  79               		.loc 1 122 0
-  80 002a 860F      		add r24,r22
-  81 002c 971F      		adc r25,r23
-  82               	.LVL8:
+  87               		.loc 1 122 3 is_stmt 1 view .LVU17
+ 120:../../../os/common/oslib/src/chmemcore.c ****   p = (uint8_t *)MEM_ALIGN_NEXT(ch_memcore.nextmem + offset, align);
+  88               		.loc 1 120 8 is_stmt 0 view .LVU18
+  89 002c 2A23      		and r18,r26
+  90               	.LVL4:
+ 120:../../../os/common/oslib/src/chmemcore.c ****   p = (uint8_t *)MEM_ALIGN_NEXT(ch_memcore.nextmem + offset, align);
+  91               		.loc 1 120 8 view .LVU19
+  92 002e 3B23      		and r19,r27
+  93               		.loc 1 122 8 view .LVU20
+  94 0030 280F      		add r18,r24
+  95 0032 391F      		adc r19,r25
+  96               	.LVL5:
  123:../../../os/common/oslib/src/chmemcore.c **** 
  124:../../../os/common/oslib/src/chmemcore.c ****   /* Considering also the case where there is numeric overflow.*/
  125:../../../os/common/oslib/src/chmemcore.c ****   if ((next > ch_memcore.endmem) || (next < ch_memcore.nextmem)) {
-  83               		.loc 1 125 0
-  84 002e 4091 0000 		lds r20,ch_memcore+2
-  85 0032 5091 0000 		lds r21,ch_memcore+2+1
-  86 0036 4817      		cp r20,r24
-  87 0038 5907      		cpc r21,r25
-  88 003a 00F0      		brlo .L5
-  89               		.loc 1 125 0 is_stmt 0 discriminator 1
-  90 003c 8217      		cp r24,r18
-  91 003e 9307      		cpc r25,r19
-  92 0040 00F0      		brlo .L5
+  97               		.loc 1 125 3 is_stmt 1 view .LVU21
+  98               		.loc 1 125 6 is_stmt 0 view .LVU22
+  99 0034 4091 0000 		lds r20,ch_memcore+2
+ 100 0038 5091 0000 		lds r21,ch_memcore+2+1
+ 101 003c 4217      		cp r20,r18
+ 102 003e 5307      		cpc r21,r19
+ 103 0040 00F0      		brlo .L6
+ 104               		.loc 1 125 34 discriminator 1 view .LVU23
+ 105 0042 2E17      		cp r18,r30
+ 106 0044 3F07      		cpc r19,r31
+ 107 0046 00F0      		brlo .L6
  126:../../../os/common/oslib/src/chmemcore.c ****     return NULL;
  127:../../../os/common/oslib/src/chmemcore.c ****   }
  128:../../../os/common/oslib/src/chmemcore.c **** 
  129:../../../os/common/oslib/src/chmemcore.c ****   ch_memcore.nextmem = next;
-  93               		.loc 1 129 0 is_stmt 1
-  94 0042 9093 0000 		sts ch_memcore+1,r25
-  95 0046 8093 0000 		sts ch_memcore,r24
+ 108               		.loc 1 129 3 is_stmt 1 view .LVU24
+ 109               		.loc 1 129 22 is_stmt 0 view .LVU25
+ 110 0048 3093 0000 		sts ch_memcore+1,r19
+ 111 004c 2093 0000 		sts ch_memcore,r18
  130:../../../os/common/oslib/src/chmemcore.c **** 
  131:../../../os/common/oslib/src/chmemcore.c ****   return p;
-  96               		.loc 1 131 0
-  97 004a CB01      		movw r24,r22
-  98               	.LVL9:
-  99 004c 0895      		ret
- 100               	.LVL10:
- 101               	.L5:
+ 112               		.loc 1 131 3 is_stmt 1 view .LVU26
+ 113               		.loc 1 131 10 is_stmt 0 view .LVU27
+ 114 0050 0895      		ret
+ 115               	.L6:
  126:../../../os/common/oslib/src/chmemcore.c ****     return NULL;
- 102               		.loc 1 126 0
- 103 004e 80E0      		ldi r24,0
- 104               	.LVL11:
- 105 0050 90E0      		ldi r25,0
+ 116               		.loc 1 126 12 view .LVU28
+ 117 0052 90E0      		ldi r25,0
+ 118 0054 80E0      		ldi r24,0
+ 119               	.LVL6:
+ 120               	/* epilogue start */
  132:../../../os/common/oslib/src/chmemcore.c **** }
- 106               		.loc 1 132 0
- 107 0052 0895      		ret
- 108               		.cfi_endproc
- 109               	.LFE142:
- 111               		.section	.text.chCoreAllocAlignedWithOffset,"ax",@progbits
- 112               	.global	chCoreAllocAlignedWithOffset
- 114               	chCoreAllocAlignedWithOffset:
- 115               	.LFB143:
+ 121               		.loc 1 132 1 view .LVU29
+ 122 0056 0895      		ret
+ 123               		.cfi_endproc
+ 124               	.LFE142:
+ 126               		.section	.text.chCoreAllocAlignedWithOffset,"ax",@progbits
+ 127               	.global	chCoreAllocAlignedWithOffset
+ 129               	chCoreAllocAlignedWithOffset:
+ 130               	.LVL7:
+ 131               	.LFB143:
  133:../../../os/common/oslib/src/chmemcore.c **** 
  134:../../../os/common/oslib/src/chmemcore.c **** /**
  135:../../../os/common/oslib/src/chmemcore.c ****  * @brief   Allocates a memory block.
@@ -260,17 +277,392 @@
  148:../../../os/common/oslib/src/chmemcore.c **** void *chCoreAllocAlignedWithOffset(size_t size,
  149:../../../os/common/oslib/src/chmemcore.c ****                                    unsigned align,
  150:../../../os/common/oslib/src/chmemcore.c ****                                    size_t offset) {
- 116               		.loc 1 150 0
- 117               		.cfi_startproc
- 118               	.LVL12:
- 119               	/* prologue: function */
- 120               	/* frame size = 0 */
- 121               	/* stack size = 0 */
- 122               	.L__stack_usage = 0
- 123               	.LBB16:
- 124               	.LBB17:
- 125               	.LBB18:
- 126               		.file 2 "../../../os/common/ports/AVR/chcore.h"
+ 132               		.loc 1 150 51 is_stmt 1 view -0
+ 133               		.cfi_startproc
+ 134               		.loc 1 150 51 is_stmt 0 view .LVU31
+ 135 0000 CF93      		push r28
+ 136               	.LCFI0:
+ 137               		.cfi_def_cfa_offset 3
+ 138               		.cfi_offset 28, -2
+ 139 0002 DF93      		push r29
+ 140               	.LCFI1:
+ 141               		.cfi_def_cfa_offset 4
+ 142               		.cfi_offset 29, -3
+ 143               	/* prologue: function */
+ 144               	/* frame size = 0 */
+ 145               	/* stack size = 2 */
+ 146               	.L__stack_usage = 2
+ 147 0004 9C01      		movw r18,r24
+ 151:../../../os/common/oslib/src/chmemcore.c ****   void *p;
+ 148               		.loc 1 151 3 is_stmt 1 view .LVU32
+ 152:../../../os/common/oslib/src/chmemcore.c **** 
+ 153:../../../os/common/oslib/src/chmemcore.c ****   chSysLock();
+ 149               		.loc 1 153 3 view .LVU33
+ 150               	.LBB16:
+ 151               	.LBI16:
+ 152               		.file 2 "../../../os/rt/include/chsys.h"
+   1:../../../os/rt/include/chsys.h **** /*
+   2:../../../os/rt/include/chsys.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
+   3:../../../os/rt/include/chsys.h **** 
+   4:../../../os/rt/include/chsys.h ****     This file is part of ChibiOS.
+   5:../../../os/rt/include/chsys.h **** 
+   6:../../../os/rt/include/chsys.h ****     ChibiOS is free software; you can redistribute it and/or modify
+   7:../../../os/rt/include/chsys.h ****     it under the terms of the GNU General Public License as published by
+   8:../../../os/rt/include/chsys.h ****     the Free Software Foundation; either version 3 of the License, or
+   9:../../../os/rt/include/chsys.h ****     (at your option) any later version.
+  10:../../../os/rt/include/chsys.h **** 
+  11:../../../os/rt/include/chsys.h ****     ChibiOS is distributed in the hope that it will be useful,
+  12:../../../os/rt/include/chsys.h ****     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:../../../os/rt/include/chsys.h ****     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:../../../os/rt/include/chsys.h ****     GNU General Public License for more details.
+  15:../../../os/rt/include/chsys.h **** 
+  16:../../../os/rt/include/chsys.h ****     You should have received a copy of the GNU General Public License
+  17:../../../os/rt/include/chsys.h ****     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  18:../../../os/rt/include/chsys.h **** */
+  19:../../../os/rt/include/chsys.h **** 
+  20:../../../os/rt/include/chsys.h **** /**
+  21:../../../os/rt/include/chsys.h ****  * @file    chsys.h
+  22:../../../os/rt/include/chsys.h ****  * @brief   System related macros and structures.
+  23:../../../os/rt/include/chsys.h ****  *
+  24:../../../os/rt/include/chsys.h ****  * @addtogroup system
+  25:../../../os/rt/include/chsys.h ****  * @{
+  26:../../../os/rt/include/chsys.h ****  */
+  27:../../../os/rt/include/chsys.h **** 
+  28:../../../os/rt/include/chsys.h **** #ifndef CHSYS_H
+  29:../../../os/rt/include/chsys.h **** #define CHSYS_H
+  30:../../../os/rt/include/chsys.h **** 
+  31:../../../os/rt/include/chsys.h **** /*lint -sem(chSysHalt, r_no)*/
+  32:../../../os/rt/include/chsys.h **** 
+  33:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  34:../../../os/rt/include/chsys.h **** /* Module constants.                                                         */
+  35:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  36:../../../os/rt/include/chsys.h **** 
+  37:../../../os/rt/include/chsys.h **** /**
+  38:../../../os/rt/include/chsys.h ****  * @name    Masks of executable integrity checks.
+  39:../../../os/rt/include/chsys.h ****  * @{
+  40:../../../os/rt/include/chsys.h ****  */
+  41:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_RLIST                  1U
+  42:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_VTLIST                 2U
+  43:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_REGISTRY               4U
+  44:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_PORT                   8U
+  45:../../../os/rt/include/chsys.h **** /** @} */
+  46:../../../os/rt/include/chsys.h **** 
+  47:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  48:../../../os/rt/include/chsys.h **** /* Module pre-compile time settings.                                         */
+  49:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  50:../../../os/rt/include/chsys.h **** 
+  51:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  52:../../../os/rt/include/chsys.h **** /* Derived constants and error checks.                                       */
+  53:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  54:../../../os/rt/include/chsys.h **** 
+  55:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  56:../../../os/rt/include/chsys.h **** /* Module data structures and types.                                         */
+  57:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  58:../../../os/rt/include/chsys.h **** 
+  59:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  60:../../../os/rt/include/chsys.h **** /* Module macros.                                                            */
+  61:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  62:../../../os/rt/include/chsys.h **** 
+  63:../../../os/rt/include/chsys.h **** /**
+  64:../../../os/rt/include/chsys.h ****  * @name    ISRs abstraction macros
+  65:../../../os/rt/include/chsys.h ****  */
+  66:../../../os/rt/include/chsys.h **** /**
+  67:../../../os/rt/include/chsys.h ****  * @brief   Priority level validation macro.
+  68:../../../os/rt/include/chsys.h ****  * @details This macro determines if the passed value is a valid priority
+  69:../../../os/rt/include/chsys.h ****  *          level for the underlying architecture.
+  70:../../../os/rt/include/chsys.h ****  *
+  71:../../../os/rt/include/chsys.h ****  * @param[in] prio      the priority level
+  72:../../../os/rt/include/chsys.h ****  * @return              Priority range result.
+  73:../../../os/rt/include/chsys.h ****  * @retval false        if the priority is invalid or if the architecture
+  74:../../../os/rt/include/chsys.h ****  *                      does not support priorities.
+  75:../../../os/rt/include/chsys.h ****  * @retval true         if the priority is valid.
+  76:../../../os/rt/include/chsys.h ****  */
+  77:../../../os/rt/include/chsys.h **** #if defined(PORT_IRQ_IS_VALID_PRIORITY) || defined(__DOXYGEN__)
+  78:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_PRIORITY(prio)                                      \
+  79:../../../os/rt/include/chsys.h ****   PORT_IRQ_IS_VALID_PRIORITY(prio)
+  80:../../../os/rt/include/chsys.h **** #else
+  81:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_PRIORITY(prio) false
+  82:../../../os/rt/include/chsys.h **** #endif
+  83:../../../os/rt/include/chsys.h **** 
+  84:../../../os/rt/include/chsys.h **** /**
+  85:../../../os/rt/include/chsys.h ****  * @brief   Priority level validation macro.
+  86:../../../os/rt/include/chsys.h ****  * @details This macro determines if the passed value is a valid priority
+  87:../../../os/rt/include/chsys.h ****  *          level that cannot preempt the kernel critical zone.
+  88:../../../os/rt/include/chsys.h ****  *
+  89:../../../os/rt/include/chsys.h ****  * @param[in] prio      the priority level
+  90:../../../os/rt/include/chsys.h ****  * @return              Priority range result.
+  91:../../../os/rt/include/chsys.h ****  * @retval false        if the priority is invalid or if the architecture
+  92:../../../os/rt/include/chsys.h ****  *                      does not support priorities.
+  93:../../../os/rt/include/chsys.h ****  * @retval true         if the priority is valid.
+  94:../../../os/rt/include/chsys.h ****  */
+  95:../../../os/rt/include/chsys.h **** #if defined(PORT_IRQ_IS_VALID_KERNEL_PRIORITY) || defined(__DOXYGEN__)
+  96:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_KERNEL_PRIORITY(prio)                               \
+  97:../../../os/rt/include/chsys.h ****   PORT_IRQ_IS_VALID_KERNEL_PRIORITY(prio)
+  98:../../../os/rt/include/chsys.h **** #else
+  99:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_KERNEL_PRIORITY(prio) false
+ 100:../../../os/rt/include/chsys.h **** #endif
+ 101:../../../os/rt/include/chsys.h **** 
+ 102:../../../os/rt/include/chsys.h **** /**
+ 103:../../../os/rt/include/chsys.h ****  * @brief   IRQ handler enter code.
+ 104:../../../os/rt/include/chsys.h ****  * @note    Usually IRQ handlers functions are also declared naked.
+ 105:../../../os/rt/include/chsys.h ****  * @note    On some architectures this macro can be empty.
+ 106:../../../os/rt/include/chsys.h ****  *
+ 107:../../../os/rt/include/chsys.h ****  * @special
+ 108:../../../os/rt/include/chsys.h ****  */
+ 109:../../../os/rt/include/chsys.h **** #define CH_IRQ_PROLOGUE()                                                   \
+ 110:../../../os/rt/include/chsys.h ****   PORT_IRQ_PROLOGUE();                                                      \
+ 111:../../../os/rt/include/chsys.h ****   CH_CFG_IRQ_PROLOGUE_HOOK();                                               \
+ 112:../../../os/rt/include/chsys.h ****   _stats_increase_irq();                                                    \
+ 113:../../../os/rt/include/chsys.h ****   _trace_isr_enter(__func__);                                               \
+ 114:../../../os/rt/include/chsys.h ****   _dbg_check_enter_isr()
+ 115:../../../os/rt/include/chsys.h **** 
+ 116:../../../os/rt/include/chsys.h **** /**
+ 117:../../../os/rt/include/chsys.h ****  * @brief   IRQ handler exit code.
+ 118:../../../os/rt/include/chsys.h ****  * @note    Usually IRQ handlers function are also declared naked.
+ 119:../../../os/rt/include/chsys.h ****  * @note    This macro usually performs the final reschedule by using
+ 120:../../../os/rt/include/chsys.h ****  *          @p chSchIsPreemptionRequired() and @p chSchDoReschedule().
+ 121:../../../os/rt/include/chsys.h ****  *
+ 122:../../../os/rt/include/chsys.h ****  * @special
+ 123:../../../os/rt/include/chsys.h ****  */
+ 124:../../../os/rt/include/chsys.h **** #define CH_IRQ_EPILOGUE()                                                   \
+ 125:../../../os/rt/include/chsys.h ****   _dbg_check_leave_isr();                                                   \
+ 126:../../../os/rt/include/chsys.h ****   _trace_isr_leave(__func__);                                               \
+ 127:../../../os/rt/include/chsys.h ****   CH_CFG_IRQ_EPILOGUE_HOOK();                                               \
+ 128:../../../os/rt/include/chsys.h ****   PORT_IRQ_EPILOGUE()
+ 129:../../../os/rt/include/chsys.h **** 
+ 130:../../../os/rt/include/chsys.h **** /**
+ 131:../../../os/rt/include/chsys.h ****  * @brief   Standard normal IRQ handler declaration.
+ 132:../../../os/rt/include/chsys.h ****  * @note    @p id can be a function name or a vector number depending on the
+ 133:../../../os/rt/include/chsys.h ****  *          port implementation.
+ 134:../../../os/rt/include/chsys.h ****  *
+ 135:../../../os/rt/include/chsys.h ****  * @special
+ 136:../../../os/rt/include/chsys.h ****  */
+ 137:../../../os/rt/include/chsys.h **** #define CH_IRQ_HANDLER(id) PORT_IRQ_HANDLER(id)
+ 138:../../../os/rt/include/chsys.h **** /** @} */
+ 139:../../../os/rt/include/chsys.h **** 
+ 140:../../../os/rt/include/chsys.h **** /**
+ 141:../../../os/rt/include/chsys.h ****  * @name    Fast ISRs abstraction macros
+ 142:../../../os/rt/include/chsys.h ****  */
+ 143:../../../os/rt/include/chsys.h **** /**
+ 144:../../../os/rt/include/chsys.h ****  * @brief   Standard fast IRQ handler declaration.
+ 145:../../../os/rt/include/chsys.h ****  * @note    @p id can be a function name or a vector number depending on the
+ 146:../../../os/rt/include/chsys.h ****  *          port implementation.
+ 147:../../../os/rt/include/chsys.h ****  * @note    Not all architectures support fast interrupts.
+ 148:../../../os/rt/include/chsys.h ****  *
+ 149:../../../os/rt/include/chsys.h ****  * @special
+ 150:../../../os/rt/include/chsys.h ****  */
+ 151:../../../os/rt/include/chsys.h **** #define CH_FAST_IRQ_HANDLER(id) PORT_FAST_IRQ_HANDLER(id)
+ 152:../../../os/rt/include/chsys.h **** /** @} */
+ 153:../../../os/rt/include/chsys.h **** 
+ 154:../../../os/rt/include/chsys.h **** /**
+ 155:../../../os/rt/include/chsys.h ****  * @name    Time conversion utilities for the realtime counter
+ 156:../../../os/rt/include/chsys.h ****  * @{
+ 157:../../../os/rt/include/chsys.h ****  */
+ 158:../../../os/rt/include/chsys.h **** /**
+ 159:../../../os/rt/include/chsys.h ****  * @brief   Seconds to realtime counter.
+ 160:../../../os/rt/include/chsys.h ****  * @details Converts from seconds to realtime counter cycles.
+ 161:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1.
+ 162:../../../os/rt/include/chsys.h ****  *
+ 163:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 164:../../../os/rt/include/chsys.h ****  * @param[in] sec       number of seconds
+ 165:../../../os/rt/include/chsys.h ****  * @return              The number of cycles.
+ 166:../../../os/rt/include/chsys.h ****  *
+ 167:../../../os/rt/include/chsys.h ****  * @api
+ 168:../../../os/rt/include/chsys.h ****  */
+ 169:../../../os/rt/include/chsys.h **** #define S2RTC(freq, sec) ((freq) * (sec))
+ 170:../../../os/rt/include/chsys.h **** 
+ 171:../../../os/rt/include/chsys.h **** /**
+ 172:../../../os/rt/include/chsys.h ****  * @brief   Milliseconds to realtime counter.
+ 173:../../../os/rt/include/chsys.h ****  * @details Converts from milliseconds to realtime counter cycles.
+ 174:../../../os/rt/include/chsys.h ****  * @note    The result is rounded upward to the next millisecond boundary.
+ 175:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000.
+ 176:../../../os/rt/include/chsys.h ****  *
+ 177:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 178:../../../os/rt/include/chsys.h ****  * @param[in] msec      number of milliseconds
+ 179:../../../os/rt/include/chsys.h ****  * @return              The number of cycles.
+ 180:../../../os/rt/include/chsys.h ****  *
+ 181:../../../os/rt/include/chsys.h ****  * @api
+ 182:../../../os/rt/include/chsys.h ****  */
+ 183:../../../os/rt/include/chsys.h **** #define MS2RTC(freq, msec) (rtcnt_t)((((freq) + 999UL) / 1000UL) * (msec))
+ 184:../../../os/rt/include/chsys.h **** 
+ 185:../../../os/rt/include/chsys.h **** /**
+ 186:../../../os/rt/include/chsys.h ****  * @brief   Microseconds to realtime counter.
+ 187:../../../os/rt/include/chsys.h ****  * @details Converts from microseconds to realtime counter cycles.
+ 188:../../../os/rt/include/chsys.h ****  * @note    The result is rounded upward to the next microsecond boundary.
+ 189:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000000.
+ 190:../../../os/rt/include/chsys.h ****  *
+ 191:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 192:../../../os/rt/include/chsys.h ****  * @param[in] usec      number of microseconds
+ 193:../../../os/rt/include/chsys.h ****  * @return              The number of cycles.
+ 194:../../../os/rt/include/chsys.h ****  *
+ 195:../../../os/rt/include/chsys.h ****  * @api
+ 196:../../../os/rt/include/chsys.h ****  */
+ 197:../../../os/rt/include/chsys.h **** #define US2RTC(freq, usec) (rtcnt_t)((((freq) + 999999UL) / 1000000UL) * (usec))
+ 198:../../../os/rt/include/chsys.h **** 
+ 199:../../../os/rt/include/chsys.h **** /**
+ 200:../../../os/rt/include/chsys.h ****  * @brief   Realtime counter cycles to seconds.
+ 201:../../../os/rt/include/chsys.h ****  * @details Converts from realtime counter cycles number to seconds.
+ 202:../../../os/rt/include/chsys.h ****  * @note    The result is rounded up to the next second boundary.
+ 203:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1.
+ 204:../../../os/rt/include/chsys.h ****  *
+ 205:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 206:../../../os/rt/include/chsys.h ****  * @param[in] n         number of cycles
+ 207:../../../os/rt/include/chsys.h ****  * @return              The number of seconds.
+ 208:../../../os/rt/include/chsys.h ****  *
+ 209:../../../os/rt/include/chsys.h ****  * @api
+ 210:../../../os/rt/include/chsys.h ****  */
+ 211:../../../os/rt/include/chsys.h **** #define RTC2S(freq, n) ((((n) - 1UL) / (freq)) + 1UL)
+ 212:../../../os/rt/include/chsys.h **** 
+ 213:../../../os/rt/include/chsys.h **** /**
+ 214:../../../os/rt/include/chsys.h ****  * @brief   Realtime counter cycles to milliseconds.
+ 215:../../../os/rt/include/chsys.h ****  * @details Converts from realtime counter cycles number to milliseconds.
+ 216:../../../os/rt/include/chsys.h ****  * @note    The result is rounded up to the next millisecond boundary.
+ 217:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000.
+ 218:../../../os/rt/include/chsys.h ****  *
+ 219:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 220:../../../os/rt/include/chsys.h ****  * @param[in] n         number of cycles
+ 221:../../../os/rt/include/chsys.h ****  * @return              The number of milliseconds.
+ 222:../../../os/rt/include/chsys.h ****  *
+ 223:../../../os/rt/include/chsys.h ****  * @api
+ 224:../../../os/rt/include/chsys.h ****  */
+ 225:../../../os/rt/include/chsys.h **** #define RTC2MS(freq, n) ((((n) - 1UL) / ((freq) / 1000UL)) + 1UL)
+ 226:../../../os/rt/include/chsys.h **** 
+ 227:../../../os/rt/include/chsys.h **** /**
+ 228:../../../os/rt/include/chsys.h ****  * @brief   Realtime counter cycles to microseconds.
+ 229:../../../os/rt/include/chsys.h ****  * @details Converts from realtime counter cycles number to microseconds.
+ 230:../../../os/rt/include/chsys.h ****  * @note    The result is rounded up to the next microsecond boundary.
+ 231:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000000.
+ 232:../../../os/rt/include/chsys.h ****  *
+ 233:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 234:../../../os/rt/include/chsys.h ****  * @param[in] n         number of cycles
+ 235:../../../os/rt/include/chsys.h ****  * @return              The number of microseconds.
+ 236:../../../os/rt/include/chsys.h ****  *
+ 237:../../../os/rt/include/chsys.h ****  * @api
+ 238:../../../os/rt/include/chsys.h ****  */
+ 239:../../../os/rt/include/chsys.h **** #define RTC2US(freq, n) ((((n) - 1UL) / ((freq) / 1000000UL)) + 1UL)
+ 240:../../../os/rt/include/chsys.h **** /** @} */
+ 241:../../../os/rt/include/chsys.h **** 
+ 242:../../../os/rt/include/chsys.h **** /**
+ 243:../../../os/rt/include/chsys.h ****  * @brief   Returns the current value of the system real time counter.
+ 244:../../../os/rt/include/chsys.h ****  * @note    This function is only available if the port layer supports the
+ 245:../../../os/rt/include/chsys.h ****  *          option @p PORT_SUPPORTS_RT.
+ 246:../../../os/rt/include/chsys.h ****  *
+ 247:../../../os/rt/include/chsys.h ****  * @return              The value of the system realtime counter of
+ 248:../../../os/rt/include/chsys.h ****  *                      type rtcnt_t.
+ 249:../../../os/rt/include/chsys.h ****  *
+ 250:../../../os/rt/include/chsys.h ****  * @xclass
+ 251:../../../os/rt/include/chsys.h ****  */
+ 252:../../../os/rt/include/chsys.h **** #if (PORT_SUPPORTS_RT == TRUE) || defined(__DOXYGEN__)
+ 253:../../../os/rt/include/chsys.h **** #define chSysGetRealtimeCounterX() (rtcnt_t)port_rt_get_counter_value()
+ 254:../../../os/rt/include/chsys.h **** #endif
+ 255:../../../os/rt/include/chsys.h **** 
+ 256:../../../os/rt/include/chsys.h **** /**
+ 257:../../../os/rt/include/chsys.h ****  * @brief   Performs a context switch.
+ 258:../../../os/rt/include/chsys.h ****  * @note    Not a user function, it is meant to be invoked by the scheduler
+ 259:../../../os/rt/include/chsys.h ****  *          itself or from within the port layer.
+ 260:../../../os/rt/include/chsys.h ****  *
+ 261:../../../os/rt/include/chsys.h ****  * @param[in] ntp       the thread to be switched in
+ 262:../../../os/rt/include/chsys.h ****  * @param[in] otp       the thread to be switched out
+ 263:../../../os/rt/include/chsys.h ****  *
+ 264:../../../os/rt/include/chsys.h ****  * @special
+ 265:../../../os/rt/include/chsys.h ****  */
+ 266:../../../os/rt/include/chsys.h **** #define chSysSwitch(ntp, otp) {                                             \
+ 267:../../../os/rt/include/chsys.h ****                                                                             \
+ 268:../../../os/rt/include/chsys.h ****   _trace_switch(ntp, otp);                                                  \
+ 269:../../../os/rt/include/chsys.h ****   _stats_ctxswc(ntp, otp);                                                  \
+ 270:../../../os/rt/include/chsys.h ****   CH_CFG_CONTEXT_SWITCH_HOOK(ntp, otp);                                     \
+ 271:../../../os/rt/include/chsys.h ****   port_switch(ntp, otp);                                                    \
+ 272:../../../os/rt/include/chsys.h **** }
+ 273:../../../os/rt/include/chsys.h **** 
+ 274:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 275:../../../os/rt/include/chsys.h **** /* External declarations.                                                    */
+ 276:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 277:../../../os/rt/include/chsys.h **** 
+ 278:../../../os/rt/include/chsys.h **** #if !defined(__DOXYGEN__)
+ 279:../../../os/rt/include/chsys.h **** extern stkalign_t ch_idle_thread_wa[];
+ 280:../../../os/rt/include/chsys.h **** #endif
+ 281:../../../os/rt/include/chsys.h **** 
+ 282:../../../os/rt/include/chsys.h **** #ifdef __cplusplus
+ 283:../../../os/rt/include/chsys.h **** extern "C" {
+ 284:../../../os/rt/include/chsys.h **** #endif
+ 285:../../../os/rt/include/chsys.h ****   void chSysInit(void);
+ 286:../../../os/rt/include/chsys.h ****   bool chSysIntegrityCheckI(unsigned testmask);
+ 287:../../../os/rt/include/chsys.h ****   void chSysTimerHandlerI(void);
+ 288:../../../os/rt/include/chsys.h ****   syssts_t chSysGetStatusAndLockX(void);
+ 289:../../../os/rt/include/chsys.h ****   void chSysRestoreStatusX(syssts_t sts);
+ 290:../../../os/rt/include/chsys.h **** #if PORT_SUPPORTS_RT == TRUE
+ 291:../../../os/rt/include/chsys.h ****   bool chSysIsCounterWithinX(rtcnt_t cnt, rtcnt_t start, rtcnt_t end);
+ 292:../../../os/rt/include/chsys.h ****   void chSysPolledDelayX(rtcnt_t cycles);
+ 293:../../../os/rt/include/chsys.h **** #endif
+ 294:../../../os/rt/include/chsys.h **** #ifdef __cplusplus
+ 295:../../../os/rt/include/chsys.h **** }
+ 296:../../../os/rt/include/chsys.h **** #endif
+ 297:../../../os/rt/include/chsys.h **** 
+ 298:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 299:../../../os/rt/include/chsys.h **** /* Module inline functions.                                                  */
+ 300:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 301:../../../os/rt/include/chsys.h **** 
+ 302:../../../os/rt/include/chsys.h **** /**
+ 303:../../../os/rt/include/chsys.h ****  * @brief   Raises the system interrupt priority mask to the maximum level.
+ 304:../../../os/rt/include/chsys.h ****  * @details All the maskable interrupt sources are disabled regardless their
+ 305:../../../os/rt/include/chsys.h ****  *          hardware priority.
+ 306:../../../os/rt/include/chsys.h ****  * @note    Do not invoke this API from within a kernel lock.
+ 307:../../../os/rt/include/chsys.h ****  *
+ 308:../../../os/rt/include/chsys.h ****  * @special
+ 309:../../../os/rt/include/chsys.h ****  */
+ 310:../../../os/rt/include/chsys.h **** static inline void chSysDisable(void) {
+ 311:../../../os/rt/include/chsys.h **** 
+ 312:../../../os/rt/include/chsys.h ****   port_disable();
+ 313:../../../os/rt/include/chsys.h ****   _dbg_check_disable();
+ 314:../../../os/rt/include/chsys.h **** }
+ 315:../../../os/rt/include/chsys.h **** 
+ 316:../../../os/rt/include/chsys.h **** /**
+ 317:../../../os/rt/include/chsys.h ****  * @brief   Raises the system interrupt priority mask to system level.
+ 318:../../../os/rt/include/chsys.h ****  * @details The interrupt sources that should not be able to preempt the kernel
+ 319:../../../os/rt/include/chsys.h ****  *          are disabled, interrupt sources with higher priority are still
+ 320:../../../os/rt/include/chsys.h ****  *          enabled.
+ 321:../../../os/rt/include/chsys.h ****  * @note    Do not invoke this API from within a kernel lock.
+ 322:../../../os/rt/include/chsys.h ****  * @note    This API is no replacement for @p chSysLock(), the @p chSysLock()
+ 323:../../../os/rt/include/chsys.h ****  *          could do more than just disable the interrupts.
+ 324:../../../os/rt/include/chsys.h ****  *
+ 325:../../../os/rt/include/chsys.h ****  * @special
+ 326:../../../os/rt/include/chsys.h ****  */
+ 327:../../../os/rt/include/chsys.h **** static inline void chSysSuspend(void) {
+ 328:../../../os/rt/include/chsys.h **** 
+ 329:../../../os/rt/include/chsys.h ****   port_suspend();
+ 330:../../../os/rt/include/chsys.h ****   _dbg_check_suspend();
+ 331:../../../os/rt/include/chsys.h **** }
+ 332:../../../os/rt/include/chsys.h **** 
+ 333:../../../os/rt/include/chsys.h **** /**
+ 334:../../../os/rt/include/chsys.h ****  * @brief   Lowers the system interrupt priority mask to user level.
+ 335:../../../os/rt/include/chsys.h ****  * @details All the interrupt sources are enabled.
+ 336:../../../os/rt/include/chsys.h ****  * @note    Do not invoke this API from within a kernel lock.
+ 337:../../../os/rt/include/chsys.h ****  * @note    This API is no replacement for @p chSysUnlock(), the
+ 338:../../../os/rt/include/chsys.h ****  *          @p chSysUnlock() could do more than just enable the interrupts.
+ 339:../../../os/rt/include/chsys.h ****  *
+ 340:../../../os/rt/include/chsys.h ****  * @special
+ 341:../../../os/rt/include/chsys.h ****  */
+ 342:../../../os/rt/include/chsys.h **** static inline void chSysEnable(void) {
+ 343:../../../os/rt/include/chsys.h **** 
+ 344:../../../os/rt/include/chsys.h ****   _dbg_check_enable();
+ 345:../../../os/rt/include/chsys.h ****   port_enable();
+ 346:../../../os/rt/include/chsys.h **** }
+ 347:../../../os/rt/include/chsys.h **** 
+ 348:../../../os/rt/include/chsys.h **** /**
+ 349:../../../os/rt/include/chsys.h ****  * @brief   Enters the kernel lock state.
+ 350:../../../os/rt/include/chsys.h ****  *
+ 351:../../../os/rt/include/chsys.h ****  * @special
+ 352:../../../os/rt/include/chsys.h ****  */
+ 353:../../../os/rt/include/chsys.h **** static inline void chSysLock(void) {
+ 153               		.loc 2 353 20 view .LVU34
+ 154               	.LBE16:
+ 354:../../../os/rt/include/chsys.h **** 
+ 355:../../../os/rt/include/chsys.h ****   port_lock();
+ 155               		.loc 2 355 3 view .LVU35
+ 156               	.LBB19:
+ 157               	.LBB17:
+ 158               	.LBI17:
+ 159               		.file 3 "../../../os/common/ports/AVR/chcore.h"
    1:../../../os/common/ports/AVR/chcore.h **** /*
    2:../../../os/common/ports/AVR/chcore.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
    3:../../../os/common/ports/AVR/chcore.h **** 
@@ -706,79 +1098,150 @@
  433:../../../os/common/ports/AVR/chcore.h ****  *          actions.
  434:../../../os/common/ports/AVR/chcore.h ****  */
  435:../../../os/common/ports/AVR/chcore.h **** static inline void port_lock(void) {
+ 160               		.loc 3 435 20 view .LVU36
+ 161               	.LBB18:
  436:../../../os/common/ports/AVR/chcore.h **** 
  437:../../../os/common/ports/AVR/chcore.h ****   asm volatile ("cli" : : : "memory");
- 127               		.loc 2 437 0
- 128               	/* #APP */
- 129               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
- 130 0000 F894      		cli
- 131               	 ;  0 "" 2
- 132               	.LVL13:
- 133               	/* #NOAPP */
- 134 0002 FB01      		movw r30,r22
- 135 0004 3197      		sbiw r30,1
- 136               	.LBE18:
- 137               	.LBE17:
- 138               	.LBE16:
- 139               	.LBB19:
- 140               	.LBB20:
+ 162               		.loc 3 437 3 view .LVU37
+ 163               	/* #APP */
+ 164               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
+ 165 0006 F894      		cli
+ 166               	 ;  0 "" 2
+ 167               	/* #NOAPP */
+ 168               	.LBE18:
+ 169               	.LBE17:
+ 170               	.LBE19:
+ 356:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_thd();
+ 171               		.loc 2 356 34 view .LVU38
+ 357:../../../os/rt/include/chsys.h ****   _dbg_check_lock();
+ 172               		.loc 2 357 20 view .LVU39
+ 154:../../../os/common/oslib/src/chmemcore.c ****   p = chCoreAllocAlignedWithOffsetI(size, align, offset);
+ 173               		.loc 1 154 3 view .LVU40
+ 174               	.LVL8:
+ 175               	.LBB20:
+ 176               	.LBI20:
+ 112:../../../os/common/oslib/src/chmemcore.c ****                                     unsigned align,
+ 177               		.loc 1 112 7 view .LVU41
+ 178               	.LBB21:
+ 115:../../../os/common/oslib/src/chmemcore.c **** 
+ 179               		.loc 1 115 3 view .LVU42
+ 117:../../../os/common/oslib/src/chmemcore.c ****   chDbgCheck(MEM_IS_VALID_ALIGNMENT(align));
+ 180               		.loc 1 117 21 view .LVU43
+ 118:../../../os/common/oslib/src/chmemcore.c **** 
+ 181               		.loc 1 118 3 view .LVU44
+ 118:../../../os/common/oslib/src/chmemcore.c **** 
+ 182               		.loc 1 118 3 view .LVU45
  120:../../../os/common/oslib/src/chmemcore.c ****   p = (uint8_t *)MEM_ALIGN_NEXT(ch_memcore.nextmem + offset, align);
- 141               		.loc 1 120 0
- 142 0006 7195      		neg r23
- 143 0008 6195      		neg r22
- 144 000a 7109      		sbc r23,__zero_reg__
- 145               	.LVL14:
+ 183               		.loc 1 120 3 view .LVU46
+ 184 0008 EB01      		movw r28,r22
+ 185 000a 2197      		sbiw r28,1
+ 120:../../../os/common/oslib/src/chmemcore.c ****   p = (uint8_t *)MEM_ALIGN_NEXT(ch_memcore.nextmem + offset, align);
+ 186               		.loc 1 120 10 is_stmt 0 view .LVU47
+ 187 000c EE27      		clr r30
+ 188 000e FF27      		clr r31
+ 189 0010 E61B      		sub r30,r22
+ 190 0012 F70B      		sbc r31,r23
+ 191               	.LVL9:
  121:../../../os/common/oslib/src/chmemcore.c ****   next = p + size;
- 146               		.loc 1 121 0
- 147 000c 2091 0000 		lds r18,ch_memcore
- 148 0010 3091 0000 		lds r19,ch_memcore+1
- 149 0014 420F      		add r20,r18
- 150 0016 531F      		adc r21,r19
- 151               	.LVL15:
- 152 0018 4E0F      		add r20,r30
- 153 001a 5F1F      		adc r21,r31
- 154 001c 4623      		and r20,r22
- 155 001e 5723      		and r21,r23
- 156               	.LVL16:
- 120:../../../os/common/oslib/src/chmemcore.c ****   p = (uint8_t *)MEM_ALIGN_NEXT(ch_memcore.nextmem + offset, align);
- 157               		.loc 1 120 0
- 158 0020 8E0F      		add r24,r30
- 159 0022 9F1F      		adc r25,r31
- 160               	.LVL17:
- 161 0024 6823      		and r22,r24
- 162 0026 7923      		and r23,r25
- 163               	.LVL18:
+ 192               		.loc 1 121 3 is_stmt 1 view .LVU48
+ 121:../../../os/common/oslib/src/chmemcore.c ****   next = p + size;
+ 193               		.loc 1 121 18 is_stmt 0 view .LVU49
+ 194 0014 A091 0000 		lds r26,ch_memcore
+ 195 0018 B091 0000 		lds r27,ch_memcore+1
+ 196 001c CD01      		movw r24,r26
+ 197               	.LVL10:
+ 121:../../../os/common/oslib/src/chmemcore.c ****   next = p + size;
+ 198               		.loc 1 121 18 view .LVU50
+ 199 001e 840F      		add r24,r20
+ 200 0020 951F      		adc r25,r21
+ 201 0022 8C0F      		add r24,r28
+ 202 0024 9D1F      		adc r25,r29
+ 203 0026 8E23      		and r24,r30
+ 204 0028 9F23      		and r25,r31
+ 205               	.LVL11:
  122:../../../os/common/oslib/src/chmemcore.c **** 
- 164               		.loc 1 122 0
- 165 0028 CA01      		movw r24,r20
- 166 002a 860F      		add r24,r22
- 167 002c 971F      		adc r25,r23
- 168               	.LVL19:
+ 206               		.loc 1 122 3 is_stmt 1 view .LVU51
+ 120:../../../os/common/oslib/src/chmemcore.c ****   p = (uint8_t *)MEM_ALIGN_NEXT(ch_memcore.nextmem + offset, align);
+ 207               		.loc 1 120 10 is_stmt 0 view .LVU52
+ 208 002a B901      		movw r22,r18
+ 209               	.LVL12:
+ 120:../../../os/common/oslib/src/chmemcore.c ****   p = (uint8_t *)MEM_ALIGN_NEXT(ch_memcore.nextmem + offset, align);
+ 210               		.loc 1 120 10 view .LVU53
+ 211 002c 6C0F      		add r22,r28
+ 212 002e 7D1F      		adc r23,r29
+ 120:../../../os/common/oslib/src/chmemcore.c ****   p = (uint8_t *)MEM_ALIGN_NEXT(ch_memcore.nextmem + offset, align);
+ 213               		.loc 1 120 8 view .LVU54
+ 214 0030 6E23      		and r22,r30
+ 215 0032 7F23      		and r23,r31
+ 122:../../../os/common/oslib/src/chmemcore.c **** 
+ 216               		.loc 1 122 8 view .LVU55
+ 217 0034 680F      		add r22,r24
+ 218 0036 791F      		adc r23,r25
+ 219               	.LVL13:
  125:../../../os/common/oslib/src/chmemcore.c ****     return NULL;
- 169               		.loc 1 125 0
- 170 002e 6091 0000 		lds r22,ch_memcore+2
- 171 0032 7091 0000 		lds r23,ch_memcore+2+1
- 172               	.LVL20:
- 173 0036 6817      		cp r22,r24
- 174 0038 7907      		cpc r23,r25
- 175 003a 00F0      		brlo .L10
- 176 003c 8217      		cp r24,r18
- 177 003e 9307      		cpc r25,r19
- 178 0040 00F0      		brlo .L10
+ 220               		.loc 1 125 3 is_stmt 1 view .LVU56
+ 125:../../../os/common/oslib/src/chmemcore.c ****     return NULL;
+ 221               		.loc 1 125 6 is_stmt 0 view .LVU57
+ 222 0038 2091 0000 		lds r18,ch_memcore+2
+ 223 003c 3091 0000 		lds r19,ch_memcore+2+1
+ 224               	.LVL14:
+ 125:../../../os/common/oslib/src/chmemcore.c ****     return NULL;
+ 225               		.loc 1 125 6 view .LVU58
+ 226 0040 2617      		cp r18,r22
+ 227 0042 3707      		cpc r19,r23
+ 228 0044 00F0      		brlo .L10
+ 125:../../../os/common/oslib/src/chmemcore.c ****     return NULL;
+ 229               		.loc 1 125 34 view .LVU59
+ 230 0046 6A17      		cp r22,r26
+ 231 0048 7B07      		cpc r23,r27
+ 232 004a 00F0      		brlo .L10
  129:../../../os/common/oslib/src/chmemcore.c **** 
- 179               		.loc 1 129 0
- 180 0042 9093 0000 		sts ch_memcore+1,r25
- 181 0046 8093 0000 		sts ch_memcore,r24
+ 233               		.loc 1 129 3 is_stmt 1 view .LVU60
+ 129:../../../os/common/oslib/src/chmemcore.c **** 
+ 234               		.loc 1 129 22 is_stmt 0 view .LVU61
+ 235 004c 7093 0000 		sts ch_memcore+1,r23
+ 236 0050 6093 0000 		sts ch_memcore,r22
  131:../../../os/common/oslib/src/chmemcore.c **** }
- 182               		.loc 1 131 0
- 183 004a CA01      		movw r24,r20
- 184               	.LVL21:
- 185               	.LBE20:
- 186               	.LBE19:
- 187               	.LBB22:
- 188               	.LBB23:
- 189               	.LBB24:
- 190               	.LBB25:
+ 237               		.loc 1 131 3 is_stmt 1 view .LVU62
+ 238               	.LVL15:
+ 131:../../../os/common/oslib/src/chmemcore.c **** }
+ 239               		.loc 1 131 3 is_stmt 0 view .LVU63
+ 240               	.LBE21:
+ 241               	.LBE20:
+ 155:../../../os/common/oslib/src/chmemcore.c ****   chSysUnlock();
+ 242               		.loc 1 155 3 is_stmt 1 view .LVU64
+ 243               	.LBB23:
+ 244               	.LBI23:
+ 358:../../../os/rt/include/chsys.h **** }
+ 359:../../../os/rt/include/chsys.h **** 
+ 360:../../../os/rt/include/chsys.h **** /**
+ 361:../../../os/rt/include/chsys.h ****  * @brief   Leaves the kernel lock state.
+ 362:../../../os/rt/include/chsys.h ****  *
+ 363:../../../os/rt/include/chsys.h ****  * @special
+ 364:../../../os/rt/include/chsys.h ****  */
+ 365:../../../os/rt/include/chsys.h **** static inline void chSysUnlock(void) {
+ 245               		.loc 2 365 20 view .LVU65
+ 246               	.LBB24:
+ 366:../../../os/rt/include/chsys.h **** 
+ 367:../../../os/rt/include/chsys.h ****   _dbg_check_unlock();
+ 247               		.loc 2 367 22 view .LVU66
+ 368:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 248               		.loc 2 368 33 view .LVU67
+ 369:../../../os/rt/include/chsys.h **** 
+ 370:../../../os/rt/include/chsys.h ****   /* The following condition can be triggered by the use of i-class functions
+ 371:../../../os/rt/include/chsys.h ****      in a critical section not followed by a chSchResceduleS(), this means
+ 372:../../../os/rt/include/chsys.h ****      that the current thread has a lower priority than the next thread in
+ 373:../../../os/rt/include/chsys.h ****      the ready list.*/
+ 374:../../../os/rt/include/chsys.h ****   chDbgAssert((ch.rlist.queue.next == (thread_t *)&ch.rlist.queue) ||
+ 249               		.loc 2 374 3 view .LVU68
+ 250               		.loc 2 374 3 view .LVU69
+ 375:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 376:../../../os/rt/include/chsys.h ****               "priority order violation");
+ 377:../../../os/rt/include/chsys.h **** 
+ 378:../../../os/rt/include/chsys.h ****   port_unlock();
+ 251               		.loc 2 378 3 view .LVU70
+ 252               	.LBB25:
+ 253               	.LBI25:
  438:../../../os/common/ports/AVR/chcore.h **** }
  439:../../../os/common/ports/AVR/chcore.h **** 
  440:../../../os/common/ports/AVR/chcore.h **** /**
@@ -787,61 +1250,84 @@
  443:../../../os/common/ports/AVR/chcore.h ****  *          actions.
  444:../../../os/common/ports/AVR/chcore.h ****  */
  445:../../../os/common/ports/AVR/chcore.h **** static inline void port_unlock(void) {
+ 254               		.loc 3 445 20 view .LVU71
+ 255               	.LBB26:
  446:../../../os/common/ports/AVR/chcore.h **** 
  447:../../../os/common/ports/AVR/chcore.h ****   asm volatile ("sei" : : : "memory");
- 191               		.loc 2 447 0
- 192               	/* #APP */
- 193               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
- 194 004c 7894      		sei
- 195               	 ;  0 "" 2
- 196               	/* #NOAPP */
- 197               	.LBE25:
- 198               	.LBE24:
- 199               	.LBE23:
- 200               	.LBE22:
- 151:../../../os/common/oslib/src/chmemcore.c ****   void *p;
- 152:../../../os/common/oslib/src/chmemcore.c **** 
- 153:../../../os/common/oslib/src/chmemcore.c ****   chSysLock();
- 154:../../../os/common/oslib/src/chmemcore.c ****   p = chCoreAllocAlignedWithOffsetI(size, align, offset);
- 155:../../../os/common/oslib/src/chmemcore.c ****   chSysUnlock();
+ 256               		.loc 3 447 3 view .LVU72
+ 257               	/* #APP */
+ 258               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
+ 259 0054 7894      		sei
+ 260               	 ;  0 "" 2
+ 261               	/* #NOAPP */
+ 262               	.LBE26:
+ 263               	.LBE25:
+ 264               	.LBE24:
+ 265               	.LBE23:
  156:../../../os/common/oslib/src/chmemcore.c **** 
  157:../../../os/common/oslib/src/chmemcore.c ****   return p;
+ 266               		.loc 1 157 3 view .LVU73
+ 267               	/* epilogue start */
  158:../../../os/common/oslib/src/chmemcore.c **** }
- 201               		.loc 1 158 0
- 202 004e 0895      		ret
- 203               	.LVL22:
- 204               	.L10:
- 205               	.LBB29:
- 206               	.LBB21:
+ 268               		.loc 1 158 1 is_stmt 0 view .LVU74
+ 269 0056 DF91      		pop r29
+ 270 0058 CF91      		pop r28
+ 271 005a 0895      		ret
+ 272               	.LVL16:
+ 273               	.L10:
+ 274               	.LBB30:
+ 275               	.LBB22:
  126:../../../os/common/oslib/src/chmemcore.c ****   }
- 207               		.loc 1 126 0
- 208 0050 80E0      		ldi r24,0
- 209               	.LVL23:
- 210 0052 90E0      		ldi r25,0
- 211               	.LBE21:
- 212               	.LBE29:
- 213               	.LBB30:
- 214               	.LBB28:
- 215               	.LBB27:
- 216               	.LBB26:
- 217               		.loc 2 447 0
- 218               	/* #APP */
- 219               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
- 220 0054 7894      		sei
- 221               	 ;  0 "" 2
- 222               	/* #NOAPP */
- 223               	.LBE26:
- 224               	.LBE27:
- 225               	.LBE28:
- 226               	.LBE30:
- 227               		.loc 1 158 0
- 228 0056 0895      		ret
- 229               		.cfi_endproc
- 230               	.LFE143:
- 232               		.section	.text.chCoreGetStatusX,"ax",@progbits
- 233               	.global	chCoreGetStatusX
- 235               	chCoreGetStatusX:
- 236               	.LFB144:
+ 276               		.loc 1 126 12 view .LVU75
+ 277 005c 90E0      		ldi r25,0
+ 278 005e 80E0      		ldi r24,0
+ 279               	.LVL17:
+ 126:../../../os/common/oslib/src/chmemcore.c ****   }
+ 280               		.loc 1 126 12 view .LVU76
+ 281               	.LBE22:
+ 282               	.LBE30:
+ 155:../../../os/common/oslib/src/chmemcore.c **** 
+ 283               		.loc 1 155 3 is_stmt 1 view .LVU77
+ 284               	.LBB31:
+ 365:../../../os/rt/include/chsys.h **** 
+ 285               		.loc 2 365 20 view .LVU78
+ 286               	.LBB29:
+ 367:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 287               		.loc 2 367 22 view .LVU79
+ 368:../../../os/rt/include/chsys.h **** 
+ 288               		.loc 2 368 33 view .LVU80
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 289               		.loc 2 374 3 view .LVU81
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 290               		.loc 2 374 3 view .LVU82
+ 291               		.loc 2 378 3 view .LVU83
+ 292               	.LBB28:
+ 445:../../../os/common/ports/AVR/chcore.h **** 
+ 293               		.loc 3 445 20 view .LVU84
+ 294               	.LBB27:
+ 295               		.loc 3 447 3 view .LVU85
+ 296               	/* #APP */
+ 297               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
+ 298 0060 7894      		sei
+ 299               	 ;  0 "" 2
+ 300               	/* #NOAPP */
+ 301               	.LBE27:
+ 302               	.LBE28:
+ 303               	.LBE29:
+ 304               	.LBE31:
+ 157:../../../os/common/oslib/src/chmemcore.c **** }
+ 305               		.loc 1 157 3 view .LVU86
+ 306               	/* epilogue start */
+ 307               		.loc 1 158 1 is_stmt 0 view .LVU87
+ 308 0062 DF91      		pop r29
+ 309 0064 CF91      		pop r28
+ 310 0066 0895      		ret
+ 311               		.cfi_endproc
+ 312               	.LFE143:
+ 314               		.section	.text.chCoreGetStatusX,"ax",@progbits
+ 315               	.global	chCoreGetStatusX
+ 317               	chCoreGetStatusX:
+ 318               	.LFB144:
  159:../../../os/common/oslib/src/chmemcore.c **** 
  160:../../../os/common/oslib/src/chmemcore.c **** /**
  161:../../../os/common/oslib/src/chmemcore.c ****  * @brief   Core memory status.
@@ -851,63 +1337,66 @@
  165:../../../os/common/oslib/src/chmemcore.c ****  * @xclass
  166:../../../os/common/oslib/src/chmemcore.c ****  */
  167:../../../os/common/oslib/src/chmemcore.c **** size_t chCoreGetStatusX(void) {
- 237               		.loc 1 167 0
- 238               		.cfi_startproc
- 239               	/* prologue: function */
- 240               	/* frame size = 0 */
- 241               	/* stack size = 0 */
- 242               	.L__stack_usage = 0
+ 319               		.loc 1 167 31 is_stmt 1 view -0
+ 320               		.cfi_startproc
+ 321               	/* prologue: function */
+ 322               	/* frame size = 0 */
+ 323               	/* stack size = 0 */
+ 324               	.L__stack_usage = 0
  168:../../../os/common/oslib/src/chmemcore.c **** 
  169:../../../os/common/oslib/src/chmemcore.c ****   /*lint -save -e9033 [10.8] The cast is safe.*/
  170:../../../os/common/oslib/src/chmemcore.c ****   return (size_t)(ch_memcore.endmem - ch_memcore.nextmem);
- 243               		.loc 1 170 0
- 244 0000 E0E0      		ldi r30,lo8(ch_memcore)
- 245 0002 F0E0      		ldi r31,hi8(ch_memcore)
- 246 0004 8281      		ldd r24,Z+2
- 247 0006 9381      		ldd r25,Z+3
- 248 0008 2081      		ld r18,Z
- 249 000a 3181      		ldd r19,Z+1
+ 325               		.loc 1 170 3 view .LVU89
+ 326               		.loc 1 170 29 is_stmt 0 view .LVU90
+ 327 0000 E0E0      		ldi r30,lo8(ch_memcore)
+ 328 0002 F0E0      		ldi r31,hi8(ch_memcore)
+ 329               		.loc 1 170 37 view .LVU91
+ 330 0004 8281      		ldd r24,Z+2
+ 331 0006 9381      		ldd r25,Z+3
+ 332 0008 2081      		ld r18,Z
+ 333 000a 3181      		ldd r19,Z+1
  171:../../../os/common/oslib/src/chmemcore.c ****   /*lint -restore*/
  172:../../../os/common/oslib/src/chmemcore.c **** }
- 250               		.loc 1 172 0
- 251 000c 821B      		sub r24,r18
- 252 000e 930B      		sbc r25,r19
- 253 0010 0895      		ret
- 254               		.cfi_endproc
- 255               	.LFE144:
- 257               		.section	.bss.static_heap.2661,"aw",@nobits
- 260               	static_heap.2661:
- 261 0000 0000 0000 		.zero	128
- 261      0000 0000 
- 261      0000 0000 
- 261      0000 0000 
- 261      0000 0000 
- 262               		.comm	ch_memcore,4,1
- 263               		.text
- 264               	.Letext0:
- 265               		.file 3 "/usr/lib/gcc/avr/4.9.2/include/stddef.h"
- 266               		.file 4 "/usr/lib/avr/include/stdint.h"
- 267               		.file 5 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
- 268               		.file 6 "../../../os/rt/include/chsystypes.h"
- 269               		.file 7 "../../../os/rt/include/chschd.h"
- 270               		.file 8 "../../../os/rt/include/chtime.h"
- 271               		.file 9 "../../../os/rt/include/chsem.h"
- 272               		.file 10 "../../../os/rt/include/chmtx.h"
- 273               		.file 11 "../../../os/common/oslib/include/chmemcore.h"
- 274               		.file 12 "../../../os/rt/include/chsys.h"
+ 334               		.loc 1 172 1 view .LVU92
+ 335 000c 821B      		sub r24,r18
+ 336 000e 930B      		sbc r25,r19
+ 337               	/* epilogue start */
+ 338 0010 0895      		ret
+ 339               		.cfi_endproc
+ 340               	.LFE144:
+ 342               		.section	.bss.static_heap.2691,"aw",@nobits
+ 345               	static_heap.2691:
+ 346 0000 0000 0000 		.zero	128
+ 346      0000 0000 
+ 346      0000 0000 
+ 346      0000 0000 
+ 346      0000 0000 
+ 347               		.comm	ch_memcore,4,1
+ 348               		.text
+ 349               	.Letext0:
+ 350               		.file 4 "/usr/local/Cellar/avr-gcc/8.2.0/lib/avr-gcc/8/gcc/avr/8.2.0/include/stddef.h"
+ 351               		.file 5 "/usr/local/Cellar/avr-gcc/8.2.0/avr/include/stdint.h"
+ 352               		.file 6 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
+ 353               		.file 7 "../../../os/rt/include/chsystypes.h"
+ 354               		.file 8 "../../../os/rt/include/chschd.h"
+ 355               		.file 9 "../../../os/rt/include/chtime.h"
+ 356               		.file 10 "../../../os/rt/include/chsem.h"
+ 357               		.file 11 "../../../os/rt/include/chmtx.h"
+ 358               		.file 12 "../../../os/rt/include/chregistry.h"
+ 359               		.file 13 "../../../os/common/oslib/include/chmemcore.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 chmemcore.c
-     /tmp/cc8MuNfg.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/cc8MuNfg.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/cc8MuNfg.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/cc8MuNfg.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/cc8MuNfg.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/cc8MuNfg.s:13     .text._core_init:0000000000000000 _core_init
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccuJ6qoQ.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccuJ6qoQ.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccuJ6qoQ.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccuJ6qoQ.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccuJ6qoQ.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccuJ6qoQ.s:13     .text._core_init:0000000000000000 _core_init
                             *COM*:0000000000000004 ch_memcore
-     /tmp/cc8MuNfg.s:260    .bss.static_heap.2661:0000000000000000 static_heap.2661
-     /tmp/cc8MuNfg.s:41     .text.chCoreAllocAlignedWithOffsetI:0000000000000000 chCoreAllocAlignedWithOffsetI
-     /tmp/cc8MuNfg.s:114    .text.chCoreAllocAlignedWithOffset:0000000000000000 chCoreAllocAlignedWithOffset
-     /tmp/cc8MuNfg.s:235    .text.chCoreGetStatusX:0000000000000000 chCoreGetStatusX
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccuJ6qoQ.s:345    .bss.static_heap.2691:0000000000000000 static_heap.2691
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccuJ6qoQ.s:46     .text.chCoreAllocAlignedWithOffsetI:0000000000000000 chCoreAllocAlignedWithOffsetI
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccuJ6qoQ.s:129    .text.chCoreAllocAlignedWithOffset:0000000000000000 chCoreAllocAlignedWithOffset
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccuJ6qoQ.s:317    .text.chCoreGetStatusX:0000000000000000 chCoreGetStatusX
 
 UNDEFINED SYMBOLS
 __do_clear_bss

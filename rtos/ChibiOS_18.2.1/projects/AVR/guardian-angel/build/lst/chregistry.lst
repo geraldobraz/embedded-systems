@@ -146,16 +146,382 @@
  132:../../../os/rt/src/chregistry.c ****  * @api
  133:../../../os/rt/src/chregistry.c ****  */
  134:../../../os/rt/src/chregistry.c **** thread_t *chRegFirstThread(void) {
-  16               		.loc 1 134 0
+  16               		.loc 1 134 34 view -0
   17               		.cfi_startproc
   18               	/* prologue: function */
   19               	/* frame size = 0 */
   20               	/* stack size = 0 */
   21               	.L__stack_usage = 0
-  22               	.LBB60:
-  23               	.LBB61:
-  24               	.LBB62:
-  25               		.file 2 "../../../os/common/ports/AVR/chcore.h"
+ 135:../../../os/rt/src/chregistry.c ****   thread_t *tp;
+  22               		.loc 1 135 3 view .LVU1
+ 136:../../../os/rt/src/chregistry.c **** 
+ 137:../../../os/rt/src/chregistry.c ****   chSysLock();
+  23               		.loc 1 137 3 view .LVU2
+  24               	.LBB60:
+  25               	.LBI60:
+  26               		.file 2 "../../../os/rt/include/chsys.h"
+   1:../../../os/rt/include/chsys.h **** /*
+   2:../../../os/rt/include/chsys.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
+   3:../../../os/rt/include/chsys.h **** 
+   4:../../../os/rt/include/chsys.h ****     This file is part of ChibiOS.
+   5:../../../os/rt/include/chsys.h **** 
+   6:../../../os/rt/include/chsys.h ****     ChibiOS is free software; you can redistribute it and/or modify
+   7:../../../os/rt/include/chsys.h ****     it under the terms of the GNU General Public License as published by
+   8:../../../os/rt/include/chsys.h ****     the Free Software Foundation; either version 3 of the License, or
+   9:../../../os/rt/include/chsys.h ****     (at your option) any later version.
+  10:../../../os/rt/include/chsys.h **** 
+  11:../../../os/rt/include/chsys.h ****     ChibiOS is distributed in the hope that it will be useful,
+  12:../../../os/rt/include/chsys.h ****     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:../../../os/rt/include/chsys.h ****     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:../../../os/rt/include/chsys.h ****     GNU General Public License for more details.
+  15:../../../os/rt/include/chsys.h **** 
+  16:../../../os/rt/include/chsys.h ****     You should have received a copy of the GNU General Public License
+  17:../../../os/rt/include/chsys.h ****     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  18:../../../os/rt/include/chsys.h **** */
+  19:../../../os/rt/include/chsys.h **** 
+  20:../../../os/rt/include/chsys.h **** /**
+  21:../../../os/rt/include/chsys.h ****  * @file    chsys.h
+  22:../../../os/rt/include/chsys.h ****  * @brief   System related macros and structures.
+  23:../../../os/rt/include/chsys.h ****  *
+  24:../../../os/rt/include/chsys.h ****  * @addtogroup system
+  25:../../../os/rt/include/chsys.h ****  * @{
+  26:../../../os/rt/include/chsys.h ****  */
+  27:../../../os/rt/include/chsys.h **** 
+  28:../../../os/rt/include/chsys.h **** #ifndef CHSYS_H
+  29:../../../os/rt/include/chsys.h **** #define CHSYS_H
+  30:../../../os/rt/include/chsys.h **** 
+  31:../../../os/rt/include/chsys.h **** /*lint -sem(chSysHalt, r_no)*/
+  32:../../../os/rt/include/chsys.h **** 
+  33:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  34:../../../os/rt/include/chsys.h **** /* Module constants.                                                         */
+  35:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  36:../../../os/rt/include/chsys.h **** 
+  37:../../../os/rt/include/chsys.h **** /**
+  38:../../../os/rt/include/chsys.h ****  * @name    Masks of executable integrity checks.
+  39:../../../os/rt/include/chsys.h ****  * @{
+  40:../../../os/rt/include/chsys.h ****  */
+  41:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_RLIST                  1U
+  42:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_VTLIST                 2U
+  43:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_REGISTRY               4U
+  44:../../../os/rt/include/chsys.h **** #define CH_INTEGRITY_PORT                   8U
+  45:../../../os/rt/include/chsys.h **** /** @} */
+  46:../../../os/rt/include/chsys.h **** 
+  47:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  48:../../../os/rt/include/chsys.h **** /* Module pre-compile time settings.                                         */
+  49:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  50:../../../os/rt/include/chsys.h **** 
+  51:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  52:../../../os/rt/include/chsys.h **** /* Derived constants and error checks.                                       */
+  53:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  54:../../../os/rt/include/chsys.h **** 
+  55:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  56:../../../os/rt/include/chsys.h **** /* Module data structures and types.                                         */
+  57:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  58:../../../os/rt/include/chsys.h **** 
+  59:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  60:../../../os/rt/include/chsys.h **** /* Module macros.                                                            */
+  61:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+  62:../../../os/rt/include/chsys.h **** 
+  63:../../../os/rt/include/chsys.h **** /**
+  64:../../../os/rt/include/chsys.h ****  * @name    ISRs abstraction macros
+  65:../../../os/rt/include/chsys.h ****  */
+  66:../../../os/rt/include/chsys.h **** /**
+  67:../../../os/rt/include/chsys.h ****  * @brief   Priority level validation macro.
+  68:../../../os/rt/include/chsys.h ****  * @details This macro determines if the passed value is a valid priority
+  69:../../../os/rt/include/chsys.h ****  *          level for the underlying architecture.
+  70:../../../os/rt/include/chsys.h ****  *
+  71:../../../os/rt/include/chsys.h ****  * @param[in] prio      the priority level
+  72:../../../os/rt/include/chsys.h ****  * @return              Priority range result.
+  73:../../../os/rt/include/chsys.h ****  * @retval false        if the priority is invalid or if the architecture
+  74:../../../os/rt/include/chsys.h ****  *                      does not support priorities.
+  75:../../../os/rt/include/chsys.h ****  * @retval true         if the priority is valid.
+  76:../../../os/rt/include/chsys.h ****  */
+  77:../../../os/rt/include/chsys.h **** #if defined(PORT_IRQ_IS_VALID_PRIORITY) || defined(__DOXYGEN__)
+  78:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_PRIORITY(prio)                                      \
+  79:../../../os/rt/include/chsys.h ****   PORT_IRQ_IS_VALID_PRIORITY(prio)
+  80:../../../os/rt/include/chsys.h **** #else
+  81:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_PRIORITY(prio) false
+  82:../../../os/rt/include/chsys.h **** #endif
+  83:../../../os/rt/include/chsys.h **** 
+  84:../../../os/rt/include/chsys.h **** /**
+  85:../../../os/rt/include/chsys.h ****  * @brief   Priority level validation macro.
+  86:../../../os/rt/include/chsys.h ****  * @details This macro determines if the passed value is a valid priority
+  87:../../../os/rt/include/chsys.h ****  *          level that cannot preempt the kernel critical zone.
+  88:../../../os/rt/include/chsys.h ****  *
+  89:../../../os/rt/include/chsys.h ****  * @param[in] prio      the priority level
+  90:../../../os/rt/include/chsys.h ****  * @return              Priority range result.
+  91:../../../os/rt/include/chsys.h ****  * @retval false        if the priority is invalid or if the architecture
+  92:../../../os/rt/include/chsys.h ****  *                      does not support priorities.
+  93:../../../os/rt/include/chsys.h ****  * @retval true         if the priority is valid.
+  94:../../../os/rt/include/chsys.h ****  */
+  95:../../../os/rt/include/chsys.h **** #if defined(PORT_IRQ_IS_VALID_KERNEL_PRIORITY) || defined(__DOXYGEN__)
+  96:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_KERNEL_PRIORITY(prio)                               \
+  97:../../../os/rt/include/chsys.h ****   PORT_IRQ_IS_VALID_KERNEL_PRIORITY(prio)
+  98:../../../os/rt/include/chsys.h **** #else
+  99:../../../os/rt/include/chsys.h **** #define CH_IRQ_IS_VALID_KERNEL_PRIORITY(prio) false
+ 100:../../../os/rt/include/chsys.h **** #endif
+ 101:../../../os/rt/include/chsys.h **** 
+ 102:../../../os/rt/include/chsys.h **** /**
+ 103:../../../os/rt/include/chsys.h ****  * @brief   IRQ handler enter code.
+ 104:../../../os/rt/include/chsys.h ****  * @note    Usually IRQ handlers functions are also declared naked.
+ 105:../../../os/rt/include/chsys.h ****  * @note    On some architectures this macro can be empty.
+ 106:../../../os/rt/include/chsys.h ****  *
+ 107:../../../os/rt/include/chsys.h ****  * @special
+ 108:../../../os/rt/include/chsys.h ****  */
+ 109:../../../os/rt/include/chsys.h **** #define CH_IRQ_PROLOGUE()                                                   \
+ 110:../../../os/rt/include/chsys.h ****   PORT_IRQ_PROLOGUE();                                                      \
+ 111:../../../os/rt/include/chsys.h ****   CH_CFG_IRQ_PROLOGUE_HOOK();                                               \
+ 112:../../../os/rt/include/chsys.h ****   _stats_increase_irq();                                                    \
+ 113:../../../os/rt/include/chsys.h ****   _trace_isr_enter(__func__);                                               \
+ 114:../../../os/rt/include/chsys.h ****   _dbg_check_enter_isr()
+ 115:../../../os/rt/include/chsys.h **** 
+ 116:../../../os/rt/include/chsys.h **** /**
+ 117:../../../os/rt/include/chsys.h ****  * @brief   IRQ handler exit code.
+ 118:../../../os/rt/include/chsys.h ****  * @note    Usually IRQ handlers function are also declared naked.
+ 119:../../../os/rt/include/chsys.h ****  * @note    This macro usually performs the final reschedule by using
+ 120:../../../os/rt/include/chsys.h ****  *          @p chSchIsPreemptionRequired() and @p chSchDoReschedule().
+ 121:../../../os/rt/include/chsys.h ****  *
+ 122:../../../os/rt/include/chsys.h ****  * @special
+ 123:../../../os/rt/include/chsys.h ****  */
+ 124:../../../os/rt/include/chsys.h **** #define CH_IRQ_EPILOGUE()                                                   \
+ 125:../../../os/rt/include/chsys.h ****   _dbg_check_leave_isr();                                                   \
+ 126:../../../os/rt/include/chsys.h ****   _trace_isr_leave(__func__);                                               \
+ 127:../../../os/rt/include/chsys.h ****   CH_CFG_IRQ_EPILOGUE_HOOK();                                               \
+ 128:../../../os/rt/include/chsys.h ****   PORT_IRQ_EPILOGUE()
+ 129:../../../os/rt/include/chsys.h **** 
+ 130:../../../os/rt/include/chsys.h **** /**
+ 131:../../../os/rt/include/chsys.h ****  * @brief   Standard normal IRQ handler declaration.
+ 132:../../../os/rt/include/chsys.h ****  * @note    @p id can be a function name or a vector number depending on the
+ 133:../../../os/rt/include/chsys.h ****  *          port implementation.
+ 134:../../../os/rt/include/chsys.h ****  *
+ 135:../../../os/rt/include/chsys.h ****  * @special
+ 136:../../../os/rt/include/chsys.h ****  */
+ 137:../../../os/rt/include/chsys.h **** #define CH_IRQ_HANDLER(id) PORT_IRQ_HANDLER(id)
+ 138:../../../os/rt/include/chsys.h **** /** @} */
+ 139:../../../os/rt/include/chsys.h **** 
+ 140:../../../os/rt/include/chsys.h **** /**
+ 141:../../../os/rt/include/chsys.h ****  * @name    Fast ISRs abstraction macros
+ 142:../../../os/rt/include/chsys.h ****  */
+ 143:../../../os/rt/include/chsys.h **** /**
+ 144:../../../os/rt/include/chsys.h ****  * @brief   Standard fast IRQ handler declaration.
+ 145:../../../os/rt/include/chsys.h ****  * @note    @p id can be a function name or a vector number depending on the
+ 146:../../../os/rt/include/chsys.h ****  *          port implementation.
+ 147:../../../os/rt/include/chsys.h ****  * @note    Not all architectures support fast interrupts.
+ 148:../../../os/rt/include/chsys.h ****  *
+ 149:../../../os/rt/include/chsys.h ****  * @special
+ 150:../../../os/rt/include/chsys.h ****  */
+ 151:../../../os/rt/include/chsys.h **** #define CH_FAST_IRQ_HANDLER(id) PORT_FAST_IRQ_HANDLER(id)
+ 152:../../../os/rt/include/chsys.h **** /** @} */
+ 153:../../../os/rt/include/chsys.h **** 
+ 154:../../../os/rt/include/chsys.h **** /**
+ 155:../../../os/rt/include/chsys.h ****  * @name    Time conversion utilities for the realtime counter
+ 156:../../../os/rt/include/chsys.h ****  * @{
+ 157:../../../os/rt/include/chsys.h ****  */
+ 158:../../../os/rt/include/chsys.h **** /**
+ 159:../../../os/rt/include/chsys.h ****  * @brief   Seconds to realtime counter.
+ 160:../../../os/rt/include/chsys.h ****  * @details Converts from seconds to realtime counter cycles.
+ 161:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1.
+ 162:../../../os/rt/include/chsys.h ****  *
+ 163:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 164:../../../os/rt/include/chsys.h ****  * @param[in] sec       number of seconds
+ 165:../../../os/rt/include/chsys.h ****  * @return              The number of cycles.
+ 166:../../../os/rt/include/chsys.h ****  *
+ 167:../../../os/rt/include/chsys.h ****  * @api
+ 168:../../../os/rt/include/chsys.h ****  */
+ 169:../../../os/rt/include/chsys.h **** #define S2RTC(freq, sec) ((freq) * (sec))
+ 170:../../../os/rt/include/chsys.h **** 
+ 171:../../../os/rt/include/chsys.h **** /**
+ 172:../../../os/rt/include/chsys.h ****  * @brief   Milliseconds to realtime counter.
+ 173:../../../os/rt/include/chsys.h ****  * @details Converts from milliseconds to realtime counter cycles.
+ 174:../../../os/rt/include/chsys.h ****  * @note    The result is rounded upward to the next millisecond boundary.
+ 175:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000.
+ 176:../../../os/rt/include/chsys.h ****  *
+ 177:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 178:../../../os/rt/include/chsys.h ****  * @param[in] msec      number of milliseconds
+ 179:../../../os/rt/include/chsys.h ****  * @return              The number of cycles.
+ 180:../../../os/rt/include/chsys.h ****  *
+ 181:../../../os/rt/include/chsys.h ****  * @api
+ 182:../../../os/rt/include/chsys.h ****  */
+ 183:../../../os/rt/include/chsys.h **** #define MS2RTC(freq, msec) (rtcnt_t)((((freq) + 999UL) / 1000UL) * (msec))
+ 184:../../../os/rt/include/chsys.h **** 
+ 185:../../../os/rt/include/chsys.h **** /**
+ 186:../../../os/rt/include/chsys.h ****  * @brief   Microseconds to realtime counter.
+ 187:../../../os/rt/include/chsys.h ****  * @details Converts from microseconds to realtime counter cycles.
+ 188:../../../os/rt/include/chsys.h ****  * @note    The result is rounded upward to the next microsecond boundary.
+ 189:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000000.
+ 190:../../../os/rt/include/chsys.h ****  *
+ 191:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 192:../../../os/rt/include/chsys.h ****  * @param[in] usec      number of microseconds
+ 193:../../../os/rt/include/chsys.h ****  * @return              The number of cycles.
+ 194:../../../os/rt/include/chsys.h ****  *
+ 195:../../../os/rt/include/chsys.h ****  * @api
+ 196:../../../os/rt/include/chsys.h ****  */
+ 197:../../../os/rt/include/chsys.h **** #define US2RTC(freq, usec) (rtcnt_t)((((freq) + 999999UL) / 1000000UL) * (usec))
+ 198:../../../os/rt/include/chsys.h **** 
+ 199:../../../os/rt/include/chsys.h **** /**
+ 200:../../../os/rt/include/chsys.h ****  * @brief   Realtime counter cycles to seconds.
+ 201:../../../os/rt/include/chsys.h ****  * @details Converts from realtime counter cycles number to seconds.
+ 202:../../../os/rt/include/chsys.h ****  * @note    The result is rounded up to the next second boundary.
+ 203:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1.
+ 204:../../../os/rt/include/chsys.h ****  *
+ 205:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 206:../../../os/rt/include/chsys.h ****  * @param[in] n         number of cycles
+ 207:../../../os/rt/include/chsys.h ****  * @return              The number of seconds.
+ 208:../../../os/rt/include/chsys.h ****  *
+ 209:../../../os/rt/include/chsys.h ****  * @api
+ 210:../../../os/rt/include/chsys.h ****  */
+ 211:../../../os/rt/include/chsys.h **** #define RTC2S(freq, n) ((((n) - 1UL) / (freq)) + 1UL)
+ 212:../../../os/rt/include/chsys.h **** 
+ 213:../../../os/rt/include/chsys.h **** /**
+ 214:../../../os/rt/include/chsys.h ****  * @brief   Realtime counter cycles to milliseconds.
+ 215:../../../os/rt/include/chsys.h ****  * @details Converts from realtime counter cycles number to milliseconds.
+ 216:../../../os/rt/include/chsys.h ****  * @note    The result is rounded up to the next millisecond boundary.
+ 217:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000.
+ 218:../../../os/rt/include/chsys.h ****  *
+ 219:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 220:../../../os/rt/include/chsys.h ****  * @param[in] n         number of cycles
+ 221:../../../os/rt/include/chsys.h ****  * @return              The number of milliseconds.
+ 222:../../../os/rt/include/chsys.h ****  *
+ 223:../../../os/rt/include/chsys.h ****  * @api
+ 224:../../../os/rt/include/chsys.h ****  */
+ 225:../../../os/rt/include/chsys.h **** #define RTC2MS(freq, n) ((((n) - 1UL) / ((freq) / 1000UL)) + 1UL)
+ 226:../../../os/rt/include/chsys.h **** 
+ 227:../../../os/rt/include/chsys.h **** /**
+ 228:../../../os/rt/include/chsys.h ****  * @brief   Realtime counter cycles to microseconds.
+ 229:../../../os/rt/include/chsys.h ****  * @details Converts from realtime counter cycles number to microseconds.
+ 230:../../../os/rt/include/chsys.h ****  * @note    The result is rounded up to the next microsecond boundary.
+ 231:../../../os/rt/include/chsys.h ****  * @note    The macro assumes that @p freq >= @p 1000000.
+ 232:../../../os/rt/include/chsys.h ****  *
+ 233:../../../os/rt/include/chsys.h ****  * @param[in] freq      clock frequency, in Hz, of the realtime counter
+ 234:../../../os/rt/include/chsys.h ****  * @param[in] n         number of cycles
+ 235:../../../os/rt/include/chsys.h ****  * @return              The number of microseconds.
+ 236:../../../os/rt/include/chsys.h ****  *
+ 237:../../../os/rt/include/chsys.h ****  * @api
+ 238:../../../os/rt/include/chsys.h ****  */
+ 239:../../../os/rt/include/chsys.h **** #define RTC2US(freq, n) ((((n) - 1UL) / ((freq) / 1000000UL)) + 1UL)
+ 240:../../../os/rt/include/chsys.h **** /** @} */
+ 241:../../../os/rt/include/chsys.h **** 
+ 242:../../../os/rt/include/chsys.h **** /**
+ 243:../../../os/rt/include/chsys.h ****  * @brief   Returns the current value of the system real time counter.
+ 244:../../../os/rt/include/chsys.h ****  * @note    This function is only available if the port layer supports the
+ 245:../../../os/rt/include/chsys.h ****  *          option @p PORT_SUPPORTS_RT.
+ 246:../../../os/rt/include/chsys.h ****  *
+ 247:../../../os/rt/include/chsys.h ****  * @return              The value of the system realtime counter of
+ 248:../../../os/rt/include/chsys.h ****  *                      type rtcnt_t.
+ 249:../../../os/rt/include/chsys.h ****  *
+ 250:../../../os/rt/include/chsys.h ****  * @xclass
+ 251:../../../os/rt/include/chsys.h ****  */
+ 252:../../../os/rt/include/chsys.h **** #if (PORT_SUPPORTS_RT == TRUE) || defined(__DOXYGEN__)
+ 253:../../../os/rt/include/chsys.h **** #define chSysGetRealtimeCounterX() (rtcnt_t)port_rt_get_counter_value()
+ 254:../../../os/rt/include/chsys.h **** #endif
+ 255:../../../os/rt/include/chsys.h **** 
+ 256:../../../os/rt/include/chsys.h **** /**
+ 257:../../../os/rt/include/chsys.h ****  * @brief   Performs a context switch.
+ 258:../../../os/rt/include/chsys.h ****  * @note    Not a user function, it is meant to be invoked by the scheduler
+ 259:../../../os/rt/include/chsys.h ****  *          itself or from within the port layer.
+ 260:../../../os/rt/include/chsys.h ****  *
+ 261:../../../os/rt/include/chsys.h ****  * @param[in] ntp       the thread to be switched in
+ 262:../../../os/rt/include/chsys.h ****  * @param[in] otp       the thread to be switched out
+ 263:../../../os/rt/include/chsys.h ****  *
+ 264:../../../os/rt/include/chsys.h ****  * @special
+ 265:../../../os/rt/include/chsys.h ****  */
+ 266:../../../os/rt/include/chsys.h **** #define chSysSwitch(ntp, otp) {                                             \
+ 267:../../../os/rt/include/chsys.h ****                                                                             \
+ 268:../../../os/rt/include/chsys.h ****   _trace_switch(ntp, otp);                                                  \
+ 269:../../../os/rt/include/chsys.h ****   _stats_ctxswc(ntp, otp);                                                  \
+ 270:../../../os/rt/include/chsys.h ****   CH_CFG_CONTEXT_SWITCH_HOOK(ntp, otp);                                     \
+ 271:../../../os/rt/include/chsys.h ****   port_switch(ntp, otp);                                                    \
+ 272:../../../os/rt/include/chsys.h **** }
+ 273:../../../os/rt/include/chsys.h **** 
+ 274:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 275:../../../os/rt/include/chsys.h **** /* External declarations.                                                    */
+ 276:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 277:../../../os/rt/include/chsys.h **** 
+ 278:../../../os/rt/include/chsys.h **** #if !defined(__DOXYGEN__)
+ 279:../../../os/rt/include/chsys.h **** extern stkalign_t ch_idle_thread_wa[];
+ 280:../../../os/rt/include/chsys.h **** #endif
+ 281:../../../os/rt/include/chsys.h **** 
+ 282:../../../os/rt/include/chsys.h **** #ifdef __cplusplus
+ 283:../../../os/rt/include/chsys.h **** extern "C" {
+ 284:../../../os/rt/include/chsys.h **** #endif
+ 285:../../../os/rt/include/chsys.h ****   void chSysInit(void);
+ 286:../../../os/rt/include/chsys.h ****   bool chSysIntegrityCheckI(unsigned testmask);
+ 287:../../../os/rt/include/chsys.h ****   void chSysTimerHandlerI(void);
+ 288:../../../os/rt/include/chsys.h ****   syssts_t chSysGetStatusAndLockX(void);
+ 289:../../../os/rt/include/chsys.h ****   void chSysRestoreStatusX(syssts_t sts);
+ 290:../../../os/rt/include/chsys.h **** #if PORT_SUPPORTS_RT == TRUE
+ 291:../../../os/rt/include/chsys.h ****   bool chSysIsCounterWithinX(rtcnt_t cnt, rtcnt_t start, rtcnt_t end);
+ 292:../../../os/rt/include/chsys.h ****   void chSysPolledDelayX(rtcnt_t cycles);
+ 293:../../../os/rt/include/chsys.h **** #endif
+ 294:../../../os/rt/include/chsys.h **** #ifdef __cplusplus
+ 295:../../../os/rt/include/chsys.h **** }
+ 296:../../../os/rt/include/chsys.h **** #endif
+ 297:../../../os/rt/include/chsys.h **** 
+ 298:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 299:../../../os/rt/include/chsys.h **** /* Module inline functions.                                                  */
+ 300:../../../os/rt/include/chsys.h **** /*===========================================================================*/
+ 301:../../../os/rt/include/chsys.h **** 
+ 302:../../../os/rt/include/chsys.h **** /**
+ 303:../../../os/rt/include/chsys.h ****  * @brief   Raises the system interrupt priority mask to the maximum level.
+ 304:../../../os/rt/include/chsys.h ****  * @details All the maskable interrupt sources are disabled regardless their
+ 305:../../../os/rt/include/chsys.h ****  *          hardware priority.
+ 306:../../../os/rt/include/chsys.h ****  * @note    Do not invoke this API from within a kernel lock.
+ 307:../../../os/rt/include/chsys.h ****  *
+ 308:../../../os/rt/include/chsys.h ****  * @special
+ 309:../../../os/rt/include/chsys.h ****  */
+ 310:../../../os/rt/include/chsys.h **** static inline void chSysDisable(void) {
+ 311:../../../os/rt/include/chsys.h **** 
+ 312:../../../os/rt/include/chsys.h ****   port_disable();
+ 313:../../../os/rt/include/chsys.h ****   _dbg_check_disable();
+ 314:../../../os/rt/include/chsys.h **** }
+ 315:../../../os/rt/include/chsys.h **** 
+ 316:../../../os/rt/include/chsys.h **** /**
+ 317:../../../os/rt/include/chsys.h ****  * @brief   Raises the system interrupt priority mask to system level.
+ 318:../../../os/rt/include/chsys.h ****  * @details The interrupt sources that should not be able to preempt the kernel
+ 319:../../../os/rt/include/chsys.h ****  *          are disabled, interrupt sources with higher priority are still
+ 320:../../../os/rt/include/chsys.h ****  *          enabled.
+ 321:../../../os/rt/include/chsys.h ****  * @note    Do not invoke this API from within a kernel lock.
+ 322:../../../os/rt/include/chsys.h ****  * @note    This API is no replacement for @p chSysLock(), the @p chSysLock()
+ 323:../../../os/rt/include/chsys.h ****  *          could do more than just disable the interrupts.
+ 324:../../../os/rt/include/chsys.h ****  *
+ 325:../../../os/rt/include/chsys.h ****  * @special
+ 326:../../../os/rt/include/chsys.h ****  */
+ 327:../../../os/rt/include/chsys.h **** static inline void chSysSuspend(void) {
+ 328:../../../os/rt/include/chsys.h **** 
+ 329:../../../os/rt/include/chsys.h ****   port_suspend();
+ 330:../../../os/rt/include/chsys.h ****   _dbg_check_suspend();
+ 331:../../../os/rt/include/chsys.h **** }
+ 332:../../../os/rt/include/chsys.h **** 
+ 333:../../../os/rt/include/chsys.h **** /**
+ 334:../../../os/rt/include/chsys.h ****  * @brief   Lowers the system interrupt priority mask to user level.
+ 335:../../../os/rt/include/chsys.h ****  * @details All the interrupt sources are enabled.
+ 336:../../../os/rt/include/chsys.h ****  * @note    Do not invoke this API from within a kernel lock.
+ 337:../../../os/rt/include/chsys.h ****  * @note    This API is no replacement for @p chSysUnlock(), the
+ 338:../../../os/rt/include/chsys.h ****  *          @p chSysUnlock() could do more than just enable the interrupts.
+ 339:../../../os/rt/include/chsys.h ****  *
+ 340:../../../os/rt/include/chsys.h ****  * @special
+ 341:../../../os/rt/include/chsys.h ****  */
+ 342:../../../os/rt/include/chsys.h **** static inline void chSysEnable(void) {
+ 343:../../../os/rt/include/chsys.h **** 
+ 344:../../../os/rt/include/chsys.h ****   _dbg_check_enable();
+ 345:../../../os/rt/include/chsys.h ****   port_enable();
+ 346:../../../os/rt/include/chsys.h **** }
+ 347:../../../os/rt/include/chsys.h **** 
+ 348:../../../os/rt/include/chsys.h **** /**
+ 349:../../../os/rt/include/chsys.h ****  * @brief   Enters the kernel lock state.
+ 350:../../../os/rt/include/chsys.h ****  *
+ 351:../../../os/rt/include/chsys.h ****  * @special
+ 352:../../../os/rt/include/chsys.h ****  */
+ 353:../../../os/rt/include/chsys.h **** static inline void chSysLock(void) {
+  27               		.loc 2 353 20 view .LVU3
+  28               	.LBE60:
+ 354:../../../os/rt/include/chsys.h **** 
+ 355:../../../os/rt/include/chsys.h ****   port_lock();
+  29               		.loc 2 355 3 view .LVU4
+  30               	.LBB63:
+  31               	.LBB61:
+  32               	.LBI61:
+  33               		.file 3 "../../../os/common/ports/AVR/chcore.h"
    1:../../../os/common/ports/AVR/chcore.h **** /*
    2:../../../os/common/ports/AVR/chcore.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
    3:../../../os/common/ports/AVR/chcore.h **** 
@@ -591,29 +957,66 @@
  433:../../../os/common/ports/AVR/chcore.h ****  *          actions.
  434:../../../os/common/ports/AVR/chcore.h ****  */
  435:../../../os/common/ports/AVR/chcore.h **** static inline void port_lock(void) {
+  34               		.loc 3 435 20 view .LVU5
+  35               	.LBB62:
  436:../../../os/common/ports/AVR/chcore.h **** 
  437:../../../os/common/ports/AVR/chcore.h ****   asm volatile ("cli" : : : "memory");
-  26               		.loc 2 437 0
-  27               	/* #APP */
-  28               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
-  29 0000 F894      		cli
-  30               	 ;  0 "" 2
-  31               	/* #NOAPP */
-  32               	.LBE62:
-  33               	.LBE61:
-  34               	.LBE60:
- 135:../../../os/rt/src/chregistry.c ****   thread_t *tp;
- 136:../../../os/rt/src/chregistry.c **** 
- 137:../../../os/rt/src/chregistry.c ****   chSysLock();
+  36               		.loc 3 437 3 view .LVU6
+  37               	/* #APP */
+  38               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
+  39 0000 F894      		cli
+  40               	 ;  0 "" 2
+  41               	/* #NOAPP */
+  42               	.LBE62:
+  43               	.LBE61:
+  44               	.LBE63:
+ 356:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_thd();
+  45               		.loc 2 356 34 view .LVU7
+ 357:../../../os/rt/include/chsys.h ****   _dbg_check_lock();
+  46               		.loc 2 357 20 view .LVU8
  138:../../../os/rt/src/chregistry.c ****   tp = ch.rlist.newer;
-  35               		.loc 1 138 0
-  36 0002 8091 0000 		lds r24,ch+7
-  37 0006 9091 0000 		lds r25,ch+7+1
-  38               	.LVL0:
-  39               	.LBB63:
-  40               	.LBB64:
-  41               	.LBB65:
-  42               	.LBB66:
+  47               		.loc 1 138 3 view .LVU9
+  48               		.loc 1 138 6 is_stmt 0 view .LVU10
+  49 0002 8091 0000 		lds r24,ch+7
+  50 0006 9091 0000 		lds r25,ch+7+1
+  51               	.LVL0:
+ 139:../../../os/rt/src/chregistry.c **** #if CH_CFG_USE_DYNAMIC == TRUE
+ 140:../../../os/rt/src/chregistry.c ****   tp->refs++;
+ 141:../../../os/rt/src/chregistry.c **** #endif
+ 142:../../../os/rt/src/chregistry.c ****   chSysUnlock();
+  52               		.loc 1 142 3 is_stmt 1 view .LVU11
+  53               	.LBB64:
+  54               	.LBI64:
+ 358:../../../os/rt/include/chsys.h **** }
+ 359:../../../os/rt/include/chsys.h **** 
+ 360:../../../os/rt/include/chsys.h **** /**
+ 361:../../../os/rt/include/chsys.h ****  * @brief   Leaves the kernel lock state.
+ 362:../../../os/rt/include/chsys.h ****  *
+ 363:../../../os/rt/include/chsys.h ****  * @special
+ 364:../../../os/rt/include/chsys.h ****  */
+ 365:../../../os/rt/include/chsys.h **** static inline void chSysUnlock(void) {
+  55               		.loc 2 365 20 view .LVU12
+  56               	.LBB65:
+ 366:../../../os/rt/include/chsys.h **** 
+ 367:../../../os/rt/include/chsys.h ****   _dbg_check_unlock();
+  57               		.loc 2 367 22 view .LVU13
+ 368:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+  58               		.loc 2 368 33 view .LVU14
+ 369:../../../os/rt/include/chsys.h **** 
+ 370:../../../os/rt/include/chsys.h ****   /* The following condition can be triggered by the use of i-class functions
+ 371:../../../os/rt/include/chsys.h ****      in a critical section not followed by a chSchResceduleS(), this means
+ 372:../../../os/rt/include/chsys.h ****      that the current thread has a lower priority than the next thread in
+ 373:../../../os/rt/include/chsys.h ****      the ready list.*/
+ 374:../../../os/rt/include/chsys.h ****   chDbgAssert((ch.rlist.queue.next == (thread_t *)&ch.rlist.queue) ||
+  59               		.loc 2 374 3 view .LVU15
+  60               		.loc 2 374 3 view .LVU16
+ 375:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 376:../../../os/rt/include/chsys.h ****               "priority order violation");
+ 377:../../../os/rt/include/chsys.h **** 
+ 378:../../../os/rt/include/chsys.h ****   port_unlock();
+  61               		.loc 2 378 3 view .LVU17
+  62               	.LBB66:
+  63               	.LBI66:
  438:../../../os/common/ports/AVR/chcore.h **** }
  439:../../../os/common/ports/AVR/chcore.h **** 
  440:../../../os/common/ports/AVR/chcore.h **** /**
@@ -622,33 +1025,34 @@
  443:../../../os/common/ports/AVR/chcore.h ****  *          actions.
  444:../../../os/common/ports/AVR/chcore.h ****  */
  445:../../../os/common/ports/AVR/chcore.h **** static inline void port_unlock(void) {
+  64               		.loc 3 445 20 view .LVU18
+  65               	.LBB67:
  446:../../../os/common/ports/AVR/chcore.h **** 
  447:../../../os/common/ports/AVR/chcore.h ****   asm volatile ("sei" : : : "memory");
-  43               		.loc 2 447 0
-  44               	/* #APP */
-  45               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
-  46 000a 7894      		sei
-  47               	 ;  0 "" 2
-  48               	/* #NOAPP */
-  49               	.LBE66:
-  50               	.LBE65:
-  51               	.LBE64:
-  52               	.LBE63:
- 139:../../../os/rt/src/chregistry.c **** #if CH_CFG_USE_DYNAMIC == TRUE
- 140:../../../os/rt/src/chregistry.c ****   tp->refs++;
- 141:../../../os/rt/src/chregistry.c **** #endif
- 142:../../../os/rt/src/chregistry.c ****   chSysUnlock();
+  66               		.loc 3 447 3 view .LVU19
+  67               	/* #APP */
+  68               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
+  69 000a 7894      		sei
+  70               	 ;  0 "" 2
+  71               	/* #NOAPP */
+  72               	.LBE67:
+  73               	.LBE66:
+  74               	.LBE65:
+  75               	.LBE64:
  143:../../../os/rt/src/chregistry.c **** 
  144:../../../os/rt/src/chregistry.c ****   return tp;
+  76               		.loc 1 144 3 view .LVU20
+  77               	/* epilogue start */
  145:../../../os/rt/src/chregistry.c **** }
-  53               		.loc 1 145 0
-  54 000c 0895      		ret
-  55               		.cfi_endproc
-  56               	.LFE141:
-  58               		.section	.text.chRegNextThread,"ax",@progbits
-  59               	.global	chRegNextThread
-  61               	chRegNextThread:
-  62               	.LFB142:
+  78               		.loc 1 145 1 is_stmt 0 view .LVU21
+  79 000c 0895      		ret
+  80               		.cfi_endproc
+  81               	.LFE141:
+  83               		.section	.text.chRegNextThread,"ax",@progbits
+  84               	.global	chRegNextThread
+  86               	chRegNextThread:
+  87               	.LVL1:
+  88               	.LFB142:
  146:../../../os/rt/src/chregistry.c **** 
  147:../../../os/rt/src/chregistry.c **** /**
  148:../../../os/rt/src/chregistry.c ****  * @brief   Returns the thread next to the specified one.
@@ -662,58 +1066,59 @@
  156:../../../os/rt/src/chregistry.c ****  * @api
  157:../../../os/rt/src/chregistry.c ****  */
  158:../../../os/rt/src/chregistry.c **** thread_t *chRegNextThread(thread_t *tp) {
-  63               		.loc 1 158 0
-  64               		.cfi_startproc
-  65               	.LVL1:
-  66               	/* prologue: function */
-  67               	/* frame size = 0 */
-  68               	/* stack size = 0 */
-  69               	.L__stack_usage = 0
-  70               	.LBB67:
-  71               	.LBB68:
-  72               	.LBB69:
- 437:../../../os/common/ports/AVR/chcore.h **** }
-  73               		.loc 2 437 0
-  74               	/* #APP */
-  75               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
-  76 0000 F894      		cli
-  77               	 ;  0 "" 2
-  78               	/* #NOAPP */
-  79               	.LBE69:
-  80               	.LBE68:
-  81               	.LBE67:
+  89               		.loc 1 158 41 is_stmt 1 view -0
+  90               		.cfi_startproc
+  91               	/* prologue: function */
+  92               	/* frame size = 0 */
+  93               	/* stack size = 0 */
+  94               	.L__stack_usage = 0
  159:../../../os/rt/src/chregistry.c ****   thread_t *ntp;
+  95               		.loc 1 159 3 view .LVU23
  160:../../../os/rt/src/chregistry.c **** 
  161:../../../os/rt/src/chregistry.c ****   chSysLock();
+  96               		.loc 1 161 3 view .LVU24
+  97               	.LBB68:
+  98               	.LBI68:
+ 353:../../../os/rt/include/chsys.h **** 
+  99               		.loc 2 353 20 view .LVU25
+ 100               	.LBE68:
+ 355:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_thd();
+ 101               		.loc 2 355 3 view .LVU26
+ 102               	.LBB71:
+ 103               	.LBB69:
+ 104               	.LBI69:
+ 435:../../../os/common/ports/AVR/chcore.h **** 
+ 105               		.loc 3 435 20 view .LVU27
+ 106               	.LBB70:
+ 437:../../../os/common/ports/AVR/chcore.h **** }
+ 107               		.loc 3 437 3 view .LVU28
+ 108               	/* #APP */
+ 109               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
+ 110 0000 F894      		cli
+ 111               	 ;  0 "" 2
+ 112               	/* #NOAPP */
+ 113               	.LBE70:
+ 114               	.LBE69:
+ 115               	.LBE71:
+ 356:../../../os/rt/include/chsys.h ****   _dbg_check_lock();
+ 116               		.loc 2 356 34 view .LVU29
+ 357:../../../os/rt/include/chsys.h **** }
+ 117               		.loc 2 357 20 view .LVU30
  162:../../../os/rt/src/chregistry.c ****   ntp = tp->newer;
-  82               		.loc 1 162 0
-  83 0002 FC01      		movw r30,r24
-  84 0004 8781      		ldd r24,Z+7
-  85 0006 9085      		ldd r25,Z+8
-  86               	.LVL2:
+ 118               		.loc 1 162 3 view .LVU31
+ 119               		.loc 1 162 7 is_stmt 0 view .LVU32
+ 120 0002 FC01      		movw r30,r24
+ 121 0004 8781      		ldd r24,Z+7
+ 122 0006 9085      		ldd r25,Z+8
+ 123               	.LVL2:
  163:../../../os/rt/src/chregistry.c ****   /*lint -save -e9087 -e740 [11.3, 1.3] Cast required by list handling.*/
  164:../../../os/rt/src/chregistry.c ****   if (ntp == (thread_t *)&ch.rlist) {
-  87               		.loc 1 164 0
-  88 0008 F0E0      		ldi r31,hi8(ch)
-  89 000a 8030      		cpi r24,lo8(ch)
-  90 000c 9F07      		cpc r25,r31
-  91 000e 01F0      		breq .L5
-  92               	.LVL3:
-  93               	.L3:
-  94               	.LBB70:
-  95               	.LBB71:
-  96               	.LBB72:
-  97               	.LBB73:
-  98               		.loc 2 447 0
-  99               	/* #APP */
- 100               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
- 101 0010 7894      		sei
- 102               	 ;  0 "" 2
- 103               	/* #NOAPP */
- 104               	.LBE73:
- 105               	.LBE72:
- 106               	.LBE71:
- 107               	.LBE70:
+ 124               		.loc 1 164 3 is_stmt 1 view .LVU33
+ 125               		.loc 1 164 6 is_stmt 0 view .LVU34
+ 126 0008 F0E0      		ldi r31,hi8(ch)
+ 127 000a 8030      		cpi r24,lo8(ch)
+ 128 000c 9F07      		cpc r25,r31
+ 129 000e 01F0      		breq .L5
  165:../../../os/rt/src/chregistry.c ****   /*lint -restore*/
  166:../../../os/rt/src/chregistry.c ****     ntp = NULL;
  167:../../../os/rt/src/chregistry.c ****   }
@@ -724,27 +1129,93 @@
  172:../../../os/rt/src/chregistry.c ****   }
  173:../../../os/rt/src/chregistry.c **** #endif
  174:../../../os/rt/src/chregistry.c ****   chSysUnlock();
+ 130               		.loc 1 174 3 is_stmt 1 view .LVU35
+ 131               	.LBB72:
+ 132               	.LBI72:
+ 365:../../../os/rt/include/chsys.h **** 
+ 133               		.loc 2 365 20 view .LVU36
+ 134               	.LBB73:
+ 367:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 135               		.loc 2 367 22 view .LVU37
+ 368:../../../os/rt/include/chsys.h **** 
+ 136               		.loc 2 368 33 view .LVU38
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 137               		.loc 2 374 3 view .LVU39
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 138               		.loc 2 374 3 view .LVU40
+ 139               		.loc 2 378 3 view .LVU41
+ 140               	.LBB74:
+ 141               	.LBI74:
+ 445:../../../os/common/ports/AVR/chcore.h **** 
+ 142               		.loc 3 445 20 view .LVU42
+ 143               	.LBB75:
+ 144               		.loc 3 447 3 view .LVU43
+ 145               	/* #APP */
+ 146               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
+ 147 0010 7894      		sei
+ 148               	 ;  0 "" 2
+ 149               	/* #NOAPP */
+ 150               	.LBE75:
+ 151               	.LBE74:
+ 152               	.LBE73:
+ 153               	.LBE72:
  175:../../../os/rt/src/chregistry.c **** #if CH_CFG_USE_DYNAMIC == TRUE
  176:../../../os/rt/src/chregistry.c ****   chThdRelease(tp);
  177:../../../os/rt/src/chregistry.c **** #endif
  178:../../../os/rt/src/chregistry.c **** 
  179:../../../os/rt/src/chregistry.c ****   return ntp;
+ 154               		.loc 1 179 3 view .LVU44
+ 155               	/* epilogue start */
  180:../../../os/rt/src/chregistry.c **** }
- 108               		.loc 1 180 0
- 109 0012 0895      		ret
- 110               	.L5:
+ 156               		.loc 1 180 1 is_stmt 0 view .LVU45
+ 157 0012 0895      		ret
+ 158               	.L5:
  166:../../../os/rt/src/chregistry.c ****   }
- 111               		.loc 1 166 0
- 112 0014 80E0      		ldi r24,0
- 113 0016 90E0      		ldi r25,0
- 114               	.LVL4:
- 115 0018 00C0      		rjmp .L3
- 116               		.cfi_endproc
- 117               	.LFE142:
- 119               		.section	.text.chRegFindThreadByName,"ax",@progbits
- 120               	.global	chRegFindThreadByName
- 122               	chRegFindThreadByName:
- 123               	.LFB143:
+ 159               		.loc 1 166 9 view .LVU46
+ 160 0014 90E0      		ldi r25,0
+ 161 0016 80E0      		ldi r24,0
+ 162               	.LVL3:
+ 174:../../../os/rt/src/chregistry.c **** #if CH_CFG_USE_DYNAMIC == TRUE
+ 163               		.loc 1 174 3 is_stmt 1 view .LVU47
+ 164               	.LBB79:
+ 365:../../../os/rt/include/chsys.h **** 
+ 165               		.loc 2 365 20 view .LVU48
+ 166               	.LBB78:
+ 367:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 167               		.loc 2 367 22 view .LVU49
+ 368:../../../os/rt/include/chsys.h **** 
+ 168               		.loc 2 368 33 view .LVU50
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 169               		.loc 2 374 3 view .LVU51
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 170               		.loc 2 374 3 view .LVU52
+ 171               		.loc 2 378 3 view .LVU53
+ 172               	.LBB77:
+ 445:../../../os/common/ports/AVR/chcore.h **** 
+ 173               		.loc 3 445 20 view .LVU54
+ 174               	.LBB76:
+ 175               		.loc 3 447 3 view .LVU55
+ 176               	/* #APP */
+ 177               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
+ 178 0018 7894      		sei
+ 179               	 ;  0 "" 2
+ 180               	/* #NOAPP */
+ 181               	.LBE76:
+ 182               	.LBE77:
+ 183               	.LBE78:
+ 184               	.LBE79:
+ 179:../../../os/rt/src/chregistry.c **** }
+ 185               		.loc 1 179 3 view .LVU56
+ 186               	/* epilogue start */
+ 187               		.loc 1 180 1 is_stmt 0 view .LVU57
+ 188 001a 0895      		ret
+ 189               		.cfi_endproc
+ 190               	.LFE142:
+ 192               		.section	.text.chRegFindThreadByName,"ax",@progbits
+ 193               	.global	chRegFindThreadByName
+ 195               	chRegFindThreadByName:
+ 196               	.LVL4:
+ 197               	.LFB143:
  181:../../../os/rt/src/chregistry.c **** 
  182:../../../os/rt/src/chregistry.c **** /**
  183:../../../os/rt/src/chregistry.c ****  * @brief   Retrieves a thread pointer by name.
@@ -759,182 +1230,483 @@
  192:../../../os/rt/src/chregistry.c ****  * @api
  193:../../../os/rt/src/chregistry.c ****  */
  194:../../../os/rt/src/chregistry.c **** thread_t *chRegFindThreadByName(const char *name) {
- 124               		.loc 1 194 0
- 125               		.cfi_startproc
- 126               	.LVL5:
- 127 0000 0F93      		push r16
- 128               	.LCFI0:
- 129               		.cfi_def_cfa_offset 3
- 130               		.cfi_offset 16, -2
- 131 0002 1F93      		push r17
- 132               	.LCFI1:
- 133               		.cfi_def_cfa_offset 4
- 134               		.cfi_offset 17, -3
- 135 0004 CF93      		push r28
- 136               	.LCFI2:
- 137               		.cfi_def_cfa_offset 5
- 138               		.cfi_offset 28, -4
- 139 0006 DF93      		push r29
- 140               	.LCFI3:
- 141               		.cfi_def_cfa_offset 6
- 142               		.cfi_offset 29, -5
- 143               	/* prologue: function */
- 144               	/* frame size = 0 */
- 145               	/* stack size = 4 */
- 146               	.L__stack_usage = 4
- 147 0008 8C01      		movw r16,r24
- 148               	.LBB74:
- 149               	.LBB75:
- 150               	.LBB76:
- 151               	.LBB77:
- 152               	.LBB78:
- 437:../../../os/common/ports/AVR/chcore.h **** }
- 153               		.loc 2 437 0
- 154               	/* #APP */
- 155               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
- 156 000a F894      		cli
- 157               	 ;  0 "" 2
- 158               	/* #NOAPP */
- 159               	.LBE78:
- 160               	.LBE77:
- 161               	.LBE76:
- 138:../../../os/rt/src/chregistry.c **** #if CH_CFG_USE_DYNAMIC == TRUE
- 162               		.loc 1 138 0
- 163 000c C091 0000 		lds r28,ch+7
- 164 0010 D091 0000 		lds r29,ch+7+1
- 165               	.LVL6:
- 166               	.LBB79:
- 167               	.LBB80:
- 168               	.LBB81:
- 169               	.LBB82:
- 170               		.loc 2 447 0
- 171               	/* #APP */
- 172               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
- 173 0014 7894      		sei
- 174               	 ;  0 "" 2
- 175               	.LVL7:
- 176               	/* #NOAPP */
- 177               	.L9:
- 178               	.LBE82:
- 179               	.LBE81:
- 180               	.LBE80:
- 181               	.LBE79:
- 182               	.LBE75:
- 183               	.LBE74:
+ 198               		.loc 1 194 51 is_stmt 1 view -0
+ 199               		.cfi_startproc
+ 200               		.loc 1 194 51 is_stmt 0 view .LVU59
+ 201 0000 0F93      		push r16
+ 202               	.LCFI0:
+ 203               		.cfi_def_cfa_offset 3
+ 204               		.cfi_offset 16, -2
+ 205 0002 1F93      		push r17
+ 206               	.LCFI1:
+ 207               		.cfi_def_cfa_offset 4
+ 208               		.cfi_offset 17, -3
+ 209 0004 CF93      		push r28
+ 210               	.LCFI2:
+ 211               		.cfi_def_cfa_offset 5
+ 212               		.cfi_offset 28, -4
+ 213 0006 DF93      		push r29
+ 214               	.LCFI3:
+ 215               		.cfi_def_cfa_offset 6
+ 216               		.cfi_offset 29, -5
+ 217               	/* prologue: function */
+ 218               	/* frame size = 0 */
+ 219               	/* stack size = 4 */
+ 220               	.L__stack_usage = 4
+ 221 0008 8C01      		movw r16,r24
  195:../../../os/rt/src/chregistry.c ****   thread_t *ctp;
+ 222               		.loc 1 195 3 is_stmt 1 view .LVU60
  196:../../../os/rt/src/chregistry.c **** 
  197:../../../os/rt/src/chregistry.c ****   /* Scanning registry.*/
  198:../../../os/rt/src/chregistry.c ****   ctp = chRegFirstThread();
- 199:../../../os/rt/src/chregistry.c ****   do {
- 200:../../../os/rt/src/chregistry.c ****     if (strcmp(chRegGetThreadNameX(ctp), name) == 0) {
- 184               		.loc 1 200 0
- 185 0016 B801      		movw r22,r16
- 186 0018 8B85      		ldd r24,Y+11
- 187 001a 9C85      		ldd r25,Y+12
- 188 001c 0E94 0000 		call strcmp
- 189               	.LVL8:
- 190 0020 892B      		or r24,r25
- 191 0022 01F0      		breq .L10
- 192               	.LVL9:
- 193               	.LBB83:
- 194               	.LBB84:
- 195               	.LBB85:
- 196               	.LBB86:
- 197               	.LBB87:
+ 223               		.loc 1 198 3 view .LVU61
+ 224               	.LBB80:
+ 225               	.LBI80:
+ 134:../../../os/rt/src/chregistry.c ****   thread_t *tp;
+ 226               		.loc 1 134 11 view .LVU62
+ 227               	.LBB81:
+ 135:../../../os/rt/src/chregistry.c **** 
+ 228               		.loc 1 135 3 view .LVU63
+ 137:../../../os/rt/src/chregistry.c ****   tp = ch.rlist.newer;
+ 229               		.loc 1 137 3 view .LVU64
+ 230               	.LBB82:
+ 231               	.LBI82:
+ 353:../../../os/rt/include/chsys.h **** 
+ 232               		.loc 2 353 20 view .LVU65
+ 233               	.LBE82:
+ 234               	.LBE81:
+ 235               	.LBE80:
+ 355:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_thd();
+ 236               		.loc 2 355 3 view .LVU66
+ 237               	.LBB92:
+ 238               	.LBB90:
+ 239               	.LBB85:
+ 240               	.LBB83:
+ 241               	.LBI83:
+ 435:../../../os/common/ports/AVR/chcore.h **** 
+ 242               		.loc 3 435 20 view .LVU67
+ 243               	.LBB84:
  437:../../../os/common/ports/AVR/chcore.h **** }
- 198               		.loc 2 437 0
- 199               	/* #APP */
- 200               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
- 201 0024 F894      		cli
- 202               	 ;  0 "" 2
- 203               	/* #NOAPP */
- 204               	.LBE87:
- 205               	.LBE86:
- 206               	.LBE85:
- 162:../../../os/rt/src/chregistry.c ****   /*lint -save -e9087 -e740 [11.3, 1.3] Cast required by list handling.*/
- 207               		.loc 1 162 0
- 208 0026 0F80      		ldd __tmp_reg__,Y+7
- 209 0028 D885      		ldd r29,Y+8
- 210 002a C02D      		mov r28,__tmp_reg__
- 211               	.LVL10:
- 164:../../../os/rt/src/chregistry.c ****   /*lint -restore*/
- 212               		.loc 1 164 0
- 213 002c 80E0      		ldi r24,hi8(ch)
- 214 002e C030      		cpi r28,lo8(ch)
- 215 0030 D807      		cpc r29,r24
- 216 0032 01F0      		breq .L12
- 217               	.LVL11:
- 218               	.L8:
- 219               	.LBB88:
- 220               	.LBB89:
- 221               	.LBB90:
- 222               	.LBB91:
- 223               		.loc 2 447 0
- 224               	/* #APP */
- 225               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
- 226 0034 7894      		sei
- 227               	 ;  0 "" 2
- 228               	/* #NOAPP */
- 229               	.LBE91:
- 230               	.LBE90:
- 231               	.LBE89:
- 232               	.LBE88:
- 233               	.LBE84:
- 234               	.LBE83:
+ 244               		.loc 3 437 3 view .LVU68
+ 245               	/* #APP */
+ 246               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
+ 247 000a F894      		cli
+ 248               	 ;  0 "" 2
+ 249               	/* #NOAPP */
+ 250               	.LBE84:
+ 251               	.LBE83:
+ 252               	.LBE85:
+ 253               	.LBE90:
+ 254               	.LBE92:
+ 356:../../../os/rt/include/chsys.h ****   _dbg_check_lock();
+ 255               		.loc 2 356 34 view .LVU69
+ 357:../../../os/rt/include/chsys.h **** }
+ 256               		.loc 2 357 20 view .LVU70
+ 257               	.LBB93:
+ 258               	.LBB91:
+ 138:../../../os/rt/src/chregistry.c **** #if CH_CFG_USE_DYNAMIC == TRUE
+ 259               		.loc 1 138 3 view .LVU71
+ 138:../../../os/rt/src/chregistry.c **** #if CH_CFG_USE_DYNAMIC == TRUE
+ 260               		.loc 1 138 6 is_stmt 0 view .LVU72
+ 261 000c C091 0000 		lds r28,ch+7
+ 262 0010 D091 0000 		lds r29,ch+7+1
+ 263               	.LVL5:
+ 142:../../../os/rt/src/chregistry.c **** 
+ 264               		.loc 1 142 3 is_stmt 1 view .LVU73
+ 265               	.LBB86:
+ 266               	.LBI86:
+ 365:../../../os/rt/include/chsys.h **** 
+ 267               		.loc 2 365 20 view .LVU74
+ 268               	.LBB87:
+ 367:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 269               		.loc 2 367 22 view .LVU75
+ 368:../../../os/rt/include/chsys.h **** 
+ 270               		.loc 2 368 33 view .LVU76
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 271               		.loc 2 374 3 view .LVU77
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 272               		.loc 2 374 3 view .LVU78
+ 273               		.loc 2 378 3 view .LVU79
+ 274               	.LBB88:
+ 275               	.LBI88:
+ 445:../../../os/common/ports/AVR/chcore.h **** 
+ 276               		.loc 3 445 20 view .LVU80
+ 277               	.LBB89:
+ 278               		.loc 3 447 3 view .LVU81
+ 279               	/* #APP */
+ 280               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
+ 281 0014 7894      		sei
+ 282               	 ;  0 "" 2
+ 283               	/* #NOAPP */
+ 284               	.LBE89:
+ 285               	.LBE88:
+ 286               	.LBE87:
+ 287               	.LBE86:
+ 144:../../../os/rt/src/chregistry.c **** }
+ 288               		.loc 1 144 3 view .LVU82
+ 289               	.LVL6:
+ 290               	.L9:
+ 144:../../../os/rt/src/chregistry.c **** }
+ 291               		.loc 1 144 3 is_stmt 0 view .LVU83
+ 292               	.LBE91:
+ 293               	.LBE93:
+ 199:../../../os/rt/src/chregistry.c ****   do {
+ 294               		.loc 1 199 3 is_stmt 1 view .LVU84
+ 200:../../../os/rt/src/chregistry.c ****     if (strcmp(chRegGetThreadNameX(ctp), name) == 0) {
+ 295               		.loc 1 200 5 view .LVU85
+ 296               		.file 4 "../../../os/rt/include/chregistry.h"
+   1:../../../os/rt/include/chregistry.h **** /*
+   2:../../../os/rt/include/chregistry.h ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio.
+   3:../../../os/rt/include/chregistry.h **** 
+   4:../../../os/rt/include/chregistry.h ****     This file is part of ChibiOS.
+   5:../../../os/rt/include/chregistry.h **** 
+   6:../../../os/rt/include/chregistry.h ****     ChibiOS is free software; you can redistribute it and/or modify
+   7:../../../os/rt/include/chregistry.h ****     it under the terms of the GNU General Public License as published by
+   8:../../../os/rt/include/chregistry.h ****     the Free Software Foundation; either version 3 of the License, or
+   9:../../../os/rt/include/chregistry.h ****     (at your option) any later version.
+  10:../../../os/rt/include/chregistry.h **** 
+  11:../../../os/rt/include/chregistry.h ****     ChibiOS is distributed in the hope that it will be useful,
+  12:../../../os/rt/include/chregistry.h ****     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:../../../os/rt/include/chregistry.h ****     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:../../../os/rt/include/chregistry.h ****     GNU General Public License for more details.
+  15:../../../os/rt/include/chregistry.h **** 
+  16:../../../os/rt/include/chregistry.h ****     You should have received a copy of the GNU General Public License
+  17:../../../os/rt/include/chregistry.h ****     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  18:../../../os/rt/include/chregistry.h **** */
+  19:../../../os/rt/include/chregistry.h **** 
+  20:../../../os/rt/include/chregistry.h **** /**
+  21:../../../os/rt/include/chregistry.h ****  * @file    chregistry.h
+  22:../../../os/rt/include/chregistry.h ****  * @brief   Threads registry macros and structures.
+  23:../../../os/rt/include/chregistry.h ****  *
+  24:../../../os/rt/include/chregistry.h ****  * @addtogroup registry
+  25:../../../os/rt/include/chregistry.h ****  * @{
+  26:../../../os/rt/include/chregistry.h ****  */
+  27:../../../os/rt/include/chregistry.h **** 
+  28:../../../os/rt/include/chregistry.h **** #ifndef CHREGISTRY_H
+  29:../../../os/rt/include/chregistry.h **** #define CHREGISTRY_H
+  30:../../../os/rt/include/chregistry.h **** 
+  31:../../../os/rt/include/chregistry.h **** #if (CH_CFG_USE_REGISTRY == TRUE) || defined(__DOXYGEN__)
+  32:../../../os/rt/include/chregistry.h **** 
+  33:../../../os/rt/include/chregistry.h **** /*===========================================================================*/
+  34:../../../os/rt/include/chregistry.h **** /* Module constants.                                                         */
+  35:../../../os/rt/include/chregistry.h **** /*===========================================================================*/
+  36:../../../os/rt/include/chregistry.h **** 
+  37:../../../os/rt/include/chregistry.h **** /*===========================================================================*/
+  38:../../../os/rt/include/chregistry.h **** /* Module pre-compile time settings.                                         */
+  39:../../../os/rt/include/chregistry.h **** /*===========================================================================*/
+  40:../../../os/rt/include/chregistry.h **** 
+  41:../../../os/rt/include/chregistry.h **** /*===========================================================================*/
+  42:../../../os/rt/include/chregistry.h **** /* Derived constants and error checks.                                       */
+  43:../../../os/rt/include/chregistry.h **** /*===========================================================================*/
+  44:../../../os/rt/include/chregistry.h **** 
+  45:../../../os/rt/include/chregistry.h **** /*===========================================================================*/
+  46:../../../os/rt/include/chregistry.h **** /* Module data structures and types.                                         */
+  47:../../../os/rt/include/chregistry.h **** /*===========================================================================*/
+  48:../../../os/rt/include/chregistry.h **** 
+  49:../../../os/rt/include/chregistry.h **** /**
+  50:../../../os/rt/include/chregistry.h ****  * @brief   ChibiOS/RT memory signature record.
+  51:../../../os/rt/include/chregistry.h ****  */
+  52:../../../os/rt/include/chregistry.h **** typedef struct {
+  53:../../../os/rt/include/chregistry.h ****   char      identifier[4];          /**< @brief Always set to "main".       */
+  54:../../../os/rt/include/chregistry.h ****   uint8_t   zero;                   /**< @brief Must be zero.               */
+  55:../../../os/rt/include/chregistry.h ****   uint8_t   size;                   /**< @brief Size of this structure.     */
+  56:../../../os/rt/include/chregistry.h ****   uint16_t  version;                /**< @brief Encoded ChibiOS/RT version. */
+  57:../../../os/rt/include/chregistry.h ****   uint8_t   ptrsize;                /**< @brief Size of a pointer.          */
+  58:../../../os/rt/include/chregistry.h ****   uint8_t   timesize;               /**< @brief Size of a @p systime_t.     */
+  59:../../../os/rt/include/chregistry.h ****   uint8_t   threadsize;             /**< @brief Size of a @p thread_t.      */
+  60:../../../os/rt/include/chregistry.h ****   uint8_t   off_prio;               /**< @brief Offset of @p prio field.    */
+  61:../../../os/rt/include/chregistry.h ****   uint8_t   off_ctx;                /**< @brief Offset of @p ctx field.     */
+  62:../../../os/rt/include/chregistry.h ****   uint8_t   off_newer;              /**< @brief Offset of @p newer field.   */
+  63:../../../os/rt/include/chregistry.h ****   uint8_t   off_older;              /**< @brief Offset of @p older field.   */
+  64:../../../os/rt/include/chregistry.h ****   uint8_t   off_name;               /**< @brief Offset of @p name field.    */
+  65:../../../os/rt/include/chregistry.h ****   uint8_t   off_stklimit;           /**< @brief Offset of @p stklimit field.*/
+  66:../../../os/rt/include/chregistry.h ****   uint8_t   off_state;              /**< @brief Offset of @p state field.   */
+  67:../../../os/rt/include/chregistry.h ****   uint8_t   off_flags;              /**< @brief Offset of @p flags field.   */
+  68:../../../os/rt/include/chregistry.h ****   uint8_t   off_refs;               /**< @brief Offset of @p refs field.    */
+  69:../../../os/rt/include/chregistry.h ****   uint8_t   off_preempt;            /**< @brief Offset of @p preempt field. */
+  70:../../../os/rt/include/chregistry.h ****   uint8_t   off_time;               /**< @brief Offset of @p time field.    */
+  71:../../../os/rt/include/chregistry.h **** } chdebug_t;
+  72:../../../os/rt/include/chregistry.h **** 
+  73:../../../os/rt/include/chregistry.h **** /*===========================================================================*/
+  74:../../../os/rt/include/chregistry.h **** /* Module macros.                                                            */
+  75:../../../os/rt/include/chregistry.h **** /*===========================================================================*/
+  76:../../../os/rt/include/chregistry.h **** 
+  77:../../../os/rt/include/chregistry.h **** /**
+  78:../../../os/rt/include/chregistry.h ****  * @brief   Removes a thread from the registry list.
+  79:../../../os/rt/include/chregistry.h ****  * @note    This macro is not meant for use in application code.
+  80:../../../os/rt/include/chregistry.h ****  *
+  81:../../../os/rt/include/chregistry.h ****  * @param[in] tp        thread to remove from the registry
+  82:../../../os/rt/include/chregistry.h ****  */
+  83:../../../os/rt/include/chregistry.h **** #define REG_REMOVE(tp) {                                                    \
+  84:../../../os/rt/include/chregistry.h ****   (tp)->older->newer = (tp)->newer;                                         \
+  85:../../../os/rt/include/chregistry.h ****   (tp)->newer->older = (tp)->older;                                         \
+  86:../../../os/rt/include/chregistry.h **** }
+  87:../../../os/rt/include/chregistry.h **** 
+  88:../../../os/rt/include/chregistry.h **** /**
+  89:../../../os/rt/include/chregistry.h ****  * @brief   Adds a thread to the registry list.
+  90:../../../os/rt/include/chregistry.h ****  * @note    This macro is not meant for use in application code.
+  91:../../../os/rt/include/chregistry.h ****  *
+  92:../../../os/rt/include/chregistry.h ****  * @param[in] tp        thread to add to the registry
+  93:../../../os/rt/include/chregistry.h ****  */
+  94:../../../os/rt/include/chregistry.h **** #define REG_INSERT(tp) {                                                    \
+  95:../../../os/rt/include/chregistry.h ****   (tp)->newer = (thread_t *)&ch.rlist;                                      \
+  96:../../../os/rt/include/chregistry.h ****   (tp)->older = ch.rlist.older;                                           \
+  97:../../../os/rt/include/chregistry.h ****   (tp)->older->newer = (tp);                                                \
+  98:../../../os/rt/include/chregistry.h ****   ch.rlist.older = (tp);                                                  \
+  99:../../../os/rt/include/chregistry.h **** }
+ 100:../../../os/rt/include/chregistry.h **** 
+ 101:../../../os/rt/include/chregistry.h **** /*===========================================================================*/
+ 102:../../../os/rt/include/chregistry.h **** /* External declarations.                                                    */
+ 103:../../../os/rt/include/chregistry.h **** /*===========================================================================*/
+ 104:../../../os/rt/include/chregistry.h **** 
+ 105:../../../os/rt/include/chregistry.h **** #ifdef __cplusplus
+ 106:../../../os/rt/include/chregistry.h **** extern "C" {
+ 107:../../../os/rt/include/chregistry.h **** #endif
+ 108:../../../os/rt/include/chregistry.h ****   extern ROMCONST chdebug_t ch_debug;
+ 109:../../../os/rt/include/chregistry.h ****   thread_t *chRegFirstThread(void);
+ 110:../../../os/rt/include/chregistry.h ****   thread_t *chRegNextThread(thread_t *tp);
+ 111:../../../os/rt/include/chregistry.h ****   thread_t *chRegFindThreadByName(const char *name);
+ 112:../../../os/rt/include/chregistry.h ****   thread_t *chRegFindThreadByPointer(thread_t *tp);
+ 113:../../../os/rt/include/chregistry.h ****   thread_t *chRegFindThreadByWorkingArea(stkalign_t *wa);
+ 114:../../../os/rt/include/chregistry.h **** #ifdef __cplusplus
+ 115:../../../os/rt/include/chregistry.h **** }
+ 116:../../../os/rt/include/chregistry.h **** #endif
+ 117:../../../os/rt/include/chregistry.h **** 
+ 118:../../../os/rt/include/chregistry.h **** #endif /* CH_CFG_USE_REGISTRY == TRUE */
+ 119:../../../os/rt/include/chregistry.h **** 
+ 120:../../../os/rt/include/chregistry.h **** /*===========================================================================*/
+ 121:../../../os/rt/include/chregistry.h **** /* Module inline functions.                                                  */
+ 122:../../../os/rt/include/chregistry.h **** /*===========================================================================*/
+ 123:../../../os/rt/include/chregistry.h **** 
+ 124:../../../os/rt/include/chregistry.h **** /**
+ 125:../../../os/rt/include/chregistry.h ****  * @brief   Sets the current thread name.
+ 126:../../../os/rt/include/chregistry.h ****  * @pre     This function only stores the pointer to the name if the option
+ 127:../../../os/rt/include/chregistry.h ****  *          @p CH_CFG_USE_REGISTRY is enabled else no action is performed.
+ 128:../../../os/rt/include/chregistry.h ****  *
+ 129:../../../os/rt/include/chregistry.h ****  * @param[in] name      thread name as a zero terminated string
+ 130:../../../os/rt/include/chregistry.h ****  *
+ 131:../../../os/rt/include/chregistry.h ****  * @api
+ 132:../../../os/rt/include/chregistry.h ****  */
+ 133:../../../os/rt/include/chregistry.h **** static inline void chRegSetThreadName(const char *name) {
+ 134:../../../os/rt/include/chregistry.h **** 
+ 135:../../../os/rt/include/chregistry.h **** #if CH_CFG_USE_REGISTRY == TRUE
+ 136:../../../os/rt/include/chregistry.h ****   ch.rlist.current->name = name;
+ 137:../../../os/rt/include/chregistry.h **** #else
+ 138:../../../os/rt/include/chregistry.h ****   (void)name;
+ 139:../../../os/rt/include/chregistry.h **** #endif
+ 140:../../../os/rt/include/chregistry.h **** }
+ 141:../../../os/rt/include/chregistry.h **** 
+ 142:../../../os/rt/include/chregistry.h **** /**
+ 143:../../../os/rt/include/chregistry.h ****  * @brief   Returns the name of the specified thread.
+ 144:../../../os/rt/include/chregistry.h ****  * @pre     This function only returns the pointer to the name if the option
+ 145:../../../os/rt/include/chregistry.h ****  *          @p CH_CFG_USE_REGISTRY is enabled else @p NULL is returned.
+ 146:../../../os/rt/include/chregistry.h ****  *
+ 147:../../../os/rt/include/chregistry.h ****  * @param[in] tp        pointer to the thread
+ 148:../../../os/rt/include/chregistry.h ****  *
+ 149:../../../os/rt/include/chregistry.h ****  * @return              Thread name as a zero terminated string.
+ 150:../../../os/rt/include/chregistry.h ****  * @retval NULL         if the thread name has not been set.
+ 151:../../../os/rt/include/chregistry.h ****  *
+ 152:../../../os/rt/include/chregistry.h ****  */
+ 153:../../../os/rt/include/chregistry.h **** static inline const char *chRegGetThreadNameX(thread_t *tp) {
+ 154:../../../os/rt/include/chregistry.h **** 
+ 155:../../../os/rt/include/chregistry.h **** #if CH_CFG_USE_REGISTRY == TRUE
+ 156:../../../os/rt/include/chregistry.h ****   return tp->name;
+ 297               		.loc 4 156 3 view .LVU86
+ 298               		.loc 1 200 9 is_stmt 0 view .LVU87
+ 299 0016 B801      		movw r22,r16
+ 300 0018 8B85      		ldd r24,Y+11
+ 301 001a 9C85      		ldd r25,Y+12
+ 302 001c 0E94 0000 		call strcmp
+ 303               	.LVL7:
+ 304               		.loc 1 200 8 view .LVU88
+ 305 0020 892B      		or r24,r25
+ 306 0022 01F0      		breq .L6
  201:../../../os/rt/src/chregistry.c ****       return ctp;
  202:../../../os/rt/src/chregistry.c ****     }
  203:../../../os/rt/src/chregistry.c ****     ctp = chRegNextThread(ctp);
+ 307               		.loc 1 203 5 is_stmt 1 view .LVU89
+ 308               	.LVL8:
+ 309               	.LBB94:
+ 310               	.LBI94:
+ 158:../../../os/rt/src/chregistry.c ****   thread_t *ntp;
+ 311               		.loc 1 158 11 view .LVU90
+ 312               	.LBB95:
+ 159:../../../os/rt/src/chregistry.c **** 
+ 313               		.loc 1 159 3 view .LVU91
+ 161:../../../os/rt/src/chregistry.c ****   ntp = tp->newer;
+ 314               		.loc 1 161 3 view .LVU92
+ 315               	.LBB96:
+ 316               	.LBI96:
+ 353:../../../os/rt/include/chsys.h **** 
+ 317               		.loc 2 353 20 view .LVU93
+ 318               	.LBE96:
+ 319               	.LBE95:
+ 320               	.LBE94:
+ 355:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_thd();
+ 321               		.loc 2 355 3 view .LVU94
+ 322               	.LBB111:
+ 323               	.LBB108:
+ 324               	.LBB99:
+ 325               	.LBB97:
+ 326               	.LBI97:
+ 435:../../../os/common/ports/AVR/chcore.h **** 
+ 327               		.loc 3 435 20 view .LVU95
+ 328               	.LBB98:
+ 437:../../../os/common/ports/AVR/chcore.h **** }
+ 329               		.loc 3 437 3 view .LVU96
+ 330               	/* #APP */
+ 331               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
+ 332 0024 F894      		cli
+ 333               	 ;  0 "" 2
+ 334               	/* #NOAPP */
+ 335               	.LBE98:
+ 336               	.LBE97:
+ 337               	.LBE99:
+ 338               	.LBE108:
+ 339               	.LBE111:
+ 356:../../../os/rt/include/chsys.h ****   _dbg_check_lock();
+ 340               		.loc 2 356 34 view .LVU97
+ 357:../../../os/rt/include/chsys.h **** }
+ 341               		.loc 2 357 20 view .LVU98
+ 342               	.LBB112:
+ 343               	.LBB109:
+ 162:../../../os/rt/src/chregistry.c ****   /*lint -save -e9087 -e740 [11.3, 1.3] Cast required by list handling.*/
+ 344               		.loc 1 162 3 view .LVU99
+ 162:../../../os/rt/src/chregistry.c ****   /*lint -save -e9087 -e740 [11.3, 1.3] Cast required by list handling.*/
+ 345               		.loc 1 162 7 is_stmt 0 view .LVU100
+ 346 0026 0F80      		ldd __tmp_reg__,Y+7
+ 347 0028 D885      		ldd r29,Y+8
+ 348 002a C02D      		mov r28,__tmp_reg__
+ 349               	.LVL9:
+ 164:../../../os/rt/src/chregistry.c ****   /*lint -restore*/
+ 350               		.loc 1 164 3 is_stmt 1 view .LVU101
+ 164:../../../os/rt/src/chregistry.c ****   /*lint -restore*/
+ 351               		.loc 1 164 6 is_stmt 0 view .LVU102
+ 352 002c 80E0      		ldi r24,hi8(ch)
+ 353 002e C030      		cpi r28,lo8(ch)
+ 354 0030 D807      		cpc r29,r24
+ 355 0032 01F0      		breq .L14
+ 174:../../../os/rt/src/chregistry.c **** #if CH_CFG_USE_DYNAMIC == TRUE
+ 356               		.loc 1 174 3 is_stmt 1 view .LVU103
+ 357               	.LBB100:
+ 358               	.LBI100:
+ 365:../../../os/rt/include/chsys.h **** 
+ 359               		.loc 2 365 20 view .LVU104
+ 360               	.LBB101:
+ 367:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 361               		.loc 2 367 22 view .LVU105
+ 368:../../../os/rt/include/chsys.h **** 
+ 362               		.loc 2 368 33 view .LVU106
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 363               		.loc 2 374 3 view .LVU107
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 364               		.loc 2 374 3 view .LVU108
+ 365               		.loc 2 378 3 view .LVU109
+ 366               	.LBB102:
+ 367               	.LBI102:
+ 445:../../../os/common/ports/AVR/chcore.h **** 
+ 368               		.loc 3 445 20 view .LVU110
+ 369               	.LBB103:
+ 370               		.loc 3 447 3 view .LVU111
+ 371               	/* #APP */
+ 372               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
+ 373 0034 7894      		sei
+ 374               	 ;  0 "" 2
+ 375               	/* #NOAPP */
+ 376               	.LBE103:
+ 377               	.LBE102:
+ 378               	.LBE101:
+ 379               	.LBE100:
+ 179:../../../os/rt/src/chregistry.c **** }
+ 380               		.loc 1 179 3 view .LVU112
+ 381               	.LVL10:
+ 179:../../../os/rt/src/chregistry.c **** }
+ 382               		.loc 1 179 3 is_stmt 0 view .LVU113
+ 383               	.LBE109:
+ 384               	.LBE112:
  204:../../../os/rt/src/chregistry.c ****   } while (ctp != NULL);
- 235               		.loc 1 204 0
- 236 0036 2097      		sbiw r28,0
- 237 0038 01F4      		brne .L9
+ 385               		.loc 1 204 3 view .LVU114
+ 386 0036 2097      		sbiw r28,0
+ 387 0038 01F4      		brne .L9
+ 388               	.L6:
  205:../../../os/rt/src/chregistry.c **** 
  206:../../../os/rt/src/chregistry.c ****   return NULL;
- 238               		.loc 1 206 0
- 239 003a 80E0      		ldi r24,0
- 240 003c 90E0      		ldi r25,0
- 241               	/* epilogue start */
  207:../../../os/rt/src/chregistry.c **** }
- 242               		.loc 1 207 0
- 243 003e DF91      		pop r29
- 244 0040 CF91      		pop r28
- 245               	.LVL12:
- 246 0042 1F91      		pop r17
- 247 0044 0F91      		pop r16
- 248               	.LVL13:
- 249 0046 0895      		ret
- 250               	.LVL14:
- 251               	.L10:
- 201:../../../os/rt/src/chregistry.c ****       return ctp;
- 252               		.loc 1 201 0
- 253 0048 CE01      		movw r24,r28
- 254               	/* epilogue start */
- 255               		.loc 1 207 0
- 256 004a DF91      		pop r29
- 257 004c CF91      		pop r28
- 258               	.LVL15:
- 259 004e 1F91      		pop r17
- 260 0050 0F91      		pop r16
- 261               	.LVL16:
- 262 0052 0895      		ret
- 263               	.LVL17:
- 264               	.L12:
- 265               	.LBB93:
- 266               	.LBB92:
+ 389               		.loc 1 207 1 view .LVU115
+ 390 003a CE01      		movw r24,r28
+ 391               	/* epilogue start */
+ 392 003c DF91      		pop r29
+ 393 003e CF91      		pop r28
+ 394               	.LVL11:
+ 395               		.loc 1 207 1 view .LVU116
+ 396 0040 1F91      		pop r17
+ 397 0042 0F91      		pop r16
+ 398               	.LVL12:
+ 399               		.loc 1 207 1 view .LVU117
+ 400 0044 0895      		ret
+ 401               	.LVL13:
+ 402               	.L14:
+ 403               	.LBB113:
+ 404               	.LBB110:
  166:../../../os/rt/src/chregistry.c ****   }
- 267               		.loc 1 166 0
- 268 0054 C0E0      		ldi r28,0
- 269 0056 D0E0      		ldi r29,0
- 270               	.LVL18:
- 271 0058 00C0      		rjmp .L8
- 272               	.LBE92:
- 273               	.LBE93:
- 274               		.cfi_endproc
- 275               	.LFE143:
- 277               		.section	.text.chRegFindThreadByPointer,"ax",@progbits
- 278               	.global	chRegFindThreadByPointer
- 280               	chRegFindThreadByPointer:
- 281               	.LFB144:
+ 405               		.loc 1 166 5 is_stmt 1 view .LVU118
+ 174:../../../os/rt/src/chregistry.c **** #if CH_CFG_USE_DYNAMIC == TRUE
+ 406               		.loc 1 174 3 view .LVU119
+ 407               	.LBB107:
+ 365:../../../os/rt/include/chsys.h **** 
+ 408               		.loc 2 365 20 view .LVU120
+ 409               	.LBB106:
+ 367:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 410               		.loc 2 367 22 view .LVU121
+ 368:../../../os/rt/include/chsys.h **** 
+ 411               		.loc 2 368 33 view .LVU122
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 412               		.loc 2 374 3 view .LVU123
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 413               		.loc 2 374 3 view .LVU124
+ 414               		.loc 2 378 3 view .LVU125
+ 415               	.LBB105:
+ 445:../../../os/common/ports/AVR/chcore.h **** 
+ 416               		.loc 3 445 20 view .LVU126
+ 417               	.LBB104:
+ 418               		.loc 3 447 3 view .LVU127
+ 419               	/* #APP */
+ 420               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
+ 421 0046 7894      		sei
+ 422               	 ;  0 "" 2
+ 423               	/* #NOAPP */
+ 424               	.LBE104:
+ 425               	.LBE105:
+ 426               	.LBE106:
+ 427               	.LBE107:
+ 179:../../../os/rt/src/chregistry.c **** }
+ 428               		.loc 1 179 3 view .LVU128
+ 429               	.LVL14:
+ 179:../../../os/rt/src/chregistry.c **** }
+ 430               		.loc 1 179 3 is_stmt 0 view .LVU129
+ 431               	.LBE110:
+ 432               	.LBE113:
+ 206:../../../os/rt/src/chregistry.c **** }
+ 433               		.loc 1 206 10 view .LVU130
+ 434 0048 D0E0      		ldi r29,0
+ 435 004a C0E0      		ldi r28,0
+ 436               		.loc 1 207 1 view .LVU131
+ 437 004c CE01      		movw r24,r28
+ 438               	/* epilogue start */
+ 439 004e DF91      		pop r29
+ 440 0050 CF91      		pop r28
+ 441 0052 1F91      		pop r17
+ 442 0054 0F91      		pop r16
+ 443               	.LVL15:
+ 444               		.loc 1 207 1 view .LVU132
+ 445 0056 0895      		ret
+ 446               		.cfi_endproc
+ 447               	.LFE143:
+ 449               		.section	.text.chRegFindThreadByPointer,"ax",@progbits
+ 450               	.global	chRegFindThreadByPointer
+ 452               	chRegFindThreadByPointer:
+ 453               	.LVL16:
+ 454               	.LFB144:
  208:../../../os/rt/src/chregistry.c **** 
  209:../../../os/rt/src/chregistry.c **** /**
  210:../../../os/rt/src/chregistry.c ****  * @brief   Confirms that a pointer is a valid thread pointer.
@@ -949,216 +1721,340 @@
  219:../../../os/rt/src/chregistry.c ****  * @api
  220:../../../os/rt/src/chregistry.c ****  */
  221:../../../os/rt/src/chregistry.c **** thread_t *chRegFindThreadByPointer(thread_t *tp) {
- 282               		.loc 1 221 0
- 283               		.cfi_startproc
- 284               	.LVL19:
- 285               	/* prologue: function */
- 286               	/* frame size = 0 */
- 287               	/* stack size = 0 */
- 288               	.L__stack_usage = 0
- 289               	.LBB94:
- 290               	.LBB95:
- 291               	.LBB96:
- 292               	.LBB97:
- 293               	.LBB98:
- 437:../../../os/common/ports/AVR/chcore.h **** }
- 294               		.loc 2 437 0
- 295               	/* #APP */
- 296               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
- 297 0000 F894      		cli
- 298               	 ;  0 "" 2
- 299               	/* #NOAPP */
- 300               	.LBE98:
- 301               	.LBE97:
- 302               	.LBE96:
- 138:../../../os/rt/src/chregistry.c **** #if CH_CFG_USE_DYNAMIC == TRUE
- 303               		.loc 1 138 0
- 304 0002 E091 0000 		lds r30,ch+7
- 305 0006 F091 0000 		lds r31,ch+7+1
- 306               	.LVL20:
- 307               	.LBB99:
- 308               	.LBB100:
- 309               	.LBB101:
- 310               	.LBB102:
- 311               		.loc 2 447 0
- 312               	/* #APP */
- 313               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
- 314 000a 7894      		sei
- 315               	 ;  0 "" 2
- 316               	.LVL21:
- 317               	/* #NOAPP */
- 318               	.LBE102:
- 319               	.LBE101:
- 320               	.LBE100:
- 321               	.LBE99:
- 322               	.LBE95:
- 323               	.LBE94:
+ 455               		.loc 1 221 50 is_stmt 1 view -0
+ 456               		.cfi_startproc
+ 457               	/* prologue: function */
+ 458               	/* frame size = 0 */
+ 459               	/* stack size = 0 */
+ 460               	.L__stack_usage = 0
  222:../../../os/rt/src/chregistry.c ****   thread_t *ctp;
+ 461               		.loc 1 222 3 view .LVU134
  223:../../../os/rt/src/chregistry.c **** 
  224:../../../os/rt/src/chregistry.c ****   /* Scanning registry.*/
  225:../../../os/rt/src/chregistry.c ****   ctp = chRegFirstThread();
+ 462               		.loc 1 225 3 view .LVU135
+ 463               	.LBB114:
+ 464               	.LBI114:
+ 134:../../../os/rt/src/chregistry.c ****   thread_t *tp;
+ 465               		.loc 1 134 11 view .LVU136
+ 466               	.LBB115:
+ 135:../../../os/rt/src/chregistry.c **** 
+ 467               		.loc 1 135 3 view .LVU137
+ 137:../../../os/rt/src/chregistry.c ****   tp = ch.rlist.newer;
+ 468               		.loc 1 137 3 view .LVU138
+ 469               	.LBB116:
+ 470               	.LBI116:
+ 353:../../../os/rt/include/chsys.h **** 
+ 471               		.loc 2 353 20 view .LVU139
+ 472               	.LBE116:
+ 473               	.LBE115:
+ 474               	.LBE114:
+ 355:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_thd();
+ 475               		.loc 2 355 3 view .LVU140
+ 476               	.LBB126:
+ 477               	.LBB124:
+ 478               	.LBB119:
+ 479               	.LBB117:
+ 480               	.LBI117:
+ 435:../../../os/common/ports/AVR/chcore.h **** 
+ 481               		.loc 3 435 20 view .LVU141
+ 482               	.LBB118:
+ 437:../../../os/common/ports/AVR/chcore.h **** }
+ 483               		.loc 3 437 3 view .LVU142
+ 484               	/* #APP */
+ 485               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
+ 486 0000 F894      		cli
+ 487               	 ;  0 "" 2
+ 488               	/* #NOAPP */
+ 489               	.LBE118:
+ 490               	.LBE117:
+ 491               	.LBE119:
+ 492               	.LBE124:
+ 493               	.LBE126:
+ 356:../../../os/rt/include/chsys.h ****   _dbg_check_lock();
+ 494               		.loc 2 356 34 view .LVU143
+ 357:../../../os/rt/include/chsys.h **** }
+ 495               		.loc 2 357 20 view .LVU144
+ 496               	.LBB127:
+ 497               	.LBB125:
+ 138:../../../os/rt/src/chregistry.c **** #if CH_CFG_USE_DYNAMIC == TRUE
+ 498               		.loc 1 138 3 view .LVU145
+ 138:../../../os/rt/src/chregistry.c **** #if CH_CFG_USE_DYNAMIC == TRUE
+ 499               		.loc 1 138 6 is_stmt 0 view .LVU146
+ 500 0002 E091 0000 		lds r30,ch+7
+ 501 0006 F091 0000 		lds r31,ch+7+1
+ 502               	.LVL17:
+ 142:../../../os/rt/src/chregistry.c **** 
+ 503               		.loc 1 142 3 is_stmt 1 view .LVU147
+ 504               	.LBB120:
+ 505               	.LBI120:
+ 365:../../../os/rt/include/chsys.h **** 
+ 506               		.loc 2 365 20 view .LVU148
+ 507               	.LBB121:
+ 367:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 508               		.loc 2 367 22 view .LVU149
+ 368:../../../os/rt/include/chsys.h **** 
+ 509               		.loc 2 368 33 view .LVU150
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 510               		.loc 2 374 3 view .LVU151
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 511               		.loc 2 374 3 view .LVU152
+ 512               		.loc 2 378 3 view .LVU153
+ 513               	.LBB122:
+ 514               	.LBI122:
+ 445:../../../os/common/ports/AVR/chcore.h **** 
+ 515               		.loc 3 445 20 view .LVU154
+ 516               	.LBB123:
+ 517               		.loc 3 447 3 view .LVU155
+ 518               	/* #APP */
+ 519               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
+ 520 000a 7894      		sei
+ 521               	 ;  0 "" 2
+ 522               	.LVL18:
+ 523               	/* #NOAPP */
+ 524               	.L30:
+ 525               		.loc 3 447 3 is_stmt 0 view .LVU156
+ 526               	.LBE123:
+ 527               	.LBE122:
+ 528               	.LBE121:
+ 529               	.LBE120:
+ 144:../../../os/rt/src/chregistry.c **** }
+ 530               		.loc 1 144 3 is_stmt 1 view .LVU157
+ 144:../../../os/rt/src/chregistry.c **** }
+ 531               		.loc 1 144 3 is_stmt 0 view .LVU158
+ 532               	.LBE125:
+ 533               	.LBE127:
  226:../../../os/rt/src/chregistry.c ****   do {
+ 534               		.loc 1 226 3 is_stmt 1 view .LVU159
  227:../../../os/rt/src/chregistry.c ****     if (ctp == tp) {
- 324               		.loc 1 227 0
- 325 000c 8E17      		cp r24,r30
- 326 000e 9F07      		cpc r25,r31
- 327 0010 01F4      		brne .L16
- 328 0012 00C0      		rjmp .L14
- 329               	.LVL22:
- 330               	.L18:
- 331               	.LBB103:
- 332               	.LBB104:
- 333               	.LBB105:
- 334               	.LBB106:
- 335               	.LBB107:
- 336               	.LBB108:
- 337               		.loc 2 447 0
- 338               	/* #APP */
- 339               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
- 340 0014 7894      		sei
- 341               	 ;  0 "" 2
- 342               	/* #NOAPP */
- 343               	.LBE108:
- 344               	.LBE107:
- 345               	.LBE106:
- 346               	.LBE105:
- 347               	.LBE104:
- 348               	.LBE103:
+ 535               		.loc 1 227 5 view .LVU160
+ 536               		.loc 1 227 8 is_stmt 0 view .LVU161
+ 537 000c 8E17      		cp r24,r30
+ 538 000e 9F07      		cpc r25,r31
+ 539 0010 01F0      		breq .L15
  228:../../../os/rt/src/chregistry.c ****       return ctp;
  229:../../../os/rt/src/chregistry.c ****     }
  230:../../../os/rt/src/chregistry.c ****     ctp = chRegNextThread(ctp);
- 231:../../../os/rt/src/chregistry.c ****   } while (ctp != NULL);
- 349               		.loc 1 231 0
- 350 0016 3097      		sbiw r30,0
- 351 0018 01F0      		breq .L21
- 352               	.L19:
- 353               	.LVL23:
- 227:../../../os/rt/src/chregistry.c ****       return ctp;
- 354               		.loc 1 227 0
- 355 001a 8E17      		cp r24,r30
- 356 001c 9F07      		cpc r25,r31
- 357 001e 01F0      		breq .L14
- 358               	.LVL24:
- 359               	.L16:
- 360               	.LBB117:
- 361               	.LBB116:
- 362               	.LBB112:
- 363               	.LBB113:
- 364               	.LBB114:
+ 540               		.loc 1 230 5 is_stmt 1 view .LVU162
+ 541               	.LVL19:
+ 542               	.LBB128:
+ 543               	.LBI128:
+ 158:../../../os/rt/src/chregistry.c ****   thread_t *ntp;
+ 544               		.loc 1 158 11 view .LVU163
+ 545               	.LBB129:
+ 159:../../../os/rt/src/chregistry.c **** 
+ 546               		.loc 1 159 3 view .LVU164
+ 161:../../../os/rt/src/chregistry.c ****   ntp = tp->newer;
+ 547               		.loc 1 161 3 view .LVU165
+ 548               	.LBB130:
+ 549               	.LBI130:
+ 353:../../../os/rt/include/chsys.h **** 
+ 550               		.loc 2 353 20 view .LVU166
+ 551               	.LBE130:
+ 552               	.LBE129:
+ 553               	.LBE128:
+ 355:../../../os/rt/include/chsys.h ****   _stats_start_measure_crit_thd();
+ 554               		.loc 2 355 3 view .LVU167
+ 555               	.LBB145:
+ 556               	.LBB142:
+ 557               	.LBB133:
+ 558               	.LBB131:
+ 559               	.LBI131:
+ 435:../../../os/common/ports/AVR/chcore.h **** 
+ 560               		.loc 3 435 20 view .LVU168
+ 561               	.LBB132:
  437:../../../os/common/ports/AVR/chcore.h **** }
- 365               		.loc 2 437 0
- 366               	/* #APP */
- 367               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
- 368 0020 F894      		cli
- 369               	 ;  0 "" 2
- 370               	/* #NOAPP */
- 371               	.LBE114:
- 372               	.LBE113:
- 373               	.LBE112:
+ 562               		.loc 3 437 3 view .LVU169
+ 563               	/* #APP */
+ 564               	 ;  437 "../../../os/common/ports/AVR/chcore.h" 1
+ 565 0012 F894      		cli
+ 566               	 ;  0 "" 2
+ 567               	/* #NOAPP */
+ 568               	.LBE132:
+ 569               	.LBE131:
+ 570               	.LBE133:
+ 571               	.LBE142:
+ 572               	.LBE145:
+ 356:../../../os/rt/include/chsys.h ****   _dbg_check_lock();
+ 573               		.loc 2 356 34 view .LVU170
+ 357:../../../os/rt/include/chsys.h **** }
+ 574               		.loc 2 357 20 view .LVU171
+ 575               	.LBB146:
+ 576               	.LBB143:
  162:../../../os/rt/src/chregistry.c ****   /*lint -save -e9087 -e740 [11.3, 1.3] Cast required by list handling.*/
- 374               		.loc 1 162 0
- 375 0022 0780      		ldd __tmp_reg__,Z+7
- 376 0024 F085      		ldd r31,Z+8
- 377 0026 E02D      		mov r30,__tmp_reg__
- 378               	.LVL25:
+ 577               		.loc 1 162 3 view .LVU172
+ 162:../../../os/rt/src/chregistry.c ****   /*lint -save -e9087 -e740 [11.3, 1.3] Cast required by list handling.*/
+ 578               		.loc 1 162 7 is_stmt 0 view .LVU173
+ 579 0014 0780      		ldd __tmp_reg__,Z+7
+ 580 0016 F085      		ldd r31,Z+8
+ 581 0018 E02D      		mov r30,__tmp_reg__
+ 582               	.LVL20:
  164:../../../os/rt/src/chregistry.c ****   /*lint -restore*/
- 379               		.loc 1 164 0
- 380 0028 20E0      		ldi r18,hi8(ch)
- 381 002a E030      		cpi r30,lo8(ch)
- 382 002c F207      		cpc r31,r18
- 383 002e 01F4      		brne .L18
- 166:../../../os/rt/src/chregistry.c ****   }
- 384               		.loc 1 166 0
- 385 0030 E0E0      		ldi r30,0
- 386 0032 F0E0      		ldi r31,0
- 387               	.LVL26:
- 388               	.LBB115:
- 389               	.LBB111:
- 390               	.LBB110:
- 391               	.LBB109:
- 392               		.loc 2 447 0
- 393               	/* #APP */
- 394               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
- 395 0034 7894      		sei
- 396               	 ;  0 "" 2
- 397               	/* #NOAPP */
- 398               	.LBE109:
- 399               	.LBE110:
- 400               	.LBE111:
- 401               	.LBE115:
- 402               	.LBE116:
- 403               	.LBE117:
- 404               		.loc 1 231 0
- 405 0036 3097      		sbiw r30,0
- 406 0038 01F4      		brne .L19
- 407               	.L21:
+ 583               		.loc 1 164 3 is_stmt 1 view .LVU174
+ 164:../../../os/rt/src/chregistry.c ****   /*lint -restore*/
+ 584               		.loc 1 164 6 is_stmt 0 view .LVU175
+ 585 001a 20E0      		ldi r18,hi8(ch)
+ 586 001c E030      		cpi r30,lo8(ch)
+ 587 001e F207      		cpc r31,r18
+ 588 0020 01F0      		breq .L31
+ 174:../../../os/rt/src/chregistry.c **** #if CH_CFG_USE_DYNAMIC == TRUE
+ 589               		.loc 1 174 3 is_stmt 1 view .LVU176
+ 590               	.LBB134:
+ 591               	.LBI134:
+ 365:../../../os/rt/include/chsys.h **** 
+ 592               		.loc 2 365 20 view .LVU177
+ 593               	.LBB135:
+ 367:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 594               		.loc 2 367 22 view .LVU178
+ 368:../../../os/rt/include/chsys.h **** 
+ 595               		.loc 2 368 33 view .LVU179
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 596               		.loc 2 374 3 view .LVU180
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 597               		.loc 2 374 3 view .LVU181
+ 598               		.loc 2 378 3 view .LVU182
+ 599               	.LBB136:
+ 600               	.LBI136:
+ 445:../../../os/common/ports/AVR/chcore.h **** 
+ 601               		.loc 3 445 20 view .LVU183
+ 602               	.LBB137:
+ 603               		.loc 3 447 3 view .LVU184
+ 604               	/* #APP */
+ 605               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
+ 606 0022 7894      		sei
+ 607               	 ;  0 "" 2
+ 608               	/* #NOAPP */
+ 609               	.LBE137:
+ 610               	.LBE136:
+ 611               	.LBE135:
+ 612               	.LBE134:
+ 179:../../../os/rt/src/chregistry.c **** }
+ 613               		.loc 1 179 3 view .LVU185
+ 614               	.LVL21:
+ 179:../../../os/rt/src/chregistry.c **** }
+ 615               		.loc 1 179 3 is_stmt 0 view .LVU186
+ 616               	.LBE143:
+ 617               	.LBE146:
+ 231:../../../os/rt/src/chregistry.c ****   } while (ctp != NULL);
+ 618               		.loc 1 231 3 view .LVU187
+ 619 0024 3097      		sbiw r30,0
+ 620 0026 01F4      		brne .L30
  232:../../../os/rt/src/chregistry.c **** 
  233:../../../os/rt/src/chregistry.c ****   return NULL;
- 408               		.loc 1 233 0
- 409 003a 80E0      		ldi r24,0
- 410               	.LVL27:
- 411 003c 90E0      		ldi r25,0
+ 621               		.loc 1 233 10 view .LVU188
+ 622 0028 F0E0      		ldi r31,0
+ 623 002a E0E0      		ldi r30,0
+ 624               	.LVL22:
+ 625               	.L15:
  234:../../../os/rt/src/chregistry.c **** }
- 412               		.loc 1 234 0
- 413 003e 0895      		ret
- 414               	.LVL28:
- 415               	.L14:
- 228:../../../os/rt/src/chregistry.c ****     }
- 416               		.loc 1 228 0
- 417 0040 CF01      		movw r24,r30
- 418               	.LVL29:
- 419 0042 0895      		ret
- 420               		.cfi_endproc
- 421               	.LFE144:
- 423               	.global	ch_debug
- 424               		.section	.rodata.ch_debug,"a",@progbits
- 427               	ch_debug:
- 428 0000 6D        		.byte	109
- 429 0001 61        		.byte	97
- 430 0002 69        		.byte	105
- 431 0003 6E        		.byte	110
- 432 0004 00        		.byte	0
- 433 0005 16        		.byte	22
- 434 0006 0028      		.word	10240
- 435 0008 02        		.byte	2
- 436 0009 02        		.byte	2
- 437 000a 1C        		.byte	28
- 438 000b 04        		.byte	4
- 439 000c 05        		.byte	5
- 440 000d 07        		.byte	7
- 441 000e 09        		.byte	9
- 442 000f 0B        		.byte	11
- 443 0010 00        		.byte	0
- 444 0011 0D        		.byte	13
- 445 0012 0E        		.byte	14
- 446 0013 00        		.byte	0
- 447 0014 00        		.byte	0
- 448 0015 00        		.byte	0
- 449               		.text
- 450               	.Letext0:
- 451               		.file 3 "/usr/lib/gcc/avr/4.9.2/include/stddef.h"
- 452               		.file 4 "/usr/lib/avr/include/stdint.h"
- 453               		.file 5 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
- 454               		.file 6 "../../../os/rt/include/chsystypes.h"
- 455               		.file 7 "../../../os/rt/include/chschd.h"
- 456               		.file 8 "../../../os/rt/include/chtime.h"
- 457               		.file 9 "../../../os/rt/include/chsem.h"
- 458               		.file 10 "../../../os/rt/include/chmtx.h"
- 459               		.file 11 "../../../os/rt/include/chregistry.h"
- 460               		.file 12 "../../../os/rt/include/chsys.h"
- 461               		.file 13 "/usr/lib/avr/include/string.h"
+ 626               		.loc 1 234 1 view .LVU189
+ 627 002c CF01      		movw r24,r30
+ 628               	.LVL23:
+ 629               	/* epilogue start */
+ 630               		.loc 1 234 1 view .LVU190
+ 631 002e 0895      		ret
+ 632               	.LVL24:
+ 633               	.L31:
+ 634               	.LBB147:
+ 635               	.LBB144:
+ 166:../../../os/rt/src/chregistry.c ****   }
+ 636               		.loc 1 166 5 is_stmt 1 view .LVU191
+ 174:../../../os/rt/src/chregistry.c **** #if CH_CFG_USE_DYNAMIC == TRUE
+ 637               		.loc 1 174 3 view .LVU192
+ 638               	.LBB141:
+ 365:../../../os/rt/include/chsys.h **** 
+ 639               		.loc 2 365 20 view .LVU193
+ 640               	.LBB140:
+ 367:../../../os/rt/include/chsys.h ****   _stats_stop_measure_crit_thd();
+ 641               		.loc 2 367 22 view .LVU194
+ 368:../../../os/rt/include/chsys.h **** 
+ 642               		.loc 2 368 33 view .LVU195
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 643               		.loc 2 374 3 view .LVU196
+ 374:../../../os/rt/include/chsys.h ****               (ch.rlist.current->prio >= ch.rlist.queue.next->prio),
+ 644               		.loc 2 374 3 view .LVU197
+ 645               		.loc 2 378 3 view .LVU198
+ 646               	.LBB139:
+ 445:../../../os/common/ports/AVR/chcore.h **** 
+ 647               		.loc 3 445 20 view .LVU199
+ 648               	.LBB138:
+ 649               		.loc 3 447 3 view .LVU200
+ 650               	/* #APP */
+ 651               	 ;  447 "../../../os/common/ports/AVR/chcore.h" 1
+ 652 0030 7894      		sei
+ 653               	 ;  0 "" 2
+ 654               	/* #NOAPP */
+ 655               	.LBE138:
+ 656               	.LBE139:
+ 657               	.LBE140:
+ 658               	.LBE141:
+ 179:../../../os/rt/src/chregistry.c **** }
+ 659               		.loc 1 179 3 view .LVU201
+ 660               	.LVL25:
+ 179:../../../os/rt/src/chregistry.c **** }
+ 661               		.loc 1 179 3 is_stmt 0 view .LVU202
+ 662               	.LBE144:
+ 663               	.LBE147:
+ 233:../../../os/rt/src/chregistry.c **** }
+ 664               		.loc 1 233 10 view .LVU203
+ 665 0032 F0E0      		ldi r31,0
+ 666 0034 E0E0      		ldi r30,0
+ 667               		.loc 1 234 1 view .LVU204
+ 668 0036 CF01      		movw r24,r30
+ 669               	.LVL26:
+ 670               	/* epilogue start */
+ 671               		.loc 1 234 1 view .LVU205
+ 672 0038 0895      		ret
+ 673               		.cfi_endproc
+ 674               	.LFE144:
+ 676               	.global	ch_debug
+ 677               		.section	.rodata.ch_debug,"a"
+ 680               	ch_debug:
+ 681 0000 6D        		.byte	109
+ 682 0001 61        		.byte	97
+ 683 0002 69        		.byte	105
+ 684 0003 6E        		.byte	110
+ 685 0004 00        		.byte	0
+ 686 0005 16        		.byte	22
+ 687 0006 0028      		.word	10240
+ 688 0008 02        		.byte	2
+ 689 0009 02        		.byte	2
+ 690 000a 1C        		.byte	28
+ 691 000b 04        		.byte	4
+ 692 000c 05        		.byte	5
+ 693 000d 07        		.byte	7
+ 694 000e 09        		.byte	9
+ 695 000f 0B        		.byte	11
+ 696 0010 00        		.byte	0
+ 697 0011 0D        		.byte	13
+ 698 0012 0E        		.byte	14
+ 699 0013 00        		.byte	0
+ 700 0014 00        		.byte	0
+ 701 0015 00        		.byte	0
+ 702               		.text
+ 703               	.Letext0:
+ 704               		.file 5 "/usr/local/Cellar/avr-gcc/8.2.0/lib/avr-gcc/8/gcc/avr/8.2.0/include/stddef.h"
+ 705               		.file 6 "/usr/local/Cellar/avr-gcc/8.2.0/avr/include/stdint.h"
+ 706               		.file 7 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
+ 707               		.file 8 "../../../os/rt/include/chsystypes.h"
+ 708               		.file 9 "../../../os/rt/include/chschd.h"
+ 709               		.file 10 "../../../os/rt/include/chtime.h"
+ 710               		.file 11 "../../../os/rt/include/chsem.h"
+ 711               		.file 12 "../../../os/rt/include/chmtx.h"
+ 712               		.file 13 "../../../os/common/oslib/include/chmemcore.h"
+ 713               		.file 14 "/usr/local/Cellar/avr-gcc/8.2.0/avr/include/string.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 chregistry.c
-     /tmp/ccuGXCzB.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccuGXCzB.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccuGXCzB.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccuGXCzB.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccuGXCzB.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccuGXCzB.s:13     .text.chRegFirstThread:0000000000000000 chRegFirstThread
-     /tmp/ccuGXCzB.s:61     .text.chRegNextThread:0000000000000000 chRegNextThread
-     /tmp/ccuGXCzB.s:122    .text.chRegFindThreadByName:0000000000000000 chRegFindThreadByName
-     /tmp/ccuGXCzB.s:280    .text.chRegFindThreadByPointer:0000000000000000 chRegFindThreadByPointer
-     /tmp/ccuGXCzB.s:427    .rodata.ch_debug:0000000000000000 ch_debug
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cca9KuWp.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cca9KuWp.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cca9KuWp.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cca9KuWp.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cca9KuWp.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cca9KuWp.s:13     .text.chRegFirstThread:0000000000000000 chRegFirstThread
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cca9KuWp.s:86     .text.chRegNextThread:0000000000000000 chRegNextThread
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cca9KuWp.s:195    .text.chRegFindThreadByName:0000000000000000 chRegFindThreadByName
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cca9KuWp.s:452    .text.chRegFindThreadByPointer:0000000000000000 chRegFindThreadByPointer
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//cca9KuWp.s:680    .rodata.ch_debug:0000000000000000 ch_debug
 
 UNDEFINED SYMBOLS
 ch

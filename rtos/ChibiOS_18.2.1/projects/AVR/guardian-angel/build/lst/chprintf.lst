@@ -7,10 +7,22 @@
    7               		.text
    8               	.Ltext0:
    9               		.cfi_sections	.debug_frame
-  10               		.section	.text.long_to_string_with_divisor,"ax",@progbits
-  12               	long_to_string_with_divisor:
-  13               	.LFB173:
-  14               		.file 1 "../../../os/hal/lib/streams/chprintf.c"
+  10               		.section	.rodata.chvprintf.str1.1,"aMS",@progbits,1
+  11               	.LC0:
+  12 0000 286E 756C 		.string	"(null)"
+  12      6C29 00
+  13               	.global	__ltsf2
+  14               	.global	__floatunsisf
+  15               	.global	__fixsfsi
+  16               	.global	__floatsisf
+  17               	.global	__subsf3
+  18               	.global	__mulsf3
+  19               		.section	.text.chvprintf,"ax",@progbits
+  20               	.global	chvprintf
+  22               	chvprintf:
+  23               	.LVL0:
+  24               	.LFB176:
+  25               		.file 1 "../../../os/hal/lib/streams/chprintf.c"
    1:../../../os/hal/lib/streams/chprintf.c **** /*
    2:../../../os/hal/lib/streams/chprintf.c ****     ChibiOS - Copyright (C) 2006..2018 Giovanni Di Sirio
    3:../../../os/hal/lib/streams/chprintf.c **** 
@@ -51,288 +63,34 @@
   38:../../../os/hal/lib/streams/chprintf.c ****                                          long num,
   39:../../../os/hal/lib/streams/chprintf.c ****                                          unsigned radix,
   40:../../../os/hal/lib/streams/chprintf.c ****                                          long divisor) {
-  15               		.loc 1 40 0
-  16               		.cfi_startproc
-  17               	.LVL0:
-  18 0000 2F92      		push r2
-  19               	.LCFI0:
-  20               		.cfi_def_cfa_offset 3
-  21               		.cfi_offset 2, -2
-  22 0002 3F92      		push r3
-  23               	.LCFI1:
-  24               		.cfi_def_cfa_offset 4
-  25               		.cfi_offset 3, -3
-  26 0004 4F92      		push r4
-  27               	.LCFI2:
-  28               		.cfi_def_cfa_offset 5
-  29               		.cfi_offset 4, -4
-  30 0006 5F92      		push r5
-  31               	.LCFI3:
-  32               		.cfi_def_cfa_offset 6
-  33               		.cfi_offset 5, -5
-  34 0008 6F92      		push r6
-  35               	.LCFI4:
-  36               		.cfi_def_cfa_offset 7
-  37               		.cfi_offset 6, -6
-  38 000a 7F92      		push r7
-  39               	.LCFI5:
-  40               		.cfi_def_cfa_offset 8
-  41               		.cfi_offset 7, -7
-  42 000c 8F92      		push r8
-  43               	.LCFI6:
-  44               		.cfi_def_cfa_offset 9
-  45               		.cfi_offset 8, -8
-  46 000e 9F92      		push r9
-  47               	.LCFI7:
-  48               		.cfi_def_cfa_offset 10
-  49               		.cfi_offset 9, -9
-  50 0010 AF92      		push r10
-  51               	.LCFI8:
-  52               		.cfi_def_cfa_offset 11
-  53               		.cfi_offset 10, -10
-  54 0012 BF92      		push r11
-  55               	.LCFI9:
-  56               		.cfi_def_cfa_offset 12
-  57               		.cfi_offset 11, -11
-  58 0014 CF92      		push r12
-  59               	.LCFI10:
-  60               		.cfi_def_cfa_offset 13
-  61               		.cfi_offset 12, -12
-  62 0016 DF92      		push r13
-  63               	.LCFI11:
-  64               		.cfi_def_cfa_offset 14
-  65               		.cfi_offset 13, -13
-  66 0018 EF92      		push r14
-  67               	.LCFI12:
-  68               		.cfi_def_cfa_offset 15
-  69               		.cfi_offset 14, -14
-  70 001a FF92      		push r15
-  71               	.LCFI13:
-  72               		.cfi_def_cfa_offset 16
-  73               		.cfi_offset 15, -15
-  74 001c 0F93      		push r16
-  75               	.LCFI14:
-  76               		.cfi_def_cfa_offset 17
-  77               		.cfi_offset 16, -16
-  78 001e 1F93      		push r17
-  79               	.LCFI15:
-  80               		.cfi_def_cfa_offset 18
-  81               		.cfi_offset 17, -17
-  82 0020 CF93      		push r28
-  83               	.LCFI16:
-  84               		.cfi_def_cfa_offset 19
-  85               		.cfi_offset 28, -18
-  86 0022 DF93      		push r29
-  87               	.LCFI17:
-  88               		.cfi_def_cfa_offset 20
-  89               		.cfi_offset 29, -19
-  90 0024 00D0      		rcall .
-  91 0026 1F92      		push __zero_reg__
-  92               	.LCFI18:
-  93               		.cfi_def_cfa_offset 23
-  94 0028 CDB7      		in r28,__SP_L__
-  95 002a DEB7      		in r29,__SP_H__
-  96               	.LCFI19:
-  97               		.cfi_def_cfa_register 28
-  98               	/* prologue: function */
-  99               	/* frame size = 3 */
- 100               	/* stack size = 21 */
- 101               	.L__stack_usage = 21
- 102 002c 4C01      		movw r8,r24
- 103 002e 242E      		mov r2,r20
- 104 0030 5B83      		std Y+3,r21
- 105 0032 B62E      		mov r11,r22
- 106 0034 A72E      		mov r10,r23
- 107               	.LVL1:
   41:../../../os/hal/lib/streams/chprintf.c ****   int i;
   42:../../../os/hal/lib/streams/chprintf.c ****   char *q;
   43:../../../os/hal/lib/streams/chprintf.c ****   long l, ll;
   44:../../../os/hal/lib/streams/chprintf.c **** 
   45:../../../os/hal/lib/streams/chprintf.c ****   l = num;
   46:../../../os/hal/lib/streams/chprintf.c ****   if (divisor == 0) {
- 108               		.loc 1 46 0
- 109 0036 E114      		cp r14,__zero_reg__
- 110 0038 F104      		cpc r15,__zero_reg__
- 111 003a 0105      		cpc r16,__zero_reg__
- 112 003c 1105      		cpc r17,__zero_reg__
- 113 003e 01F4      		brne .+2
- 114 0040 00C0      		rjmp .L7
- 115 0042 6701      		movw r12,r14
- 116 0044 7801      		movw r14,r16
- 117               	.LVL2:
- 118               	.L2:
   47:../../../os/hal/lib/streams/chprintf.c ****     ll = num;
   48:../../../os/hal/lib/streams/chprintf.c ****   } else {
   49:../../../os/hal/lib/streams/chprintf.c ****     ll = divisor;
   50:../../../os/hal/lib/streams/chprintf.c ****   }
   51:../../../os/hal/lib/streams/chprintf.c **** 
   52:../../../os/hal/lib/streams/chprintf.c ****   q = p + MAX_FILLER;
- 119               		.loc 1 52 0
- 120 0046 C401      		movw r24,r8
- 121               	.LVL3:
- 122 0048 0B96      		adiw r24,11
- 123 004a 9A83      		std Y+2,r25
- 124 004c 8983      		std Y+1,r24
- 125               	.LVL4:
- 126 004e 2901      		movw r4,r18
- 127 0050 612C      		mov r6,__zero_reg__
- 128 0052 712C      		mov r7,__zero_reg__
- 129 0054 8C01      		movw r16,r24
- 130               	.LVL5:
- 131               	.L4:
   53:../../../os/hal/lib/streams/chprintf.c ****   do {
   54:../../../os/hal/lib/streams/chprintf.c ****     i = (int)(l % radix);
- 132               		.loc 1 54 0
- 133 0056 622D      		mov r22,r2
- 134 0058 7B81      		ldd r23,Y+3
- 135 005a 8B2D      		mov r24,r11
- 136 005c 9A2D      		mov r25,r10
- 137 005e A301      		movw r20,r6
- 138 0060 9201      		movw r18,r4
- 139 0062 0E94 0000 		call __divmodsi4
- 140               	.LVL6:
   55:../../../os/hal/lib/streams/chprintf.c ****     i += '0';
- 141               		.loc 1 55 0
- 142 0066 FB01      		movw r30,r22
- 143 0068 F096      		adiw r30,48
- 144               	.LVL7:
   56:../../../os/hal/lib/streams/chprintf.c ****     if (i > '9')
- 145               		.loc 1 56 0
- 146 006a EA33      		cpi r30,58
- 147 006c F105      		cpc r31,__zero_reg__
- 148 006e 04F0      		brlt .L3
   57:../../../os/hal/lib/streams/chprintf.c ****       i += 'A' - '0' - 10;
- 149               		.loc 1 57 0
- 150 0070 3796      		adiw r30,7
- 151               	.LVL8:
- 152               	.L3:
   58:../../../os/hal/lib/streams/chprintf.c ****     *--q = i;
- 153               		.loc 1 58 0
- 154 0072 3E2E      		mov r3,r30
- 155 0074 D801      		movw r26,r16
- 156 0076 EE93      		st -X,r30
- 157               	.LVL9:
- 158 0078 8D01      		movw r16,r26
   59:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
- 159               		.loc 1 59 0
- 160 007a 622D      		mov r22,r2
- 161 007c 7B81      		ldd r23,Y+3
- 162 007e 8B2D      		mov r24,r11
- 163 0080 9A2D      		mov r25,r10
- 164 0082 A301      		movw r20,r6
- 165 0084 9201      		movw r18,r4
- 166 0086 0E94 0000 		call __divmodsi4
- 167               	.LVL10:
- 168 008a 222E      		mov r2,r18
- 169               	.LVL11:
- 170 008c 3B83      		std Y+3,r19
- 171 008e B42E      		mov r11,r20
- 172 0090 A52E      		mov r10,r21
   60:../../../os/hal/lib/streams/chprintf.c ****   } while ((ll /= radix) != 0);
- 173               		.loc 1 60 0
- 174 0092 C701      		movw r24,r14
- 175 0094 B601      		movw r22,r12
- 176 0096 A301      		movw r20,r6
- 177 0098 9201      		movw r18,r4
- 178 009a 0E94 0000 		call __divmodsi4
- 179 009e 6901      		movw r12,r18
- 180 00a0 7A01      		movw r14,r20
- 181               	.LVL12:
- 182 00a2 232B      		or r18,r19
- 183 00a4 242B      		or r18,r20
- 184 00a6 252B      		or r18,r21
- 185 00a8 01F4      		brne .L4
- 186               	.LVL13:
- 187 00aa F401      		movw r30,r8
- 188 00ac 9801      		movw r18,r16
- 189 00ae 2F5F      		subi r18,-1
- 190 00b0 3F4F      		sbci r19,-1
   61:../../../os/hal/lib/streams/chprintf.c **** 
   62:../../../os/hal/lib/streams/chprintf.c ****   i = (int)(p + MAX_FILLER - q);
- 191               		.loc 1 62 0
- 192 00b2 8981      		ldd r24,Y+1
- 193 00b4 9A81      		ldd r25,Y+2
- 194 00b6 801B      		sub r24,r16
- 195 00b8 910B      		sbc r25,r17
- 196 00ba 880D      		add r24,r8
- 197 00bc 991D      		adc r25,r9
- 198 00be 00C0      		rjmp .L6
- 199               	.LVL14:
- 200               	.L10:
- 201 00c0 D901      		movw r26,r18
- 202 00c2 3D90      		ld r3,X+
- 203 00c4 9D01      		movw r18,r26
- 204               	.LVL15:
- 205               	.L6:
   63:../../../os/hal/lib/streams/chprintf.c ****   do
   64:../../../os/hal/lib/streams/chprintf.c ****     *p++ = *q++;
- 206               		.loc 1 64 0 discriminator 1
- 207 00c6 3192      		st Z+,r3
- 208               	.LVL16:
   65:../../../os/hal/lib/streams/chprintf.c ****   while (--i);
- 209               		.loc 1 65 0 discriminator 1
- 210 00c8 E817      		cp r30,r24
- 211 00ca F907      		cpc r31,r25
- 212 00cc 01F4      		brne .L10
   66:../../../os/hal/lib/streams/chprintf.c **** 
   67:../../../os/hal/lib/streams/chprintf.c ****   return p;
   68:../../../os/hal/lib/streams/chprintf.c **** }
- 213               		.loc 1 68 0
- 214 00ce CF01      		movw r24,r30
- 215               	/* epilogue start */
- 216 00d0 0F90      		pop __tmp_reg__
- 217 00d2 0F90      		pop __tmp_reg__
- 218 00d4 0F90      		pop __tmp_reg__
- 219 00d6 DF91      		pop r29
- 220 00d8 CF91      		pop r28
- 221               	.LVL17:
- 222 00da 1F91      		pop r17
- 223               	.LVL18:
- 224 00dc 0F91      		pop r16
- 225               	.LVL19:
- 226 00de FF90      		pop r15
- 227 00e0 EF90      		pop r14
- 228 00e2 DF90      		pop r13
- 229 00e4 CF90      		pop r12
- 230               	.LVL20:
- 231 00e6 BF90      		pop r11
- 232 00e8 AF90      		pop r10
- 233 00ea 9F90      		pop r9
- 234 00ec 8F90      		pop r8
- 235 00ee 7F90      		pop r7
- 236 00f0 6F90      		pop r6
- 237 00f2 5F90      		pop r5
- 238 00f4 4F90      		pop r4
- 239               	.LVL21:
- 240 00f6 3F90      		pop r3
- 241 00f8 2F90      		pop r2
- 242 00fa 0895      		ret
- 243               	.LVL22:
- 244               	.L7:
-  47:../../../os/hal/lib/streams/chprintf.c ****   } else {
- 245               		.loc 1 47 0
- 246 00fc C42E      		mov r12,r20
- 247 00fe DB80      		ldd r13,Y+3
- 248 0100 E62E      		mov r14,r22
- 249               	.LVL23:
- 250 0102 F72E      		mov r15,r23
- 251 0104 00C0      		rjmp .L2
- 252               		.cfi_endproc
- 253               	.LFE173:
- 255               		.section	.rodata.str1.1,"aMS",@progbits,1
- 256               	.LC0:
- 257 0000 286E 756C 		.string	"(null)"
- 257      6C29 00
- 258               	.global	__ltsf2
- 259               	.global	__fixsfsi
- 260               	.global	__floatsisf
- 261               	.global	__subsf3
- 262               	.global	__floatunsisf
- 263               	.global	__mulsf3
- 264               		.section	.text.chvprintf,"ax",@progbits
- 265               	.global	chvprintf
- 267               	chvprintf:
- 268               	.LFB176:
   69:../../../os/hal/lib/streams/chprintf.c **** 
   70:../../../os/hal/lib/streams/chprintf.c **** static char *ch_ltoa(char *p, long num, unsigned radix) {
   71:../../../os/hal/lib/streams/chprintf.c **** 
@@ -386,127 +144,110 @@
  119:../../../os/hal/lib/streams/chprintf.c ****  * @api
  120:../../../os/hal/lib/streams/chprintf.c ****  */
  121:../../../os/hal/lib/streams/chprintf.c **** int chvprintf(BaseSequentialStream *chp, const char *fmt, va_list ap) {
- 269               		.loc 1 121 0
- 270               		.cfi_startproc
- 271               	.LVL24:
- 272 0000 2F92      		push r2
- 273               	.LCFI20:
- 274               		.cfi_def_cfa_offset 3
- 275               		.cfi_offset 2, -2
- 276 0002 3F92      		push r3
- 277               	.LCFI21:
- 278               		.cfi_def_cfa_offset 4
- 279               		.cfi_offset 3, -3
- 280 0004 4F92      		push r4
- 281               	.LCFI22:
- 282               		.cfi_def_cfa_offset 5
- 283               		.cfi_offset 4, -4
- 284 0006 5F92      		push r5
- 285               	.LCFI23:
- 286               		.cfi_def_cfa_offset 6
- 287               		.cfi_offset 5, -5
- 288 0008 6F92      		push r6
- 289               	.LCFI24:
- 290               		.cfi_def_cfa_offset 7
- 291               		.cfi_offset 6, -6
- 292 000a 7F92      		push r7
- 293               	.LCFI25:
- 294               		.cfi_def_cfa_offset 8
- 295               		.cfi_offset 7, -7
- 296 000c 8F92      		push r8
- 297               	.LCFI26:
- 298               		.cfi_def_cfa_offset 9
- 299               		.cfi_offset 8, -8
- 300 000e 9F92      		push r9
- 301               	.LCFI27:
- 302               		.cfi_def_cfa_offset 10
- 303               		.cfi_offset 9, -9
- 304 0010 AF92      		push r10
- 305               	.LCFI28:
- 306               		.cfi_def_cfa_offset 11
- 307               		.cfi_offset 10, -10
- 308 0012 BF92      		push r11
- 309               	.LCFI29:
- 310               		.cfi_def_cfa_offset 12
- 311               		.cfi_offset 11, -11
- 312 0014 CF92      		push r12
- 313               	.LCFI30:
- 314               		.cfi_def_cfa_offset 13
- 315               		.cfi_offset 12, -12
- 316 0016 DF92      		push r13
- 317               	.LCFI31:
- 318               		.cfi_def_cfa_offset 14
- 319               		.cfi_offset 13, -13
- 320 0018 EF92      		push r14
- 321               	.LCFI32:
- 322               		.cfi_def_cfa_offset 15
- 323               		.cfi_offset 14, -14
- 324 001a FF92      		push r15
- 325               	.LCFI33:
- 326               		.cfi_def_cfa_offset 16
- 327               		.cfi_offset 15, -15
- 328 001c 0F93      		push r16
- 329               	.LCFI34:
- 330               		.cfi_def_cfa_offset 17
- 331               		.cfi_offset 16, -16
- 332 001e 1F93      		push r17
- 333               	.LCFI35:
- 334               		.cfi_def_cfa_offset 18
- 335               		.cfi_offset 17, -17
- 336 0020 CF93      		push r28
- 337               	.LCFI36:
- 338               		.cfi_def_cfa_offset 19
- 339               		.cfi_offset 28, -18
- 340 0022 DF93      		push r29
- 341               	.LCFI37:
- 342               		.cfi_def_cfa_offset 20
- 343               		.cfi_offset 29, -19
- 344 0024 CDB7      		in r28,__SP_L__
- 345 0026 DEB7      		in r29,__SP_H__
- 346               	.LCFI38:
- 347               		.cfi_def_cfa_register 28
- 348 0028 E397      		sbiw r28,51
- 349               	.LCFI39:
- 350               		.cfi_def_cfa_offset 71
- 351 002a 0FB6      		in __tmp_reg__,__SREG__
- 352 002c F894      		cli
- 353 002e DEBF      		out __SP_H__,r29
- 354 0030 0FBE      		out __SREG__,__tmp_reg__
- 355 0032 CDBF      		out __SP_L__,r28
- 356               	/* prologue: function */
- 357               	/* frame size = 51 */
- 358               	/* stack size = 69 */
- 359               	.L__stack_usage = 69
- 360 0034 1C01      		movw r2,r24
- 361 0036 5B01      		movw r10,r22
- 362 0038 4A01      		movw r8,r20
- 363               	.LVL25:
+  26               		.loc 1 121 71 view -0
+  27               		.cfi_startproc
+  28               		.loc 1 121 71 is_stmt 0 view .LVU1
+  29 0000 2F92      		push r2
+  30               	.LCFI0:
+  31               		.cfi_def_cfa_offset 3
+  32               		.cfi_offset 2, -2
+  33 0002 3F92      		push r3
+  34               	.LCFI1:
+  35               		.cfi_def_cfa_offset 4
+  36               		.cfi_offset 3, -3
+  37 0004 4F92      		push r4
+  38               	.LCFI2:
+  39               		.cfi_def_cfa_offset 5
+  40               		.cfi_offset 4, -4
+  41 0006 5F92      		push r5
+  42               	.LCFI3:
+  43               		.cfi_def_cfa_offset 6
+  44               		.cfi_offset 5, -5
+  45 0008 6F92      		push r6
+  46               	.LCFI4:
+  47               		.cfi_def_cfa_offset 7
+  48               		.cfi_offset 6, -6
+  49 000a 7F92      		push r7
+  50               	.LCFI5:
+  51               		.cfi_def_cfa_offset 8
+  52               		.cfi_offset 7, -7
+  53 000c 8F92      		push r8
+  54               	.LCFI6:
+  55               		.cfi_def_cfa_offset 9
+  56               		.cfi_offset 8, -8
+  57 000e 9F92      		push r9
+  58               	.LCFI7:
+  59               		.cfi_def_cfa_offset 10
+  60               		.cfi_offset 9, -9
+  61 0010 AF92      		push r10
+  62               	.LCFI8:
+  63               		.cfi_def_cfa_offset 11
+  64               		.cfi_offset 10, -10
+  65 0012 BF92      		push r11
+  66               	.LCFI9:
+  67               		.cfi_def_cfa_offset 12
+  68               		.cfi_offset 11, -11
+  69 0014 CF92      		push r12
+  70               	.LCFI10:
+  71               		.cfi_def_cfa_offset 13
+  72               		.cfi_offset 12, -12
+  73 0016 DF92      		push r13
+  74               	.LCFI11:
+  75               		.cfi_def_cfa_offset 14
+  76               		.cfi_offset 13, -13
+  77 0018 EF92      		push r14
+  78               	.LCFI12:
+  79               		.cfi_def_cfa_offset 15
+  80               		.cfi_offset 14, -14
+  81 001a FF92      		push r15
+  82               	.LCFI13:
+  83               		.cfi_def_cfa_offset 16
+  84               		.cfi_offset 15, -15
+  85 001c 0F93      		push r16
+  86               	.LCFI14:
+  87               		.cfi_def_cfa_offset 17
+  88               		.cfi_offset 16, -16
+  89 001e 1F93      		push r17
+  90               	.LCFI15:
+  91               		.cfi_def_cfa_offset 18
+  92               		.cfi_offset 17, -17
+  93 0020 CF93      		push r28
+  94               	.LCFI16:
+  95               		.cfi_def_cfa_offset 19
+  96               		.cfi_offset 28, -18
+  97 0022 DF93      		push r29
+  98               	.LCFI17:
+  99               		.cfi_def_cfa_offset 20
+ 100               		.cfi_offset 29, -19
+ 101 0024 CDB7      		in r28,__SP_L__
+ 102 0026 DEB7      		in r29,__SP_H__
+ 103               	.LCFI18:
+ 104               		.cfi_def_cfa_register 28
+ 105 0028 E597      		sbiw r28,53
+ 106               	.LCFI19:
+ 107               		.cfi_def_cfa_offset 73
+ 108 002a 0FB6      		in __tmp_reg__,__SREG__
+ 109 002c F894      		cli
+ 110 002e DEBF      		out __SP_H__,r29
+ 111 0030 0FBE      		out __SREG__,__tmp_reg__
+ 112 0032 CDBF      		out __SP_L__,r28
+ 113               	/* prologue: function */
+ 114               	/* frame size = 53 */
+ 115               	/* stack size = 71 */
+ 116               	.L__stack_usage = 71
+ 117 0034 7C01      		movw r14,r24
+ 118 0036 3B01      		movw r6,r22
+ 119 0038 2A01      		movw r4,r20
  122:../../../os/hal/lib/streams/chprintf.c ****   char *p, *s, c, filler;
+ 120               		.loc 1 122 3 is_stmt 1 view .LVU2
  123:../../../os/hal/lib/streams/chprintf.c ****   int i, precision, width;
+ 121               		.loc 1 123 3 view .LVU3
  124:../../../os/hal/lib/streams/chprintf.c ****   int n = 0;
- 364               		.loc 1 124 0
- 365 003a 1D8E      		std Y+29,__zero_reg__
- 366 003c 1C8E      		std Y+28,__zero_reg__
- 367 003e 9E01      		movw r18,r28
- 368 0040 2E5F      		subi r18,-2
- 369 0042 3F4F      		sbci r19,-1
- 370 0044 398F      		std Y+25,r19
- 371 0046 288F      		std Y+24,r18
- 372 0048 CE01      		movw r24,r28
- 373               	.LVL26:
- 374 004a 0196      		adiw r24,1
- 375 004c 9B8F      		std Y+27,r25
- 376 004e 8A8F      		std Y+26,r24
- 377 0050 281B      		sub r18,r24
- 378 0052 390B      		sbc r19,r25
- 379 0054 3BA3      		std Y+35,r19
- 380 0056 2AA3      		std Y+34,r18
- 381 0058 2150      		subi r18,1
- 382 005a 3109      		sbc r19,__zero_reg__
- 383 005c 3DA3      		std Y+37,r19
- 384 005e 2CA3      		std Y+36,r18
- 385               	.LVL27:
- 386               	.L12:
+ 122               		.loc 1 124 3 view .LVU4
+ 123               	.LVL1:
+ 124               		.loc 1 124 7 is_stmt 0 view .LVU5
+ 125 003a 312C      		mov r3,__zero_reg__
+ 126 003c 212C      		mov r2,__zero_reg__
  125:../../../os/hal/lib/streams/chprintf.c ****   bool is_long, left_align;
  126:../../../os/hal/lib/streams/chprintf.c ****   long l;
  127:../../../os/hal/lib/streams/chprintf.c **** #if CHPRINTF_USE_FLOAT
@@ -518,60 +259,11 @@
  133:../../../os/hal/lib/streams/chprintf.c **** 
  134:../../../os/hal/lib/streams/chprintf.c ****   while (true) {
  135:../../../os/hal/lib/streams/chprintf.c ****     c = *fmt++;
- 387               		.loc 1 135 0
- 388 0060 8501      		movw r16,r10
- 389 0062 0F5F      		subi r16,-1
- 390 0064 1F4F      		sbci r17,-1
- 391               	.LVL28:
- 392 0066 D501      		movw r26,r10
- 393 0068 6C91      		ld r22,X
- 394               	.LVL29:
  136:../../../os/hal/lib/streams/chprintf.c ****     if (c == 0)
- 395               		.loc 1 136 0
- 396 006a 6623      		tst r22
- 397 006c 01F0      		breq .L92
- 398               	.L100:
  137:../../../os/hal/lib/streams/chprintf.c ****       return n;
  138:../../../os/hal/lib/streams/chprintf.c ****     if (c != '%') {
- 399               		.loc 1 138 0
- 400 006e 6532      		cpi r22,lo8(37)
- 401 0070 01F0      		breq .L14
  139:../../../os/hal/lib/streams/chprintf.c ****       streamPut(chp, (uint8_t)c);
- 402               		.loc 1 139 0
- 403 0072 D101      		movw r26,r2
- 404 0074 ED91      		ld r30,X+
- 405 0076 FC91      		ld r31,X
- 406 0078 0680      		ldd __tmp_reg__,Z+6
- 407 007a F781      		ldd r31,Z+7
- 408 007c E02D      		mov r30,__tmp_reg__
- 409 007e C101      		movw r24,r2
- 410 0080 0995      		icall
- 411               	.LVL30:
  140:../../../os/hal/lib/streams/chprintf.c ****       n++;
- 412               		.loc 1 140 0
- 413 0082 EC8D      		ldd r30,Y+28
- 414 0084 FD8D      		ldd r31,Y+29
- 415 0086 3196      		adiw r30,1
- 416 0088 FD8F      		std Y+29,r31
- 417 008a EC8F      		std Y+28,r30
- 418               	.LVL31:
- 135:../../../os/hal/lib/streams/chprintf.c ****     if (c == 0)
- 419               		.loc 1 135 0
- 420 008c 5801      		movw r10,r16
- 421               	.LVL32:
- 422 008e 8501      		movw r16,r10
- 423 0090 0F5F      		subi r16,-1
- 424 0092 1F4F      		sbci r17,-1
- 425               	.LVL33:
- 426 0094 D501      		movw r26,r10
- 427 0096 6C91      		ld r22,X
- 428               	.LVL34:
- 136:../../../os/hal/lib/streams/chprintf.c ****       return n;
- 429               		.loc 1 136 0
- 430 0098 6111      		cpse r22,__zero_reg__
- 431 009a 00C0      		rjmp .L100
- 432               	.LVL35:
- 433               	.L92:
  141:../../../os/hal/lib/streams/chprintf.c ****       continue;
  142:../../../os/hal/lib/streams/chprintf.c ****     }
  143:../../../os/hal/lib/streams/chprintf.c ****     p = tmpbuf;
@@ -675,6 +367,102 @@
  241:../../../os/hal/lib/streams/chprintf.c ****         l = va_arg(ap, unsigned long);
  242:../../../os/hal/lib/streams/chprintf.c ****       else
  243:../../../os/hal/lib/streams/chprintf.c ****         l = va_arg(ap, unsigned int);
+ 127               		.loc 1 243 13 view .LVU6
+ 128 003e 9E01      		movw r18,r28
+ 129 0040 245F      		subi r18,-12
+ 130 0042 3F4F      		sbci r19,-1
+ 131 0044 398F      		std Y+25,r19
+ 132 0046 288F      		std Y+24,r18
+ 133 0048 AE01      		movw r20,r28
+ 134               	.LVL2:
+ 135               		.loc 1 243 13 view .LVU7
+ 136 004a 4F5F      		subi r20,-1
+ 137 004c 5F4F      		sbci r21,-1
+ 138 004e 5B8F      		std Y+27,r21
+ 139 0050 4A8F      		std Y+26,r20
+ 140               	.LVL3:
+ 141               	.L2:
+ 125:../../../os/hal/lib/streams/chprintf.c ****   bool is_long, left_align;
+ 142               		.loc 1 125 3 is_stmt 1 view .LVU8
+ 126:../../../os/hal/lib/streams/chprintf.c **** #if CHPRINTF_USE_FLOAT
+ 143               		.loc 1 126 3 view .LVU9
+ 128:../../../os/hal/lib/streams/chprintf.c ****   char tmpbuf[2*MAX_FILLER + 1];
+ 144               		.loc 1 128 3 view .LVU10
+ 129:../../../os/hal/lib/streams/chprintf.c **** #else
+ 145               		.loc 1 129 3 view .LVU11
+ 134:../../../os/hal/lib/streams/chprintf.c ****     c = *fmt++;
+ 146               		.loc 1 134 3 view .LVU12
+ 135:../../../os/hal/lib/streams/chprintf.c ****     if (c == 0)
+ 147               		.loc 1 135 5 view .LVU13
+ 135:../../../os/hal/lib/streams/chprintf.c ****     if (c == 0)
+ 148               		.loc 1 135 7 is_stmt 0 view .LVU14
+ 149 0052 D301      		movw r26,r6
+ 150 0054 6D91      		ld r22,X+
+ 151 0056 8D01      		movw r16,r26
+ 152               	.LVL4:
+ 136:../../../os/hal/lib/streams/chprintf.c ****       return n;
+ 153               		.loc 1 136 5 is_stmt 1 view .LVU15
+ 136:../../../os/hal/lib/streams/chprintf.c ****       return n;
+ 154               		.loc 1 136 8 is_stmt 0 view .LVU16
+ 155 0058 6623      		tst r22
+ 156 005a 01F0      		breq .L102
+ 157               	.L111:
+ 138:../../../os/hal/lib/streams/chprintf.c ****       streamPut(chp, (uint8_t)c);
+ 158               		.loc 1 138 5 is_stmt 1 view .LVU17
+ 138:../../../os/hal/lib/streams/chprintf.c ****       streamPut(chp, (uint8_t)c);
+ 159               		.loc 1 138 8 is_stmt 0 view .LVU18
+ 160 005c 6532      		cpi r22,lo8(37)
+ 161 005e 01F0      		breq .L4
+ 139:../../../os/hal/lib/streams/chprintf.c ****       n++;
+ 162               		.loc 1 139 7 is_stmt 1 view .LVU19
+ 163 0060 D701      		movw r26,r14
+ 164 0062 ED91      		ld r30,X+
+ 165 0064 FC91      		ld r31,X
+ 166 0066 0680      		ldd __tmp_reg__,Z+6
+ 167 0068 F781      		ldd r31,Z+7
+ 168 006a E02D      		mov r30,__tmp_reg__
+ 169 006c C701      		movw r24,r14
+ 170 006e 0995      		icall
+ 171               	.LVL5:
+ 140:../../../os/hal/lib/streams/chprintf.c ****       continue;
+ 172               		.loc 1 140 7 view .LVU20
+ 140:../../../os/hal/lib/streams/chprintf.c ****       continue;
+ 173               		.loc 1 140 8 is_stmt 0 view .LVU21
+ 174 0070 BFEF      		ldi r27,-1
+ 175 0072 2B1A      		sub r2,r27
+ 176 0074 3B0A      		sbc r3,r27
+ 177               	.LVL6:
+ 141:../../../os/hal/lib/streams/chprintf.c ****     }
+ 178               		.loc 1 141 7 is_stmt 1 view .LVU22
+ 135:../../../os/hal/lib/streams/chprintf.c ****     if (c == 0)
+ 179               		.loc 1 135 13 is_stmt 0 view .LVU23
+ 180 0076 3801      		movw r6,r16
+ 181               	.LVL7:
+ 125:../../../os/hal/lib/streams/chprintf.c ****   long l;
+ 182               		.loc 1 125 3 is_stmt 1 view .LVU24
+ 126:../../../os/hal/lib/streams/chprintf.c **** #if CHPRINTF_USE_FLOAT
+ 183               		.loc 1 126 3 view .LVU25
+ 128:../../../os/hal/lib/streams/chprintf.c ****   char tmpbuf[2*MAX_FILLER + 1];
+ 184               		.loc 1 128 3 view .LVU26
+ 129:../../../os/hal/lib/streams/chprintf.c **** #else
+ 185               		.loc 1 129 3 view .LVU27
+ 134:../../../os/hal/lib/streams/chprintf.c ****     c = *fmt++;
+ 186               		.loc 1 134 3 view .LVU28
+ 135:../../../os/hal/lib/streams/chprintf.c ****     if (c == 0)
+ 187               		.loc 1 135 5 view .LVU29
+ 135:../../../os/hal/lib/streams/chprintf.c ****     if (c == 0)
+ 188               		.loc 1 135 7 is_stmt 0 view .LVU30
+ 189 0078 D301      		movw r26,r6
+ 190 007a 6D91      		ld r22,X+
+ 191 007c 8D01      		movw r16,r26
+ 192               	.LVL8:
+ 136:../../../os/hal/lib/streams/chprintf.c ****       return n;
+ 193               		.loc 1 136 5 is_stmt 1 view .LVU31
+ 136:../../../os/hal/lib/streams/chprintf.c ****       return n;
+ 194               		.loc 1 136 8 is_stmt 0 view .LVU32
+ 195 007e 6111      		cpse r22,__zero_reg__
+ 196 0080 00C0      		rjmp .L111
+ 197               	.L102:
  244:../../../os/hal/lib/streams/chprintf.c ****       p = ch_ltoa(p, l, c);
  245:../../../os/hal/lib/streams/chprintf.c ****       break;
  246:../../../os/hal/lib/streams/chprintf.c ****     default:
@@ -709,1263 +497,2154 @@
  275:../../../os/hal/lib/streams/chprintf.c ****     }
  276:../../../os/hal/lib/streams/chprintf.c ****   }
  277:../../../os/hal/lib/streams/chprintf.c **** }
- 434               		.loc 1 277 0
- 435 009c 8C8D      		ldd r24,Y+28
- 436 009e 9D8D      		ldd r25,Y+29
- 437               	/* epilogue start */
- 438 00a0 E396      		adiw r28,51
- 439 00a2 0FB6      		in __tmp_reg__,__SREG__
- 440 00a4 F894      		cli
- 441 00a6 DEBF      		out __SP_H__,r29
- 442 00a8 0FBE      		out __SREG__,__tmp_reg__
- 443 00aa CDBF      		out __SP_L__,r28
- 444 00ac DF91      		pop r29
- 445 00ae CF91      		pop r28
- 446 00b0 1F91      		pop r17
- 447 00b2 0F91      		pop r16
- 448               	.LVL36:
- 449 00b4 FF90      		pop r15
- 450 00b6 EF90      		pop r14
- 451 00b8 DF90      		pop r13
- 452 00ba CF90      		pop r12
- 453 00bc BF90      		pop r11
- 454 00be AF90      		pop r10
- 455 00c0 9F90      		pop r9
- 456 00c2 8F90      		pop r8
- 457               	.LVL37:
- 458 00c4 7F90      		pop r7
- 459 00c6 6F90      		pop r6
- 460 00c8 5F90      		pop r5
- 461 00ca 4F90      		pop r4
- 462 00cc 3F90      		pop r3
- 463 00ce 2F90      		pop r2
- 464               	.LVL38:
- 465 00d0 0895      		ret
- 466               	.LVL39:
- 467               	.L14:
- 146:../../../os/hal/lib/streams/chprintf.c ****       fmt++;
- 468               		.loc 1 146 0
- 469 00d2 D501      		movw r26,r10
- 470 00d4 1196      		adiw r26,1
- 471 00d6 8C91      		ld r24,X
- 472 00d8 1197      		sbiw r26,1
- 473 00da 8D32      		cpi r24,lo8(45)
- 474 00dc 01F4      		brne .+2
- 475 00de 00C0      		rjmp .L101
+ 198               		.loc 1 277 1 view .LVU33
+ 199 0082 C101      		movw r24,r2
+ 200               	/* epilogue start */
+ 201 0084 E596      		adiw r28,53
+ 202 0086 0FB6      		in __tmp_reg__,__SREG__
+ 203 0088 F894      		cli
+ 204 008a DEBF      		out __SP_H__,r29
+ 205 008c 0FBE      		out __SREG__,__tmp_reg__
+ 206 008e CDBF      		out __SP_L__,r28
+ 207 0090 DF91      		pop r29
+ 208 0092 CF91      		pop r28
+ 209 0094 1F91      		pop r17
+ 210 0096 0F91      		pop r16
+ 211 0098 FF90      		pop r15
+ 212 009a EF90      		pop r14
+ 213 009c DF90      		pop r13
+ 214 009e CF90      		pop r12
+ 215 00a0 BF90      		pop r11
+ 216 00a2 AF90      		pop r10
+ 217 00a4 9F90      		pop r9
+ 218 00a6 8F90      		pop r8
+ 219 00a8 7F90      		pop r7
+ 220 00aa 6F90      		pop r6
+ 221               	.LVL9:
+ 222               		.loc 1 277 1 view .LVU34
+ 223 00ac 5F90      		pop r5
+ 224 00ae 4F90      		pop r4
+ 225               	.LVL10:
+ 226               		.loc 1 277 1 view .LVU35
+ 227 00b0 3F90      		pop r3
+ 228 00b2 2F90      		pop r2
+ 229               	.LVL11:
+ 230               		.loc 1 277 1 view .LVU36
+ 231 00b4 0895      		ret
+ 232               	.LVL12:
+ 233               	.L4:
+ 143:../../../os/hal/lib/streams/chprintf.c ****     s = tmpbuf;
+ 234               		.loc 1 143 5 is_stmt 1 view .LVU37
+ 144:../../../os/hal/lib/streams/chprintf.c ****     left_align = FALSE;
+ 235               		.loc 1 144 5 view .LVU38
  145:../../../os/hal/lib/streams/chprintf.c ****     if (*fmt == '-') {
- 476               		.loc 1 145 0
- 477 00e0 612C      		mov r6,__zero_reg__
- 478               	.LVL40:
- 479               	.L16:
- 151:../../../os/hal/lib/streams/chprintf.c ****       fmt++;
- 480               		.loc 1 151 0
- 481 00e2 8033      		cpi r24,lo8(48)
- 482 00e4 01F4      		brne .+2
- 483 00e6 00C0      		rjmp .L102
+ 236               		.loc 1 145 5 view .LVU39
+ 146:../../../os/hal/lib/streams/chprintf.c ****       fmt++;
+ 237               		.loc 1 146 5 view .LVU40
+ 146:../../../os/hal/lib/streams/chprintf.c ****       fmt++;
+ 238               		.loc 1 146 9 is_stmt 0 view .LVU41
+ 239 00b6 F301      		movw r30,r6
+ 240 00b8 8181      		ldd r24,Z+1
+ 146:../../../os/hal/lib/streams/chprintf.c ****       fmt++;
+ 241               		.loc 1 146 8 view .LVU42
+ 242 00ba 8D32      		cpi r24,lo8(45)
+ 243 00bc 01F4      		brne .+2
+ 244 00be 00C0      		rjmp .L112
+ 145:../../../os/hal/lib/streams/chprintf.c ****     if (*fmt == '-') {
+ 245               		.loc 1 145 16 view .LVU43
+ 246 00c0 19A2      		std Y+33,__zero_reg__
+ 247               	.LVL13:
+ 248               	.L6:
  150:../../../os/hal/lib/streams/chprintf.c ****     if (*fmt == '0') {
- 484               		.loc 1 150 0
- 485 00e8 90E2      		ldi r25,lo8(32)
- 486 00ea 792E      		mov r7,r25
- 487               	.LVL41:
- 488               	.L17:
- 489 00ec A801      		movw r20,r16
- 490 00ee 4F5F      		subi r20,-1
- 491 00f0 5F4F      		sbci r21,-1
+ 249               		.loc 1 150 5 is_stmt 1 view .LVU44
+ 151:../../../os/hal/lib/streams/chprintf.c ****       fmt++;
+ 250               		.loc 1 151 5 view .LVU45
+ 151:../../../os/hal/lib/streams/chprintf.c ****       fmt++;
+ 251               		.loc 1 151 8 is_stmt 0 view .LVU46
+ 252 00c2 8033      		cpi r24,lo8(48)
+ 253 00c4 01F4      		brne .+2
+ 254 00c6 00C0      		rjmp .L113
+ 150:../../../os/hal/lib/streams/chprintf.c ****     if (*fmt == '0') {
+ 255               		.loc 1 150 12 view .LVU47
+ 256 00c8 E0E2      		ldi r30,lo8(32)
+ 257 00ca E8A3      		std Y+32,r30
+ 258               	.LVL14:
+ 259               	.L7:
  155:../../../os/hal/lib/streams/chprintf.c ****     while (TRUE) {
- 492               		.loc 1 155 0
- 493 00f2 C12C      		mov r12,__zero_reg__
- 494 00f4 D12C      		mov r13,__zero_reg__
- 495 00f6 D401      		movw r26,r8
- 496 00f8 00C0      		rjmp .L20
- 497               	.LVL42:
- 498               	.L103:
+ 260               		.loc 1 155 5 is_stmt 1 view .LVU48
+ 155:../../../os/hal/lib/streams/chprintf.c ****     while (TRUE) {
+ 261               		.loc 1 155 5 is_stmt 0 view .LVU49
+ 262 00cc F801      		movw r30,r16
+ 263 00ce 3196      		adiw r30,1
+ 155:../../../os/hal/lib/streams/chprintf.c ****     while (TRUE) {
+ 264               		.loc 1 155 11 view .LVU50
+ 265 00d0 D12C      		mov r13,__zero_reg__
+ 266 00d2 C12C      		mov r12,__zero_reg__
+ 267 00d4 00C0      		rjmp .L10
+ 268               	.LVL15:
+ 269               	.L114:
  161:../../../os/hal/lib/streams/chprintf.c ****       else
- 499               		.loc 1 161 0
- 500 00fa 9C91      		ld r25,X
- 501               	.LVL43:
- 502 00fc 1296      		adiw r26,2
- 503               	.LVL44:
- 504               	.L18:
+ 270               		.loc 1 161 9 is_stmt 1 view .LVU51
+ 161:../../../os/hal/lib/streams/chprintf.c ****       else
+ 271               		.loc 1 161 11 is_stmt 0 view .LVU52
+ 272 00d6 D201      		movw r26,r4
+ 273 00d8 2C91      		ld r18,X
+ 274               	.LVL16:
+ 161:../../../os/hal/lib/streams/chprintf.c ****       else
+ 275               		.loc 1 161 13 view .LVU53
+ 276 00da A201      		movw r20,r4
+ 277 00dc 4E5F      		subi r20,-2
+ 278 00de 5F4F      		sbci r21,-1
+ 279               	.LVL17:
+ 161:../../../os/hal/lib/streams/chprintf.c ****       else
+ 280               		.loc 1 161 13 view .LVU54
+ 281 00e0 2A01      		movw r4,r20
+ 282               	.LVL18:
+ 283               	.L8:
  164:../../../os/hal/lib/streams/chprintf.c ****     }
- 505               		.loc 1 164 0
- 506 00fe 9601      		movw r18,r12
- 507 0100 220F      		lsl r18
- 508 0102 331F      		rol r19
- 509 0104 CC0C      		lsl r12
- 510 0106 DD1C      		rol r13
- 511 0108 CC0C      		lsl r12
- 512 010a DD1C      		rol r13
- 513 010c CC0C      		lsl r12
- 514 010e DD1C      		rol r13
- 515               	.LVL45:
- 516 0110 C20E      		add r12,r18
- 517 0112 D31E      		adc r13,r19
- 518 0114 C90E      		add r12,r25
- 519 0116 D11C      		adc r13,__zero_reg__
- 520               	.LVL46:
- 521 0118 4F5F      		subi r20,-1
- 522 011a 5F4F      		sbci r21,-1
- 523               	.LVL47:
- 524 011c 8081      		ld r24,Z
- 525               	.LVL48:
- 526               	.L20:
+ 284               		.loc 1 164 7 is_stmt 1 view .LVU55
+ 164:../../../os/hal/lib/streams/chprintf.c ****     }
+ 285               		.loc 1 164 21 is_stmt 0 view .LVU56
+ 286 00e2 C601      		movw r24,r12
+ 287 00e4 880F      		lsl r24
+ 288 00e6 991F      		rol r25
+ 289 00e8 880F      		lsl r24
+ 290 00ea 991F      		rol r25
+ 291 00ec C80E      		add r12,r24
+ 292 00ee D91E      		adc r13,r25
+ 293               	.LVL19:
+ 164:../../../os/hal/lib/streams/chprintf.c ****     }
+ 294               		.loc 1 164 21 view .LVU57
+ 295 00f0 CC0C      		lsl r12
+ 296 00f2 DD1C      		rol r13
+ 164:../../../os/hal/lib/streams/chprintf.c ****     }
+ 297               		.loc 1 164 13 view .LVU58
+ 298 00f4 C20E      		add r12,r18
+ 299 00f6 D11C      		adc r13,__zero_reg__
+ 300               	.LVL20:
+ 164:../../../os/hal/lib/streams/chprintf.c ****     }
+ 301               		.loc 1 164 13 view .LVU59
+ 302 00f8 8191      		ld r24,Z+
+ 303               	.LVL21:
+ 304               	.L10:
+ 156:../../../os/hal/lib/streams/chprintf.c ****       c = *fmt++;
+ 305               		.loc 1 156 5 is_stmt 1 view .LVU60
  157:../../../os/hal/lib/streams/chprintf.c ****       if (c >= '0' && c <= '9')
- 527               		.loc 1 157 0
- 528 011e FA01      		movw r30,r20
- 529               	.LVL49:
+ 306               		.loc 1 157 7 view .LVU61
+ 157:../../../os/hal/lib/streams/chprintf.c ****       if (c >= '0' && c <= '9')
+ 307               		.loc 1 157 15 is_stmt 0 view .LVU62
+ 308 00fa 3F01      		movw r6,r30
+ 309               	.LVL22:
  158:../../../os/hal/lib/streams/chprintf.c ****         c -= '0';
- 530               		.loc 1 158 0
- 531 0120 90ED      		ldi r25,lo8(-48)
- 532 0122 980F      		add r25,r24
- 533 0124 9A30      		cpi r25,lo8(10)
- 534 0126 00F0      		brlo .L18
+ 310               		.loc 1 158 7 is_stmt 1 view .LVU63
+ 158:../../../os/hal/lib/streams/chprintf.c ****         c -= '0';
+ 311               		.loc 1 158 20 is_stmt 0 view .LVU64
+ 312 00fc 20ED      		ldi r18,lo8(-48)
+ 313 00fe 280F      		add r18,r24
+ 158:../../../os/hal/lib/streams/chprintf.c ****         c -= '0';
+ 314               		.loc 1 158 10 view .LVU65
+ 315 0100 2A30      		cpi r18,lo8(10)
+ 316 0102 00F0      		brlo .L8
  160:../../../os/hal/lib/streams/chprintf.c ****         c = va_arg(ap, int);
- 535               		.loc 1 160 0
- 536 0128 8A32      		cpi r24,lo8(42)
- 537 012a 01F0      		breq .L103
- 538 012c 5A01      		movw r10,r20
- 539 012e 4D01      		movw r8,r26
- 540               	.LVL50:
+ 317               		.loc 1 160 12 is_stmt 1 view .LVU66
+ 160:../../../os/hal/lib/streams/chprintf.c ****         c = va_arg(ap, int);
+ 318               		.loc 1 160 15 is_stmt 0 view .LVU67
+ 319 0104 8A32      		cpi r24,lo8(42)
+ 320 0106 01F0      		breq .L114
+ 166:../../../os/hal/lib/streams/chprintf.c ****     if (c == '.') {
+ 321               		.loc 1 166 5 is_stmt 1 view .LVU68
+ 322               	.LVL23:
  167:../../../os/hal/lib/streams/chprintf.c ****       while (TRUE) {
- 541               		.loc 1 167 0
- 542 0130 00E0      		ldi r16,0
- 543 0132 10E0      		ldi r17,0
- 544 0134 8E32      		cpi r24,lo8(46)
- 545 0136 01F4      		brne .+2
- 546 0138 00C0      		rjmp .L23
- 547               	.LVL51:
+ 323               		.loc 1 167 5 view .LVU69
+ 166:../../../os/hal/lib/streams/chprintf.c ****     if (c == '.') {
+ 324               		.loc 1 166 15 is_stmt 0 view .LVU70
+ 325 0108 10E0      		ldi r17,0
+ 326 010a 00E0      		ldi r16,0
+ 167:../../../os/hal/lib/streams/chprintf.c ****       while (TRUE) {
+ 327               		.loc 1 167 8 view .LVU71
+ 328 010c 8E32      		cpi r24,lo8(46)
+ 329 010e 01F4      		brne .+2
+ 330 0110 00C0      		rjmp .L13
+ 331               	.LVL24:
  181:../../../os/hal/lib/streams/chprintf.c ****       is_long = TRUE;
- 548               		.loc 1 181 0
- 549 013a 982F      		mov r25,r24
- 550 013c 9F7D      		andi r25,lo8(-33)
- 551 013e 9C34      		cpi r25,lo8(76)
- 552 0140 01F4      		brne .+2
- 553 0142 00C0      		rjmp .L104
- 554               	.LVL52:
- 555               	.L93:
+ 332               		.loc 1 181 5 is_stmt 1 view .LVU72
+ 181:../../../os/hal/lib/streams/chprintf.c ****       is_long = TRUE;
+ 333               		.loc 1 181 18 is_stmt 0 view .LVU73
+ 334 0112 982F      		mov r25,r24
+ 335 0114 9F7D      		andi r25,lo8(-33)
+ 336 0116 9C34      		cpi r25,lo8(76)
+ 337 0118 01F4      		brne .+2
+ 338 011a 00C0      		rjmp .L115
+ 339               	.LVL25:
+ 340               	.L103:
  187:../../../os/hal/lib/streams/chprintf.c **** 
- 556               		.loc 1 187 0
- 557 0144 31E0      		ldi r19,lo8(1)
- 558 0146 9FEB      		ldi r25,lo8(-65)
- 559 0148 980F      		add r25,r24
- 560 014a 9A31      		cpi r25,lo8(26)
- 561 014c 00F0      		brlo .L35
- 562 014e 30E0      		ldi r19,0
- 563               	.L35:
- 564               	.LVL53:
+ 341               		.loc 1 187 7 is_stmt 1 view .LVU74
+ 187:../../../os/hal/lib/streams/chprintf.c **** 
+ 342               		.loc 1 187 28 is_stmt 0 view .LVU75
+ 343 011c 9FEB      		ldi r25,lo8(-65)
+ 344 011e 980F      		add r25,r24
+ 345               	.LVL26:
  190:../../../os/hal/lib/streams/chprintf.c ****     case 'c':
- 565               		.loc 1 190 0
- 566 0150 482F      		mov r20,r24
- 567 0152 50E0      		ldi r21,0
- 568 0154 FA01      		movw r30,r20
- 569 0156 E454      		subi r30,68
- 570 0158 F109      		sbc r31,__zero_reg__
- 571 015a E533      		cpi r30,53
- 572 015c F105      		cpc r31,__zero_reg__
- 573 015e 00F4      		brsh .+2
- 574 0160 00C0      		rjmp .L105
- 575               	.LVL54:
- 576               	.L26:
+ 346               		.loc 1 190 5 is_stmt 1 view .LVU76
+ 347 0120 ECEB      		ldi r30,lo8(-68)
+ 348 0122 E80F      		add r30,r24
+ 349 0124 E533      		cpi r30,lo8(53)
+ 350 0126 00F4      		brsh .+2
+ 351 0128 00C0      		rjmp .L116
+ 352               	.LVL27:
+ 353               	.L16:
  247:../../../os/hal/lib/streams/chprintf.c ****       break;
- 577               		.loc 1 247 0
- 578 0162 8983      		std Y+1,r24
- 579 0164 8AA1      		ldd r24,Y+34
- 580 0166 9BA1      		ldd r25,Y+35
- 581               	.LVL55:
- 582 0168 4CA0      		ldd r4,Y+36
- 583 016a 5DA0      		ldd r5,Y+37
+ 354               		.loc 1 247 7 view .LVU77
+ 247:../../../os/hal/lib/streams/chprintf.c ****       break;
+ 355               		.loc 1 247 12 is_stmt 0 view .LVU78
+ 356 012a 8983      		std Y+1,r24
+ 248:../../../os/hal/lib/streams/chprintf.c ****     }
+ 357               		.loc 1 248 7 is_stmt 1 view .LVU79
+ 358 012c 912C      		mov r9,__zero_reg__
+ 359 012e 812C      		mov r8,__zero_reg__
+ 360 0130 61E0      		ldi r22,lo8(1)
+ 361 0132 70E0      		ldi r23,0
  144:../../../os/hal/lib/streams/chprintf.c ****     left_align = FALSE;
- 584               		.loc 1 144 0
- 585 016c FE01      		movw r30,r28
- 586 016e 3196      		adiw r30,1
- 587 0170 7F01      		movw r14,r30
- 588               	.LVL56:
- 589               	.L39:
- 590 0172 C81A      		sub r12,r24
- 591 0174 D90A      		sbc r13,r25
- 592               	.LVL57:
- 593 0176 D7FC      		sbrc r13,7
- 594 0178 00C0      		rjmp .L106
- 595               	.LVL58:
- 596               	.L53:
+ 362               		.loc 1 144 7 is_stmt 0 view .LVU80
+ 363 0134 AE01      		movw r20,r28
+ 364 0136 4F5F      		subi r20,-1
+ 365 0138 5F4F      		sbci r21,-1
+ 366 013a 5A01      		movw r10,r20
+ 367               	.LVL28:
+ 368               	.L30:
+ 250:../../../os/hal/lib/streams/chprintf.c ****     if ((width -= i) < 0)
+ 369               		.loc 1 250 5 is_stmt 1 view .LVU81
+ 251:../../../os/hal/lib/streams/chprintf.c ****       width = 0;
+ 370               		.loc 1 251 5 view .LVU82
+ 251:../../../os/hal/lib/streams/chprintf.c ****       width = 0;
+ 371               		.loc 1 251 16 is_stmt 0 view .LVU83
+ 372 013c 8601      		movw r16,r12
+ 373 013e 061B      		sub r16,r22
+ 374 0140 170B      		sbc r17,r23
+ 375               	.LVL29:
+ 251:../../../os/hal/lib/streams/chprintf.c ****       width = 0;
+ 376               		.loc 1 251 8 view .LVU84
+ 377 0142 17FD      		sbrc r17,7
+ 378 0144 00C0      		rjmp .L117
+ 379               	.L58:
  253:../../../os/hal/lib/streams/chprintf.c ****       width = -width;
- 597               		.loc 1 253 0
- 598 017a 6110      		cpse r6,__zero_reg__
- 599 017c 00C0      		rjmp .L54
- 600               	.LVL59:
- 601               	.L67:
+ 380               		.loc 1 253 5 is_stmt 1 view .LVU85
+ 253:../../../os/hal/lib/streams/chprintf.c ****       width = -width;
+ 381               		.loc 1 253 8 is_stmt 0 view .LVU86
+ 382 0146 89A1      		ldd r24,Y+33
+ 383 0148 8111      		cpse r24,__zero_reg__
+ 384 014a 00C0      		rjmp .L61
  254:../../../os/hal/lib/streams/chprintf.c ****     if (width < 0) {
- 602               		.loc 1 254 0
- 603 017e 0027      		clr r16
- 604 0180 1127      		clr r17
- 605 0182 0C19      		sub r16,r12
- 606 0184 1D09      		sbc r17,r13
- 607               	.LVL60:
+ 385               		.loc 1 254 7 is_stmt 1 view .LVU87
+ 254:../../../os/hal/lib/streams/chprintf.c ****     if (width < 0) {
+ 386               		.loc 1 254 13 is_stmt 0 view .LVU88
+ 387 014c DB01      		movw r26,r22
+ 388 014e AC19      		sub r26,r12
+ 389 0150 BD09      		sbc r27,r13
+ 390 0152 BD8F      		std Y+29,r27
+ 391 0154 AC8F      		std Y+28,r26
+ 392               	.LVL30:
  255:../../../os/hal/lib/streams/chprintf.c ****       if (*s == '-' && filler == '0') {
- 608               		.loc 1 255 0
- 609 0186 01F4      		brne .+2
- 610 0188 00C0      		rjmp .L55
+ 393               		.loc 1 255 5 is_stmt 1 view .LVU89
+ 255:../../../os/hal/lib/streams/chprintf.c ****       if (*s == '-' && filler == '0') {
+ 394               		.loc 1 255 8 is_stmt 0 view .LVU90
+ 395 0156 012B      		or r16,r17
+ 396 0158 01F4      		brne .+2
+ 397 015a 00C0      		rjmp .L118
+ 398               	.LVL31:
+ 399               	.L74:
  256:../../../os/hal/lib/streams/chprintf.c ****         streamPut(chp, (uint8_t)*s++);
- 611               		.loc 1 256 0
- 612 018a D701      		movw r26,r14
- 613 018c 8C91      		ld r24,X
- 614 018e 8D32      		cpi r24,lo8(45)
- 615 0190 01F4      		brne .+2
- 616 0192 00C0      		rjmp .L107
- 617               	.L56:
- 258:../../../os/hal/lib/streams/chprintf.c ****         i--;
- 618               		.loc 1 258 0 discriminator 1
- 619 0194 6801      		movw r12,r16
- 620               	.LVL61:
- 621               	.L57:
+ 400               		.loc 1 256 7 is_stmt 1 view .LVU91
+ 401 015c D701      		movw r26,r14
+ 402 015e ED91      		ld r30,X+
+ 403 0160 FC91      		ld r31,X
+ 404 0162 0680      		ldd __tmp_reg__,Z+6
+ 405 0164 F781      		ldd r31,Z+7
+ 406 0166 E02D      		mov r30,__tmp_reg__
+ 256:../../../os/hal/lib/streams/chprintf.c ****         streamPut(chp, (uint8_t)*s++);
+ 407               		.loc 1 256 10 is_stmt 0 view .LVU92
+ 408 0168 D501      		movw r26,r10
+ 409 016a 8C91      		ld r24,X
+ 410 016c 8D32      		cpi r24,lo8(45)
+ 411 016e 01F4      		brne .+2
+ 412 0170 00C0      		rjmp .L119
+ 413               	.L62:
+ 255:../../../os/hal/lib/streams/chprintf.c ****       if (*s == '-' && filler == '0') {
+ 414               		.loc 1 255 8 discriminator 1 view .LVU93
+ 415 0172 0C8D      		ldd r16,Y+28
+ 416 0174 1D8D      		ldd r17,Y+29
+ 417 0176 D8A0      		ldd r13,Y+32
+ 418 0178 00C0      		rjmp .L64
+ 419               	.LVL32:
+ 420               	.L120:
+ 255:../../../os/hal/lib/streams/chprintf.c ****       if (*s == '-' && filler == '0') {
+ 421               		.loc 1 255 8 discriminator 1 view .LVU94
+ 422 017a D701      		movw r26,r14
+ 423 017c ED91      		ld r30,X+
+ 424 017e FC91      		ld r31,X
+ 425 0180 0680      		ldd __tmp_reg__,Z+6
+ 426 0182 F781      		ldd r31,Z+7
+ 427 0184 E02D      		mov r30,__tmp_reg__
+ 428               	.LVL33:
+ 429               	.L64:
+ 261:../../../os/hal/lib/streams/chprintf.c ****         streamPut(chp, (uint8_t)filler);
+ 430               		.loc 1 261 7 is_stmt 1 discriminator 1 view .LVU95
  262:../../../os/hal/lib/streams/chprintf.c ****         n++;
- 622               		.loc 1 262 0 discriminator 1
- 623 0196 D101      		movw r26,r2
- 624 0198 ED91      		ld r30,X+
- 625 019a FC91      		ld r31,X
- 626 019c 0680      		ldd __tmp_reg__,Z+6
- 627 019e F781      		ldd r31,Z+7
- 628 01a0 E02D      		mov r30,__tmp_reg__
- 629 01a2 672D      		mov r22,r7
- 630 01a4 C101      		movw r24,r2
- 631 01a6 0995      		icall
- 632               	.LVL62:
+ 431               		.loc 1 262 9 discriminator 1 view .LVU96
+ 432 0186 6D2D      		mov r22,r13
+ 433 0188 C701      		movw r24,r14
+ 434 018a 0995      		icall
+ 435               	.LVL34:
+ 263:../../../os/hal/lib/streams/chprintf.c ****       } while (++width != 0);
+ 436               		.loc 1 263 9 discriminator 1 view .LVU97
  264:../../../os/hal/lib/streams/chprintf.c ****     }
- 633               		.loc 1 264 0 discriminator 1
- 634 01a8 BFEF      		ldi r27,-1
- 635 01aa CB1A      		sub r12,r27
- 636 01ac DB0A      		sbc r13,r27
- 637               	.LVL63:
- 638 01ae 01F4      		brne .L57
- 639 01b0 2C8D      		ldd r18,Y+28
- 640 01b2 3D8D      		ldd r19,Y+29
- 641 01b4 201B      		sub r18,r16
- 642 01b6 310B      		sbc r19,r17
- 643 01b8 3D8F      		std Y+29,r19
- 644 01ba 2C8F      		std Y+28,r18
- 645               	.LVL64:
+ 437               		.loc 1 264 7 is_stmt 0 discriminator 1 view .LVU98
+ 438 018c 0F5F      		subi r16,-1
+ 439 018e 1F4F      		sbci r17,-1
+ 440               	.LVL35:
+ 264:../../../os/hal/lib/streams/chprintf.c ****     }
+ 441               		.loc 1 264 7 discriminator 1 view .LVU99
+ 442 0190 01F4      		brne .L120
+ 443 0192 EC8D      		ldd r30,Y+28
+ 444 0194 FD8D      		ldd r31,Y+29
+ 445 0196 2E1A      		sub r2,r30
+ 446 0198 3F0A      		sbc r3,r31
+ 447               	.LVL36:
  266:../../../os/hal/lib/streams/chprintf.c ****       streamPut(chp, (uint8_t)*s++);
- 646               		.loc 1 266 0
- 647 01bc 57FC      		sbrc r5,7
- 648 01be 00C0      		rjmp .L12
- 649               	.LVL65:
- 650               	.L65:
- 651 01c0 8701      		movw r16,r14
- 652 01c2 7201      		movw r14,r4
- 653               	.LVL66:
- 654               	.L60:
+ 448               		.loc 1 266 11 view .LVU100
+ 449 019a 97FC      		sbrc r9,7
+ 450 019c 00C0      		rjmp .L2
+ 451               	.LVL37:
+ 452               	.L67:
+ 266:../../../os/hal/lib/streams/chprintf.c ****       streamPut(chp, (uint8_t)*s++);
+ 453               		.loc 1 266 11 view .LVU101
+ 454 019e 6501      		movw r12,r10
+ 455 01a0 C80C      		add r12,r8
+ 456 01a2 D91C      		adc r13,r9
+ 457               	.L65:
+ 458               	.LVL38:
  267:../../../os/hal/lib/streams/chprintf.c ****       n++;
- 655               		.loc 1 267 0
- 656 01c4 F801      		movw r30,r16
- 657 01c6 6191      		ld r22,Z+
- 658               	.LVL67:
- 659 01c8 8F01      		movw r16,r30
- 660 01ca D101      		movw r26,r2
- 661 01cc ED91      		ld r30,X+
- 662 01ce FC91      		ld r31,X
- 663               	.LVL68:
- 664 01d0 0680      		ldd __tmp_reg__,Z+6
- 665 01d2 F781      		ldd r31,Z+7
- 666 01d4 E02D      		mov r30,__tmp_reg__
- 667 01d6 C101      		movw r24,r2
- 668 01d8 0995      		icall
- 669               	.LVL69:
+ 459               		.loc 1 267 7 is_stmt 1 view .LVU102
+ 267:../../../os/hal/lib/streams/chprintf.c ****       n++;
+ 460               		.loc 1 267 7 is_stmt 0 view .LVU103
+ 461 01a4 D701      		movw r26,r14
+ 462 01a6 ED91      		ld r30,X+
+ 463 01a8 FC91      		ld r31,X
+ 464 01aa 0680      		ldd __tmp_reg__,Z+6
+ 465 01ac F781      		ldd r31,Z+7
+ 466 01ae E02D      		mov r30,__tmp_reg__
+ 467 01b0 D501      		movw r26,r10
+ 468 01b2 6D91      		ld r22,X+
+ 469 01b4 5D01      		movw r10,r26
+ 470               	.LVL39:
+ 267:../../../os/hal/lib/streams/chprintf.c ****       n++;
+ 471               		.loc 1 267 7 view .LVU104
+ 472 01b6 C701      		movw r24,r14
+ 473 01b8 0995      		icall
+ 474               	.LVL40:
+ 268:../../../os/hal/lib/streams/chprintf.c ****     }
+ 475               		.loc 1 268 7 is_stmt 1 view .LVU105
+ 268:../../../os/hal/lib/streams/chprintf.c ****     }
+ 476               		.loc 1 268 7 is_stmt 0 view .LVU106
+ 477 01ba C601      		movw r24,r12
+ 478 01bc 8A19      		sub r24,r10
+ 479 01be 9B09      		sbc r25,r11
  266:../../../os/hal/lib/streams/chprintf.c ****       streamPut(chp, (uint8_t)*s++);
- 670               		.loc 1 266 0
- 671               	.LVL70:
- 672 01da B1E0      		ldi r27,1
- 673 01dc EB1A      		sub r14,r27
- 674 01de F108      		sbc r15,__zero_reg__
- 675 01e0 00F4      		brcc .L60
- 676 01e2 8C8D      		ldd r24,Y+28
- 677 01e4 9D8D      		ldd r25,Y+29
- 678 01e6 0196      		adiw r24,1
- 679 01e8 57FC      		sbrc r5,7
- 680 01ea 00C0      		rjmp .L108
- 681               	.L61:
- 682 01ec 9C01      		movw r18,r24
- 683 01ee 240D      		add r18,r4
- 684 01f0 351D      		adc r19,r5
- 685 01f2 3D8F      		std Y+29,r19
- 686 01f4 2C8F      		std Y+28,r18
- 687               	.LVL71:
- 688               	.L59:
+ 480               		.loc 1 266 11 view .LVU107
+ 481 01c0 97FF      		sbrs r25,7
+ 482 01c2 00C0      		rjmp .L65
+ 483 01c4 BFEF      		ldi r27,-1
+ 484 01c6 2B1A      		sub r2,r27
+ 485 01c8 3B0A      		sbc r3,r27
+ 486 01ca 280C      		add r2,r8
+ 487 01cc 391C      		adc r3,r9
+ 488               	.LVL41:
+ 489               	.L66:
  271:../../../os/hal/lib/streams/chprintf.c ****       streamPut(chp, (uint8_t)filler);
- 689               		.loc 1 271 0
- 690 01f6 C114      		cp r12,__zero_reg__
- 691 01f8 D104      		cpc r13,__zero_reg__
- 692 01fa 01F4      		brne .+2
- 693 01fc 00C0      		rjmp .L12
- 694 01fe 8601      		movw r16,r12
- 695               	.LVL72:
- 696               	.L62:
+ 490               		.loc 1 271 11 view .LVU108
+ 491 01ce 0115      		cp r16,__zero_reg__
+ 492 01d0 1105      		cpc r17,__zero_reg__
+ 493 01d2 01F4      		brne .+2
+ 494 01d4 00C0      		rjmp .L2
+ 271:../../../os/hal/lib/streams/chprintf.c ****       streamPut(chp, (uint8_t)filler);
+ 495               		.loc 1 271 11 view .LVU109
+ 496 01d6 6801      		movw r12,r16
+ 497 01d8 B8A0      		ldd r11,Y+32
+ 498               	.LVL42:
+ 499               	.L68:
  272:../../../os/hal/lib/streams/chprintf.c ****       n++;
- 697               		.loc 1 272 0
- 698 0200 D101      		movw r26,r2
- 699 0202 ED91      		ld r30,X+
- 700 0204 FC91      		ld r31,X
- 701 0206 0680      		ldd __tmp_reg__,Z+6
- 702 0208 F781      		ldd r31,Z+7
- 703 020a E02D      		mov r30,__tmp_reg__
- 704 020c 672D      		mov r22,r7
- 705 020e C101      		movw r24,r2
- 706 0210 0995      		icall
- 707               	.LVL73:
+ 500               		.loc 1 272 7 is_stmt 1 view .LVU110
+ 501 01da D701      		movw r26,r14
+ 502 01dc ED91      		ld r30,X+
+ 503 01de FC91      		ld r31,X
+ 504 01e0 0680      		ldd __tmp_reg__,Z+6
+ 505 01e2 F781      		ldd r31,Z+7
+ 506 01e4 E02D      		mov r30,__tmp_reg__
+ 507 01e6 6B2D      		mov r22,r11
+ 508 01e8 C701      		movw r24,r14
+ 509 01ea 0995      		icall
+ 510               	.LVL43:
+ 273:../../../os/hal/lib/streams/chprintf.c ****       width--;
+ 511               		.loc 1 273 7 view .LVU111
  274:../../../os/hal/lib/streams/chprintf.c ****     }
- 708               		.loc 1 274 0
- 709 0212 0150      		subi r16,1
- 710 0214 1109      		sbc r17,__zero_reg__
- 711               	.LVL74:
+ 512               		.loc 1 274 7 view .LVU112
+ 274:../../../os/hal/lib/streams/chprintf.c ****     }
+ 513               		.loc 1 274 12 is_stmt 0 view .LVU113
+ 514 01ec B1E0      		ldi r27,1
+ 515 01ee CB1A      		sub r12,r27
+ 516 01f0 D108      		sbc r13,__zero_reg__
+ 517               	.LVL44:
  271:../../../os/hal/lib/streams/chprintf.c ****       streamPut(chp, (uint8_t)filler);
- 712               		.loc 1 271 0
- 713 0216 01F4      		brne .L62
- 714 0218 EC8D      		ldd r30,Y+28
- 715 021a FD8D      		ldd r31,Y+29
- 716 021c EC0D      		add r30,r12
- 717 021e FD1D      		adc r31,r13
- 718 0220 FD8F      		std Y+29,r31
- 719 0222 EC8F      		std Y+28,r30
- 720               	.LVL75:
- 721 0224 00C0      		rjmp .L12
- 722               	.LVL76:
- 723               	.L109:
+ 518               		.loc 1 271 11 view .LVU114
+ 519 01f2 01F4      		brne .L68
+ 520 01f4 200E      		add r2,r16
+ 521 01f6 311E      		adc r3,r17
+ 522 01f8 00C0      		rjmp .L2
+ 523               	.LVL45:
+ 524               	.L121:
  173:../../../os/hal/lib/streams/chprintf.c ****         else
- 724               		.loc 1 173 0
- 725 0226 9C91      		ld r25,X
- 726               	.LVL77:
- 727 0228 1296      		adiw r26,2
- 728               	.LVL78:
- 729               	.L22:
+ 525               		.loc 1 173 11 is_stmt 1 view .LVU115
+ 173:../../../os/hal/lib/streams/chprintf.c ****         else
+ 526               		.loc 1 173 13 is_stmt 0 view .LVU116
+ 527 01fa D201      		movw r26,r4
+ 528 01fc 2C91      		ld r18,X
+ 529               	.LVL46:
+ 173:../../../os/hal/lib/streams/chprintf.c ****         else
+ 530               		.loc 1 173 15 view .LVU117
+ 531 01fe A201      		movw r20,r4
+ 532 0200 4E5F      		subi r20,-2
+ 533 0202 5F4F      		sbci r21,-1
+ 534               	.LVL47:
+ 173:../../../os/hal/lib/streams/chprintf.c ****         else
+ 535               		.loc 1 173 15 view .LVU118
+ 536 0204 2A01      		movw r4,r20
+ 537               	.LVL48:
+ 538               	.L12:
  176:../../../os/hal/lib/streams/chprintf.c ****         precision += c;
- 730               		.loc 1 176 0
- 731 022a 9801      		movw r18,r16
- 732 022c 220F      		lsl r18
- 733 022e 331F      		rol r19
- 734 0230 000F      		lsl r16
- 735 0232 111F      		rol r17
- 736 0234 000F      		lsl r16
- 737 0236 111F      		rol r17
- 738 0238 000F      		lsl r16
- 739 023a 111F      		rol r17
- 740               	.LVL79:
- 741 023c 020F      		add r16,r18
- 742 023e 131F      		adc r17,r19
- 743               	.LVL80:
+ 539               		.loc 1 176 9 is_stmt 1 view .LVU119
+ 176:../../../os/hal/lib/streams/chprintf.c ****         precision += c;
+ 540               		.loc 1 176 19 is_stmt 0 view .LVU120
+ 541 0206 C801      		movw r24,r16
+ 542 0208 880F      		lsl r24
+ 543 020a 991F      		rol r25
+ 544 020c 880F      		lsl r24
+ 545 020e 991F      		rol r25
+ 546 0210 080F      		add r16,r24
+ 547 0212 191F      		adc r17,r25
+ 548 0214 000F      		lsl r16
+ 549 0216 111F      		rol r17
+ 550               	.LVL49:
  177:../../../os/hal/lib/streams/chprintf.c ****       }
- 744               		.loc 1 177 0
- 745 0240 090F      		add r16,r25
- 746 0242 111D      		adc r17,__zero_reg__
- 747               	.LVL81:
- 748               	.L23:
+ 551               		.loc 1 177 9 is_stmt 1 view .LVU121
+ 177:../../../os/hal/lib/streams/chprintf.c ****       }
+ 552               		.loc 1 177 19 is_stmt 0 view .LVU122
+ 553 0218 020F      		add r16,r18
+ 554 021a 111D      		adc r17,__zero_reg__
+ 555               	.LVL50:
  169:../../../os/hal/lib/streams/chprintf.c ****         if (c >= '0' && c <= '9')
- 749               		.loc 1 169 0
- 750 0244 FFEF      		ldi r31,-1
- 751 0246 AF1A      		sub r10,r31
- 752 0248 BF0A      		sbc r11,r31
- 753               	.LVL82:
- 754 024a F501      		movw r30,r10
- 755 024c 3197      		sbiw r30,1
- 756 024e 8081      		ld r24,Z
- 757               	.LVL83:
+ 556               		.loc 1 169 17 view .LVU123
+ 557 021c 3F01      		movw r6,r30
+ 558               	.LVL51:
+ 559               	.L13:
+ 168:../../../os/hal/lib/streams/chprintf.c ****         c = *fmt++;
+ 560               		.loc 1 168 7 is_stmt 1 view .LVU124
+ 169:../../../os/hal/lib/streams/chprintf.c ****         if (c >= '0' && c <= '9')
+ 561               		.loc 1 169 9 view .LVU125
+ 169:../../../os/hal/lib/streams/chprintf.c ****         if (c >= '0' && c <= '9')
+ 562               		.loc 1 169 17 is_stmt 0 view .LVU126
+ 563 021e F301      		movw r30,r6
+ 169:../../../os/hal/lib/streams/chprintf.c ****         if (c >= '0' && c <= '9')
+ 564               		.loc 1 169 11 view .LVU127
+ 565 0220 8191      		ld r24,Z+
+ 566               	.LVL52:
  170:../../../os/hal/lib/streams/chprintf.c ****           c -= '0';
- 758               		.loc 1 170 0
- 759 0250 90ED      		ldi r25,lo8(-48)
- 760 0252 980F      		add r25,r24
- 761 0254 9A30      		cpi r25,lo8(10)
- 762 0256 00F0      		brlo .L22
+ 567               		.loc 1 170 9 is_stmt 1 view .LVU128
+ 170:../../../os/hal/lib/streams/chprintf.c ****           c -= '0';
+ 568               		.loc 1 170 22 is_stmt 0 view .LVU129
+ 569 0222 20ED      		ldi r18,lo8(-48)
+ 570 0224 280F      		add r18,r24
+ 170:../../../os/hal/lib/streams/chprintf.c ****           c -= '0';
+ 571               		.loc 1 170 12 view .LVU130
+ 572 0226 2A30      		cpi r18,lo8(10)
+ 573 0228 00F0      		brlo .L12
  172:../../../os/hal/lib/streams/chprintf.c ****           c = va_arg(ap, int);
- 763               		.loc 1 172 0
- 764 0258 8A32      		cpi r24,lo8(42)
- 765 025a 01F0      		breq .L109
- 766 025c 4D01      		movw r8,r26
+ 574               		.loc 1 172 14 is_stmt 1 view .LVU131
+ 172:../../../os/hal/lib/streams/chprintf.c ****           c = va_arg(ap, int);
+ 575               		.loc 1 172 17 is_stmt 0 view .LVU132
+ 576 022a 8A32      		cpi r24,lo8(42)
+ 577 022c 01F0      		breq .L121
+ 169:../../../os/hal/lib/streams/chprintf.c ****         if (c >= '0' && c <= '9')
+ 578               		.loc 1 169 17 view .LVU133
+ 579 022e 3F01      		movw r6,r30
+ 580               	.LVL53:
  181:../../../os/hal/lib/streams/chprintf.c ****       is_long = TRUE;
- 767               		.loc 1 181 0
- 768 025e 982F      		mov r25,r24
- 769 0260 9F7D      		andi r25,lo8(-33)
- 770 0262 9C34      		cpi r25,lo8(76)
- 771 0264 01F0      		breq .+2
- 772 0266 00C0      		rjmp .L93
- 773               	.LVL84:
- 774               	.L104:
+ 581               		.loc 1 181 5 is_stmt 1 view .LVU134
+ 181:../../../os/hal/lib/streams/chprintf.c ****       is_long = TRUE;
+ 582               		.loc 1 181 18 is_stmt 0 view .LVU135
+ 583 0230 982F      		mov r25,r24
+ 584 0232 9F7D      		andi r25,lo8(-33)
+ 585 0234 9C34      		cpi r25,lo8(76)
+ 586 0236 01F0      		breq .+2
+ 587 0238 00C0      		rjmp .L103
+ 588               	.L115:
+ 182:../../../os/hal/lib/streams/chprintf.c ****       if (*fmt)
+ 589               		.loc 1 182 7 is_stmt 1 view .LVU136
+ 590               	.LVL54:
  183:../../../os/hal/lib/streams/chprintf.c ****         c = *fmt++;
- 775               		.loc 1 183 0
- 776 0268 D501      		movw r26,r10
- 777 026a 2C91      		ld r18,X
- 778 026c 2223      		tst r18
- 779 026e 01F4      		brne .+2
- 780 0270 00C0      		rjmp .L26
+ 591               		.loc 1 183 7 view .LVU137
+ 183:../../../os/hal/lib/streams/chprintf.c ****         c = *fmt++;
+ 592               		.loc 1 183 11 is_stmt 0 view .LVU138
+ 593 023a D301      		movw r26,r6
+ 594 023c 9C91      		ld r25,X
+ 183:../../../os/hal/lib/streams/chprintf.c ****         c = *fmt++;
+ 595               		.loc 1 183 10 view .LVU139
+ 596 023e 9923      		tst r25
+ 597 0240 01F4      		brne .+2
+ 598 0242 00C0      		rjmp .L16
+ 183:../../../os/hal/lib/streams/chprintf.c ****         c = *fmt++;
+ 599               		.loc 1 183 10 view .LVU140
+ 600 0244 5FEF      		ldi r21,-1
+ 601 0246 651A      		sub r6,r21
+ 602 0248 750A      		sbc r7,r21
+ 603               	.LVL55:
  184:../../../os/hal/lib/streams/chprintf.c ****     }
- 781               		.loc 1 184 0
- 782 0272 3FEF      		ldi r19,-1
- 783 0274 A31A      		sub r10,r19
- 784 0276 B30A      		sbc r11,r19
- 785               	.LVL85:
+ 604               		.loc 1 184 9 is_stmt 1 view .LVU141
  190:../../../os/hal/lib/streams/chprintf.c ****     case 'c':
- 786               		.loc 1 190 0
- 787 0278 822F      		mov r24,r18
- 788 027a 90E0      		ldi r25,0
- 789 027c FC01      		movw r30,r24
- 790 027e E454      		subi r30,68
- 791 0280 F109      		sbc r31,__zero_reg__
- 792 0282 E533      		cpi r30,53
- 793 0284 F105      		cpc r31,__zero_reg__
- 794 0286 00F0      		brlo .L110
- 795               	.L73:
- 796 0288 822F      		mov r24,r18
- 797 028a 00C0      		rjmp .L26
- 798               	.LVL86:
- 799               	.L54:
- 266:../../../os/hal/lib/streams/chprintf.c ****       streamPut(chp, (uint8_t)*s++);
- 800               		.loc 1 266 0
- 801 028c 57FC      		sbrc r5,7
- 802 028e 00C0      		rjmp .L59
- 803 0290 00C0      		rjmp .L65
- 804               	.LVL87:
- 805               	.L110:
+ 605               		.loc 1 190 5 view .LVU142
+ 606 024a ECEB      		ldi r30,lo8(-68)
+ 607 024c E90F      		add r30,r25
+ 608 024e E533      		cpi r30,lo8(53)
+ 609 0250 00F0      		brlo .L122
+ 610               	.L79:
+ 611 0252 892F      		mov r24,r25
+ 612 0254 00C0      		rjmp .L16
+ 613               	.L122:
  190:../../../os/hal/lib/streams/chprintf.c ****     case 'c':
- 806               		.loc 1 190 0
- 807 0292 E050      		subi r30,lo8(-(gs(.L28)))
- 808 0294 F040      		sbci r31,hi8(-(gs(.L28)))
- 809 0296 0C94 0000 		jmp __tablejump2__
- 810               		.section	.progmem.gcc_sw_table.chvprintf,"a",@progbits
- 811               		.p2align	1
- 812               	.L28:
- 813 0000 0000      		.word gs(.L27)
- 814 0002 0000      		.word gs(.L73)
- 815 0004 0000      		.word gs(.L73)
- 816 0006 0000      		.word gs(.L73)
- 817 0008 0000      		.word gs(.L73)
- 818 000a 0000      		.word gs(.L27)
- 819 000c 0000      		.word gs(.L73)
- 820 000e 0000      		.word gs(.L73)
- 821 0010 0000      		.word gs(.L73)
- 822 0012 0000      		.word gs(.L73)
- 823 0014 0000      		.word gs(.L73)
- 824 0016 0000      		.word gs(.L74)
- 825 0018 0000      		.word gs(.L73)
- 826 001a 0000      		.word gs(.L73)
- 827 001c 0000      		.word gs(.L73)
- 828 001e 0000      		.word gs(.L73)
- 829 0020 0000      		.word gs(.L73)
- 830 0022 0000      		.word gs(.L75)
- 831 0024 0000      		.word gs(.L73)
- 832 0026 0000      		.word gs(.L73)
- 833 0028 0000      		.word gs(.L31)
- 834 002a 0000      		.word gs(.L73)
- 835 002c 0000      		.word gs(.L73)
- 836 002e 0000      		.word gs(.L73)
- 837 0030 0000      		.word gs(.L73)
- 838 0032 0000      		.word gs(.L73)
- 839 0034 0000      		.word gs(.L73)
- 840 0036 0000      		.word gs(.L73)
- 841 0038 0000      		.word gs(.L73)
- 842 003a 0000      		.word gs(.L73)
- 843 003c 0000      		.word gs(.L73)
- 844 003e 0000      		.word gs(.L32)
- 845 0040 0000      		.word gs(.L27)
- 846 0042 0000      		.word gs(.L73)
- 847 0044 0000      		.word gs(.L33)
- 848 0046 0000      		.word gs(.L73)
- 849 0048 0000      		.word gs(.L73)
- 850 004a 0000      		.word gs(.L27)
- 851 004c 0000      		.word gs(.L73)
- 852 004e 0000      		.word gs(.L73)
- 853 0050 0000      		.word gs(.L73)
- 854 0052 0000      		.word gs(.L73)
- 855 0054 0000      		.word gs(.L73)
- 856 0056 0000      		.word gs(.L74)
- 857 0058 0000      		.word gs(.L73)
- 858 005a 0000      		.word gs(.L73)
- 859 005c 0000      		.word gs(.L73)
- 860 005e 0000      		.word gs(.L34)
- 861 0060 0000      		.word gs(.L73)
- 862 0062 0000      		.word gs(.L75)
- 863 0064 0000      		.word gs(.L73)
- 864 0066 0000      		.word gs(.L73)
- 865 0068 0000      		.word gs(.L31)
- 866               		.section	.text.chvprintf
- 867               	.LVL88:
- 868               	.L34:
- 197:../../../os/hal/lib/streams/chprintf.c ****         s = "(null)";
- 869               		.loc 1 197 0
- 870 029a 9401      		movw r18,r8
- 871 029c 2E5F      		subi r18,-2
- 872 029e 3F4F      		sbci r19,-1
- 873               	.LVL89:
- 874 02a0 D401      		movw r26,r8
- 875 02a2 ED90      		ld r14,X+
- 876 02a4 FC90      		ld r15,X
- 877               	.LVL90:
- 878 02a6 E114      		cp r14,__zero_reg__
- 879 02a8 F104      		cpc r15,__zero_reg__
- 880 02aa 01F4      		brne .+2
- 881 02ac 00C0      		rjmp .L111
- 882               	.LVL91:
- 883               	.L40:
- 201:../../../os/hal/lib/streams/chprintf.c ****         ;
- 884               		.loc 1 201 0
- 885 02ae F701      		movw r30,r14
- 886 02b0 8081      		ld r24,Z
- 887               	.LVL92:
- 199:../../../os/hal/lib/streams/chprintf.c ****         precision = 32767;
- 888               		.loc 1 199 0
- 889 02b2 0115      		cp r16,__zero_reg__
- 890 02b4 1105      		cpc r17,__zero_reg__
- 891 02b6 01F4      		brne .+2
- 892 02b8 00C0      		rjmp .L41
- 201:../../../os/hal/lib/streams/chprintf.c ****         ;
- 893               		.loc 1 201 0 discriminator 1
- 894 02ba 8823      		tst r24
- 895 02bc 01F4      		brne .+2
- 896 02be 00C0      		rjmp .L42
- 201:../../../os/hal/lib/streams/chprintf.c ****         ;
- 897               		.loc 1 201 0 is_stmt 0
- 898 02c0 0150      		subi r16,1
- 899 02c2 1109      		sbc r17,__zero_reg__
- 900               	.LVL93:
- 901               	.L64:
- 902 02c4 C701      		movw r24,r14
- 903 02c6 0196      		adiw r24,1
- 904 02c8 A901      		movw r20,r18
- 905 02ca 00C0      		rjmp .L44
- 906               	.LVL94:
- 907               	.L43:
- 201:../../../os/hal/lib/streams/chprintf.c ****         ;
- 908               		.loc 1 201 0 discriminator 3
- 909               	.LVL95:
- 910 02cc 0150      		subi r16,1
- 911 02ce 1109      		sbc r17,__zero_reg__
- 912 02d0 00F4      		brcc .+2
- 913 02d2 00C0      		rjmp .L112
- 914               	.L44:
- 201:../../../os/hal/lib/streams/chprintf.c ****         ;
- 915               		.loc 1 201 0 discriminator 4
- 916 02d4 FC01      		movw r30,r24
- 917               	.LVL96:
- 918 02d6 0196      		adiw r24,1
- 919               	.LVL97:
- 920 02d8 3081      		ld r19,Z
- 921 02da 3111      		cpse r19,__zero_reg__
- 922 02dc 00C0      		rjmp .L43
- 923 02de CF01      		movw r24,r30
- 924 02e0 8E19      		sub r24,r14
- 925 02e2 9F09      		sbc r25,r15
- 926 02e4 2C01      		movw r4,r24
- 927 02e6 F1E0      		ldi r31,1
- 928 02e8 4F1A      		sub r4,r31
- 929 02ea 5108      		sbc r5,__zero_reg__
- 197:../../../os/hal/lib/streams/chprintf.c ****         s = "(null)";
- 930               		.loc 1 197 0 is_stmt 1
- 931 02ec 4A01      		movw r8,r20
- 196:../../../os/hal/lib/streams/chprintf.c ****       if ((s = va_arg(ap, char *)) == 0)
- 932               		.loc 1 196 0
- 933 02ee 50E2      		ldi r21,lo8(32)
- 934 02f0 752E      		mov r7,r21
- 935               	.LVL98:
- 936 02f2 C81A      		sub r12,r24
- 937 02f4 D90A      		sbc r13,r25
- 938               	.LVL99:
- 939 02f6 D7FE      		sbrs r13,7
- 940 02f8 00C0      		rjmp .L53
- 941               	.LVL100:
- 942               	.L106:
- 943 02fa C12C      		mov r12,__zero_reg__
- 944 02fc D12C      		mov r13,__zero_reg__
- 945               	.LVL101:
- 946 02fe 00C0      		rjmp .L53
- 947               	.LVL102:
- 948               	.L33:
- 220:../../../os/hal/lib/streams/chprintf.c ****       if (f < 0) {
- 949               		.loc 1 220 0
- 950 0300 F401      		movw r30,r8
- 951 0302 3496      		adiw r30,4
- 952 0304 FFA7      		std Y+47,r31
- 953 0306 EEA7      		std Y+46,r30
- 954               	.LVL103:
- 955 0308 D401      		movw r26,r8
- 956 030a 8D91      		ld r24,X+
- 957 030c 9D91      		ld r25,X+
- 958 030e 0D90      		ld __tmp_reg__,X+
- 959 0310 BC91      		ld r27,X
- 960 0312 A02D      		mov r26,__tmp_reg__
- 961               	.LVL104:
- 962 0314 8E8F      		std Y+30,r24
- 963 0316 9F8F      		std Y+31,r25
- 964 0318 A8A3      		std Y+32,r26
- 965 031a B9A3      		std Y+33,r27
- 966               	.LVL105:
- 221:../../../os/hal/lib/streams/chprintf.c ****         *p++ = '-';
- 967               		.loc 1 221 0
- 968 031c 20E0      		ldi r18,0
- 969 031e 30E0      		ldi r19,0
- 970 0320 A901      		movw r20,r18
- 971 0322 BC01      		movw r22,r24
- 972 0324 CD01      		movw r24,r26
- 973 0326 0E94 0000 		call __ltsf2
- 974               	.LVL106:
- 975 032a 87FD      		sbrc r24,7
- 976 032c 00C0      		rjmp .L113
- 143:../../../os/hal/lib/streams/chprintf.c ****     s = tmpbuf;
- 977               		.loc 1 143 0
- 978 032e 9A8C      		ldd r9,Y+26
- 979 0330 8B8C      		ldd r8,Y+27
- 980               	.L48:
- 981               	.LVL107:
- 225:../../../os/hal/lib/streams/chprintf.c ****       break;
- 982               		.loc 1 225 0
- 983 0332 012E      		mov __tmp_reg__,r17
- 984 0334 000C      		lsl r0
- 985 0336 220B      		sbc r18,r18
- 986 0338 330B      		sbc r19,r19
- 987               	.LBB12:
- 988               	.LBB13:
-  83:../../../os/hal/lib/streams/chprintf.c ****     precision = FLOAT_PRECISION;
- 989               		.loc 1 83 0
- 990 033a 0150      		subi r16,1
- 991 033c 1109      		sbc r17,__zero_reg__
- 992 033e 2109      		sbc r18,__zero_reg__
- 993 0340 3109      		sbc r19,__zero_reg__
- 994               	.LVL108:
- 995 0342 0930      		cpi r16,9
- 996 0344 1105      		cpc r17,__zero_reg__
- 997 0346 2105      		cpc r18,__zero_reg__
- 998 0348 3105      		cpc r19,__zero_reg__
- 999 034a 00F0      		brlo .L50
- 1000 034c 08E0      		ldi r16,lo8(8)
- 1001 034e 10E0      		ldi r17,0
- 1002 0350 20E0      		ldi r18,0
- 1003 0352 30E0      		ldi r19,0
- 1004               	.LVL109:
- 1005               	.L50:
-  85:../../../os/hal/lib/streams/chprintf.c **** 
- 1006               		.loc 1 85 0
- 1007 0354 000F      		lsl r16
- 1008 0356 111F      		rol r17
- 1009 0358 000F      		lsl r16
- 1010 035a 111F      		rol r17
- 1011 035c F801      		movw r30,r16
- 1012 035e E050      		subi r30,lo8(-(pow10))
- 1013 0360 F040      		sbci r31,hi8(-(pow10))
- 1014 0362 8081      		ld r24,Z
- 1015 0364 9181      		ldd r25,Z+1
- 1016 0366 A281      		ldd r26,Z+2
- 1017 0368 B381      		ldd r27,Z+3
- 1018 036a 8EA3      		std Y+38,r24
- 1019 036c 9FA3      		std Y+39,r25
- 1020 036e A8A7      		std Y+40,r26
- 1021 0370 B9A7      		std Y+41,r27
- 1022               	.LVL110:
-  87:../../../os/hal/lib/streams/chprintf.c ****   p = long_to_string_with_divisor(p, l, 10, 0);
- 1023               		.loc 1 87 0
- 1024 0372 6E8D      		ldd r22,Y+30
- 1025 0374 7F8D      		ldd r23,Y+31
- 1026 0376 88A1      		ldd r24,Y+32
- 1027 0378 99A1      		ldd r25,Y+33
- 1028 037a 0E94 0000 		call __fixsfsi
- 1029               	.LVL111:
- 1030 037e 6AA7      		std Y+42,r22
- 1031 0380 7BA7      		std Y+43,r23
- 1032 0382 8CA7      		std Y+44,r24
- 1033 0384 9DA7      		std Y+45,r25
- 1034               	.LVL112:
-  88:../../../os/hal/lib/streams/chprintf.c ****   *p++ = '.';
- 1035               		.loc 1 88 0
- 1036 0386 E12C      		mov r14,__zero_reg__
- 1037 0388 F12C      		mov r15,__zero_reg__
- 1038 038a 8701      		movw r16,r14
- 1039 038c 2AE0      		ldi r18,lo8(10)
- 1040 038e 30E0      		ldi r19,0
- 1041 0390 AB01      		movw r20,r22
- 1042 0392 BC01      		movw r22,r24
- 1043 0394 892D      		mov r24,r9
- 1044 0396 982D      		mov r25,r8
- 1045 0398 0E94 0000 		call long_to_string_with_divisor
- 1046               	.LVL113:
-  89:../../../os/hal/lib/streams/chprintf.c ****   l = (long)((num - l) * precision);
- 1047               		.loc 1 89 0
- 1048 039c 4C01      		movw r8,r24
- 1049               	.LVL114:
- 1050 039e 8EE2      		ldi r24,lo8(46)
- 1051               	.LVL115:
- 1052 03a0 D401      		movw r26,r8
- 1053 03a2 8D93      		st X+,r24
- 1054               	.LVL116:
- 1055 03a4 4D01      		movw r8,r26
-  90:../../../os/hal/lib/streams/chprintf.c ****   return long_to_string_with_divisor(p, l, 10, precision / 10);
- 1056               		.loc 1 90 0
- 1057 03a6 6AA5      		ldd r22,Y+42
- 1058 03a8 7BA5      		ldd r23,Y+43
- 1059 03aa 8CA5      		ldd r24,Y+44
- 1060 03ac 9DA5      		ldd r25,Y+45
- 1061 03ae 0E94 0000 		call __floatsisf
- 1062               	.LVL117:
- 1063 03b2 9B01      		movw r18,r22
- 1064 03b4 AC01      		movw r20,r24
- 1065 03b6 6E8D      		ldd r22,Y+30
- 1066 03b8 7F8D      		ldd r23,Y+31
- 1067 03ba 88A1      		ldd r24,Y+32
- 1068 03bc 99A1      		ldd r25,Y+33
- 1069 03be 0E94 0000 		call __subsf3
- 1070               	.LVL118:
- 1071 03c2 6E8F      		std Y+30,r22
- 1072 03c4 7F8F      		std Y+31,r23
- 1073 03c6 88A3      		std Y+32,r24
- 1074 03c8 99A3      		std Y+33,r25
- 1075               	.LVL119:
- 1076 03ca 6EA1      		ldd r22,Y+38
- 1077 03cc 7FA1      		ldd r23,Y+39
- 1078 03ce 88A5      		ldd r24,Y+40
- 1079 03d0 99A5      		ldd r25,Y+41
- 1080 03d2 0E94 0000 		call __floatunsisf
- 1081               	.LVL120:
- 1082 03d6 9B01      		movw r18,r22
- 1083 03d8 AC01      		movw r20,r24
- 1084 03da 6E8D      		ldd r22,Y+30
- 1085 03dc 7F8D      		ldd r23,Y+31
- 1086 03de 88A1      		ldd r24,Y+32
- 1087 03e0 99A1      		ldd r25,Y+33
- 1088 03e2 0E94 0000 		call __mulsf3
- 1089               	.LVL121:
- 1090 03e6 7B01      		movw r14,r22
- 1091 03e8 8C01      		movw r16,r24
- 1092               	.LVL122:
-  91:../../../os/hal/lib/streams/chprintf.c **** }
- 1093               		.loc 1 91 0
- 1094 03ea 6EA1      		ldd r22,Y+38
- 1095 03ec 7FA1      		ldd r23,Y+39
- 1096 03ee 88A5      		ldd r24,Y+40
- 1097 03f0 99A5      		ldd r25,Y+41
- 1098 03f2 2AE0      		ldi r18,lo8(10)
- 1099 03f4 30E0      		ldi r19,0
- 1100 03f6 40E0      		ldi r20,0
- 1101 03f8 50E0      		ldi r21,0
- 1102 03fa 0E94 0000 		call __udivmodsi4
-  90:../../../os/hal/lib/streams/chprintf.c ****   return long_to_string_with_divisor(p, l, 10, precision / 10);
- 1103               		.loc 1 90 0
- 1104 03fe C801      		movw r24,r16
- 1105 0400 B701      		movw r22,r14
- 1106 0402 28AB      		std Y+48,r18
- 1107 0404 39AB      		std Y+49,r19
- 1108 0406 4AAB      		std Y+50,r20
- 1109 0408 5BAB      		std Y+51,r21
- 1110 040a 0E94 0000 		call __fixsfsi
- 1111               	.LVL123:
-  91:../../../os/hal/lib/streams/chprintf.c **** }
- 1112               		.loc 1 91 0
- 1113 040e 28A9      		ldd r18,Y+48
- 1114 0410 39A9      		ldd r19,Y+49
- 1115 0412 4AA9      		ldd r20,Y+50
- 1116 0414 5BA9      		ldd r21,Y+51
- 1117 0416 7901      		movw r14,r18
- 1118 0418 8A01      		movw r16,r20
- 1119               	.LVL124:
- 1120 041a 2AE0      		ldi r18,lo8(10)
- 1121 041c 30E0      		ldi r19,0
- 1122 041e AB01      		movw r20,r22
- 1123 0420 BC01      		movw r22,r24
- 1124 0422 C401      		movw r24,r8
- 1125 0424 0E94 0000 		call long_to_string_with_divisor
- 1126               	.LVL125:
- 1127 0428 EA8D      		ldd r30,Y+26
- 1128 042a FB8D      		ldd r31,Y+27
- 1129 042c 8E1B      		sub r24,r30
- 1130 042e 9F0B      		sbc r25,r31
- 1131 0430 2C01      		movw r4,r24
- 1132 0432 F1E0      		ldi r31,1
- 1133 0434 4F1A      		sub r4,r31
- 1134 0436 5108      		sbc r5,__zero_reg__
- 1135               	.LBE13:
- 1136               	.LBE12:
- 220:../../../os/hal/lib/streams/chprintf.c ****       if (f < 0) {
- 1137               		.loc 1 220 0
- 1138 0438 8EA4      		ldd r8,Y+46
- 1139 043a 9FA4      		ldd r9,Y+47
- 1140               	.LVL126:
- 144:../../../os/hal/lib/streams/chprintf.c ****     left_align = FALSE;
- 1141               		.loc 1 144 0
- 1142 043c 9E01      		movw r18,r28
- 1143 043e 2F5F      		subi r18,-1
- 1144 0440 3F4F      		sbci r19,-1
- 1145 0442 7901      		movw r14,r18
- 226:../../../os/hal/lib/streams/chprintf.c **** #endif
- 1146               		.loc 1 226 0
- 1147 0444 00C0      		rjmp .L39
- 1148               	.LVL127:
- 1149               	.L32:
- 193:../../../os/hal/lib/streams/chprintf.c ****       break;
- 1150               		.loc 1 193 0
- 1151 0446 D401      		movw r26,r8
- 1152 0448 8C91      		ld r24,X
- 1153               	.LVL128:
- 1154 044a 8983      		std Y+1,r24
- 1155 044c 8AA1      		ldd r24,Y+34
- 1156 044e 9BA1      		ldd r25,Y+35
- 1157 0450 4CA0      		ldd r4,Y+36
- 1158 0452 5DA0      		ldd r5,Y+37
- 1159 0454 F401      		movw r30,r8
- 1160 0456 3296      		adiw r30,2
- 1161               	.LVL129:
- 1162 0458 4F01      		movw r8,r30
- 192:../../../os/hal/lib/streams/chprintf.c ****       *p++ = va_arg(ap, int);
- 1163               		.loc 1 192 0
- 1164 045a 70E2      		ldi r23,lo8(32)
- 1165 045c 772E      		mov r7,r23
- 144:../../../os/hal/lib/streams/chprintf.c ****     left_align = FALSE;
- 1166               		.loc 1 144 0
- 1167 045e 9E01      		movw r18,r28
- 1168 0460 2F5F      		subi r18,-1
- 1169 0462 3F4F      		sbci r19,-1
- 1170 0464 7901      		movw r14,r18
- 194:../../../os/hal/lib/streams/chprintf.c ****     case 's':
- 1171               		.loc 1 194 0
- 1172 0466 00C0      		rjmp .L39
- 1173               	.LVL130:
- 1174               	.L102:
- 1175 0468 F801      		movw r30,r16
- 1176 046a 8181      		ldd r24,Z+1
+ 614               		.loc 1 190 5 is_stmt 0 view .LVU143
+ 615 0256 F0E0      		ldi r31,0
+ 616 0258 E050      		subi r30,lo8(-(gs(.L18)))
+ 617 025a F040      		sbci r31,hi8(-(gs(.L18)))
+ 618 025c 0C94 0000 		jmp __tablejump2__
+ 619               		.section	.jumptables.gcc.chvprintf,"a",@progbits
+ 620               		.p2align	1
+ 621               	.L18:
+ 622 0000 0000      		.word gs(.L22)
+ 623 0002 0000      		.word gs(.L79)
+ 624 0004 0000      		.word gs(.L79)
+ 625 0006 0000      		.word gs(.L79)
+ 626 0008 0000      		.word gs(.L79)
+ 627 000a 0000      		.word gs(.L22)
+ 628 000c 0000      		.word gs(.L79)
+ 629 000e 0000      		.word gs(.L79)
+ 630 0010 0000      		.word gs(.L79)
+ 631 0012 0000      		.word gs(.L79)
+ 632 0014 0000      		.word gs(.L79)
+ 633 0016 0000      		.word gs(.L21)
+ 634 0018 0000      		.word gs(.L79)
+ 635 001a 0000      		.word gs(.L79)
+ 636 001c 0000      		.word gs(.L79)
+ 637 001e 0000      		.word gs(.L79)
+ 638 0020 0000      		.word gs(.L79)
+ 639 0022 0000      		.word gs(.L19)
+ 640 0024 0000      		.word gs(.L79)
+ 641 0026 0000      		.word gs(.L79)
+ 642 0028 0000      		.word gs(.L80)
+ 643 002a 0000      		.word gs(.L79)
+ 644 002c 0000      		.word gs(.L79)
+ 645 002e 0000      		.word gs(.L79)
+ 646 0030 0000      		.word gs(.L79)
+ 647 0032 0000      		.word gs(.L79)
+ 648 0034 0000      		.word gs(.L79)
+ 649 0036 0000      		.word gs(.L79)
+ 650 0038 0000      		.word gs(.L79)
+ 651 003a 0000      		.word gs(.L79)
+ 652 003c 0000      		.word gs(.L79)
+ 653 003e 0000      		.word gs(.L24)
+ 654 0040 0000      		.word gs(.L22)
+ 655 0042 0000      		.word gs(.L79)
+ 656 0044 0000      		.word gs(.L23)
+ 657 0046 0000      		.word gs(.L79)
+ 658 0048 0000      		.word gs(.L79)
+ 659 004a 0000      		.word gs(.L22)
+ 660 004c 0000      		.word gs(.L79)
+ 661 004e 0000      		.word gs(.L79)
+ 662 0050 0000      		.word gs(.L79)
+ 663 0052 0000      		.word gs(.L79)
+ 664 0054 0000      		.word gs(.L79)
+ 665 0056 0000      		.word gs(.L21)
+ 666 0058 0000      		.word gs(.L79)
+ 667 005a 0000      		.word gs(.L79)
+ 668 005c 0000      		.word gs(.L79)
+ 669 005e 0000      		.word gs(.L20)
+ 670 0060 0000      		.word gs(.L79)
+ 671 0062 0000      		.word gs(.L19)
+ 672 0064 0000      		.word gs(.L79)
+ 673 0066 0000      		.word gs(.L79)
+ 674 0068 0000      		.word gs(.L80)
+ 675               		.section	.text.chvprintf
+ 676               	.LVL56:
+ 677               	.L113:
  152:../../../os/hal/lib/streams/chprintf.c ****       filler = '0';
- 1177               		.loc 1 152 0
- 1178 046c 0F5F      		subi r16,-1
- 1179 046e 1F4F      		sbci r17,-1
- 1180               	.LVL131:
+ 678               		.loc 1 152 7 is_stmt 1 view .LVU144
  153:../../../os/hal/lib/streams/chprintf.c ****     }
- 1181               		.loc 1 153 0
- 1182 0470 20E3      		ldi r18,lo8(48)
- 1183 0472 722E      		mov r7,r18
- 1184 0474 00C0      		rjmp .L17
- 1185               	.LVL132:
- 1186               	.L101:
+ 679               		.loc 1 153 7 view .LVU145
+ 153:../../../os/hal/lib/streams/chprintf.c ****     }
+ 680               		.loc 1 153 7 is_stmt 0 view .LVU146
+ 681 0260 D801      		movw r26,r16
+ 682 0262 1196      		adiw r26,1
+ 683 0264 8C91      		ld r24,X
+ 152:../../../os/hal/lib/streams/chprintf.c ****       filler = '0';
+ 684               		.loc 1 152 10 view .LVU147
+ 685 0266 0F5F      		subi r16,-1
+ 686 0268 1F4F      		sbci r17,-1
+ 687               	.LVL57:
+ 153:../../../os/hal/lib/streams/chprintf.c ****     }
+ 688               		.loc 1 153 14 view .LVU148
+ 689 026a B0E3      		ldi r27,lo8(48)
+ 690 026c B8A3      		std Y+32,r27
+ 691 026e 00C0      		rjmp .L7
+ 692               	.LVL58:
+ 693               	.L112:
  147:../../../os/hal/lib/streams/chprintf.c ****       left_align = TRUE;
- 1187               		.loc 1 147 0
- 1188 0476 8501      		movw r16,r10
- 1189               	.LVL133:
- 1190 0478 0E5F      		subi r16,-2
- 1191 047a 1F4F      		sbci r17,-1
- 1192               	.LVL134:
- 1193 047c 1296      		adiw r26,2
- 1194 047e 8C91      		ld r24,X
+ 694               		.loc 1 147 7 is_stmt 1 view .LVU149
+ 147:../../../os/hal/lib/streams/chprintf.c ****       left_align = TRUE;
+ 695               		.loc 1 147 10 is_stmt 0 view .LVU150
+ 696 0270 8301      		movw r16,r6
+ 697 0272 0E5F      		subi r16,-2
+ 698 0274 1F4F      		sbci r17,-1
+ 699               	.LVL59:
  148:../../../os/hal/lib/streams/chprintf.c ****     }
- 1195               		.loc 1 148 0
- 1196 0480 6624      		clr r6
- 1197 0482 6394      		inc r6
- 1198 0484 00C0      		rjmp .L16
- 1199               	.LVL135:
- 1200               	.L105:
+ 700               		.loc 1 148 7 is_stmt 1 view .LVU151
+ 148:../../../os/hal/lib/streams/chprintf.c ****     }
+ 701               		.loc 1 148 7 is_stmt 0 view .LVU152
+ 702 0276 8281      		ldd r24,Z+2
+ 148:../../../os/hal/lib/streams/chprintf.c ****     }
+ 703               		.loc 1 148 18 view .LVU153
+ 704 0278 F1E0      		ldi r31,lo8(1)
+ 705 027a F9A3      		std Y+33,r31
+ 706 027c 00C0      		rjmp .L6
+ 707               	.LVL60:
+ 708               	.L116:
  190:../../../os/hal/lib/streams/chprintf.c ****     case 'c':
- 1201               		.loc 1 190 0
- 1202 0486 E050      		subi r30,lo8(-(gs(.L37)))
- 1203 0488 F040      		sbci r31,hi8(-(gs(.L37)))
- 1204 048a 0C94 0000 		jmp __tablejump2__
- 1205               		.section	.progmem.gcc_sw_table.chvprintf
- 1206               		.p2align	1
- 1207               	.L37:
- 1208 006a 0000      		.word gs(.L36)
- 1209 006c 0000      		.word gs(.L26)
- 1210 006e 0000      		.word gs(.L26)
- 1211 0070 0000      		.word gs(.L26)
- 1212 0072 0000      		.word gs(.L26)
- 1213 0074 0000      		.word gs(.L36)
- 1214 0076 0000      		.word gs(.L26)
- 1215 0078 0000      		.word gs(.L26)
- 1216 007a 0000      		.word gs(.L26)
- 1217 007c 0000      		.word gs(.L26)
- 1218 007e 0000      		.word gs(.L26)
- 1219 0080 0000      		.word gs(.L29)
- 1220 0082 0000      		.word gs(.L26)
- 1221 0084 0000      		.word gs(.L26)
- 1222 0086 0000      		.word gs(.L26)
- 1223 0088 0000      		.word gs(.L26)
- 1224 008a 0000      		.word gs(.L26)
- 1225 008c 0000      		.word gs(.L30)
- 1226 008e 0000      		.word gs(.L26)
- 1227 0090 0000      		.word gs(.L26)
- 1228 0092 0000      		.word gs(.L76)
- 1229 0094 0000      		.word gs(.L26)
- 1230 0096 0000      		.word gs(.L26)
- 1231 0098 0000      		.word gs(.L26)
- 1232 009a 0000      		.word gs(.L26)
- 1233 009c 0000      		.word gs(.L26)
- 1234 009e 0000      		.word gs(.L26)
- 1235 00a0 0000      		.word gs(.L26)
- 1236 00a2 0000      		.word gs(.L26)
- 1237 00a4 0000      		.word gs(.L26)
- 1238 00a6 0000      		.word gs(.L26)
- 1239 00a8 0000      		.word gs(.L32)
- 1240 00aa 0000      		.word gs(.L36)
- 1241 00ac 0000      		.word gs(.L26)
- 1242 00ae 0000      		.word gs(.L33)
- 1243 00b0 0000      		.word gs(.L26)
- 1244 00b2 0000      		.word gs(.L26)
- 1245 00b4 0000      		.word gs(.L36)
- 1246 00b6 0000      		.word gs(.L26)
- 1247 00b8 0000      		.word gs(.L26)
- 1248 00ba 0000      		.word gs(.L26)
- 1249 00bc 0000      		.word gs(.L26)
- 1250 00be 0000      		.word gs(.L26)
- 1251 00c0 0000      		.word gs(.L29)
- 1252 00c2 0000      		.word gs(.L26)
- 1253 00c4 0000      		.word gs(.L26)
- 1254 00c6 0000      		.word gs(.L26)
- 1255 00c8 0000      		.word gs(.L34)
- 1256 00ca 0000      		.word gs(.L26)
- 1257 00cc 0000      		.word gs(.L30)
- 1258 00ce 0000      		.word gs(.L26)
- 1259 00d0 0000      		.word gs(.L26)
- 1260 00d2 0000      		.word gs(.L76)
- 1261               		.section	.text.chvprintf
- 1262               	.LVL136:
- 1263               	.L75:
- 1264 048e 31E0      		ldi r19,lo8(1)
- 1265               	.LVL137:
- 1266               	.L30:
- 235:../../../os/hal/lib/streams/chprintf.c ****     case 'O':
- 1267               		.loc 1 235 0
- 1268 0490 8AE0      		ldi r24,lo8(10)
- 1269 0492 90E0      		ldi r25,0
- 1270               	.LVL138:
- 1271               	.L38:
- 240:../../../os/hal/lib/streams/chprintf.c ****         l = va_arg(ap, unsigned long);
- 1272               		.loc 1 240 0
- 1273 0494 3111      		cpse r19,__zero_reg__
- 1274 0496 00C0      		rjmp .L68
- 1275               	.L51:
- 1276               	.LVL139:
- 243:../../../os/hal/lib/streams/chprintf.c ****       p = ch_ltoa(p, l, c);
- 1277               		.loc 1 243 0
- 1278 0498 D401      		movw r26,r8
- 1279 049a 4D91      		ld r20,X+
- 1280 049c 5C91      		ld r21,X
- 1281 049e 60E0      		ldi r22,0
- 1282 04a0 70E0      		ldi r23,0
- 1283               	.LVL140:
- 1284 04a2 F401      		movw r30,r8
- 1285 04a4 3296      		adiw r30,2
- 1286               	.LVL141:
- 1287 04a6 4F01      		movw r8,r30
- 1288               	.LVL142:
- 1289               	.L52:
- 1290               	.LBB14:
- 1291               	.LBB15:
-  72:../../../os/hal/lib/streams/chprintf.c **** }
- 1292               		.loc 1 72 0
- 1293 04a8 E12C      		mov r14,__zero_reg__
- 1294 04aa F12C      		mov r15,__zero_reg__
- 1295 04ac 8701      		movw r16,r14
- 1296 04ae 9C01      		movw r18,r24
- 1297 04b0 CE01      		movw r24,r28
- 1298               	.LVL143:
- 1299 04b2 0196      		adiw r24,1
- 1300               	.LVL144:
- 1301               	.L97:
- 1302 04b4 0E94 0000 		call long_to_string_with_divisor
- 1303               	.LVL145:
- 1304 04b8 2A8D      		ldd r18,Y+26
- 1305 04ba 3B8D      		ldd r19,Y+27
- 1306 04bc 821B      		sub r24,r18
- 1307 04be 930B      		sbc r25,r19
- 1308 04c0 2C01      		movw r4,r24
- 1309 04c2 31E0      		ldi r19,1
- 1310 04c4 431A      		sub r4,r19
- 1311 04c6 5108      		sbc r5,__zero_reg__
- 1312               	.LBE15:
- 1313               	.LBE14:
- 144:../../../os/hal/lib/streams/chprintf.c ****     left_align = FALSE;
- 1314               		.loc 1 144 0
- 1315 04c8 DE01      		movw r26,r28
- 1316 04ca 1196      		adiw r26,1
- 1317 04cc 7D01      		movw r14,r26
- 245:../../../os/hal/lib/streams/chprintf.c ****     default:
- 1318               		.loc 1 245 0
- 1319 04ce 00C0      		rjmp .L39
- 1320               	.LVL146:
- 1321               	.L74:
- 190:../../../os/hal/lib/streams/chprintf.c ****     case 'c':
- 1322               		.loc 1 190 0
- 1323 04d0 31E0      		ldi r19,lo8(1)
- 1324               	.LVL147:
- 1325               	.L29:
- 1326 04d2 88E0      		ldi r24,lo8(8)
- 1327 04d4 90E0      		ldi r25,0
- 1328               	.LVL148:
- 240:../../../os/hal/lib/streams/chprintf.c ****         l = va_arg(ap, unsigned long);
- 1329               		.loc 1 240 0
- 1330 04d6 3323      		tst r19
- 1331 04d8 01F0      		breq .L51
- 1332               	.L68:
- 1333               	.LVL149:
- 241:../../../os/hal/lib/streams/chprintf.c ****       else
- 1334               		.loc 1 241 0
- 1335 04da D401      		movw r26,r8
- 1336 04dc 4D91      		ld r20,X+
- 1337 04de 5D91      		ld r21,X+
- 1338 04e0 6D91      		ld r22,X+
- 1339 04e2 7C91      		ld r23,X
- 1340               	.LVL150:
- 1341 04e4 F401      		movw r30,r8
- 1342 04e6 3496      		adiw r30,4
- 1343               	.LVL151:
- 1344 04e8 4F01      		movw r8,r30
- 1345 04ea 00C0      		rjmp .L52
- 1346               	.LVL152:
- 1347               	.L36:
- 208:../../../os/hal/lib/streams/chprintf.c ****         l = va_arg(ap, long);
- 1348               		.loc 1 208 0
- 1349 04ec 3111      		cpse r19,__zero_reg__
- 1350 04ee 00C0      		rjmp .L27
- 1351               	.LVL153:
- 211:../../../os/hal/lib/streams/chprintf.c ****       if (l < 0) {
- 1352               		.loc 1 211 0
- 1353 04f0 D401      		movw r26,r8
- 1354 04f2 4D91      		ld r20,X+
- 1355 04f4 5C91      		ld r21,X
- 1356               	.LVL154:
- 1357 04f6 052E      		mov __tmp_reg__,r21
- 1358 04f8 000C      		lsl r0
- 1359 04fa 660B      		sbc r22,r22
- 1360 04fc 770B      		sbc r23,r23
- 1361               	.LVL155:
- 1362 04fe F401      		movw r30,r8
- 1363 0500 3296      		adiw r30,2
- 1364               	.LVL156:
- 1365 0502 4F01      		movw r8,r30
- 212:../../../os/hal/lib/streams/chprintf.c ****         *p++ = '-';
- 1366               		.loc 1 212 0
- 1367 0504 77FD      		sbrc r23,7
- 1368 0506 00C0      		rjmp .L114
- 1369               	.LVL157:
- 1370               	.L77:
- 143:../../../os/hal/lib/streams/chprintf.c ****     s = tmpbuf;
- 1371               		.loc 1 143 0
- 1372 0508 8A8D      		ldd r24,Y+26
- 1373               	.LVL158:
- 1374 050a 9B8D      		ldd r25,Y+27
- 1375               	.L47:
- 1376               	.LVL159:
- 1377               	.LBB16:
- 1378               	.LBB17:
-  72:../../../os/hal/lib/streams/chprintf.c **** }
- 1379               		.loc 1 72 0
- 1380 050c E12C      		mov r14,__zero_reg__
- 1381 050e F12C      		mov r15,__zero_reg__
- 1382 0510 8701      		movw r16,r14
- 1383 0512 2AE0      		ldi r18,lo8(10)
- 1384 0514 30E0      		ldi r19,0
- 1385 0516 00C0      		rjmp .L97
- 1386               	.LVL160:
- 1387               	.L55:
- 1388               	.LBE17:
- 1389               	.LBE16:
- 1390 0518 C12C      		mov r12,__zero_reg__
- 1391 051a D12C      		mov r13,__zero_reg__
- 1392               	.LVL161:
- 266:../../../os/hal/lib/streams/chprintf.c ****       streamPut(chp, (uint8_t)*s++);
- 1393               		.loc 1 266 0
- 1394 051c 57FE      		sbrs r5,7
- 1395 051e 00C0      		rjmp .L65
- 1396 0520 00C0      		rjmp .L12
- 1397               	.LVL162:
- 1398               	.L108:
- 1399 0522 412C      		mov r4,__zero_reg__
- 1400 0524 512C      		mov r5,__zero_reg__
- 1401 0526 00C0      		rjmp .L61
- 1402               	.LVL163:
- 1403               	.L107:
- 256:../../../os/hal/lib/streams/chprintf.c ****         streamPut(chp, (uint8_t)*s++);
- 1404               		.loc 1 256 0 discriminator 1
- 1405 0528 B0E3      		ldi r27,lo8(48)
- 1406 052a 7B12      		cpse r7,r27
- 1407 052c 00C0      		rjmp .L56
- 1408               	.LVL164:
- 257:../../../os/hal/lib/streams/chprintf.c ****         n++;
- 1409               		.loc 1 257 0
- 1410 052e EFEF      		ldi r30,-1
- 1411 0530 EE1A      		sub r14,r30
- 1412 0532 FE0A      		sbc r15,r30
- 1413               	.LVL165:
- 1414 0534 D101      		movw r26,r2
- 1415 0536 ED91      		ld r30,X+
- 1416 0538 FC91      		ld r31,X
- 1417 053a 0680      		ldd __tmp_reg__,Z+6
- 1418 053c F781      		ldd r31,Z+7
- 1419 053e E02D      		mov r30,__tmp_reg__
- 1420 0540 6DE2      		ldi r22,lo8(45)
- 1421 0542 C101      		movw r24,r2
- 1422 0544 0995      		icall
- 1423               	.LVL166:
- 258:../../../os/hal/lib/streams/chprintf.c ****         i--;
- 1424               		.loc 1 258 0
- 1425 0546 EC8D      		ldd r30,Y+28
- 1426 0548 FD8D      		ldd r31,Y+29
- 1427 054a 3196      		adiw r30,1
- 1428 054c FD8F      		std Y+29,r31
- 1429 054e EC8F      		std Y+28,r30
- 1430               	.LVL167:
- 1431 0550 F1E0      		ldi r31,1
- 1432 0552 4F1A      		sub r4,r31
- 1433 0554 5108      		sbc r5,__zero_reg__
- 1434               	.LVL168:
- 1435 0556 00C0      		rjmp .L56
- 1436               	.LVL169:
- 1437               	.L27:
- 209:../../../os/hal/lib/streams/chprintf.c ****       else
- 1438               		.loc 1 209 0
- 1439 0558 D401      		movw r26,r8
- 1440 055a 4D91      		ld r20,X+
- 1441 055c 5D91      		ld r21,X+
- 1442 055e 6D91      		ld r22,X+
- 1443 0560 7C91      		ld r23,X
- 1444               	.LVL170:
- 1445 0562 F401      		movw r30,r8
- 1446 0564 3496      		adiw r30,4
- 1447               	.LVL171:
- 1448 0566 4F01      		movw r8,r30
- 212:../../../os/hal/lib/streams/chprintf.c ****         *p++ = '-';
- 1449               		.loc 1 212 0
- 1450 0568 77FF      		sbrs r23,7
- 1451 056a 00C0      		rjmp .L77
- 1452               	.LVL172:
- 1453               	.L114:
- 213:../../../os/hal/lib/streams/chprintf.c ****         l = -l;
- 1454               		.loc 1 213 0
- 1455 056c 8DE2      		ldi r24,lo8(45)
- 1456               	.LVL173:
- 1457 056e 8983      		std Y+1,r24
- 214:../../../os/hal/lib/streams/chprintf.c ****       }
- 1458               		.loc 1 214 0
- 1459 0570 7095      		com r23
- 1460 0572 6095      		com r22
- 1461 0574 5095      		com r21
- 1462 0576 4195      		neg r20
- 1463 0578 5F4F      		sbci r21,lo8(-1)
- 1464 057a 6F4F      		sbci r22,lo8(-1)
- 1465 057c 7F4F      		sbci r23,lo8(-1)
- 1466               	.LVL174:
- 213:../../../os/hal/lib/streams/chprintf.c ****         l = -l;
- 1467               		.loc 1 213 0
- 1468 057e 888D      		ldd r24,Y+24
- 1469 0580 998D      		ldd r25,Y+25
- 1470 0582 00C0      		rjmp .L47
- 1471               	.LVL175:
- 1472               	.L41:
- 201:../../../os/hal/lib/streams/chprintf.c ****         ;
- 1473               		.loc 1 201 0
- 1474 0584 8823      		tst r24
- 1475 0586 01F0      		breq .L42
- 1476 0588 0EEF      		ldi r16,lo8(-2)
- 1477 058a 1FE7      		ldi r17,lo8(127)
- 1478 058c 00C0      		rjmp .L64
- 1479               	.LVL176:
- 1480               	.L76:
- 190:../../../os/hal/lib/streams/chprintf.c ****     case 'c':
- 1481               		.loc 1 190 0
- 1482 058e 80E1      		ldi r24,lo8(16)
- 1483 0590 90E0      		ldi r25,0
- 1484 0592 00C0      		rjmp .L38
- 1485               	.LVL177:
- 1486               	.L112:
- 1487 0594 9A01      		movw r18,r20
- 1488 0596 CF01      		movw r24,r30
- 1489 0598 8E19      		sub r24,r14
- 1490 059a 9F09      		sbc r25,r15
- 1491 059c 2C01      		movw r4,r24
- 1492 059e 41E0      		ldi r20,1
- 1493 05a0 441A      		sub r4,r20
- 1494 05a2 5108      		sbc r5,__zero_reg__
- 1495               	.LVL178:
- 197:../../../os/hal/lib/streams/chprintf.c ****         s = "(null)";
- 1496               		.loc 1 197 0
- 1497 05a4 4901      		movw r8,r18
+ 709               		.loc 1 190 5 view .LVU154
+ 710 027e F0E0      		ldi r31,0
+ 711 0280 E050      		subi r30,lo8(-(gs(.L26)))
+ 712 0282 F040      		sbci r31,hi8(-(gs(.L26)))
+ 713 0284 0C94 0000 		jmp __tablejump2__
+ 714               		.section	.jumptables.gcc.chvprintf,"a",@progbits
+ 715               		.p2align	1
+ 716               	.L26:
+ 717 006a 0000      		.word gs(.L29)
+ 718 006c 0000      		.word gs(.L16)
+ 719 006e 0000      		.word gs(.L16)
+ 720 0070 0000      		.word gs(.L16)
+ 721 0072 0000      		.word gs(.L16)
+ 722 0074 0000      		.word gs(.L29)
+ 723 0076 0000      		.word gs(.L16)
+ 724 0078 0000      		.word gs(.L16)
+ 725 007a 0000      		.word gs(.L16)
+ 726 007c 0000      		.word gs(.L16)
+ 727 007e 0000      		.word gs(.L16)
+ 728 0080 0000      		.word gs(.L28)
+ 729 0082 0000      		.word gs(.L16)
+ 730 0084 0000      		.word gs(.L16)
+ 731 0086 0000      		.word gs(.L16)
+ 732 0088 0000      		.word gs(.L16)
+ 733 008a 0000      		.word gs(.L16)
+ 734 008c 0000      		.word gs(.L81)
+ 735 008e 0000      		.word gs(.L16)
+ 736 0090 0000      		.word gs(.L16)
+ 737 0092 0000      		.word gs(.L25)
+ 738 0094 0000      		.word gs(.L16)
+ 739 0096 0000      		.word gs(.L16)
+ 740 0098 0000      		.word gs(.L16)
+ 741 009a 0000      		.word gs(.L16)
+ 742 009c 0000      		.word gs(.L16)
+ 743 009e 0000      		.word gs(.L16)
+ 744 00a0 0000      		.word gs(.L16)
+ 745 00a2 0000      		.word gs(.L16)
+ 746 00a4 0000      		.word gs(.L16)
+ 747 00a6 0000      		.word gs(.L16)
+ 748 00a8 0000      		.word gs(.L24)
+ 749 00aa 0000      		.word gs(.L29)
+ 750 00ac 0000      		.word gs(.L16)
+ 751 00ae 0000      		.word gs(.L23)
+ 752 00b0 0000      		.word gs(.L16)
+ 753 00b2 0000      		.word gs(.L16)
+ 754 00b4 0000      		.word gs(.L29)
+ 755 00b6 0000      		.word gs(.L16)
+ 756 00b8 0000      		.word gs(.L16)
+ 757 00ba 0000      		.word gs(.L16)
+ 758 00bc 0000      		.word gs(.L16)
+ 759 00be 0000      		.word gs(.L16)
+ 760 00c0 0000      		.word gs(.L28)
+ 761 00c2 0000      		.word gs(.L16)
+ 762 00c4 0000      		.word gs(.L16)
+ 763 00c6 0000      		.word gs(.L16)
+ 764 00c8 0000      		.word gs(.L20)
+ 765 00ca 0000      		.word gs(.L16)
+ 766 00cc 0000      		.word gs(.L81)
+ 767 00ce 0000      		.word gs(.L16)
+ 768 00d0 0000      		.word gs(.L16)
+ 769 00d2 0000      		.word gs(.L25)
+ 770               		.section	.text.chvprintf
+ 771               	.LVL61:
+ 772               	.L20:
  196:../../../os/hal/lib/streams/chprintf.c ****       if ((s = va_arg(ap, char *)) == 0)
- 1498               		.loc 1 196 0
- 1499 05a6 40E2      		ldi r20,lo8(32)
- 1500 05a8 742E      		mov r7,r20
- 1501 05aa 00C0      		rjmp .L39
- 1502               	.LVL179:
- 1503               	.L113:
+ 773               		.loc 1 196 7 is_stmt 1 view .LVU155
+ 197:../../../os/hal/lib/streams/chprintf.c ****         s = "(null)";
+ 774               		.loc 1 197 7 view .LVU156
+ 197:../../../os/hal/lib/streams/chprintf.c ****         s = "(null)";
+ 775               		.loc 1 197 14 is_stmt 0 view .LVU157
+ 776 0288 D201      		movw r26,r4
+ 777 028a AD90      		ld r10,X+
+ 778 028c BD90      		ld r11,X+
+ 779 028e 2D01      		movw r4,r26
+ 780               	.LVL62:
+ 197:../../../os/hal/lib/streams/chprintf.c ****         s = "(null)";
+ 781               		.loc 1 197 10 view .LVU158
+ 782 0290 A114      		cp r10,__zero_reg__
+ 783 0292 B104      		cpc r11,__zero_reg__
+ 784 0294 01F4      		brne .+2
+ 785 0296 00C0      		rjmp .L31
+ 786 0298 F501      		movw r30,r10
+ 787 029a 8081      		ld r24,Z
+ 788               	.LVL63:
+ 199:../../../os/hal/lib/streams/chprintf.c ****         precision = 32767;
+ 789               		.loc 1 199 7 is_stmt 1 view .LVU159
+ 199:../../../os/hal/lib/streams/chprintf.c ****         precision = 32767;
+ 790               		.loc 1 199 10 is_stmt 0 view .LVU160
+ 791 029c 0115      		cp r16,__zero_reg__
+ 792 029e 1105      		cpc r17,__zero_reg__
+ 793 02a0 01F4      		brne .L33
+ 794               	.LVL64:
+ 200:../../../os/hal/lib/streams/chprintf.c ****       for (p = s; *p && (--precision >= 0); p++)
+ 795               		.loc 1 200 19 view .LVU161
+ 796 02a2 0FEF      		ldi r16,lo8(-1)
+ 797 02a4 1FE7      		ldi r17,lo8(127)
+ 798               	.LVL65:
+ 799               	.L33:
+ 201:../../../os/hal/lib/streams/chprintf.c ****         ;
+ 800               		.loc 1 201 7 view .LVU162
+ 801 02a6 8823      		tst r24
+ 802 02a8 01F4      		brne .+2
+ 803 02aa 00C0      		rjmp .L123
+ 804               	.LVL66:
+ 805               	.L70:
+ 201:../../../os/hal/lib/streams/chprintf.c ****         ;
+ 806               		.loc 1 201 7 view .LVU163
+ 807 02ac C501      		movw r24,r10
+ 808 02ae 0196      		adiw r24,1
+ 809 02b0 0A0D      		add r16,r10
+ 810 02b2 1B1D      		adc r17,r11
+ 811 02b4 00C0      		rjmp .L35
+ 812               	.LVL67:
+ 813               	.L34:
+ 201:../../../os/hal/lib/streams/chprintf.c ****         ;
+ 814               		.loc 1 201 7 view .LVU164
+ 815 02b6 9801      		movw r18,r16
+ 816 02b8 281B      		sub r18,r24
+ 817 02ba 390B      		sbc r19,r25
+ 201:../../../os/hal/lib/streams/chprintf.c ****         ;
+ 818               		.loc 1 201 22 discriminator 3 view .LVU165
+ 819 02bc 37FD      		sbrc r19,7
+ 820 02be 00C0      		rjmp .L124
+ 821               	.LVL68:
+ 822               	.L35:
+ 202:../../../os/hal/lib/streams/chprintf.c ****       break;
+ 823               		.loc 1 202 9 is_stmt 1 discriminator 4 view .LVU166
+ 201:../../../os/hal/lib/streams/chprintf.c ****         ;
+ 824               		.loc 1 201 46 is_stmt 0 discriminator 4 view .LVU167
+ 825 02c0 FC01      		movw r30,r24
+ 826               	.LVL69:
+ 201:../../../os/hal/lib/streams/chprintf.c ****         ;
+ 827               		.loc 1 201 46 discriminator 4 view .LVU168
+ 828 02c2 0196      		adiw r24,1
+ 829               	.LVL70:
+ 201:../../../os/hal/lib/streams/chprintf.c ****         ;
+ 830               		.loc 1 201 7 discriminator 4 view .LVU169
+ 831 02c4 2081      		ld r18,Z
+ 832 02c6 2111      		cpse r18,__zero_reg__
+ 833 02c8 00C0      		rjmp .L34
+ 834 02ca BF01      		movw r22,r30
+ 835 02cc 6A19      		sub r22,r10
+ 836 02ce 7B09      		sbc r23,r11
+ 837 02d0 4B01      		movw r8,r22
+ 838 02d2 F1E0      		ldi r31,1
+ 839 02d4 8F1A      		sub r8,r31
+ 840 02d6 9108      		sbc r9,__zero_reg__
+ 196:../../../os/hal/lib/streams/chprintf.c ****       if ((s = va_arg(ap, char *)) == 0)
+ 841               		.loc 1 196 14 view .LVU170
+ 842 02d8 20E2      		ldi r18,lo8(32)
+ 843 02da 28A3      		std Y+32,r18
+ 844               	.LVL71:
+ 250:../../../os/hal/lib/streams/chprintf.c ****     if ((width -= i) < 0)
+ 845               		.loc 1 250 5 is_stmt 1 view .LVU171
+ 251:../../../os/hal/lib/streams/chprintf.c ****       width = 0;
+ 846               		.loc 1 251 5 view .LVU172
+ 251:../../../os/hal/lib/streams/chprintf.c ****       width = 0;
+ 847               		.loc 1 251 16 is_stmt 0 view .LVU173
+ 848 02dc 8601      		movw r16,r12
+ 849 02de 061B      		sub r16,r22
+ 850 02e0 170B      		sbc r17,r23
+ 851               	.LVL72:
+ 251:../../../os/hal/lib/streams/chprintf.c ****       width = 0;
+ 852               		.loc 1 251 8 view .LVU174
+ 853 02e2 17FF      		sbrs r17,7
+ 854 02e4 00C0      		rjmp .L58
+ 855               	.LVL73:
+ 856               	.L117:
+ 254:../../../os/hal/lib/streams/chprintf.c ****     if (width < 0) {
+ 857               		.loc 1 254 13 view .LVU175
+ 858 02e6 10E0      		ldi r17,0
+ 859 02e8 00E0      		ldi r16,0
+ 266:../../../os/hal/lib/streams/chprintf.c ****       streamPut(chp, (uint8_t)*s++);
+ 860               		.loc 1 266 11 view .LVU176
+ 861 02ea 97FE      		sbrs r9,7
+ 862 02ec 00C0      		rjmp .L67
+ 863 02ee 00C0      		rjmp .L2
+ 864               	.LVL74:
+ 865               	.L23:
+ 220:../../../os/hal/lib/streams/chprintf.c ****       if (f < 0) {
+ 866               		.loc 1 220 7 is_stmt 1 view .LVU177
+ 220:../../../os/hal/lib/streams/chprintf.c ****       if (f < 0) {
+ 867               		.loc 1 220 9 is_stmt 0 view .LVU178
+ 868 02f0 F201      		movw r30,r4
+ 869 02f2 8191      		ld r24,Z+
+ 870 02f4 9191      		ld r25,Z+
+ 871 02f6 A191      		ld r26,Z+
+ 872 02f8 B191      		ld r27,Z+
+ 873 02fa F9AB      		std Y+49,r31
+ 874 02fc E8AB      		std Y+48,r30
+ 875               	.LVL75:
+ 220:../../../os/hal/lib/streams/chprintf.c ****       if (f < 0) {
+ 876               		.loc 1 220 9 view .LVU179
+ 877 02fe 8C8F      		std Y+28,r24
+ 878 0300 9D8F      		std Y+29,r25
+ 879 0302 AE8F      		std Y+30,r26
+ 880 0304 BF8F      		std Y+31,r27
+ 221:../../../os/hal/lib/streams/chprintf.c ****         *p++ = '-';
+ 881               		.loc 1 221 7 is_stmt 1 view .LVU180
+ 221:../../../os/hal/lib/streams/chprintf.c ****         *p++ = '-';
+ 882               		.loc 1 221 10 is_stmt 0 view .LVU181
+ 883 0306 20E0      		ldi r18,0
+ 884 0308 30E0      		ldi r19,0
+ 885 030a A901      		movw r20,r18
+ 886 030c BC01      		movw r22,r24
+ 887 030e CD01      		movw r24,r26
+ 888 0310 0E94 0000 		call __ltsf2
+ 889               	.LVL76:
+ 890 0314 87FD      		sbrc r24,7
+ 891 0316 00C0      		rjmp .L125
+ 143:../../../os/hal/lib/streams/chprintf.c ****     s = tmpbuf;
+ 892               		.loc 1 143 7 view .LVU182
+ 893 0318 CE01      		movw r24,r28
+ 894 031a 0196      		adiw r24,1
+ 895 031c 9BA3      		std Y+35,r25
+ 896 031e 8AA3      		std Y+34,r24
+ 897               	.L42:
+ 898               	.LVL77:
+ 225:../../../os/hal/lib/streams/chprintf.c ****       break;
+ 899               		.loc 1 225 7 is_stmt 1 view .LVU183
+ 900               	.LBB28:
+ 901               	.LBI28:
+  80:../../../os/hal/lib/streams/chprintf.c ****   long l;
+ 902               		.loc 1 80 14 view .LVU184
+ 903               	.LBB29:
+  81:../../../os/hal/lib/streams/chprintf.c **** 
+ 904               		.loc 1 81 3 view .LVU185
+  83:../../../os/hal/lib/streams/chprintf.c ****     precision = FLOAT_PRECISION;
+ 905               		.loc 1 83 3 view .LVU186
+ 906               	.LBE29:
+ 907               	.LBE28:
+ 225:../../../os/hal/lib/streams/chprintf.c ****       break;
+ 908               		.loc 1 225 11 is_stmt 0 view .LVU187
+ 909 0320 012E      		mov __tmp_reg__,r17
+ 910 0322 000C      		lsl r0
+ 911 0324 220B      		sbc r18,r18
+ 912 0326 330B      		sbc r19,r19
+ 913               	.LBB36:
+ 914               	.LBB34:
+  83:../../../os/hal/lib/streams/chprintf.c ****     precision = FLOAT_PRECISION;
+ 915               		.loc 1 83 24 view .LVU188
+ 916 0328 0150      		subi r16,1
+ 917 032a 1109      		sbc r17,__zero_reg__
+ 918 032c 2109      		sbc r18,__zero_reg__
+ 919 032e 3109      		sbc r19,__zero_reg__
+  83:../../../os/hal/lib/streams/chprintf.c ****     precision = FLOAT_PRECISION;
+ 920               		.loc 1 83 6 view .LVU189
+ 921 0330 0930      		cpi r16,9
+ 922 0332 1105      		cpc r17,__zero_reg__
+ 923 0334 2105      		cpc r18,__zero_reg__
+ 924 0336 3105      		cpc r19,__zero_reg__
+ 925 0338 00F0      		brlo .+2
+ 926 033a 00C0      		rjmp .L85
+ 927 033c 000F      		lsl r16
+ 928 033e 111F      		rol r17
+ 929 0340 000F      		lsl r16
+ 930 0342 111F      		rol r17
+ 931 0344 0050      		subi r16,lo8(-(pow10))
+ 932 0346 1040      		sbci r17,hi8(-(pow10))
+ 933 0348 D801      		movw r26,r16
+ 934 034a 2D91      		ld r18,X+
+ 935 034c 3D91      		ld r19,X+
+ 936 034e 4D91      		ld r20,X+
+ 937 0350 5C91      		ld r21,X
+ 938 0352 2CA3      		std Y+36,r18
+ 939 0354 3DA3      		std Y+37,r19
+ 940 0356 4EA3      		std Y+38,r20
+ 941 0358 5FA3      		std Y+39,r21
+ 942 035a CA01      		movw r24,r20
+ 943 035c B901      		movw r22,r18
+ 944 035e 0E94 0000 		call __floatunsisf
+ 945               	.LVL78:
+ 946 0362 6AAB      		std Y+50,r22
+ 947 0364 7BAB      		std Y+51,r23
+ 948 0366 8CAB      		std Y+52,r24
+ 949 0368 9DAB      		std Y+53,r25
+ 950 036a 6CA1      		ldd r22,Y+36
+ 951 036c 7DA1      		ldd r23,Y+37
+ 952 036e 8EA1      		ldd r24,Y+38
+ 953 0370 9FA1      		ldd r25,Y+39
+ 954 0372 2AE0      		ldi r18,lo8(10)
+ 955 0374 30E0      		ldi r19,0
+ 956 0376 40E0      		ldi r20,0
+ 957 0378 50E0      		ldi r21,0
+ 958 037a 0E94 0000 		call __udivmodsi4
+ 959 037e 4901      		movw r8,r18
+ 960 0380 5A01      		movw r10,r20
+ 961               	.L44:
+  85:../../../os/hal/lib/streams/chprintf.c **** 
+ 962               		.loc 1 85 3 is_stmt 1 view .LVU190
+  87:../../../os/hal/lib/streams/chprintf.c ****   p = long_to_string_with_divisor(p, l, 10, 0);
+ 963               		.loc 1 87 3 view .LVU191
+  87:../../../os/hal/lib/streams/chprintf.c ****   p = long_to_string_with_divisor(p, l, 10, 0);
+ 964               		.loc 1 87 5 is_stmt 0 view .LVU192
+ 965 0382 6C8D      		ldd r22,Y+28
+ 966 0384 7D8D      		ldd r23,Y+29
+ 967 0386 8E8D      		ldd r24,Y+30
+ 968 0388 9F8D      		ldd r25,Y+31
+ 969 038a 0E94 0000 		call __fixsfsi
+ 970               	.LVL79:
+ 971 038e 68A7      		std Y+40,r22
+ 972 0390 7AA7      		std Y+42,r23
+ 973 0392 8CA7      		std Y+44,r24
+ 974 0394 9EA7      		std Y+46,r25
+ 975               	.LVL80:
+  88:../../../os/hal/lib/streams/chprintf.c ****   *p++ = '.';
+ 976               		.loc 1 88 3 is_stmt 1 view .LVU193
+ 977               	.LBB30:
+ 978               	.LBI30:
+  37:../../../os/hal/lib/streams/chprintf.c ****                                          long num,
+ 979               		.loc 1 37 14 view .LVU194
+ 980               	.LBB31:
+  41:../../../os/hal/lib/streams/chprintf.c ****   char *q;
+ 981               		.loc 1 41 3 view .LVU195
+  42:../../../os/hal/lib/streams/chprintf.c ****   long l, ll;
+ 982               		.loc 1 42 3 view .LVU196
+  43:../../../os/hal/lib/streams/chprintf.c **** 
+ 983               		.loc 1 43 3 view .LVU197
+  45:../../../os/hal/lib/streams/chprintf.c ****   if (divisor == 0) {
+ 984               		.loc 1 45 3 view .LVU198
+  46:../../../os/hal/lib/streams/chprintf.c ****     ll = num;
+ 985               		.loc 1 46 3 view .LVU199
+  52:../../../os/hal/lib/streams/chprintf.c ****   do {
+ 986               		.loc 1 52 3 view .LVU200
+  52:../../../os/hal/lib/streams/chprintf.c ****   do {
+ 987               		.loc 1 52 5 is_stmt 0 view .LVU201
+ 988 0396 4AA0      		ldd r4,Y+34
+ 989 0398 5BA0      		ldd r5,Y+35
+ 990 039a 9BE0      		ldi r25,11
+ 991 039c 490E      		add r4,r25
+ 992 039e 511C      		adc r5,__zero_reg__
+ 993               	.LVL81:
+  45:../../../os/hal/lib/streams/chprintf.c ****   if (divisor == 0) {
+ 994               		.loc 1 45 5 view .LVU202
+ 995 03a0 9EA5      		ldd r25,Y+46
+  52:../../../os/hal/lib/streams/chprintf.c ****   do {
+ 996               		.loc 1 52 5 view .LVU203
+ 997 03a2 042D      		mov r16,r4
+ 998 03a4 152D      		mov r17,r5
+ 999 03a6 00C0      		rjmp .L45
+ 1000               	.LVL82:
+ 1001               	.L86:
+  58:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
+ 1002               		.loc 1 58 10 view .LVU204
+ 1003 03a8 8F01      		movw r16,r30
+ 1004               	.LVL83:
+ 1005               	.L45:
+  53:../../../os/hal/lib/streams/chprintf.c ****     i = (int)(l % radix);
+ 1006               		.loc 1 53 3 is_stmt 1 view .LVU205
+  54:../../../os/hal/lib/streams/chprintf.c ****     i += '0';
+ 1007               		.loc 1 54 5 view .LVU206
+  54:../../../os/hal/lib/streams/chprintf.c ****     i += '0';
+ 1008               		.loc 1 54 17 is_stmt 0 view .LVU207
+ 1009 03aa 2AE0      		ldi r18,lo8(10)
+ 1010 03ac 30E0      		ldi r19,0
+ 1011 03ae 40E0      		ldi r20,0
+ 1012 03b0 50E0      		ldi r21,0
+ 1013 03b2 0E94 0000 		call __divmodsi4
+ 1014               	.LVL84:
+  55:../../../os/hal/lib/streams/chprintf.c ****     if (i > '9')
+ 1015               		.loc 1 55 5 is_stmt 1 view .LVU208
+  56:../../../os/hal/lib/streams/chprintf.c ****       i += 'A' - '0' - 10;
+ 1016               		.loc 1 56 5 view .LVU209
+  58:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
+ 1017               		.loc 1 58 5 view .LVU210
+  58:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
+ 1018               		.loc 1 58 10 is_stmt 0 view .LVU211
+ 1019 03b6 F801      		movw r30,r16
+ 1020               	.LVL85:
+  55:../../../os/hal/lib/streams/chprintf.c ****     if (i > '9')
+ 1021               		.loc 1 55 7 view .LVU212
+ 1022 03b8 605D      		subi r22,-48
+ 1023 03ba 7F4F      		sbci r23,-1
+ 1024               	.LVL86:
+  58:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
+ 1025               		.loc 1 58 10 view .LVU213
+ 1026 03bc A62F      		mov r26,r22
+ 1027 03be 6293      		st -Z,r22
+  59:../../../os/hal/lib/streams/chprintf.c ****   } while ((ll /= radix) != 0);
+ 1028               		.loc 1 59 5 is_stmt 1 view .LVU214
+  59:../../../os/hal/lib/streams/chprintf.c ****   } while ((ll /= radix) != 0);
+ 1029               		.loc 1 59 7 is_stmt 0 view .LVU215
+ 1030 03c0 B901      		movw r22,r18
+ 1031 03c2 CA01      		movw r24,r20
+ 1032               	.LVL87:
+  60:../../../os/hal/lib/streams/chprintf.c **** 
+ 1033               		.loc 1 60 3 view .LVU216
+ 1034 03c4 6115      		cp r22,__zero_reg__
+ 1035 03c6 7105      		cpc r23,__zero_reg__
+ 1036 03c8 8105      		cpc r24,__zero_reg__
+ 1037 03ca 9105      		cpc r25,__zero_reg__
+ 1038 03cc 01F4      		brne .L86
+ 1039 03ce 412F      		mov r20,r17
+ 1040               	.LVL88:
+  60:../../../os/hal/lib/streams/chprintf.c **** 
+ 1041               		.loc 1 60 3 view .LVU217
+ 1042 03d0 1A2F      		mov r17,r26
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1043               		.loc 1 62 3 is_stmt 1 view .LVU218
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1044               		.loc 1 62 5 is_stmt 0 view .LVU219
+ 1045 03d2 9201      		movw r18,r4
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1046               		.loc 1 62 5 view .LVU220
+ 1047 03d4 2E1B      		sub r18,r30
+ 1048 03d6 3F0B      		sbc r19,r31
+ 1049               	.LVL89:
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1050               		.loc 1 62 5 view .LVU221
+ 1051 03d8 A02F      		mov r26,r16
+ 1052 03da B42F      		mov r27,r20
+ 1053 03dc 4AA0      		ldd r4,Y+34
+ 1054 03de 5BA0      		ldd r5,Y+35
+ 1055 03e0 420E      		add r4,r18
+ 1056 03e2 531E      		adc r5,r19
+ 1057 03e4 9AA1      		ldd r25,Y+34
+ 1058 03e6 8BA1      		ldd r24,Y+35
+ 1059 03e8 00C0      		rjmp .L47
+ 1060               	.LVL90:
+ 1061               	.L126:
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1062               		.loc 1 62 5 view .LVU222
+ 1063 03ea 1D91      		ld r17,X+
+ 1064 03ec 9E2F      		mov r25,r30
+ 1065               	.LVL91:
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1066               		.loc 1 62 5 view .LVU223
+ 1067 03ee 8F2F      		mov r24,r31
+ 1068               	.LVL92:
+ 1069               	.L47:
+  63:../../../os/hal/lib/streams/chprintf.c ****     *p++ = *q++;
+ 1070               		.loc 1 63 3 is_stmt 1 view .LVU224
+  64:../../../os/hal/lib/streams/chprintf.c ****   while (--i);
+ 1071               		.loc 1 64 5 view .LVU225
+  64:../../../os/hal/lib/streams/chprintf.c ****   while (--i);
+ 1072               		.loc 1 64 7 is_stmt 0 view .LVU226
+ 1073 03f0 E92F      		mov r30,r25
+ 1074 03f2 F82F      		mov r31,r24
+ 1075               	.LVL93:
+  64:../../../os/hal/lib/streams/chprintf.c ****   while (--i);
+ 1076               		.loc 1 64 10 view .LVU227
+ 1077 03f4 1193      		st Z+,r17
+ 1078               	.LVL94:
+  65:../../../os/hal/lib/streams/chprintf.c **** 
+ 1079               		.loc 1 65 3 view .LVU228
+ 1080 03f6 E415      		cp r30,r4
+ 1081 03f8 F505      		cpc r31,r5
+ 1082 03fa 01F4      		brne .L126
+  67:../../../os/hal/lib/streams/chprintf.c **** }
+ 1083               		.loc 1 67 3 is_stmt 1 view .LVU229
+ 1084               	.LVL95:
+  67:../../../os/hal/lib/streams/chprintf.c **** }
+ 1085               		.loc 1 67 3 is_stmt 0 view .LVU230
+ 1086               	.LBE31:
+ 1087               	.LBE30:
+  89:../../../os/hal/lib/streams/chprintf.c ****   l = (long)((num - l) * precision);
+ 1088               		.loc 1 89 3 is_stmt 1 view .LVU231
+  89:../../../os/hal/lib/streams/chprintf.c ****   l = (long)((num - l) * precision);
+ 1089               		.loc 1 89 5 is_stmt 0 view .LVU232
+ 1090 03fc 2F5F      		subi r18,-1
+ 1091 03fe 3F4F      		sbci r19,-1
+ 1092 0400 AAA1      		ldd r26,Y+34
+ 1093 0402 BBA1      		ldd r27,Y+35
+ 1094 0404 A20F      		add r26,r18
+ 1095 0406 B31F      		adc r27,r19
+ 1096 0408 BBA3      		std Y+35,r27
+ 1097 040a AAA3      		std Y+34,r26
+ 1098               	.LVL96:
+  89:../../../os/hal/lib/streams/chprintf.c ****   l = (long)((num - l) * precision);
+ 1099               		.loc 1 89 8 view .LVU233
+ 1100 040c 8EE2      		ldi r24,lo8(46)
+ 1101 040e F201      		movw r30,r4
+ 1102 0410 8083      		st Z,r24
+  90:../../../os/hal/lib/streams/chprintf.c ****   return long_to_string_with_divisor(p, l, 10, precision / 10);
+ 1103               		.loc 1 90 3 is_stmt 1 view .LVU234
+  90:../../../os/hal/lib/streams/chprintf.c ****   return long_to_string_with_divisor(p, l, 10, precision / 10);
+ 1104               		.loc 1 90 19 is_stmt 0 view .LVU235
+ 1105 0412 68A5      		ldd r22,Y+40
+ 1106 0414 7AA5      		ldd r23,Y+42
+ 1107               	.LVL97:
+  90:../../../os/hal/lib/streams/chprintf.c ****   return long_to_string_with_divisor(p, l, 10, precision / 10);
+ 1108               		.loc 1 90 19 view .LVU236
+ 1109 0416 8CA5      		ldd r24,Y+44
+ 1110 0418 9EA5      		ldd r25,Y+46
+ 1111 041a 0E94 0000 		call __floatsisf
+ 1112               	.LVL98:
+  90:../../../os/hal/lib/streams/chprintf.c ****   return long_to_string_with_divisor(p, l, 10, precision / 10);
+ 1113               		.loc 1 90 19 view .LVU237
+ 1114 041e 9B01      		movw r18,r22
+ 1115 0420 AC01      		movw r20,r24
+ 1116 0422 6C8D      		ldd r22,Y+28
+ 1117 0424 7D8D      		ldd r23,Y+29
+ 1118 0426 8E8D      		ldd r24,Y+30
+ 1119 0428 9F8D      		ldd r25,Y+31
+ 1120 042a 0E94 0000 		call __subsf3
+ 1121               	.LVL99:
+  90:../../../os/hal/lib/streams/chprintf.c ****   return long_to_string_with_divisor(p, l, 10, precision / 10);
+ 1122               		.loc 1 90 24 view .LVU238
+ 1123 042e 2AA9      		ldd r18,Y+50
+ 1124 0430 3BA9      		ldd r19,Y+51
+ 1125 0432 4CA9      		ldd r20,Y+52
+ 1126 0434 5DA9      		ldd r21,Y+53
+ 1127 0436 0E94 0000 		call __mulsf3
+ 1128               	.LVL100:
+  90:../../../os/hal/lib/streams/chprintf.c ****   return long_to_string_with_divisor(p, l, 10, precision / 10);
+ 1129               		.loc 1 90 5 view .LVU239
+ 1130 043a 0E94 0000 		call __fixsfsi
+ 1131               	.LVL101:
+ 1132 043e E82F      		mov r30,r24
+ 1133               	.LVL102:
+  91:../../../os/hal/lib/streams/chprintf.c **** }
+ 1134               		.loc 1 91 3 is_stmt 1 view .LVU240
+ 1135               	.LBB32:
+ 1136               	.LBI32:
+  37:../../../os/hal/lib/streams/chprintf.c ****                                          long num,
+ 1137               		.loc 1 37 14 view .LVU241
+ 1138               	.LBB33:
+  41:../../../os/hal/lib/streams/chprintf.c ****   char *q;
+ 1139               		.loc 1 41 3 view .LVU242
+  42:../../../os/hal/lib/streams/chprintf.c ****   long l, ll;
+ 1140               		.loc 1 42 3 view .LVU243
+  43:../../../os/hal/lib/streams/chprintf.c **** 
+ 1141               		.loc 1 43 3 view .LVU244
+  45:../../../os/hal/lib/streams/chprintf.c ****   if (divisor == 0) {
+ 1142               		.loc 1 45 3 view .LVU245
+  46:../../../os/hal/lib/streams/chprintf.c ****     ll = num;
+ 1143               		.loc 1 46 3 view .LVU246
+  46:../../../os/hal/lib/streams/chprintf.c ****     ll = num;
+ 1144               		.loc 1 46 6 is_stmt 0 view .LVU247
+ 1145 0440 2CA1      		ldd r18,Y+36
+ 1146 0442 3DA1      		ldd r19,Y+37
+ 1147 0444 4EA1      		ldd r20,Y+38
+ 1148 0446 5FA1      		ldd r21,Y+39
+ 1149 0448 2A30      		cpi r18,10
+ 1150 044a 3105      		cpc r19,__zero_reg__
+ 1151 044c 4105      		cpc r20,__zero_reg__
+ 1152 044e 5105      		cpc r21,__zero_reg__
+ 1153 0450 00F4      		brsh .L48
+  47:../../../os/hal/lib/streams/chprintf.c ****   } else {
+ 1154               		.loc 1 47 8 view .LVU248
+ 1155 0452 4B01      		movw r8,r22
+ 1156 0454 A82E      		mov r10,r24
+ 1157 0456 B92E      		mov r11,r25
+ 1158               	.L48:
+ 1159               	.LVL103:
+  52:../../../os/hal/lib/streams/chprintf.c ****   do {
+ 1160               		.loc 1 52 3 is_stmt 1 view .LVU249
+  52:../../../os/hal/lib/streams/chprintf.c ****   do {
+ 1161               		.loc 1 52 5 is_stmt 0 view .LVU250
+ 1162 0458 A201      		movw r20,r4
+ 1163 045a 445F      		subi r20,-12
+ 1164 045c 5F4F      		sbci r21,-1
+ 1165 045e 5DA3      		std Y+37,r21
+ 1166 0460 4CA3      		std Y+36,r20
+ 1167               	.LVL104:
+  52:../../../os/hal/lib/streams/chprintf.c ****   do {
+ 1168               		.loc 1 52 5 view .LVU251
+ 1169 0462 8CA1      		ldd r24,Y+36
+ 1170               	.LVL105:
+  52:../../../os/hal/lib/streams/chprintf.c ****   do {
+ 1171               		.loc 1 52 5 view .LVU252
+ 1172 0464 4DA0      		ldd r4,Y+37
+ 1173 0466 D9A6      		std Y+41,r13
+ 1174 0468 C8A6      		std Y+40,r12
+ 1175 046a 3BA6      		std Y+43,r3
+ 1176 046c 2AA6      		std Y+42,r2
+ 1177 046e FDA6      		std Y+45,r15
+ 1178 0470 ECA6      		std Y+44,r14
+ 1179 0472 7FA6      		std Y+47,r7
+ 1180 0474 6EA6      		std Y+46,r6
+ 1181 0476 F62E      		mov r15,r22
+ 1182 0478 D72E      		mov r13,r23
+ 1183 047a 7E2E      		mov r7,r30
+ 1184 047c 392E      		mov r3,r25
+ 1185 047e 582E      		mov r5,r24
+ 1186 0480 00C0      		rjmp .L49
+ 1187               	.LVL106:
+ 1188               	.L87:
+  58:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
+ 1189               		.loc 1 58 10 view .LVU253
+ 1190 0482 502E      		mov r5,r16
+ 1191               	.LVL107:
+  58:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
+ 1192               		.loc 1 58 10 view .LVU254
+ 1193 0484 412E      		mov r4,r17
+ 1194               	.LVL108:
+ 1195               	.L49:
+  53:../../../os/hal/lib/streams/chprintf.c ****     i = (int)(l % radix);
+ 1196               		.loc 1 53 3 is_stmt 1 view .LVU255
+  54:../../../os/hal/lib/streams/chprintf.c ****     i += '0';
+ 1197               		.loc 1 54 5 view .LVU256
+  54:../../../os/hal/lib/streams/chprintf.c ****     i += '0';
+ 1198               		.loc 1 54 17 is_stmt 0 view .LVU257
+ 1199 0486 6F2D      		mov r22,r15
+ 1200 0488 7D2D      		mov r23,r13
+ 1201 048a 872D      		mov r24,r7
+ 1202 048c 932D      		mov r25,r3
+ 1203 048e 2AE0      		ldi r18,lo8(10)
+ 1204 0490 30E0      		ldi r19,0
+ 1205 0492 40E0      		ldi r20,0
+ 1206 0494 50E0      		ldi r21,0
+ 1207 0496 0E94 0000 		call __divmodsi4
+ 1208               	.LVL109:
+  55:../../../os/hal/lib/streams/chprintf.c ****     if (i > '9')
+ 1209               		.loc 1 55 5 is_stmt 1 view .LVU258
+  56:../../../os/hal/lib/streams/chprintf.c ****       i += 'A' - '0' - 10;
+ 1210               		.loc 1 56 5 view .LVU259
+  58:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
+ 1211               		.loc 1 58 5 view .LVU260
+  58:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
+ 1212               		.loc 1 58 10 is_stmt 0 view .LVU261
+ 1213 049a 052D      		mov r16,r5
+ 1214 049c 142D      		mov r17,r4
+ 1215               	.LVL110:
+  55:../../../os/hal/lib/streams/chprintf.c ****     if (i > '9')
+ 1216               		.loc 1 55 7 view .LVU262
+ 1217 049e 605D      		subi r22,-48
+ 1218 04a0 7F4F      		sbci r23,-1
+ 1219               	.LVL111:
+  58:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
+ 1220               		.loc 1 58 10 view .LVU263
+ 1221 04a2 6C8F      		std Y+28,r22
+ 1222 04a4 D801      		movw r26,r16
+ 1223 04a6 6E93      		st -X,r22
+ 1224 04a8 8D01      		movw r16,r26
+  59:../../../os/hal/lib/streams/chprintf.c ****   } while ((ll /= radix) != 0);
+ 1225               		.loc 1 59 5 is_stmt 1 view .LVU264
+  59:../../../os/hal/lib/streams/chprintf.c ****   } while ((ll /= radix) != 0);
+ 1226               		.loc 1 59 7 is_stmt 0 view .LVU265
+ 1227 04aa F22E      		mov r15,r18
+ 1228               	.LVL112:
+  59:../../../os/hal/lib/streams/chprintf.c ****   } while ((ll /= radix) != 0);
+ 1229               		.loc 1 59 7 view .LVU266
+ 1230 04ac D32E      		mov r13,r19
+ 1231 04ae 742E      		mov r7,r20
+ 1232 04b0 352E      		mov r3,r21
+ 1233               	.LVL113:
+  60:../../../os/hal/lib/streams/chprintf.c **** 
+ 1234               		.loc 1 60 16 view .LVU267
+ 1235 04b2 C501      		movw r24,r10
+ 1236 04b4 B401      		movw r22,r8
+ 1237 04b6 2AE0      		ldi r18,lo8(10)
+ 1238 04b8 30E0      		ldi r19,0
+ 1239 04ba 40E0      		ldi r20,0
+ 1240 04bc 50E0      		ldi r21,0
+ 1241 04be 0E94 0000 		call __divmodsi4
+ 1242 04c2 4901      		movw r8,r18
+ 1243               	.LVL114:
+  60:../../../os/hal/lib/streams/chprintf.c **** 
+ 1244               		.loc 1 60 16 view .LVU268
+ 1245 04c4 5A01      		movw r10,r20
+  60:../../../os/hal/lib/streams/chprintf.c **** 
+ 1246               		.loc 1 60 3 view .LVU269
+ 1247 04c6 8114      		cp r8,__zero_reg__
+ 1248 04c8 9104      		cpc r9,__zero_reg__
+ 1249 04ca A104      		cpc r10,__zero_reg__
+ 1250 04cc B104      		cpc r11,__zero_reg__
+ 1251 04ce 01F4      		brne .L87
+  60:../../../os/hal/lib/streams/chprintf.c **** 
+ 1252               		.loc 1 60 3 view .LVU270
+ 1253 04d0 C8A4      		ldd r12,Y+40
+ 1254 04d2 D9A4      		ldd r13,Y+41
+ 1255               	.LVL115:
+  60:../../../os/hal/lib/streams/chprintf.c **** 
+ 1256               		.loc 1 60 3 view .LVU271
+ 1257 04d4 2AA4      		ldd r2,Y+42
+ 1258 04d6 3BA4      		ldd r3,Y+43
+ 1259               	.LVL116:
+  60:../../../os/hal/lib/streams/chprintf.c **** 
+ 1260               		.loc 1 60 3 view .LVU272
+ 1261 04d8 ECA4      		ldd r14,Y+44
+ 1262 04da FDA4      		ldd r15,Y+45
+ 1263 04dc 6EA4      		ldd r6,Y+46
+ 1264 04de 7FA4      		ldd r7,Y+47
+ 1265 04e0 852D      		mov r24,r5
+ 1266 04e2 5C8C      		ldd r5,Y+28
+ 1267               	.LVL117:
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1268               		.loc 1 62 3 is_stmt 1 view .LVU273
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1269               		.loc 1 62 3 is_stmt 0 view .LVU274
+ 1270 04e4 E82F      		mov r30,r24
+ 1271 04e6 F42D      		mov r31,r4
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1272               		.loc 1 62 5 view .LVU275
+ 1273 04e8 2CA1      		ldd r18,Y+36
+ 1274 04ea 3DA1      		ldd r19,Y+37
+ 1275 04ec 201B      		sub r18,r16
+ 1276 04ee 310B      		sbc r19,r17
+ 1277 04f0 C801      		movw r24,r16
+ 1278               	.LVL118:
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1279               		.loc 1 62 5 view .LVU276
+ 1280 04f2 820F      		add r24,r18
+ 1281 04f4 931F      		adc r25,r19
+ 1282 04f6 5AA1      		ldd r21,Y+34
+ 1283 04f8 4BA1      		ldd r20,Y+35
+ 1284 04fa 00C0      		rjmp .L51
+ 1285               	.LVL119:
+ 1286               	.L50:
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1287               		.loc 1 62 5 view .LVU277
+ 1288 04fc 5190      		ld r5,Z+
+  64:../../../os/hal/lib/streams/chprintf.c ****   while (--i);
+ 1289               		.loc 1 64 7 view .LVU278
+ 1290 04fe 5A2F      		mov r21,r26
+ 1291 0500 4B2F      		mov r20,r27
+ 1292               	.LVL120:
+ 1293               	.L51:
+  63:../../../os/hal/lib/streams/chprintf.c ****     *p++ = *q++;
+ 1294               		.loc 1 63 3 is_stmt 1 view .LVU279
+  64:../../../os/hal/lib/streams/chprintf.c ****   while (--i);
+ 1295               		.loc 1 64 5 view .LVU280
+  64:../../../os/hal/lib/streams/chprintf.c ****   while (--i);
+ 1296               		.loc 1 64 7 is_stmt 0 view .LVU281
+ 1297 0502 A52F      		mov r26,r21
+ 1298 0504 B42F      		mov r27,r20
+ 1299               	.LVL121:
+  64:../../../os/hal/lib/streams/chprintf.c ****   while (--i);
+ 1300               		.loc 1 64 10 view .LVU282
+ 1301 0506 5D92      		st X+,r5
+ 1302               	.LVL122:
+  65:../../../os/hal/lib/streams/chprintf.c **** 
+ 1303               		.loc 1 65 3 view .LVU283
+ 1304 0508 8E17      		cp r24,r30
+ 1305 050a 9F07      		cpc r25,r31
+ 1306 050c 01F4      		brne .L50
+ 1307 050e 8AA1      		ldd r24,Y+34
+ 1308 0510 9BA1      		ldd r25,Y+35
+ 1309 0512 820F      		add r24,r18
+ 1310 0514 931F      		adc r25,r19
+ 1311 0516 BC01      		movw r22,r24
+ 1312 0518 EA8D      		ldd r30,Y+26
+ 1313 051a FB8D      		ldd r31,Y+27
+ 1314 051c 6E1B      		sub r22,r30
+ 1315 051e 7F0B      		sbc r23,r31
+ 1316 0520 4B01      		movw r8,r22
+ 1317 0522 F1E0      		ldi r31,1
+ 1318 0524 8F1A      		sub r8,r31
+ 1319 0526 9108      		sbc r9,__zero_reg__
+ 1320               	.LBE33:
+ 1321               	.LBE32:
+ 1322               	.LBE34:
+ 1323               	.LBE36:
+ 220:../../../os/hal/lib/streams/chprintf.c ****       if (f < 0) {
+ 1324               		.loc 1 220 9 view .LVU284
+ 1325 0528 48A8      		ldd r4,Y+48
+ 1326 052a 59A8      		ldd r5,Y+49
+ 144:../../../os/hal/lib/streams/chprintf.c ****     left_align = FALSE;
+ 1327               		.loc 1 144 7 view .LVU285
+ 1328 052c 9E01      		movw r18,r28
+ 1329 052e 2F5F      		subi r18,-1
+ 1330 0530 3F4F      		sbci r19,-1
+ 1331 0532 5901      		movw r10,r18
+ 1332 0534 00C0      		rjmp .L30
+ 1333               	.LVL123:
+ 1334               	.L24:
+ 192:../../../os/hal/lib/streams/chprintf.c ****       *p++ = va_arg(ap, int);
+ 1335               		.loc 1 192 7 is_stmt 1 view .LVU286
+ 193:../../../os/hal/lib/streams/chprintf.c ****       break;
+ 1336               		.loc 1 193 7 view .LVU287
+ 193:../../../os/hal/lib/streams/chprintf.c ****       break;
+ 1337               		.loc 1 193 12 is_stmt 0 view .LVU288
+ 1338 0536 D201      		movw r26,r4
+ 1339 0538 8C91      		ld r24,X
+ 1340 053a 8983      		std Y+1,r24
+ 194:../../../os/hal/lib/streams/chprintf.c ****     case 's':
+ 1341               		.loc 1 194 7 is_stmt 1 view .LVU289
+ 193:../../../os/hal/lib/streams/chprintf.c ****       break;
+ 1342               		.loc 1 193 14 is_stmt 0 view .LVU290
+ 1343 053c F201      		movw r30,r4
+ 1344 053e 3296      		adiw r30,2
+ 1345               	.LVL124:
+ 193:../../../os/hal/lib/streams/chprintf.c ****       break;
+ 1346               		.loc 1 193 14 view .LVU291
+ 1347 0540 2F01      		movw r4,r30
+ 194:../../../os/hal/lib/streams/chprintf.c ****     case 's':
+ 1348               		.loc 1 194 7 view .LVU292
+ 1349 0542 912C      		mov r9,__zero_reg__
+ 1350 0544 812C      		mov r8,__zero_reg__
+ 1351 0546 61E0      		ldi r22,lo8(1)
+ 1352 0548 70E0      		ldi r23,0
+ 192:../../../os/hal/lib/streams/chprintf.c ****       *p++ = va_arg(ap, int);
+ 1353               		.loc 1 192 14 view .LVU293
+ 1354 054a F0E2      		ldi r31,lo8(32)
+ 1355 054c F8A3      		std Y+32,r31
+ 144:../../../os/hal/lib/streams/chprintf.c ****     left_align = FALSE;
+ 1356               		.loc 1 144 7 view .LVU294
+ 1357 054e 9E01      		movw r18,r28
+ 1358 0550 2F5F      		subi r18,-1
+ 1359 0552 3F4F      		sbci r19,-1
+ 1360 0554 5901      		movw r10,r18
+ 194:../../../os/hal/lib/streams/chprintf.c ****     case 's':
+ 1361               		.loc 1 194 7 view .LVU295
+ 1362 0556 00C0      		rjmp .L30
+ 1363               	.LVL125:
+ 1364               	.L118:
+ 254:../../../os/hal/lib/streams/chprintf.c ****     if (width < 0) {
+ 1365               		.loc 1 254 13 view .LVU296
+ 1366 0558 0C8D      		ldd r16,Y+28
+ 1367 055a 1D8D      		ldd r17,Y+29
+ 1368               	.LVL126:
+ 1369               	.L61:
+ 266:../../../os/hal/lib/streams/chprintf.c ****       streamPut(chp, (uint8_t)*s++);
+ 1370               		.loc 1 266 11 view .LVU297
+ 1371 055c 97FE      		sbrs r9,7
+ 1372 055e 00C0      		rjmp .L67
+ 1373 0560 00C0      		rjmp .L66
+ 1374               	.LVL127:
+ 1375               	.L125:
  222:../../../os/hal/lib/streams/chprintf.c ****         f = -f;
- 1504               		.loc 1 222 0
- 1505 05ac 8DE2      		ldi r24,lo8(45)
- 1506 05ae 8983      		std Y+1,r24
+ 1376               		.loc 1 222 9 is_stmt 1 view .LVU298
+ 222:../../../os/hal/lib/streams/chprintf.c ****         f = -f;
+ 1377               		.loc 1 222 14 is_stmt 0 view .LVU299
+ 1378 0562 8DE2      		ldi r24,lo8(45)
+ 1379 0564 8983      		std Y+1,r24
  223:../../../os/hal/lib/streams/chprintf.c ****       }
- 1507               		.loc 1 223 0
- 1508 05b0 8E8D      		ldd r24,Y+30
- 1509 05b2 9F8D      		ldd r25,Y+31
- 1510 05b4 A8A1      		ldd r26,Y+32
- 1511 05b6 B9A1      		ldd r27,Y+33
- 1512 05b8 B058      		subi r27,0x80
- 1513 05ba 8E8F      		std Y+30,r24
- 1514 05bc 9F8F      		std Y+31,r25
- 1515 05be A8A3      		std Y+32,r26
- 1516 05c0 B9A3      		std Y+33,r27
- 1517               	.LVL180:
+ 1380               		.loc 1 223 9 is_stmt 1 view .LVU300
+ 223:../../../os/hal/lib/streams/chprintf.c ****       }
+ 1381               		.loc 1 223 11 is_stmt 0 view .LVU301
+ 1382 0566 2C8D      		ldd r18,Y+28
+ 1383 0568 3D8D      		ldd r19,Y+29
+ 1384 056a 4E8D      		ldd r20,Y+30
+ 1385 056c 5F8D      		ldd r21,Y+31
+ 1386 056e 5058      		subi r21,0x80
+ 1387 0570 2C8F      		std Y+28,r18
+ 1388 0572 3D8F      		std Y+29,r19
+ 1389 0574 4E8F      		std Y+30,r20
+ 1390 0576 5F8F      		std Y+31,r21
+ 1391               	.LVL128:
  222:../../../os/hal/lib/streams/chprintf.c ****         f = -f;
- 1518               		.loc 1 222 0
- 1519 05c2 988C      		ldd r9,Y+24
- 1520 05c4 898C      		ldd r8,Y+25
- 1521 05c6 00C0      		rjmp .L48
- 1522               	.LVL181:
- 1523               	.L31:
- 190:../../../os/hal/lib/streams/chprintf.c ****     case 'c':
- 1524               		.loc 1 190 0
- 1525 05c8 80E1      		ldi r24,lo8(16)
- 1526 05ca 90E0      		ldi r25,0
- 1527               	.LVL182:
- 241:../../../os/hal/lib/streams/chprintf.c ****       else
- 1528               		.loc 1 241 0
- 1529 05cc D401      		movw r26,r8
- 1530 05ce 4D91      		ld r20,X+
- 1531 05d0 5D91      		ld r21,X+
- 1532 05d2 6D91      		ld r22,X+
- 1533 05d4 7C91      		ld r23,X
- 1534               	.LVL183:
- 1535 05d6 F401      		movw r30,r8
- 1536 05d8 3496      		adiw r30,4
- 1537               	.LVL184:
- 1538 05da 4F01      		movw r8,r30
- 1539 05dc 00C0      		rjmp .L52
- 1540               	.LVL185:
- 1541               	.L111:
+ 1392               		.loc 1 222 11 view .LVU302
+ 1393 0578 AE01      		movw r20,r28
+ 1394 057a 4E5F      		subi r20,-2
+ 1395 057c 5F4F      		sbci r21,-1
+ 1396 057e 5BA3      		std Y+35,r21
+ 1397 0580 4AA3      		std Y+34,r20
+ 1398 0582 00C0      		rjmp .L42
+ 1399               	.LVL129:
+ 1400               	.L31:
+ 199:../../../os/hal/lib/streams/chprintf.c ****         precision = 32767;
+ 1401               		.loc 1 199 7 is_stmt 1 view .LVU303
  198:../../../os/hal/lib/streams/chprintf.c ****       if (precision == 0)
- 1542               		.loc 1 198 0
- 1543 05de 60E0      		ldi r22,lo8(.LC0)
- 1544 05e0 E62E      		mov r14,r22
- 1545 05e2 60E0      		ldi r22,hi8(.LC0)
- 1546 05e4 F62E      		mov r15,r22
- 1547 05e6 00C0      		rjmp .L40
- 1548               	.LVL186:
- 1549               	.L42:
- 1550 05e8 D7FC      		sbrc r13,7
- 1551 05ea 00C0      		rjmp .L115
- 1552               	.LVL187:
- 1553               	.L66:
+ 1402               		.loc 1 198 11 is_stmt 0 view .LVU304
+ 1403 0584 90E0      		ldi r25,lo8(.LC0)
+ 1404 0586 A92E      		mov r10,r25
+ 1405 0588 90E0      		ldi r25,hi8(.LC0)
+ 1406 058a B92E      		mov r11,r25
+ 199:../../../os/hal/lib/streams/chprintf.c ****         precision = 32767;
+ 1407               		.loc 1 199 10 view .LVU305
+ 1408 058c 0115      		cp r16,__zero_reg__
+ 1409 058e 1105      		cpc r17,__zero_reg__
+ 1410 0590 01F0      		breq .+2
+ 1411 0592 00C0      		rjmp .L70
+ 1412               	.LVL130:
+ 200:../../../os/hal/lib/streams/chprintf.c ****       for (p = s; *p && (--precision >= 0); p++)
+ 1413               		.loc 1 200 19 view .LVU306
+ 1414 0594 0FEF      		ldi r16,lo8(-1)
+ 1415 0596 1FE7      		ldi r17,lo8(127)
+ 198:../../../os/hal/lib/streams/chprintf.c ****       if (precision == 0)
+ 1416               		.loc 1 198 11 view .LVU307
+ 1417 0598 80E0      		ldi r24,lo8(.LC0)
+ 1418 059a A82E      		mov r10,r24
+ 1419 059c 80E0      		ldi r24,hi8(.LC0)
+ 1420 059e B82E      		mov r11,r24
+ 1421 05a0 00C0      		rjmp .L70
+ 1422               	.LVL131:
+ 1423               	.L19:
+ 190:../../../os/hal/lib/streams/chprintf.c ****     case 'c':
+ 1424               		.loc 1 190 5 view .LVU308
+ 1425 05a2 AAE0      		ldi r26,lo8(10)
+ 1426 05a4 8A2E      		mov r8,r26
+ 1427 05a6 912C      		mov r9,__zero_reg__
+ 1428 05a8 A12C      		mov r10,__zero_reg__
+ 1429 05aa B12C      		mov r11,__zero_reg__
+ 1430               	.LVL132:
+ 1431               	.L17:
+ 241:../../../os/hal/lib/streams/chprintf.c ****       else
+ 1432               		.loc 1 241 9 is_stmt 1 view .LVU309
+ 241:../../../os/hal/lib/streams/chprintf.c ****       else
+ 1433               		.loc 1 241 13 is_stmt 0 view .LVU310
+ 1434 05ac F201      		movw r30,r4
+ 1435               	.LVL133:
+ 241:../../../os/hal/lib/streams/chprintf.c ****       else
+ 1436               		.loc 1 241 11 view .LVU311
+ 1437 05ae 6191      		ld r22,Z+
+ 1438 05b0 7191      		ld r23,Z+
+ 1439 05b2 8191      		ld r24,Z+
+ 1440 05b4 9191      		ld r25,Z+
+ 1441               	.LVL134:
+ 241:../../../os/hal/lib/streams/chprintf.c ****       else
+ 1442               		.loc 1 241 13 view .LVU312
+ 1443 05b6 2F01      		movw r4,r30
+ 1444               	.LVL135:
+ 1445               	.L53:
+ 243:../../../os/hal/lib/streams/chprintf.c ****       p = ch_ltoa(p, l, c);
+ 1446               		.loc 1 243 13 view .LVU313
+ 1447 05b8 088D      		ldd r16,Y+24
+ 1448 05ba 198D      		ldd r17,Y+25
+ 1449 05bc 00C0      		rjmp .L55
+ 1450               	.LVL136:
+ 1451               	.L88:
+ 1452               	.LBB37:
+ 1453               	.LBB38:
+ 1454               	.LBB39:
+  58:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
+ 1455               		.loc 1 58 10 view .LVU314
+ 1456 05be 8F01      		movw r16,r30
+ 1457               	.LVL137:
+ 1458               	.L55:
+  53:../../../os/hal/lib/streams/chprintf.c ****     i = (int)(l % radix);
+ 1459               		.loc 1 53 3 is_stmt 1 view .LVU315
+  54:../../../os/hal/lib/streams/chprintf.c ****     i += '0';
+ 1460               		.loc 1 54 5 view .LVU316
+ 1461 05c0 A501      		movw r20,r10
+ 1462 05c2 9401      		movw r18,r8
+ 1463 05c4 0E94 0000 		call __divmodsi4
+ 1464               	.LVL138:
+  55:../../../os/hal/lib/streams/chprintf.c ****     if (i > '9')
+ 1465               		.loc 1 55 5 view .LVU317
+  55:../../../os/hal/lib/streams/chprintf.c ****     if (i > '9')
+ 1466               		.loc 1 55 7 is_stmt 0 view .LVU318
+ 1467 05c8 DB01      		movw r26,r22
+ 1468 05ca D096      		adiw r26,48
+ 1469 05cc BD8F      		std Y+29,r27
+ 1470 05ce AC8F      		std Y+28,r26
+ 1471               	.LVL139:
+  56:../../../os/hal/lib/streams/chprintf.c ****       i += 'A' - '0' - 10;
+ 1472               		.loc 1 56 5 is_stmt 1 view .LVU319
+  56:../../../os/hal/lib/streams/chprintf.c ****       i += 'A' - '0' - 10;
+ 1473               		.loc 1 56 8 is_stmt 0 view .LVU320
+ 1474 05d0 DA97      		sbiw r26,58
+ 1475 05d2 04F0      		brlt .L54
+  57:../../../os/hal/lib/streams/chprintf.c ****     *--q = i;
+ 1476               		.loc 1 57 7 is_stmt 1 view .LVU321
+  57:../../../os/hal/lib/streams/chprintf.c ****     *--q = i;
+ 1477               		.loc 1 57 9 is_stmt 0 view .LVU322
+ 1478 05d4 FB01      		movw r30,r22
+ 1479 05d6 F796      		adiw r30,55
+ 1480 05d8 FD8F      		std Y+29,r31
+ 1481 05da EC8F      		std Y+28,r30
+ 1482               	.LVL140:
+ 1483               	.L54:
+  58:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
+ 1484               		.loc 1 58 5 is_stmt 1 view .LVU323
+  58:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
+ 1485               		.loc 1 58 10 is_stmt 0 view .LVU324
+ 1486 05dc F801      		movw r30,r16
+ 1487               	.LVL141:
+  58:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
+ 1488               		.loc 1 58 10 view .LVU325
+ 1489 05de AC8D      		ldd r26,Y+28
+ 1490 05e0 A293      		st -Z,r26
+  59:../../../os/hal/lib/streams/chprintf.c ****   } while ((ll /= radix) != 0);
+ 1491               		.loc 1 59 5 is_stmt 1 view .LVU326
+  59:../../../os/hal/lib/streams/chprintf.c ****   } while ((ll /= radix) != 0);
+ 1492               		.loc 1 59 7 is_stmt 0 view .LVU327
+ 1493 05e2 CA01      		movw r24,r20
+ 1494 05e4 B901      		movw r22,r18
+  60:../../../os/hal/lib/streams/chprintf.c **** 
+ 1495               		.loc 1 60 3 view .LVU328
+ 1496 05e6 6115      		cp r22,__zero_reg__
+ 1497 05e8 7105      		cpc r23,__zero_reg__
+ 1498 05ea 8105      		cpc r24,__zero_reg__
+ 1499 05ec 9105      		cpc r25,__zero_reg__
+ 1500 05ee 01F4      		brne .L88
+ 1501 05f0 9A2F      		mov r25,r26
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1502               		.loc 1 62 3 is_stmt 1 view .LVU329
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1503               		.loc 1 62 5 is_stmt 0 view .LVU330
+ 1504 05f2 688D      		ldd r22,Y+24
+ 1505 05f4 798D      		ldd r23,Y+25
+ 1506 05f6 6E1B      		sub r22,r30
+ 1507 05f8 7F0B      		sbc r23,r31
+ 1508               	.LVL142:
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1509               		.loc 1 62 5 view .LVU331
+ 1510 05fa D801      		movw r26,r16
+ 1511 05fc 21E0      		ldi r18,lo8(1)
+ 1512 05fe 30E0      		ldi r19,0
+ 1513 0600 2C0F      		add r18,r28
+ 1514 0602 3D1F      		adc r19,r29
+ 1515 0604 260F      		add r18,r22
+ 1516 0606 371F      		adc r19,r23
+ 1517 0608 4A8D      		ldd r20,Y+26
+ 1518 060a 8B8D      		ldd r24,Y+27
+ 1519 060c 00C0      		rjmp .L57
+ 1520               	.LVL143:
+ 1521               	.L56:
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1522               		.loc 1 62 5 view .LVU332
+ 1523 060e 9D91      		ld r25,X+
+ 1524 0610 4E2F      		mov r20,r30
+ 1525 0612 8F2F      		mov r24,r31
+ 1526               	.LVL144:
+ 1527               	.L57:
+  63:../../../os/hal/lib/streams/chprintf.c ****     *p++ = *q++;
+ 1528               		.loc 1 63 3 is_stmt 1 view .LVU333
+  64:../../../os/hal/lib/streams/chprintf.c ****   while (--i);
+ 1529               		.loc 1 64 5 view .LVU334
+  64:../../../os/hal/lib/streams/chprintf.c ****   while (--i);
+ 1530               		.loc 1 64 7 is_stmt 0 view .LVU335
+ 1531 0614 E42F      		mov r30,r20
+ 1532 0616 F82F      		mov r31,r24
+ 1533               	.LVL145:
+  64:../../../os/hal/lib/streams/chprintf.c ****   while (--i);
+ 1534               		.loc 1 64 10 view .LVU336
+ 1535 0618 9193      		st Z+,r25
+ 1536               	.LVL146:
+  65:../../../os/hal/lib/streams/chprintf.c **** 
+ 1537               		.loc 1 65 3 view .LVU337
+ 1538 061a E217      		cp r30,r18
+ 1539 061c F307      		cpc r31,r19
+ 1540 061e 01F4      		brne .L56
+ 1541 0620 4B01      		movw r8,r22
+ 1542 0622 F1E0      		ldi r31,1
+ 1543 0624 8F1A      		sub r8,r31
+ 1544 0626 9108      		sbc r9,__zero_reg__
+ 1545               	.LBE39:
+ 1546               	.LBE38:
+ 1547               	.LBE37:
+ 144:../../../os/hal/lib/streams/chprintf.c ****     left_align = FALSE;
+ 1548               		.loc 1 144 7 view .LVU338
+ 1549 0628 9E01      		movw r18,r28
+ 1550 062a 2F5F      		subi r18,-1
+ 1551 062c 3F4F      		sbci r19,-1
+ 1552 062e 5901      		movw r10,r18
+ 1553 0630 00C0      		rjmp .L30
+ 1554               	.LVL147:
+ 1555               	.L80:
+ 190:../../../os/hal/lib/streams/chprintf.c ****     case 'c':
+ 1556               		.loc 1 190 5 view .LVU339
+ 1557 0632 40E1      		ldi r20,lo8(16)
+ 1558 0634 842E      		mov r8,r20
+ 1559 0636 912C      		mov r9,__zero_reg__
+ 1560 0638 A12C      		mov r10,__zero_reg__
+ 1561 063a B12C      		mov r11,__zero_reg__
+ 1562 063c 00C0      		rjmp .L17
+ 1563               	.L21:
+ 1564               	.LVL148:
+ 240:../../../os/hal/lib/streams/chprintf.c ****         l = va_arg(ap, unsigned long);
+ 1565               		.loc 1 240 7 is_stmt 1 view .LVU340
+ 190:../../../os/hal/lib/streams/chprintf.c ****     case 'c':
+ 1566               		.loc 1 190 5 is_stmt 0 view .LVU341
+ 1567 063e 28E0      		ldi r18,lo8(8)
+ 1568 0640 822E      		mov r8,r18
+ 1569 0642 912C      		mov r9,__zero_reg__
+ 1570 0644 A12C      		mov r10,__zero_reg__
+ 1571 0646 B12C      		mov r11,__zero_reg__
+ 1572 0648 00C0      		rjmp .L17
+ 1573               	.LVL149:
+ 1574               	.L29:
+ 208:../../../os/hal/lib/streams/chprintf.c ****         l = va_arg(ap, long);
+ 1575               		.loc 1 208 7 is_stmt 1 view .LVU342
+ 208:../../../os/hal/lib/streams/chprintf.c ****         l = va_arg(ap, long);
+ 1576               		.loc 1 208 10 is_stmt 0 view .LVU343
+ 1577 064a 9A31      		cpi r25,lo8(26)
+ 1578 064c 00F4      		brsh .+2
+ 1579 064e 00C0      		rjmp .L22
+ 211:../../../os/hal/lib/streams/chprintf.c ****       if (l < 0) {
+ 1580               		.loc 1 211 9 is_stmt 1 view .LVU344
+ 211:../../../os/hal/lib/streams/chprintf.c ****       if (l < 0) {
+ 1581               		.loc 1 211 13 is_stmt 0 view .LVU345
+ 1582 0650 F201      		movw r30,r4
+ 1583               	.LVL150:
+ 211:../../../os/hal/lib/streams/chprintf.c ****       if (l < 0) {
+ 1584               		.loc 1 211 11 view .LVU346
+ 1585 0652 6191      		ld r22,Z+
+ 1586 0654 7191      		ld r23,Z+
+ 1587               	.LVL151:
+ 211:../../../os/hal/lib/streams/chprintf.c ****       if (l < 0) {
+ 1588               		.loc 1 211 11 view .LVU347
+ 1589 0656 072E      		mov __tmp_reg__,r23
+ 1590 0658 000C      		lsl r0
+ 1591 065a 880B      		sbc r24,r24
+ 1592 065c 990B      		sbc r25,r25
+ 1593               	.LVL152:
+ 211:../../../os/hal/lib/streams/chprintf.c ****       if (l < 0) {
+ 1594               		.loc 1 211 13 view .LVU348
+ 1595 065e 2F01      		movw r4,r30
+ 1596               	.LVL153:
+ 1597               	.L37:
+ 212:../../../os/hal/lib/streams/chprintf.c ****         *p++ = '-';
+ 1598               		.loc 1 212 7 is_stmt 1 view .LVU349
+ 143:../../../os/hal/lib/streams/chprintf.c ****     s = tmpbuf;
+ 1599               		.loc 1 143 7 is_stmt 0 view .LVU350
+ 1600 0660 8E01      		movw r16,r28
+ 1601 0662 0F5F      		subi r16,-1
+ 1602 0664 1F4F      		sbci r17,-1
+ 212:../../../os/hal/lib/streams/chprintf.c ****         *p++ = '-';
+ 1603               		.loc 1 212 10 view .LVU351
+ 1604 0666 97FF      		sbrs r25,7
+ 1605 0668 00C0      		rjmp .L38
+ 213:../../../os/hal/lib/streams/chprintf.c ****         l = -l;
+ 1606               		.loc 1 213 9 is_stmt 1 view .LVU352
+ 1607               	.LVL154:
+ 213:../../../os/hal/lib/streams/chprintf.c ****         l = -l;
+ 1608               		.loc 1 213 14 is_stmt 0 view .LVU353
+ 1609 066a 2DE2      		ldi r18,lo8(45)
+ 1610 066c 2983      		std Y+1,r18
+ 214:../../../os/hal/lib/streams/chprintf.c ****       }
+ 1611               		.loc 1 214 9 is_stmt 1 view .LVU354
+ 214:../../../os/hal/lib/streams/chprintf.c ****       }
+ 1612               		.loc 1 214 11 is_stmt 0 view .LVU355
+ 1613 066e 9095      		com r25
+ 1614 0670 8095      		com r24
+ 1615 0672 7095      		com r23
+ 1616 0674 6195      		neg r22
+ 1617 0676 7F4F      		sbci r23,lo8(-1)
+ 1618 0678 8F4F      		sbci r24,lo8(-1)
+ 1619 067a 9F4F      		sbci r25,lo8(-1)
+ 1620               	.LVL155:
+ 213:../../../os/hal/lib/streams/chprintf.c ****         l = -l;
+ 1621               		.loc 1 213 11 view .LVU356
+ 1622 067c 8E01      		movw r16,r28
+ 1623 067e 0E5F      		subi r16,-2
+ 1624 0680 1F4F      		sbci r17,-1
+ 1625               	.LVL156:
+ 1626               	.L38:
+ 216:../../../os/hal/lib/streams/chprintf.c ****       break;
+ 1627               		.loc 1 216 7 is_stmt 1 view .LVU357
+ 1628               	.LBB40:
+ 1629               	.LBI40:
+  70:../../../os/hal/lib/streams/chprintf.c **** 
+ 1630               		.loc 1 70 14 view .LVU358
+ 1631               	.LBE40:
+  72:../../../os/hal/lib/streams/chprintf.c **** }
+ 1632               		.loc 1 72 3 view .LVU359
+ 1633               	.LBB43:
+ 1634               	.LBB41:
+ 1635               	.LBI41:
+  37:../../../os/hal/lib/streams/chprintf.c ****                                          long num,
+ 1636               		.loc 1 37 14 view .LVU360
+ 1637               	.LBB42:
+  41:../../../os/hal/lib/streams/chprintf.c ****   char *q;
+ 1638               		.loc 1 41 3 view .LVU361
+  42:../../../os/hal/lib/streams/chprintf.c ****   long l, ll;
+ 1639               		.loc 1 42 3 view .LVU362
+  43:../../../os/hal/lib/streams/chprintf.c **** 
+ 1640               		.loc 1 43 3 view .LVU363
+  45:../../../os/hal/lib/streams/chprintf.c ****   if (divisor == 0) {
+ 1641               		.loc 1 45 3 view .LVU364
+  46:../../../os/hal/lib/streams/chprintf.c ****     ll = num;
+ 1642               		.loc 1 46 3 view .LVU365
+  52:../../../os/hal/lib/streams/chprintf.c ****   do {
+ 1643               		.loc 1 52 3 view .LVU366
+  52:../../../os/hal/lib/streams/chprintf.c ****   do {
+ 1644               		.loc 1 52 5 is_stmt 0 view .LVU367
+ 1645 0682 D801      		movw r26,r16
+ 1646 0684 1B96      		adiw r26,11
+ 1647 0686 BD8F      		std Y+29,r27
+ 1648 0688 AC8F      		std Y+28,r26
+ 1649               	.LVL157:
+  52:../../../os/hal/lib/streams/chprintf.c ****   do {
+ 1650               		.loc 1 52 5 view .LVU368
+ 1651 068a BC8C      		ldd r11,Y+28
+ 1652 068c AD8C      		ldd r10,Y+29
+ 1653 068e 00C0      		rjmp .L39
+ 1654               	.LVL158:
+ 1655               	.L83:
+  58:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
+ 1656               		.loc 1 58 10 view .LVU369
+ 1657 0690 BE2E      		mov r11,r30
+ 1658               	.LVL159:
+  58:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
+ 1659               		.loc 1 58 10 view .LVU370
+ 1660 0692 AF2E      		mov r10,r31
+ 1661               	.LVL160:
+ 1662               	.L39:
+  53:../../../os/hal/lib/streams/chprintf.c ****     i = (int)(l % radix);
+ 1663               		.loc 1 53 3 is_stmt 1 view .LVU371
+  54:../../../os/hal/lib/streams/chprintf.c ****     i += '0';
+ 1664               		.loc 1 54 5 view .LVU372
+  54:../../../os/hal/lib/streams/chprintf.c ****     i += '0';
+ 1665               		.loc 1 54 17 is_stmt 0 view .LVU373
+ 1666 0694 2AE0      		ldi r18,lo8(10)
+ 1667 0696 30E0      		ldi r19,0
+ 1668 0698 40E0      		ldi r20,0
+ 1669 069a 50E0      		ldi r21,0
+ 1670 069c 0E94 0000 		call __divmodsi4
+ 1671               	.LVL161:
+  55:../../../os/hal/lib/streams/chprintf.c ****     if (i > '9')
+ 1672               		.loc 1 55 5 is_stmt 1 view .LVU374
+  56:../../../os/hal/lib/streams/chprintf.c ****       i += 'A' - '0' - 10;
+ 1673               		.loc 1 56 5 view .LVU375
+  58:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
+ 1674               		.loc 1 58 5 view .LVU376
+  58:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
+ 1675               		.loc 1 58 10 is_stmt 0 view .LVU377
+ 1676 06a0 EB2D      		mov r30,r11
+ 1677 06a2 FA2D      		mov r31,r10
+ 1678               	.LVL162:
+  55:../../../os/hal/lib/streams/chprintf.c ****     if (i > '9')
+ 1679               		.loc 1 55 7 view .LVU378
+ 1680 06a4 605D      		subi r22,-48
+ 1681 06a6 7F4F      		sbci r23,-1
+ 1682               	.LVL163:
+  58:../../../os/hal/lib/streams/chprintf.c ****     l /= radix;
+ 1683               		.loc 1 58 10 view .LVU379
+ 1684 06a8 962E      		mov r9,r22
+ 1685 06aa 6293      		st -Z,r22
+  59:../../../os/hal/lib/streams/chprintf.c ****   } while ((ll /= radix) != 0);
+ 1686               		.loc 1 59 5 is_stmt 1 view .LVU380
+  59:../../../os/hal/lib/streams/chprintf.c ****   } while ((ll /= radix) != 0);
+ 1687               		.loc 1 59 7 is_stmt 0 view .LVU381
+ 1688 06ac B901      		movw r22,r18
+ 1689 06ae CA01      		movw r24,r20
+ 1690               	.LVL164:
+  60:../../../os/hal/lib/streams/chprintf.c **** 
+ 1691               		.loc 1 60 3 view .LVU382
+ 1692 06b0 6115      		cp r22,__zero_reg__
+ 1693 06b2 7105      		cpc r23,__zero_reg__
+ 1694 06b4 8105      		cpc r24,__zero_reg__
+ 1695 06b6 9105      		cpc r25,__zero_reg__
+ 1696 06b8 01F4      		brne .L83
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1697               		.loc 1 62 3 is_stmt 1 view .LVU383
+ 1698               	.LVL165:
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1699               		.loc 1 62 3 is_stmt 0 view .LVU384
+ 1700 06ba AB2D      		mov r26,r11
+ 1701 06bc BA2D      		mov r27,r10
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1702               		.loc 1 62 5 view .LVU385
+ 1703 06be 8C8D      		ldd r24,Y+28
+ 1704 06c0 9D8D      		ldd r25,Y+29
+ 1705 06c2 8E1B      		sub r24,r30
+ 1706 06c4 9F0B      		sbc r25,r31
+ 1707 06c6 800F      		add r24,r16
+ 1708 06c8 911F      		adc r25,r17
+ 1709 06ca 00C0      		rjmp .L41
+ 1710               	.LVL166:
+ 1711               	.L40:
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1712               		.loc 1 62 5 view .LVU386
+ 1713 06cc 9D90      		ld r9,X+
+ 1714               	.LVL167:
+  62:../../../os/hal/lib/streams/chprintf.c ****   do
+ 1715               		.loc 1 62 5 view .LVU387
+ 1716 06ce 8F01      		movw r16,r30
+ 1717               	.LVL168:
+ 1718               	.L41:
+  63:../../../os/hal/lib/streams/chprintf.c ****     *p++ = *q++;
+ 1719               		.loc 1 63 3 is_stmt 1 view .LVU388
+  64:../../../os/hal/lib/streams/chprintf.c ****   while (--i);
+ 1720               		.loc 1 64 5 view .LVU389
+  64:../../../os/hal/lib/streams/chprintf.c ****   while (--i);
+ 1721               		.loc 1 64 7 is_stmt 0 view .LVU390
+ 1722 06d0 F801      		movw r30,r16
+ 1723               	.LVL169:
+  64:../../../os/hal/lib/streams/chprintf.c ****   while (--i);
+ 1724               		.loc 1 64 10 view .LVU391
+ 1725 06d2 9192      		st Z+,r9
+ 1726               	.LVL170:
+  65:../../../os/hal/lib/streams/chprintf.c **** 
+ 1727               		.loc 1 65 3 view .LVU392
+ 1728 06d4 8E17      		cp r24,r30
+ 1729 06d6 9F07      		cpc r25,r31
+ 1730 06d8 01F4      		brne .L40
+ 1731 06da BC01      		movw r22,r24
+ 1732 06dc EA8D      		ldd r30,Y+26
+ 1733 06de FB8D      		ldd r31,Y+27
+ 1734 06e0 6E1B      		sub r22,r30
+ 1735 06e2 7F0B      		sbc r23,r31
+ 1736 06e4 4B01      		movw r8,r22
+ 1737 06e6 F1E0      		ldi r31,1
+ 1738 06e8 8F1A      		sub r8,r31
+ 1739 06ea 9108      		sbc r9,__zero_reg__
+ 1740               	.LBE42:
+ 1741               	.LBE41:
+ 1742               	.LBE43:
+ 144:../../../os/hal/lib/streams/chprintf.c ****     left_align = FALSE;
+ 1743               		.loc 1 144 7 view .LVU393
+ 1744 06ec 9E01      		movw r18,r28
+ 1745               	.LVL171:
+ 144:../../../os/hal/lib/streams/chprintf.c ****     left_align = FALSE;
+ 1746               		.loc 1 144 7 view .LVU394
+ 1747 06ee 2F5F      		subi r18,-1
+ 1748 06f0 3F4F      		sbci r19,-1
+ 1749 06f2 5901      		movw r10,r18
+ 1750               	.LVL172:
+ 144:../../../os/hal/lib/streams/chprintf.c ****     left_align = FALSE;
+ 1751               		.loc 1 144 7 view .LVU395
+ 1752 06f4 00C0      		rjmp .L30
+ 1753               	.LVL173:
+ 1754               	.L22:
+ 209:../../../os/hal/lib/streams/chprintf.c ****       else
+ 1755               		.loc 1 209 9 is_stmt 1 view .LVU396
+ 209:../../../os/hal/lib/streams/chprintf.c ****       else
+ 1756               		.loc 1 209 11 is_stmt 0 view .LVU397
+ 1757 06f6 F201      		movw r30,r4
+ 1758               	.LVL174:
+ 209:../../../os/hal/lib/streams/chprintf.c ****       else
+ 1759               		.loc 1 209 11 view .LVU398
+ 1760 06f8 6191      		ld r22,Z+
+ 1761 06fa 7191      		ld r23,Z+
+ 1762 06fc 8191      		ld r24,Z+
+ 1763 06fe 9191      		ld r25,Z+
+ 1764               	.LVL175:
+ 209:../../../os/hal/lib/streams/chprintf.c ****       else
+ 1765               		.loc 1 209 11 view .LVU399
+ 1766 0700 2F01      		movw r4,r30
+ 1767               	.LVL176:
+ 209:../../../os/hal/lib/streams/chprintf.c ****       else
+ 1768               		.loc 1 209 11 view .LVU400
+ 1769 0702 00C0      		rjmp .L37
+ 1770               	.LVL177:
+ 1771               	.L81:
+ 190:../../../os/hal/lib/streams/chprintf.c ****     case 'c':
+ 1772               		.loc 1 190 5 view .LVU401
+ 1773 0704 5AE0      		ldi r21,lo8(10)
+ 1774 0706 852E      		mov r8,r21
+ 1775 0708 912C      		mov r9,__zero_reg__
+ 1776 070a A12C      		mov r10,__zero_reg__
+ 1777 070c B12C      		mov r11,__zero_reg__
+ 1778               	.L27:
+ 1779               	.LVL178:
+ 240:../../../os/hal/lib/streams/chprintf.c ****         l = va_arg(ap, unsigned long);
+ 1780               		.loc 1 240 7 is_stmt 1 view .LVU402
+ 240:../../../os/hal/lib/streams/chprintf.c ****         l = va_arg(ap, unsigned long);
+ 1781               		.loc 1 240 10 is_stmt 0 view .LVU403
+ 1782 070e 9A31      		cpi r25,lo8(26)
+ 1783 0710 00F4      		brsh .+2
+ 1784 0712 00C0      		rjmp .L17
+ 243:../../../os/hal/lib/streams/chprintf.c ****       p = ch_ltoa(p, l, c);
+ 1785               		.loc 1 243 9 is_stmt 1 view .LVU404
+ 243:../../../os/hal/lib/streams/chprintf.c ****       p = ch_ltoa(p, l, c);
+ 1786               		.loc 1 243 13 is_stmt 0 view .LVU405
+ 1787 0714 F201      		movw r30,r4
+ 1788               	.LVL179:
+ 243:../../../os/hal/lib/streams/chprintf.c ****       p = ch_ltoa(p, l, c);
+ 1789               		.loc 1 243 11 view .LVU406
+ 1790 0716 6191      		ld r22,Z+
+ 1791 0718 7191      		ld r23,Z+
+ 1792               	.LVL180:
+ 243:../../../os/hal/lib/streams/chprintf.c ****       p = ch_ltoa(p, l, c);
+ 1793               		.loc 1 243 11 view .LVU407
+ 1794 071a 90E0      		ldi r25,0
+ 1795               	.LVL181:
+ 243:../../../os/hal/lib/streams/chprintf.c ****       p = ch_ltoa(p, l, c);
+ 1796               		.loc 1 243 11 view .LVU408
+ 1797 071c 80E0      		ldi r24,0
+ 1798               	.LVL182:
+ 243:../../../os/hal/lib/streams/chprintf.c ****       p = ch_ltoa(p, l, c);
+ 1799               		.loc 1 243 13 view .LVU409
+ 1800 071e 2F01      		movw r4,r30
+ 1801               	.LVL183:
+ 243:../../../os/hal/lib/streams/chprintf.c ****       p = ch_ltoa(p, l, c);
+ 1802               		.loc 1 243 13 view .LVU410
+ 1803 0720 00C0      		rjmp .L53
+ 1804               	.LVL184:
+ 1805               	.L28:
+ 190:../../../os/hal/lib/streams/chprintf.c ****     case 'c':
+ 1806               		.loc 1 190 5 view .LVU411
+ 1807 0722 68E0      		ldi r22,lo8(8)
+ 1808 0724 862E      		mov r8,r22
+ 1809 0726 912C      		mov r9,__zero_reg__
+ 1810 0728 A12C      		mov r10,__zero_reg__
+ 1811 072a B12C      		mov r11,__zero_reg__
+ 1812 072c 00C0      		rjmp .L27
+ 1813               	.L25:
+ 1814 072e F0E1      		ldi r31,lo8(16)
+ 1815 0730 8F2E      		mov r8,r31
+ 1816 0732 912C      		mov r9,__zero_reg__
+ 1817 0734 A12C      		mov r10,__zero_reg__
+ 1818 0736 B12C      		mov r11,__zero_reg__
+ 1819 0738 00C0      		rjmp .L27
+ 1820               	.LVL185:
+ 1821               	.L119:
+ 256:../../../os/hal/lib/streams/chprintf.c ****         streamPut(chp, (uint8_t)*s++);
+ 1822               		.loc 1 256 21 discriminator 1 view .LVU412
+ 1823 073a B8A1      		ldd r27,Y+32
+ 1824 073c B033      		cpi r27,lo8(48)
+ 1825 073e 01F0      		breq .+2
+ 1826 0740 00C0      		rjmp .L62
+ 1827 0742 2FEF      		ldi r18,-1
+ 1828 0744 221A      		sub r2,r18
+ 1829 0746 320A      		sbc r3,r18
+ 257:../../../os/hal/lib/streams/chprintf.c ****         n++;
+ 1830               		.loc 1 257 9 is_stmt 1 view .LVU413
+ 1831               	.LVL186:
+ 257:../../../os/hal/lib/streams/chprintf.c ****         n++;
+ 1832               		.loc 1 257 9 is_stmt 0 view .LVU414
+ 1833 0748 3FEF      		ldi r19,-1
+ 1834 074a A31A      		sub r10,r19
+ 1835 074c B30A      		sbc r11,r19
+ 1836               	.LVL187:
+ 257:../../../os/hal/lib/streams/chprintf.c ****         n++;
+ 1837               		.loc 1 257 9 view .LVU415
+ 1838 074e 6DE2      		ldi r22,lo8(45)
+ 1839 0750 C701      		movw r24,r14
+ 1840 0752 0995      		icall
+ 1841               	.LVL188:
+ 258:../../../os/hal/lib/streams/chprintf.c ****         i--;
+ 1842               		.loc 1 258 9 is_stmt 1 view .LVU416
+ 259:../../../os/hal/lib/streams/chprintf.c ****       }
+ 1843               		.loc 1 259 9 view .LVU417
+ 1844 0754 41E0      		ldi r20,1
+ 1845 0756 841A      		sub r8,r20
+ 1846 0758 9108      		sbc r9,__zero_reg__
+ 1847 075a D701      		movw r26,r14
+ 1848 075c ED91      		ld r30,X+
+ 1849 075e FC91      		ld r31,X
+ 1850 0760 0680      		ldd __tmp_reg__,Z+6
+ 1851 0762 F781      		ldd r31,Z+7
+ 1852 0764 E02D      		mov r30,__tmp_reg__
+ 1853 0766 00C0      		rjmp .L62
+ 1854               	.LVL189:
+ 1855               	.L85:
+ 1856               	.LBB44:
+ 1857               	.LBB35:
+  83:../../../os/hal/lib/streams/chprintf.c ****     precision = FLOAT_PRECISION;
+ 1858               		.loc 1 83 6 is_stmt 0 view .LVU418
+ 1859 0768 812C      		mov r8,__zero_reg__
+ 1860 076a 71EE      		ldi r23,lo8(-31)
+ 1861 076c 972E      		mov r9,r23
+ 1862 076e 75EF      		ldi r23,lo8(-11)
+ 1863 0770 A72E      		mov r10,r23
+ 1864 0772 75E0      		ldi r23,lo8(5)
+ 1865 0774 B72E      		mov r11,r23
+ 1866 0776 28E2      		ldi r18,lo8(40)
+ 1867 0778 3BE6      		ldi r19,lo8(107)
+ 1868 077a 4EE6      		ldi r20,lo8(110)
+ 1869 077c 5EE4      		ldi r21,lo8(78)
+ 1870 077e 2AAB      		std Y+50,r18
+ 1871 0780 3BAB      		std Y+51,r19
+ 1872 0782 4CAB      		std Y+52,r20
+ 1873 0784 5DAB      		std Y+53,r21
+ 1874 0786 80E0      		ldi r24,0
+ 1875 0788 9AEC      		ldi r25,lo8(-54)
+ 1876 078a AAE9      		ldi r26,lo8(-102)
+ 1877 078c BBE3      		ldi r27,lo8(59)
+ 1878 078e 8CA3      		std Y+36,r24
+ 1879 0790 9DA3      		std Y+37,r25
+ 1880 0792 AEA3      		std Y+38,r26
+ 1881 0794 BFA3      		std Y+39,r27
+ 1882 0796 00C0      		rjmp .L44
+ 1883               	.LVL190:
+ 1884               	.L124:
+  83:../../../os/hal/lib/streams/chprintf.c ****     precision = FLOAT_PRECISION;
+ 1885               		.loc 1 83 6 view .LVU419
+ 1886 0798 BF01      		movw r22,r30
+ 1887 079a 6A19      		sub r22,r10
+ 1888 079c 7B09      		sbc r23,r11
+ 1889 079e 4B01      		movw r8,r22
+ 1890 07a0 31E0      		ldi r19,1
+ 1891 07a2 831A      		sub r8,r19
+ 1892 07a4 9108      		sbc r9,__zero_reg__
+ 1893               	.LBE35:
+ 1894               	.LBE44:
+ 196:../../../os/hal/lib/streams/chprintf.c ****       if ((s = va_arg(ap, char *)) == 0)
+ 1895               		.loc 1 196 14 view .LVU420
+ 1896 07a6 40E2      		ldi r20,lo8(32)
+ 1897 07a8 48A3      		std Y+32,r20
+ 1898 07aa 00C0      		rjmp .L30
+ 1899               	.LVL191:
+ 1900               	.L123:
  253:../../../os/hal/lib/streams/chprintf.c ****       width = -width;
- 1554               		.loc 1 253 0
- 1555 05ec 4901      		movw r8,r18
- 1556 05ee 6110      		cpse r6,__zero_reg__
- 1557 05f0 00C0      		rjmp .L80
- 1558               	.LVL188:
- 1559 05f2 4424      		clr r4
- 1560 05f4 4A94      		dec r4
- 1561 05f6 542C      		mov r5,r4
- 1562 05f8 90E2      		ldi r25,lo8(32)
- 1563 05fa 792E      		mov r7,r25
- 1564 05fc 00C0      		rjmp .L67
- 1565               	.L80:
- 1566 05fe 20E2      		ldi r18,lo8(32)
- 1567 0600 722E      		mov r7,r18
- 1568 0602 00C0      		rjmp .L59
- 1569               	.LVL189:
- 1570               	.L115:
- 1571 0604 C12C      		mov r12,__zero_reg__
- 1572 0606 D12C      		mov r13,__zero_reg__
- 1573               	.LVL190:
- 1574 0608 00C0      		rjmp .L66
- 1575               		.cfi_endproc
- 1576               	.LFE176:
- 1578               		.section	.text.chprintf,"ax",@progbits
- 1579               	.global	chprintf
- 1581               	chprintf:
- 1582               	.LFB177:
+ 1901               		.loc 1 253 5 is_stmt 1 view .LVU421
+ 253:../../../os/hal/lib/streams/chprintf.c ****       width = -width;
+ 1902               		.loc 1 253 8 is_stmt 0 view .LVU422
+ 1903 07ac B9A1      		ldd r27,Y+33
+ 1904 07ae B111      		cpse r27,__zero_reg__
+ 1905 07b0 00C0      		rjmp .L92
+ 254:../../../os/hal/lib/streams/chprintf.c ****     if (width < 0) {
+ 1906               		.loc 1 254 7 is_stmt 1 view .LVU423
+ 254:../../../os/hal/lib/streams/chprintf.c ****     if (width < 0) {
+ 1907               		.loc 1 254 13 is_stmt 0 view .LVU424
+ 1908 07b2 EE27      		clr r30
+ 1909 07b4 FF27      		clr r31
+ 1910 07b6 EC19      		sub r30,r12
+ 1911 07b8 FD09      		sbc r31,r13
+ 1912 07ba FD8F      		std Y+29,r31
+ 1913 07bc EC8F      		std Y+28,r30
+ 1914               	.LVL192:
+ 255:../../../os/hal/lib/streams/chprintf.c ****       if (*s == '-' && filler == '0') {
+ 1915               		.loc 1 255 5 is_stmt 1 view .LVU425
+ 255:../../../os/hal/lib/streams/chprintf.c ****       if (*s == '-' && filler == '0') {
+ 1916               		.loc 1 255 8 is_stmt 0 view .LVU426
+ 1917 07be CD28      		or r12,r13
+ 1918 07c0 01F0      		breq .L127
+ 196:../../../os/hal/lib/streams/chprintf.c ****       if ((s = va_arg(ap, char *)) == 0)
+ 1919               		.loc 1 196 14 view .LVU427
+ 1920 07c2 B0E2      		ldi r27,lo8(32)
+ 1921 07c4 B8A3      		std Y+32,r27
+ 255:../../../os/hal/lib/streams/chprintf.c ****       if (*s == '-' && filler == '0') {
+ 1922               		.loc 1 255 8 view .LVU428
+ 1923 07c6 8824      		clr r8
+ 1924 07c8 8A94      		dec r8
+ 1925 07ca 982C      		mov r9,r8
+ 1926 07cc 00C0      		rjmp .L74
+ 1927               	.LVL193:
+ 1928               	.L92:
+ 253:../../../os/hal/lib/streams/chprintf.c ****       width = -width;
+ 1929               		.loc 1 253 8 view .LVU429
+ 1930 07ce 8601      		movw r16,r12
+ 196:../../../os/hal/lib/streams/chprintf.c ****       if ((s = va_arg(ap, char *)) == 0)
+ 1931               		.loc 1 196 14 view .LVU430
+ 1932 07d0 E0E2      		ldi r30,lo8(32)
+ 1933 07d2 E8A3      		std Y+32,r30
+ 1934 07d4 00C0      		rjmp .L66
+ 1935               	.LVL194:
+ 1936               	.L127:
+ 254:../../../os/hal/lib/streams/chprintf.c ****     if (width < 0) {
+ 1937               		.loc 1 254 13 view .LVU431
+ 1938 07d6 8F01      		movw r16,r30
+ 196:../../../os/hal/lib/streams/chprintf.c ****       if ((s = va_arg(ap, char *)) == 0)
+ 1939               		.loc 1 196 14 view .LVU432
+ 1940 07d8 F0E2      		ldi r31,lo8(32)
+ 1941 07da F8A3      		std Y+32,r31
+ 1942 07dc 00C0      		rjmp .L66
+ 1943               		.cfi_endproc
+ 1944               	.LFE176:
+ 1946               		.section	.text.chprintf,"ax",@progbits
+ 1947               	.global	chprintf
+ 1949               	chprintf:
+ 1950               	.LVL195:
+ 1951               	.LFB177:
  278:../../../os/hal/lib/streams/chprintf.c **** 
  279:../../../os/hal/lib/streams/chprintf.c **** /**
  280:../../../os/hal/lib/streams/chprintf.c ****  * @brief   System formatted output function.
@@ -1991,56 +2670,63 @@
  300:../../../os/hal/lib/streams/chprintf.c ****  * @api
  301:../../../os/hal/lib/streams/chprintf.c ****  */
  302:../../../os/hal/lib/streams/chprintf.c **** int chprintf(BaseSequentialStream *chp, const char *fmt, ...) {
- 1583               		.loc 1 302 0
- 1584               		.cfi_startproc
- 1585               	.LVL191:
- 1586 0000 CF93      		push r28
- 1587               	.LCFI40:
- 1588               		.cfi_def_cfa_offset 3
- 1589               		.cfi_offset 28, -2
- 1590 0002 DF93      		push r29
- 1591               	.LCFI41:
- 1592               		.cfi_def_cfa_offset 4
- 1593               		.cfi_offset 29, -3
- 1594 0004 CDB7      		in r28,__SP_L__
- 1595 0006 DEB7      		in r29,__SP_H__
- 1596               	.LCFI42:
- 1597               		.cfi_def_cfa_register 28
- 1598               	/* prologue: function */
- 1599               	/* frame size = 0 */
- 1600               	/* stack size = 2 */
- 1601               	.L__stack_usage = 2
- 1602               	.LVL192:
+ 1952               		.loc 1 302 63 is_stmt 1 view -0
+ 1953               		.cfi_startproc
+ 1954               		.loc 1 302 63 is_stmt 0 view .LVU434
+ 1955 0000 CF93      		push r28
+ 1956               	.LCFI20:
+ 1957               		.cfi_def_cfa_offset 3
+ 1958               		.cfi_offset 28, -2
+ 1959 0002 DF93      		push r29
+ 1960               	.LCFI21:
+ 1961               		.cfi_def_cfa_offset 4
+ 1962               		.cfi_offset 29, -3
+ 1963 0004 CDB7      		in r28,__SP_L__
+ 1964 0006 DEB7      		in r29,__SP_H__
+ 1965               	.LCFI22:
+ 1966               		.cfi_def_cfa_register 28
+ 1967               	/* prologue: function */
+ 1968               	/* frame size = 0 */
+ 1969               	/* stack size = 2 */
+ 1970               	.L__stack_usage = 2
  303:../../../os/hal/lib/streams/chprintf.c ****   va_list ap;
+ 1971               		.loc 1 303 3 is_stmt 1 view .LVU435
  304:../../../os/hal/lib/streams/chprintf.c ****   int formatted_bytes;
+ 1972               		.loc 1 304 3 view .LVU436
  305:../../../os/hal/lib/streams/chprintf.c **** 
  306:../../../os/hal/lib/streams/chprintf.c ****   va_start(ap, fmt);
+ 1973               		.loc 1 306 3 view .LVU437
+ 1974               	.LVL196:
  307:../../../os/hal/lib/streams/chprintf.c ****   formatted_bytes = chvprintf(chp, fmt, ap);
- 1603               		.loc 1 307 0
- 1604 0008 AE01      		movw r20,r28
- 1605 000a 475F      		subi r20,-9
- 1606 000c 5F4F      		sbci r21,-1
- 1607 000e 6F81      		ldd r22,Y+7
- 1608 0010 7885      		ldd r23,Y+8
- 1609 0012 8D81      		ldd r24,Y+5
- 1610 0014 9E81      		ldd r25,Y+6
- 1611 0016 0E94 0000 		call chvprintf
- 1612               	.LVL193:
- 1613               	/* epilogue start */
+ 1975               		.loc 1 307 3 view .LVU438
+ 1976               		.loc 1 307 21 is_stmt 0 view .LVU439
+ 1977 0008 AE01      		movw r20,r28
+ 1978 000a 475F      		subi r20,-9
+ 1979 000c 5F4F      		sbci r21,-1
+ 1980 000e 6F81      		ldd r22,Y+7
+ 1981 0010 7885      		ldd r23,Y+8
+ 1982 0012 8D81      		ldd r24,Y+5
+ 1983 0014 9E81      		ldd r25,Y+6
+ 1984 0016 0E94 0000 		call chvprintf
+ 1985               	.LVL197:
  308:../../../os/hal/lib/streams/chprintf.c ****   va_end(ap);
+ 1986               		.loc 1 308 3 is_stmt 1 view .LVU440
  309:../../../os/hal/lib/streams/chprintf.c **** 
  310:../../../os/hal/lib/streams/chprintf.c ****   return formatted_bytes;
+ 1987               		.loc 1 310 3 view .LVU441
+ 1988               	/* epilogue start */
  311:../../../os/hal/lib/streams/chprintf.c **** }
- 1614               		.loc 1 311 0
- 1615 001a DF91      		pop r29
- 1616 001c CF91      		pop r28
- 1617 001e 0895      		ret
- 1618               		.cfi_endproc
- 1619               	.LFE177:
- 1621               		.section	.text.chsnprintf,"ax",@progbits
- 1622               	.global	chsnprintf
- 1624               	chsnprintf:
- 1625               	.LFB178:
+ 1989               		.loc 1 311 1 is_stmt 0 view .LVU442
+ 1990 001a DF91      		pop r29
+ 1991 001c CF91      		pop r28
+ 1992 001e 0895      		ret
+ 1993               		.cfi_endproc
+ 1994               	.LFE177:
+ 1996               		.section	.text.chsnprintf,"ax",@progbits
+ 1997               	.global	chsnprintf
+ 1999               	chsnprintf:
+ 2000               	.LVL198:
+ 2001               	.LFB178:
  312:../../../os/hal/lib/streams/chprintf.c **** 
  313:../../../os/hal/lib/streams/chprintf.c **** /**
  314:../../../os/hal/lib/streams/chprintf.c ****  * @brief   System formatted output function.
@@ -2070,229 +2756,267 @@
  338:../../../os/hal/lib/streams/chprintf.c ****  * @api
  339:../../../os/hal/lib/streams/chprintf.c ****  */
  340:../../../os/hal/lib/streams/chprintf.c **** int chsnprintf(char *str, size_t size, const char *fmt, ...) {
- 1626               		.loc 1 340 0
- 1627               		.cfi_startproc
- 1628               	.LVL194:
- 1629 0000 0F93      		push r16
- 1630               	.LCFI43:
- 1631               		.cfi_def_cfa_offset 3
- 1632               		.cfi_offset 16, -2
- 1633 0002 1F93      		push r17
- 1634               	.LCFI44:
- 1635               		.cfi_def_cfa_offset 4
- 1636               		.cfi_offset 17, -3
- 1637 0004 CF93      		push r28
- 1638               	.LCFI45:
- 1639               		.cfi_def_cfa_offset 5
- 1640               		.cfi_offset 28, -4
- 1641 0006 DF93      		push r29
- 1642               	.LCFI46:
- 1643               		.cfi_def_cfa_offset 6
- 1644               		.cfi_offset 29, -5
- 1645 0008 CDB7      		in r28,__SP_L__
- 1646 000a DEB7      		in r29,__SP_H__
- 1647               	.LCFI47:
- 1648               		.cfi_def_cfa_register 28
- 1649 000c 2A97      		sbiw r28,10
- 1650               	.LCFI48:
- 1651               		.cfi_def_cfa_offset 16
- 1652 000e 0FB6      		in __tmp_reg__,__SREG__
- 1653 0010 F894      		cli
- 1654 0012 DEBF      		out __SP_H__,r29
- 1655 0014 0FBE      		out __SREG__,__tmp_reg__
- 1656 0016 CDBF      		out __SP_L__,r28
- 1657               	/* prologue: function */
- 1658               	/* frame size = 10 */
- 1659               	/* stack size = 14 */
- 1660               	.L__stack_usage = 14
- 1661 0018 0B89      		ldd r16,Y+19
- 1662 001a 1C89      		ldd r17,Y+20
+ 2002               		.loc 1 340 62 is_stmt 1 view -0
+ 2003               		.cfi_startproc
+ 2004               		.loc 1 340 62 is_stmt 0 view .LVU444
+ 2005 0000 0F93      		push r16
+ 2006               	.LCFI23:
+ 2007               		.cfi_def_cfa_offset 3
+ 2008               		.cfi_offset 16, -2
+ 2009 0002 1F93      		push r17
+ 2010               	.LCFI24:
+ 2011               		.cfi_def_cfa_offset 4
+ 2012               		.cfi_offset 17, -3
+ 2013 0004 CF93      		push r28
+ 2014               	.LCFI25:
+ 2015               		.cfi_def_cfa_offset 5
+ 2016               		.cfi_offset 28, -4
+ 2017 0006 DF93      		push r29
+ 2018               	.LCFI26:
+ 2019               		.cfi_def_cfa_offset 6
+ 2020               		.cfi_offset 29, -5
+ 2021 0008 CDB7      		in r28,__SP_L__
+ 2022 000a DEB7      		in r29,__SP_H__
+ 2023               	.LCFI27:
+ 2024               		.cfi_def_cfa_register 28
+ 2025 000c 2A97      		sbiw r28,10
+ 2026               	.LCFI28:
+ 2027               		.cfi_def_cfa_offset 16
+ 2028 000e 0FB6      		in __tmp_reg__,__SREG__
+ 2029 0010 F894      		cli
+ 2030 0012 DEBF      		out __SP_H__,r29
+ 2031 0014 0FBE      		out __SREG__,__tmp_reg__
+ 2032 0016 CDBF      		out __SP_L__,r28
+ 2033               	/* prologue: function */
+ 2034               	/* frame size = 10 */
+ 2035               	/* stack size = 14 */
+ 2036               	.L__stack_usage = 14
+ 2037 0018 0B89      		ldd r16,Y+19
+ 2038 001a 1C89      		ldd r17,Y+20
  341:../../../os/hal/lib/streams/chprintf.c ****   va_list ap;
+ 2039               		.loc 1 341 3 is_stmt 1 view .LVU445
  342:../../../os/hal/lib/streams/chprintf.c ****   MemoryStream ms;
+ 2040               		.loc 1 342 3 view .LVU446
  343:../../../os/hal/lib/streams/chprintf.c ****   BaseSequentialStream *chp;
+ 2041               		.loc 1 343 3 view .LVU447
  344:../../../os/hal/lib/streams/chprintf.c ****   size_t size_wo_nul;
+ 2042               		.loc 1 344 3 view .LVU448
  345:../../../os/hal/lib/streams/chprintf.c ****   int retval;
+ 2043               		.loc 1 345 3 view .LVU449
  346:../../../os/hal/lib/streams/chprintf.c **** 
  347:../../../os/hal/lib/streams/chprintf.c ****   if (size > 0)
- 1663               		.loc 1 347 0
- 1664 001c 0115      		cp r16,__zero_reg__
- 1665 001e 1105      		cpc r17,__zero_reg__
- 1666 0020 01F0      		breq .L118
- 1667               	.LVL195:
+ 2044               		.loc 1 347 3 view .LVU450
+ 2045               		.loc 1 347 6 is_stmt 0 view .LVU451
+ 2046 001c 0115      		cp r16,__zero_reg__
+ 2047 001e 1105      		cpc r17,__zero_reg__
+ 2048 0020 01F0      		breq .L130
  348:../../../os/hal/lib/streams/chprintf.c ****     size_wo_nul = size - 1;
- 1668               		.loc 1 348 0
- 1669 0022 A801      		movw r20,r16
- 1670 0024 4150      		subi r20,1
- 1671 0026 5109      		sbc r21,__zero_reg__
- 1672               	.LVL196:
+ 2049               		.loc 1 348 5 is_stmt 1 view .LVU452
+ 2050               	.LVL199:
  349:../../../os/hal/lib/streams/chprintf.c ****   else
  350:../../../os/hal/lib/streams/chprintf.c ****     size_wo_nul = 0;
  351:../../../os/hal/lib/streams/chprintf.c **** 
  352:../../../os/hal/lib/streams/chprintf.c ****   /* Memory stream object to be used as a string writer, reserving one
  353:../../../os/hal/lib/streams/chprintf.c ****      byte for the final zero.*/
  354:../../../os/hal/lib/streams/chprintf.c ****   msObjectInit(&ms, (uint8_t *)str, size_wo_nul, 0);
- 1673               		.loc 1 354 0
- 1674 0028 20E0      		ldi r18,0
- 1675 002a 30E0      		ldi r19,0
- 1676 002c 6989      		ldd r22,Y+17
- 1677 002e 7A89      		ldd r23,Y+18
- 1678 0030 CE01      		movw r24,r28
- 1679 0032 0196      		adiw r24,1
- 1680 0034 0E94 0000 		call msObjectInit
- 1681               	.LVL197:
+ 2051               		.loc 1 354 3 view .LVU453
+ 348:../../../os/hal/lib/streams/chprintf.c ****     size_wo_nul = size - 1;
+ 2052               		.loc 1 348 17 is_stmt 0 view .LVU454
+ 2053 0022 A801      		movw r20,r16
+ 2054 0024 4150      		subi r20,1
+ 2055 0026 5109      		sbc r21,__zero_reg__
+ 2056               	.LVL200:
+ 2057               		.loc 1 354 3 view .LVU455
+ 2058 0028 30E0      		ldi r19,0
+ 2059 002a 20E0      		ldi r18,0
+ 2060 002c 6989      		ldd r22,Y+17
+ 2061 002e 7A89      		ldd r23,Y+18
+ 2062 0030 CE01      		movw r24,r28
+ 2063 0032 0196      		adiw r24,1
+ 2064 0034 0E94 0000 		call msObjectInit
+ 2065               	.LVL201:
  355:../../../os/hal/lib/streams/chprintf.c **** 
  356:../../../os/hal/lib/streams/chprintf.c ****   /* Performing the print operation using the common code.*/
  357:../../../os/hal/lib/streams/chprintf.c ****   chp = (BaseSequentialStream *)(void *)&ms;
+ 2066               		.loc 1 357 3 is_stmt 1 view .LVU456
  358:../../../os/hal/lib/streams/chprintf.c ****   va_start(ap, fmt);
+ 2067               		.loc 1 358 3 view .LVU457
  359:../../../os/hal/lib/streams/chprintf.c ****   retval = chvprintf(chp, fmt, ap);
- 1682               		.loc 1 359 0
- 1683 0038 AE01      		movw r20,r28
- 1684 003a 495E      		subi r20,-23
- 1685 003c 5F4F      		sbci r21,-1
- 1686 003e 6D89      		ldd r22,Y+21
- 1687 0040 7E89      		ldd r23,Y+22
- 1688 0042 CE01      		movw r24,r28
- 1689 0044 0196      		adiw r24,1
- 1690 0046 0E94 0000 		call chvprintf
- 1691               	.LVL198:
+ 2068               		.loc 1 359 3 view .LVU458
+ 2069               		.loc 1 359 12 is_stmt 0 view .LVU459
+ 2070 0038 AE01      		movw r20,r28
+ 2071 003a 495E      		subi r20,-23
+ 2072 003c 5F4F      		sbci r21,-1
+ 2073 003e 6D89      		ldd r22,Y+21
+ 2074 0040 7E89      		ldd r23,Y+22
+ 2075 0042 CE01      		movw r24,r28
+ 2076 0044 0196      		adiw r24,1
+ 2077 0046 0E94 0000 		call chvprintf
+ 2078               	.LVL202:
  360:../../../os/hal/lib/streams/chprintf.c ****   va_end(ap);
+ 2079               		.loc 1 360 3 is_stmt 1 view .LVU460
  361:../../../os/hal/lib/streams/chprintf.c **** 
  362:../../../os/hal/lib/streams/chprintf.c ****   /* Terminate with a zero, unless size==0.*/
  363:../../../os/hal/lib/streams/chprintf.c ****   if (ms.eos < size)
- 1692               		.loc 1 363 0
- 1693 004a 2F81      		ldd r18,Y+7
- 1694 004c 3885      		ldd r19,Y+8
- 1695 004e 2017      		cp r18,r16
- 1696 0050 3107      		cpc r19,r17
- 1697 0052 00F4      		brsh .L120
+ 2080               		.loc 1 363 3 view .LVU461
+ 2081               		.loc 1 363 9 is_stmt 0 view .LVU462
+ 2082 004a 2F81      		ldd r18,Y+7
+ 2083 004c 3885      		ldd r19,Y+8
+ 2084               		.loc 1 363 6 view .LVU463
+ 2085 004e 2017      		cp r18,r16
+ 2086 0050 3107      		cpc r19,r17
+ 2087 0052 00F4      		brsh .L129
  364:../../../os/hal/lib/streams/chprintf.c ****       str[ms.eos] = 0;
- 1698               		.loc 1 364 0
- 1699 0054 E989      		ldd r30,Y+17
- 1700 0056 FA89      		ldd r31,Y+18
- 1701 0058 E20F      		add r30,r18
- 1702 005a F31F      		adc r31,r19
- 1703 005c 1082      		st Z,__zero_reg__
- 1704               	.LVL199:
- 1705               	.L120:
- 1706               	/* epilogue start */
+ 2088               		.loc 1 364 7 is_stmt 1 view .LVU464
+ 2089               		.loc 1 364 19 is_stmt 0 view .LVU465
+ 2090 0054 4989      		ldd r20,Y+17
+ 2091 0056 5A89      		ldd r21,Y+18
+ 2092 0058 240F      		add r18,r20
+ 2093 005a 351F      		adc r19,r21
+ 2094 005c F901      		movw r30,r18
+ 2095 005e 1082      		st Z,__zero_reg__
  365:../../../os/hal/lib/streams/chprintf.c **** 
  366:../../../os/hal/lib/streams/chprintf.c ****   /* Return number of bytes that would have been written.*/
  367:../../../os/hal/lib/streams/chprintf.c ****   return retval;
+ 2096               		.loc 1 367 3 is_stmt 1 view .LVU466
+ 2097               	.LVL203:
+ 2098               	.L129:
+ 2099               	/* epilogue start */
  368:../../../os/hal/lib/streams/chprintf.c **** }
- 1707               		.loc 1 368 0
- 1708 005e 2A96      		adiw r28,10
- 1709 0060 0FB6      		in __tmp_reg__,__SREG__
- 1710 0062 F894      		cli
- 1711 0064 DEBF      		out __SP_H__,r29
- 1712 0066 0FBE      		out __SREG__,__tmp_reg__
- 1713 0068 CDBF      		out __SP_L__,r28
- 1714 006a DF91      		pop r29
- 1715 006c CF91      		pop r28
- 1716 006e 1F91      		pop r17
- 1717 0070 0F91      		pop r16
- 1718 0072 0895      		ret
- 1719               	.LVL200:
- 1720               	.L118:
+ 2100               		.loc 1 368 1 is_stmt 0 view .LVU467
+ 2101 0060 2A96      		adiw r28,10
+ 2102 0062 0FB6      		in __tmp_reg__,__SREG__
+ 2103 0064 F894      		cli
+ 2104 0066 DEBF      		out __SP_H__,r29
+ 2105 0068 0FBE      		out __SREG__,__tmp_reg__
+ 2106 006a CDBF      		out __SP_L__,r28
+ 2107 006c DF91      		pop r29
+ 2108 006e CF91      		pop r28
+ 2109 0070 1F91      		pop r17
+ 2110 0072 0F91      		pop r16
+ 2111 0074 0895      		ret
+ 2112               	.LVL204:
+ 2113               	.L130:
  354:../../../os/hal/lib/streams/chprintf.c **** 
- 1721               		.loc 1 354 0
- 1722 0074 20E0      		ldi r18,0
- 1723 0076 30E0      		ldi r19,0
- 1724 0078 40E0      		ldi r20,0
- 1725 007a 50E0      		ldi r21,0
- 1726 007c 6989      		ldd r22,Y+17
- 1727 007e 7A89      		ldd r23,Y+18
- 1728 0080 CE01      		movw r24,r28
- 1729 0082 0196      		adiw r24,1
- 1730 0084 0E94 0000 		call msObjectInit
- 1731               	.LVL201:
+ 2114               		.loc 1 354 3 is_stmt 1 view .LVU468
+ 2115 0076 30E0      		ldi r19,0
+ 2116 0078 20E0      		ldi r18,0
+ 2117 007a 50E0      		ldi r21,0
+ 2118 007c 40E0      		ldi r20,0
+ 2119 007e 6989      		ldd r22,Y+17
+ 2120 0080 7A89      		ldd r23,Y+18
+ 2121 0082 CE01      		movw r24,r28
+ 2122 0084 0196      		adiw r24,1
+ 2123 0086 0E94 0000 		call msObjectInit
+ 2124               	.LVL205:
+ 357:../../../os/hal/lib/streams/chprintf.c ****   va_start(ap, fmt);
+ 2125               		.loc 1 357 3 view .LVU469
+ 358:../../../os/hal/lib/streams/chprintf.c ****   retval = chvprintf(chp, fmt, ap);
+ 2126               		.loc 1 358 3 view .LVU470
  359:../../../os/hal/lib/streams/chprintf.c ****   va_end(ap);
- 1732               		.loc 1 359 0
- 1733 0088 AE01      		movw r20,r28
- 1734 008a 495E      		subi r20,-23
- 1735 008c 5F4F      		sbci r21,-1
- 1736 008e 6D89      		ldd r22,Y+21
- 1737 0090 7E89      		ldd r23,Y+22
- 1738 0092 CE01      		movw r24,r28
- 1739 0094 0196      		adiw r24,1
- 1740 0096 0E94 0000 		call chvprintf
- 1741               	.LVL202:
- 1742 009a 00C0      		rjmp .L120
- 1743               		.cfi_endproc
- 1744               	.LFE178:
- 1746               		.section	.rodata.pow10,"a",@progbits
- 1749               	pow10:
- 1750 0000 0A        		.byte	10
- 1751 0001 00        		.byte	0
- 1752 0002 00        		.byte	0
- 1753 0003 00        		.byte	0
- 1754 0004 64        		.byte	100
- 1755 0005 00        		.byte	0
- 1756 0006 00        		.byte	0
- 1757 0007 00        		.byte	0
- 1758 0008 E8        		.byte	-24
- 1759 0009 03        		.byte	3
- 1760 000a 00        		.byte	0
- 1761 000b 00        		.byte	0
- 1762 000c 10        		.byte	16
- 1763 000d 27        		.byte	39
- 1764 000e 00        		.byte	0
- 1765 000f 00        		.byte	0
- 1766 0010 A0        		.byte	-96
- 1767 0011 86        		.byte	-122
- 1768 0012 01        		.byte	1
- 1769 0013 00        		.byte	0
- 1770 0014 40        		.byte	64
- 1771 0015 42        		.byte	66
- 1772 0016 0F        		.byte	15
- 1773 0017 00        		.byte	0
- 1774 0018 80        		.byte	-128
- 1775 0019 96        		.byte	-106
- 1776 001a 98        		.byte	-104
- 1777 001b 00        		.byte	0
- 1778 001c 00        		.byte	0
- 1779 001d E1        		.byte	-31
- 1780 001e F5        		.byte	-11
- 1781 001f 05        		.byte	5
- 1782 0020 00        		.byte	0
- 1783 0021 CA        		.byte	-54
- 1784 0022 9A        		.byte	-102
- 1785 0023 3B        		.byte	59
- 1786               		.text
- 1787               	.Letext0:
- 1788               		.file 2 "/usr/lib/gcc/avr/4.9.2/include/stddef.h"
- 1789               		.file 3 "/usr/lib/avr/include/stdint.h"
- 1790               		.file 4 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
- 1791               		.file 5 "../../../os/rt/include/chsystypes.h"
- 1792               		.file 6 "../../../os/rt/include/chschd.h"
- 1793               		.file 7 "../../../os/rt/include/chtime.h"
- 1794               		.file 8 "../../../os/common/ports/AVR/chcore.h"
- 1795               		.file 9 "../../../os/rt/include/chsem.h"
- 1796               		.file 10 "../../../os/rt/include/chmtx.h"
- 1797               		.file 11 "../../../os/hal/include/hal_streams.h"
- 1798               		.file 12 "/usr/lib/gcc/avr/4.9.2/include/stdarg.h"
- 1799               		.file 13 "../../../os/hal/lib/streams/memstreams.h"
+ 2127               		.loc 1 359 3 view .LVU471
+ 359:../../../os/hal/lib/streams/chprintf.c ****   va_end(ap);
+ 2128               		.loc 1 359 12 is_stmt 0 view .LVU472
+ 2129 008a AE01      		movw r20,r28
+ 2130 008c 495E      		subi r20,-23
+ 2131 008e 5F4F      		sbci r21,-1
+ 2132 0090 6D89      		ldd r22,Y+21
+ 2133 0092 7E89      		ldd r23,Y+22
+ 2134 0094 CE01      		movw r24,r28
+ 2135 0096 0196      		adiw r24,1
+ 2136 0098 0E94 0000 		call chvprintf
+ 2137               	.LVL206:
+ 360:../../../os/hal/lib/streams/chprintf.c **** 
+ 2138               		.loc 1 360 3 is_stmt 1 view .LVU473
+ 363:../../../os/hal/lib/streams/chprintf.c ****       str[ms.eos] = 0;
+ 2139               		.loc 1 363 3 view .LVU474
+ 2140 009c 00C0      		rjmp .L129
+ 2141               		.cfi_endproc
+ 2142               	.LFE178:
+ 2144               		.section	.rodata.pow10,"a"
+ 2147               	pow10:
+ 2148 0000 0A        		.byte	10
+ 2149 0001 00        		.byte	0
+ 2150 0002 00        		.byte	0
+ 2151 0003 00        		.byte	0
+ 2152 0004 64        		.byte	100
+ 2153 0005 00        		.byte	0
+ 2154 0006 00        		.byte	0
+ 2155 0007 00        		.byte	0
+ 2156 0008 E8        		.byte	-24
+ 2157 0009 03        		.byte	3
+ 2158 000a 00        		.byte	0
+ 2159 000b 00        		.byte	0
+ 2160 000c 10        		.byte	16
+ 2161 000d 27        		.byte	39
+ 2162 000e 00        		.byte	0
+ 2163 000f 00        		.byte	0
+ 2164 0010 A0        		.byte	-96
+ 2165 0011 86        		.byte	-122
+ 2166 0012 01        		.byte	1
+ 2167 0013 00        		.byte	0
+ 2168 0014 40        		.byte	64
+ 2169 0015 42        		.byte	66
+ 2170 0016 0F        		.byte	15
+ 2171 0017 00        		.byte	0
+ 2172 0018 80        		.byte	-128
+ 2173 0019 96        		.byte	-106
+ 2174 001a 98        		.byte	-104
+ 2175 001b 00        		.byte	0
+ 2176 001c 00        		.byte	0
+ 2177 001d E1        		.byte	-31
+ 2178 001e F5        		.byte	-11
+ 2179 001f 05        		.byte	5
+ 2180 0020 00        		.byte	0
+ 2181 0021 CA        		.byte	-54
+ 2182 0022 9A        		.byte	-102
+ 2183 0023 3B        		.byte	59
+ 2184               		.text
+ 2185               	.Letext0:
+ 2186               		.file 2 "/usr/local/Cellar/avr-gcc/8.2.0/lib/avr-gcc/8/gcc/avr/8.2.0/include/stddef.h"
+ 2187               		.file 3 "/usr/local/Cellar/avr-gcc/8.2.0/avr/include/stdint.h"
+ 2188               		.file 4 "../../../os/common/ports/AVR/compilers/GCC/chtypes.h"
+ 2189               		.file 5 "../../../os/rt/include/chsystypes.h"
+ 2190               		.file 6 "../../../os/rt/include/chschd.h"
+ 2191               		.file 7 "../../../os/rt/include/chtime.h"
+ 2192               		.file 8 "../../../os/common/ports/AVR/chcore.h"
+ 2193               		.file 9 "../../../os/rt/include/chsem.h"
+ 2194               		.file 10 "../../../os/rt/include/chmtx.h"
+ 2195               		.file 11 "../../../os/rt/include/chsys.h"
+ 2196               		.file 12 "../../../os/rt/include/chregistry.h"
+ 2197               		.file 13 "../../../os/rt/include/chevents.h"
+ 2198               		.file 14 "../../../os/common/oslib/include/chmemcore.h"
+ 2199               		.file 15 "../../../os/hal/include/hal_streams.h"
+ 2200               		.file 16 "../../../os/hal/include/hal_queues.h"
+ 2201               		.file 17 "../../../os/hal/include/hal_pal.h"
+ 2202               		.file 18 "../../../os/hal/ports/AVR/MEGA/LLD/GPIOv1/hal_pal_lld.h"
+ 2203               		.file 19 "../../../os/hal/include/hal_adc.h"
+ 2204               		.file 20 "../../../os/hal/ports/AVR/MEGA/LLD/ADCv1/hal_adc_lld.h"
+ 2205               		.file 21 "../../../os/hal/include/hal_serial.h"
+ 2206               		.file 22 "../../../os/hal/ports/AVR/MEGA/LLD/USARTv1/hal_serial_lld.h"
+ 2207               		.file 23 "/usr/local/Cellar/avr-gcc/8.2.0/lib/avr-gcc/8/gcc/avr/8.2.0/include/stdarg.h"
+ 2208               		.file 24 "../../../os/hal/lib/streams/memstreams.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 chprintf.c
-     /tmp/ccXJJxIq.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccXJJxIq.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccXJJxIq.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccXJJxIq.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccXJJxIq.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccXJJxIq.s:12     .text.long_to_string_with_divisor:0000000000000000 long_to_string_with_divisor
-     /tmp/ccXJJxIq.s:267    .text.chvprintf:0000000000000000 chvprintf
-     /tmp/ccXJJxIq.s:1749   .rodata.pow10:0000000000000000 pow10
-     /tmp/ccXJJxIq.s:1581   .text.chprintf:0000000000000000 chprintf
-     /tmp/ccXJJxIq.s:1624   .text.chsnprintf:0000000000000000 chsnprintf
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCD2GDP.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCD2GDP.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCD2GDP.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCD2GDP.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCD2GDP.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCD2GDP.s:22     .text.chvprintf:0000000000000000 chvprintf
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCD2GDP.s:2147   .rodata.pow10:0000000000000000 pow10
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCD2GDP.s:1949   .text.chprintf:0000000000000000 chprintf
+/var/folders/sg/tltzpcsx3k34y_dkw5w40_s40000gn/T//ccCD2GDP.s:1999   .text.chsnprintf:0000000000000000 chsnprintf
 
 UNDEFINED SYMBOLS
-__divmodsi4
 __ltsf2
+__floatunsisf
 __fixsfsi
 __floatsisf
 __subsf3
-__floatunsisf
 __mulsf3
 __tablejump2__
 __udivmodsi4
+__divmodsi4
 msObjectInit
 __do_copy_data
